@@ -141,6 +141,16 @@ try {
   console.log('Browser: 9:16, 320/390px, reduced-motion, question and diagram safe bounds passed.');
 
   const broken = await browser.newPage();
+  await broken.addInitScript(() => {
+    window.audioContexts = [];
+    const NativeAudioContext = window.AudioContext;
+    window.AudioContext = class extends NativeAudioContext {
+      constructor(...args) {
+        super(...args);
+        window.audioContexts.push(this);
+      }
+    };
+  });
   await broken.route('**/fixtures/teach.wav', (route) => route.abort());
   await broken.goto(url);
   await broken.getByRole('alert').waitFor();
@@ -163,6 +173,12 @@ try {
           scene: document.querySelector('.lesson-preview')?.getAttribute('data-scene'),
           frame: document.querySelector('[aria-label="موضع التشغيل"]')?.value,
           controls: document.querySelector('.lesson-controls')?.textContent,
+          visibility: document.visibilityState,
+          audioContexts: window.audioContexts?.map((context) => ({
+            state: context.state,
+            time: context.currentTime,
+            timestamp: context.getOutputTimestamp(),
+          })),
           audio: [...document.querySelectorAll('audio')].map((node) => ({
             src: node.currentSrc,
             time: node.currentTime,

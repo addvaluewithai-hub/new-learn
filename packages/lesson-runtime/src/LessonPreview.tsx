@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useReducer, useRef } from 'react';
+import { flushSync } from 'react-dom';
 import { Player, type PlayerRef } from '@remotion/player';
 import type { LessonPackage, LessonLayout } from './types';
 import { validateLessonPackage } from './validate';
@@ -152,11 +153,10 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
                 window.location.reload();
                 return;
               }
-              // Warm the persistent audio tags in the user's gesture.
-              // Recovery reloads media, preserving the established frame clock.
+              // Reset inputs and reload failed media before starting playback.
+              // Keep play in the user gesture without an intervening pause.
+              flushSync(() => dispatch({ type: 'retry' }));
               player.current?.play(event);
-              player.current?.pause();
-              dispatch({ type: 'retry' });
             }}
           >
             {state.fatalError ? 'أعد تحميل المعاينة' : 'حاول تاني'}
