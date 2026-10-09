@@ -10,7 +10,7 @@ The old addvaluewithai-hub/learn is a reference, not a workspace dependency.
 - apps/platform owns navigation, authentication, catalog and persistence adapters.
 - packages/lesson-runtime owns frame-based playback, questions and composition interfaces.
 - fixtures/runtime-probe contains synthetic development content only.
-- Runtime source imports only itself, React, Remotion and @remotion/player.
+- Runtime source imports only itself, React/React DOM, Remotion and @remotion/player.
 - Curriculum custom components and parameters belong to content packages, not engine switches.
 - Add directories when used; do not pre-create a folder for every future feature.
 - Keep authored code, CSS and tests at most 300 lines after readable formatting.

@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useReducer, useRef } from 'react';
+import { flushSync } from 'react-dom';
 import { Player, type PlayerRef } from '@remotion/player';
 import type { LessonPackage, LessonLayout } from './types';
 import { validateLessonPackage } from './validate';
@@ -111,6 +112,7 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
         style={{ aspectRatio: `${dimensions.width}/${dimensions.height}` }}
       >
         <Player
+          key={state.recovery}
           ref={player}
           component={LessonComposition}
           inputProps={inputProps}
@@ -132,7 +134,16 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
       {state.error && (
         <div className="lesson-error" role="alert">
           <p>تعذّر تشغيل المشهد؛ هنقف هنا لحد ما الصوت يشتغل.</p>
-          <button onClick={() => dispatch({ type: 'retry' })}>حاول تاني</button>
+          <button
+            onClickCapture={(event) => {
+              // A failed media element or render boundary needs a fresh Player.
+              // Flush the remount inside this gesture, then warm its audio tags.
+              flushSync(() => dispatch({ type: 'retry' }));
+              player.current?.play(event);
+            }}
+          >
+            حاول تاني
+          </button>
         </div>
       )}
       <PlaybackControls

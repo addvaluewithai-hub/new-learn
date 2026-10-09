@@ -5,6 +5,7 @@ import type { LessonPackage } from './types';
 export type Attempt = { choice?: number; written: string };
 export type Session = {
   epoch: number;
+  recovery: number;
   index: number;
   mode: 'narration' | 'attempt' | 'feedback' | 'complete';
   frame: number;
@@ -28,6 +29,7 @@ export type SessionAction =
 export function initialSession(): Session {
   return {
     epoch: 0,
+    recovery: 0,
     index: 0,
     mode: 'narration',
     frame: 0,
@@ -143,10 +145,11 @@ export function reduceSession(
         ? {
             ...state,
             epoch: state.epoch + 1,
+            recovery: state.recovery + 1,
             frame: 0,
             playing: false,
             buffering: false,
-            autoStart: true,
+            autoStart: false,
             error: null,
           }
         : state;

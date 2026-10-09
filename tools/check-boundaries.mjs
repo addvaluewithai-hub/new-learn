@@ -3,7 +3,7 @@ import { resolve, relative, dirname, sep } from 'node:path';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
 const runtime = resolve(root, 'packages/lesson-runtime/src');
-const allowed = new Set(['react', '@remotion/player', 'remotion']);
+const allowed = new Set(['react', 'react-dom', '@remotion/player', 'remotion']);
 const excluded = new Set(['.git', 'node_modules', 'dist', 'test-results']);
 const generated = new Set(['package-lock.json', 'fixtures/runtime-probe/audio-manifest.json']);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html)$/;

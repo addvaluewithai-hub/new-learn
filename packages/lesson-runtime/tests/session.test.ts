@@ -67,7 +67,8 @@ test('audio failure blocks progression; retry restarts the same recording', () =
   assert.equal(retry.index, 0);
   assert.equal(retry.error, null);
   assert.equal(retry.frame, 0);
-  assert.equal(retry.autoStart, true);
+  assert.equal(retry.autoStart, false);
+  assert.equal(retry.recovery, 1);
   assert.equal(reduce(retry, { type: 'ended', epoch: 0 }), retry);
 });
 

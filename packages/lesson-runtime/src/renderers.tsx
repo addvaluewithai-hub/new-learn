@@ -1,7 +1,8 @@
-import { AbsoluteFill, Html5Audio, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import type { ComponentType } from 'react';
 import type { LessonLayout, LessonRecording, PackageScene, VisualSpec } from './types';
 import { QuestionBoard } from './QuestionBoard';
+import { SyncedAudio } from './SyncedAudio';
 
 export type VisualProps = {
   spec: VisualSpec;
@@ -58,12 +59,7 @@ export function LessonComposition(props: CompositionProps) {
           registry={registry}
         />
       )}
-      <Html5Audio
-        key={recording.id}
-        src={recording.file}
-        pauseWhenBuffering
-        onError={props.onAudioError}
-      />
+      <SyncedAudio key={recording.id} src={recording.file} onError={props.onAudioError} />
     </AbsoluteFill>
   );
 }
