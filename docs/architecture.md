@@ -47,9 +47,12 @@ not whether the ASR or listening review was correct.
 
 Public exports: LessonPreview, composition/renderer contracts, package validation and cue helpers.
 The /core subpath exposes contracts/validation without React UI or CSS for future build tools.
-Current packaging is workspace source; do not install it into production authoring as a released SDK.
-The next delivery builds versioned ESM/types/CSS, proves installation in an independent consumer,
-and adapts learn-authoring inputs without another engine or manual source copying.
+Packaging builds versioned ESM/types/CSS and an npm tarball under distributions.
+An independent consumer installs that tarball and verifies Node core, types, CSS and Vite build.
+learn-curriculums pins its immutable GitHub commit URL and integrity; its Python adapter
+reuses receipt/alignment/cue verification without another engine or source checkout.
+Question and feedback may use lesson-owned custom renderers. Prompt props exclude answers;
+feedback answer parts have individual word-bound onsets. Runtime review binds the SDK edition.
 schemaVersion, contentRevision and runtimeVersion remain separate identities.
 Updates reach the authoring repo through a pinned dependency upgrade and review.
 Student sessions and artifact URLs need edition compatibility; a runtime upgrade alone must

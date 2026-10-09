@@ -18,14 +18,15 @@ export function QuestionBoard({
   feedback: boolean;
 }) {
   const portrait = layout === 'portrait';
+  const answerAt =
+    recording.cues.find((cue) => cue.id === 'answer')?.atMs ?? recording.words![0].start_ms;
   const parts = feedback
-    ? (frame * 1000) / fps >=
-      (recording.cues.find((cue) => cue.id === 'answer')?.atMs ?? recording.words![0].start_ms)
-      ? [
-          { text: question.englishAnswer, language: 'en' },
-          { text: question.explanation, language: 'ar' },
+    ? (
+        question.feedbackParts ?? [
+          { text: question.englishAnswer, language: 'en', atMs: answerAt },
+          { text: question.explanation, language: 'ar', atMs: answerAt },
         ]
-      : []
+      ).filter((part) => (frame * 1000) / fps >= part.atMs)
     : visibleQuestionParts(question, recording, frame, fps);
   return (
     <AbsoluteFill

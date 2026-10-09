@@ -62,6 +62,14 @@ test('bad, missing and non-monotonic word timestamps are rejected', () => {
   bad.recordings[0].words = [];
   assert.throws(() => validate(bad), /timings/);
 });
+test('custom question boards and feedback clauses require known visuals and word anchors', () => {
+  const bad = structuredClone(probeLesson);
+  bad.scenes[1].question!.readingVisual = { renderer: 'unknown', params: {} };
+  assert.throws(() => validate(bad), /unsupported visual/);
+  delete bad.scenes[1].question!.readingVisual;
+  bad.scenes[1].question!.feedbackParts = [{ text: 'Five', language: 'en', atMs: 555 }];
+  assert.throws(() => validate(bad), /feedback part anchor/);
+});
 test('written and combined attempts require real writing and valid choice', () => {
   const q = { ...probeLesson.scenes[1].question!, attempt: 'choice-and-written' as const };
   assert.equal(canSubmitAttempt(q, 1, '   '), false);

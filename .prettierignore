@@ -4,3 +4,4 @@ test-results/
 package-lock.json
 apps/platform/public/fixtures/
 fixtures/runtime-probe/audio-manifest.json
+distributions/

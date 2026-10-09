@@ -24,10 +24,14 @@ export type LessonQuestion = {
   hint: string;
   attempt: 'choice' | 'choice-and-written' | 'written';
   readingParts?: Array<{ text: string; atMs: number; language: 'ar' | 'en' }>;
+  feedbackParts?: Array<{ text: string; atMs: number; language: 'ar' | 'en' }>;
+  answerReasoning?: string;
   writtenLabel?: string;
   writtenPlaceholder?: string;
   image?: { file: string; alt: string };
   contextVisual?: VisualSpec;
+  readingVisual?: VisualSpec;
+  feedbackVisual?: VisualSpec;
 };
 export type PackageScene = {
   id: string;

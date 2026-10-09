@@ -7,7 +7,7 @@ export function cueIsVisible(recording: LessonRecording, id: string, frame: numb
 }
 
 export function visibleQuestionParts(
-  question: import('./types').LessonQuestion,
+  question: Pick<import('./types').LessonQuestion, 'english' | 'readingParts'>,
   recording: LessonRecording,
   frame: number,
   fps: number,

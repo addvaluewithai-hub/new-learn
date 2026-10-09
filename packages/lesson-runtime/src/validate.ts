@@ -177,12 +177,28 @@ export function validateLessonPackage(
     }
     const feedback = recordingFor(pkg, q.feedbackId);
     if (
+      q.feedbackParts &&
+      (!Array.isArray(q.feedbackParts) ||
+        !q.feedbackParts.length ||
+        q.feedbackParts.some(
+          (part) =>
+            !part ||
+            !text(part.text) ||
+            !['ar', 'en'].includes(part.language) ||
+            !Number.isFinite(part.atMs) ||
+            !feedback.words!.some((word) => word.start_ms === part.atMs),
+        ))
+    )
+      fail(`feedback part anchor ${q.id}`);
+    if (
       feedback.id === r.id ||
       pkg.scenes.some((s) => s.recordingId === feedback.id) ||
       feedback.questionAtMs != null
     )
       fail(`feedback isolation ${q.id}`);
     if (q.contextVisual) visual(q.contextVisual);
+    if (q.readingVisual) visual(q.readingVisual);
+    if (q.feedbackVisual) visual(q.feedbackVisual);
     if (q.image && (!url(q.image.file) || !text(q.image.alt))) fail(`image ${q.id}`);
   }
   if (

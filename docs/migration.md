@@ -11,14 +11,21 @@ The current fixture is original test content, not an imported approved lesson.
 No auth, catalog API, database, persistence, content importer or assistant was created.
 The old deployed platform and authoring repository were not changed by this batch.
 
-## Next delivery: distribution and factory adapter
+## Distribution and authoring preview implemented
 
-1. Build runtime ESM/type declarations/CSS and a versioned installation artifact.
-2. Validate/adapt factory learn-authoring scenes, selected receipts and reviewed cues.
-3. Build custom React scene modules using the same declared public runtime interface.
-4. Install in an independent minimal preview consumer without a ../learn checkout.
-5. Verify a real reviewed recording/question, both ratios and mobile autoplay behavior.
-6. Only then add preview integration to learn-curriculums and update its review instructions.
+SDK 0.2.0 is a versioned ESM/types/CSS tarball with sha256/integrity manifest.
+The platform consumes built public exports; an independent consumer installs and builds it.
+learn-curriculums has an isolated preview, selected verified WAVs/corrected words,
+bilingual full-clause anchors, lesson-owned renderer imports and SDK-bound review declarations.
+The preview does not publish or grant approval; synthetic CI is technical evidence only.
+
+## Next acceptance and platform delivery
+
+1. Review a real factory-produced bilingual lesson and speech/word anchors in both ratios.
+2. Check autoplay/recovery on a real mobile browser; Chromium emulation is limited.
+3. Extract real account/session and DB-derived catalog services into the new app.
+4. Add pinned editions, progress/resume and the reviewed artifact import/release pipeline.
+5. Add the assistants after student playback/persistence contracts are stable.
 
 Do not copy authoring folders into platform source as the student import mechanism.
 Preserve exact source/media hashes; missing or guessed anchors are blockers.

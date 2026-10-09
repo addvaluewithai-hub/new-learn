@@ -12,10 +12,10 @@
   ],
   "scripts": {
     "prepare:fixture": "node tools/generate-fixture-audio.mjs",
-    "predev": "npm run prepare:fixture",
+    "predev": "npm run sdk:build && npm run prepare:fixture",
     "dev": "vite --config apps/platform/vite.config.ts",
     "typecheck": "tsc --noEmit",
-    "prebuild": "npm run prepare:fixture",
+    "prebuild": "npm run sdk:build && npm run prepare:fixture",
     "build": "npm run typecheck && vite build --config apps/platform/vite.config.ts",
     "preview": "vite preview --config apps/platform/vite.config.ts",
     "check": "node tools/check-boundaries.mjs",
@@ -23,7 +23,10 @@
     "test": "node --import tsx --test packages/lesson-runtime/tests/*.test.ts",
     "test:browser": "node tests/browser.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "sdk:build": "vite build --config packages/lesson-runtime/vite.config.ts && tsc -p packages/lesson-runtime/tsconfig.build.json",
+    "sdk:pack": "npm run sdk:build && node tools/package-sdk.mjs",
+    "sdk:check": "node tools/check-sdk.mjs"
   },
   "devDependencies": {
     "@types/node": "24.13.4",

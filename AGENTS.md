@@ -33,7 +33,7 @@ Preview is ephemeral and has no login, DB, localStorage or student-progress pers
 The runtime-probe uses generated tones and synthetic anchors. Do not present it as speech or course review.
 Structural runtime validation is not an editorial/audio/publication approval.
 The contentAudit field preserves legacy shape; it is not trusted publication authorization.
-Authoring sources are not executable LessonPackage artifacts. A reviewed adapter/build pipeline is pending.
+Authoring sources are not executable LessonPackage artifacts. The authoring preview adapter is independent; platform artifact import/release is still pending.
 Do not execute unreviewed uploaded JSX or arbitrary module URLs in the student application.
 Production import must retain immutable files and bind review to the exact content/runtime edition.
 No resets or schema renames merely to match new code folder names.
