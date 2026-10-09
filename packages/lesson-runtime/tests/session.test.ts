@@ -91,3 +91,15 @@ test('completion and duplicate end cannot advance beyond the last scene', () => 
   assert.equal(restart.index, 0);
   assert.deepEqual(restart.answers, {});
 });
+
+test('unexpected engine faults cannot be hidden by a normal media retry', () => {
+  const failed = reduce(initialSession(), {
+    type: 'error',
+    epoch: 0,
+    message: 'engine fault',
+    fatal: true,
+  });
+  assert.equal(failed.fatalError, true);
+  assert.equal(reduce(failed, { type: 'retry' }), failed);
+  assert.equal(reduce(failed, { type: 'ended', epoch: 0 }), failed);
+});

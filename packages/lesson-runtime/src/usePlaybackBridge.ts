@@ -41,7 +41,12 @@ export function usePlaybackBridge(
     const onError: CallbackListener<'error'> = (event) => {
       if (!valid()) return;
       current.pause();
-      send({ type: 'error', epoch, message: event.detail.error.message || 'تعذّر تشغيل المشهد.' });
+      send({
+        type: 'error',
+        epoch,
+        fatal: true,
+        message: event.detail.error.message || 'تعذّر تشغيل المشهد.',
+      });
     };
     const onWaiting = () => send({ type: 'waiting', epoch });
     const onResume = () => send({ type: 'resume', epoch });

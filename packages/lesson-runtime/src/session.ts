@@ -13,13 +13,14 @@ export type Session = {
   buffering: boolean;
   autoStart: boolean;
   error: string | null;
+  fatalError: boolean;
   draft: Attempt;
   answers: Record<string, Attempt>;
 };
 type PlaybackAction =
   | { type: 'frame'; frame: number }
   | { type: 'play' | 'pause' | 'waiting' | 'resume' | 'ended' }
-  | { type: 'error'; message: string };
+  | { type: 'error'; message: string; fatal?: boolean };
 export type SessionAction =
   | (PlaybackAction & { epoch: number })
   | { type: 'draft'; draft: Attempt }
@@ -37,6 +38,7 @@ export function initialSession(): Session {
     buffering: false,
     autoStart: false,
     error: null,
+    fatalError: false,
     draft: { written: '' },
     answers: {},
   };
@@ -61,6 +63,7 @@ function move(state: Session, index: number, autoStart: boolean): Session {
     buffering: false,
     error: null,
     autoStart,
+    fatalError: false,
     draft: { written: '' },
   };
 }
@@ -97,6 +100,7 @@ export function reduceSession(
         buffering: false,
         autoStart: false,
         error: action.message,
+        fatalError: Boolean(action.fatal),
       };
     case 'draft':
       return state.mode === 'attempt' ? { ...state, draft: action.draft } : state;
@@ -141,7 +145,7 @@ export function reduceSession(
         ? move(state, action.index, false)
         : state;
     case 'retry':
-      return state.error
+      return state.error && !state.fatalError
         ? {
             ...state,
             epoch: state.epoch + 1,

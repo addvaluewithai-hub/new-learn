@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useReducer, useRef } from 'react';
-import { flushSync } from 'react-dom';
 import { Player, type PlayerRef } from '@remotion/player';
 import type { LessonPackage, LessonLayout } from './types';
 import { validateLessonPackage } from './validate';
@@ -68,9 +67,22 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
       reducedMotion,
       fps: lesson.fps,
       feedback: state.mode === 'feedback',
+      recovery: state.recovery,
+      playbackEpoch: epoch,
       onAudioError,
     }),
-    [scene, recording, registry, layout, reducedMotion, lesson.fps, state.mode, onAudioError],
+    [
+      scene,
+      recording,
+      registry,
+      layout,
+      reducedMotion,
+      lesson.fps,
+      state.mode,
+      state.recovery,
+      epoch,
+      onAudioError,
+    ],
   );
   usePlaybackBridge(player, state, duration, dispatch);
 
@@ -99,6 +111,7 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
         {lesson.scenes.map((item, index) => (
           <button
             key={item.id}
+            disabled={state.fatalError}
             onClick={() => navigate(index)}
             aria-current={index === state.index ? 'step' : undefined}
           >
@@ -112,7 +125,6 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
         style={{ aspectRatio: `${dimensions.width}/${dimensions.height}` }}
       >
         <Player
-          key={state.recovery}
           ref={player}
           component={LessonComposition}
           inputProps={inputProps}
@@ -136,17 +148,18 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
           <p>تعذّر تشغيل المشهد؛ هنقف هنا لحد ما الصوت يشتغل.</p>
           <button
             onClickCapture={(event) => {
-              // A failed media element or render boundary needs a fresh Player.
-              // Flush the remount inside this gesture, then warm its audio tags.
-              // The bridge restarts after mount effects have finished resetting.
-              flushSync(() => dispatch({ type: 'retry' }));
+              if (state.fatalError) {
+                window.location.reload();
+                return;
+              }
+              // Warm the persistent audio tags in the user's gesture.
+              // Recovery reloads media, preserving the established frame clock.
               player.current?.play(event);
-              // Prime audio permission without starting before subscriptions exist.
-              // The deferred bridge play then advances both audio and frames.
               player.current?.pause();
+              dispatch({ type: 'retry' });
             }}
           >
-            حاول تاني
+            {state.fatalError ? 'أعد تحميل المعاينة' : 'حاول تاني'}
           </button>
         </div>
       )}

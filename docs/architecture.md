@@ -26,7 +26,8 @@ Submitting starts feedback, whose completion starts the next narration automatic
 First play is user initiated; no sound starts on initial page load.
 Failure stops progression and exposes retry, rather than silently skipping a recording.
 Native errors from pooled audio tags are forwarded explicitly; stale sources are ignored.
-Error recovery remounts the failed Player inside the retry gesture and warms its new audio tags.
+Audio recovery reloads the failed native media while retaining the Player and frame clock.
+Custom renderers have a resettable content boundary; unexpected core faults require reloading the preview.
 
 ## Structural compatibility and review
 

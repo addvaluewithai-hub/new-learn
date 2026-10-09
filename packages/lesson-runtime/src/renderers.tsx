@@ -3,6 +3,7 @@ import type { ComponentType } from 'react';
 import type { LessonLayout, LessonRecording, PackageScene, VisualSpec } from './types';
 import { QuestionBoard } from './QuestionBoard';
 import { SyncedAudio } from './SyncedAudio';
+import { SceneBoundary } from './SceneBoundary';
 
 export type VisualProps = {
   spec: VisualSpec;
@@ -21,6 +22,8 @@ export type CompositionProps = {
   reducedMotion: boolean;
   fps: number;
   feedback: boolean;
+  recovery: number;
+  playbackEpoch: number;
   onAudioError: (error: Error) => void;
 };
 
@@ -39,27 +42,37 @@ export function LessonComposition(props: CompositionProps) {
     (frame * 1000) / fps >= recording.questionAtMs;
   return (
     <AbsoluteFill>
-      {scene.question && (reading || feedback) ? (
-        <QuestionBoard
-          question={scene.question}
-          recording={recording}
-          frame={frame}
-          fps={fps}
-          layout={layout}
-          feedback={feedback}
-        />
-      ) : (
-        <LessonVisual
-          spec={scene.visual}
-          recording={recording}
-          frame={frame}
-          layout={layout}
-          reducedMotion={reducedMotion}
-          fps={fps}
-          registry={registry}
-        />
-      )}
-      <SyncedAudio key={recording.id} src={recording.file} onError={props.onAudioError} />
+      <SceneBoundary
+        key={`${scene.id}:${props.playbackEpoch}:${feedback}`}
+        onError={props.onAudioError}
+      >
+        {scene.question && (reading || feedback) ? (
+          <QuestionBoard
+            question={scene.question}
+            recording={recording}
+            frame={frame}
+            fps={fps}
+            layout={layout}
+            feedback={feedback}
+          />
+        ) : (
+          <LessonVisual
+            spec={scene.visual}
+            recording={recording}
+            frame={frame}
+            layout={layout}
+            reducedMotion={reducedMotion}
+            fps={fps}
+            registry={registry}
+          />
+        )}
+      </SceneBoundary>
+      <SyncedAudio
+        key={recording.id}
+        src={recording.file}
+        recovery={props.recovery}
+        onError={props.onAudioError}
+      />
     </AbsoluteFill>
   );
 }

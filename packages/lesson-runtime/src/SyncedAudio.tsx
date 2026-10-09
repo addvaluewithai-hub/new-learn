@@ -1,10 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Html5Audio } from 'remotion';
 
-export function SyncedAudio({ src, onError }: { src: string; onError: (error: Error) => void }) {
+export function SyncedAudio({
+  src,
+  recovery,
+  onError,
+}: {
+  src: string;
+  recovery: number;
+  onError: (error: Error) => void;
+}) {
   const [element, setElement] = useState<HTMLAudioElement | null>(null);
+  const previousRecovery = useRef(recovery);
   useEffect(() => {
     if (!element) return;
+    if (previousRecovery.current !== recovery) {
+      previousRecovery.current = recovery;
+      element.load();
+    }
     const expected = new URL(src, document.baseURI).href;
     const handleError = () => {
       // Shared native audio tags may have belonged to an earlier recording.
@@ -16,7 +29,7 @@ export function SyncedAudio({ src, onError }: { src: string; onError: (error: Er
     element.addEventListener('error', handleError);
     handleError();
     return () => element.removeEventListener('error', handleError);
-  }, [element, src, onError]);
+  }, [element, src, recovery, onError]);
 
   // Native error forwarding covers pooled tags as well as Remotion's callback.
   // Timing and buffering remain owned by Remotion, with no second audio clock.

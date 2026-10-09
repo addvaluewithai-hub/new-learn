@@ -34,7 +34,7 @@ export function PlaybackControls({
         disabled={!enabled}
         onChange={(event) => player.current?.seekTo(Number(event.target.value))}
       />
-      <button className="lesson-secondary" onClick={onReplay}>
+      <button className="lesson-secondary" disabled={state.fatalError} onClick={onReplay}>
         أعد المشهد
       </button>
       {state.buffering && <span role="status">بنحمّل الصوت…</span>}
