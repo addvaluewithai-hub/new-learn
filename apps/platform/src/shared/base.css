@@ -1,6 +1,6 @@
 @import './design-tokens.css';
 :root {
-  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-family: var(--learn-font);
   color: var(--learn-ink);
   background: var(--learn-canvas);
   font-synthesis: none;

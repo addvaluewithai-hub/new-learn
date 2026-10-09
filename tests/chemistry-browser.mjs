@@ -142,8 +142,6 @@ try {
       Math.ceil((beat.questionAtMs / 1000) * 30) + 5,
     'real MP3 playback advances',
   );
-  await page.getByLabel('موضع التشغيل').focus();
-  await page.getByLabel('موضع التشغيل').press('End');
   await page.locator('.lesson-preview[data-mode="attempt"]').waitFor();
   await page.getByRole('radio').nth(2).check();
   await page.getByRole('button', { name: 'اسمع التعقيب ونكمل' }).click();
@@ -152,8 +150,6 @@ try {
     async () => Number(await page.getByLabel('موضع التشغيل').inputValue()) > 5,
     'feedback auto-start',
   );
-  await page.getByLabel('موضع التشغيل').focus();
-  await page.getByLabel('موضع التشغيل').press('End');
   await page.locator('.lesson-preview[data-scene="S08"][data-mode="narration"]').waitFor();
   console.log(
     'Chemistry: built app, exact media hashes, all board phases/ratios, real audio, question, feedback and automatic next passed.',
