@@ -13,7 +13,7 @@ The old deployed platform and authoring repository were not changed by this batc
 
 ## Distribution and authoring preview implemented
 
-SDK 0.2.0 is a versioned ESM/types/CSS tarball with sha256/integrity manifest.
+SDK 0.2.1 is a versioned ESM/types/CSS tarball with sha256/integrity manifest.
 The platform consumes built public exports; an independent consumer installs and builds it.
 learn-curriculums has an isolated preview, selected verified WAVs/corrected words,
 bilingual full-clause anchors, lesson-owned renderer imports and SDK-bound review declarations.

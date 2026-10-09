@@ -46,7 +46,7 @@ npm run test:browser
 
 ## حالة SDK الإنتاج
 
-المحرك حزمة ESM/types/CSS بإصدار 0.2.0؛ ملف التثبيت وSHA256 تحت distributions.
+المحرك حزمة ESM/types/CSS بإصدار 0.2.1؛ ملف التثبيت وSHA256 تحت distributions.
 واجهة المعاينة العامة LessonPreview تقبل lesson وregistry وlayout اختياريًا.
 لا تحمل معاينة الحسابات أو الحفظ، ولا تعتمد على نسخة محلية من Learn القديم.
 ريبو learn-curriculums يستهلك الحزمة بإصدار/commit مثبت، ويحوّل مصادر learn-authoring

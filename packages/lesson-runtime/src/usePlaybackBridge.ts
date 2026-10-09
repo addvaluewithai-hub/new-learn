@@ -32,6 +32,8 @@ export function usePlaybackBridge(
     const onPause = () => send({ type: 'pause', epoch });
     const onFrame: CallbackListener<'frameupdate'> = (event) =>
       send({ type: 'frame', frame: event.detail.frame, epoch });
+    const onSeek: CallbackListener<'seeked'> = (event) =>
+      send({ type: 'frame', frame: event.detail.frame, epoch });
     const onEnd = () => {
       if (!valid() || !armed || ended || current.getCurrentFrame() < duration - 1) return;
       ended = true;
@@ -55,6 +57,8 @@ export function usePlaybackBridge(
     current.addEventListener('play', onPlay);
     current.addEventListener('pause', onPause);
     current.addEventListener('frameupdate', onFrame);
+    // Mirror explicit seeks immediately, before the composition's next render.
+    current.addEventListener('seeked', onSeek);
     current.addEventListener('ended', onEnd);
     current.addEventListener('error', onError);
     current.addEventListener('waiting', onWaiting);
@@ -68,6 +72,7 @@ export function usePlaybackBridge(
       current.removeEventListener('play', onPlay);
       current.removeEventListener('pause', onPause);
       current.removeEventListener('frameupdate', onFrame);
+      current.removeEventListener('seeked', onSeek);
       current.removeEventListener('ended', onEnd);
       current.removeEventListener('error', onError);
       current.removeEventListener('waiting', onWaiting);
