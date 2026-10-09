@@ -29,6 +29,14 @@ npm run dev
 
 ## التحقق
 
+## نشر Cloudflare Pages
+
+Root directory: جذر الريبو. Build command: `npm run build`.
+Build output directory: `dist`، وفيه `index.html` مباشرةً.
+Node.js 24. لا تستخدم جذر حزمة SDK كمخرج للموقع.
+
+## التحقق
+
 ```bash
 npm run prepare:fixture
 npm run format:check

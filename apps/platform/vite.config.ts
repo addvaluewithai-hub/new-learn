@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react()],
   resolve: { dedupe: ['react', 'react-dom', 'remotion', '@remotion/player'] },
   server: { host: '0.0.0.0', port: 5173, strictPort: true },
-  build: { outDir: '../../dist/platform', emptyOutDir: true, target: 'es2022' },
+  build: { outDir: '../../dist', emptyOutDir: true, target: 'es2022' },
 });
