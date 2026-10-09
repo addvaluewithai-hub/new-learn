@@ -138,6 +138,7 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
             onClickCapture={(event) => {
               // A failed media element or render boundary needs a fresh Player.
               // Flush the remount inside this gesture, then warm its audio tags.
+              // The bridge restarts after mount effects have finished resetting.
               flushSync(() => dispatch({ type: 'retry' }));
               player.current?.play(event);
             }}

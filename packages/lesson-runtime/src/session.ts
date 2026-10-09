@@ -149,7 +149,7 @@ export function reduceSession(
             frame: 0,
             playing: false,
             buffering: false,
-            autoStart: false,
+            autoStart: true,
             error: null,
           }
         : state;

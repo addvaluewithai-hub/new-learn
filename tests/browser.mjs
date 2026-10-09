@@ -154,6 +154,28 @@ try {
   await broken.locator('.lesson-preview[data-scene="try"]').waitFor();
   await broken.close();
   console.log('Browser: failed audio blocks progression; retry uses the same scene and recovers.');
+} catch (error) {
+  for (const context of browser?.contexts() ?? []) {
+    for (const page of context.pages()) {
+      const diagnostic = await page
+        .evaluate(() => ({
+          mode: document.querySelector('.lesson-preview')?.getAttribute('data-mode'),
+          scene: document.querySelector('.lesson-preview')?.getAttribute('data-scene'),
+          frame: document.querySelector('[aria-label="موضع التشغيل"]')?.value,
+          controls: document.querySelector('.lesson-controls')?.textContent,
+          audio: [...document.querySelectorAll('audio')].map((node) => ({
+            src: node.currentSrc,
+            time: node.currentTime,
+            paused: node.paused,
+            ready: node.readyState,
+            error: node.error?.code,
+          })),
+        }))
+        .catch(() => ({ unavailable: true }));
+      console.error('Browser failure diagnostics:', JSON.stringify(diagnostic));
+    }
+  }
+  throw error;
 } finally {
   await browser?.close();
   server.kill();
