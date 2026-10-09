@@ -83,7 +83,7 @@ try {
     });
     const errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
-    await page.goto(url);
+    await page.goto(`${url}/?preview=chemistry`);
     await page.getByRole('heading', { name: /حالات المادة/ }).waitFor();
     await page.locator('.lesson-preview').waitFor();
     await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
@@ -128,7 +128,7 @@ try {
     await page.close();
   }
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
-  await page.goto(url);
+  await page.goto(`${url}/?preview=chemistry`);
   await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
   await page.getByRole('navigation', { name: 'مشاهد الدرس' }).getByRole('button').nth(7).click();
   const beat = manifest.beats.find((b) => b.id === 'S07');

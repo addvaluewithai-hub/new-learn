@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+.platform-ui {
+  font-family: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
+  color: #21382f;
+  background: #f5f7f4;
+  --ink: #21382f;
+  --muted: #66766c;
+  --green: #153d35;
+  --accent: #d7f77b;
+  --soft: #eaf0e7;
+  --line: #dde5dd;
+  --white: #fff;
+}
+.platform-ui h1,
+.platform-ui h2,
+.platform-ui h3,
+.platform-ui p {
+  margin: 0;
+}
+.platform-ui a {
+  color: inherit;
+  text-decoration: none;
+}
+.platform-ui button {
+  color: inherit;
+}
+.platform-ui .muted {
+  color: var(--muted);
+}
+.platform-ui .eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+  color: var(--muted);
+}
+.platform-ui .button {
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.platform-ui .primary {
+  background: var(--green);
+  color: white;
+}
+.platform-ui .primary:hover:not(:disabled) {
+  background: #236150;
+}
+.platform-ui .secondary {
+  background: white;
+  border: 1px solid var(--line);
+}
+.platform-ui .text-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--green);
+  font-weight: 600;
+}
+.platform-ui .error-message {
+  color: #9c332d;
+  background: #fff0ec;
+  border: 1px solid #f2c3b9;
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.platform-ui .brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  direction: ltr;
+  width: max-content;
+}
+.platform-ui .brand-mark {
+  height: 43px;
+  width: 43px;
+  background: var(--green);
+  color: var(--accent);
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  display: grid;
+  place-items: center;
+  font-size: 31px;
+  font-weight: 700;
+  position: relative;
+}
+.platform-ui .brand-mark span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  top: 9px;
+  right: 8px;
+}
+.platform-ui .brand strong {
+  font-family: Arial, sans-serif;
+  font-size: 29px;
+  letter-spacing: -1.2px;
+}
+.platform-ui .brand strong > span {
+  font:
+    400 11px 'IBM Plex Sans Arabic',
+    sans-serif;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 2px;
+}
+.platform-ui .course-art {
+  height: 185px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+}
+.platform-ui .math-art {
+  background: #efeafb;
+  color: #554570;
+}
+.platform-ui .earth-art {
+  background: #dfece7;
+  color: #254f40;
+}
+.platform-ui .earth-art svg {
+  width: 128px;
+  height: 128px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.1;
+}
+.platform-ui .art-equation {
+  font-family: Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  direction: ltr;
+  line-height: 1;
+}
+.platform-ui .ratio-dots {
+  display: flex;
+  gap: 7px;
+  direction: ltr;
+}
+.platform-ui .ratio-dots i,
+.platform-ui .ratio-dots b {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #8b78ad;
+}
+.platform-ui .ratio-dots b {
+  background: #c0afd9;
+}
+.platform-ui .ratio-dots i:nth-child(2) {
+  margin-right: 14px;
+}
+.platform-ui .art-note {
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform-ui * {
+    scroll-behavior: auto;
+  }
+}
+.lesson-entry-message {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+}

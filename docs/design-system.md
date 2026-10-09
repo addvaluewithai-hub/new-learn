@@ -20,3 +20,11 @@ The scene map opens on request to keep the board uncluttered. Both ratios remain
 Known pending fidelity work: the old scene dropdown/progress readout and scene-specific guide
 need explicit runtime host APIs; do not infer playback state by scraping the DOM or clone it.
 Account pages, database integration and AI/Live helpers are separate features.
+
+## Account and library preservation
+
+Accounts and catalog preserve the old IBM Plex Sans Arabic font, #153d35 green and #d7f77b accent.
+These are scoped by .platform-ui; the classroom keeps Segoe UI/Tahoma/Arial and its existing tokens.
+Brand, CourseArt and PlatformIcon are shared; auth and catalog own their separate styles.
+Old reference pinned at learn/cac4dd78bcaa0ace444362fa76a5b0a7497ee2b7.
+No cumulative reward/progress UI is shown until backed by real persistence.

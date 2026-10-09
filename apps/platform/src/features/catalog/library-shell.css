@@ -1,0 +1,153 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #fff;
+  border-inline-end: 1px solid var(--line);
+  padding: 38px 22px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .brand {
+  margin-inline: 13px;
+}
+.nav-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 55px 16px 14px;
+}
+.sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+.sidebar nav button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: start;
+  padding: 14px 17px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #627268;
+}
+.sidebar nav button[aria-current] {
+  background: var(--green);
+  color: white;
+}
+.sidebar nav button > span {
+  margin-inline-start: auto;
+  font-size: 0.8rem;
+  background: #edf3eb;
+  border-radius: 5px;
+  color: var(--ink);
+  min-width: 24px;
+  text-align: center;
+}
+.sidebar nav button:hover:not([aria-current]) {
+  background: var(--soft);
+}
+
+.library-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  min-height: 100dvh;
+}
+.library-main {
+  min-width: 0;
+}
+.library-content {
+  max-width: 1220px;
+  margin: auto;
+  padding: 38px 45px;
+}
+.topbar {
+  height: 78px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 45px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.page-heading {
+  margin-bottom: 30px;
+}
+.page-heading h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 14px 0;
+}
+.page-heading p {
+  line-height: 1.9;
+  color: var(--muted);
+}
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border-radius: 10px;
+  padding: 14px 17px;
+  background: var(--green);
+  color: #fff;
+}
+.mobile-menu,
+.mobile-close,
+.menu-overlay {
+  display: none;
+}
+.icon-button {
+  border: 0;
+  background: transparent;
+  padding: 8px;
+}
+.empty-state {
+  padding: 30px 0;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .library-shell {
+    display: block;
+  }
+  .sidebar {
+    position: fixed;
+    right: 0;
+    width: 250px;
+    z-index: 30;
+    transform: translateX(100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .mobile-close {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 15px;
+  }
+  .mobile-menu {
+    display: inline-flex;
+  }
+  .menu-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #153d3550;
+    border: 0;
+  }
+  .library-content {
+    padding: 28px 20px;
+  }
+  .topbar {
+    padding: 0 20px;
+  }
+  .page-heading h1 {
+    font-size: 1.8rem;
+  }
+}

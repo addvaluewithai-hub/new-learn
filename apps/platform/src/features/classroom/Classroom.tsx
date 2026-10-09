@@ -12,10 +12,12 @@ export function Classroom({
   lesson,
   registry,
   realContent = false,
+  backHref,
 }: {
   lesson: LessonPackage;
   registry: RendererRegistry;
   realContent?: boolean;
+  backHref?: string;
 }) {
   const [tool, setTool] = useState<GuideTool | null>(null);
   const [showMap, setShowMap] = useState(false);
@@ -35,6 +37,7 @@ export function Classroom({
     <div className="classroom-shell">
       <ClassroomHeader
         lesson={lesson}
+        backHref={backHref}
         onMap={() => setShowMap((value) => !value)}
         onSource={() => openTool('source')}
         onHelp={() => openTool('guide')}

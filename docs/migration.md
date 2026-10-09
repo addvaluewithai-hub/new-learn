@@ -54,3 +54,11 @@ Development tones have deterministic measured WAV durations and synthetic marker
 They test the engine boundary, not narration quality, actual ASR or scientific teaching.
 The shipped browser runner covers normal flow, pause/seek, both layouts and audio retry.
 Browser checks must actually run; tests existing in Git alone do not constitute acceptance.
+
+## Accounts/catalog batch, 2026-10-09
+
+The earlier foundation status above is historical. Modular Auth, DB catalog, account/library UI
+and authorized review-lesson routes are now implemented. Schema and three migrations were applied
+on an isolated Neon branch. No old student rows were migrated.
+Live provider and live platform API/DB checks passed. Production import and progress writes remain pending.
+Cloudflare DATABASE_URL binding is still required; see docs/account-delivery.md and docs/data-contract.md.

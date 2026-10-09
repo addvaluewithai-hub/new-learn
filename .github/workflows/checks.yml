@@ -1,7 +1,7 @@
 name: New Learn checks
 on:
   push:
-    branches: [main]
+    branches: [main, 'feat/**']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -22,12 +22,15 @@ jobs:
       - run: npm run check
       - run: npm test
       - run: npm run build
+      - run: npm run functions:check
+      - run: node --import tsx tests/auth-live.mjs
       - run: npm run sdk:pack
       - run: git diff --exit-code -- distributions/
       - run: npm run sdk:check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: npm run test:browser:chemistry
+      - run: npm run test:browser:platform
       - uses: actions/upload-artifact@v4
         if: always()
         with:

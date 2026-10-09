@@ -13,14 +13,14 @@
   "scripts": {
     "prepare:fixture": "node tools/generate-fixture-audio.mjs",
     "predev": "npm run sdk:build && npm run prepare:fixture && npm run prepare:review",
-    "dev": "vite --config apps/platform/vite.config.ts",
+    "dev": "node tools/start-dev.mjs",
     "typecheck": "tsc --noEmit",
     "prebuild": "npm run sdk:build && npm run prepare:fixture && npm run prepare:review",
     "build": "npm run typecheck && vite build --config apps/platform/vite.config.ts",
     "preview": "vite preview --config apps/platform/vite.config.ts",
     "check": "node tools/check-boundaries.mjs",
     "pretest": "npm run prepare:fixture",
-    "test": "node --import tsx --test packages/lesson-runtime/tests/*.test.ts",
+    "test": "node --import tsx --test packages/lesson-runtime/tests/*.test.ts apps/platform/tests/*.test.ts",
     "test:browser": "node tests/browser.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -28,17 +28,25 @@
     "sdk:pack": "npm run sdk:build && node tools/package-sdk.mjs",
     "sdk:check": "node tools/check-sdk.mjs",
     "prepare:review": "node tools/prepare-review-media.mjs",
-    "test:browser:chemistry": "node tests/chemistry-browser.mjs"
+    "test:browser:chemistry": "node tests/chemistry-browser.mjs",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "dev:full": "wrangler pages dev dist --port 8788",
+    "functions:check": "wrangler pages functions build functions --outdir .functions-check",
+    "test:browser:platform": "node tests/platform-browser.mjs"
   },
   "devDependencies": {
     "@types/node": "24.13.4",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.1",
+    "drizzle-kit": "^0.31.10",
+    "jsonc-parser": "^3.3.1",
     "playwright": "1.62.1",
     "prettier": "3.6.2",
     "tsx": "4.23.13",
     "typescript": "5.9.3",
-    "vite": "8.2.2"
+    "vite": "8.2.2",
+    "wrangler": "^4.129.0"
   }
 }

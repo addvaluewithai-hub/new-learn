@@ -4,13 +4,22 @@ import { resolve, relative, dirname, sep } from 'node:path';
 const root = resolve(new URL('..', import.meta.url).pathname);
 const runtime = resolve(root, 'packages/lesson-runtime/src');
 const allowed = new Set(['react', 'react-dom', '@remotion/player', 'remotion']);
-const excluded = new Set(['.git', 'node_modules', 'dist', 'test-results']);
+const excluded = new Set([
+  '.git',
+  'node_modules',
+  'dist',
+  'test-results',
+  '.functions-check',
+  '.wrangler',
+  '.browser-tmp',
+]);
 const generated = new Set([
   'package-lock.json',
   'fixtures/runtime-probe/audio-manifest.json',
   'content/chemistry/states-of-matter/data/manifest.json',
+  'database/migrations/meta/0000_snapshot.json',
 ]);
-const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html)$/;
+const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];
 let count = 0;
 let largest = { path: '', lines: 0 };
@@ -28,7 +37,12 @@ async function scan(folder) {
       continue;
     }
     const name = relative(root, path).split(sep).join('/');
-    if (!sourceExtensions.test(name) || generated.has(name)) continue;
+    if (
+      !sourceExtensions.test(name) ||
+      generated.has(name) ||
+      /^database\/migrations\/meta\/\d+_snapshot\.json$/.test(name)
+    )
+      continue;
     const content = await readFile(path, 'utf8');
     const lines = content.trimEnd().split('\n').length;
     count++;

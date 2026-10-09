@@ -5,15 +5,21 @@ export function ClassroomHeader({
   onMap,
   onSource,
   onHelp,
+  backHref,
 }: {
   lesson: LessonPackage;
   onMap: () => void;
   onSource: () => void;
   onHelp: () => void;
+  backHref?: string;
 }) {
   return (
     <header className="classroom-header" dir="ltr">
-      <a className="classroom-brand" href="/" aria-label="Learn، بداية الدرس">
+      <a
+        className="classroom-brand"
+        href={backHref ?? '/?preview=chemistry'}
+        aria-label={backHref ? 'Learn، ارجع للمنهج' : 'Learn، بداية الدرس'}
+      >
         <ClassroomIcon name="book" size={30} />
         Learn
       </a>

@@ -8,3 +8,8 @@ apps/platform/public/fixtures/
 fixtures/runtime-probe/audio-manifest.json
 apps/platform/public/recordings/
 apps/platform/public/lesson-assets/
+
+.dev.vars.*
+.functions-check/
+.wrangler/
+.browser-tmp/

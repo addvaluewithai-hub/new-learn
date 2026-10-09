@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "new-learn",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-09",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "APP_ORIGIN": "https://new-learn.pages.dev",
+    "NEON_AUTH_BASE_URL": "https://ep-odd-mouse-ayu2hljt.neonauth.c-5.us-east-2.aws.neon.tech/learn/auth",
+    "ALLOW_CONTENT_REVIEW": "true",
+  },
+}

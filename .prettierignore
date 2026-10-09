@@ -5,3 +5,7 @@ package-lock.json
 apps/platform/public/fixtures/
 fixtures/runtime-probe/audio-manifest.json
 distributions/
+
+.functions-check/
+.wrangler/
+.browser-tmp/

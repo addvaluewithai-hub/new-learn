@@ -1,0 +1,398 @@
+{
+  "id": "b469aa68-7bd5-4f13-a7e6-fd0d733f1d0b",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "learn_app.curricula": {
+      "name": "curricula",
+      "schema": "learn_app",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subject": {
+          "name": "subject",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "visibility": {
+          "name": "visibility",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'draft'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "curriculum_visibility": {
+          "name": "curriculum_visibility",
+          "value": "\"learn_app\".\"curricula\".\"visibility\" in ('draft','published','archived')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "learn_app.lesson_editions": {
+      "name": "lesson_editions",
+      "schema": "learn_app",
+      "columns": {
+        "lesson_id": {
+          "name": "lesson_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content_revision": {
+          "name": "content_revision",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "module_id": {
+          "name": "module_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "manifest_hash": {
+          "name": "manifest_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "runtime_version": {
+          "name": "runtime_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lesson_editions_lesson_id_lessons_id_fk": {
+          "name": "lesson_editions_lesson_id_lessons_id_fk",
+          "tableFrom": "lesson_editions",
+          "tableTo": "lessons",
+          "schemaTo": "learn_app",
+          "columnsFrom": ["lesson_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "lesson_editions_lesson_id_content_revision_pk": {
+          "name": "lesson_editions_lesson_id_content_revision_pk",
+          "columns": ["lesson_id", "content_revision"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "edition_hash": {
+          "name": "edition_hash",
+          "value": "\"learn_app\".\"lesson_editions\".\"manifest_hash\" ~ '^[a-f0-9]{64}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "learn_app.lessons": {
+      "name": "lessons",
+      "schema": "learn_app",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "curriculum_id": {
+          "name": "curriculum_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "position": {
+          "name": "position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subtitle": {
+          "name": "subtitle",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "''"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lessons_curriculum_id_curricula_id_fk": {
+          "name": "lessons_curriculum_id_curricula_id_fk",
+          "tableFrom": "lessons",
+          "tableTo": "curricula",
+          "schemaTo": "learn_app",
+          "columnsFrom": ["curriculum_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "lesson_position": {
+          "name": "lesson_position",
+          "nullsNotDistinct": false,
+          "columns": ["curriculum_id", "position"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "positive_position": {
+          "name": "positive_position",
+          "value": "\"learn_app\".\"lessons\".\"position\">0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "learn_app.lesson_releases": {
+      "name": "lesson_releases",
+      "schema": "learn_app",
+      "columns": {
+        "lesson_id": {
+          "name": "lesson_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "content_revision": {
+          "name": "content_revision",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stage": {
+          "name": "stage",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "released_at": {
+          "name": "released_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lesson_releases_lesson_id_lessons_id_fk": {
+          "name": "lesson_releases_lesson_id_lessons_id_fk",
+          "tableFrom": "lesson_releases",
+          "tableTo": "lessons",
+          "schemaTo": "learn_app",
+          "columnsFrom": ["lesson_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "lesson_releases_lesson_id_content_revision_lesson_editions_lesson_id_content_revision_fk": {
+          "name": "lesson_releases_lesson_id_content_revision_lesson_editions_lesson_id_content_revision_fk",
+          "tableFrom": "lesson_releases",
+          "tableTo": "lesson_editions",
+          "schemaTo": "learn_app",
+          "columnsFrom": ["lesson_id", "content_revision"],
+          "columnsTo": ["lesson_id", "content_revision"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "release_stage": {
+          "name": "release_stage",
+          "value": "\"learn_app\".\"lesson_releases\".\"stage\" in ('review','published')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "learn_app.lesson_enrollments": {
+      "name": "lesson_enrollments",
+      "schema": "learn_app",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lesson_id": {
+          "name": "lesson_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content_revision": {
+          "name": "content_revision",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lesson_enrollments_lesson_id_content_revision_lesson_editions_lesson_id_content_revision_fk": {
+          "name": "lesson_enrollments_lesson_id_content_revision_lesson_editions_lesson_id_content_revision_fk",
+          "tableFrom": "lesson_enrollments",
+          "tableTo": "lesson_editions",
+          "schemaTo": "learn_app",
+          "columnsFrom": ["lesson_id", "content_revision"],
+          "columnsTo": ["lesson_id", "content_revision"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "user_lesson": {
+          "name": "user_lesson",
+          "nullsNotDistinct": false,
+          "columns": ["user_id", "lesson_id"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "learn_app.lesson_progress": {
+      "name": "lesson_progress",
+      "schema": "learn_app",
+      "columns": {
+        "enrollment_id": {
+          "name": "enrollment_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "state": {
+          "name": "state",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "revision": {
+          "name": "revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "completed_at": {
+          "name": "completed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lesson_progress_enrollment_id_lesson_enrollments_id_fk": {
+          "name": "lesson_progress_enrollment_id_lesson_enrollments_id_fk",
+          "tableFrom": "lesson_progress",
+          "tableTo": "lesson_enrollments",
+          "schemaTo": "learn_app",
+          "columnsFrom": ["enrollment_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "progress_revision": {
+          "name": "progress_revision",
+          "value": "\"learn_app\".\"lesson_progress\".\"revision\" >= 0"
+        },
+        "progress_schema": {
+          "name": "progress_schema",
+          "value": "(\"learn_app\".\"lesson_progress\".\"state\"->>'schemaVersion' = '1') IS TRUE"
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {
+    "learn_app": "learn_app"
+  },
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

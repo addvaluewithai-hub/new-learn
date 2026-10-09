@@ -1,0 +1,102 @@
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: #fff;
+}
+.auth-story {
+  background: var(--green);
+  color: #fff;
+  padding: 44px 11%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.auth-story .brand-mark {
+  background: var(--accent);
+  color: var(--green);
+}
+.auth-story .brand-mark span {
+  background: var(--green);
+}
+.story-copy {
+  margin: auto 0;
+  padding: 48px 0 35px;
+}
+.story-copy > .eyebrow {
+  color: #c5d4c8;
+}
+.story-copy h1 {
+  font-size: clamp(3rem, 5.8vw, 5.6rem);
+  line-height: 1.22;
+  font-weight: 500;
+  letter-spacing: -2px;
+  margin: 24px 0;
+}
+.story-copy > p {
+  color: #d4e0d9;
+  line-height: 1.9;
+  font-size: 1.1rem;
+}
+.story-bottom {
+  font-size: 0.8rem;
+  color: #c5d4c8;
+}
+.story-board {
+  margin-top: 38px;
+  border: 1px solid #688578;
+  padding: 20px 22px 0;
+  border-radius: 18px;
+  max-width: 390px;
+  background: #214c40;
+  transform: rotate(-2deg);
+}
+.story-board > span {
+  font-size: 0.78rem;
+  color: #d6e2d5;
+}
+.story-board .course-art {
+  height: 160px;
+  background: transparent;
+}
+.story-board .art-equation {
+  color: var(--accent);
+  font-size: 4rem;
+}
+.story-board .art-note {
+  display: none;
+}
+.story-board .ratio-dots i {
+  background: var(--accent);
+}
+.story-board .ratio-dots b {
+  background: #e6f0e6;
+}
+.story-note {
+  border-top: 1px solid #547365;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  font-size: 0.9rem;
+}
+.story-note svg {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .auth-story {
+    padding: 35px 9%;
+  }
+  .story-copy h1 {
+    font-size: 3.7rem;
+  }
+}
+@media (max-width: 700px) {
+  .auth-layout {
+    display: block;
+  }
+  .auth-story {
+    display: none;
+  }
+}

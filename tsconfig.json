@@ -12,5 +12,5 @@
     "esModuleInterop": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["apps", "packages", "fixtures", "content"]
+  "include": ["apps", "packages", "fixtures", "content", "functions", "drizzle.config.ts"]
 }

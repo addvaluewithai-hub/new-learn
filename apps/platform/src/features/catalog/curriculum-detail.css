@@ -1,0 +1,125 @@
+.curriculum-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 28px;
+  align-items: center;
+  background: #e9efe4;
+  border-radius: 22px;
+  padding: 32px;
+}
+.curriculum-hero h2 {
+  margin: 10px 0;
+  font-size: 27px;
+}
+.curriculum-hero p {
+  line-height: 1.8;
+}
+.curriculum-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.curriculum-progress strong {
+  font-size: 48px;
+}
+.curriculum-progress progress,
+.lesson-path progress {
+  width: 100%;
+}
+.curriculum-progress span {
+  font-size: 13px;
+}
+.journey-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+}
+.journey-badges span {
+  padding: 8px 14px;
+  border: 1px dashed var(--line);
+  border-radius: 30px;
+  color: var(--muted);
+}
+.journey-badges .earned {
+  background: #fff0b9;
+  border-style: solid;
+  color: #665014;
+}
+.lesson-path {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.lesson-path li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+}
+.lesson-path li.next {
+  border: 2px solid var(--green);
+}
+.lesson-node {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #edf0e9;
+  font-weight: 700;
+}
+.lesson-path .done .lesson-node {
+  background: #dcebdd;
+  color: #20563e;
+}
+.lesson-path h3 {
+  margin: 8px 0;
+  font-size: 20px;
+}
+.lesson-path p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.lesson-path small {
+  display: block;
+  margin-top: 10px;
+}
+
+.curriculum-hero {
+  grid-template-columns: 1fr;
+}
+.curriculum-hero .button {
+  margin-top: 20px;
+}
+.lesson-path {
+  margin: 24px 0;
+}
+.lesson-path a {
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .curriculum-hero {
+    padding: 24px;
+  }
+  .lesson-path li {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px;
+  }
+  .lesson-node {
+    width: 32px;
+    height: 32px;
+  }
+  .lesson-path li > a,
+  .lesson-path li > button {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
