@@ -100,6 +100,11 @@ try {
       const board = JSON.parse(await readFile(`${root}/data/board/${beat.id}.json`, 'utf8'));
       for (const phase of board.phases) {
         await seekTo(page, phase.atMs);
+        await page
+          .locator(
+            `[data-board-phase="${beat.questionAtMs != null && phase.atMs >= beat.questionAtMs ? 'question-reading' : phase.id}"]`,
+          )
+          .waitFor();
         await safeBounds(page);
       }
     }

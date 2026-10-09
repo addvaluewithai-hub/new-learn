@@ -14,10 +14,9 @@ await Promise.all(
     const target = resolve(root, 'apps/platform/public', asset.file);
     const cached = await readFile(target).catch(() => null);
     if (cached && hash(cached) === asset.sha256) return;
-    const url = `https://raw.githubusercontent.com/${lock.repository}/${lock.commit}/public/${asset.file}`;
-    const response = await fetch(url, { signal: AbortSignal.timeout(60000) });
-    if (!response.ok) throw new Error(`Media download failed: ${asset.file} (${response.status})`);
-    const bytes = Buffer.from(await response.arrayBuffer());
+    const bytes = await readFile(
+      resolve(root, 'content/chemistry/states-of-matter/media', asset.file),
+    );
     if (hash(bytes) !== asset.sha256) throw new Error(`Media edition mismatch: ${asset.file}`);
     await mkdir(dirname(target), { recursive: true });
     await writeFile(target, bytes);
