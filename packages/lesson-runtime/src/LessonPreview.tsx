@@ -141,6 +141,9 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
               // The bridge restarts after mount effects have finished resetting.
               flushSync(() => dispatch({ type: 'retry' }));
               player.current?.play(event);
+              // Prime audio permission without starting before subscriptions exist.
+              // The deferred bridge play then advances both audio and frames.
+              player.current?.pause();
             }}
           >
             حاول تاني
