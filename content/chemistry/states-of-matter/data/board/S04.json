@@ -1,0 +1,52 @@
+{
+  "id": "S04",
+  "audioHash": "331b1c9771b6666fb9de5260143a32397bd211ec58294a1c34f1731869f194f6",
+  "durationMs": 34200,
+  "phases": [
+    {
+      "id": "gas",
+      "atMs": 300,
+      "anchor": "أما الـGas"
+    },
+    {
+      "id": "expand",
+      "atMs": 7000,
+      "anchor": "في وعاء أكبر"
+    },
+    {
+      "id": "properties",
+      "atMs": 11300,
+      "anchor": "عشان كده الغاز"
+    },
+    {
+      "id": "matter",
+      "atMs": 15100,
+      "anchor": "والهوا مادة"
+    },
+    {
+      "id": "mass",
+      "atMs": 18000,
+      "anchor": "له كتلة"
+    },
+    {
+      "id": "compare",
+      "atMs": 20600,
+      "anchor": "افتكر الفرق"
+    },
+    {
+      "id": "solid",
+      "atMs": 22000,
+      "anchor": "الـSolid"
+    },
+    {
+      "id": "liquid",
+      "atMs": 26500,
+      "anchor": "الـLiquid"
+    },
+    {
+      "id": "gas-recap",
+      "atMs": 31200,
+      "anchor": "والـGas"
+    }
+  ]
+}

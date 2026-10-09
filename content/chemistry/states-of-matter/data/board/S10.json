@@ -1,0 +1,57 @@
+{
+  "id": "S10",
+  "audioHash": "f42661625169bda7ff22869382dbf66ab6fd59cc8b47f4a62ba32b8fb34f6430",
+  "durationMs": 47080,
+  "phases": [
+    {
+      "id": "intro",
+      "atMs": 200,
+      "anchor": "نستخدم اللي"
+    },
+    {
+      "id": "model",
+      "atMs": 2000,
+      "anchor": "تخيّل رسمة"
+    },
+    {
+      "id": "read",
+      "atMs": 8100,
+      "anchor": "اقرأ السؤال"
+    },
+    {
+      "id": "identify",
+      "atMs": 9900,
+      "anchor": "كلمة Identify"
+    },
+    {
+      "id": "explain",
+      "atMs": 12600,
+      "anchor": "وExplain why"
+    },
+    {
+      "id": "order",
+      "atMs": 16800,
+      "anchor": "ابدأ باسم"
+    },
+    {
+      "id": "support",
+      "atMs": 19700,
+      "anchor": "لو الصياغة"
+    },
+    {
+      "id": "question-identify",
+      "atMs": 24200,
+      "anchor": "Identify the state"
+    },
+    {
+      "id": "question-compress",
+      "atMs": 26377,
+      "anchor": "Explain why its"
+    },
+    {
+      "id": "question-liquid",
+      "atMs": 30913,
+      "anchor": "Would a fixed"
+    }
+  ]
+}

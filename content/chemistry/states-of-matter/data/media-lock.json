@@ -1,0 +1,82 @@
+{
+  "repository": "addvaluewithai-hub/learn",
+  "commit": "cac4dd78bcaa0ace444362fa76a5b0a7497ee2b7",
+  "assets": [
+    {
+      "file": "recordings/chem-gas-states-v3/S01.99731fbdd427.mp3",
+      "sha256": "99731fbdd427105ce7cd667b629ab65766e0bae4d00ea388cf678a89866d2ab9"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S02.c32356623fdc.mp3",
+      "sha256": "c32356623fdc383230cd00a42e2360db956768fd6093e078ddaf13754f76aa66"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S03.004f85d9960e.mp3",
+      "sha256": "004f85d9960ec9305d5c874b915e29234770aa64d8c020936bbe165476448740"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S04.331b1c9771b6.mp3",
+      "sha256": "331b1c9771b6666fb9de5260143a32397bd211ec58294a1c34f1731869f194f6"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S09.818fc7d38a13.mp3",
+      "sha256": "818fc7d38a13633765c9a68695a65f2ec89254d940591a1472c7203863b47791"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S05.3ce85e20f82e.mp3",
+      "sha256": "3ce85e20f82e2894ce72737962076829afca150a69a3dc184b57573513358269"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S06.9101e0de9825.mp3",
+      "sha256": "9101e0de9825e1432a149fb5a74046eb328b9b9ed7ae6843a88e7c0c830571ec"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S07.72c4f716cbd7.mp3",
+      "sha256": "72c4f716cbd764cc2a3d5173a413ed65adaf52f600a497f4f3a440a205a737c1"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S08.8c6d1bf4a4a6.mp3",
+      "sha256": "8c6d1bf4a4a669362ba3af97c935ba4a0aa985d62c5508016572f0c69b8a3e4f"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S11.8c2ecc8332f9.mp3",
+      "sha256": "8c2ecc8332f9db4048a5cdbb38247b6bc5af6662c5174a9d9bac9b24cb34cac8"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/S10.f42661625169.mp3",
+      "sha256": "f42661625169bda7ff22869382dbf66ab6fd59cc8b47f4a62ba32b8fb34f6430"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/F01.b1164c7c9259.mp3",
+      "sha256": "b1164c7c9259092bafcc03178a4af248b5d20163b75424e70f84c40743fae344"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/F02.61bfecc3dd7c.mp3",
+      "sha256": "61bfecc3dd7ce1895c38121277ef805af31e2544eff0fb62fd746a44c5cff1ff"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/F03.b222172e1a54.mp3",
+      "sha256": "b222172e1a54f1fc51fdb89b58b15b943241717457a9184d4053461f21fcf3fd"
+    },
+    {
+      "file": "recordings/chem-gas-states-v3/F04.578d0d8b377c.mp3",
+      "sha256": "578d0d8b377c7ccd9523f122646a26f8a3bcb98fdc7853962f18cbac9eaf08b5"
+    },
+    {
+      "file": "lesson-assets/ice-cube.webp",
+      "sha256": "30fff47915d758bd7112a3598cbf71bacf13f0a770e56d433b0661b06c759400"
+    },
+    {
+      "file": "lesson-assets/water-beaker.webp",
+      "sha256": "1468de2cf7c0d0cb2b94ebd9cf4110963ed661a26b8e33a159749cb24c8be5aa"
+    },
+    {
+      "file": "lesson-assets/nova.webp",
+      "sha256": "ffc502455f975b8afd34bac2e881fdaa0b2930b0962d80030d26d279fc6f9f95"
+    },
+    {
+      "file": "lesson-assets/air-jar.webp",
+      "sha256": "f6c8d8aefaf9893a663a5c33ec79154818f82d43f1264a8459110c342524450a"
+    }
+  ]
+}

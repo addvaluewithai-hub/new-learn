@@ -6,3 +6,5 @@ test-results/
 .dev.vars
 apps/platform/public/fixtures/
 fixtures/runtime-probe/audio-manifest.json
+apps/platform/public/recordings/
+apps/platform/public/lesson-assets/

@@ -1,0 +1,97 @@
+{
+  "id": "S09",
+  "audioHash": "818fc7d38a13633765c9a68695a65f2ec89254d940591a1472c7203863b47791",
+  "durationMs": 63160,
+  "phases": [
+    {
+      "id": "dots",
+      "atMs": 300,
+      "anchor": "هنمثّل المادة"
+    },
+    {
+      "id": "particle",
+      "atMs": 4400,
+      "anchor": "Particle"
+    },
+    {
+      "id": "particles",
+      "atMs": 6800,
+      "anchor": "والجمع Particles"
+    },
+    {
+      "id": "model",
+      "atMs": 10200,
+      "anchor": "دي رسمة"
+    },
+    {
+      "id": "solid",
+      "atMs": 18500,
+      "anchor": "في الـSolid"
+    },
+    {
+      "id": "solid-close",
+      "atMs": 19400,
+      "anchor": "الجسيمات قريبة من بعض"
+    },
+    {
+      "id": "solid-motion",
+      "atMs": 21500,
+      "anchor": "وبتتهز"
+    },
+    {
+      "id": "crystal",
+      "atMs": 27400,
+      "anchor": "ولو رسمناها"
+    },
+    {
+      "id": "not-all",
+      "atMs": 31700,
+      "anchor": "مش كل المواد"
+    },
+    {
+      "id": "liquid",
+      "atMs": 34600,
+      "anchor": "في الـLiquid"
+    },
+    {
+      "id": "liquid-close",
+      "atMs": 35600,
+      "anchor": "الجسيمات برضه قريبة"
+    },
+    {
+      "id": "liquid-motion",
+      "atMs": 37800,
+      "anchor": "تقدر تتحرك"
+    },
+    {
+      "id": "liquid-shape",
+      "atMs": 40400,
+      "anchor": "وده يساعدنا"
+    },
+    {
+      "id": "gas",
+      "atMs": 46800,
+      "anchor": "أما في الـGas"
+    },
+    {
+      "id": "gas-space",
+      "atMs": 48100,
+      "anchor": "فالمسافات بين"
+    },
+    {
+      "id": "gas-motion",
+      "atMs": 52600,
+      "anchor": "والجسيمات بتتحرك"
+    },
+    {
+      "id": "random",
+      "atMs": 56500,
+      "anchor": "Random motion"
+    },
+    {
+      "id": "spread",
+      "atMs": 59800,
+      "anchor": "الحركة دي بتخلّي"
+    }
+  ]
+}

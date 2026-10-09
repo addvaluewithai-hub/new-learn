@@ -69,7 +69,7 @@ try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
   const unexpected = [];
   page.on('pageerror', (error) => unexpected.push(error.message));
-  await page.goto(url);
+  await page.goto(`${url}/?preview=probe`);
   await page.locator('.lesson-preview[data-layout="landscape"]').waitFor();
   assert.equal(await page.locator('[data-count="3"]').count(), 0);
   await assertSafeBounds(page);
@@ -121,7 +121,7 @@ try {
       viewport: { width, height: 844 },
       reducedMotion: 'reduce',
     });
-    await mobile.goto(url);
+    await mobile.goto(`${url}/?preview=probe`);
     await mobile.locator('.lesson-preview[data-layout="portrait"]').waitFor();
     const ratio = await mobile
       .locator('.lesson-stage')
@@ -152,7 +152,7 @@ try {
     };
   });
   await broken.route('**/fixtures/teach.wav', (route) => route.abort());
-  await broken.goto(url);
+  await broken.goto(`${url}/?preview=probe`);
   await broken.getByRole('alert').waitFor();
   assert.equal(await broken.locator('.lesson-preview').getAttribute('data-scene'), 'combine');
   await broken.unroute('**/fixtures/teach.wav');

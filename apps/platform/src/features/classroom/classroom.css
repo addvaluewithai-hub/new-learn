@@ -29,3 +29,29 @@
     margin-top: 32px;
   }
 }
+
+.lesson-edition {
+  color: var(--accent);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.lesson-edition span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.review-details {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.review-details summary {
+  cursor: pointer;
+}
+.review-details a {
+  color: var(--accent);
+}

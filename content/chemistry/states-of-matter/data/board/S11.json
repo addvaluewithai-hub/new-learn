@@ -1,0 +1,62 @@
+{
+  "id": "S11",
+  "audioHash": "8c2ecc8332f9db4048a5cdbb38247b6bc5af6662c5174a9d9bac9b24cb34cac8",
+  "durationMs": 40880,
+  "phases": [
+    {
+      "id": "term",
+      "atMs": 2000,
+      "anchor": "Thermal expansion"
+    },
+    {
+      "id": "materials",
+      "atMs": 5800,
+      "anchor": "مواد صلبة وسوائل"
+    },
+    {
+      "id": "material-expansion",
+      "atMs": 7500,
+      "anchor": "بتزيد أبعادها"
+    },
+    {
+      "id": "question",
+      "atMs": 13000,
+      "anchor": "أما الغاز"
+    },
+    {
+      "id": "piston",
+      "atMs": 19200,
+      "anchor": "لو كمية الغاز"
+    },
+    {
+      "id": "pressure",
+      "atMs": 20500,
+      "anchor": "والضغط ثابت"
+    },
+    {
+      "id": "expand",
+      "atMs": 23500,
+      "anchor": "التسخين بيزوّد"
+    },
+    {
+      "id": "rigid",
+      "atMs": 26300,
+      "anchor": "في وعاء صلب"
+    },
+    {
+      "id": "volume",
+      "atMs": 28200,
+      "anchor": "الحجم مش هيزيد"
+    },
+    {
+      "id": "pressure-up",
+      "atMs": 29700,
+      "anchor": "الضغط هو اللي"
+    },
+    {
+      "id": "recap",
+      "atMs": 37300,
+      "anchor": "دلوقتي افتكر"
+    }
+  ]
+}

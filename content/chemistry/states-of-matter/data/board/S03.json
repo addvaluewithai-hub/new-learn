@@ -1,0 +1,77 @@
+{
+  "id": "S03",
+  "audioHash": "004f85d9960ec9305d5c874b915e29234770aa64d8c020936bbe165476448740",
+  "durationMs": 65200,
+  "phases": [
+    {
+      "id": "water",
+      "atMs": 300,
+      "anchor": "دلوقتي خلّينا"
+    },
+    {
+      "id": "transfer",
+      "atMs": 2800,
+      "anchor": "من كوباية طويلة"
+    },
+    {
+      "id": "shape",
+      "atMs": 5700,
+      "anchor": "شكل المية اتغيّر"
+    },
+    {
+      "id": "conditions",
+      "atMs": 10800,
+      "anchor": "لكن طالما"
+    },
+    {
+      "id": "volume",
+      "atMs": 14600,
+      "anchor": "حجمها هيفضل"
+    },
+    {
+      "id": "liquid",
+      "atMs": 17700,
+      "anchor": "المية هنا Liquid"
+    },
+    {
+      "id": "shape-term",
+      "atMs": 20000,
+      "anchor": "السائل بياخد"
+    },
+    {
+      "id": "volume-term",
+      "atMs": 23100,
+      "anchor": "وله Volume"
+    },
+    {
+      "id": "partial",
+      "atMs": 27700,
+      "anchor": "لو صبّينا"
+    },
+    {
+      "id": "not-full",
+      "atMs": 29800,
+      "anchor": "المية مش لازم"
+    },
+    {
+      "id": "practice",
+      "atMs": 32400,
+      "anchor": "نجرب سؤال"
+    },
+    {
+      "id": "question-term",
+      "atMs": 33900,
+      "anchor": "عبارة Which"
+    },
+    {
+      "id": "sample",
+      "atMs": 39500,
+      "anchor": "A hundred"
+    },
+    {
+      "id": "question",
+      "atMs": 48700,
+      "anchor": "Which property may change: its"
+    }
+  ]
+}

@@ -5,7 +5,11 @@ const root = resolve(new URL('..', import.meta.url).pathname);
 const runtime = resolve(root, 'packages/lesson-runtime/src');
 const allowed = new Set(['react', 'react-dom', '@remotion/player', 'remotion']);
 const excluded = new Set(['.git', 'node_modules', 'dist', 'test-results']);
-const generated = new Set(['package-lock.json', 'fixtures/runtime-probe/audio-manifest.json']);
+const generated = new Set([
+  'package-lock.json',
+  'fixtures/runtime-probe/audio-manifest.json',
+  'content/chemistry/states-of-matter/data/manifest.json',
+]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html)$/;
 const errors = [];
 let count = 0;

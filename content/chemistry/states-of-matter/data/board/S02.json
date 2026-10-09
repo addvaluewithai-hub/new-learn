@@ -1,0 +1,57 @@
+{
+  "id": "S02",
+  "audioHash": "c32356623fdc383230cd00a42e2360db956768fd6093e078ddaf13754f76aa66",
+  "durationMs": 35720,
+  "phases": [
+    {
+      "id": "ice",
+      "atMs": 300,
+      "anchor": "تخيّل معايا"
+    },
+    {
+      "id": "transfer",
+      "atMs": 3000,
+      "anchor": "لو نقلناه"
+    },
+    {
+      "id": "question",
+      "atMs": 7600,
+      "anchor": "هل هياخد"
+    },
+    {
+      "id": "answer",
+      "atMs": 10000,
+      "anchor": "هيفضل مكعب"
+    },
+    {
+      "id": "solid",
+      "atMs": 14100,
+      "anchor": "Solid"
+    },
+    {
+      "id": "shape",
+      "atMs": 15400,
+      "anchor": "لها شكل محدد"
+    },
+    {
+      "id": "volume",
+      "atMs": 17100,
+      "anchor": "وحجم محدد"
+    },
+    {
+      "id": "shape-term",
+      "atMs": 20000,
+      "anchor": "كلمة Shape"
+    },
+    {
+      "id": "volume-term",
+      "atMs": 22500,
+      "anchor": "وكلمة Volume"
+    },
+    {
+      "id": "recap",
+      "atMs": 27800,
+      "anchor": "إذن لما"
+    }
+  ]
+}

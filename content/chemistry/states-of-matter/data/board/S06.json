@@ -1,0 +1,52 @@
+{
+  "id": "S06",
+  "audioHash": "9101e0de9825e1432a149fb5a74046eb328b9b9ed7ae6843a88e7c0c830571ec",
+  "durationMs": 35280,
+  "phases": [
+    {
+      "id": "term",
+      "atMs": 900,
+      "anchor": "بـDensity"
+    },
+    {
+      "id": "boxes",
+      "atMs": 3900,
+      "anchor": "تخيّل صندوقين"
+    },
+    {
+      "id": "mass",
+      "atMs": 6800,
+      "anchor": "المادة في الأول"
+    },
+    {
+      "id": "denser",
+      "atMs": 10500,
+      "anchor": "المادة في الصندوق الأول"
+    },
+    {
+      "id": "definition",
+      "atMs": 16300,
+      "anchor": "إذن الكثافة"
+    },
+    {
+      "id": "gas",
+      "atMs": 20500,
+      "anchor": "في الظروف المعتادة"
+    },
+    {
+      "id": "usually",
+      "atMs": 26900,
+      "anchor": "والصلب غالبًا"
+    },
+    {
+      "id": "exceptions",
+      "atMs": 29400,
+      "anchor": "لكن فيه استثناءات"
+    },
+    {
+      "id": "recap",
+      "atMs": 31300,
+      "anchor": "اسم الحالة وحده"
+    }
+  ]
+}

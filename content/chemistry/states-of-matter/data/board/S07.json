@@ -1,0 +1,52 @@
+{
+  "id": "S07",
+  "audioHash": "72c4f716cbd764cc2a3d5173a413ed65adaf52f600a497f4f3a440a205a737c1",
+  "durationMs": 33440,
+  "phases": [
+    {
+      "id": "term",
+      "atMs": 1700,
+      "anchor": "Fluidity"
+    },
+    {
+      "id": "definition",
+      "atMs": 4500,
+      "anchor": "قابلية المادة"
+    },
+    {
+      "id": "water",
+      "atMs": 7300,
+      "anchor": "المية بتجري"
+    },
+    {
+      "id": "air",
+      "atMs": 8400,
+      "anchor": "والهوا كمان"
+    },
+    {
+      "id": "fluids",
+      "atMs": 13200,
+      "anchor": "بنسمّيهم Fluids"
+    },
+    {
+      "id": "both",
+      "atMs": 16500,
+      "anchor": "كلمة مائع"
+    },
+    {
+      "id": "solid",
+      "atMs": 19800,
+      "anchor": "الصلب العادي"
+    },
+    {
+      "id": "practice",
+      "atMs": 24500,
+      "anchor": "نجرب سؤال"
+    },
+    {
+      "id": "question",
+      "atMs": 25600,
+      "anchor": "Which states"
+    }
+  ]
+}

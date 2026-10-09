@@ -8,7 +8,7 @@ The current entry is a clearly labeled development preview, not a production stu
 Platform -> lesson-runtime -> React/Remotion.
 The runtime cannot import platform, fixtures, authentication, server or database code.
 The platform host receives data and a renderer registry through props.
-The development entry selects the fixture; the runtime has no curriculum discovery switch.
+The development entry selects a pinned chemistry review fixture or the synthetic probe; the runtime has no curriculum discovery switch.
 Only features with implemented responsibilities are created.
 
 ## Content and playback

@@ -1,0 +1,72 @@
+{
+  "id": "S08",
+  "audioHash": "8c6d1bf4a4a669362ba3af97c935ba4a0aa985d62c5508016572f0c69b8a3e4f",
+  "durationMs": 48280,
+  "phases": [
+    {
+      "id": "term",
+      "atMs": 2100,
+      "anchor": "Diffusion"
+    },
+    {
+      "id": "separate",
+      "atMs": 4700,
+      "anchor": "تخيّل مجموعتين"
+    },
+    {
+      "id": "mix",
+      "atMs": 9200,
+      "anchor": "مع الحركة"
+    },
+    {
+      "id": "definition",
+      "atMs": 13500,
+      "anchor": "ده انتشار"
+    },
+    {
+      "id": "net",
+      "atMs": 19800,
+      "anchor": "وعلى مستوى المجموعة"
+    },
+    {
+      "id": "all",
+      "atMs": 28100,
+      "anchor": "الانتشار موجود"
+    },
+    {
+      "id": "solid",
+      "atMs": 30700,
+      "anchor": "وفي المواد الصلبة"
+    },
+    {
+      "id": "compare",
+      "atMs": 34400,
+      "anchor": "في المقارنة العامة"
+    },
+    {
+      "id": "gas",
+      "atMs": 35900,
+      "anchor": "هو أسرع"
+    },
+    {
+      "id": "liquid",
+      "atMs": 37400,
+      "anchor": "وأبطأ"
+    },
+    {
+      "id": "slow",
+      "atMs": 38800,
+      "anchor": "وبطيء جدًا"
+    },
+    {
+      "id": "room",
+      "atMs": 40900,
+      "anchor": "ولو فكرت"
+    },
+    {
+      "id": "air",
+      "atMs": 44000,
+      "anchor": "افتكر إن حركة"
+    }
+  ]
+}

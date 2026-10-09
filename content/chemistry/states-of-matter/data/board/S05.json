@@ -1,0 +1,72 @@
+{
+  "id": "S05",
+  "audioHash": "3ce85e20f82e2894ce72737962076829afca150a69a3dc184b57573513358269",
+  "durationMs": 57520,
+  "phases": [
+    {
+      "id": "syringe",
+      "atMs": 300,
+      "anchor": "تخيّل سرنجة"
+    },
+    {
+      "id": "compress",
+      "atMs": 3200,
+      "anchor": "لما نضغط المكبس"
+    },
+    {
+      "id": "space",
+      "atMs": 9600,
+      "anchor": "المسافات بين"
+    },
+    {
+      "id": "size",
+      "atMs": 12500,
+      "anchor": "الجسيمات نفسها"
+    },
+    {
+      "id": "term",
+      "atMs": 16200,
+      "anchor": "دي Compressibility"
+    },
+    {
+      "id": "definition",
+      "atMs": 21000,
+      "anchor": "إمكانية تقليل"
+    },
+    {
+      "id": "gas",
+      "atMs": 24100,
+      "anchor": "الغاز سهل"
+    },
+    {
+      "id": "liquid-solid",
+      "atMs": 29400,
+      "anchor": "في السائل والصلب"
+    },
+    {
+      "id": "close",
+      "atMs": 30500,
+      "anchor": "الجسيمات أصلًا قريبة"
+    },
+    {
+      "id": "hard",
+      "atMs": 32500,
+      "anchor": "فحجمهم بيتغيّر"
+    },
+    {
+      "id": "compressed",
+      "atMs": 38600,
+      "anchor": "كلمة Compressed"
+    },
+    {
+      "id": "decrease",
+      "atMs": 42100,
+      "anchor": "وكلمة Decrease"
+    },
+    {
+      "id": "question",
+      "atMs": 44700,
+      "anchor": "When a gas"
+    }
+  ]
+}

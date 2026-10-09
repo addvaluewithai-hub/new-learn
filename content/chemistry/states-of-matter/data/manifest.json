@@ -1,0 +1,7139 @@
+{
+  "schema": 1,
+  "lessonId": "chem-gas-states-matter",
+  "voice": "Gacrux",
+  "model": "per-recording; see beats[].modelUsed",
+  "alignmentModel": "gemini-3.5-transcribe",
+  "sourceHash": "899bc1bcbd6b391c4af2fa2847fe0de8e03e1344bd127b9bc51b01bb4abb48a4",
+  "beats": [
+    {
+      "id": "S01",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S01.99731fbdd427.mp3",
+      "scriptHash": "a97bb634bf3725282c041cc0f1dd5accd251c10ccde7d7b1c2be828f99b6fe78",
+      "audioHash": "99731fbdd427105ce7cd667b629ab65766e0bae4d00ea388cf678a89866d2ab9",
+      "durationMs": 46800,
+      "words": [
+        {
+          "start_ms": 300,
+          "end_ms": 700,
+          "text": "بص",
+          "language": "en"
+        },
+        {
+          "start_ms": 700,
+          "end_ms": 1300,
+          "text": "حواليك:",
+          "language": "en"
+        },
+        {
+          "start_ms": 1800,
+          "end_ms": 2300,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 2300,
+          "end_ms": 2400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 2400,
+          "end_ms": 3200,
+          "text": "الكوباية،",
+          "language": "en"
+        },
+        {
+          "start_ms": 3600,
+          "end_ms": 4300,
+          "text": "الكوباية",
+          "language": "en"
+        },
+        {
+          "start_ms": 4300,
+          "end_ms": 5000,
+          "text": "نفسها،",
+          "language": "en"
+        },
+        {
+          "start_ms": 5200,
+          "end_ms": 5800,
+          "text": "والهوا",
+          "language": "en"
+        },
+        {
+          "start_ms": 5800,
+          "end_ms": 6000,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 6000,
+          "end_ms": 6600,
+          "text": "حوالينا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 7100,
+          "end_ms": 7400,
+          "text": "كل",
+          "language": "en"
+        },
+        {
+          "start_ms": 7400,
+          "end_ms": 7600,
+          "text": "دي",
+          "language": "en"
+        },
+        {
+          "start_ms": 7600,
+          "end_ms": 8000,
+          "text": "مادة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 8600,
+          "end_ms": 8900,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 8900,
+          "end_ms": 9200,
+          "text": "كل",
+          "language": "en"
+        },
+        {
+          "start_ms": 9200,
+          "end_ms": 9700,
+          "text": "واحدة",
+          "language": "en"
+        },
+        {
+          "start_ms": 9800,
+          "end_ms": 10500,
+          "text": "بتتصرف",
+          "language": "en"
+        },
+        {
+          "start_ms": 10500,
+          "end_ms": 10900,
+          "text": "بطريقة",
+          "language": "en"
+        },
+        {
+          "start_ms": 10900,
+          "end_ms": 11500,
+          "text": "مختلفة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 12400,
+          "end_ms": 13100,
+          "text": "النهارده",
+          "language": "en"
+        },
+        {
+          "start_ms": 13400,
+          "end_ms": 13900,
+          "text": "هنفهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 13900,
+          "end_ms": 14400,
+          "text": "الفرق",
+          "language": "en"
+        },
+        {
+          "start_ms": 14400,
+          "end_ms": 14700,
+          "text": "بين",
+          "language": "en"
+        },
+        {
+          "start_ms": 14700,
+          "end_ms": 15100,
+          "text": "ثلاث",
+          "language": "en"
+        },
+        {
+          "start_ms": 15100,
+          "end_ms": 15600,
+          "text": "حالات",
+          "language": "en"
+        },
+        {
+          "start_ms": 15600,
+          "end_ms": 16000,
+          "text": "للمادة:",
+          "language": "en"
+        },
+        {
+          "start_ms": 16000,
+          "end_ms": 17600,
+          "text": "Solid",
+          "language": "en"
+        },
+        {
+          "start_ms": 17600,
+          "end_ms": 17800,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 17800,
+          "end_ms": 18200,
+          "text": "صلب،",
+          "language": "en"
+        },
+        {
+          "start_ms": 18200,
+          "end_ms": 19500,
+          "text": "وLiquid",
+          "language": "en"
+        },
+        {
+          "start_ms": 19500,
+          "end_ms": 19800,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 19800,
+          "end_ms": 20400,
+          "text": "سائل،",
+          "language": "en"
+        },
+        {
+          "start_ms": 20400,
+          "end_ms": 21600,
+          "text": "وGas",
+          "language": "en"
+        },
+        {
+          "start_ms": 21600,
+          "end_ms": 21800,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 21800,
+          "end_ms": 22200,
+          "text": "غاز.",
+          "language": "en"
+        },
+        {
+          "start_ms": 23100,
+          "end_ms": 23400,
+          "text": "هنشوف",
+          "language": "en"
+        },
+        {
+          "start_ms": 23400,
+          "end_ms": 23800,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 23800,
+          "end_ms": 24100,
+          "text": "كل",
+          "language": "en"
+        },
+        {
+          "start_ms": 24100,
+          "end_ms": 24500,
+          "text": "حالة",
+          "language": "en"
+        },
+        {
+          "start_ms": 24500,
+          "end_ms": 25100,
+          "text": "وحجمها،",
+          "language": "en"
+        },
+        {
+          "start_ms": 25700,
+          "end_ms": 26300,
+          "text": "وبعدها",
+          "language": "en"
+        },
+        {
+          "start_ms": 26700,
+          "end_ms": 27300,
+          "text": "هنقرّب",
+          "language": "en"
+        },
+        {
+          "start_ms": 27300,
+          "end_ms": 27800,
+          "text": "الصورة",
+          "language": "en"
+        },
+        {
+          "start_ms": 27800,
+          "end_ms": 28600,
+          "text": "ونتخيّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 28600,
+          "end_ms": 29400,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 29400,
+          "end_ms": 29600,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 29600,
+          "end_ms": 30000,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 30000,
+          "end_ms": 30600,
+          "text": "مكوّنة",
+          "language": "en"
+        },
+        {
+          "start_ms": 30600,
+          "end_ms": 30900,
+          "text": "منها.",
+          "language": "en"
+        },
+        {
+          "start_ms": 31700,
+          "end_ms": 31800,
+          "text": "ده",
+          "language": "en"
+        },
+        {
+          "start_ms": 31800,
+          "end_ms": 32400,
+          "text": "هيساعدنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 32400,
+          "end_ms": 32900,
+          "text": "نفهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 33100,
+          "end_ms": 33400,
+          "text": "ليه",
+          "language": "en"
+        },
+        {
+          "start_ms": 33400,
+          "end_ms": 33800,
+          "text": "الهوا",
+          "language": "en"
+        },
+        {
+          "start_ms": 33800,
+          "end_ms": 34200,
+          "text": "سهل",
+          "language": "en"
+        },
+        {
+          "start_ms": 34200,
+          "end_ms": 34800,
+          "text": "نضغطه،",
+          "language": "en"
+        },
+        {
+          "start_ms": 35000,
+          "end_ms": 35600,
+          "text": "والمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 35600,
+          "end_ms": 36000,
+          "text": "أصعب",
+          "language": "en"
+        },
+        {
+          "start_ms": 36000,
+          "end_ms": 36500,
+          "text": "بكتير.",
+          "language": "en"
+        },
+        {
+          "start_ms": 37300,
+          "end_ms": 37700,
+          "text": "وخلال",
+          "language": "en"
+        },
+        {
+          "start_ms": 37700,
+          "end_ms": 38400,
+          "text": "الشرح،",
+          "language": "en"
+        },
+        {
+          "start_ms": 38500,
+          "end_ms": 39100,
+          "text": "هنجرب",
+          "language": "en"
+        },
+        {
+          "start_ms": 39100,
+          "end_ms": 39500,
+          "text": "أسئلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 39500,
+          "end_ms": 40000,
+          "text": "قصيرة",
+          "language": "en"
+        },
+        {
+          "start_ms": 40000,
+          "end_ms": 40600,
+          "text": "بالإنجليزي.",
+          "language": "en"
+        },
+        {
+          "start_ms": 41300,
+          "end_ms": 41800,
+          "text": "هنفهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 41800,
+          "end_ms": 42400,
+          "text": "السؤال،",
+          "language": "en"
+        },
+        {
+          "start_ms": 42700,
+          "end_ms": 43100,
+          "text": "وبعد",
+          "language": "en"
+        },
+        {
+          "start_ms": 43100,
+          "end_ms": 44000,
+          "text": "محاولتك",
+          "language": "en"
+        },
+        {
+          "start_ms": 44100,
+          "end_ms": 44500,
+          "text": "هنشوف",
+          "language": "en"
+        },
+        {
+          "start_ms": 44500,
+          "end_ms": 44900,
+          "text": "إجابة",
+          "language": "en"
+        },
+        {
+          "start_ms": 44900,
+          "end_ms": 45500,
+          "text": "مناسبة",
+          "language": "en"
+        },
+        {
+          "start_ms": 45500,
+          "end_ms": 46000,
+          "text": "ومعناها",
+          "language": "en"
+        },
+        {
+          "start_ms": 46000,
+          "end_ms": 46500,
+          "text": "بالعربي.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "examples",
+          "atMs": 300,
+          "anchor": "بص حواليك"
+        },
+        {
+          "id": "states",
+          "atMs": 14700,
+          "anchor": "ثلاث حالات للمادة"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.9054054054054054,
+      "arabicGrounding": 0.9178082191780822,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "بص حواليك: المية في الكوباية، الكوباية نفسها، والهوا اللي حوالينا. كل دي مادة، لكن كل واحدة بتتصرف بطريقة مختلفة. النهارده هنفهم الفرق بين ثلاث حالات للمادة: Solid يعني صلب، وLiquid يعني سائل، وGas يعني غاز. هنشوف شكل كل حالة وحجمها، وبعدها هنقرّب الصورة ونتخيّل الجسيمات اللي المادة مكوّنة منها. ده هيساعدنا نفهم ليه الهوا سهل نضغطه، والمية أصعب بكتير. وخلال الشرح، هنجرب أسئلة قصيرة بالإنجليزي. هنفهم السؤال، وبعد محاولتك هنشوف إجابة مناسبة ومعناها بالعربي."
+      },
+      "originalWavHash": "5d7d54dae85e84737d9ff02847ba84c4e5de9621107b3229266fee8b518f9850",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S02",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S02.c32356623fdc.mp3",
+      "scriptHash": "de2ffa3d5ac09e72cd285077772d1fe550abddde2f174ec7258bae68ee0da7f1",
+      "audioHash": "c32356623fdc383230cd00a42e2360db956768fd6093e078ddaf13754f76aa66",
+      "durationMs": 35720,
+      "words": [
+        {
+          "start_ms": 300,
+          "end_ms": 800,
+          "text": "تخيّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 800,
+          "end_ms": 1300,
+          "text": "معايا",
+          "language": "en"
+        },
+        {
+          "start_ms": 1300,
+          "end_ms": 1900,
+          "text": "مكعب",
+          "language": "en"
+        },
+        {
+          "start_ms": 1900,
+          "end_ms": 2300,
+          "text": "تلج.",
+          "language": "en"
+        },
+        {
+          "start_ms": 3000,
+          "end_ms": 3100,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 3100,
+          "end_ms": 4000,
+          "text": "نقلناه",
+          "language": "en"
+        },
+        {
+          "start_ms": 4000,
+          "end_ms": 4300,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 4300,
+          "end_ms": 4700,
+          "text": "طبق",
+          "language": "en"
+        },
+        {
+          "start_ms": 4700,
+          "end_ms": 5600,
+          "text": "لكوباية،",
+          "language": "en"
+        },
+        {
+          "start_ms": 5800,
+          "end_ms": 6100,
+          "text": "وهو",
+          "language": "en"
+        },
+        {
+          "start_ms": 6100,
+          "end_ms": 6500,
+          "text": "لسه",
+          "language": "en"
+        },
+        {
+          "start_ms": 6500,
+          "end_ms": 6600,
+          "text": "ما",
+          "language": "en"
+        },
+        {
+          "start_ms": 6600,
+          "end_ms": 7100,
+          "text": "دابش،",
+          "language": "en"
+        },
+        {
+          "start_ms": 7600,
+          "end_ms": 7800,
+          "text": "هل",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 8300,
+          "text": "هياخد",
+          "language": "en"
+        },
+        {
+          "start_ms": 8300,
+          "end_ms": 8600,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 8600,
+          "end_ms": 9300,
+          "text": "الكوباية؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 10000,
+          "end_ms": 10600,
+          "text": "هيفضل",
+          "language": "en"
+        },
+        {
+          "start_ms": 10600,
+          "end_ms": 11200,
+          "text": "مكعب",
+          "language": "en"
+        },
+        {
+          "start_ms": 11200,
+          "end_ms": 11700,
+          "text": "تلج.",
+          "language": "en"
+        },
+        {
+          "start_ms": 12500,
+          "end_ms": 12600,
+          "text": "دي",
+          "language": "en"
+        },
+        {
+          "start_ms": 12600,
+          "end_ms": 13000,
+          "text": "مادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 13000,
+          "end_ms": 13100,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 13100,
+          "end_ms": 13500,
+          "text": "الحالة",
+          "language": "en"
+        },
+        {
+          "start_ms": 13500,
+          "end_ms": 14100,
+          "text": "الصلبة:",
+          "language": "en"
+        },
+        {
+          "start_ms": 14100,
+          "end_ms": 15400,
+          "text": "Solid.",
+          "language": "en"
+        },
+        {
+          "start_ms": 15400,
+          "end_ms": 15800,
+          "text": "لها",
+          "language": "en"
+        },
+        {
+          "start_ms": 15800,
+          "end_ms": 16200,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 16200,
+          "end_ms": 17000,
+          "text": "محدد،",
+          "language": "en"
+        },
+        {
+          "start_ms": 17100,
+          "end_ms": 17600,
+          "text": "وحجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 17600,
+          "end_ms": 18200,
+          "text": "محدد",
+          "language": "en"
+        },
+        {
+          "start_ms": 18200,
+          "end_ms": 18400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 18400,
+          "end_ms": 18600,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 18600,
+          "end_ms": 19200,
+          "text": "الظروف.",
+          "language": "en"
+        },
+        {
+          "start_ms": 20000,
+          "end_ms": 20300,
+          "text": "كلمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 20300,
+          "end_ms": 21000,
+          "text": "Shape",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21400,
+          "text": "معناها",
+          "language": "en"
+        },
+        {
+          "start_ms": 21400,
+          "end_ms": 21900,
+          "text": "شكل،",
+          "language": "en"
+        },
+        {
+          "start_ms": 22500,
+          "end_ms": 22900,
+          "text": "وكلمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 22900,
+          "end_ms": 23900,
+          "text": "Volume",
+          "language": "en"
+        },
+        {
+          "start_ms": 23900,
+          "end_ms": 24300,
+          "text": "معناها",
+          "language": "en"
+        },
+        {
+          "start_ms": 24300,
+          "end_ms": 24900,
+          "text": "حجم:",
+          "language": "en"
+        },
+        {
+          "start_ms": 25200,
+          "end_ms": 25800,
+          "text": "الحيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 25800,
+          "end_ms": 26000,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 26000,
+          "end_ms": 26400,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 26400,
+          "end_ms": 26900,
+          "text": "بتشغله.",
+          "language": "en"
+        },
+        {
+          "start_ms": 27800,
+          "end_ms": 28200,
+          "text": "إذن",
+          "language": "en"
+        },
+        {
+          "start_ms": 28400,
+          "end_ms": 28700,
+          "text": "لما",
+          "language": "en"
+        },
+        {
+          "start_ms": 28700,
+          "end_ms": 29200,
+          "text": "نغيّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 29200,
+          "end_ms": 29900,
+          "text": "الوعاء،",
+          "language": "en"
+        },
+        {
+          "start_ms": 30100,
+          "end_ms": 30500,
+          "text": "مكعب",
+          "language": "en"
+        },
+        {
+          "start_ms": 30500,
+          "end_ms": 31000,
+          "text": "التلج",
+          "language": "en"
+        },
+        {
+          "start_ms": 31000,
+          "end_ms": 31600,
+          "text": "بيحتفظ",
+          "language": "en"
+        },
+        {
+          "start_ms": 31600,
+          "end_ms": 32100,
+          "text": "بشكله",
+          "language": "en"
+        },
+        {
+          "start_ms": 32100,
+          "end_ms": 32700,
+          "text": "وحجمه،",
+          "language": "en"
+        },
+        {
+          "start_ms": 33100,
+          "end_ms": 33400,
+          "text": "طالما",
+          "language": "en"
+        },
+        {
+          "start_ms": 33400,
+          "end_ms": 33500,
+          "text": "ما",
+          "language": "en"
+        },
+        {
+          "start_ms": 33500,
+          "end_ms": 34000,
+          "text": "دابش",
+          "language": "en"
+        },
+        {
+          "start_ms": 34100,
+          "end_ms": 34300,
+          "text": "وما",
+          "language": "en"
+        },
+        {
+          "start_ms": 34300,
+          "end_ms": 34800,
+          "text": "غيّرناش",
+          "language": "en"
+        },
+        {
+          "start_ms": 34800,
+          "end_ms": 35400,
+          "text": "الظروف.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "transfer",
+          "atMs": 3000,
+          "anchor": "لو نقلناه من طبق لكوباية"
+        },
+        {
+          "id": "shape",
+          "atMs": 15400,
+          "anchor": "لها شكل محدد"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.9344262295081968,
+      "arabicGrounding": 0.9827586206896551,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "تخيّل معايا مكعب تلج. لو نقلناه من طبق لكوباية، وهو لسه ما دابش، هل هياخد شكل الكوباية؟ هيفضل مكعب تلج. دي مادة في الحالة الصلبة: Solid. لها شكل محدد، وحجم محدد في نفس الظروف. كلمة Shape معناها شكل، وكلمة Volume معناها حجم: الحيز اللي المادة بتشغله. إذن لما نغيّر الوعاء، مكعب التلج بيحتفظ بشكله وحجمه، طالما ما دابش وما غيّرناش الظروف."
+      },
+      "originalWavHash": "504bbe8f21a27e6f50fb6dcf3c4c292957ede5f1cbe861be3ef7e3169f22bdcc",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S03",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S03.004f85d9960e.mp3",
+      "scriptHash": "c14cd2ea46ed67bd98b8cbed1f3399b3a032ba27231485802de612c34b56f48e",
+      "audioHash": "004f85d9960ec9305d5c874b915e29234770aa64d8c020936bbe165476448740",
+      "durationMs": 65200,
+      "words": [
+        {
+          "start_ms": 300,
+          "end_ms": 800,
+          "text": "دلوقتي",
+          "language": "en"
+        },
+        {
+          "start_ms": 800,
+          "end_ms": 1200,
+          "text": "خلّينا",
+          "language": "en"
+        },
+        {
+          "start_ms": 1200,
+          "end_ms": 1600,
+          "text": "ننقل",
+          "language": "en"
+        },
+        {
+          "start_ms": 1600,
+          "end_ms": 1900,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 1900,
+          "end_ms": 2400,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 2400,
+          "end_ms": 2800,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 2800,
+          "end_ms": 3000,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 3000,
+          "end_ms": 3400,
+          "text": "كوباية",
+          "language": "en"
+        },
+        {
+          "start_ms": 3400,
+          "end_ms": 4100,
+          "text": "طويلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 4200,
+          "end_ms": 4600,
+          "text": "لطبق",
+          "language": "en"
+        },
+        {
+          "start_ms": 4600,
+          "end_ms": 5000,
+          "text": "واسع.",
+          "language": "en"
+        },
+        {
+          "start_ms": 5700,
+          "end_ms": 6000,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 6000,
+          "end_ms": 6300,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 6300,
+          "end_ms": 7000,
+          "text": "اتغيّر:",
+          "language": "en"
+        },
+        {
+          "start_ms": 7200,
+          "end_ms": 7400,
+          "text": "كانت",
+          "language": "en"
+        },
+        {
+          "start_ms": 7400,
+          "end_ms": 7800,
+          "text": "طويلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 7900,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 7900,
+          "end_ms": 8600,
+          "text": "الكوباية،",
+          "language": "en"
+        },
+        {
+          "start_ms": 8700,
+          "end_ms": 9100,
+          "text": "وبقت",
+          "language": "en"
+        },
+        {
+          "start_ms": 9100,
+          "end_ms": 9600,
+          "text": "مفرودة",
+          "language": "en"
+        },
+        {
+          "start_ms": 9600,
+          "end_ms": 9700,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 9700,
+          "end_ms": 10000,
+          "text": "الطبق.",
+          "language": "en"
+        },
+        {
+          "start_ms": 10800,
+          "end_ms": 11100,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 11100,
+          "end_ms": 11500,
+          "text": "طالما",
+          "language": "en"
+        },
+        {
+          "start_ms": 11500,
+          "end_ms": 11600,
+          "text": "ما",
+          "language": "en"
+        },
+        {
+          "start_ms": 11600,
+          "end_ms": 12100,
+          "text": "ضاعتش",
+          "language": "en"
+        },
+        {
+          "start_ms": 12100,
+          "end_ms": 12500,
+          "text": "مية",
+          "language": "en"
+        },
+        {
+          "start_ms": 12500,
+          "end_ms": 12800,
+          "text": "وما",
+          "language": "en"
+        },
+        {
+          "start_ms": 12800,
+          "end_ms": 13300,
+          "text": "غيّرناش",
+          "language": "en"
+        },
+        {
+          "start_ms": 13300,
+          "end_ms": 13700,
+          "text": "درجة",
+          "language": "en"
+        },
+        {
+          "start_ms": 13700,
+          "end_ms": 14400,
+          "text": "الحرارة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 14600,
+          "end_ms": 15100,
+          "text": "حجمها",
+          "language": "en"
+        },
+        {
+          "start_ms": 15100,
+          "end_ms": 15600,
+          "text": "هيفضل",
+          "language": "en"
+        },
+        {
+          "start_ms": 15600,
+          "end_ms": 16200,
+          "text": "تقريبًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 16200,
+          "end_ms": 16500,
+          "text": "زي",
+          "language": "en"
+        },
+        {
+          "start_ms": 16500,
+          "end_ms": 16700,
+          "text": "ما",
+          "language": "en"
+        },
+        {
+          "start_ms": 16700,
+          "end_ms": 17000,
+          "text": "هو.",
+          "language": "en"
+        },
+        {
+          "start_ms": 17700,
+          "end_ms": 18100,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 18100,
+          "end_ms": 18500,
+          "text": "هنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 18500,
+          "end_ms": 20000,
+          "text": "Liquid.",
+          "language": "en"
+        },
+        {
+          "start_ms": 20000,
+          "end_ms": 20400,
+          "text": "السائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 20400,
+          "end_ms": 20800,
+          "text": "بياخد",
+          "language": "en"
+        },
+        {
+          "start_ms": 20800,
+          "end_ms": 21000,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21400,
+          "text": "الجزء",
+          "language": "en"
+        },
+        {
+          "start_ms": 21400,
+          "end_ms": 21600,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 21600,
+          "end_ms": 22000,
+          "text": "موجود",
+          "language": "en"
+        },
+        {
+          "start_ms": 22000,
+          "end_ms": 22200,
+          "text": "فيه",
+          "language": "en"
+        },
+        {
+          "start_ms": 22200,
+          "end_ms": 22400,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 22400,
+          "end_ms": 23000,
+          "text": "الوعاء،",
+          "language": "en"
+        },
+        {
+          "start_ms": 23100,
+          "end_ms": 23200,
+          "text": "وله",
+          "language": "en"
+        },
+        {
+          "start_ms": 23200,
+          "end_ms": 23400,
+          "text": "Volume",
+          "language": "en"
+        },
+        {
+          "start_ms": 24000,
+          "end_ms": 24600,
+          "text": "محدد",
+          "language": "en"
+        },
+        {
+          "start_ms": 24600,
+          "end_ms": 25300,
+          "text": "تقريبًا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 26000,
+          "end_ms": 26100,
+          "text": "خد",
+          "language": "en"
+        },
+        {
+          "start_ms": 26100,
+          "end_ms": 26400,
+          "text": "بالك",
+          "language": "en"
+        },
+        {
+          "start_ms": 26400,
+          "end_ms": 26500,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 26500,
+          "end_ms": 26900,
+          "text": "النقطة",
+          "language": "en"
+        },
+        {
+          "start_ms": 26900,
+          "end_ms": 27100,
+          "text": "دي:",
+          "language": "en"
+        },
+        {
+          "start_ms": 27700,
+          "end_ms": 27800,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 27800,
+          "end_ms": 28200,
+          "text": "صبّينا",
+          "language": "en"
+        },
+        {
+          "start_ms": 28200,
+          "end_ms": 28500,
+          "text": "شوية",
+          "language": "en"
+        },
+        {
+          "start_ms": 28500,
+          "end_ms": 28800,
+          "text": "مية",
+          "language": "en"
+        },
+        {
+          "start_ms": 28800,
+          "end_ms": 28830,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 28830,
+          "end_ms": 29100,
+          "text": "حلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 29100,
+          "end_ms": 29700,
+          "text": "كبيرة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 29800,
+          "end_ms": 30200,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 30200,
+          "end_ms": 30400,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 30400,
+          "end_ms": 30700,
+          "text": "لازم",
+          "language": "en"
+        },
+        {
+          "start_ms": 30700,
+          "end_ms": 31000,
+          "text": "تملا",
+          "language": "en"
+        },
+        {
+          "start_ms": 31000,
+          "end_ms": 31300,
+          "text": "الحلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 31300,
+          "end_ms": 31700,
+          "text": "كلها.",
+          "language": "en"
+        },
+        {
+          "start_ms": 32400,
+          "end_ms": 32700,
+          "text": "نجرب",
+          "language": "en"
+        },
+        {
+          "start_ms": 32700,
+          "end_ms": 33100,
+          "text": "سؤال؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 33900,
+          "end_ms": 34500,
+          "text": "عبارة",
+          "language": "en"
+        },
+        {
+          "start_ms": 34500,
+          "end_ms": 35000,
+          "text": "Which",
+          "language": "en"
+        },
+        {
+          "start_ms": 35000,
+          "end_ms": 35800,
+          "text": "property",
+          "language": "en"
+        },
+        {
+          "start_ms": 35800,
+          "end_ms": 36100,
+          "text": "may",
+          "language": "en"
+        },
+        {
+          "start_ms": 36100,
+          "end_ms": 36700,
+          "text": "change?",
+          "language": "en"
+        },
+        {
+          "start_ms": 36700,
+          "end_ms": 37400,
+          "text": "معناها:",
+          "language": "en"
+        },
+        {
+          "start_ms": 37600,
+          "end_ms": 37900,
+          "text": "أي",
+          "language": "en"
+        },
+        {
+          "start_ms": 37900,
+          "end_ms": 38500,
+          "text": "خاصية",
+          "language": "en"
+        },
+        {
+          "start_ms": 38500,
+          "end_ms": 39000,
+          "text": "ممكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 39000,
+          "end_ms": 39500,
+          "text": "تتغير؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 39500,
+          "end_ms": 39600,
+          "text": "A",
+          "language": "en"
+        },
+        {
+          "start_ms": 39600,
+          "end_ms": 40300,
+          "text": "hundred",
+          "language": "en"
+        },
+        {
+          "start_ms": 40300,
+          "end_ms": 41300,
+          "text": "milliliter",
+          "language": "en"
+        },
+        {
+          "start_ms": 41300,
+          "end_ms": 41900,
+          "text": "sample",
+          "language": "en"
+        },
+        {
+          "start_ms": 41900,
+          "end_ms": 42100,
+          "text": "of",
+          "language": "en"
+        },
+        {
+          "start_ms": 42100,
+          "end_ms": 42600,
+          "text": "water",
+          "language": "en"
+        },
+        {
+          "start_ms": 42600,
+          "end_ms": 42800,
+          "text": "is",
+          "language": "en"
+        },
+        {
+          "start_ms": 42800,
+          "end_ms": 43400,
+          "text": "poured",
+          "language": "en"
+        },
+        {
+          "start_ms": 43400,
+          "end_ms": 43800,
+          "text": "into",
+          "language": "en"
+        },
+        {
+          "start_ms": 43800,
+          "end_ms": 43900,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 43900,
+          "end_ms": 44500,
+          "text": "larger",
+          "language": "en"
+        },
+        {
+          "start_ms": 44500,
+          "end_ms": 45400,
+          "text": "container",
+          "language": "en"
+        },
+        {
+          "start_ms": 45400,
+          "end_ms": 46100,
+          "text": "without",
+          "language": "en"
+        },
+        {
+          "start_ms": 46100,
+          "end_ms": 46400,
+          "text": "any",
+          "language": "en"
+        },
+        {
+          "start_ms": 46400,
+          "end_ms": 46800,
+          "text": "loss",
+          "language": "en"
+        },
+        {
+          "start_ms": 46800,
+          "end_ms": 47000,
+          "text": "or",
+          "language": "en"
+        },
+        {
+          "start_ms": 47000,
+          "end_ms": 48100,
+          "text": "temperature",
+          "language": "en"
+        },
+        {
+          "start_ms": 48100,
+          "end_ms": 48700,
+          "text": "change.",
+          "language": "en"
+        },
+        {
+          "start_ms": 48700,
+          "end_ms": 49200,
+          "text": "Which",
+          "language": "en"
+        },
+        {
+          "start_ms": 49200,
+          "end_ms": 50000,
+          "text": "property",
+          "language": "en"
+        },
+        {
+          "start_ms": 50000,
+          "end_ms": 50300,
+          "text": "may",
+          "language": "en"
+        },
+        {
+          "start_ms": 50300,
+          "end_ms": 50900,
+          "text": "change:",
+          "language": "en"
+        },
+        {
+          "start_ms": 50900,
+          "end_ms": 51200,
+          "text": "its",
+          "language": "en"
+        },
+        {
+          "start_ms": 51200,
+          "end_ms": 51700,
+          "text": "shape",
+          "language": "en"
+        },
+        {
+          "start_ms": 51700,
+          "end_ms": 51900,
+          "text": "or",
+          "language": "en"
+        },
+        {
+          "start_ms": 51900,
+          "end_ms": 52200,
+          "text": "its",
+          "language": "en"
+        },
+        {
+          "start_ms": 52200,
+          "end_ms": 52800,
+          "text": "volume?",
+          "language": "en"
+        },
+        {
+          "start_ms": 52800,
+          "end_ms": 53100,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 53100,
+          "end_ms": 53500,
+          "text": "نقلنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 53500,
+          "end_ms": 53800,
+          "text": "مية",
+          "language": "en"
+        },
+        {
+          "start_ms": 53800,
+          "end_ms": 54300,
+          "text": "حجمها",
+          "language": "en"
+        },
+        {
+          "start_ms": 54300,
+          "end_ms": 54390,
+          "text": "مية",
+          "language": "en"
+        },
+        {
+          "start_ms": 54390,
+          "end_ms": 54600,
+          "text": "ملليلتر",
+          "language": "en"
+        },
+        {
+          "start_ms": 55500,
+          "end_ms": 56000,
+          "text": "لوعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 56000,
+          "end_ms": 56600,
+          "text": "أكبر،",
+          "language": "en"
+        },
+        {
+          "start_ms": 56800,
+          "end_ms": 56900,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 56900,
+          "end_ms": 57100,
+          "text": "غير",
+          "language": "en"
+        },
+        {
+          "start_ms": 57100,
+          "end_ms": 57500,
+          "text": "فقد",
+          "language": "en"
+        },
+        {
+          "start_ms": 57500,
+          "end_ms": 57700,
+          "text": "أو",
+          "language": "en"
+        },
+        {
+          "start_ms": 57700,
+          "end_ms": 58100,
+          "text": "تغيّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 58100,
+          "end_ms": 58200,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 58200,
+          "end_ms": 58500,
+          "text": "درجة",
+          "language": "en"
+        },
+        {
+          "start_ms": 58500,
+          "end_ms": 59100,
+          "text": "الحرارة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 59800,
+          "end_ms": 59900,
+          "text": "إيه",
+          "language": "en"
+        },
+        {
+          "start_ms": 59900,
+          "end_ms": 60000,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 60000,
+          "end_ms": 60400,
+          "text": "ممكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 60400,
+          "end_ms": 61100,
+          "text": "يتغير:",
+          "language": "en"
+        },
+        {
+          "start_ms": 61200,
+          "end_ms": 62000,
+          "text": "الشكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 62000,
+          "end_ms": 62300,
+          "text": "ولا",
+          "language": "en"
+        },
+        {
+          "start_ms": 62300,
+          "end_ms": 62700,
+          "text": "الحجم؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 63400,
+          "end_ms": 63600,
+          "text": "جرّب",
+          "language": "en"
+        },
+        {
+          "start_ms": 63600,
+          "end_ms": 64000,
+          "text": "تجاوب",
+          "language": "en"
+        },
+        {
+          "start_ms": 64000,
+          "end_ms": 64400,
+          "text": "بجملة",
+          "language": "en"
+        },
+        {
+          "start_ms": 64400,
+          "end_ms": 64900,
+          "text": "قصيرة.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "transfer",
+          "atMs": 2800,
+          "anchor": "من كوباية طويلة لطبق واسع"
+        },
+        {
+          "id": "same-volume",
+          "atMs": 14600,
+          "anchor": "حجمها هيفضل تقريبًا زي ما هو"
+        }
+      ],
+      "questionAtMs": 39500,
+      "alignmentCoverage": 0.7153284671532847,
+      "arabicGrounding": 0.9423076923076923,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "دلوقتي خلّينا ننقل نفس كمية المية من كوباية طويلة لطبق واسع. شكل المية اتغيّر: كانت طويلة في الكوباية، وبقت مفرودة في الطبق. لكن طالما ما ضاعتش مية وما غيّرناش درجة الحرارة، حجمها هيفضل تقريبًا زي ما هو. المية هنا Liquid. السائل بياخد شكل الجزء اللي موجود فيه من الوعاء، وله Volume محدد تقريبًا. خد بالك من النقطة دي: لو صبّينا شوية مية في حلة كبيرة، المية مش لازم تملا الحلة كلها. نجرب سؤال؟ عبارة Which property may change? معناها: أي خاصية ممكن تتغير؟ A hundred milliliter sample of water is poured into a larger container without any loss or temperature change. Which property may change? Its shape or its volume? يعني: نقلنا مية حجمها مية ملليلتر لوعاء أكبر، من غير فقد أو تغيّر في درجة الحرارة. إيه اللي ممكن يتغير: الشكل ولا الحجم؟ جرّب تجاوب بجملة قصيرة."
+      },
+      "originalWavHash": "9fbe5a502d4cb649f03dbf40f80881eb4bea464908f9295fc322460cd4d3e6ab",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S04",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S04.331b1c9771b6.mp3",
+      "scriptHash": "db607478af0449313dbc4628bb3395ee590320f61faac28c6ee28b42a31c133d",
+      "audioHash": "331b1c9771b6666fb9de5260143a32397bd211ec58294a1c34f1731869f194f6",
+      "durationMs": 34200,
+      "words": [
+        {
+          "start_ms": 300,
+          "end_ms": 500,
+          "text": "أما",
+          "language": "en"
+        },
+        {
+          "start_ms": 500,
+          "end_ms": 1182,
+          "text": "الـGas،",
+          "language": "en"
+        },
+        {
+          "start_ms": 1182,
+          "end_ms": 2000,
+          "text": "فبيملأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 2000,
+          "end_ms": 2600,
+          "text": "الحيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 2600,
+          "end_ms": 3200,
+          "text": "المتاح",
+          "language": "en"
+        },
+        {
+          "start_ms": 3200,
+          "end_ms": 3400,
+          "text": "له",
+          "language": "en"
+        },
+        {
+          "start_ms": 3400,
+          "end_ms": 3700,
+          "text": "داخل",
+          "language": "en"
+        },
+        {
+          "start_ms": 3700,
+          "end_ms": 4200,
+          "text": "الوعاء.",
+          "language": "en"
+        },
+        {
+          "start_ms": 5000,
+          "end_ms": 5200,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 5200,
+          "end_ms": 5500,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 5500,
+          "end_ms": 6000,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 6000,
+          "end_ms": 6600,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 6600,
+          "end_ms": 7000,
+          "text": "موجودة",
+          "language": "en"
+        },
+        {
+          "start_ms": 7000,
+          "end_ms": 7100,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 7100,
+          "end_ms": 7400,
+          "text": "وعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 7400,
+          "end_ms": 8000,
+          "text": "أكبر،",
+          "language": "en"
+        },
+        {
+          "start_ms": 8300,
+          "end_ms": 9000,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 9000,
+          "end_ms": 9700,
+          "text": "بتنتشر",
+          "language": "en"
+        },
+        {
+          "start_ms": 9700,
+          "end_ms": 9800,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 9800,
+          "end_ms": 10300,
+          "text": "الحيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 10300,
+          "end_ms": 10800,
+          "text": "الأكبر.",
+          "language": "en"
+        },
+        {
+          "start_ms": 11300,
+          "end_ms": 11700,
+          "text": "عشان",
+          "language": "en"
+        },
+        {
+          "start_ms": 11700,
+          "end_ms": 12200,
+          "text": "كده",
+          "language": "en"
+        },
+        {
+          "start_ms": 12200,
+          "end_ms": 12700,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 12700,
+          "end_ms": 13100,
+          "text": "بياخد",
+          "language": "en"
+        },
+        {
+          "start_ms": 13100,
+          "end_ms": 13400,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 13400,
+          "end_ms": 13900,
+          "text": "الوعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 13900,
+          "end_ms": 14400,
+          "text": "وحجمه.",
+          "language": "en"
+        },
+        {
+          "start_ms": 15100,
+          "end_ms": 15600,
+          "text": "والهوا",
+          "language": "en"
+        },
+        {
+          "start_ms": 15600,
+          "end_ms": 16200,
+          "text": "مادة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 16300,
+          "end_ms": 16600,
+          "text": "حتى",
+          "language": "en"
+        },
+        {
+          "start_ms": 16600,
+          "end_ms": 16800,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 16800,
+          "end_ms": 16900,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 16900,
+          "end_ms": 17400,
+          "text": "شايفينه:",
+          "language": "en"
+        },
+        {
+          "start_ms": 18000,
+          "end_ms": 18200,
+          "text": "له",
+          "language": "en"
+        },
+        {
+          "start_ms": 18200,
+          "end_ms": 18800,
+          "text": "كتلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 18900,
+          "end_ms": 19400,
+          "text": "وبيشغل",
+          "language": "en"
+        },
+        {
+          "start_ms": 19400,
+          "end_ms": 20000,
+          "text": "حيز.",
+          "language": "en"
+        },
+        {
+          "start_ms": 20600,
+          "end_ms": 21000,
+          "text": "افتكر",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21400,
+          "text": "الفرق:",
+          "language": "en"
+        },
+        {
+          "start_ms": 22000,
+          "end_ms": 22800,
+          "text": "الـSolid",
+          "language": "en"
+        },
+        {
+          "start_ms": 23000,
+          "end_ms": 23200,
+          "text": "له",
+          "language": "en"
+        },
+        {
+          "start_ms": 23200,
+          "end_ms": 23617,
+          "text": "Shape",
+          "language": "en"
+        },
+        {
+          "start_ms": 23617,
+          "end_ms": 24200,
+          "text": "وVolume",
+          "language": "en"
+        },
+        {
+          "start_ms": 24200,
+          "end_ms": 24900,
+          "text": "محددان",
+          "language": "en"
+        },
+        {
+          "start_ms": 24900,
+          "end_ms": 25000,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 25000,
+          "end_ms": 25300,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 25300,
+          "end_ms": 25800,
+          "text": "الظروف.",
+          "language": "en"
+        },
+        {
+          "start_ms": 26500,
+          "end_ms": 27300,
+          "text": "الـLiquid",
+          "language": "en"
+        },
+        {
+          "start_ms": 27400,
+          "end_ms": 27900,
+          "text": "بيغيّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 27900,
+          "end_ms": 28600,
+          "text": "الـShape،",
+          "language": "en"
+        },
+        {
+          "start_ms": 28700,
+          "end_ms": 29100,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 29100,
+          "end_ms": 29300,
+          "text": "له",
+          "language": "en"
+        },
+        {
+          "start_ms": 29300,
+          "end_ms": 29700,
+          "text": "Volume",
+          "language": "en"
+        },
+        {
+          "start_ms": 29700,
+          "end_ms": 30200,
+          "text": "محدد",
+          "language": "en"
+        },
+        {
+          "start_ms": 30200,
+          "end_ms": 30700,
+          "text": "تقريبًا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 31200,
+          "end_ms": 31964,
+          "text": "والـGas",
+          "language": "en"
+        },
+        {
+          "start_ms": 31964,
+          "end_ms": 32600,
+          "text": "بيملأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 32600,
+          "end_ms": 33200,
+          "text": "الحيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 33200,
+          "end_ms": 33700,
+          "text": "المتاح",
+          "language": "en"
+        },
+        {
+          "start_ms": 33700,
+          "end_ms": 33900,
+          "text": "له.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "expand",
+          "atMs": 7000,
+          "anchor": "في وعاء أكبر"
+        },
+        {
+          "id": "compare",
+          "atMs": 20600,
+          "anchor": "افتكر الفرق"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.8032786885245902,
+      "arabicGrounding": 0.9245283018867925,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "أما الـGas، فبيملأ الحيز المتاح له داخل الوعاء. لو نفس كمية الغاز موجودة في وعاء أكبر، الجسيمات بتنتشر في الحيز الأكبر. عشان كده الغاز بياخد شكل الوعاء وحجمه. والهوا مادة، حتى لو مش شايفينه: له كتلة وبيشغل حيز. افتكر الفرق: الـSolid له Shape وVolume محددان في نفس الظروف. الـLiquid بيغيّر الـShape، لكن له Volume محدد تقريبًا. والـGas بيملأ الحيز المتاح له."
+      },
+      "originalWavHash": "54c32b7945a69c75702fe033a17439ddb143395bd4108efa7a09ea9bd2c92f71",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S09",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S09.818fc7d38a13.mp3",
+      "scriptHash": "d87420a44d67647ab2802d5fae5f4a394a13774be01fb16f906f880ed32087c8",
+      "audioHash": "818fc7d38a13633765c9a68695a65f2ec89254d940591a1472c7203863b47791",
+      "durationMs": 63160,
+      "words": [
+        {
+          "start_ms": 300,
+          "end_ms": 1000,
+          "text": "هنمثّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 1000,
+          "end_ms": 1400,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 1400,
+          "end_ms": 1800,
+          "text": "بنقط",
+          "language": "en"
+        },
+        {
+          "start_ms": 1800,
+          "end_ms": 2400,
+          "text": "صغيرة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 3100,
+          "end_ms": 3500,
+          "text": "النقطة",
+          "language": "en"
+        },
+        {
+          "start_ms": 3500,
+          "end_ms": 3900,
+          "text": "هنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 3900,
+          "end_ms": 4400,
+          "text": "بتمثّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 4400,
+          "end_ms": 5300,
+          "text": "Particle،",
+          "language": "en"
+        },
+        {
+          "start_ms": 5300,
+          "end_ms": 5700,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 5700,
+          "end_ms": 6100,
+          "text": "جسيم.",
+          "language": "en"
+        },
+        {
+          "start_ms": 6800,
+          "end_ms": 7500,
+          "text": "والجمع",
+          "language": "en"
+        },
+        {
+          "start_ms": 7500,
+          "end_ms": 8400,
+          "text": "Particles،",
+          "language": "en"
+        },
+        {
+          "start_ms": 8400,
+          "end_ms": 8800,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 8800,
+          "end_ms": 9600,
+          "text": "جسيمات.",
+          "language": "en"
+        },
+        {
+          "start_ms": 10200,
+          "end_ms": 10400,
+          "text": "دي",
+          "language": "en"
+        },
+        {
+          "start_ms": 10400,
+          "end_ms": 10700,
+          "text": "رسمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 10700,
+          "end_ms": 11200,
+          "text": "تساعدنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 11200,
+          "end_ms": 11800,
+          "text": "نفهم؛",
+          "language": "en"
+        },
+        {
+          "start_ms": 12000,
+          "end_ms": 12200,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 12200,
+          "end_ms": 12500,
+          "text": "صورة",
+          "language": "en"
+        },
+        {
+          "start_ms": 12500,
+          "end_ms": 13000,
+          "text": "حقيقية",
+          "language": "en"
+        },
+        {
+          "start_ms": 13000,
+          "end_ms": 14000,
+          "text": "للجسيمات،",
+          "language": "en"
+        },
+        {
+          "start_ms": 14200,
+          "end_ms": 14700,
+          "text": "وأحجام",
+          "language": "en"
+        },
+        {
+          "start_ms": 14700,
+          "end_ms": 15200,
+          "text": "النقط",
+          "language": "en"
+        },
+        {
+          "start_ms": 15200,
+          "end_ms": 16000,
+          "text": "والمسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 16000,
+          "end_ms": 16200,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 16200,
+          "end_ms": 16600,
+          "text": "مرسومة",
+          "language": "en"
+        },
+        {
+          "start_ms": 16600,
+          "end_ms": 17200,
+          "text": "بالمقياس",
+          "language": "en"
+        },
+        {
+          "start_ms": 17200,
+          "end_ms": 17800,
+          "text": "الحقيقي.",
+          "language": "en"
+        },
+        {
+          "start_ms": 18500,
+          "end_ms": 18600,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 18600,
+          "end_ms": 19400,
+          "text": "الـSolid،",
+          "language": "en"
+        },
+        {
+          "start_ms": 19400,
+          "end_ms": 20100,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 20100,
+          "end_ms": 20600,
+          "text": "قريبة",
+          "language": "en"
+        },
+        {
+          "start_ms": 20600,
+          "end_ms": 20800,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 20800,
+          "end_ms": 21400,
+          "text": "بعض،",
+          "language": "en"
+        },
+        {
+          "start_ms": 21500,
+          "end_ms": 22200,
+          "text": "وبتتهز",
+          "language": "en"
+        },
+        {
+          "start_ms": 22200,
+          "end_ms": 22600,
+          "text": "حوالين",
+          "language": "en"
+        },
+        {
+          "start_ms": 22600,
+          "end_ms": 23200,
+          "text": "مواضعها.",
+          "language": "en"
+        },
+        {
+          "start_ms": 23700,
+          "end_ms": 24000,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 24000,
+          "end_ms": 24500,
+          "text": "الصلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 24500,
+          "end_ms": 24700,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 24700,
+          "end_ms": 25000,
+          "text": "معناه",
+          "language": "en"
+        },
+        {
+          "start_ms": 25000,
+          "end_ms": 25200,
+          "text": "إن",
+          "language": "en"
+        },
+        {
+          "start_ms": 25200,
+          "end_ms": 25800,
+          "text": "جسيماته",
+          "language": "en"
+        },
+        {
+          "start_ms": 25800,
+          "end_ms": 26200,
+          "text": "ساكنة",
+          "language": "en"
+        },
+        {
+          "start_ms": 26200,
+          "end_ms": 26700,
+          "text": "تمامًا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 27400,
+          "end_ms": 27600,
+          "text": "ولو",
+          "language": "en"
+        },
+        {
+          "start_ms": 27600,
+          "end_ms": 28100,
+          "text": "رسمناها",
+          "language": "en"
+        },
+        {
+          "start_ms": 28100,
+          "end_ms": 28200,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 28200,
+          "end_ms": 28600,
+          "text": "صفوف",
+          "language": "en"
+        },
+        {
+          "start_ms": 28600,
+          "end_ms": 29400,
+          "text": "منتظمة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 29600,
+          "end_ms": 29800,
+          "text": "فده",
+          "language": "en"
+        },
+        {
+          "start_ms": 29800,
+          "end_ms": 30400,
+          "text": "نموذج",
+          "language": "en"
+        },
+        {
+          "start_ms": 30400,
+          "end_ms": 30800,
+          "text": "لصلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 30800,
+          "end_ms": 31600,
+          "text": "بلوري؛",
+          "language": "en"
+        },
+        {
+          "start_ms": 31700,
+          "end_ms": 31900,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 31900,
+          "end_ms": 32200,
+          "text": "كل",
+          "language": "en"
+        },
+        {
+          "start_ms": 32200,
+          "end_ms": 32600,
+          "text": "المواد",
+          "language": "en"
+        },
+        {
+          "start_ms": 32600,
+          "end_ms": 33000,
+          "text": "الصلبة",
+          "language": "en"
+        },
+        {
+          "start_ms": 33000,
+          "end_ms": 33500,
+          "text": "ترتيبها",
+          "language": "en"
+        },
+        {
+          "start_ms": 33500,
+          "end_ms": 34000,
+          "text": "واحد.",
+          "language": "en"
+        },
+        {
+          "start_ms": 34600,
+          "end_ms": 34800,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 34800,
+          "end_ms": 35600,
+          "text": "الـLiquid،",
+          "language": "en"
+        },
+        {
+          "start_ms": 35600,
+          "end_ms": 36200,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 36200,
+          "end_ms": 36600,
+          "text": "برضه",
+          "language": "en"
+        },
+        {
+          "start_ms": 36600,
+          "end_ms": 37300,
+          "text": "قريبة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 37500,
+          "end_ms": 37800,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 37800,
+          "end_ms": 38100,
+          "text": "تقدر",
+          "language": "en"
+        },
+        {
+          "start_ms": 38100,
+          "end_ms": 38700,
+          "text": "تتحرك",
+          "language": "en"
+        },
+        {
+          "start_ms": 38700,
+          "end_ms": 39300,
+          "text": "وتتبدّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 39300,
+          "end_ms": 39900,
+          "text": "أماكنها.",
+          "language": "en"
+        },
+        {
+          "start_ms": 40400,
+          "end_ms": 40600,
+          "text": "وده",
+          "language": "en"
+        },
+        {
+          "start_ms": 40600,
+          "end_ms": 41100,
+          "text": "يساعدنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 41100,
+          "end_ms": 41500,
+          "text": "نفهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 41500,
+          "end_ms": 41600,
+          "text": "ليه",
+          "language": "en"
+        },
+        {
+          "start_ms": 41600,
+          "end_ms": 42100,
+          "text": "السائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 42100,
+          "end_ms": 42700,
+          "text": "بيجري",
+          "language": "en"
+        },
+        {
+          "start_ms": 42700,
+          "end_ms": 43200,
+          "text": "ويغيّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 43200,
+          "end_ms": 43800,
+          "text": "شكله،",
+          "language": "en"
+        },
+        {
+          "start_ms": 44100,
+          "end_ms": 44300,
+          "text": "مع",
+          "language": "en"
+        },
+        {
+          "start_ms": 44300,
+          "end_ms": 44600,
+          "text": "بقاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 44600,
+          "end_ms": 45000,
+          "text": "حجمه",
+          "language": "en"
+        },
+        {
+          "start_ms": 45000,
+          "end_ms": 45500,
+          "text": "تقريبًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 45500,
+          "end_ms": 46100,
+          "text": "محدد.",
+          "language": "en"
+        },
+        {
+          "start_ms": 46800,
+          "end_ms": 47000,
+          "text": "أما",
+          "language": "en"
+        },
+        {
+          "start_ms": 47000,
+          "end_ms": 47200,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 47200,
+          "end_ms": 48100,
+          "text": "الـGas،",
+          "language": "en"
+        },
+        {
+          "start_ms": 48100,
+          "end_ms": 48700,
+          "text": "فالمسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 48700,
+          "end_ms": 48800,
+          "text": "بين",
+          "language": "en"
+        },
+        {
+          "start_ms": 48800,
+          "end_ms": 49500,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 49500,
+          "end_ms": 50000,
+          "text": "كبيرة",
+          "language": "en"
+        },
+        {
+          "start_ms": 50000,
+          "end_ms": 50700,
+          "text": "مقارنة",
+          "language": "en"
+        },
+        {
+          "start_ms": 50700,
+          "end_ms": 51000,
+          "text": "بحجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 51000,
+          "end_ms": 51600,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 51600,
+          "end_ms": 52100,
+          "text": "نفسها.",
+          "language": "en"
+        },
+        {
+          "start_ms": 52600,
+          "end_ms": 53200,
+          "text": "والجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 53200,
+          "end_ms": 53800,
+          "text": "بتتحرك",
+          "language": "en"
+        },
+        {
+          "start_ms": 53800,
+          "end_ms": 53900,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 53900,
+          "end_ms": 54400,
+          "text": "اتجاهات",
+          "language": "en"
+        },
+        {
+          "start_ms": 54400,
+          "end_ms": 55000,
+          "text": "مختلفة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 55700,
+          "end_ms": 56200,
+          "text": "بنسمّي",
+          "language": "en"
+        },
+        {
+          "start_ms": 56200,
+          "end_ms": 56500,
+          "text": "ده",
+          "language": "en"
+        },
+        {
+          "start_ms": 56500,
+          "end_ms": 57200,
+          "text": "Random",
+          "language": "en"
+        },
+        {
+          "start_ms": 57200,
+          "end_ms": 57900,
+          "text": "motion،",
+          "language": "en"
+        },
+        {
+          "start_ms": 57900,
+          "end_ms": 58200,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 58200,
+          "end_ms": 58500,
+          "text": "حركة",
+          "language": "en"
+        },
+        {
+          "start_ms": 58500,
+          "end_ms": 59200,
+          "text": "عشوائية.",
+          "language": "en"
+        },
+        {
+          "start_ms": 59800,
+          "end_ms": 60300,
+          "text": "الحركة",
+          "language": "en"
+        },
+        {
+          "start_ms": 60300,
+          "end_ms": 60400,
+          "text": "دي",
+          "language": "en"
+        },
+        {
+          "start_ms": 60400,
+          "end_ms": 60800,
+          "text": "بتخلّي",
+          "language": "en"
+        },
+        {
+          "start_ms": 60800,
+          "end_ms": 61200,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 61200,
+          "end_ms": 61700,
+          "text": "ينتشر",
+          "language": "en"
+        },
+        {
+          "start_ms": 61700,
+          "end_ms": 61800,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 61800,
+          "end_ms": 62300,
+          "text": "الحيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 62300,
+          "end_ms": 62700,
+          "text": "المتاح",
+          "language": "en"
+        },
+        {
+          "start_ms": 62700,
+          "end_ms": 62900,
+          "text": "له.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "solid",
+          "atMs": 19400,
+          "anchor": "الجسيمات قريبة من بعض"
+        },
+        {
+          "id": "liquid",
+          "atMs": 37800,
+          "anchor": "تقدر تتحرك وتتبدّل أماكنها"
+        },
+        {
+          "id": "gas",
+          "atMs": 48100,
+          "anchor": "فالمسافات بين الجسيمات كبيرة"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.9051724137931034,
+      "arabicGrounding": 0.963302752293578,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "هنمثّل المادة بنقط صغيرة. النقطة هنا بتمثّل Particle، يعني جسيم. والجمع Particles، يعني جسيمات. دي رسمة تساعدنا نفهم؛ مش صورة حقيقية للجسيمات، وأحجام النقط والمسافات مش مرسومة بالمقياس الحقيقي. في الـSolid، الجسيمات قريبة من بعض، وبتتهز حوالين مواضعها. يعني الصلب مش معناه إن جسيماته ساكنة تمامًا. ولو رسمناها في صفوف منتظمة، فده نموذج لصلب بلوري؛ مش كل المواد الصلبة ترتيبها واحد. في الـLiquid، الجسيمات برضه قريبة، لكن تقدر تتحرك وتتبدّل أماكنها. وده يساعدنا نفهم ليه السائل بيجري ويغيّر شكله، مع بقاء حجمه تقريبًا محدد. أما في الـGas، فالمسافات بين الجسيمات كبيرة مقارنة بحجم الجسيمات نفسها. والجسيمات بتتحرك في اتجاهات مختلفة. بنسمّي ده Random motion، يعني حركة عشوائية. الحركة دي بتخلّي الغاز ينتشر في الحيز المتاح له."
+      },
+      "originalWavHash": "1fb08cee613d90641645cdab7dcd8077da3e6e10fb875140a6bad46f15da4f76",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S05",
+      "modelUsed": "gemini-3.8-flash-tts",
+      "file": "/recordings/chem-gas-states-v3/S05.3ce85e20f82e.mp3",
+      "scriptHash": "368575b6f8cb591b71fa4289a3614468aa0af95f7747b500707100526b52fd0e",
+      "audioHash": "3ce85e20f82e2894ce72737962076829afca150a69a3dc184b57573513358269",
+      "durationMs": 57520,
+      "words": [
+        {
+          "start_ms": 300,
+          "end_ms": 800,
+          "text": "تخيّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 800,
+          "end_ms": 1200,
+          "text": "سرنجة",
+          "language": "en"
+        },
+        {
+          "start_ms": 1200,
+          "end_ms": 1900,
+          "text": "مقفولة",
+          "language": "en"
+        },
+        {
+          "start_ms": 1900,
+          "end_ms": 2200,
+          "text": "فيها",
+          "language": "en"
+        },
+        {
+          "start_ms": 2200,
+          "end_ms": 2600,
+          "text": "هوا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 3200,
+          "end_ms": 3400,
+          "text": "لما",
+          "language": "en"
+        },
+        {
+          "start_ms": 3400,
+          "end_ms": 3800,
+          "text": "نضغط",
+          "language": "en"
+        },
+        {
+          "start_ms": 3800,
+          "end_ms": 4500,
+          "text": "المكبس،",
+          "language": "en"
+        },
+        {
+          "start_ms": 4700,
+          "end_ms": 5100,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 5100,
+          "end_ms": 5600,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 5600,
+          "end_ms": 6000,
+          "text": "الهوا",
+          "language": "en"
+        },
+        {
+          "start_ms": 6000,
+          "end_ms": 6300,
+          "text": "بتبقى",
+          "language": "en"
+        },
+        {
+          "start_ms": 6300,
+          "end_ms": 6400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 6400,
+          "end_ms": 6700,
+          "text": "حيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 6700,
+          "end_ms": 7100,
+          "text": "أصغر.",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 7900,
+          "text": "إيه",
+          "language": "en"
+        },
+        {
+          "start_ms": 7900,
+          "end_ms": 8000,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 8000,
+          "end_ms": 8400,
+          "text": "حصل",
+          "language": "en"
+        },
+        {
+          "start_ms": 8400,
+          "end_ms": 8700,
+          "text": "جوه؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 9600,
+          "end_ms": 10300,
+          "text": "المسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 10300,
+          "end_ms": 10500,
+          "text": "بين",
+          "language": "en"
+        },
+        {
+          "start_ms": 10500,
+          "end_ms": 11200,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 11200,
+          "end_ms": 11700,
+          "text": "قلّت.",
+          "language": "en"
+        },
+        {
+          "start_ms": 12500,
+          "end_ms": 13100,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 13100,
+          "end_ms": 13400,
+          "text": "نفسها",
+          "language": "en"
+        },
+        {
+          "start_ms": 13400,
+          "end_ms": 13600,
+          "text": "ما",
+          "language": "en"
+        },
+        {
+          "start_ms": 13600,
+          "end_ms": 14000,
+          "text": "صغرتش",
+          "language": "en"
+        },
+        {
+          "start_ms": 14000,
+          "end_ms": 14100,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 14100,
+          "end_ms": 14600,
+          "text": "النموذج",
+          "language": "en"
+        },
+        {
+          "start_ms": 14600,
+          "end_ms": 14700,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 14700,
+          "end_ms": 15300,
+          "text": "بنستخدمه.",
+          "language": "en"
+        },
+        {
+          "start_ms": 16200,
+          "end_ms": 16500,
+          "text": "دي",
+          "language": "en"
+        },
+        {
+          "start_ms": 16500,
+          "end_ms": 18500,
+          "text": "Compressibility،",
+          "language": "en"
+        },
+        {
+          "start_ms": 18500,
+          "end_ms": 19000,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 19200,
+          "end_ms": 19800,
+          "text": "قابلية",
+          "language": "en"
+        },
+        {
+          "start_ms": 19800,
+          "end_ms": 20400,
+          "text": "الانضغاط:",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21700,
+          "text": "إمكانية",
+          "language": "en"
+        },
+        {
+          "start_ms": 21700,
+          "end_ms": 22100,
+          "text": "تقليل",
+          "language": "en"
+        },
+        {
+          "start_ms": 22100,
+          "end_ms": 22600,
+          "text": "الحجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 22600,
+          "end_ms": 23200,
+          "text": "بالضغط.",
+          "language": "en"
+        },
+        {
+          "start_ms": 24100,
+          "end_ms": 24800,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 24800,
+          "end_ms": 25200,
+          "text": "سهل",
+          "language": "en"
+        },
+        {
+          "start_ms": 25200,
+          "end_ms": 25600,
+          "text": "نضغطه",
+          "language": "en"
+        },
+        {
+          "start_ms": 25600,
+          "end_ms": 26200,
+          "text": "نسبيًا،",
+          "language": "en"
+        },
+        {
+          "start_ms": 26600,
+          "end_ms": 27000,
+          "text": "لأن",
+          "language": "en"
+        },
+        {
+          "start_ms": 27000,
+          "end_ms": 27200,
+          "text": "بين",
+          "language": "en"
+        },
+        {
+          "start_ms": 27200,
+          "end_ms": 27700,
+          "text": "جسيماته",
+          "language": "en"
+        },
+        {
+          "start_ms": 27700,
+          "end_ms": 28100,
+          "text": "مسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 28100,
+          "end_ms": 28600,
+          "text": "كبيرة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 29400,
+          "end_ms": 29430,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 29430,
+          "end_ms": 29800,
+          "text": "السائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 29800,
+          "end_ms": 30400,
+          "text": "والصلب،",
+          "language": "en"
+        },
+        {
+          "start_ms": 30500,
+          "end_ms": 31100,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 31100,
+          "end_ms": 31500,
+          "text": "أصلًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 31500,
+          "end_ms": 32100,
+          "text": "قريبة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 32500,
+          "end_ms": 33000,
+          "text": "فحجمهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 33000,
+          "end_ms": 33600,
+          "text": "بيتغيّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 33600,
+          "end_ms": 34000,
+          "text": "قليل",
+          "language": "en"
+        },
+        {
+          "start_ms": 34000,
+          "end_ms": 34300,
+          "text": "جدًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 34300,
+          "end_ms": 34500,
+          "text": "تحت",
+          "language": "en"
+        },
+        {
+          "start_ms": 34500,
+          "end_ms": 34800,
+          "text": "الضغط",
+          "language": "en"
+        },
+        {
+          "start_ms": 34800,
+          "end_ms": 35400,
+          "text": "المعتاد.",
+          "language": "en"
+        },
+        {
+          "start_ms": 36000,
+          "end_ms": 36300,
+          "text": "عشان",
+          "language": "en"
+        },
+        {
+          "start_ms": 36300,
+          "end_ms": 36600,
+          "text": "كده",
+          "language": "en"
+        },
+        {
+          "start_ms": 36600,
+          "end_ms": 37000,
+          "text": "بنقول",
+          "language": "en"
+        },
+        {
+          "start_ms": 37000,
+          "end_ms": 37200,
+          "text": "إن",
+          "language": "en"
+        },
+        {
+          "start_ms": 37200,
+          "end_ms": 37800,
+          "text": "انضغاطهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 37800,
+          "end_ms": 38100,
+          "text": "أصعب",
+          "language": "en"
+        },
+        {
+          "start_ms": 38100,
+          "end_ms": 38600,
+          "text": "بكتير.",
+          "language": "en"
+        },
+        {
+          "start_ms": 38600,
+          "end_ms": 39114,
+          "text": "كلمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 39114,
+          "end_ms": 40400,
+          "text": "Compressed",
+          "language": "en"
+        },
+        {
+          "start_ms": 40400,
+          "end_ms": 41000,
+          "text": "معناها",
+          "language": "en"
+        },
+        {
+          "start_ms": 41100,
+          "end_ms": 41800,
+          "text": "اتضغط،",
+          "language": "en"
+        },
+        {
+          "start_ms": 42100,
+          "end_ms": 42600,
+          "text": "وكلمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 42600,
+          "end_ms": 43400,
+          "text": "Decrease",
+          "language": "en"
+        },
+        {
+          "start_ms": 43400,
+          "end_ms": 44100,
+          "text": "معناها",
+          "language": "en"
+        },
+        {
+          "start_ms": 44200,
+          "end_ms": 44700,
+          "text": "يقل.",
+          "language": "en"
+        },
+        {
+          "start_ms": 44700,
+          "end_ms": 45065,
+          "text": "When",
+          "language": "en"
+        },
+        {
+          "start_ms": 45065,
+          "end_ms": 45156,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 45156,
+          "end_ms": 45429,
+          "text": "gas",
+          "language": "en"
+        },
+        {
+          "start_ms": 45429,
+          "end_ms": 45611,
+          "text": "is",
+          "language": "en"
+        },
+        {
+          "start_ms": 45611,
+          "end_ms": 46523,
+          "text": "compressed,",
+          "language": "en"
+        },
+        {
+          "start_ms": 46523,
+          "end_ms": 46705,
+          "text": "do",
+          "language": "en"
+        },
+        {
+          "start_ms": 46705,
+          "end_ms": 46978,
+          "text": "the",
+          "language": "en"
+        },
+        {
+          "start_ms": 46978,
+          "end_ms": 47799,
+          "text": "particles",
+          "language": "en"
+        },
+        {
+          "start_ms": 47799,
+          "end_ms": 48346,
+          "text": "become",
+          "language": "en"
+        },
+        {
+          "start_ms": 48346,
+          "end_ms": 48984,
+          "text": "smaller,",
+          "language": "en"
+        },
+        {
+          "start_ms": 48984,
+          "end_ms": 49166,
+          "text": "or",
+          "language": "en"
+        },
+        {
+          "start_ms": 49166,
+          "end_ms": 49348,
+          "text": "do",
+          "language": "en"
+        },
+        {
+          "start_ms": 49348,
+          "end_ms": 49622,
+          "text": "the",
+          "language": "en"
+        },
+        {
+          "start_ms": 49622,
+          "end_ms": 50168,
+          "text": "spaces",
+          "language": "en"
+        },
+        {
+          "start_ms": 50168,
+          "end_ms": 50806,
+          "text": "between",
+          "language": "en"
+        },
+        {
+          "start_ms": 50806,
+          "end_ms": 51171,
+          "text": "them",
+          "language": "en"
+        },
+        {
+          "start_ms": 51171,
+          "end_ms": 51900,
+          "text": "decrease?",
+          "language": "en"
+        },
+        {
+          "start_ms": 51900,
+          "end_ms": 52300,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 52700,
+          "end_ms": 53000,
+          "text": "لما",
+          "language": "en"
+        },
+        {
+          "start_ms": 53000,
+          "end_ms": 53300,
+          "text": "نضغط",
+          "language": "en"
+        },
+        {
+          "start_ms": 53300,
+          "end_ms": 53900,
+          "text": "الغاز،",
+          "language": "en"
+        },
+        {
+          "start_ms": 54100,
+          "end_ms": 54300,
+          "text": "هل",
+          "language": "en"
+        },
+        {
+          "start_ms": 54300,
+          "end_ms": 54900,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 54900,
+          "end_ms": 55600,
+          "text": "بتصغر،",
+          "language": "en"
+        },
+        {
+          "start_ms": 55700,
+          "end_ms": 55900,
+          "text": "ولا",
+          "language": "en"
+        },
+        {
+          "start_ms": 55900,
+          "end_ms": 56400,
+          "text": "المسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 56400,
+          "end_ms": 56700,
+          "text": "بينها",
+          "language": "en"
+        },
+        {
+          "start_ms": 56700,
+          "end_ms": 57200,
+          "text": "بتقل؟",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "compress",
+          "atMs": 3200,
+          "anchor": "لما نضغط المكبس"
+        },
+        {
+          "id": "space",
+          "atMs": 9600,
+          "anchor": "المسافات بين الجسيمات قلّت"
+        },
+        {
+          "id": "constant-size",
+          "atMs": 12500,
+          "anchor": "الجسيمات نفسها ما صغرتش"
+        }
+      ],
+      "questionAtMs": 44700,
+      "alignmentCoverage": 0.780952380952381,
+      "arabicGrounding": 0.9647058823529412,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "تخيّل سرنجة مقفولة فيها هوا. لما نضغط المكبس، نفس كمية الهوا بتبقى في حيز أصغر. إيه اللي حصل جوه؟ المسافات بين الجسيمات قلّت. الجسيمات نفسها ما صغرتش في النموذج اللي بنستخدمه. دي Compressibility، يعني قابلية الانضغاط: إمكانية تقليل الحجم بالضغط. الغاز سهل نضغطه نسبيًا، لأن بين جسيماته مسافات كبيرة. في السائل والصلب، الجسيمات أصلًا قريبة، فحجمهم بيتغيّر قليل جدًا تحت الضغط المعتاد. عشان كده بنقول إن انضغاطهم أصعب بكتير. كلمة Compressed معناها اتضغط، وكلمة Decrease معناها يقل. When a gas is compressed, do the particles become smaller, or do the spaces between them decrease? يعني: لما نضغط الغاز، هل الجسيمات بتصغر، ولا المسافات بينها بتقل؟"
+      },
+      "originalWavHash": "e907188ae1f039bfbd310bb79b88757743cbce48d5ae59b9a6229ab2e2aa0e1a",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S06",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S06.9101e0de9825.mp3",
+      "scriptHash": "5ed5e26308aa16f1d23089372106990798ad748078d7be3e53dcc052031aa567",
+      "audioHash": "9101e0de9825e1432a149fb5a74046eb328b9b9ed7ae6843a88e7c0c830571ec",
+      "durationMs": 35280,
+      "words": [
+        {
+          "start_ms": 400,
+          "end_ms": 900,
+          "text": "نبدأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 900,
+          "end_ms": 1000,
+          "text": "بـDensity،",
+          "language": "en"
+        },
+        {
+          "start_ms": 1800,
+          "end_ms": 2400,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 2400,
+          "end_ms": 3100,
+          "text": "الكثافة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 3900,
+          "end_ms": 4400,
+          "text": "تخيّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 4400,
+          "end_ms": 5300,
+          "text": "صندوقين",
+          "language": "en"
+        },
+        {
+          "start_ms": 5300,
+          "end_ms": 5600,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 5600,
+          "end_ms": 6000,
+          "text": "الحجم.",
+          "language": "en"
+        },
+        {
+          "start_ms": 6800,
+          "end_ms": 7200,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 7200,
+          "end_ms": 7300,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 7300,
+          "end_ms": 7800,
+          "text": "الأول",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 8300,
+          "text": "كتلتها",
+          "language": "en"
+        },
+        {
+          "start_ms": 8300,
+          "end_ms": 8800,
+          "text": "أكبر",
+          "language": "en"
+        },
+        {
+          "start_ms": 8800,
+          "end_ms": 8900,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 8900,
+          "end_ms": 9300,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 9300,
+          "end_ms": 9400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 9400,
+          "end_ms": 9800,
+          "text": "التاني.",
+          "language": "en"
+        },
+        {
+          "start_ms": 10500,
+          "end_ms": 10900,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 10900,
+          "end_ms": 11000,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 11000,
+          "end_ms": 11500,
+          "text": "الصندوق",
+          "language": "en"
+        },
+        {
+          "start_ms": 11500,
+          "end_ms": 12100,
+          "text": "الأول",
+          "language": "en"
+        },
+        {
+          "start_ms": 12100,
+          "end_ms": 12800,
+          "text": "أكثف:",
+          "language": "en"
+        },
+        {
+          "start_ms": 13100,
+          "end_ms": 13600,
+          "text": "عندنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 13600,
+          "end_ms": 14000,
+          "text": "كتلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 14000,
+          "end_ms": 14600,
+          "text": "أكبر",
+          "language": "en"
+        },
+        {
+          "start_ms": 14700,
+          "end_ms": 14800,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 14800,
+          "end_ms": 15000,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 15000,
+          "end_ms": 15400,
+          "text": "الحجم.",
+          "language": "en"
+        },
+        {
+          "start_ms": 16300,
+          "end_ms": 16700,
+          "text": "إذن",
+          "language": "en"
+        },
+        {
+          "start_ms": 16700,
+          "end_ms": 17700,
+          "text": "الكثافة",
+          "language": "en"
+        },
+        {
+          "start_ms": 17700,
+          "end_ms": 18200,
+          "text": "بتربط",
+          "language": "en"
+        },
+        {
+          "start_ms": 18200,
+          "end_ms": 18800,
+          "text": "الكتلة",
+          "language": "en"
+        },
+        {
+          "start_ms": 18900,
+          "end_ms": 19300,
+          "text": "بالحجم.",
+          "language": "en"
+        },
+        {
+          "start_ms": 20500,
+          "end_ms": 20600,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 20600,
+          "end_ms": 21000,
+          "text": "الظروف",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21900,
+          "text": "المعتادة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 22000,
+          "end_ms": 22600,
+          "text": "الغازات",
+          "language": "en"
+        },
+        {
+          "start_ms": 22600,
+          "end_ms": 23100,
+          "text": "غالبًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 23100,
+          "end_ms": 23700,
+          "text": "كثافتها",
+          "language": "en"
+        },
+        {
+          "start_ms": 23700,
+          "end_ms": 24000,
+          "text": "أقل",
+          "language": "en"
+        },
+        {
+          "start_ms": 24000,
+          "end_ms": 24500,
+          "text": "بكتير",
+          "language": "en"
+        },
+        {
+          "start_ms": 24500,
+          "end_ms": 24700,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 24700,
+          "end_ms": 25300,
+          "text": "السوائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 25300,
+          "end_ms": 25700,
+          "text": "والمواد",
+          "language": "en"
+        },
+        {
+          "start_ms": 25700,
+          "end_ms": 26200,
+          "text": "الصلبة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 26900,
+          "end_ms": 27400,
+          "text": "والصلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 27400,
+          "end_ms": 27900,
+          "text": "غالبًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 27900,
+          "end_ms": 28300,
+          "text": "أكثف",
+          "language": "en"
+        },
+        {
+          "start_ms": 28300,
+          "end_ms": 28400,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 28400,
+          "end_ms": 28900,
+          "text": "السائل،",
+          "language": "en"
+        },
+        {
+          "start_ms": 29400,
+          "end_ms": 29700,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 29700,
+          "end_ms": 29800,
+          "text": "فيه",
+          "language": "en"
+        },
+        {
+          "start_ms": 29800,
+          "end_ms": 30600,
+          "text": "استثناءات؛",
+          "language": "en"
+        },
+        {
+          "start_ms": 31300,
+          "end_ms": 31600,
+          "text": "اسم",
+          "language": "en"
+        },
+        {
+          "start_ms": 31600,
+          "end_ms": 32000,
+          "text": "الحالة",
+          "language": "en"
+        },
+        {
+          "start_ms": 32000,
+          "end_ms": 32500,
+          "text": "وحده",
+          "language": "en"
+        },
+        {
+          "start_ms": 32500,
+          "end_ms": 32800,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 32800,
+          "end_ms": 33200,
+          "text": "كفاية",
+          "language": "en"
+        },
+        {
+          "start_ms": 33200,
+          "end_ms": 33500,
+          "text": "نحكم",
+          "language": "en"
+        },
+        {
+          "start_ms": 33500,
+          "end_ms": 33700,
+          "text": "على",
+          "language": "en"
+        },
+        {
+          "start_ms": 33700,
+          "end_ms": 34200,
+          "text": "كثافة",
+          "language": "en"
+        },
+        {
+          "start_ms": 34300,
+          "end_ms": 34500,
+          "text": "أي",
+          "language": "en"
+        },
+        {
+          "start_ms": 34500,
+          "end_ms": 34900,
+          "text": "مادة.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "equal-volume",
+          "atMs": 3900,
+          "anchor": "تخيّل صندوقين نفس الحجم"
+        },
+        {
+          "id": "greater-mass",
+          "atMs": 6800,
+          "anchor": "المادة في الأول كتلتها أكبر"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.9206349206349206,
+      "arabicGrounding": 0.9354838709677419,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "نبدأ بـDensity، يعني الكثافة. تخيّل صندوقين نفس الحجم. المادة في الأول كتلتها أكبر من المادة في التاني. المادة في الصندوق الأول أكثف: عندنا كتلة أكبر في نفس الحجم. إذن الكثافة بتربط الكتلة بالحجم. في الظروف المعتادة، الغازات غالبًا كثافتها أقل بكتير من السوائل والمواد الصلبة. والصلب غالبًا أكثف من السائل، لكن فيه استثناءات؛ اسم الحالة وحده مش كفاية نحكم على كثافة أي مادة."
+      },
+      "originalWavHash": "33e9e55590d6d83bb636344f5ca26f10238a9577b52514b52ef4757253747a2e",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S07",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S07.72c4f716cbd7.mp3",
+      "scriptHash": "bad55eaba3358e39059b22418f65c3ff3a92c05e162b5d054b03abbb78e51cfd",
+      "audioHash": "72c4f716cbd764cc2a3d5173a413ed65adaf52f600a497f4f3a440a205a737c1",
+      "durationMs": 33440,
+      "words": [
+        {
+          "start_ms": 200,
+          "end_ms": 900,
+          "text": "الخاصية",
+          "language": "en"
+        },
+        {
+          "start_ms": 900,
+          "end_ms": 1300,
+          "text": "التانية",
+          "language": "en"
+        },
+        {
+          "start_ms": 1300,
+          "end_ms": 1700,
+          "text": "هي",
+          "language": "en"
+        },
+        {
+          "start_ms": 1700,
+          "end_ms": 2800,
+          "text": "Fluidity،",
+          "language": "en"
+        },
+        {
+          "start_ms": 2800,
+          "end_ms": 3300,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 3300,
+          "end_ms": 4300,
+          "text": "الميوعة:",
+          "language": "en"
+        },
+        {
+          "start_ms": 4500,
+          "end_ms": 5300,
+          "text": "قابلية",
+          "language": "en"
+        },
+        {
+          "start_ms": 5300,
+          "end_ms": 5900,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 5900,
+          "end_ms": 6600,
+          "text": "للجريان.",
+          "language": "en"
+        },
+        {
+          "start_ms": 7300,
+          "end_ms": 7600,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 7600,
+          "end_ms": 8200,
+          "text": "بتجري،",
+          "language": "en"
+        },
+        {
+          "start_ms": 8400,
+          "end_ms": 9000,
+          "text": "والهوا",
+          "language": "en"
+        },
+        {
+          "start_ms": 9000,
+          "end_ms": 9300,
+          "text": "كمان",
+          "language": "en"
+        },
+        {
+          "start_ms": 9300,
+          "end_ms": 9700,
+          "text": "بيجري.",
+          "language": "en"
+        },
+        {
+          "start_ms": 10200,
+          "end_ms": 10500,
+          "text": "عشان",
+          "language": "en"
+        },
+        {
+          "start_ms": 10500,
+          "end_ms": 10900,
+          "text": "كده",
+          "language": "en"
+        },
+        {
+          "start_ms": 10900,
+          "end_ms": 11871,
+          "text": "الـLiquid",
+          "language": "en"
+        },
+        {
+          "start_ms": 11871,
+          "end_ms": 12600,
+          "text": "والـGas",
+          "language": "en"
+        },
+        {
+          "start_ms": 12600,
+          "end_ms": 13200,
+          "text": "الاتنين",
+          "language": "en"
+        },
+        {
+          "start_ms": 13200,
+          "end_ms": 13900,
+          "text": "بنسمّيهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 13900,
+          "end_ms": 14800,
+          "text": "Fluids،",
+          "language": "en"
+        },
+        {
+          "start_ms": 14800,
+          "end_ms": 15300,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 15300,
+          "end_ms": 15900,
+          "text": "موائع.",
+          "language": "en"
+        },
+        {
+          "start_ms": 16500,
+          "end_ms": 16900,
+          "text": "كلمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 16900,
+          "end_ms": 17500,
+          "text": "مائع",
+          "language": "en"
+        },
+        {
+          "start_ms": 17500,
+          "end_ms": 18000,
+          "text": "تشمل",
+          "language": "en"
+        },
+        {
+          "start_ms": 18000,
+          "end_ms": 18600,
+          "text": "السائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 18600,
+          "end_ms": 19200,
+          "text": "والغاز.",
+          "language": "en"
+        },
+        {
+          "start_ms": 19800,
+          "end_ms": 20100,
+          "text": "الصلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 20100,
+          "end_ms": 20600,
+          "text": "العادي",
+          "language": "en"
+        },
+        {
+          "start_ms": 20600,
+          "end_ms": 21200,
+          "text": "بيقاوم",
+          "language": "en"
+        },
+        {
+          "start_ms": 21200,
+          "end_ms": 21500,
+          "text": "تغيير",
+          "language": "en"
+        },
+        {
+          "start_ms": 21500,
+          "end_ms": 22000,
+          "text": "شكله",
+          "language": "en"
+        },
+        {
+          "start_ms": 22200,
+          "end_ms": 22400,
+          "text": "ومش",
+          "language": "en"
+        },
+        {
+          "start_ms": 22400,
+          "end_ms": 22800,
+          "text": "بيجري",
+          "language": "en"
+        },
+        {
+          "start_ms": 22800,
+          "end_ms": 23300,
+          "text": "بالطريقة",
+          "language": "en"
+        },
+        {
+          "start_ms": 23300,
+          "end_ms": 23400,
+          "text": "دي.",
+          "language": "en"
+        },
+        {
+          "start_ms": 24500,
+          "end_ms": 24900,
+          "text": "نجرب",
+          "language": "en"
+        },
+        {
+          "start_ms": 24900,
+          "end_ms": 25100,
+          "text": "سؤال",
+          "language": "en"
+        },
+        {
+          "start_ms": 25100,
+          "end_ms": 25600,
+          "text": "قصير؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 25600,
+          "end_ms": 26314,
+          "text": "Which",
+          "language": "en"
+        },
+        {
+          "start_ms": 26314,
+          "end_ms": 27171,
+          "text": "states",
+          "language": "en"
+        },
+        {
+          "start_ms": 27171,
+          "end_ms": 27457,
+          "text": "of",
+          "language": "en"
+        },
+        {
+          "start_ms": 27457,
+          "end_ms": 28314,
+          "text": "matter",
+          "language": "en"
+        },
+        {
+          "start_ms": 28314,
+          "end_ms": 28743,
+          "text": "are",
+          "language": "en"
+        },
+        {
+          "start_ms": 28743,
+          "end_ms": 29600,
+          "text": "fluids?",
+          "language": "en"
+        },
+        {
+          "start_ms": 29600,
+          "end_ms": 29900,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 30500,
+          "end_ms": 30800,
+          "text": "أي",
+          "language": "en"
+        },
+        {
+          "start_ms": 30800,
+          "end_ms": 31300,
+          "text": "حالات",
+          "language": "en"
+        },
+        {
+          "start_ms": 31300,
+          "end_ms": 32000,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 32000,
+          "end_ms": 32500,
+          "text": "تُعد",
+          "language": "en"
+        },
+        {
+          "start_ms": 32500,
+          "end_ms": 33100,
+          "text": "موائع؟",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "flow",
+          "atMs": 7300,
+          "anchor": "المية بتجري"
+        },
+        {
+          "id": "gas-flow",
+          "atMs": 8400,
+          "anchor": "والهوا كمان بيجري"
+        },
+        {
+          "id": "compare",
+          "atMs": 16500,
+          "anchor": "كلمة مائع تشمل السائل والغاز"
+        }
+      ],
+      "questionAtMs": 25600,
+      "alignmentCoverage": 0.7884615384615384,
+      "arabicGrounding": 0.9761904761904762,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "الخاصية التانية هي Fluidity، يعني الميوعة: قابلية المادة للجريان. المية بتجري، والهوا كمان بيجري. عشان كده الـLiquid والـGas، الاتنين بنسمّيهم Fluids، يعني موائع. كلمة مائع تشمل السائل والغاز. الصلب العادي بيقاوم تغيير شكله، ومش بيجري بالطريقة دي. نجرب سؤال قصير؟ Which states of matter are fluids? يعني: أي حالات المادة تُعد موائع؟"
+      },
+      "originalWavHash": "2a0e0a0d7035f85d9e2c2a99343f7b600bcfa111b73b3bdb1493d9500e9e474d",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S08",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S08.8c6d1bf4a4a6.mp3",
+      "scriptHash": "7911c6225998d197bb2266b7926a7e6905f7a7d836e07dfbe0a73ac213cb991a",
+      "audioHash": "8c6d1bf4a4a669362ba3af97c935ba4a0aa985d62c5508016572f0c69b8a3e4f",
+      "durationMs": 48280,
+      "words": [
+        {
+          "start_ms": 400,
+          "end_ms": 1000,
+          "text": "الخاصية",
+          "language": "en"
+        },
+        {
+          "start_ms": 1000,
+          "end_ms": 1600,
+          "text": "التالتة",
+          "language": "en"
+        },
+        {
+          "start_ms": 1700,
+          "end_ms": 2100,
+          "text": "هي",
+          "language": "en"
+        },
+        {
+          "start_ms": 2100,
+          "end_ms": 3100,
+          "text": "Diffusion،",
+          "language": "en"
+        },
+        {
+          "start_ms": 3100,
+          "end_ms": 3400,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 3400,
+          "end_ms": 4100,
+          "text": "الانتشار.",
+          "language": "en"
+        },
+        {
+          "start_ms": 4700,
+          "end_ms": 5200,
+          "text": "تخيّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 5200,
+          "end_ms": 5800,
+          "text": "مجموعتين",
+          "language": "en"
+        },
+        {
+          "start_ms": 5800,
+          "end_ms": 5900,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 5900,
+          "end_ms": 6500,
+          "text": "جسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 6500,
+          "end_ms": 7000,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 7000,
+          "end_ms": 7100,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 7100,
+          "end_ms": 7700,
+          "text": "منطقتين",
+          "language": "en"
+        },
+        {
+          "start_ms": 7700,
+          "end_ms": 8500,
+          "text": "مختلفتين.",
+          "language": "en"
+        },
+        {
+          "start_ms": 9200,
+          "end_ms": 9300,
+          "text": "مع",
+          "language": "en"
+        },
+        {
+          "start_ms": 9300,
+          "end_ms": 9800,
+          "text": "الحركة",
+          "language": "en"
+        },
+        {
+          "start_ms": 9800,
+          "end_ms": 10800,
+          "text": "العشوائية،",
+          "language": "en"
+        },
+        {
+          "start_ms": 11000,
+          "end_ms": 11700,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 11700,
+          "end_ms": 12400,
+          "text": "بتختلط",
+          "language": "en"
+        },
+        {
+          "start_ms": 12400,
+          "end_ms": 13300,
+          "text": "تدريجيًا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 13500,
+          "end_ms": 13600,
+          "text": "ده",
+          "language": "en"
+        },
+        {
+          "start_ms": 13600,
+          "end_ms": 14200,
+          "text": "انتشار:",
+          "language": "en"
+        },
+        {
+          "start_ms": 14800,
+          "end_ms": 15300,
+          "text": "حركة",
+          "language": "en"
+        },
+        {
+          "start_ms": 15300,
+          "end_ms": 16200,
+          "text": "واختلاط",
+          "language": "en"
+        },
+        {
+          "start_ms": 16300,
+          "end_ms": 16900,
+          "text": "ناتجان",
+          "language": "en"
+        },
+        {
+          "start_ms": 16900,
+          "end_ms": 17100,
+          "text": "عن",
+          "language": "en"
+        },
+        {
+          "start_ms": 17100,
+          "end_ms": 17600,
+          "text": "حركة",
+          "language": "en"
+        },
+        {
+          "start_ms": 17600,
+          "end_ms": 18200,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 18200,
+          "end_ms": 18900,
+          "text": "العشوائية.",
+          "language": "en"
+        },
+        {
+          "start_ms": 19800,
+          "end_ms": 20000,
+          "text": "وعلى",
+          "language": "en"
+        },
+        {
+          "start_ms": 20000,
+          "end_ms": 20400,
+          "text": "مستوى",
+          "language": "en"
+        },
+        {
+          "start_ms": 20400,
+          "end_ms": 21200,
+          "text": "المجموعة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 21300,
+          "end_ms": 21800,
+          "text": "بنشوف",
+          "language": "en"
+        },
+        {
+          "start_ms": 21800,
+          "end_ms": 22500,
+          "text": "انتقالًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 22500,
+          "end_ms": 23300,
+          "text": "صافيًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 23400,
+          "end_ms": 23600,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 23600,
+          "end_ms": 24000,
+          "text": "منطقة",
+          "language": "en"
+        },
+        {
+          "start_ms": 24000,
+          "end_ms": 24500,
+          "text": "التركيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 24500,
+          "end_ms": 24900,
+          "text": "فيها",
+          "language": "en"
+        },
+        {
+          "start_ms": 24900,
+          "end_ms": 25500,
+          "text": "أعلى",
+          "language": "en"
+        },
+        {
+          "start_ms": 25600,
+          "end_ms": 26200,
+          "text": "لمنطقة",
+          "language": "en"
+        },
+        {
+          "start_ms": 26200,
+          "end_ms": 26700,
+          "text": "التركيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 26700,
+          "end_ms": 27000,
+          "text": "فيها",
+          "language": "en"
+        },
+        {
+          "start_ms": 27000,
+          "end_ms": 27400,
+          "text": "أقل.",
+          "language": "en"
+        },
+        {
+          "start_ms": 28100,
+          "end_ms": 28600,
+          "text": "الانتشار",
+          "language": "en"
+        },
+        {
+          "start_ms": 28600,
+          "end_ms": 29000,
+          "text": "موجود",
+          "language": "en"
+        },
+        {
+          "start_ms": 29000,
+          "end_ms": 29100,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 29100,
+          "end_ms": 29600,
+          "text": "الغازات",
+          "language": "en"
+        },
+        {
+          "start_ms": 29600,
+          "end_ms": 30600,
+          "text": "والسوائل،",
+          "language": "en"
+        },
+        {
+          "start_ms": 30700,
+          "end_ms": 30800,
+          "text": "وفي",
+          "language": "en"
+        },
+        {
+          "start_ms": 30800,
+          "end_ms": 31200,
+          "text": "المواد",
+          "language": "en"
+        },
+        {
+          "start_ms": 31200,
+          "end_ms": 31700,
+          "text": "الصلبة",
+          "language": "en"
+        },
+        {
+          "start_ms": 31700,
+          "end_ms": 32200,
+          "text": "كمان،",
+          "language": "en"
+        },
+        {
+          "start_ms": 32400,
+          "end_ms": 32800,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 32800,
+          "end_ms": 33100,
+          "text": "سرعته",
+          "language": "en"
+        },
+        {
+          "start_ms": 33100,
+          "end_ms": 33700,
+          "text": "بتختلف.",
+          "language": "en"
+        },
+        {
+          "start_ms": 34400,
+          "end_ms": 34430,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 34430,
+          "end_ms": 34900,
+          "text": "المقارنة",
+          "language": "en"
+        },
+        {
+          "start_ms": 34900,
+          "end_ms": 35300,
+          "text": "العامة",
+          "language": "en"
+        },
+        {
+          "start_ms": 35300,
+          "end_ms": 35800,
+          "text": "هنا،",
+          "language": "en"
+        },
+        {
+          "start_ms": 35900,
+          "end_ms": 36200,
+          "text": "هو",
+          "language": "en"
+        },
+        {
+          "start_ms": 36200,
+          "end_ms": 36500,
+          "text": "أسرع",
+          "language": "en"
+        },
+        {
+          "start_ms": 36500,
+          "end_ms": 36600,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 36600,
+          "end_ms": 37400,
+          "text": "الغازات،",
+          "language": "en"
+        },
+        {
+          "start_ms": 37400,
+          "end_ms": 37800,
+          "text": "وأبطأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 37800,
+          "end_ms": 38000,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 38000,
+          "end_ms": 38700,
+          "text": "السوائل،",
+          "language": "en"
+        },
+        {
+          "start_ms": 38800,
+          "end_ms": 39300,
+          "text": "وبطيء",
+          "language": "en"
+        },
+        {
+          "start_ms": 39300,
+          "end_ms": 39700,
+          "text": "جدًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 39700,
+          "end_ms": 39800,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 39800,
+          "end_ms": 40200,
+          "text": "الصلب.",
+          "language": "en"
+        },
+        {
+          "start_ms": 40900,
+          "end_ms": 41000,
+          "text": "ولو",
+          "language": "en"
+        },
+        {
+          "start_ms": 41000,
+          "end_ms": 41500,
+          "text": "فكرت",
+          "language": "en"
+        },
+        {
+          "start_ms": 41500,
+          "end_ms": 41600,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 41600,
+          "end_ms": 42100,
+          "text": "ريحة",
+          "language": "en"
+        },
+        {
+          "start_ms": 42100,
+          "end_ms": 42600,
+          "text": "بتوصل",
+          "language": "en"
+        },
+        {
+          "start_ms": 42600,
+          "end_ms": 42800,
+          "text": "لك",
+          "language": "en"
+        },
+        {
+          "start_ms": 42800,
+          "end_ms": 42900,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 42900,
+          "end_ms": 43200,
+          "text": "آخر",
+          "language": "en"
+        },
+        {
+          "start_ms": 43200,
+          "end_ms": 43900,
+          "text": "الأوضة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 44000,
+          "end_ms": 44500,
+          "text": "افتكر",
+          "language": "en"
+        },
+        {
+          "start_ms": 44500,
+          "end_ms": 44700,
+          "text": "إن",
+          "language": "en"
+        },
+        {
+          "start_ms": 44700,
+          "end_ms": 45100,
+          "text": "حركة",
+          "language": "en"
+        },
+        {
+          "start_ms": 45100,
+          "end_ms": 45400,
+          "text": "الهوا",
+          "language": "en"
+        },
+        {
+          "start_ms": 45400,
+          "end_ms": 46200,
+          "text": "نفسها",
+          "language": "en"
+        },
+        {
+          "start_ms": 46200,
+          "end_ms": 46600,
+          "text": "ممكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 46600,
+          "end_ms": 47000,
+          "text": "تساعد",
+          "language": "en"
+        },
+        {
+          "start_ms": 47000,
+          "end_ms": 47200,
+          "text": "على",
+          "language": "en"
+        },
+        {
+          "start_ms": 47200,
+          "end_ms": 47600,
+          "text": "نقلها",
+          "language": "en"
+        },
+        {
+          "start_ms": 47600,
+          "end_ms": 47900,
+          "text": "أيضًا.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "mix",
+          "atMs": 9200,
+          "anchor": "مع الحركة العشوائية"
+        },
+        {
+          "id": "random",
+          "atMs": 11000,
+          "anchor": "الجسيمات بتختلط تدريجيًا"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.9777777777777777,
+      "arabicGrounding": 0.9887640449438202,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "الخاصية التالتة هي Diffusion، يعني الانتشار. تخيّل مجموعتين من جسيمات الغاز في منطقتين مختلفتين. مع الحركة العشوائية، الجسيمات بتختلط تدريجيًا. ده انتشار: حركة واختلاط ناتجان عن حركة الجسيمات العشوائية. وعلى مستوى المجموعة، بنشوف انتقالًا صافيًا من منطقة التركيز فيها أعلى لمنطقة التركيز فيها أقل. الانتشار موجود في الغازات والسوائل، وفي المواد الصلبة كمان، لكن سرعته بتختلف. في المقارنة العامة هنا، هو أسرع في الغازات، وأبطأ في السوائل، وبطيء جدًا في الصلب. ولو فكرت في ريحة بتوصل لك من آخر الأوضة، افتكر إن حركة الهوا نفسها ممكن تساعد على نقلها أيضًا."
+      },
+      "originalWavHash": "a83e7e30307efb7d2091b4f9d748ab2ef53af642f06742c857a37b0bc36bc1ba",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S11",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S11.8c2ecc8332f9.mp3",
+      "scriptHash": "9d358696991d01fc2e62416051b9cf3e49d9f9968a6cd0dd1b34dea0ae81f713",
+      "audioHash": "8c2ecc8332f9db4048a5cdbb38247b6bc5af6662c5174a9d9bac9b24cb34cac8",
+      "durationMs": 40880,
+      "words": [
+        {
+          "start_ms": 200,
+          "end_ms": 500,
+          "text": "آخر",
+          "language": "en"
+        },
+        {
+          "start_ms": 500,
+          "end_ms": 1000,
+          "text": "مصطلح",
+          "language": "en"
+        },
+        {
+          "start_ms": 1000,
+          "end_ms": 1400,
+          "text": "عندنا",
+          "language": "en"
+        },
+        {
+          "start_ms": 1400,
+          "end_ms": 1800,
+          "text": "النهارده",
+          "language": "en"
+        },
+        {
+          "start_ms": 1800,
+          "end_ms": 2000,
+          "text": "هو",
+          "language": "en"
+        },
+        {
+          "start_ms": 2000,
+          "end_ms": 2700,
+          "text": "Thermal",
+          "language": "en"
+        },
+        {
+          "start_ms": 2700,
+          "end_ms": 3600,
+          "text": "expansion،",
+          "language": "en"
+        },
+        {
+          "start_ms": 3600,
+          "end_ms": 3900,
+          "text": "يعني",
+          "language": "en"
+        },
+        {
+          "start_ms": 3900,
+          "end_ms": 4500,
+          "text": "التمدد",
+          "language": "en"
+        },
+        {
+          "start_ms": 4500,
+          "end_ms": 5000,
+          "text": "الحراري.",
+          "language": "en"
+        },
+        {
+          "start_ms": 5800,
+          "end_ms": 6200,
+          "text": "مواد",
+          "language": "en"
+        },
+        {
+          "start_ms": 6200,
+          "end_ms": 6600,
+          "text": "صلبة",
+          "language": "en"
+        },
+        {
+          "start_ms": 6600,
+          "end_ms": 7000,
+          "text": "وسوائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 7000,
+          "end_ms": 7500,
+          "text": "كتير",
+          "language": "en"
+        },
+        {
+          "start_ms": 7500,
+          "end_ms": 7800,
+          "text": "بتزيد",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 8400,
+          "text": "أبعادها",
+          "language": "en"
+        },
+        {
+          "start_ms": 8400,
+          "end_ms": 8600,
+          "text": "أو",
+          "language": "en"
+        },
+        {
+          "start_ms": 8600,
+          "end_ms": 9100,
+          "text": "حجمها",
+          "language": "en"
+        },
+        {
+          "start_ms": 9100,
+          "end_ms": 9600,
+          "text": "بدرجة",
+          "language": "en"
+        },
+        {
+          "start_ms": 9600,
+          "end_ms": 10200,
+          "text": "صغيرة",
+          "language": "en"
+        },
+        {
+          "start_ms": 10600,
+          "end_ms": 10800,
+          "text": "لما",
+          "language": "en"
+        },
+        {
+          "start_ms": 10800,
+          "end_ms": 11300,
+          "text": "نسخّنها",
+          "language": "en"
+        },
+        {
+          "start_ms": 11300,
+          "end_ms": 11400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 11400,
+          "end_ms": 11800,
+          "text": "الظروف",
+          "language": "en"
+        },
+        {
+          "start_ms": 11800,
+          "end_ms": 12400,
+          "text": "المعتادة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 13000,
+          "end_ms": 13200,
+          "text": "أما",
+          "language": "en"
+        },
+        {
+          "start_ms": 13200,
+          "end_ms": 13700,
+          "text": "الغاز،",
+          "language": "en"
+        },
+        {
+          "start_ms": 14100,
+          "end_ms": 14400,
+          "text": "فلازم",
+          "language": "en"
+        },
+        {
+          "start_ms": 14400,
+          "end_ms": 14900,
+          "text": "نسأل:",
+          "language": "en"
+        },
+        {
+          "start_ms": 15300,
+          "end_ms": 15800,
+          "text": "الوعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 15800,
+          "end_ms": 16200,
+          "text": "يسمح",
+          "language": "en"
+        },
+        {
+          "start_ms": 16200,
+          "end_ms": 16600,
+          "text": "للحجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 16600,
+          "end_ms": 17300,
+          "text": "يتغيّر،",
+          "language": "en"
+        },
+        {
+          "start_ms": 17600,
+          "end_ms": 17800,
+          "text": "ولا",
+          "language": "en"
+        },
+        {
+          "start_ms": 17800,
+          "end_ms": 18100,
+          "text": "حجمه",
+          "language": "en"
+        },
+        {
+          "start_ms": 18100,
+          "end_ms": 18600,
+          "text": "ثابت؟",
+          "language": "en"
+        },
+        {
+          "start_ms": 19200,
+          "end_ms": 19300,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 19300,
+          "end_ms": 19800,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 19800,
+          "end_ms": 20100,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 20100,
+          "end_ms": 20500,
+          "text": "ثابتة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 20500,
+          "end_ms": 20900,
+          "text": "والضغط",
+          "language": "en"
+        },
+        {
+          "start_ms": 20900,
+          "end_ms": 21600,
+          "text": "ثابت،",
+          "language": "en"
+        },
+        {
+          "start_ms": 21700,
+          "end_ms": 22100,
+          "text": "والوعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 22100,
+          "end_ms": 22500,
+          "text": "يسمح",
+          "language": "en"
+        },
+        {
+          "start_ms": 22500,
+          "end_ms": 23300,
+          "text": "بالتمدد،",
+          "language": "en"
+        },
+        {
+          "start_ms": 23500,
+          "end_ms": 24000,
+          "text": "التسخين",
+          "language": "en"
+        },
+        {
+          "start_ms": 24000,
+          "end_ms": 24400,
+          "text": "بيزوّد",
+          "language": "en"
+        },
+        {
+          "start_ms": 24400,
+          "end_ms": 25600,
+          "text": "الـVolume.",
+          "language": "en"
+        },
+        {
+          "start_ms": 25600,
+          "end_ms": 25800,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 25800,
+          "end_ms": 26000,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 26000,
+          "end_ms": 26300,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 26300,
+          "end_ms": 26400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 26400,
+          "end_ms": 26700,
+          "text": "وعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 26700,
+          "end_ms": 27100,
+          "text": "صلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 27100,
+          "end_ms": 27400,
+          "text": "ثابت",
+          "language": "en"
+        },
+        {
+          "start_ms": 27400,
+          "end_ms": 27900,
+          "text": "الحجم،",
+          "language": "en"
+        },
+        {
+          "start_ms": 28200,
+          "end_ms": 28600,
+          "text": "الحجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 28600,
+          "end_ms": 28800,
+          "text": "مش",
+          "language": "en"
+        },
+        {
+          "start_ms": 28800,
+          "end_ms": 29400,
+          "text": "هيزيد؛",
+          "language": "en"
+        },
+        {
+          "start_ms": 29700,
+          "end_ms": 30200,
+          "text": "الضغط",
+          "language": "en"
+        },
+        {
+          "start_ms": 30200,
+          "end_ms": 30400,
+          "text": "هو",
+          "language": "en"
+        },
+        {
+          "start_ms": 30400,
+          "end_ms": 30600,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 30600,
+          "end_ms": 30900,
+          "text": "هيزيد",
+          "language": "en"
+        },
+        {
+          "start_ms": 30900,
+          "end_ms": 31100,
+          "text": "مع",
+          "language": "en"
+        },
+        {
+          "start_ms": 31100,
+          "end_ms": 31800,
+          "text": "التسخين،",
+          "language": "en"
+        },
+        {
+          "start_ms": 32000,
+          "end_ms": 32300,
+          "text": "طالما",
+          "language": "en"
+        },
+        {
+          "start_ms": 32300,
+          "end_ms": 32700,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 32700,
+          "end_ms": 33000,
+          "text": "الغاز",
+          "language": "en"
+        },
+        {
+          "start_ms": 33000,
+          "end_ms": 33400,
+          "text": "ثابتة.",
+          "language": "en"
+        },
+        {
+          "start_ms": 34200,
+          "end_ms": 34600,
+          "text": "هنفهم",
+          "language": "en"
+        },
+        {
+          "start_ms": 34600,
+          "end_ms": 35200,
+          "text": "العلاقات",
+          "language": "en"
+        },
+        {
+          "start_ms": 35200,
+          "end_ms": 35230,
+          "text": "دي",
+          "language": "en"
+        },
+        {
+          "start_ms": 35230,
+          "end_ms": 35800,
+          "text": "بالتفصيل",
+          "language": "en"
+        },
+        {
+          "start_ms": 35800,
+          "end_ms": 35900,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 35900,
+          "end_ms": 36300,
+          "text": "الدروس",
+          "language": "en"
+        },
+        {
+          "start_ms": 36300,
+          "end_ms": 36700,
+          "text": "الجاية.",
+          "language": "en"
+        },
+        {
+          "start_ms": 37300,
+          "end_ms": 37700,
+          "text": "دلوقتي",
+          "language": "en"
+        },
+        {
+          "start_ms": 37700,
+          "end_ms": 38100,
+          "text": "افتكر",
+          "language": "en"
+        },
+        {
+          "start_ms": 38100,
+          "end_ms": 38300,
+          "text": "إن",
+          "language": "en"
+        },
+        {
+          "start_ms": 38300,
+          "end_ms": 38700,
+          "text": "تأثير",
+          "language": "en"
+        },
+        {
+          "start_ms": 38700,
+          "end_ms": 39400,
+          "text": "التسخين",
+          "language": "en"
+        },
+        {
+          "start_ms": 39400,
+          "end_ms": 39900,
+          "text": "مرتبط",
+          "language": "en"
+        },
+        {
+          "start_ms": 39900,
+          "end_ms": 40500,
+          "text": "بالظروف.",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "expand",
+          "atMs": 23500,
+          "anchor": "التسخين بيزوّد"
+        },
+        {
+          "id": "rigid",
+          "atMs": 26300,
+          "anchor": "في وعاء صلب ثابت الحجم"
+        }
+      ],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.963855421686747,
+      "arabicGrounding": 1,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "آخر مصطلح عندنا النهارده هو Thermal expansion، يعني التمدد الحراري. مواد صلبة وسوائل كتير بتزيد أبعادها أو حجمها بدرجة صغيرة لما نسخّنها في الظروف المعتادة. أما الغاز، فلازم نسأل: الوعاء يسمح للحجم يتغيّر، ولا حجمه ثابت؟ لو كمية الغاز ثابتة، والضغط ثابت، والوعاء يسمح بالتمدد، التسخين بيزوّد الـVolume. لكن لو الغاز في وعاء صلب ثابت الحجم، الحجم مش هيزيد؛ الضغط هو اللي هيزيد مع التسخين، طالما كمية الغاز ثابتة. هنفهم العلاقات دي بالتفصيل في الدروس الجاية. دلوقتي افتكر إن تأثير التسخين مرتبط بالظروف."
+      },
+      "originalWavHash": "b52b803efea1c6094dbcab3b211857b2ab71cd6e5c4bf3feec1a08ecb9718ab7",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "S10",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/S10.f42661625169.mp3",
+      "scriptHash": "b713eff587a092c516404657767392cbe2025d115f99155306f31478e11149e7",
+      "audioHash": "f42661625169bda7ff22869382dbf66ab6fd59cc8b47f4a62ba32b8fb34f6430",
+      "durationMs": 47080,
+      "words": [
+        {
+          "start_ms": 200,
+          "end_ms": 800,
+          "text": "نستخدم",
+          "language": "en"
+        },
+        {
+          "start_ms": 800,
+          "end_ms": 1000,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 1000,
+          "end_ms": 1400,
+          "text": "فهمناه.",
+          "language": "en"
+        },
+        {
+          "start_ms": 2000,
+          "end_ms": 2600,
+          "text": "تخيّل",
+          "language": "en"
+        },
+        {
+          "start_ms": 2600,
+          "end_ms": 3000,
+          "text": "رسمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 3000,
+          "end_ms": 3300,
+          "text": "فيها",
+          "language": "en"
+        },
+        {
+          "start_ms": 3300,
+          "end_ms": 3900,
+          "text": "جسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 3900,
+          "end_ms": 4600,
+          "text": "متباعدة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 4900,
+          "end_ms": 5500,
+          "text": "بتتحرك",
+          "language": "en"
+        },
+        {
+          "start_ms": 5500,
+          "end_ms": 6300,
+          "text": "عشوائيًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 6300,
+          "end_ms": 6400,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 6400,
+          "end_ms": 6700,
+          "text": "كل",
+          "language": "en"
+        },
+        {
+          "start_ms": 6700,
+          "end_ms": 7300,
+          "text": "الوعاء.",
+          "language": "en"
+        },
+        {
+          "start_ms": 8100,
+          "end_ms": 8300,
+          "text": "اقرأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 8300,
+          "end_ms": 8700,
+          "text": "السؤال",
+          "language": "en"
+        },
+        {
+          "start_ms": 8700,
+          "end_ms": 8900,
+          "text": "على",
+          "language": "en"
+        },
+        {
+          "start_ms": 8900,
+          "end_ms": 9400,
+          "text": "أجزاء.",
+          "language": "en"
+        },
+        {
+          "start_ms": 9900,
+          "end_ms": 10200,
+          "text": "كلمة",
+          "language": "en"
+        },
+        {
+          "start_ms": 10200,
+          "end_ms": 11200,
+          "text": "Identify",
+          "language": "en"
+        },
+        {
+          "start_ms": 11200,
+          "end_ms": 11600,
+          "text": "بتطلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 11600,
+          "end_ms": 12000,
+          "text": "منك",
+          "language": "en"
+        },
+        {
+          "start_ms": 12000,
+          "end_ms": 12600,
+          "text": "تحدّد،",
+          "language": "en"
+        },
+        {
+          "start_ms": 12600,
+          "end_ms": 13764,
+          "text": "وExplain",
+          "language": "en"
+        },
+        {
+          "start_ms": 13764,
+          "end_ms": 14200,
+          "text": "why",
+          "language": "en"
+        },
+        {
+          "start_ms": 14200,
+          "end_ms": 14700,
+          "text": "بتطلب",
+          "language": "en"
+        },
+        {
+          "start_ms": 14700,
+          "end_ms": 15000,
+          "text": "منك",
+          "language": "en"
+        },
+        {
+          "start_ms": 15000,
+          "end_ms": 15500,
+          "text": "تفسّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 15500,
+          "end_ms": 16000,
+          "text": "السبب.",
+          "language": "en"
+        },
+        {
+          "start_ms": 16800,
+          "end_ms": 17100,
+          "text": "ابدأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 17100,
+          "end_ms": 17400,
+          "text": "باسم",
+          "language": "en"
+        },
+        {
+          "start_ms": 17400,
+          "end_ms": 18000,
+          "text": "الحالة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 18200,
+          "end_ms": 18600,
+          "text": "وبعدها",
+          "language": "en"
+        },
+        {
+          "start_ms": 18600,
+          "end_ms": 19100,
+          "text": "السبب.",
+          "language": "en"
+        },
+        {
+          "start_ms": 19700,
+          "end_ms": 19800,
+          "text": "لو",
+          "language": "en"
+        },
+        {
+          "start_ms": 19800,
+          "end_ms": 20300,
+          "text": "الصياغة",
+          "language": "en"
+        },
+        {
+          "start_ms": 20300,
+          "end_ms": 21000,
+          "text": "الإنجليزية",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21600,
+          "text": "صعبة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 21800,
+          "end_ms": 22000,
+          "text": "قول",
+          "language": "en"
+        },
+        {
+          "start_ms": 22000,
+          "end_ms": 22400,
+          "text": "المعنى",
+          "language": "en"
+        },
+        {
+          "start_ms": 22400,
+          "end_ms": 22600,
+          "text": "اللي",
+          "language": "en"
+        },
+        {
+          "start_ms": 22600,
+          "end_ms": 23100,
+          "text": "فهمته",
+          "language": "en"
+        },
+        {
+          "start_ms": 23100,
+          "end_ms": 23700,
+          "text": "ونساعدك",
+          "language": "en"
+        },
+        {
+          "start_ms": 23700,
+          "end_ms": 24200,
+          "text": "تصوغه.",
+          "language": "en"
+        },
+        {
+          "start_ms": 24200,
+          "end_ms": 24926,
+          "text": "Identify",
+          "language": "en"
+        },
+        {
+          "start_ms": 24926,
+          "end_ms": 25198,
+          "text": "the",
+          "language": "en"
+        },
+        {
+          "start_ms": 25198,
+          "end_ms": 25651,
+          "text": "state",
+          "language": "en"
+        },
+        {
+          "start_ms": 25651,
+          "end_ms": 25833,
+          "text": "of",
+          "language": "en"
+        },
+        {
+          "start_ms": 25833,
+          "end_ms": 26377,
+          "text": "matter.",
+          "language": "en"
+        },
+        {
+          "start_ms": 26377,
+          "end_ms": 27012,
+          "text": "Explain",
+          "language": "en"
+        },
+        {
+          "start_ms": 27012,
+          "end_ms": 27284,
+          "text": "why",
+          "language": "en"
+        },
+        {
+          "start_ms": 27284,
+          "end_ms": 27556,
+          "text": "its",
+          "language": "en"
+        },
+        {
+          "start_ms": 27556,
+          "end_ms": 28101,
+          "text": "volume",
+          "language": "en"
+        },
+        {
+          "start_ms": 28101,
+          "end_ms": 28373,
+          "text": "can",
+          "language": "en"
+        },
+        {
+          "start_ms": 28373,
+          "end_ms": 28554,
+          "text": "be",
+          "language": "en"
+        },
+        {
+          "start_ms": 28554,
+          "end_ms": 29189,
+          "text": "reduced",
+          "language": "en"
+        },
+        {
+          "start_ms": 29189,
+          "end_ms": 29734,
+          "text": "easily",
+          "language": "en"
+        },
+        {
+          "start_ms": 29734,
+          "end_ms": 29915,
+          "text": "by",
+          "language": "en"
+        },
+        {
+          "start_ms": 29915,
+          "end_ms": 30913,
+          "text": "compression.",
+          "language": "en"
+        },
+        {
+          "start_ms": 30913,
+          "end_ms": 31366,
+          "text": "Would",
+          "language": "en"
+        },
+        {
+          "start_ms": 31366,
+          "end_ms": 31457,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 31457,
+          "end_ms": 31911,
+          "text": "fixed",
+          "language": "en"
+        },
+        {
+          "start_ms": 31911,
+          "end_ms": 32455,
+          "text": "amount",
+          "language": "en"
+        },
+        {
+          "start_ms": 32455,
+          "end_ms": 32636,
+          "text": "of",
+          "language": "en"
+        },
+        {
+          "start_ms": 32636,
+          "end_ms": 33181,
+          "text": "liquid",
+          "language": "en"
+        },
+        {
+          "start_ms": 33181,
+          "end_ms": 34179,
+          "text": "necessarily",
+          "language": "en"
+        },
+        {
+          "start_ms": 34179,
+          "end_ms": 34541,
+          "text": "fill",
+          "language": "en"
+        },
+        {
+          "start_ms": 34541,
+          "end_ms": 34632,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 34632,
+          "end_ms": 35176,
+          "text": "larger",
+          "language": "en"
+        },
+        {
+          "start_ms": 35176,
+          "end_ms": 35993,
+          "text": "container",
+          "language": "en"
+        },
+        {
+          "start_ms": 35993,
+          "end_ms": 36900,
+          "text": "completely?",
+          "language": "en"
+        },
+        {
+          "start_ms": 36900,
+          "end_ms": 37400,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 37700,
+          "end_ms": 38200,
+          "text": "حدّد",
+          "language": "en"
+        },
+        {
+          "start_ms": 38200,
+          "end_ms": 38600,
+          "text": "حالة",
+          "language": "en"
+        },
+        {
+          "start_ms": 38600,
+          "end_ms": 39000,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 39000,
+          "end_ms": 39100,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 39100,
+          "end_ms": 39700,
+          "text": "الرسمة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 40000,
+          "end_ms": 40500,
+          "text": "وفسّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 40500,
+          "end_ms": 41000,
+          "text": "سهولة",
+          "language": "en"
+        },
+        {
+          "start_ms": 41000,
+          "end_ms": 41400,
+          "text": "تقليل",
+          "language": "en"
+        },
+        {
+          "start_ms": 41400,
+          "end_ms": 41800,
+          "text": "حجمها",
+          "language": "en"
+        },
+        {
+          "start_ms": 41800,
+          "end_ms": 42400,
+          "text": "بالضغط.",
+          "language": "en"
+        },
+        {
+          "start_ms": 43000,
+          "end_ms": 43200,
+          "text": "وهل",
+          "language": "en"
+        },
+        {
+          "start_ms": 43200,
+          "end_ms": 43600,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 43600,
+          "end_ms": 44000,
+          "text": "ثابتة",
+          "language": "en"
+        },
+        {
+          "start_ms": 44000,
+          "end_ms": 44200,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 44200,
+          "end_ms": 44800,
+          "text": "سائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 44900,
+          "end_ms": 45300,
+          "text": "لازم",
+          "language": "en"
+        },
+        {
+          "start_ms": 45300,
+          "end_ms": 45600,
+          "text": "تملا",
+          "language": "en"
+        },
+        {
+          "start_ms": 45600,
+          "end_ms": 46000,
+          "text": "وعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 46100,
+          "end_ms": 46400,
+          "text": "أكبر",
+          "language": "en"
+        },
+        {
+          "start_ms": 46400,
+          "end_ms": 46800,
+          "text": "كله؟",
+          "language": "en"
+        }
+      ],
+      "cues": [
+        {
+          "id": "summary",
+          "atMs": 200,
+          "anchor": "نستخدم اللي فهمناه"
+        },
+        {
+          "id": "teachback",
+          "atMs": 16800,
+          "anchor": "ابدأ باسم الحالة"
+        }
+      ],
+      "questionAtMs": 24200,
+      "alignmentCoverage": 0.6593406593406593,
+      "arabicGrounding": 0.9836065573770492,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "نستخدم اللي فهمناه. تخيّل رسمة فيها جسيمات متباعدة، بتتحرك عشوائيًا في كل الوعاء. اقرأ السؤال على أجزاء. كلمة Identify بتطلب منك تحدّد، وExplain why بتطلب منك تفسّر السبب. ابدأ باسم الحالة، وبعدها السبب. لو الصياغة الإنجليزية صعبة، قول المعنى اللي فهمته ونساعدك تصوغه. Identify the state of matter. Explain why its volume can be reduced easily by compression. Would a fixed amount of liquid necessarily fill a larger container completely? يعني: حدّد حالة المادة في الرسمة، وفسّر سهولة تقليل حجمها بالضغط. وهل كمية ثابتة من سائل لازم تملا وعاء أكبر كله؟"
+      },
+      "originalWavHash": "5bb148fb09697ecb726948e9921bc6afcc23c470f1e0475995ae5f3a5edfa32c",
+      "encoding": "mp3-64k-mono"
+    }
+  ],
+  "revision": "curriculum-v3-english-2026-10-06",
+  "feedback": [
+    {
+      "id": "F01",
+      "modelUsed": "gemini-3.8-flash-lite-tts",
+      "file": "/recordings/chem-gas-states-v3/F01.b1164c7c9259.mp3",
+      "scriptHash": "5468736c351ce611fbf21d8d131f290b668e538e5f362d1f37c328e84d27548c",
+      "audioHash": "b1164c7c9259092bafcc03178a4af248b5d20163b75424e70f84c40743fae344",
+      "durationMs": 19280,
+      "words": [
+        {
+          "start_ms": 0,
+          "end_ms": 304,
+          "text": "Its",
+          "language": "en"
+        },
+        {
+          "start_ms": 304,
+          "end_ms": 812,
+          "text": "shape",
+          "language": "en"
+        },
+        {
+          "start_ms": 812,
+          "end_ms": 1116,
+          "text": "may",
+          "language": "en"
+        },
+        {
+          "start_ms": 1116,
+          "end_ms": 1725,
+          "text": "change,",
+          "language": "en"
+        },
+        {
+          "start_ms": 1725,
+          "end_ms": 2029,
+          "text": "but",
+          "language": "en"
+        },
+        {
+          "start_ms": 2029,
+          "end_ms": 2334,
+          "text": "its",
+          "language": "en"
+        },
+        {
+          "start_ms": 2334,
+          "end_ms": 2943,
+          "text": "volume",
+          "language": "en"
+        },
+        {
+          "start_ms": 2943,
+          "end_ms": 3653,
+          "text": "remains",
+          "language": "en"
+        },
+        {
+          "start_ms": 3653,
+          "end_ms": 4972,
+          "text": "approximately",
+          "language": "en"
+        },
+        {
+          "start_ms": 4972,
+          "end_ms": 5074,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 5074,
+          "end_ms": 5784,
+          "text": "hundred",
+          "language": "en"
+        },
+        {
+          "start_ms": 5784,
+          "end_ms": 6900,
+          "text": "milliliters.",
+          "language": "en"
+        },
+        {
+          "start_ms": 6900,
+          "end_ms": 7500,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 7500,
+          "end_ms": 7900,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 7900,
+          "end_ms": 8400,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 8400,
+          "end_ms": 8800,
+          "text": "ممكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 8800,
+          "end_ms": 9400,
+          "text": "يتغيّر،",
+          "language": "en"
+        },
+        {
+          "start_ms": 10000,
+          "end_ms": 10300,
+          "text": "لكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 10300,
+          "end_ms": 11100,
+          "text": "حجمها",
+          "language": "en"
+        },
+        {
+          "start_ms": 11200,
+          "end_ms": 11600,
+          "text": "يفضل",
+          "language": "en"
+        },
+        {
+          "start_ms": 11600,
+          "end_ms": 12400,
+          "text": "تقريبًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 12400,
+          "end_ms": 12520,
+          "text": "مية",
+          "language": "en"
+        },
+        {
+          "start_ms": 12520,
+          "end_ms": 12800,
+          "text": "ملليلتر.",
+          "language": "en"
+        },
+        {
+          "start_ms": 14200,
+          "end_ms": 14600,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 14600,
+          "end_ms": 15100,
+          "text": "كمية",
+          "language": "en"
+        },
+        {
+          "start_ms": 15100,
+          "end_ms": 15600,
+          "text": "المية",
+          "language": "en"
+        },
+        {
+          "start_ms": 15600,
+          "end_ms": 15700,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 15700,
+          "end_ms": 16100,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 16100,
+          "end_ms": 17000,
+          "text": "الظروف",
+          "language": "en"
+        },
+        {
+          "start_ms": 17100,
+          "end_ms": 17400,
+          "text": "لها",
+          "language": "en"
+        },
+        {
+          "start_ms": 17400,
+          "end_ms": 17800,
+          "text": "حجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 17800,
+          "end_ms": 18300,
+          "text": "محدد",
+          "language": "en"
+        },
+        {
+          "start_ms": 18300,
+          "end_ms": 18800,
+          "text": "تقريبًا.",
+          "language": "en"
+        }
+      ],
+      "cues": [],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.5757575757575758,
+      "arabicGrounding": 0.9047619047619048,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "It's shape may change, but its volume remains approximately 100 milliliters. يعني: شكل المية ممكن يتغيّر، لكن حجمها يفضل تقريبًا مية ملليلتر. نفس كمية المية في نفس الظروف لها حجم محدد تقريبًا."
+      },
+      "originalWavHash": "208ea96618d1013f3bf411b4dd4d8a722222fc996231ad9a81b3fb7db1f9f9fe",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "F02",
+      "modelUsed": "gemini-3.8-flash-tts",
+      "file": "/recordings/chem-gas-states-v3/F02.61bfecc3dd7c.mp3",
+      "scriptHash": "c9e9962db65226fd37c7672d17e70ba98e4147d70d77838a7bf6c066fa63b279",
+      "audioHash": "61bfecc3dd7ce1895c38121277ef805af31e2544eff0fb62fd746a44c5cff1ff",
+      "durationMs": 14440,
+      "words": [
+        {
+          "start_ms": 0,
+          "end_ms": 269,
+          "text": "The",
+          "language": "en"
+        },
+        {
+          "start_ms": 269,
+          "end_ms": 807,
+          "text": "spaces",
+          "language": "en"
+        },
+        {
+          "start_ms": 807,
+          "end_ms": 1434,
+          "text": "between",
+          "language": "en"
+        },
+        {
+          "start_ms": 1434,
+          "end_ms": 1703,
+          "text": "the",
+          "language": "en"
+        },
+        {
+          "start_ms": 1703,
+          "end_ms": 2510,
+          "text": "particles",
+          "language": "en"
+        },
+        {
+          "start_ms": 2510,
+          "end_ms": 3228,
+          "text": "decrease.",
+          "language": "en"
+        },
+        {
+          "start_ms": 3228,
+          "end_ms": 3497,
+          "text": "The",
+          "language": "en"
+        },
+        {
+          "start_ms": 3497,
+          "end_ms": 4303,
+          "text": "particles",
+          "language": "en"
+        },
+        {
+          "start_ms": 4303,
+          "end_ms": 5200,
+          "text": "themselves",
+          "language": "en"
+        },
+        {
+          "start_ms": 5200,
+          "end_ms": 5379,
+          "text": "do",
+          "language": "en"
+        },
+        {
+          "start_ms": 5379,
+          "end_ms": 5648,
+          "text": "not",
+          "language": "en"
+        },
+        {
+          "start_ms": 5648,
+          "end_ms": 6186,
+          "text": "become",
+          "language": "en"
+        },
+        {
+          "start_ms": 6186,
+          "end_ms": 6814,
+          "text": "smaller",
+          "language": "en"
+        },
+        {
+          "start_ms": 6814,
+          "end_ms": 6993,
+          "text": "in",
+          "language": "en"
+        },
+        {
+          "start_ms": 6993,
+          "end_ms": 7352,
+          "text": "this",
+          "language": "en"
+        },
+        {
+          "start_ms": 7352,
+          "end_ms": 7800,
+          "text": "model.",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 8300,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 8700,
+          "end_ms": 9400,
+          "text": "المسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 9400,
+          "end_ms": 9600,
+          "text": "بين",
+          "language": "en"
+        },
+        {
+          "start_ms": 9600,
+          "end_ms": 10300,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 10300,
+          "end_ms": 10800,
+          "text": "بتقل.",
+          "language": "en"
+        },
+        {
+          "start_ms": 11400,
+          "end_ms": 12000,
+          "text": "الجسيمات",
+          "language": "en"
+        },
+        {
+          "start_ms": 12000,
+          "end_ms": 12600,
+          "text": "نفسها",
+          "language": "en"
+        },
+        {
+          "start_ms": 12600,
+          "end_ms": 12800,
+          "text": "ما",
+          "language": "en"
+        },
+        {
+          "start_ms": 12800,
+          "end_ms": 13400,
+          "text": "بتصغرش",
+          "language": "en"
+        },
+        {
+          "start_ms": 13400,
+          "end_ms": 13500,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 13500,
+          "end_ms": 14000,
+          "text": "النموذج",
+          "language": "en"
+        },
+        {
+          "start_ms": 14000,
+          "end_ms": 14200,
+          "text": "ده.",
+          "language": "en"
+        }
+      ],
+      "cues": [],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.42857142857142855,
+      "arabicGrounding": 1,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "The spaces between the particles decrease. The particles themselves do not become smaller in this model. يعني: المسافات بين الجسيمات بتقل. الجسيمات نفسها ما بتصغرش في النموذج ده."
+      },
+      "originalWavHash": "e388f90ae9c8a23dcb8ade55559802f93968ee4583bd615da3274512a4a963f5",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "F03",
+      "modelUsed": "gemini-3.8-flash-tts",
+      "file": "/recordings/chem-gas-states-v3/F03.b222172e1a54.mp3",
+      "scriptHash": "b51d1427d7c44def13631eb473d87804300c21fe82f89ab5e5461af829e16a90",
+      "audioHash": "b222172e1a54f1fc51fdb89b58b15b943241717457a9184d4053461f21fcf3fd",
+      "durationMs": 8120,
+      "words": [
+        {
+          "start_ms": 0,
+          "end_ms": 571,
+          "text": "Both",
+          "language": "en"
+        },
+        {
+          "start_ms": 571,
+          "end_ms": 1571,
+          "text": "liquids",
+          "language": "en"
+        },
+        {
+          "start_ms": 1571,
+          "end_ms": 2000,
+          "text": "and",
+          "language": "en"
+        },
+        {
+          "start_ms": 2000,
+          "end_ms": 2714,
+          "text": "gases",
+          "language": "en"
+        },
+        {
+          "start_ms": 2714,
+          "end_ms": 3143,
+          "text": "are",
+          "language": "en"
+        },
+        {
+          "start_ms": 3143,
+          "end_ms": 4000,
+          "text": "fluids.",
+          "language": "en"
+        },
+        {
+          "start_ms": 4000,
+          "end_ms": 4500,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 4500,
+          "end_ms": 5300,
+          "text": "السوائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 5300,
+          "end_ms": 6400,
+          "text": "والغازات",
+          "language": "en"
+        },
+        {
+          "start_ms": 6400,
+          "end_ms": 7200,
+          "text": "الاتنين",
+          "language": "en"
+        },
+        {
+          "start_ms": 7200,
+          "end_ms": 7800,
+          "text": "موائع.",
+          "language": "en"
+        }
+      ],
+      "cues": [],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.45454545454545453,
+      "arabicGrounding": 1,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "Both liquids and gases are fluids. يعني: السوائل والغازات الاتنين موائع."
+      },
+      "originalWavHash": "4174aa0a751c9ccbac808fb376700446c6f0f427b9e8373ecb2f7d681f82575b",
+      "encoding": "mp3-64k-mono"
+    },
+    {
+      "id": "F04",
+      "modelUsed": "gemini-3.8-flash-tts",
+      "file": "/recordings/chem-gas-states-v3/F04.578d0d8b377c.mp3",
+      "scriptHash": "38ccbb7c037cb02f774175dce5128db6bce6c3857015d73b0e4fb502b6f81563",
+      "audioHash": "578d0d8b377c7ccd9523f122646a26f8a3bcb98fdc7853962f18cbac9eaf08b5",
+      "durationMs": 50040,
+      "words": [
+        {
+          "start_ms": 0,
+          "end_ms": 193,
+          "text": "It",
+          "language": "en"
+        },
+        {
+          "start_ms": 193,
+          "end_ms": 385,
+          "text": "is",
+          "language": "en"
+        },
+        {
+          "start_ms": 385,
+          "end_ms": 481,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 481,
+          "end_ms": 770,
+          "text": "gas.",
+          "language": "en"
+        },
+        {
+          "start_ms": 770,
+          "end_ms": 1059,
+          "text": "Its",
+          "language": "en"
+        },
+        {
+          "start_ms": 1059,
+          "end_ms": 1926,
+          "text": "particles",
+          "language": "en"
+        },
+        {
+          "start_ms": 1926,
+          "end_ms": 2215,
+          "text": "are",
+          "language": "en"
+        },
+        {
+          "start_ms": 2215,
+          "end_ms": 2504,
+          "text": "far",
+          "language": "en"
+        },
+        {
+          "start_ms": 2504,
+          "end_ms": 2985,
+          "text": "apart,",
+          "language": "en"
+        },
+        {
+          "start_ms": 2985,
+          "end_ms": 3178,
+          "text": "so",
+          "language": "en"
+        },
+        {
+          "start_ms": 3178,
+          "end_ms": 3467,
+          "text": "the",
+          "language": "en"
+        },
+        {
+          "start_ms": 3467,
+          "end_ms": 4044,
+          "text": "spaces",
+          "language": "en"
+        },
+        {
+          "start_ms": 4044,
+          "end_ms": 4719,
+          "text": "between",
+          "language": "en"
+        },
+        {
+          "start_ms": 4719,
+          "end_ms": 5104,
+          "text": "them",
+          "language": "en"
+        },
+        {
+          "start_ms": 5104,
+          "end_ms": 5393,
+          "text": "can",
+          "language": "en"
+        },
+        {
+          "start_ms": 5393,
+          "end_ms": 6163,
+          "text": "decrease",
+          "language": "en"
+        },
+        {
+          "start_ms": 6163,
+          "end_ms": 6741,
+          "text": "during",
+          "language": "en"
+        },
+        {
+          "start_ms": 6741,
+          "end_ms": 7800,
+          "text": "compression.",
+          "language": "en"
+        },
+        {
+          "start_ms": 7800,
+          "end_ms": 8400,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 8500,
+          "end_ms": 9200,
+          "text": "الحالة",
+          "language": "en"
+        },
+        {
+          "start_ms": 9200,
+          "end_ms": 9500,
+          "text": "غاز.",
+          "language": "en"
+        },
+        {
+          "start_ms": 10000,
+          "end_ms": 10600,
+          "text": "جسيماته",
+          "language": "en"
+        },
+        {
+          "start_ms": 10600,
+          "end_ms": 11200,
+          "text": "متباعدة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 11500,
+          "end_ms": 12000,
+          "text": "فالمسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 12000,
+          "end_ms": 12300,
+          "text": "بينها",
+          "language": "en"
+        },
+        {
+          "start_ms": 12300,
+          "end_ms": 12700,
+          "text": "ممكن",
+          "language": "en"
+        },
+        {
+          "start_ms": 12700,
+          "end_ms": 13100,
+          "text": "تقل",
+          "language": "en"
+        },
+        {
+          "start_ms": 13100,
+          "end_ms": 13400,
+          "text": "أثناء",
+          "language": "en"
+        },
+        {
+          "start_ms": 13400,
+          "end_ms": 13800,
+          "text": "الضغط.",
+          "language": "en"
+        },
+        {
+          "start_ms": 13800,
+          "end_ms": 13891,
+          "text": "A",
+          "language": "en"
+        },
+        {
+          "start_ms": 13891,
+          "end_ms": 14436,
+          "text": "liquid",
+          "language": "en"
+        },
+        {
+          "start_ms": 14436,
+          "end_ms": 14708,
+          "text": "has",
+          "language": "en"
+        },
+        {
+          "start_ms": 14708,
+          "end_ms": 14799,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 14799,
+          "end_ms": 15525,
+          "text": "definite",
+          "language": "en"
+        },
+        {
+          "start_ms": 15525,
+          "end_ms": 16070,
+          "text": "volume",
+          "language": "en"
+        },
+        {
+          "start_ms": 16070,
+          "end_ms": 16342,
+          "text": "and",
+          "language": "en"
+        },
+        {
+          "start_ms": 16342,
+          "end_ms": 16705,
+          "text": "does",
+          "language": "en"
+        },
+        {
+          "start_ms": 16705,
+          "end_ms": 16978,
+          "text": "not",
+          "language": "en"
+        },
+        {
+          "start_ms": 16978,
+          "end_ms": 17976,
+          "text": "necessarily",
+          "language": "en"
+        },
+        {
+          "start_ms": 17976,
+          "end_ms": 18339,
+          "text": "fill",
+          "language": "en"
+        },
+        {
+          "start_ms": 18339,
+          "end_ms": 18430,
+          "text": "a",
+          "language": "en"
+        },
+        {
+          "start_ms": 18430,
+          "end_ms": 18975,
+          "text": "larger",
+          "language": "en"
+        },
+        {
+          "start_ms": 18975,
+          "end_ms": 19792,
+          "text": "container",
+          "language": "en"
+        },
+        {
+          "start_ms": 19792,
+          "end_ms": 20700,
+          "text": "completely.",
+          "language": "en"
+        },
+        {
+          "start_ms": 20700,
+          "end_ms": 21000,
+          "text": "يعني:",
+          "language": "en"
+        },
+        {
+          "start_ms": 21000,
+          "end_ms": 21600,
+          "text": "السائل",
+          "language": "en"
+        },
+        {
+          "start_ms": 21600,
+          "end_ms": 21800,
+          "text": "له",
+          "language": "en"
+        },
+        {
+          "start_ms": 21800,
+          "end_ms": 22100,
+          "text": "حجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 22100,
+          "end_ms": 22800,
+          "text": "محدد،",
+          "language": "en"
+        },
+        {
+          "start_ms": 23000,
+          "end_ms": 23200,
+          "text": "ومش",
+          "language": "en"
+        },
+        {
+          "start_ms": 23200,
+          "end_ms": 23600,
+          "text": "لازم",
+          "language": "en"
+        },
+        {
+          "start_ms": 23600,
+          "end_ms": 23800,
+          "text": "يملا",
+          "language": "en"
+        },
+        {
+          "start_ms": 23800,
+          "end_ms": 24200,
+          "text": "وعاء",
+          "language": "en"
+        },
+        {
+          "start_ms": 24200,
+          "end_ms": 24600,
+          "text": "أكبر",
+          "language": "en"
+        },
+        {
+          "start_ms": 24600,
+          "end_ms": 24900,
+          "text": "كله.",
+          "language": "en"
+        },
+        {
+          "start_ms": 25800,
+          "end_ms": 26300,
+          "text": "دلوقتي",
+          "language": "en"
+        },
+        {
+          "start_ms": 26300,
+          "end_ms": 26600,
+          "text": "تقدر",
+          "language": "en"
+        },
+        {
+          "start_ms": 26600,
+          "end_ms": 27000,
+          "text": "تربط",
+          "language": "en"
+        },
+        {
+          "start_ms": 27000,
+          "end_ms": 27300,
+          "text": "صفات",
+          "language": "en"
+        },
+        {
+          "start_ms": 27300,
+          "end_ms": 27700,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 27700,
+          "end_ms": 28300,
+          "text": "بجسيماتها.",
+          "language": "en"
+        },
+        {
+          "start_ms": 28300,
+          "end_ms": 29900,
+          "text": "الـSolid",
+          "language": "en"
+        },
+        {
+          "start_ms": 29900,
+          "end_ms": 30000,
+          "text": "له",
+          "language": "en"
+        },
+        {
+          "start_ms": 30000,
+          "end_ms": 30400,
+          "text": "شكل",
+          "language": "en"
+        },
+        {
+          "start_ms": 30400,
+          "end_ms": 30700,
+          "text": "وحجم",
+          "language": "en"
+        },
+        {
+          "start_ms": 30700,
+          "end_ms": 31400,
+          "text": "محددان",
+          "language": "en"
+        },
+        {
+          "start_ms": 31400,
+          "end_ms": 31500,
+          "text": "في",
+          "language": "en"
+        },
+        {
+          "start_ms": 31500,
+          "end_ms": 31800,
+          "text": "نفس",
+          "language": "en"
+        },
+        {
+          "start_ms": 31800,
+          "end_ms": 32200,
+          "text": "الظروف.",
+          "language": "en"
+        },
+        {
+          "start_ms": 32200,
+          "end_ms": 33700,
+          "text": "الـLiquid",
+          "language": "en"
+        },
+        {
+          "start_ms": 33700,
+          "end_ms": 34100,
+          "text": "يغيّر",
+          "language": "en"
+        },
+        {
+          "start_ms": 34100,
+          "end_ms": 34400,
+          "text": "شكله",
+          "language": "en"
+        },
+        {
+          "start_ms": 34400,
+          "end_ms": 34700,
+          "text": "حسب",
+          "language": "en"
+        },
+        {
+          "start_ms": 34700,
+          "end_ms": 35300,
+          "text": "الوعاء،",
+          "language": "en"
+        },
+        {
+          "start_ms": 35400,
+          "end_ms": 35900,
+          "text": "وحجمه",
+          "language": "en"
+        },
+        {
+          "start_ms": 35900,
+          "end_ms": 36300,
+          "text": "يفضل",
+          "language": "en"
+        },
+        {
+          "start_ms": 36300,
+          "end_ms": 36900,
+          "text": "تقريبًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 36900,
+          "end_ms": 37400,
+          "text": "محددًا.",
+          "language": "en"
+        },
+        {
+          "start_ms": 37400,
+          "end_ms": 39000,
+          "text": "والـGas",
+          "language": "en"
+        },
+        {
+          "start_ms": 39000,
+          "end_ms": 39200,
+          "text": "يملأ",
+          "language": "en"
+        },
+        {
+          "start_ms": 39200,
+          "end_ms": 39600,
+          "text": "الحيز",
+          "language": "en"
+        },
+        {
+          "start_ms": 39600,
+          "end_ms": 40000,
+          "text": "المتاح",
+          "language": "en"
+        },
+        {
+          "start_ms": 40000,
+          "end_ms": 40400,
+          "text": "له،",
+          "language": "en"
+        },
+        {
+          "start_ms": 40500,
+          "end_ms": 41000,
+          "text": "ويسهل",
+          "language": "en"
+        },
+        {
+          "start_ms": 41000,
+          "end_ms": 41300,
+          "text": "ضغطه",
+          "language": "en"
+        },
+        {
+          "start_ms": 41300,
+          "end_ms": 41900,
+          "text": "نسبيًا",
+          "language": "en"
+        },
+        {
+          "start_ms": 42000,
+          "end_ms": 42400,
+          "text": "بسبب",
+          "language": "en"
+        },
+        {
+          "start_ms": 42400,
+          "end_ms": 42800,
+          "text": "المسافات",
+          "language": "en"
+        },
+        {
+          "start_ms": 42800,
+          "end_ms": 43300,
+          "text": "الكبيرة",
+          "language": "en"
+        },
+        {
+          "start_ms": 43300,
+          "end_ms": 43600,
+          "text": "بين",
+          "language": "en"
+        },
+        {
+          "start_ms": 43600,
+          "end_ms": 44000,
+          "text": "جسيماته.",
+          "language": "en"
+        },
+        {
+          "start_ms": 44800,
+          "end_ms": 45100,
+          "text": "الدرس",
+          "language": "en"
+        },
+        {
+          "start_ms": 45100,
+          "end_ms": 45400,
+          "text": "الجاي",
+          "language": "en"
+        },
+        {
+          "start_ms": 45400,
+          "end_ms": 45800,
+          "text": "هنشوف",
+          "language": "en"
+        },
+        {
+          "start_ms": 45800,
+          "end_ms": 46100,
+          "text": "إزاي",
+          "language": "en"
+        },
+        {
+          "start_ms": 46100,
+          "end_ms": 46400,
+          "text": "المادة",
+          "language": "en"
+        },
+        {
+          "start_ms": 46400,
+          "end_ms": 46900,
+          "text": "بتنتقل",
+          "language": "en"
+        },
+        {
+          "start_ms": 46900,
+          "end_ms": 47100,
+          "text": "من",
+          "language": "en"
+        },
+        {
+          "start_ms": 47100,
+          "end_ms": 47400,
+          "text": "حالة",
+          "language": "en"
+        },
+        {
+          "start_ms": 47400,
+          "end_ms": 48000,
+          "text": "لحالة،",
+          "language": "en"
+        },
+        {
+          "start_ms": 48100,
+          "end_ms": 48386,
+          "text": "وإيه",
+          "language": "en"
+        },
+        {
+          "start_ms": 48386,
+          "end_ms": 48600,
+          "text": "اسم",
+          "language": "en"
+        },
+        {
+          "start_ms": 48600,
+          "end_ms": 48800,
+          "text": "كل",
+          "language": "en"
+        },
+        {
+          "start_ms": 48800,
+          "end_ms": 49400,
+          "text": "تحول",
+          "language": "en"
+        },
+        {
+          "start_ms": 49400,
+          "end_ms": 50000,
+          "text": "بالإنجليزي.",
+          "language": "en"
+        }
+      ],
+      "cues": [],
+      "questionAtMs": null,
+      "alignmentCoverage": 0.638095238095238,
+      "arabicGrounding": 0.9710144927536232,
+      "timingNote": "Matched words use Transcribe word_info; omitted code-switching tokens are interpolated between adjacent recognized words. Board cues are phrase-level.",
+      "contentAudit": {
+        "faithful": true,
+        "issues": [],
+        "transcript": "It is a gas. Its particles are far apart, so the spaces between them can decrease during compression. يعني: الحالة غاز. جسيماته متباعدة، فالمسافات بينها ممكن تقل أثناء الضغط. A liquid has a definite volume and does not necessarily fill a larger container completely. يعني: السائل له حجم محدد، ومش لازم يملا وعاء أكبر كله. دلوقتي تقدر تربط صفات المادة بجسيماتها. الـSolid له شكل وحجم محددان في نفس الظروف. الـLiquid يغيّر شكله حسب الوعاء، وحجمه يفضل تقريبًا محددًا. والـGas يملأ الحيز المتاح له، ويسهل ضغطه نسبيًا بسبب المسافات الكبيرة بين جسيماته. الدرس الجاي هنشوف إزاي المادة بتنتقل من حالة لحالة، وإيه اسم كل تحول بالإنجليزي."
+      },
+      "originalWavHash": "2cd0bd7abd9b17f7027220c303d0a61dd7ba22f2b15a584526c5e9c7fa5a45d2",
+      "encoding": "mp3-64k-mono"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "S01",
+  "audioHash": "99731fbdd427105ce7cd667b629ab65766e0bae4d00ea388cf678a89866d2ab9",
+  "durationMs": 46800,
+  "phases": [
+    {
+      "id": "water",
+      "atMs": 1800,
+      "anchor": "المية في الكوباية"
+    },
+    {
+      "id": "glass",
+      "atMs": 3600,
+      "anchor": "الكوباية نفسها"
+    },
+    {
+      "id": "air",
+      "atMs": 5200,
+      "anchor": "والهوا اللي حوالينا"
+    },
+    {
+      "id": "matter",
+      "atMs": 7100,
+      "anchor": "كل دي مادة"
+    },
+    {
+      "id": "overview",
+      "atMs": 12400,
+      "anchor": "النهارده هنفهم"
+    },
+    {
+      "id": "solid",
+      "atMs": 16000,
+      "anchor": "Solid"
+    },
+    {
+      "id": "liquid",
+      "atMs": 18200,
+      "anchor": "وLiquid"
+    },
+    {
+      "id": "gas",
+      "atMs": 20400,
+      "anchor": "وGas"
+    },
+    {
+      "id": "properties",
+      "atMs": 23100,
+      "anchor": "هنشوف شكل"
+    },
+    {
+      "id": "particles",
+      "atMs": 25700,
+      "anchor": "وبعدها هنقرّب"
+    },
+    {
+      "id": "compress",
+      "atMs": 31700,
+      "anchor": "ده هيساعدنا"
+    },
+    {
+      "id": "practice",
+      "atMs": 37300,
+      "anchor": "وخلال الشرح"
+    },
+    {
+      "id": "attempt",
+      "atMs": 42700,
+      "anchor": "وبعد محاولتك"
+    }
+  ]
+}
