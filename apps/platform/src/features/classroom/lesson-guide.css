@@ -1,0 +1,141 @@
+.classroom-guide {
+  background: #fafff6f7;
+  border: 1px solid var(--learn-line);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  box-shadow: var(--learn-shadow);
+  max-height: 730px;
+}
+.classroom-guide > header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 16px 13px;
+  border-bottom: 1px solid #e4eada;
+}
+.classroom-guide > header img {
+  object-fit: contain;
+}
+.classroom-guide > header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.classroom-guide > header strong {
+  font-size: 15px;
+}
+.classroom-guide > header span {
+  font-size: 11px;
+  color: #5f7353;
+}
+.classroom-guide > header button {
+  margin-inline-start: auto;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  color: #516c47;
+  background: transparent;
+}
+.guide-body {
+  overflow: auto;
+  padding: 22px 17px;
+  line-height: 1.85;
+  font-size: 14px;
+}
+.guide-body h2 {
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 8px 0 18px;
+}
+.guide-eyebrow {
+  font-size: 11px;
+  color: #536f45;
+}
+.guide-bubble {
+  background: var(--learn-soft);
+  border-radius: 15px;
+  padding: 16px;
+  line-height: 1.9;
+}
+.guide-prompt {
+  padding: 18px 4px;
+  color: #49643a;
+}
+.guide-prompt > svg {
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.guide-prompt strong {
+  font-size: 13px;
+}
+.guide-prompt p {
+  font-size: 13px;
+}
+.guide-link {
+  border: 1px solid #d4e0c9;
+  background: #f7fcf1;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 44px;
+  color: #466238;
+  font-size: 13px;
+}
+.classroom-guide > footer {
+  padding: 14px;
+  text-align: center;
+  border-top: 1px solid #e4eada;
+  color: #546944;
+  font-size: 11px;
+}
+.guide-glossary {
+  margin: 10px 0;
+}
+.guide-glossary > div {
+  border-bottom: 1px solid #e2eada;
+  padding: 10px 0;
+}
+.guide-glossary dt {
+  font-weight: 650;
+  text-align: left;
+  color: #416845;
+}
+.guide-glossary dd {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+.guide-body textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccd9c3;
+  border-radius: 10px;
+  background: var(--learn-paper);
+  color: var(--learn-ink);
+  resize: vertical;
+  min-height: 160px;
+  margin-top: 12px;
+}
+.guide-small {
+  font-size: 12px;
+  color: #596e4d;
+}
+.guide-body a {
+  color: #466238;
+  text-underline-offset: 5px;
+}
+@media (max-width: 650px) {
+  .classroom-guide {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    max-height: 100%;
+    min-height: 360px;
+  }
+  .guide-body {
+    padding: 18px 20px;
+  }
+  .guide-body textarea {
+    font-size: 16px;
+  }
+}

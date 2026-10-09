@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import { LessonPreview } from '@learn/lesson-runtime';
 import type { LessonPackage, RendererRegistry } from '@learn/lesson-runtime';
+import { ClassroomHeader } from './ClassroomHeader';
+import { ClassroomIcon } from './ClassroomIcon';
+import { LessonGuide } from './LessonGuide';
+import { LessonTools, type GuideTool } from './LessonTools';
 import './classroom.css';
+import './lesson-chrome.css';
 
 export function Classroom({
   lesson,
@@ -11,40 +17,81 @@ export function Classroom({
   registry: RendererRegistry;
   realContent?: boolean;
 }) {
+  const [tool, setTool] = useState<GuideTool | null>(null);
+  const [showMap, setShowMap] = useState(false);
+  const [notes, setNotes] = useState('');
+  function openTool(next: GuideTool) {
+    setTool((current) => (current === next ? null : next));
+  }
+  if (!realContent)
+    return (
+      <main className="probe-classroom">
+        <h1>نشرح فكرة، نجربها، ونكمل.</h1>
+        <p>اختبار المحرك بالنغمات التجريبية، وليس درسًا معتمدًا.</p>
+        <LessonPreview lesson={lesson} registry={registry} />
+      </main>
+    );
   return (
-    <main className="classroom">
-      <div className="classroom-intro">
-        <p className="eyebrow">
-          {realContent
-            ? `${lesson.curriculumTitle} · الدرس ${lesson.lessonOrder}`
-            : 'أول تجربة للمحرك المشترك'}
+    <div className="classroom-shell">
+      <ClassroomHeader
+        lesson={lesson}
+        onMap={() => setShowMap((value) => !value)}
+        onSource={() => openTool('source')}
+        onHelp={() => openTool('guide')}
+      />
+      <main className="classroom" dir="rtl">
+        <div className="classroom-breadcrumb" dir="ltr">
+          <div>
+            <span>{lesson.curriculumTitle}</span>
+            <h1>
+              {lesson.title}
+              <small lang="en" dir="ltr">
+                {lesson.englishTitle}
+              </small>
+            </h1>
+          </div>
+          <span className="classroom-mode">
+            <ClassroomIcon name="play" size={18} />
+            مساحة الدرس
+          </span>
+        </div>
+        <div
+          className={`classroom-workspace ${tool ? 'has-guide' : ''} ${showMap ? 'show-scenes' : ''}`}
+          dir="ltr"
+        >
+          <div id="classroom-player" className="classroom-player">
+            <LessonPreview lesson={lesson} registry={registry} />
+          </div>
+          {tool && (
+            <LessonGuide
+              lesson={lesson}
+              tool={tool}
+              notes={notes}
+              onNotes={setNotes}
+              onClose={() => setTool(null)}
+              onTerms={() => setTool('terms')}
+            />
+          )}
+        </div>
+        <LessonTools
+          active={tool}
+          onTool={openTool}
+          onMap={() => setShowMap((value) => !value)}
+          showMap={showMap}
+        />
+        {!tool && lesson.guide && (
+          <button
+            className="classroom-nova"
+            onClick={() => setTool('guide')}
+            aria-label="افتح مساعدة نوفا"
+          >
+            <img src={lesson.guide.image} alt="" width={58} height={58} />
+          </button>
+        )}
+        <p className="classroom-footer">
+          نسخة للمراجعة · الصوت الأصلي · تقدم وملاحظات الجلسة الحالية فقط
         </p>
-        <h1>{realContent ? lesson.title : 'نشرح فكرة، نجربها، ونكمل.'}</h1>
-        <p>
-          {realContent
-            ? 'شاهد الشرح، جرّب الأسئلة، وكمل مع المدرّس. نسخة للمراجعة بصوت الدرس الأصلي.'
-            : 'اختبار تقني قصير بصوت نغمات تجريبية. المحتوى والتوقيتات هنا للاختبار، وليست درسًا أو تسجيلًا معتمدًا.'}
-        </p>
-      </div>
-      {realContent && (
-        <p className="lesson-edition" lang="en" dir="ltr">
-          {lesson.englishTitle} <span>11 scenes · 4 questions</span>
-        </p>
-      )}
-      <LessonPreview lesson={lesson} registry={registry} />
-      <p className="classroom-note">
-        المعاينة لا تسجل دخولًا أو تحفظ تقدمًا. الحسابات والفهرس وحفظ التقدم ما زالوا قيد التطوير.
-      </p>
-      {realContent && (
-        <details className="review-details">
-          <summary>عن نسخة المراجعة</summary>
-          <p>
-            أعدنا استخدام درس حالات المادة والتسجيلات والتوقيتات الأصلية لمراجعة الواجهة والمحرك.
-            هذه المعاينة لا تعني اعتماد جودة المحتوى أو التوقيتات من جديد.
-          </p>
-          <a href="?preview=probe">افتح اختبار المحرك القصير</a>
-        </details>
-      )}
-    </main>
+      </main>
+    </div>
   );
 }

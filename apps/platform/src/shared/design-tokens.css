@@ -1,0 +1,16 @@
+/* Preserved from the existing Learn lesson UI, not a new visual identity. */
+:root {
+  --learn-font: 'Segoe UI', Tahoma, Arial, sans-serif;
+  --learn-canvas: #f4f3e9;
+  --learn-paper: #fffefb;
+  --learn-ink: #25413a;
+  --learn-primary: #4d7945;
+  --learn-brand: #417344;
+  --learn-muted: #61735a;
+  --learn-line: #dce5d4;
+  --learn-soft: #eaf2e2;
+  --learn-focus: #af793d;
+  --learn-radius-panel: 22px;
+  --learn-radius-control: 10px;
+  --learn-shadow: 0 10px 28px #52633f15;
+}

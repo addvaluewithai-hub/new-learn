@@ -1,7 +1,8 @@
+@import './design-tokens.css';
 :root {
-  font-family: Tahoma, Arial, sans-serif;
-  color: #193a35;
-  background: #f7f7f2;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  color: var(--learn-ink);
+  background: var(--learn-canvas);
   font-synthesis: none;
   --surface: #ffffff;
   --ink: #193a35;
@@ -30,35 +31,23 @@ button:disabled {
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #dba44b;
+  outline: 3px solid var(--learn-focus);
   outline-offset: 4px;
 }
-.app-shell {
-  max-width: 1220px;
-  margin-inline: auto;
-  padding: 24px;
-}
-.app-header {
-  display: flex;
+button {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+  gap: 7px;
 }
-.app-header strong {
-  font:
-    700 32px Arial,
-    sans-serif;
-  letter-spacing: -2px;
+a {
+  color: inherit;
 }
-.app-header strong span {
-  color: var(--accent);
+a:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--learn-focus);
+  outline-offset: 3px;
 }
-.app-header > span {
-  color: var(--muted);
-  font-size: 13px;
-}
-@media (max-width: 650px) {
-  .app-shell {
-    padding: 16px;
-  }
+.app-shell {
+  min-height: 100dvh;
 }

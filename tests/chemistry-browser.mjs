@@ -86,6 +86,7 @@ try {
     await page.goto(url);
     await page.getByRole('heading', { name: 'حالات المادة', exact: true }).waitFor();
     await page.locator('.lesson-preview').waitFor();
+    await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
     const ratio = await page
       .locator('.lesson-stage')
       .evaluate((node) => node.clientWidth / node.clientHeight);
@@ -110,18 +111,31 @@ try {
     }
     await page.getByRole('navigation', { name: 'مشاهد الدرس' }).getByRole('button').nth(0).click();
     await seekTo(page, 26000);
+    await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
     await page.screenshot({ path: `test-results/chemistry-${width}.png`, fullPage: true });
+    await page.getByRole('button', { name: 'المصطلحات', exact: true }).click();
+    await page.getByRole('definition').first().waitFor();
+    await page.getByRole('button', { name: 'ملاحظاتي', exact: true }).click();
+    await page.getByLabel('اكتب ملخصًا أو سؤالًا ترجع له.').fill('A gas fills its container.');
+    await page.getByRole('button', { name: 'المصطلحات', exact: true }).click();
+    await page.getByRole('button', { name: 'ملاحظاتي', exact: true }).click();
+    assert.equal(
+      await page.getByLabel('اكتب ملخصًا أو سؤالًا ترجع له.').inputValue(),
+      'A gas fills its container.',
+    );
+    await page.getByRole('button', { name: 'أغلق المساعدة', exact: true }).click();
     assert.deepEqual(errors, []);
     await page.close();
   }
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
   await page.goto(url);
+  await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
   await page.getByRole('navigation', { name: 'مشاهد الدرس' }).getByRole('button').nth(7).click();
   const beat = manifest.beats.find((b) => b.id === 'S07');
   await seekTo(page, beat.questionAtMs);
   await page.locator('[data-board-phase="question-reading"]').waitFor();
   assert.equal(await page.locator('.lesson-preview').getAttribute('data-mode'), 'narration');
-  await page.getByRole('button', { name: 'ابدأ الشرح', exact: true }).click();
+  await page.getByRole('button', { name: 'كمّل الشرح', exact: true }).click();
   await poll(
     async () =>
       Number(await page.getByLabel('موضع التشغيل').inputValue()) >
