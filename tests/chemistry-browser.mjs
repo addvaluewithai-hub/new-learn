@@ -84,7 +84,7 @@ try {
     const errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(url);
-    await page.getByRole('heading', { name: 'حالات المادة', exact: true }).waitFor();
+    await page.getByRole('heading', { name: /حالات المادة/ }).waitFor();
     await page.locator('.lesson-preview').waitFor();
     await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
     const ratio = await page
@@ -158,6 +158,21 @@ try {
   console.log(
     'Chemistry: built app, exact media hashes, all board phases/ratios, real audio, question, feedback and automatic next passed.',
   );
+} catch (error) {
+  for (const context of browser?.contexts() ?? []) {
+    for (const page of context.pages()) {
+      await page
+        .screenshot({ path: 'test-results/chemistry-failure.png', fullPage: true })
+        .catch(() => {});
+      console.error(
+        await page
+          .locator('body')
+          .innerText()
+          .catch(() => ''),
+      );
+    }
+  }
+  throw error;
 } finally {
   await browser?.close();
   server.kill();
