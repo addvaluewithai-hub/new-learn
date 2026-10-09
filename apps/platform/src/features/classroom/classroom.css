@@ -1,0 +1,31 @@
+.classroom {
+  margin-top: 48px;
+}
+.classroom-intro {
+  max-width: 740px;
+  margin-bottom: 24px;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: bold;
+}
+.classroom h1 {
+  font-size: clamp(25px, 4vw, 42px);
+  line-height: 1.4;
+  margin: 8px 0;
+}
+.classroom-intro > p:last-child {
+  color: var(--muted);
+  line-height: 1.9;
+}
+.classroom-note {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 12px;
+}
+@media (max-width: 650px) {
+  .classroom {
+    margin-top: 32px;
+  }
+}

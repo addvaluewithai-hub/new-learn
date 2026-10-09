@@ -1,0 +1,11 @@
+{
+  "name": "@learn/platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@learn/lesson-runtime": "0.1.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  }
+}

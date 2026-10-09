@@ -1,0 +1,8 @@
+node_modules/
+dist/
+test-results/
+.env
+.env.*
+.dev.vars
+apps/platform/public/fixtures/
+fixtures/runtime-probe/audio-manifest.json
