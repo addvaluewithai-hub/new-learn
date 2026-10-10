@@ -19,7 +19,7 @@
     "build": "npm run typecheck && vite build --config apps/platform/vite.config.ts",
     "preview": "vite preview --config apps/platform/vite.config.ts",
     "check": "node tools/check-boundaries.mjs",
-    "pretest": "npm run prepare:fixture",
+    "pretest": "npm run sdk:build && npm run prepare:fixture",
     "test": "node --import tsx --test packages/lesson-runtime/tests/*.test.ts apps/platform/tests/*.test.ts",
     "test:browser": "node tests/browser.mjs",
     "format": "prettier --write .",
