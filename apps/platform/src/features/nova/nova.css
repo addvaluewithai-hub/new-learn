@@ -1,4 +1,5 @@
 .nova-capsule {
+  pointer-events: none;
   position: fixed;
   bottom: 22px;
   right: 24px;
@@ -34,6 +35,12 @@
   background: #edf4ef;
   color: #153d35;
   cursor: pointer;
+}
+.nova-capsule button {
+  pointer-events: auto;
+}
+.classroom-shell {
+  padding-bottom: 100px;
 }
 .nova-capsule button:last-child {
   background: #d7f77b;

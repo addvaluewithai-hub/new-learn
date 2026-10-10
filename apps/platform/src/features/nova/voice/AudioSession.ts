@@ -11,7 +11,7 @@ export class AudioSession {
   private paused = false;
   private complete = false;
   constructor(private onIdle: () => void) {
-    void this.context.resume();
+    void this.context.resume().catch(() => {});
   }
   async capture(send: (chunk: string) => void) {
     if (!navigator.mediaDevices?.getUserMedia)
@@ -61,6 +61,9 @@ export class AudioSession {
     };
     source.start(at);
   }
+  get speaking() {
+    return this.active.size > 0;
+  }
   finish() {
     this.complete = true;
     if (!this.active.size) this.onIdle();
@@ -96,6 +99,6 @@ export class AudioSession {
     this.stream?.getTracks().forEach((track) => track.stop());
     this.source?.disconnect();
     this.worklet?.disconnect();
-    void this.context.close();
+    void this.context.close().catch(() => {});
   }
 }

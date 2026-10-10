@@ -3,6 +3,7 @@ import { api } from '../../shared/api';
 import type { Position, PracticeQuestion, Quiz } from './types';
 export function applyAnswer(quiz: Quiz, index: number, choice: number): Quiz {
   if (
+    !quiz.questions[index] ||
     quiz.revealed ||
     index !== quiz.index ||
     !Number.isInteger(choice) ||

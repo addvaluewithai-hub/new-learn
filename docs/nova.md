@@ -64,7 +64,9 @@ Unit tests cover trusted positions/cues, history bounds, generated quiz validati
 Controlled browser checks cover exact pause, context payload, chat cancellation/error/reopen,
 320/390/1280 layouts, real browser microphone capture with synthetic input, mute/pause/hangup,
 and completion/ten-question result. Provider traffic is mocked in those UI tests.
-Real deployed provider checks are separate; test microphone consent/audio on an actual phone as well.
+Real provider acceptance on the branch preview passed on 2026-10-10: authorized grounded chat,
+exactly ten generated questions, full constrained Live setup, PCM audio response and output transcript.
+This was a protocol/API check, not a real phone microphone test; test consent/audio on an actual phone as well.
 
 Primary API references:
 https://ai.google.dev/api/generate-content (AuthToken/BidiGenerateContentSetup)

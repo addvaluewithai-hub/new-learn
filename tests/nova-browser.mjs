@@ -70,7 +70,8 @@ try {
     failChat = false,
     lastPosition,
     liveSetup,
-    toolResult;
+    toolResult,
+    voiceSocket;
   await page.route('**/api/**', async (route) => {
     const path = new URL(route.request().url()).pathname;
     let data,
@@ -103,6 +104,7 @@ try {
   });
   // Controlled protocol fixtures exercise browser lifecycle, not the real provider.
   await page.routeWebSocket('wss://generativelanguage.googleapis.com/**', (socket) => {
+    voiceSocket = socket;
     socket.onMessage((raw) => {
       const input = JSON.parse(String(raw));
       if (input.setup) {
@@ -212,6 +214,35 @@ try {
   }
   await modal.getByRole('heading', { name: '10 / 10' }).waitFor();
   await page.screenshot({ path: 'test-results/nova-practice-result.png' });
+  await modal.getByRole('button', { name: 'تدريب جديد', exact: true }).click();
+  await modal.getByText('Practice question 1?', { exact: true }).waitFor();
+  await modal.getByRole('button', { name: 'صوت', exact: true }).click();
+  await modal.getByRole('button', { name: 'ابدأ المكالمة', exact: true }).click();
+  await modal.getByRole('button', { name: 'كتم الميكروفون', exact: true }).waitFor();
+  voiceSocket.send(
+    JSON.stringify({
+      toolCall: {
+        functionCalls: [
+          { id: 'answer-1', name: 'answer_question', args: { questionIndex: 0, choice: 1 } },
+        ],
+      },
+    }),
+  );
+  await modal.getByText('ده تفسير الإجابة.', { exact: true }).waitFor();
+  assert.equal(toolResult.functionResponses[0].response.correct, true);
+  voiceSocket.send(
+    JSON.stringify({
+      toolCall: {
+        functionCalls: [
+          { id: 'duplicate', name: 'answer_question', args: { questionIndex: 0, choice: 0 } },
+        ],
+      },
+    }),
+  );
+  await page.waitForTimeout(100);
+  assert.ok(toolResult.functionResponses[0].response.error);
+  await modal.getByRole('button', { name: 'إغلاق نوفا', exact: true }).click();
+
   assert.deepEqual(errors, []);
   console.log(
     'Nova: controlled browser chat/context/pause/cancel/error/reopen/responsive, microphone lifecycle and ten-question practice passed.',

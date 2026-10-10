@@ -103,11 +103,21 @@ export function useVoice(position: Position, answer: (index: number, choice: num
     if (next) active.current?.live.endAudio();
   }
   async function pause() {
-    if (!active.current) return;
-    held.current = !held.current;
-    await active.current.audio.setPaused(held.current);
-    if (held.current) active.current.live.endAudio();
-    setStatus(held.current ? 'paused' : 'listening');
+    const session = active.current;
+    if (!session) return;
+    const next = !held.current;
+    held.current = next;
+    try {
+      await session.audio.setPaused(next);
+      if (active.current !== session) return;
+      if (next) session.live.endAudio();
+      setStatus(next ? 'paused' : session.audio.speaking ? 'speaking' : 'listening');
+    } catch {
+      if (active.current === session) {
+        stop();
+        setError('تعذّر استكمال صوت المكالمة. اتصل تاني.');
+      }
+    }
   }
   return {
     status,

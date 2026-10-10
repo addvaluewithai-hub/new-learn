@@ -82,6 +82,8 @@ test('quiz cannot submit twice, answer a future question or select outside its o
   assert.deepEqual(answered.answers, [2]);
   assert.equal(answered.revealed, true);
   assert.equal(applyAnswer(answered, 0, 1), answered);
+  const complete = { ...quiz, index: 10 };
+  assert.equal(applyAnswer(complete, 10, 2), complete);
 });
 test('voice PCM is little endian and resamples browser audio to 16kHz', () => {
   const raw = new Float32Array([-0.75, 0, 0.5, 1]);
