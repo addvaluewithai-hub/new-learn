@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import type { LessonContext, LessonController } from '@learn/lesson-runtime';
+import { NovaAssistant } from '../nova/NovaAssistant';
 import { LessonPreview } from '@learn/lesson-runtime';
 import type { LessonPackage, RendererRegistry } from '@learn/lesson-runtime';
 import { ClassroomHeader } from './ClassroomHeader';
@@ -13,12 +15,18 @@ export function Classroom({
   registry,
   realContent = false,
   backHref,
+  studentName,
 }: {
   lesson: LessonPackage;
   registry: RendererRegistry;
   realContent?: boolean;
   backHref?: string;
+  studentName?: string;
 }) {
+  const [context, setContext] = useState<LessonContext | null>(null);
+  const [controller, setController] = useState<LessonController | null>(null);
+  const [assistantOpen, setAssistantOpen] = useState(false);
+  const onReady = useCallback((value: LessonController | null) => setController(value), []);
   const [tool, setTool] = useState<GuideTool | null>(null);
   const [showMap, setShowMap] = useState(false);
   const [notes, setNotes] = useState('');
@@ -63,7 +71,13 @@ export function Classroom({
           dir="ltr"
         >
           <div id="classroom-player" className="classroom-player">
-            <LessonPreview lesson={lesson} registry={registry} />
+            <LessonPreview
+              lesson={lesson}
+              registry={registry}
+              suspended={assistantOpen}
+              onReady={onReady}
+              onContext={setContext}
+            />
           </div>
           {tool && (
             <LessonGuide
@@ -82,15 +96,13 @@ export function Classroom({
           onMap={() => setShowMap((value) => !value)}
           showMap={showMap}
         />
-        {!tool && lesson.guide && (
-          <button
-            className="classroom-nova"
-            onClick={() => setTool('guide')}
-            aria-label="افتح مساعدة نوفا"
-          >
-            <img src={lesson.guide.image} alt="" width={58} height={58} />
-          </button>
-        )}
+        <NovaAssistant
+          lesson={lesson}
+          studentName={studentName}
+          context={context}
+          controller={controller}
+          onOpen={setAssistantOpen}
+        />
         <p className="classroom-footer">
           نسخة للمراجعة · الصوت الأصلي · تقدم وملاحظات الجلسة الحالية فقط
         </p>

@@ -6,7 +6,7 @@ import {
   type StatesRecording,
   type StatesLayout,
 } from './statesLesson';
-import { boardAt } from './statesBoard';
+import { boardAt } from './boardTiming';
 import { Particles } from './visuals/particles';
 import { Prompt } from './visuals/labels';
 import { INK, C } from './visuals/palette';

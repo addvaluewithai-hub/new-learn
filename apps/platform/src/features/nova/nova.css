@@ -1,0 +1,259 @@
+.nova-capsule {
+  position: fixed;
+  bottom: 22px;
+  right: 24px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px 7px 7px;
+  border: 1px solid #d8e4df;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 8px 30px #163b3521;
+  direction: rtl;
+  color: #153d35;
+}
+.nova-capsule img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nova-capsule > span {
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 3px;
+}
+.nova-capsule button,
+.nova-icon-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #edf4ef;
+  color: #153d35;
+  cursor: pointer;
+}
+.nova-capsule button:last-child {
+  background: #d7f77b;
+}
+.nova-modal {
+  width: min(530px, calc(100vw - 32px));
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  border: 1px solid #d5e2db;
+  border-radius: 24px;
+  color: #203d35;
+  background: #fff;
+  box-shadow: 0 30px 100px #102e3540;
+  font-family: inherit;
+  overflow: hidden;
+}
+.nova-modal[open] {
+  display: flex;
+  flex-direction: column;
+}
+.nova-modal::backdrop {
+  background: #0c242666;
+  backdrop-filter: blur(4px);
+}
+.nova-modal button,
+.nova-end-practice button {
+  font: inherit;
+  cursor: pointer;
+}
+.nova-modal button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.nova-modal button:focus-visible,
+.nova-capsule button:focus-visible,
+.nova-end-practice button:focus-visible {
+  outline: 3px solid #6b9851;
+  outline-offset: 3px;
+}
+.nova-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 14px;
+}
+.nova-modal-header > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nova-avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: #153d35;
+  color: #d7f77b;
+  font: bold 25px Georgia;
+}
+.nova-modal h2 {
+  margin: 0;
+  font-size: 19px;
+}
+.nova-modal h2 small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #75817b;
+  margin-top: 3px;
+}
+.nova-modal-header p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #526e60;
+}
+.nova-status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #658e3a;
+  margin-left: 5px;
+}
+.nova-context {
+  margin: 0 22px;
+  padding: 12px 14px;
+  background: #f5f7f2;
+  border-radius: 13px;
+  font-size: 12px;
+}
+.nova-context > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #7b857a;
+}
+.nova-context strong {
+  display: block;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.nova-context p {
+  margin: 6px 0 0;
+  max-height: 38px;
+  overflow: hidden;
+  color: #6e7b71;
+  line-height: 1.6;
+}
+.nova-tabs {
+  display: flex;
+  gap: 6px;
+  margin: 14px 22px 0;
+  padding: 4px;
+  background: #f3f5f1;
+  border-radius: 12px;
+}
+.nova-tabs button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #6e7b71;
+  font-size: 14px;
+}
+.nova-tabs button[aria-pressed='true'] {
+  color: #153d35;
+  background: white;
+  box-shadow: 0 2px 6px #193e3410;
+}
+.nova-modal-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+  flex: 1;
+  padding: 16px 22px 12px;
+}
+.nova-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #eef1ea;
+  padding: 12px 22px;
+  font-size: 10px;
+  color: #7e8980;
+}
+.nova-modal-footer button {
+  border: 0;
+  background: transparent;
+  color: #234f3d;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.nova-primary {
+  border: 0;
+  border-radius: 12px;
+  background: #153d35;
+  color: white;
+  padding: 11px 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.nova-secondary {
+  border: 1px solid #dbe4da;
+  border-radius: 12px;
+  background: #f9fbf6;
+  color: #294e3c;
+  padding: 9px 13px;
+}
+.nova-error {
+  padding: 10px 12px;
+  background: #fff2ed;
+  border-radius: 10px;
+  color: #923e2e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.nova-footnote {
+  display: block;
+  color: #7e8980;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.nova-eyebrow {
+  font-size: 12px;
+  color: #668143;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .nova-capsule {
+    bottom: 14px;
+    right: 14px;
+  }
+  .nova-modal {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 20px;
+  }
+  .nova-modal-header {
+    padding: 16px;
+  }
+  .nova-context {
+    margin: 0 16px;
+  }
+  .nova-tabs {
+    margin: 12px 16px 0;
+  }
+  .nova-modal-body {
+    padding: 14px 16px;
+  }
+  .nova-modal-footer {
+    padding: 12px 16px;
+  }
+}

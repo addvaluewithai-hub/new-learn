@@ -2,7 +2,7 @@
 
 بداية مستقلة للمنصة الجديدة، مع محرك React/Remotion مشترك وصفحة معاينة تطوير.
 صفحات الحسابات تستخدم Neon Auth، والفهرس يُقرأ من جداول مستقلة على فرع Neon جديد.
-ربط الداتا بيز بالموقع المنشور يحتاج إضافة DATABASE_URL في Cloudflare؛ التفاصيل في docs/account-delivery.md.
+التسجيل والجلسة والفهرس وفتح الدرس اتفحصوا على الموقع المنشور بنجاح؛ التفاصيل في docs/account-delivery.md.
 
 ## التشغيل
 
@@ -55,8 +55,8 @@ npm run test:browser
 
 ## حالة SDK الإنتاج
 
-المحرك حزمة ESM/types/CSS بإصدار 0.2.1؛ ملف التثبيت وSHA256 تحت distributions.
-واجهة المعاينة العامة LessonPreview تقبل lesson وregistry وlayout اختياريًا.
+المحرك حزمة ESM/types/CSS بإصدار 0.2.2؛ ملف التثبيت وSHA256 تحت distributions.
+واجهة المعاينة العامة LessonPreview تقبل lesson وregistry وlayout اختياريًا، ومعها onContext/onReady/suspended لمضيف المنصة.
 لا تحمل معاينة الحسابات أو الحفظ، ولا تعتمد على نسخة محلية من Learn القديم.
 ريبو learn-curriculums يستهلك الحزمة بإصدار/commit مثبت، ويحوّل مصادر learn-authoring
 المتحقق من تسجيلاتها وتوقيتاتها إلى معاينة مؤقتة. المراجعة الفعلية والنشر منفصلان.

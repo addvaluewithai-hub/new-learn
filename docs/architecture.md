@@ -2,7 +2,7 @@
 
 This foundation is an independent npm workspace, not a copy of the old Learn checkout.
 The default entry is the account/catalog host; explicit preview queries remain ephemeral review tools.
-Cloudflare still needs the database secret before the deployed catalog can work. See account-delivery.md.
+The deployed auth/session/catalog/lesson journey passed against real services on 2026-10-09. See account-delivery.md.
 
 ## Ownership
 

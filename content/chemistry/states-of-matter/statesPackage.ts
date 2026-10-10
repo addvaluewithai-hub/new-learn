@@ -7,7 +7,7 @@ import {
   type StatesManifest,
 } from './statesLesson';
 import { validateLessonPackage, type LessonPackage } from '@learn/lesson-runtime/core';
-import { boardTiming } from './statesBoard';
+import { boardTiming } from './boardTiming';
 export const STATES_MANIFEST_URL = '/recordings/chem-gas-states-v3/manifest.json';
 const tips: Record<string, string> = {
   S01: 'ابدأ بسؤالين: هل الشكل ثابت؟ وهل الحجم ثابت؟ بعد المقارنة، هنستخدم الجسيمات عشان نفهم السبب.',

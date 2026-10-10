@@ -61,4 +61,4 @@ The earlier foundation status above is historical. Modular Auth, DB catalog, acc
 and authorized review-lesson routes are now implemented. Schema and three migrations were applied
 on an isolated Neon branch. No old student rows were migrated.
 Live provider and live platform API/DB checks passed. Production import and progress writes remain pending.
-Cloudflare DATABASE_URL binding is still required; see docs/account-delivery.md and docs/data-contract.md.
+The deployed signup/session/catalog/lesson/logout journey passed; the earlier missing Cloudflare DB binding assumption was corrected. See docs/account-delivery.md and docs/data-contract.md.

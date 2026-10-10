@@ -11,3 +11,6 @@ export type {
   TimedWord,
   VisualSpec,
 } from './types';
+
+export { lessonContext } from './context';
+export type { LessonContext, LessonController } from './context';

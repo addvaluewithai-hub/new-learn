@@ -48,7 +48,8 @@ No enrollment/progress/notes write endpoint exists in this batch. UI does not cl
 
 ## Security and migrations
 
-Server-only `DATABASE_URL` uses SQL-created `learn_app_reader`, with SELECT on four catalog tables.
+The local server-only `DATABASE_URL` uses SQL-created `learn_app_reader`, with SELECT on four catalog tables.
+The deployed catalog is verified working; its Cloudflare secret value/role was not inspected.
 Verified: no BYPASSRLS, no auth table read, no progress read and no edition UPDATE privilege.
 API-created `learn_platform_app` inherited elevated Neon privileges and is unused by the application.
 Credentials stay outside Git/client bundles; managed auth validates cookies server-side.

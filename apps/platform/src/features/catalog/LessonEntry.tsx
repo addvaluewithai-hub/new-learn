@@ -23,9 +23,11 @@ const modules: Record<
 export default function LessonEntry({
   lessonId,
   curriculumId,
+  studentName,
 }: {
   lessonId: string;
   curriculumId: string | null;
+  studentName: string;
 }) {
   const [edition, setEdition] = useState<Edition | null>(null),
     [error, setError] = useState(''),
@@ -74,7 +76,7 @@ export default function LessonEntry({
   const Lesson = module.component;
   return (
     <Suspense fallback={<p role="status">بنجهّز مساحة الدرس…</p>}>
-      <Lesson backHref={backHref} />
+      <Lesson backHref={backHref} studentName={studentName} />
     </Suspense>
   );
 }

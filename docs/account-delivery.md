@@ -14,23 +14,16 @@ cards, lesson path and responsive sidebar are separated into scoped feature styl
 Classroom keeps its existing font and 16:9/9:16 board; account CSS does not replace it.
 Reward counters/saved-progress claims wait for real persistence.
 
-## Deployment connection still needed
+## Deployed connection verified
 
 Pages project: `new-learn`, origin `https://new-learn.pages.dev`.
-Wrangler commits only public APP*ORIGIN, NEON_AUTH_BASE_URL and ALLOW_CONTENT_REVIEW.
-Auth trusted origins already include that site; email/password and shared reset email are enabled.
-Cloudflare management credentials are unavailable in this session, so DATABASE_URL is not installed remotely.
-Use the restricted reader connection prepared locally, never a VITE* variable or committed connection string.
-With an authenticated Wrangler CLI in this workspace:
-
-```bash
-npx wrangler pages secret bulk .dev.vars --project-name new-learn
-```
-
-Redeploy the site afterward. If using the dashboard, add the same DATABASE_URL as an encrypted
-runtime secret for the target environment, then redeploy. Do not use the old branch's connection.
-No database reset, merge or data migration is necessary.
-Without this binding, login can work but catalog correctly reports a service error.
+Real deployed signup, session, DB catalog (one curriculum/nine lessons), pinned review lesson,
+logout and signin all passed on 2026-10-09. The prior missing-secret assumption was incorrect.
+The user dashboard screenshot also confirms encrypted DATABASE_URL and GEMINI_API_KEY bindings.
+We did not read Cloudflare secret values or verify the deployed database role.
+Public origin/Auth settings are in wrangler.jsonc; secrets remain server-only, outside Git.
+The isolated branch and local restricted reader are documented in data-contract.md.
+No old account/data migration or database reset was performed.
 
 ## Local development and verification
 
@@ -51,7 +44,6 @@ Chromium emulation does not replace real Safari/mobile audio acceptance.
 
 ## Next
 
-Install Cloudflare DB secret and verify the deployed end-to-end journey.
-Then implement SDK host state/event APIs and durable progress/attempt/notes adapters against the pinned edition,
-followed by the factory importer/release pipeline and contextual Chat/Live assistants.
+Implement durable progress/attempt/notes adapters against the pinned edition and the factory importer/release pipeline.
+Nova host context, chat, Live and lesson practice are described in docs/nova.md.
 The preview SDK and authoring repository need no authentication/database dependency.

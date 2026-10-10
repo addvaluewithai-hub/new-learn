@@ -1,0 +1,140 @@
+.nova-end-practice {
+  margin: 24px auto;
+  background: #f0f5e8;
+  border: 1px solid #dbe6cf;
+  border-radius: 22px;
+  padding: 28px;
+  max-width: 900px;
+}
+.nova-end-practice h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.nova-end-practice p {
+  color: #728066;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.nova-end-practice > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+.nova-end-practice button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: right;
+  padding: 20px;
+  border: 1px solid #cedcbf;
+  border-radius: 16px;
+  background: #fff;
+  color: #224f3b;
+}
+.nova-end-practice button:first-child {
+  background: #153d35;
+  color: #fff;
+  border-color: #153d35;
+}
+.nova-end-practice button span {
+  font-size: 18px;
+  font-weight: 600;
+}
+.nova-end-practice button small {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 6px;
+  font-weight: 400;
+}
+.nova-practice {
+  padding: 8px 0 16px;
+}
+.nova-practice h3 {
+  font-size: 20px;
+  line-height: 1.65;
+  margin: 14px 0 8px;
+}
+.nova-practice p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.nova-practice > .nova-secondary {
+  margin: 8px;
+}
+.nova-quiz-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+  color: #758267;
+}
+.nova-quiz-progress progress {
+  width: 100px;
+  height: 6px;
+  accent-color: #63853e;
+}
+.nova-options {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+.nova-options button {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  border: 1px solid #dce4d7;
+  border-radius: 12px;
+  padding: 12px;
+  color: #294637;
+  background: #fff;
+  font-size: 14px;
+}
+.nova-options button span {
+  display: grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: #f1f5ec;
+  font-size: 12px;
+  font-weight: 700;
+}
+.nova-options button[data-result='correct'] {
+  border-color: #779e45;
+  background: #f0f7e5;
+  opacity: 1;
+}
+.nova-options button[data-result='incorrect'] {
+  border-color: #cc8871;
+  background: #fff0e9;
+  opacity: 1;
+}
+.nova-quiz-feedback {
+  border-radius: 14px;
+  background: #f4f7ee;
+  padding: 16px;
+}
+.nova-quiz-feedback strong {
+  font-size: 14px;
+}
+.nova-quiz-feedback p {
+  margin: 10px 0;
+}
+.nova-modal-body.is-quiz {
+  max-height: 60dvh;
+}
+@media (max-width: 600px) {
+  .nova-end-practice {
+    padding: 20px 16px;
+  }
+  .nova-end-practice > div {
+    grid-template-columns: 1fr;
+  }
+  .nova-end-practice h2 {
+    font-size: 21px;
+  }
+}

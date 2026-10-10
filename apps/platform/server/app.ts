@@ -1,4 +1,5 @@
 import type { Env } from './env';
+import { novaRoute } from './nova/routes';
 import { authProxy, currentUser } from './auth';
 import { catalog, lessonEdition } from './content';
 import { checkOrigin, HttpError, json } from './http';
@@ -11,6 +12,8 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (path.startsWith('/api/auth/'))
       return await authProxy(request, env, path.slice('/api/auth/'.length));
     const user = await currentUser(request, env);
+    if (path.startsWith('/api/nova/'))
+      return await novaRoute(request, env, user, path.slice('/api/nova/'.length));
     if (request.method === 'GET' && path === '/api/me') return json({ user });
     if (request.method === 'GET' && path === '/api/catalog') return json(await catalog(env));
     if (request.method === 'GET' && path.startsWith('/api/lessons/'))

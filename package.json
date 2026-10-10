@@ -33,7 +33,8 @@
     "db:migrate": "drizzle-kit migrate",
     "dev:full": "wrangler pages dev dist --port 8788",
     "functions:check": "wrangler pages functions build functions --outdir .functions-check",
-    "test:browser:platform": "node tests/platform-browser.mjs"
+    "test:browser:platform": "node tests/platform-browser.mjs",
+    "test:browser:nova": "node tests/nova-browser.mjs"
   },
   "devDependencies": {
     "@types/node": "24.13.4",

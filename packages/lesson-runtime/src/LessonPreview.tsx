@@ -11,8 +11,9 @@ import { usePlaybackBridge } from './usePlaybackBridge';
 import { PlaybackControls } from './PlaybackControls';
 import { QuestionForm } from './QuestionForm';
 import './preview.css';
+import { useHostBridge, type HostPlayback } from './useHostBridge';
 
-export type LessonPreviewProps = {
+export type LessonPreviewProps = HostPlayback & {
   lesson: LessonPackage;
   registry: RendererRegistry;
   layout?: LessonLayout;
@@ -33,7 +34,7 @@ export function LessonPreview(props: LessonPreviewProps) {
   );
 }
 
-function PreviewSession({ lesson, registry, layout: override }: LessonPreviewProps) {
+function PreviewSession({ lesson, registry, layout: override, ...host }: LessonPreviewProps) {
   const reducer = useCallback(
     (state: ReturnType<typeof initialSession>, action: Parameters<typeof reduceSession>[2]) =>
       reduceSession(lesson, state, action),
@@ -85,7 +86,8 @@ function PreviewSession({ lesson, registry, layout: override }: LessonPreviewPro
       onAudioError,
     ],
   );
-  usePlaybackBridge(player, state, duration, dispatch);
+  usePlaybackBridge(player, state, duration, dispatch, host.suspended);
+  useHostBridge(player, lesson, state, host);
 
   const navigate = (index: number) => {
     player.current?.pause();

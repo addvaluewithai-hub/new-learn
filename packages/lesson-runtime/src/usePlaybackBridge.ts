@@ -8,7 +8,10 @@ export function usePlaybackBridge(
   state: Session,
   duration: number,
   dispatch: Dispatch<SessionAction>,
+  suspended = false,
 ) {
+  const held = useRef(suspended);
+  held.current = suspended;
   const liveEpoch = useRef(state.epoch);
   liveEpoch.current = state.epoch;
   const startOnMount = useRef(state.autoStart);
@@ -26,6 +29,10 @@ export function usePlaybackBridge(
       if (valid()) dispatch(action);
     };
     const onPlay = () => {
+      if (held.current) {
+        current.pause();
+        return;
+      }
       armed = true;
       send({ type: 'play', epoch });
     };
@@ -64,7 +71,7 @@ export function usePlaybackBridge(
     current.addEventListener('waiting', onWaiting);
     current.addEventListener('resume', onResume);
     const startTimer = window.setTimeout(() => {
-      if (valid() && autoStart) current.play();
+      if (valid() && autoStart && !held.current) current.play();
     }, 0);
     return () => {
       active = false;

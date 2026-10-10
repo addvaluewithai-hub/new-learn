@@ -21,7 +21,12 @@ function StudentApp() {
   const lessonId = query.get('lesson'),
     curriculumId = query.get('curriculum');
   return lessonId ? (
-    <LessonEntry key={lessonId} lessonId={lessonId} curriculumId={curriculumId} />
+    <LessonEntry
+      key={lessonId}
+      lessonId={lessonId}
+      curriculumId={curriculumId}
+      studentName={session.user.name}
+    />
   ) : (
     <CatalogPage user={session.user} onSignOut={session.signOut} curriculumId={curriculumId} />
   );
