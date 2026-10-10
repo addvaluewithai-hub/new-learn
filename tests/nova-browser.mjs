@@ -169,7 +169,7 @@ try {
   }
   await modal.getByRole('button', { name: 'صوت', exact: true }).click();
   await modal.getByRole('button', { name: 'ابدأ المكالمة' }).click();
-  await modal.getByRole('button', { name: 'كتم الميكروفون' }).waitFor();
+  await modal.getByText('Nova بتسمعك', { exact: true }).waitFor();
   assert.equal(liveSetup.model, 'models/gemini-3.8-live');
   await modal.getByRole('button', { name: 'كتم الميكروفون' }).click();
   await modal.getByRole('button', { name: 'افتح الميكروفون' }).waitFor();
@@ -218,7 +218,7 @@ try {
   await modal.getByText('Practice question 1?', { exact: true }).waitFor();
   await modal.getByRole('button', { name: 'صوت', exact: true }).click();
   await modal.getByRole('button', { name: 'ابدأ المكالمة', exact: true }).click();
-  await modal.getByRole('button', { name: 'كتم الميكروفون', exact: true }).waitFor();
+  await modal.getByText('Nova بتسمعك', { exact: true }).waitFor();
   voiceSocket.send(
     JSON.stringify({
       toolCall: {
