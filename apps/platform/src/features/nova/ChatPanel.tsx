@@ -31,7 +31,6 @@ export function ChatPanel({
           {chat.error}
         </p>
       )}
-      {!enabled && <p className="nova-error">افتح الدرس بعد تسجيل الدخول لاستخدام Nova.</p>}
       <form className="nova-composer" onSubmit={submit}>
         <label className="sr-only" htmlFor="nova-message">
           رسالتك لنوفا

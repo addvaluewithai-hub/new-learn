@@ -126,7 +126,7 @@ try {
   });
   await page.goto(`${origin}/?lesson=chem-gas-states-matter`);
   await page.getByRole('button', { name: 'افتح شات نوفا' }).waitFor();
-  await page.getByRole('button', { name: 'تشغيل', exact: true }).click();
+  await page.getByRole('button', { name: 'ابدأ الشرح', exact: true }).click();
   await page.waitForTimeout(450);
   await page.getByRole('button', { name: 'افتح شات نوفا' }).click();
   const modal = page.getByRole('dialog');
@@ -186,7 +186,7 @@ try {
   const last = manifest.beats.find((r) => r.id.includes(sceneId));
   const duration = Math.ceil((last.durationMs / 1000) * 30);
   await seek(page, duration - 5);
-  await page.getByRole('button', { name: 'تشغيل', exact: true }).click();
+  await page.getByRole('button', { name: 'كمّل الشرح', exact: true }).click();
   await page.locator('.lesson-preview[data-mode="attempt"]').waitFor();
   await page.locator('.lesson-question input[type="radio"]').first().check();
   await page
