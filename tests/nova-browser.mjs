@@ -45,6 +45,13 @@ async function seek(page, frame) {
     node.dispatchEvent(new Event('change', { bubbles: true }));
   }, frame);
 }
+async function poll(check, label) {
+  const deadline = Date.now() + 10000;
+  while (!check()) {
+    if (Date.now() > deadline) throw new Error(`Timed out: ${label}`);
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+}
 let browser;
 try {
   const deadline = Date.now() + 15000;
@@ -202,7 +209,7 @@ try {
   await modal.getByText('Practice question 1?', { exact: true }).waitFor();
   assert.equal(
     await modal.getByText('Second option', { exact: true }).count(),
-    1,
+    0,
     'answer explanation not disclosed',
   );
   for (let i = 0; i < 10; i++) {
@@ -229,6 +236,7 @@ try {
     }),
   );
   await modal.getByText('ده تفسير الإجابة.', { exact: true }).waitFor();
+  await poll(() => toolResult?.functionResponses[0]?.id === 'answer-1', 'voice grade response');
   assert.equal(toolResult.functionResponses[0].response.correct, true);
   voiceSocket.send(
     JSON.stringify({
@@ -239,7 +247,7 @@ try {
       },
     }),
   );
-  await page.waitForTimeout(100);
+  await poll(() => toolResult?.functionResponses[0]?.id === 'duplicate', 'duplicate rejected');
   assert.ok(toolResult.functionResponses[0].response.error);
   await modal.getByRole('button', { name: 'إغلاق نوفا', exact: true }).click();
 
