@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Html5Audio } from 'remotion';
+import { errorForCurrentAudio } from './audioError';
 
 export function SyncedAudio({
   src,
@@ -18,20 +19,19 @@ export function SyncedAudio({
       previousRecovery.current = recovery;
       element.load();
     }
-    const expected = new URL(src, document.baseURI).href;
     const handleError = () => {
-      // Shared native audio tags may have belonged to an earlier recording.
-      // Only forward a failure for the source owned by this composition.
-      const actual = new URL(element.currentSrc || element.src, document.baseURI).href;
-      if (actual !== expected || !element.error) return;
-      onError(new Error(`Audio playback failed (media code ${element.error.code})`));
+      const failure = errorForCurrentAudio(element, src, document.baseURI);
+      if (failure) onError(failure);
     };
     element.addEventListener('error', handleError);
     handleError();
     return () => element.removeEventListener('error', handleError);
   }, [element, src, recovery, onError]);
 
-  // Native error forwarding covers pooled tags as well as Remotion's callback.
-  // Timing and buffering remain owned by Remotion, with no second audio clock.
-  return <Html5Audio ref={setElement} src={src} pauseWhenBuffering onError={onError} />;
+  // Do NOT forward Html5Audio's raw React onError here: it can originate from
+  // a retired pooled tag after scene navigation, even when the current WAV has
+  // already loaded successfully. The guarded native listener above handles
+  // genuine failures for the currently owned source.
+  // Playback timing and buffering still belong to Remotion.
+  return <Html5Audio ref={setElement} src={src} pauseWhenBuffering />;
 }
