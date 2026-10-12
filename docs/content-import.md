@@ -41,6 +41,35 @@ completion screen. `validateReadingPackage`, `readingPages` and `readingContext`
 `@learn/lesson-runtime/core`. Reading context keeps the recorded-lesson shape with
 `delivery: "reading"` and `step`; Nova resolves and checks that position server-side.
 
+## The contract every curriculum meets
+
+Every curriculum reaches students through the same reading lesson screen; nothing is built
+per subject. Per lesson, the bundle must carry: a catalog entry (course `catalog` with parts),
+written text for every step (`readText` in authoring), a short learner goal per objective
+(`studentText`), English and Arabic question text with a model answer, and one board module
+per renderer directly in the lesson's `scenes/` (compiled here, at most 300 lines a file,
+importing only `remotion` and `@learn/lesson-runtime`).
+
+What a board receives in reading lessons (`VisualProps`), the same for every curriculum:
+the clip's cues at `index × STEP_MS` per step (the board is held at the settled time of the
+current step); on question scenes `question.readingParts` (English and Arabic, shown at once)
+and `recording.questionAtMs = 0`; on feedback `answer.parts` (English and Arabic); and
+`reading.steps`, the written lines of the clip with their `atMs`. Boards written for recorded
+lessons therefore show their question and answer panels without changes; new boards can
+print `reading.steps` instead of carrying text in params.
+
+Lessons that are not ready stay listed as "coming soon" (exported as skipped). A lesson
+needs its `lesson.json` to appear at all.
+
+## Editions: one revision, one set of files
+
+A released edition is immutable: the database keeps the first files seen for a revision, and
+a lesson is published only while its pinned files match. Re-exporting the same
+`contentRevision` with different files (an export-tool change, a different runtime version)
+would silently turn the lesson back into "coming soon", so `content:import` refuses it before
+touching anything. Export a new revision instead. Learners keep their place: when an edition
+is replaced, saved progress carries over (scenes, answers, and the position if it still exists).
+
 ## Goals and parts
 
 Each lesson objective becomes a goal (`studentText` wording, scenes that teach it, questions that

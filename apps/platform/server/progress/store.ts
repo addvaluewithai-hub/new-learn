@@ -9,6 +9,7 @@ import { enrollments, progress, type ProgressSnapshot } from '../db/learners';
 import type { AuthUser, Env } from '../env';
 import { HttpError, json } from '../http';
 import {
+  carryOver,
   mergeSnapshots,
   readingOutline,
   recordedOutline,
@@ -43,10 +44,14 @@ export async function readProgress(env: Env, user: AuthUser, lessonId: string) {
   const edition = await lessonEdition(env, lessonId);
   const all = await rows(env, user, lessonId);
   const current = all.find((row) => row.contentRevision === edition.contentRevision);
+  // A newer edition starts from what still fits of the latest older save (saved fresh on
+  // the next write), so a content update never sends the learner back to the start.
+  const older = current?.state ? null : all.find((row) => row.state);
+  const carried = older?.state ? carryOver(await outlineFor(edition.moduleId), older.state) : null;
   return {
     contentRevision: edition.contentRevision,
-    revision: current?.revision ?? null,
-    state: current?.state ?? null,
+    revision: current?.state ? current.revision : null,
+    state: current?.state ?? carried,
     // Completion survives a newer edition of the lesson.
     completed: all.some((row) => row.completedAt),
   };

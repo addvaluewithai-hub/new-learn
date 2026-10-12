@@ -101,6 +101,23 @@ test('feedback board receives the answer; question board never does', () => {
   )!;
   assert.equal(fb.answer?.english, '5/6');
   assert.equal(fb.recording.id, 'F01');
+  // One board contract for every curriculum: boards made for recorded lessons find the
+  // question and answer where they look for them, shown at once; reading boards get lines.
+  assert.deepEqual(
+    ask.question?.readingParts?.map((p) => [p.language, p.atMs]),
+    [
+      ['en', 0],
+      ['ar', 0],
+    ],
+  );
+  assert.equal(ask.question?.readingParts?.[0].text, 'Find 1/2 + 1/3.');
+  assert.equal(ask.recording.questionAtMs, 0);
+  assert.deepEqual(
+    fb.answer?.parts?.map((p) => p.text),
+    ['5/6', 'خمسة على ستة.'],
+  );
+  assert.equal(fb.recording.questionAtMs, null);
+  assert.deepEqual(fb.reading?.steps, [{ text: '$5/6$', atMs: 0 }]);
 });
 test('assistant context names the step and the written text instead of a clock', () => {
   const context = readingContext(lesson, { scene: 0, kind: 'teach', step: 1 }, false);

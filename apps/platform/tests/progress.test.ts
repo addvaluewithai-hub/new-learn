@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import type { ReadingPackage } from '@learn/lesson-runtime/core';
 import {
+  carryOver,
   mergeSnapshots,
   readingOutline,
   summarize,
@@ -105,4 +106,23 @@ test('continue points at the latest unfinished lesson, else the next available o
     ),
     { curriculumId: 'c', lessonId: 'b', kind: 'next' },
   );
+});
+test('a save from an older edition keeps what still exists and restarts a lost position', () => {
+  const answer = { id: 'a1', sceneId: asked.id, questionId: asked.question!.id, written: '7/12' };
+  const gone = { id: 'a2', sceneId: 'S99', questionId: 'Q99', written: 'x' };
+  const old = {
+    ...validateSnapshot(outline, snap({ step: 1 })),
+    reachedSceneIds: [pkg.scenes[0].id, 'S99'],
+    attempts: [answer, gone],
+  };
+  const kept = carryOver(outline, old)!;
+  assert.equal(kept.sceneId, pkg.scenes[0].id);
+  assert.equal(kept.step, 1);
+  assert.deepEqual(kept.reachedSceneIds, [pkg.scenes[0].id]);
+  assert.deepEqual(kept.attempts, [answer]);
+  // The scene the learner stood on was removed: start at the top, answers stay.
+  const moved = carryOver(outline, { ...old, sceneId: 'S99' })!;
+  assert.equal(moved.sceneId, pkg.scenes[0].id);
+  assert.equal(moved.step, 0);
+  assert.deepEqual(moved.attempts, [answer]);
 });

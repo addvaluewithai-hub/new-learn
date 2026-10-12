@@ -58,21 +58,40 @@ export function readingBoardProps(
       audioHash: '',
       durationMs: steps.length * STEP_MS + SETTLE_MS,
       words: [],
+      questionAtMs: q && !feedback ? 0 : null,
       cues: steps.flatMap((step, index) =>
         step.unitIds.map((id) => ({ id, atMs: index * STEP_MS })),
       ),
       contentAudit: { faithful: false, issues: ['Reading lesson: no audio.'] },
     },
     // Boards print question text as-is, so drop the reading text's $…$ symbol markers.
+    // The board contract is the same for every curriculum: boards written for recorded
+    // lessons read the question and answer from `readingParts` / `answer.parts` (all shown
+    // at once here), and reading-first boards can use `reading.steps`.
     question: q
       ? {
           english: plain(q.english),
           title: plain(q.arabic),
           options: q.options.map(plain),
           englishOptions: q.options.map(plain),
+          readingParts: [
+            { text: plain(q.english), atMs: 0, language: 'en' },
+            { text: plain(q.arabic), atMs: 0, language: 'ar' },
+          ],
         }
       : undefined,
-    answer: feedback && q ? { english: q.answer.english, arabic: q.answer.arabic } : undefined,
+    answer:
+      feedback && q
+        ? {
+            english: q.answer.english,
+            arabic: q.answer.arabic,
+            parts: [
+              { text: plain(q.answer.english), atMs: 0, language: 'en' },
+              { text: plain(q.answer.arabic), atMs: 0, language: 'ar' },
+            ],
+          }
+        : undefined,
+    reading: { steps: steps.map((step, index) => ({ text: step.text, atMs: index * STEP_MS })) },
   };
 }
 

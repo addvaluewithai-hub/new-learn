@@ -141,11 +141,27 @@ if (bundle.kind !== 'learn-platform-bundle' || bundle.schemaVersion !== 1)
   throw new Error('Not a learn-platform-bundle v1');
 const course = id(bundle.curriculumId);
 const target = join(imported, course);
+const verified = [];
+for (const entry of bundle.lessons)
+  verified.push(await verifyLesson(join(source, 'lessons', id(entry.id))));
+// An edition is immutable once released: the same revision with other files or runtime would
+// silently fall back to "coming soon" after sync. Refuse it before touching anything.
+const released = await json(join(root, 'apps/platform/content-modules.json'));
+for (const { meta } of verified) {
+  const was = released[`reading:${meta.id}`];
+  if (
+    was?.contentRevision === meta.contentRevision &&
+    (was.manifestHash !== meta.manifestHash || was.runtimeVersion !== runtimeVersion)
+  )
+    throw new Error(
+      `${meta.id}: revision ${meta.contentRevision} was already imported with other files or ` +
+        'runtime. Export a new contentRevision (the files changed) instead of reusing it.',
+    );
+}
 await rm(target, { recursive: true, force: true });
 await mkdir(target, { recursive: true });
 const lessons = [];
-for (const entry of bundle.lessons) {
-  const { meta, pkg } = await verifyLesson(join(source, 'lessons', id(entry.id)));
+for (const { meta, pkg } of verified) {
   await cp(join(source, 'lessons', meta.id), join(target, meta.id), { recursive: true });
   await writeFile(join(target, meta.id, 'index.ts'), lessonIndex(meta));
   lessons.push({

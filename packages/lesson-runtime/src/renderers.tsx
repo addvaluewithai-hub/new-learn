@@ -24,6 +24,11 @@ export type VisualProps = {
     'english' | 'title' | 'options' | 'englishOptions' | 'readingParts'
   >;
   answer?: { english: string; arabic: string; parts?: LessonQuestion['feedbackParts'] };
+  /**
+   * Reading lessons: the written lines of this clip, each shown from `atMs` on the board's
+   * clock (the board is held at the settled time of the learner's current line).
+   */
+  reading?: { steps: Array<{ text: string; atMs: number }> };
 };
 export type RendererRegistry = Readonly<Record<string, ComponentType<VisualProps>>>;
 export type CompositionProps = {
