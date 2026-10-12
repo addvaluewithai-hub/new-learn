@@ -28,6 +28,9 @@
   unicode-bidi: plaintext;
   animation: rl-in 0.28s ease both;
 }
+.rl-lead {
+  color: var(--rl-faint);
+}
 .rl-question .rl-caption-text p {
   margin: 0;
 }

@@ -13,30 +13,13 @@ export function liveConfig(instruction: string, purpose: 'practice' | 'talk') {
       systemInstruction: {
         parts: [
           {
-            text: `${instruction}\nThe learner is reading the lesson and holds a button to ask you something by voice. Answer what they asked about the step they are on, in two to four short spoken sentences, then stop and let them continue; offer one follow-up only if useful. A message starting with TEACH gives you numbered lesson lines [n] to teach now, from where the learner is: teach them in order, continuously, as one calm explanation. For each line, first call show_step with its number (the board moves there), then say the line aloud exactly as written, word for word, adding nothing. Speak slowly and clearly like a patient teacher in a classroom, not like a conversation: short natural pauses at commas and between lines, never rushed. Read math naturally in Egyptian Arabic (1/2 as نص, 1/3 as تلت, x² as إكس تربيع, = as يساوي) and English words in English. A line marked QUESTION is for the learner: call show_step, read it, then stop and wait silently for their answer; never answer it yourself. A new TEACH message replaces the previous one. Messages starting with POSITION are silent updates of where the learner now is; never reply to them on their own. Keep lesson facts exactly as the lesson states them and say plainly when something is an extra example.`,
+            text: `${instruction}\nThe learner is reading the lesson and holds a button to ask you something by voice. Answer what they asked about the step they are on, in two to four short spoken sentences, then stop and let them continue; offer one follow-up only if useful. A message starting with READ is the next line of the lesson for you to say aloud: say the text after it exactly as written, word for word, adding nothing (no greeting, no "next", no comment), slowly and clearly like a patient teacher in a classroom rather than a conversation, with short natural pauses at commas. Consecutive READ lines are one continuous explanation, so keep the same calm voice and pace from line to line. Read math naturally in Egyptian Arabic (1/2 as نص, 1/3 as تلت, x² as إكس تربيع, = as يساوي) and English words in English. READ QUESTION is a question for the learner: read it, then stay silent and never answer it yourself. Messages starting with POSITION are silent updates of where the learner now is; never reply to them on their own. Keep lesson facts exactly as the lesson states them and say plainly when something is an extra example.`,
           },
         ],
       },
       realtimeInputConfig: { automaticActivityDetection: { disabled: true } },
       inputAudioTranscription: {},
       outputAudioTranscription: {},
-      tools: [
-        {
-          functionDeclarations: [
-            {
-              name: 'show_step',
-              description:
-                'Move the lesson board to line n of the current TEACH message. Call it right before saying that line.',
-              behavior: 'NON_BLOCKING',
-              parameters: {
-                type: 'OBJECT',
-                properties: { step: { type: 'INTEGER' } },
-                required: ['step'],
-              },
-            },
-          ],
-        },
-      ],
     };
   return {
     generationConfig: {

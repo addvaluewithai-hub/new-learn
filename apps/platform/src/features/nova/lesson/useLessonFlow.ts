@@ -31,11 +31,12 @@ function load(): FlowSettings {
 
 /**
  * How the lesson moves: by the learner's Next (default), alone at a reading pace, or read
- * aloud by Nova. Settings stay on this device; pausing is per lesson and starts off.
+ * aloud by Nova. Settings stay on this device. A lesson that moves on its own never starts by
+ * itself when opened: it waits, paused, until the learner presses play.
  */
 export function useLessonFlow() {
   const [settings, setSettings] = useState(load);
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(() => settings.narration || settings.pace !== null);
   useEffect(() => {
     try {
       localStorage.setItem(KEY, JSON.stringify(settings));
@@ -51,9 +52,9 @@ export function useLessonFlow() {
 }
 
 /**
- * Nova teaches the lesson aloud in one live session: from where the learner is, it gets the
- * numbered lines up to the next question in one message, reads them continuously and turns
- * the board itself as it goes (show_step), then waits for the answer. Moving by hand, asking
+ * Nova teaches the lesson aloud in one live session: from where the learner is, it reads the
+ * lines up to the next question one after another without gaps; each page turns as its line
+ * starts playing, and Nova waits at the question. Moving by hand, asking
  * something or pausing cuts it; it continues from wherever the learner then is. A dropped
  * session is retried once before narration gives up.
  */
@@ -112,25 +113,27 @@ export function useNarrator({
     }
     const at = (n: number) => readingPositionOf(lesson, pages[n], false);
     const last = lines[lines.length - 1];
+    let reached = index;
     const events: TeachEvents = {
       show: (n) => {
+        reached = n;
         steered.current = n;
         now.current.controller?.goTo?.(at(n));
       },
-      done: (shown) => {
+      done: () => {
         retried.current = false;
-        if (last.question && shown >= last.n) return; // waits for the answer
+        if (last.question) return; // the question was read: wait for the answer
         steered.current = -1;
-        // End of the lesson: on to completion. Nova stopped early or never moved the board:
-        // step on by one, which starts the next stretch from there.
-        if (shown >= last.n || shown < index) now.current.controller?.next?.();
-        else now.current.controller?.goTo?.(at(shown + 1));
+        now.current.controller?.next?.(); // end of the lesson: on to completion
       },
       failed: () => {
-        steered.current = -1;
         if (retried.current) return now.current.onFail();
         retried.current = true;
-        now.current.teach(lines, events);
+        // Once more from the line the learner is on; then narration gives up.
+        now.current.teach(
+          lines.filter((line) => line.n >= reached),
+          events,
+        );
       },
     };
     now.current.teach(lines, events);

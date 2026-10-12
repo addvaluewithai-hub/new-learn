@@ -45,8 +45,9 @@ export class AudioSession {
     this.source.connect(this.worklet);
     this.worklet.connect(this.context.destination);
   }
+  /** Queue a chunk; returns how many seconds from now it starts playing. */
   enqueue(data: string, rate = 24000) {
-    if (this.closed) return;
+    if (this.closed) return 0;
     const samples = decodePcm(data),
       buffer = this.context.createBuffer(1, samples.length, rate);
     buffer.copyToChannel(samples, 0);
@@ -68,6 +69,7 @@ export class AudioSession {
       }
     };
     source.start(at);
+    return at - this.context.currentTime;
   }
   /** Seconds until the audio received so far has finished playing. */
   get endsIn() {

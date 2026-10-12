@@ -6,6 +6,7 @@ import type { ReadingPage, ReadingQuestion, ReadingScene } from '../types';
 export function Caption({
   label,
   text,
+  lead,
   answer,
   step,
   steps,
@@ -13,6 +14,8 @@ export function Caption({
 }: {
   label?: string;
   text: string;
+  /** The start of a sentence that began on earlier steps, shown faded before this one. */
+  lead?: string;
   answer?: string;
   step: number;
   steps: number;
@@ -35,6 +38,11 @@ export function Caption({
         </span>
       </div>
       <p key={text} className="rl-caption-text" dir={textDirection(text)} aria-live="polite">
+        {lead ? (
+          <span className="rl-lead" aria-hidden="true">
+            <ReadText text={lead} />{' '}
+          </span>
+        ) : null}
         <ReadText text={text} />
       </p>
       {answer !== undefined ? (
@@ -130,6 +138,7 @@ export function PageCaption({
     <Caption
       label={page.kind === 'feedback' ? 'الإجابة النموذجية' : attempt ? 'سؤال' : undefined}
       text={attempt ? question!.english : steps[page.step].text}
+      lead={attempt ? undefined : sentenceLead(steps, page.step)}
       answer={
         page.kind === 'feedback' && page.step === 0 && question ? answers[question.id] : undefined
       }
@@ -138,4 +147,15 @@ export function PageCaption({
       onThread={onThread}
     />
   );
+}
+
+/** Earlier steps of the same sentence: back from this step until one ends a sentence. */
+export function sentenceLead(steps: Array<{ text: string }>, step: number) {
+  let first = step;
+  while (first > 0 && !/[.!?؟…]["»)]?\s*$/.test(steps[first - 1].text.trim())) first--;
+  const lead = steps
+    .slice(first, step)
+    .map((s) => s.text.trim())
+    .join(' ');
+  return lead.length > 160 ? `…${lead.slice(-160)}` : lead;
 }

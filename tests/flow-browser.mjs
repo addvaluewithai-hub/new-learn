@@ -1,7 +1,7 @@
 // How a reading lesson moves on its own: a reading pace fills the Next button and turns the
-// page; pause holds it; Nova narration sends one TEACH message for the stretch up to the next
-// question, Nova turns the board itself with show_step (answered silently) as it reads, stops
-// at the question, and the lesson pauses when the learner talks.
+// page; pause holds it; Nova narration reads line after line in one session (each line asked
+// for ahead of time, its page turned when its audio starts), stops at the question, never
+// starts by itself when a lesson opens, and the lesson pauses when the learner talks.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
@@ -56,8 +56,7 @@ try {
       json: { ...pins[`reading:${id}`], moduleId: `reading:${id}`, stage: 'published' },
     });
   });
-  const teaches = [];
-  const replies = [];
+  const reads = [];
   const log = [];
   await page.routeWebSocket('wss://generativelanguage.googleapis.com/**', (ws) => {
     ws.onMessage((raw) => {
@@ -65,28 +64,14 @@ try {
       if (message.setup) ws.send(JSON.stringify({ setupComplete: {} }));
       const text = message.clientContent?.turns?.[0]?.parts?.[0]?.text ?? '';
       if (message.realtimeInput?.activityStart) log.push('start');
-      for (const r of message.toolResponse?.functionResponses ?? []) replies.push(r);
-      if (text.startsWith('TEACH')) {
-        const lines = [...text.matchAll(/^\[(\d+)\] (.*)$/gm)].map((m) => [Number(m[1]), m[2]]);
-        teaches.push(lines);
-        // One reply for the whole stretch: move the board, then speak each line.
-        lines.forEach(([n], i) =>
-          setTimeout(() => {
-            ws.send(
-              JSON.stringify({
-                toolCall: {
-                  functionCalls: [{ id: `c${n}`, name: 'show_step', args: { step: n } }],
-                },
-              }),
-            );
-            say(ws, {
-              modelTurn: {
-                parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data: pcm } }],
-              },
-            });
-            if (i === lines.length - 1) say(ws, { turnComplete: true });
-          }, 150 * i),
-        );
+      if (text.startsWith('READ')) {
+        reads.push(text);
+        setTimeout(() => {
+          say(ws, {
+            modelTurn: { parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data: pcm } }] },
+          });
+          say(ws, { turnComplete: true });
+        }, 120);
       }
       if (message.realtimeInput?.activityEnd) {
         say(ws, { outputTranscription: { text: 'رد قصير.' } });
@@ -120,28 +105,29 @@ try {
   assert.equal(await line(), held, 'paused');
   await page.getByRole('button', { name: 'كمّل لوحده' }).click();
 
-  // Narration: one TEACH message up to the next question; Nova turns the pages itself.
+  // Narration: line after line in one session, up to the question, then it waits.
   await settings.click();
   await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).check();
   await page.keyboard.press('Escape');
   await page.locator('.rl-question').waitFor({ timeout: 60000 });
-  assert.equal(teaches.length, 1, 'one message for the whole stretch');
-  const stretch = teaches[0];
-  assert.ok(stretch.length >= 2, 'several lines at once');
-  assert.match(stretch.at(-1)[1], /^QUESTION: /, 'stops at the question');
+  assert.ok(reads.length >= 2, 'several lines read');
   assert.ok(
-    stretch.every(([n], i) => i === 0 || n === stretch[i - 1][0] + 1),
-    'in order',
+    reads.slice(0, -1).every((r) => r.startsWith('READ:\n')),
+    'lines verbatim',
   );
-  assert.ok(replies.length >= stretch.length - 1, 'every move answered');
-  assert.ok(
-    replies.every((r) => r.response.scheduling === 'SILENT'),
-    'silently',
-  );
-  // It waits at the question: no new message, the board stays.
+  assert.match(reads.at(-1), /^READ QUESTION:\n/, 'stops at the question');
+  const atQuestion = reads.length;
   await page.waitForTimeout(2500);
-  assert.equal(teaches.length, 1);
+  assert.equal(reads.length, atQuestion, 'waits for the answer');
   assert.ok(await page.locator('.rl-question').isVisible());
+
+  // Opening a lesson never starts the narration by itself: it waits for play.
+  await page.reload();
+  await page.locator('.rl').waitFor();
+  const before = reads.length;
+  await page.waitForTimeout(2500);
+  assert.equal(reads.length, before, 'no reading before play');
+  await page.getByRole('button', { name: 'كمّل لوحده' }).waitFor();
 
   // Talking to Nova pauses the lesson.
   await page.locator('.rl-stage').click();
