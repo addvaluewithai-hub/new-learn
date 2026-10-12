@@ -178,3 +178,16 @@ test('a reading pace waits longer for longer lines, within bounds', async () => 
       readingMs('a b c d e f g h i j k l m n o p', 'faster'),
   );
 });
+test('a sentence split across steps shows its start before the current step', async () => {
+  const { sentenceLead } = await import('../src/reading/stage/Caption');
+  const steps = [
+    { text: 'عندك بيتزا، قطعتها حتتين.' },
+    { text: 'بعدين' },
+    { text: 'اللي معاك اسمه نص:' },
+    { text: 'واحد فوق الخط.' },
+  ];
+  assert.equal(sentenceLead(steps, 0), '');
+  assert.equal(sentenceLead(steps, 1), '');
+  assert.equal(sentenceLead(steps, 2), 'بعدين');
+  assert.equal(sentenceLead(steps, 3), 'بعدين اللي معاك اسمه نص:');
+});

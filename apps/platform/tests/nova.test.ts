@@ -95,13 +95,11 @@ test('voice PCM is little endian and resamples browser audio to 16kHz', () => {
   assert.ok(Math.abs(decoded[2] - 0.5) < 0.001);
   assert.equal(decodePcm(encodePcm(new Float32Array(480), 48000)).length, 160);
 });
-test('lesson talk: manual activity, and Nova moves the board with a non-blocking tool', () => {
+test('lesson talk: manual activity; lines to read aloud come as READ turns, no tools', () => {
   const talk = liveConfig('I', 'talk') as Record<string, any>;
   assert.deepEqual(talk.realtimeInputConfig, { automaticActivityDetection: { disabled: true } });
-  const declared = talk.tools[0].functionDeclarations[0];
-  assert.equal(declared.name, 'show_step');
-  assert.equal(declared.behavior, 'NON_BLOCKING');
-  assert.match(talk.systemInstruction.parts[0].text, /TEACH/);
+  assert.equal(talk.tools, undefined);
+  assert.match(talk.systemInstruction.parts[0].text, /READ QUESTION/);
   const practice = liveConfig('I', 'practice') as Record<string, any>;
   assert.equal(practice.realtimeInputConfig, undefined);
   assert.equal(practice.tools[0].functionDeclarations[0].name, 'answer_question');
