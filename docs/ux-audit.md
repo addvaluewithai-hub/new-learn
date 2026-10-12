@@ -15,7 +15,19 @@ a capture artefact, not a defect, and is not listed.
 | 3   | Video-style scrubber as the only progress                                                            | Reading lessons show scene segments plus "المشهد 2 من 7" and "خطوة 3 من 5"              |
 | 4   | Question answers reachable by skipping ahead                                                         | Reading flow locks «التالي» until an attempt; the answer screen opens only after it     |
 
+## Fixed after the audit (2026-10-12, second pass)
+
+- Progress is saved and resumed for reading lessons; home shows one "Continue/Start" card.
+- Goals replace time as progress: lesson goals chip and list, goal marks on the study plan.
+- Curriculum page is a study plan: parts, lesson path, current lesson with its goals.
+- Reading lesson: scene path beside the board, Nova question bar inside the lesson controls.
+- Classroom header no longer duplicates the tool bar; a real «ارجع للمنهج» link replaces the
+  inert pill. Western digits in counts; subject artwork for maths and chemistry.
+
 ## Still open (ranked by impact on a real student)
+
+0. Recorded (audio) lessons do not save progress yet and still use the playback scrubber;
+   they get goals and resume when audio lessons are imported with objectives.
 
 1. **Progress is not saved.** Leaving a lesson loses the place; the library cannot say
    "continue lesson 3"; the curriculum hero always offers lesson 1. The DB already has

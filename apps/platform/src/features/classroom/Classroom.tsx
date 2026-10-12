@@ -4,7 +4,6 @@ import { NovaAssistant } from '../nova/NovaAssistant';
 import { LessonPreview } from '@learn/lesson-runtime';
 import type { LessonPackage, RendererRegistry } from '@learn/lesson-runtime';
 import { ClassroomHeader } from './ClassroomHeader';
-import { ClassroomIcon } from './ClassroomIcon';
 import { LessonGuide } from './LessonGuide';
 import { LessonTools, type GuideTool } from './LessonTools';
 import './classroom.css';
@@ -43,13 +42,7 @@ export function Classroom({
     );
   return (
     <div className="classroom-shell">
-      <ClassroomHeader
-        lesson={lesson}
-        backHref={backHref}
-        onMap={() => setShowMap((value) => !value)}
-        onSource={() => openTool('source')}
-        onHelp={() => openTool('guide')}
-      />
+      <ClassroomHeader lesson={lesson} backHref={backHref} onHelp={() => openTool('guide')} />
       <main className="classroom" dir="rtl">
         <div className="classroom-breadcrumb" dir="ltr">
           <div>
@@ -61,10 +54,11 @@ export function Classroom({
               </small>
             </h1>
           </div>
-          <span className="classroom-mode">
-            <ClassroomIcon name="play" size={18} />
-            مساحة الدرس
-          </span>
+          {backHref ? (
+            <a className="classroom-mode" href={backHref}>
+              → ارجع للمنهج
+            </a>
+          ) : null}
         </div>
         <div
           className={`classroom-workspace ${tool ? 'has-guide' : ''} ${showMap ? 'show-scenes' : ''}`}

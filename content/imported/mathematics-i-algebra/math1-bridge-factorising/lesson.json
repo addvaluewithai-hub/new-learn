@@ -5,7 +5,7 @@
   "englishTitle": "Expanding and Factorising",
   "subtitle": "Expanding and Factorising",
   "delivery": "reading",
-  "contentRevision": "b861435ef3508d86ff4c6306277c021b3c56239312adefbe51404f3065456bad",
+  "contentRevision": "0ebc80964ecfb26c7e4d2c4a91c8508f942429c04809c4bb7c05a8b7fbaffda6",
   "renderers": {
     "math-board": "board/MathBoard.tsx"
   },
@@ -93,9 +93,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "62402da505313828ccc35b3a374867684b86de5593b15f3fba25bc995793d4b3",
-      "bytes": 14119
+      "sha256": "fda3d8839df3173dbe8b555ef09fd942b0af20edcce16bfde9a54ccfc4e7287f",
+      "bytes": 14663
     }
   ],
-  "manifestHash": "653c44acd5fc8ae52f120069e59b1d2a573756559ba3c9d608c0d2b8c441bd25"
+  "manifestHash": "b3db0230876b5e540b33a191ccc8d11010fde4f5ed7017812db6b0cbef770c10"
 }

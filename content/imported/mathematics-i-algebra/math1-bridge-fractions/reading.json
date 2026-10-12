@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "math1-bridge-fractions",
   "curriculumId": "mathematics-i-algebra",
-  "contentRevision": "e136274383f5342b00f0f1c12e96f5aaacb201b716230c65652acb6361acce11",
+  "contentRevision": "5b8ec09ba2921e171483b41056299e2f1dfb0b9da9064af623de86841335655c",
   "title": "الكسور: حتت بنفس الحجم",
   "englishTitle": "Fractions: Equal Pieces",
   "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
@@ -455,6 +455,40 @@
     {
       "term": "Common Denominator",
       "meaning": "مقام مشترك بيخلي الحتت كلها بنفس الحجم"
+    }
+  ],
+  "goals": [
+    {
+      "id": "B1",
+      "text": "تفهم الكسر: بسط ومقام، وتكتب نفس القيمة بشكل تاني",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "تجمع وتطرح كسرين مقاماتهم مختلفة بتوحيد المقامات",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    },
+    {
+      "id": "B3",
+      "text": "تشرح ليه المقام عمره ما يبقى صفر",
+      "sceneIds": [
+        "S04"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
     }
   ]
 }

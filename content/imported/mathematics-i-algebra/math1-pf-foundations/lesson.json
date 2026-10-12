@@ -5,7 +5,7 @@
   "englishTitle": "Partial Fractions Foundations",
   "subtitle": "Partial Fractions Foundations",
   "delivery": "reading",
-  "contentRevision": "9d90f5bcc968e06543021db8d1f6c393207a63a5adc3b81175e05c3a1532c886",
+  "contentRevision": "b71c1976f35aed53089cc44d0cad926601151a9d3cbdb3d48a7d197ddb7f5f66",
   "renderers": {
     "math-board": "board/MathBoard.tsx"
   },
@@ -93,9 +93,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "1badb7ba13bb38f7fd35d3ab1ee1d90d9a27b387cffafe51f276af3da74e0bf9",
-      "bytes": 23578
+      "sha256": "7771c781e9e056d32e38f98090f2c46c0fadbbd44324d4f5449f46a4e8ce4a04",
+      "bytes": 24372
     }
   ],
-  "manifestHash": "ff42ffb7ddcd3df2be19ed447ef55a006a63a0780dc807c4ee6ab4cb2144141b"
+  "manifestHash": "89b4e70a36742fc71e7ad4f672fd3b8dc3f4943076d978f23e51c49c65872c5e"
 }

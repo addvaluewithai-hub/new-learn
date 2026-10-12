@@ -41,8 +41,14 @@ completion screen. `validateReadingPackage`, `readingPages` and `readingContext`
 `@learn/lesson-runtime/core`. Reading context keeps the recorded-lesson shape with
 `delivery: "reading"` and `step`; Nova resolves and checks that position server-side.
 
+## Goals and parts
+
+Each lesson objective becomes a goal (`studentText` wording, scenes that teach it, questions that
+check it); a goal is met when its questions were attempted. Optional `catalog.parts` group lessons
+on the study plan. Both travel in the bundle and land in `content/imported/registry.json`.
+
 ## What import does not do
 
 It does not approve teaching quality or science: the authoring repo's reading-ready
 checks and the owner's decision cover that. It does not write the database by itself and
-does not save student progress (see ux-audit.md).
+saves progress only through the progress API (see data-contract.md).

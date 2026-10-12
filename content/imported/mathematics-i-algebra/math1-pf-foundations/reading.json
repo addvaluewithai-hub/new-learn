@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "math1-pf-foundations",
   "curriculumId": "mathematics-i-algebra",
-  "contentRevision": "9d90f5bcc968e06543021db8d1f6c393207a63a5adc3b81175e05c3a1532c886",
+  "contentRevision": "b71c1976f35aed53089cc44d0cad926601151a9d3cbdb3d48a7d197ddb7f5f66",
   "title": "الكسور الجبرية: الفكرة والتصنيف",
   "englishTitle": "Partial Fractions Foundations",
   "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
@@ -666,6 +666,47 @@
     {
       "term": "Improper Fraction",
       "meaning": "كسر درجـة بسطه أكبر من أو تساوي درجة المقام"
+    }
+  ],
+  "goals": [
+    {
+      "id": "F1",
+      "text": "تفهم إن Partial Fractions هي عكس جمع الكسور، ومن غير قيم ممنوعة",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S08"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "F2",
+      "text": "تعرف يعني إيه Polynomial وDegree",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "F3",
+      "text": "تفرّق بين Proper وImproper وتعرف إمتى لازم القسمة الأول",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
     }
   ]
 }

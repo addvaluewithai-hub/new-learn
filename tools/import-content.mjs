@@ -39,7 +39,7 @@ async function verifyLesson(folder) {
   validateReadingPackage(pkg, new Set(Object.keys(meta.renderers)));
   if (pkg.lessonId !== meta.id || pkg.contentRevision !== meta.contentRevision)
     throw new Error(`${meta.id}: package identity differs from its manifest`);
-  return meta;
+  return { meta, pkg };
 }
 
 // Same bytes as Python's json.dumps(value, sort_keys=True, separators=(",", ":")).
@@ -145,7 +145,7 @@ await rm(target, { recursive: true, force: true });
 await mkdir(target, { recursive: true });
 const lessons = [];
 for (const entry of bundle.lessons) {
-  const meta = await verifyLesson(join(source, 'lessons', id(entry.id)));
+  const { meta, pkg } = await verifyLesson(join(source, 'lessons', id(entry.id)));
   await cp(join(source, 'lessons', meta.id), join(target, meta.id), { recursive: true });
   await writeFile(join(target, meta.id, 'index.ts'), lessonIndex(meta));
   lessons.push({
@@ -159,6 +159,12 @@ for (const entry of bundle.lessons) {
     manifestHash: meta.manifestHash,
     runtimeVersion,
     delivery: 'reading',
+    goals: (pkg.goals ?? []).map(({ id, text, sceneIds, questionIds }) => ({
+      id,
+      text,
+      sceneIds,
+      questionIds,
+    })),
   });
 }
 for (const later of bundle.skipped ?? [])
@@ -170,6 +176,10 @@ for (const later of bundle.skipped ?? [])
     subtitle: later.subtitle ?? '',
   });
 lessons.sort((a, b) => a.order - b.order);
+for (const part of bundle.catalog.parts ?? [])
+  for (const lessonId of part.lessons)
+    if (!lessons.some((l) => l.id === lessonId))
+      throw new Error(`Part "${part.title}" names unknown lesson ${lessonId}`);
 await writeFile(
   join(target, 'curriculum.json'),
   JSON.stringify({ id: course, ...bundle.catalog, lessons }, null, 2) + '\n',

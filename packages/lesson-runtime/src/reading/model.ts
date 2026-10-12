@@ -113,3 +113,39 @@ export function readingContext(
     step: page.step,
   };
 }
+
+/** Where a learner is, in words that survive re-rendering (no array indices). */
+export type ReadingPosition = {
+  sceneId: string;
+  phase: 'narration' | 'attempt' | 'feedback' | 'complete';
+  step: number;
+};
+export function readingPositionOf(
+  lesson: ReadingPackage,
+  page: ReadingPage,
+  complete: boolean,
+): ReadingPosition {
+  const phase = complete
+    ? 'complete'
+    : page.kind === 'attempt' || page.kind === 'feedback'
+      ? page.kind
+      : 'narration';
+  return { sceneId: lesson.scenes[page.scene].id, phase, step: page.step };
+}
+/** Page index for a saved position, or -1 when it no longer exists in this edition. */
+export function readingPageIndex(
+  lesson: ReadingPackage,
+  pages: ReadingPage[],
+  position: ReadingPosition,
+) {
+  const scene = lesson.scenes.findIndex((s) => s.id === position.sceneId);
+  return pages.findIndex(
+    (p) =>
+      p.scene === scene &&
+      (position.phase === 'attempt'
+        ? p.kind === 'attempt'
+        : position.phase === 'feedback'
+          ? p.kind === 'feedback' && p.step === position.step
+          : (p.kind === 'teach' || p.kind === 'ask') && p.step === position.step),
+  );
+}

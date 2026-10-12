@@ -49,3 +49,58 @@
     padding: 0 8px;
   }
 }
+.reading-classroom-header {
+  position: relative;
+}
+.reading-save {
+  position: absolute;
+  inset-inline-end: 16px;
+  bottom: 12px;
+  color: #7a8c84;
+  font-size: 12px;
+}
+.reading-save[data-state='offline'] {
+  color: #b3462f;
+}
+.reading-ask {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #dde4da;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 4px 4px 6px;
+}
+.reading-ask input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 15px;
+  padding: 8px 10px;
+  outline: none;
+}
+.reading-ask:focus-within {
+  border-color: #8fb3a3;
+  box-shadow: 0 0 0 3px #d9ebe2;
+}
+.reading-ask button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: #edf4ef;
+  color: #153d35;
+  cursor: pointer;
+}
+.reading-ask button[type='submit'] {
+  background: #d7f77b;
+}
+.reading-ask button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

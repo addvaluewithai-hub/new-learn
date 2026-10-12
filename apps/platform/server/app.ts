@@ -2,7 +2,8 @@ import type { Env } from './env';
 import { novaRoute } from './nova/routes';
 import { authProxy, currentUser } from './auth';
 import { catalog, lessonEdition } from './content';
-import { checkOrigin, HttpError, json } from './http';
+import { body, checkOrigin, HttpError, json } from './http';
+import { readProgress, saveProgress } from './progress/store';
 export async function handleRequest(request: Request, env: Env): Promise<Response> {
   try {
     checkOrigin(request);
@@ -15,7 +16,15 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (path.startsWith('/api/nova/'))
       return await novaRoute(request, env, user, path.slice('/api/nova/'.length));
     if (request.method === 'GET' && path === '/api/me') return json({ user });
-    if (request.method === 'GET' && path === '/api/catalog') return json(await catalog(env));
+    if (request.method === 'GET' && path === '/api/catalog') return json(await catalog(env, user));
+    const progressPath = /^\/api\/lessons\/([^/]+)\/progress$/.exec(path);
+    if (progressPath) {
+      const lessonId = decodeURIComponent(progressPath[1]);
+      if (request.method === 'GET') return json(await readProgress(env, user, lessonId));
+      if (request.method === 'PUT')
+        return await saveProgress(env, user, lessonId, await body(request));
+      throw new HttpError(405, 'الطلب غير مسموح.');
+    }
     if (request.method === 'GET' && path.startsWith('/api/lessons/'))
       return json(await lessonEdition(env, decodeURIComponent(path.slice('/api/lessons/'.length))));
     throw new HttpError(404, 'الصفحة غير موجودة.');

@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "math1-bridge-exam-english",
   "curriculumId": "mathematics-i-algebra",
-  "contentRevision": "2f3d7fcfc06a4c15398fae29e0949d48889a65bd4982a49617cbfcfaa6e3f4f5",
+  "contentRevision": "34910b3916643a0d1a7090ed542547658e4bda3178dc7695667b308dace5c966",
   "title": "إزاي تقرا سؤال رياضة بالإنجليزي",
   "englishTitle": "Reading Maths Questions in English",
   "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
@@ -427,6 +427,31 @@
     {
       "term": "not equal to / excluded values",
       "meaning": "لا يساوي / القيم الممنوعة"
+    }
+  ],
+  "goals": [
+    {
+      "id": "E1",
+      "text": "تحوّل جملة إنجليزي زي «x squared minus four over x plus two» لرموز",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "E2",
+      "text": "تعرف السؤال طالب منك إيه: فعل الطلب، الرموز، الشروط",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
     }
   ]
 }

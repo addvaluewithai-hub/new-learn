@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "math1-bridge-factorising",
   "curriculumId": "mathematics-i-algebra",
-  "contentRevision": "b861435ef3508d86ff4c6306277c021b3c56239312adefbe51404f3065456bad",
+  "contentRevision": "0ebc80964ecfb26c7e4d2c4a91c8508f942429c04809c4bb7c05a8b7fbaffda6",
   "title": "ضرب قوسين والتحليل لعوامل",
   "englishTitle": "Expanding and Factorising",
   "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
@@ -448,6 +448,33 @@
     {
       "term": "Common factor",
       "meaning": "عامل مشترك موجود في كل الحدود"
+    }
+  ],
+  "goals": [
+    {
+      "id": "F1",
+      "text": "تضرب قوسين في بعض وتجمع الحدود المتشابهة",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "F2",
+      "text": "تحلّل تعبير زي x² + 5x + 6 لقوسين، وتعرف إن مش كل تعبير بيتحلل",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
     }
   ]
 }

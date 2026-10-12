@@ -15,8 +15,11 @@ export type {
 export { lessonContext } from './context';
 export type { LessonContext, LessonController } from './context';
 export { validateReadingPackage } from './reading/validate';
-export { readingContext, readingPages } from './reading/model';
+export { readingContext, readingPageIndex, readingPages, readingPositionOf } from './reading/model';
+export type { ReadingPosition } from './reading/model';
+export { goalProgress } from './reading/goals';
 export type {
+  ReadingGoal,
   ReadingPackage,
   ReadingPage,
   ReadingQuestion,

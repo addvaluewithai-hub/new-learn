@@ -35,7 +35,10 @@ export type ReadingPackage = {
   dimensions: Record<LessonLayout, { width: number; height: number }>;
   scenes: ReadingScene[];
   glossary: Array<{ term: string; meaning: string }>;
+  /** Learning goals: taught in `sceneIds`, checked by the questions in `questionIds`. */
+  goals?: ReadingGoal[];
 };
+export type ReadingGoal = { id: string; text: string; sceneIds: string[]; questionIds: string[] };
 /** One screen of the reading flow. `attempt` is the answer form of a question scene. */
 export type ReadingPage = {
   scene: number;

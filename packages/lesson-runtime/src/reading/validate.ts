@@ -79,5 +79,17 @@ export function validateReadingPackage(
     if (q.feedback.visual) visual(q.feedback.visual, `${q.id} feedback`);
   }
   if (!Array.isArray(pkg.glossary)) fail('glossary');
+  if (pkg.goals !== undefined) {
+    if (!Array.isArray(pkg.goals)) fail('goals');
+    const goalIds = new Set<string>();
+    for (const goal of pkg.goals) {
+      if (!goal || !text(goal.id) || goalIds.has(goal.id) || !text(goal.text)) fail('goal');
+      goalIds.add(goal.id);
+      if (!Array.isArray(goal.sceneIds) || !goal.sceneIds.every((id) => ids.includes(id)))
+        fail(`${goal.id} scenes`);
+      if (!Array.isArray(goal.questionIds) || !goal.questionIds.every((id) => questions.has(id)))
+        fail(`${goal.id} questions`);
+    }
+  }
   return pkg;
 }

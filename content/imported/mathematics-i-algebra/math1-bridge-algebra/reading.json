@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "math1-bridge-algebra",
   "curriculumId": "mathematics-i-algebra",
-  "contentRevision": "74b08b5b888eaaa12dff847ab73820d183cd4cdbc415983f47507a95f995e038",
+  "contentRevision": "c7e6467f5a422d677e5201606b81e79bf79e2a236d50f329840a3687fa03975e",
   "title": "الحروف بدل الأرقام",
   "englishTitle": "Letters for Numbers",
   "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
@@ -473,6 +473,31 @@
     {
       "term": "x squared / x cubed",
       "meaning": "x تربيع / x تكعيب"
+    }
+  ],
+  "goals": [
+    {
+      "id": "A1",
+      "text": "تقرا x و3x وx² وتعوّض برقم مكان الحرف بالترتيب الصح",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "تجمع الحدود المتشابهة وتفك الأقواس حتى مع السالب",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
     }
   ]
 }
