@@ -12,6 +12,8 @@ import { useReadingProgress, type SaveState } from '../features/progress/useRead
 import { NovaOrb, TalkComposer } from '../features/nova/lesson/TalkControls';
 import { useLessonTalk } from '../features/nova/lesson/useLessonTalk';
 import { useSpaceToTalk } from '../features/nova/lesson/useSpaceToTalk';
+import { LessonSettings } from '../features/nova/lesson/LessonSettings';
+import { useLessonFlow, useNarrator } from '../features/nova/lesson/useLessonFlow';
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 
@@ -38,8 +40,25 @@ export default function ReadingClassroom({
   const [context, setContext] = useState<LessonContext | null>(null);
   const [controller, setController] = useState<LessonController | null>(null);
   const [assistantOpen, setAssistantOpen] = useState(false);
-  const talk = useLessonTalk(context);
+  const flow = useLessonFlow();
+  const moving = flow.settings.narration || flow.settings.pace !== null;
+  // Asking Nova pauses a lesson that moves alone, so the answer can be read in peace.
+  const talk = useLessonTalk(context, () => moving && flow.setPaused(true));
   useSpaceToTalk(talk.voice, Boolean(module) && !assistantOpen);
+  const { setVolume, read, stopReading } = talk.voice;
+  useEffect(() => setVolume(flow.settings.volume), [flow.settings.volume, setVolume]);
+  useNarrator({
+    enabled: flow.settings.narration && !assistantOpen,
+    paused: flow.paused,
+    context,
+    controller,
+    read,
+    stop: stopReading,
+    onFail: () => {
+      flow.change({ narration: false });
+      talk.notify('مقدرتش أقرا الدرس بصوتي دلوقتي، فقفلت القراية. جرّب تشغّلها تاني بعد شوية.');
+    },
+  });
   const onReady = useCallback((value: LessonController | null) => setController(value), []);
   const saved = useReadingProgress(module?.readingLesson ?? null);
   useEffect(() => {
@@ -91,6 +110,14 @@ export default function ReadingClassroom({
             </span>
           ) : null
         }
+        flow={{
+          pace: flow.settings.pace,
+          narrating: flow.settings.narration,
+          speaking: talk.voice.state === 'reading',
+          paused: flow.paused,
+          onPausedChange: flow.setPaused,
+        }}
+        tools={<LessonSettings settings={flow.settings} onChange={flow.change} />}
         conversation={{
           tutor: 'Nova',
           notes: talk.notes,

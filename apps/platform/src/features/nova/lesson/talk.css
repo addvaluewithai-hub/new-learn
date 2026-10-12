@@ -123,6 +123,16 @@
     box-shadow: 0 0 0 7px rgb(196 235 103 / 45%);
   }
 }
+.talk-orb[data-state='reading'] {
+  animation: talk-read 1.6s ease-in-out infinite;
+}
+@keyframes talk-read {
+  50% {
+    box-shadow:
+      0 0 0 5px rgb(185 169 242 / 55%),
+      0 8px 24px rgb(106 85 184 / 25%);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .talk-hold,
   .talk-orb {

@@ -20,10 +20,14 @@ export type LessonContext = {
   /** Reading lessons have no clock: frame/timeMs stay 0 and `step` gives the position. */
   delivery?: 'recorded' | 'reading';
   step?: number;
+  /** Reading lessons: exactly what the learner is reading now (the step, or the question). */
+  line?: string;
 };
 export type LessonController = {
   pause: () => void;
   getContext: () => LessonContext;
+  /** Reading lessons: move to the next step, as the Next button would (not past a question). */
+  next?: () => void;
 };
 // The host observes the same Remotion frame as the board. No second clock.
 export function lessonContext(

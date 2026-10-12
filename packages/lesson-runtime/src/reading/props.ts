@@ -29,6 +29,10 @@ export type ReadingLessonProps = {
   next?: { title: string; href: string } | null;
   /** The host's tutor, woven into the lesson conversation. */
   conversation?: ReadingConversation;
+  /** Moving on without pressing Next: at a reading pace, or after the host reads aloud. */
+  flow?: ReadingFlow;
+  /** Host controls in the top bar, e.g. listening settings. */
+  tools?: ReactNode;
   /** Small host status in the top bar, e.g. "saved". */
   status?: ReactNode;
 };
@@ -44,4 +48,16 @@ export type ReadingConversation = {
   composer: ReactNode;
   /** The compact entry in the phone controls. */
   orb: ReactNode;
+};
+
+export type ReadingPace = 'slower' | 'normal' | 'faster';
+export type ReadingFlow = {
+  /** Turn the page alone after a reading time for this pace; null waits for Next. */
+  pace: ReadingPace | null;
+  /** The host reads each step aloud and calls `next()` when done (pace is ignored). */
+  narrating?: boolean;
+  /** The host's voice is reading right now. */
+  speaking?: boolean;
+  paused: boolean;
+  onPausedChange: (paused: boolean) => void;
 };

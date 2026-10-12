@@ -45,8 +45,16 @@ sends activityStart/activityEnd and audio flows only while held. The session ope
 first hold, gets earlier talk and the current position as silent context (turnComplete false),
 receives silent position updates as the learner moves, and closes after two quiet minutes or
 when the lesson closes. Speaking over Nova interrupts it. Errors appear in the conversation.
-Not built yet (decided defaults when they are): Nova reading the lesson aloud, "continue on your
-own" auto-advance (off by default), and spoken navigation commands.
+How the lesson moves is a per-device setting in the top bar (default: by Next only).
+A reading pace (slower/normal/faster) fills the Next button for a time based on the line's
+length and turns the page; it holds while the conversation, a sheet or a hidden tab needs the
+learner, and a pause button sits beside Back. "Nova reads the lesson" (off by default, with
+volume) sends each line to the same live session as `READ:` + the exact text; Nova says it word
+for word, and the page turns when the audio ends. It reads a question and then waits for the
+answer, retries a dropped session once, and turns itself off with a note in the conversation if
+it still fails. Asking Nova (typed or held) pauses a moving lesson; the play button resumes, and
+a step that was already read moves on. Produced recordings can later replace the live voice
+behind the same `read(text)` call.
 
 ## Server boundary
 

@@ -111,6 +111,10 @@ export function readingContext(
     questionVisible: Boolean(scene.question) && page.kind !== 'teach',
     delivery: 'reading',
     step: page.step,
+    line:
+      page.kind === 'attempt' && scene.question
+        ? `${scene.question.english}\n${scene.question.arabic}`
+        : steps[page.step].text,
   };
 }
 

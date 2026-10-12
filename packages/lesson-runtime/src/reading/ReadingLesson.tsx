@@ -16,6 +16,7 @@ import { Complete } from './stage/Complete';
 import { AnswerDock, Dock } from './stage/Dock';
 import { ScenesList, Sheet } from './stage/Sheets';
 import { Thread } from './stage/Thread';
+import { readingMs, usePageVisible } from './stage/flow';
 import { GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
 import { threadItems } from './thread';
 import type { ReadingLessonProps, ReadingProgress } from './props';
@@ -24,8 +25,15 @@ import './stage/stage.css';
 import './stage/stage-parts.css';
 import './stage/stage-sheets.css';
 import './stage/thread.css';
+import './stage/flow.css';
 
-export type { ReadingConversation, ReadingLessonProps, ReadingProgress } from './props';
+export type {
+  ReadingConversation,
+  ReadingFlow,
+  ReadingLessonProps,
+  ReadingPace,
+  ReadingProgress,
+} from './props';
 
 // A content change remounts the session, like recorded lessons.
 export function ReadingLesson(props: ReadingLessonProps) {
@@ -113,8 +121,14 @@ function ReadingSession(props: ReadingLessonProps) {
   const context = readingContext(lesson, page, complete);
   const live = useRef(context);
   live.current = context;
+  const forward = useRef(() => {});
+  forward.current = () => !answering && !complete && go(index + 1);
   useEffect(() => {
-    onReady?.({ pause: () => undefined, getContext: () => live.current });
+    onReady?.({
+      pause: () => undefined,
+      getContext: () => live.current,
+      next: () => forward.current(),
+    });
     return () => onReady?.(null);
   }, [onReady]);
   useEffect(() => onContext?.(live.current), [index, complete, onContext]);
@@ -142,6 +156,10 @@ function ReadingSession(props: ReadingLessonProps) {
 
   const inScene = pages.filter((p) => p.scene === page.scene);
   const fill = (inScene.indexOf(page) + 1) / inScene.length;
+  // The page turns alone only while nothing else needs the learner's attention.
+  const flow = props.flow;
+  const visible = usePageVisible();
+  const held = !visible || Boolean(props.suspended || sheet) || (threadOpen && !flow?.narrating);
   const items = threadOpen ? threadItems(lesson, pages, index, answers, talk?.notes) : [];
   const board = readingBoardProps(scene, page, layout, lesson.fps, reducedMotion);
   const Board = board ? registry[board.spec.renderer] : undefined;
@@ -180,7 +198,12 @@ function ReadingSession(props: ReadingLessonProps) {
           />
         }
         goals={<GoalsChip goals={lesson.goals ?? []} met={goals.met} />}
-        end={props.status}
+        end={
+          <>
+            {props.status}
+            {props.tools}
+          </>
+        }
       />
       {complete ? (
         <div className="rl-stage rl-stage-end">
@@ -245,6 +268,18 @@ function ReadingSession(props: ReadingLessonProps) {
               onNext={() => go(index + 1)}
               nextLabel={index === pages.length - 1 ? 'خلّص الدرس' : 'التالي'}
               center={talk ? (portrait ? talk.orb : talk.composer) : null}
+              flow={
+                flow && (flow.pace || flow.narrating)
+                  ? {
+                      ms: flow.narrating ? undefined : readingMs(context.line ?? '', flow.pace!),
+                      page: `${index}`,
+                      running: !flow.paused && !held,
+                      paused: flow.paused,
+                      speaking: flow.speaking,
+                      onToggle: () => flow.onPausedChange(!flow.paused),
+                    }
+                  : undefined
+              }
             />
           )}
         </>

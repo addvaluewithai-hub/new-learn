@@ -39,7 +39,8 @@
     "test:browser:platform": "node tests/platform-browser.mjs",
     "test:browser:nova": "node tests/nova-browser.mjs",
     "test:browser:reading": "node tests/reading-browser.mjs",
-    "test:browser:talk": "node tests/talk-browser.mjs"
+    "test:browser:talk": "node tests/talk-browser.mjs",
+    "test:browser:flow": "node tests/flow-browser.mjs"
   },
   "devDependencies": {
     "@types/node": "24.13.4",

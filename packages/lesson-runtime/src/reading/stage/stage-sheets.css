@@ -163,7 +163,8 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rl *,
+  /* The page-turn timer is an animation; it keeps running, only without visible motion. */
+  .rl *:not(.rl-next-fill),
   .rl *::before {
     animation: none !important;
     transition: none !important;

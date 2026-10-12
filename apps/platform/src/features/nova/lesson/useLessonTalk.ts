@@ -3,7 +3,7 @@ import type { LessonContext, ThreadNote } from '@learn/lesson-runtime';
 import { api } from '../../../shared/api';
 import { positionOf } from '../types';
 import { atOf, chatTurns, earlierText, whereText } from './notes';
-import { useHoldToTalk } from './useHoldToTalk';
+import { LessonVoice, type VoiceEvents, type VoiceState } from './LessonVoice';
 
 const id = () => crypto.randomUUID();
 
@@ -12,12 +12,15 @@ const id = () => crypto.randomUUID();
  * speech goes to the live tutor. Both land in the same thread, pinned to the step they
  * were asked on, so the lesson and the talk read as one conversation.
  */
-export function useLessonTalk(context: LessonContext | null) {
+export function useLessonTalk(context: LessonContext | null, onEngage?: () => void) {
   const [notes, setNotes] = useState<ThreadNote[]>([]);
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const now = useRef({ context, notes });
   now.current = { context, notes };
+  const engage = useRef(onEngage);
+  engage.current = onEngage;
+  const [state, setState] = useState<VoiceState>('idle');
   const chat = useRef<AbortController | null>(null);
   const spoken = useRef<{ learner?: string; tutor?: string }>({});
   useEffect(() => () => chat.current?.abort(), []);
@@ -33,6 +36,7 @@ export function useLessonTalk(context: LessonContext | null) {
     const question: ThreadNote = { id: id(), role: 'learner', text: text.trim(), at };
     const reply: ThreadNote = { id: id(), role: 'tutor', text: '', at, pending: true };
     const messages = chatTurns([...now.current.notes, question]);
+    engage.current?.();
     add(question, reply);
     setOpen(true);
     setBusy(true);
@@ -58,13 +62,15 @@ export function useLessonTalk(context: LessonContext | null) {
     }
   }
 
-  const voice = useHoldToTalk({
+  const handlers: VoiceEvents = {
+    state: setState,
     position: () => (now.current.context ? positionOf(now.current.context) : null),
     primer: () => [
       earlierText(now.current.notes),
       now.current.context ? whereText(now.current.context) : '',
     ],
     begin: () => {
+      engage.current?.();
       const c = now.current.context;
       if (!c) return;
       const learner: ThreadNote = {
@@ -99,7 +105,21 @@ export function useLessonTalk(context: LessonContext | null) {
       settle();
       if (at) add({ id: id(), role: 'tutor', text: message, at, failed: true });
     },
-  });
+  };
+  const live = useRef(handlers);
+  live.current = handlers;
+  const [engine] = useState(() => new LessonVoice(() => live.current));
+  useEffect(() => () => engine.close(), [engine]);
+  const [actions] = useState(() => ({
+    press: () => engine.press(),
+    release: () => engine.release(),
+    stop: () => engine.stop(),
+    read: (text: string) => engine.read(text),
+    stopReading: () => engine.endRead('cut'),
+    setVolume: (value: number) => engine.setVolume(value),
+  }));
+  const voice = { state, ...actions };
+
   function settle() {
     const turn = spoken.current;
     patch(turn.learner, (n) => ({ pending: false, text: n.text.trim() || 'سؤال بالصوت' }));
@@ -109,12 +129,19 @@ export function useLessonTalk(context: LessonContext | null) {
 
   const where = context ? whereText(context) : '';
   useEffect(() => {
-    if (where) voice.tell(where);
+    if (where) engine.tell(where);
     // Only a new position is news to the tutor.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [where]);
 
+  /** A tutor-side notice in the conversation (e.g. narration stopped). */
+  function notify(text: string) {
+    const c = now.current.context;
+    if (c) add({ id: id(), role: 'tutor', text, at: atOf(c), failed: true });
+  }
+
   return {
+    notify,
     notes,
     busy,
     open,
