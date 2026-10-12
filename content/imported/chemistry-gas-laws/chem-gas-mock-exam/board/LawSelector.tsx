@@ -3,8 +3,16 @@ import type { GasLaw } from './physics';
 import { gasLawLabels } from './boardContent';
 import { Equation } from './Notation';
 
-export default function LawSelector({ available = 4 }: { available?: number }) {
-  const [law, setLaw] = useState<GasLaw>('boyle');
+export default function LawSelector({
+  available = 4,
+  initial = 'boyle',
+  showEquation = true,
+}: {
+  available?: number;
+  initial?: GasLaw;
+  showEquation?: boolean;
+}) {
+  const [law, setLaw] = useState<GasLaw>(initial);
   const info = gasLawLabels[law];
   return (
     <>
@@ -39,7 +47,7 @@ export default function LawSelector({ available = 4 }: { available?: number }) {
         <h3>
           <bdi>{info.name}</bdi>
         </h3>
-        {available > 2 && <Equation text={info.equation} size={34} />}
+        {available > 2 && showEquation && <Equation text={info.equation} size={34} />}
         <p>
           {law === 'boyle'
             ? 'P ↑ يقابل V ↓ · علاقة عكسية عند درجة حرارة ثابتة.'

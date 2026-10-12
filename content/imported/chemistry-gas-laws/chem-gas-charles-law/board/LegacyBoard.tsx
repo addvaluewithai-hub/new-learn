@@ -1,6 +1,7 @@
 import { AbsoluteFill } from 'remotion';
 import type { VisualProps } from '@learn/lesson-runtime';
 import type { ChemistryBoardSpec } from './boardContent';
+import type { GasLaw } from './physics';
 import { Written, fontFaces, uiFont } from './Notation';
 import MatterExplorer from './MatterExplorer';
 import PhaseExplorer from './PhaseExplorer';
@@ -20,10 +21,18 @@ function Content({
   spec,
   reducedMotion,
   available,
+  initialCelsius,
+  initialLaw,
+  showLawEquations,
+  referenceVolume,
 }: {
   spec: ChemistryBoardSpec;
   reducedMotion: boolean;
   available: number;
+  initialCelsius: number;
+  initialLaw: GasLaw;
+  showLawEquations: boolean;
+  referenceVolume: number;
 }) {
   if (spec.kind === 'matter')
     return <MatterExplorer focus={spec.focus} reducedMotion={reducedMotion} />;
@@ -37,10 +46,14 @@ function Content({
         reducedMotion={reducedMotion}
         onDiscuss={() => {}}
         canDiscuss={false}
+        referenceVolume={referenceVolume}
       />
     );
-  if (spec.kind === 'selector') return <LawSelector available={available} />;
-  if (spec.kind === 'kelvin') return <KelvinExplorer />;
+  if (spec.kind === 'selector')
+    return (
+      <LawSelector available={available} initial={initialLaw} showEquation={showLawEquations} />
+    );
+  if (spec.kind === 'kelvin') return <KelvinExplorer initial={initialCelsius} />;
   if (spec.kind === 'problem')
     return <ProblemWorkspace problem={spec.problem} worked={Boolean(spec.worked)} />;
   if (spec.kind === 'review') return <ReviewBoard topic={spec.topic} />;
@@ -103,6 +116,10 @@ export default function LegacyBoard(props: VisualProps) {
             spec={spec}
             reducedMotion={props.reducedMotion}
             available={Number(props.spec.params.availableLaws ?? 4)}
+            initialCelsius={Number(props.spec.params.initialCelsius ?? 27)}
+            initialLaw={(props.spec.params.initialLaw ?? 'boyle') as GasLaw}
+            showLawEquations={props.spec.params.showLawEquations !== false}
+            referenceVolume={Number(props.spec.params.referenceVolume ?? 2.4)}
           />
         </div>
       )}

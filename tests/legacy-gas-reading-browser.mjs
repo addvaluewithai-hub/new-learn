@@ -27,6 +27,14 @@ assert.equal(course.lessons.filter((l) => l.moduleId).length, 9);
 const output = 'test-results/chemistry-legacy-launch';
 const report = [];
 const next = (page) => page.locator('.rl-dock .rl-next').click();
+const boardMeaning = (page) =>
+  page.locator('.rl-board').evaluate((node) => {
+    const copy = node.cloneNode(true);
+    copy
+      .querySelectorAll('[data-math]')
+      .forEach((math) => math.replaceWith(document.createTextNode(math.getAttribute('data-math'))));
+    return copy.textContent;
+  });
 const plain = (text) => text.replace(/\$/g, '').replace(/\s+/g, ' ').trim();
 let browser;
 try {
@@ -93,8 +101,8 @@ try {
       await page.goto(`${origin}/?curriculum=${course.id}&lesson=${lesson.id}`);
       await page.locator('.rl').waitFor();
       await page.evaluate(() => document.fonts.ready);
-      await next(page);
       if (lesson.order === 1) {
+        await next(page);
         await page.waitForFunction(
           () => {
             const gas = document.querySelector('.rl-board .phase-gas');
@@ -110,6 +118,21 @@ try {
           { timeout: 700 },
         );
       }
+      if (lesson.order === 3) {
+        const pressure = page.locator('.chem-gas-controls input').first();
+        assert.equal(await page.locator('.chem-gas-controls input').nth(1).isDisabled(), true);
+        await pressure.press('End');
+        await page.waitForFunction(
+          () =>
+            document.querySelectorAll('.chem-gas-readouts output')[1]?.textContent.includes('0.80'),
+          null,
+          { timeout: 700 },
+        );
+        await page.getByRole('button', { name: 'ارجع للبداية' }).click();
+        await page.waitForFunction(() =>
+          document.querySelectorAll('.chem-gas-readouts output')[1]?.textContent.includes('2.40'),
+        );
+      }
       await page.waitForTimeout(450);
       await page.screenshot({
         path: `${output}/${lesson.id}-${width}-teaching.png`,
@@ -119,7 +142,7 @@ try {
         await next(page);
       await page.locator('.rl-question').waitFor();
       await page.waitForTimeout(450);
-      const board = plain(await page.locator('.rl-board').innerText());
+      const board = plain(await boardMeaning(page));
       const overflow = await page.evaluate(() =>
         Array.from(
           document.querySelectorAll('.rl-top, .rl-caption, .rl-dock, .rl-board-frame, .rl-answer'),
@@ -139,7 +162,7 @@ try {
       await page.getByRole('button', { name: 'معرفتش، وريني الحل' }).click();
       await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).waitFor();
       await page.waitForTimeout(450);
-      const feedback = plain(await page.locator('.rl-board').innerText());
+      const feedback = plain(await boardMeaning(page));
       assert.ok(
         feedback.includes(plain(question.feedback.steps[0].text)),
         'feedback wording on board',

@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "chem-gas-mock-exam",
   "curriculumId": "chemistry-gas-laws",
-  "contentRevision": "8baba224722d072a42b5df45cffbf3d1b1bbad8bcf78d1aa6e824a414c336f14",
+  "contentRevision": "eb3009fd1ce5cb875a2e8324cd049e6330ccdbe0fbb2f0c0c37f54a89d3ad503",
   "title": "عيادة الأخطاء",
   "englishTitle": "Mock Exam",
   "curriculumTitle": "الكيمياء · قوانين الغازات",
@@ -33,6 +33,10 @@
             "topic": "matter"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -59,6 +63,10 @@
             "topic": "matter"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -115,6 +123,10 @@
                 "topic": "matter"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -134,6 +146,10 @@
             "topic": "laws"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -160,6 +176,10 @@
             "topic": "laws"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -216,6 +236,10 @@
                 "topic": "laws"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -236,6 +260,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -263,6 +291,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -320,6 +352,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -340,6 +376,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -367,6 +407,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -424,6 +468,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -444,6 +492,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -471,6 +523,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -528,6 +584,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -548,6 +608,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -575,6 +639,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -632,6 +700,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -651,6 +723,10 @@
             "topic": "graphs"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -677,6 +753,10 @@
             "topic": "graphs"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -733,6 +813,10 @@
                 "topic": "graphs"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -752,6 +836,10 @@
             "topic": "errors"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -778,6 +866,10 @@
             "topic": "errors"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -834,6 +926,10 @@
                 "topic": "errors"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -854,6 +950,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -881,6 +981,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -938,6 +1042,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }
@@ -957,6 +1065,10 @@
             "topic": "strategy"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -983,6 +1095,10 @@
             "topic": "strategy"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
         }
       },
@@ -1039,6 +1155,10 @@
                 "topic": "strategy"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
             }
           }

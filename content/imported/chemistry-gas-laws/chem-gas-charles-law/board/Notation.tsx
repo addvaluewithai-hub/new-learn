@@ -103,8 +103,30 @@ export function Written({ text }: { text: string }) {
     <>
       {text.split(/\$([^$]+)\$/).map((s, i) =>
         i % 2 ? (
-          <bdi key={i} dir="ltr" style={{ fontFamily: mathFont, unicodeBidi: 'isolate' }}>
-            {s}
+          <bdi
+            key={i}
+            dir="ltr"
+            data-math={s}
+            aria-label={s}
+            style={{
+              fontFamily: mathFont,
+              unicodeBidi: 'isolate',
+              display: 'inline-flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              verticalAlign: 'middle',
+              maxWidth: '100%',
+              gap: '.12em',
+            }}
+          >
+            {s
+              .split(/(\s*[=≈→↔÷]\s*|\s+×\s+|\s+·\s+)/)
+              .filter(Boolean)
+              .map((part, j) => (
+                <span key={j} style={{ display: 'inline-flex', whiteSpace: 'nowrap' }}>
+                  {fraction(part, true)}
+                </span>
+              ))}
           </bdi>
         ) : (
           s

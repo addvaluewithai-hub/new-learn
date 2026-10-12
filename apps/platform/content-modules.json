@@ -7,64 +7,64 @@
   },
   "reading:chem-gas-states-matter": {
     "lessonId": "chem-gas-states-matter",
-    "contentRevision": "e5c1dec84a2e9d60b13455d383db1bb815825e41dd190571604e77f27fd37d7a",
-    "manifestHash": "a3dc53245b88def2eca1d1727345683bf6283559be71ebf06cbb840fb479b736",
+    "contentRevision": "a2f8843093ea07387ddc882b60013fb55e08898cdff9743c06d28dd3d5223eeb",
+    "manifestHash": "2e0bb5dcacbaba536b077a2d3ae7246a4af8efe2509f33415c9725e6420374d5",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-phase-changes": {
     "lessonId": "chem-gas-phase-changes",
-    "contentRevision": "22c139c3497d01cffca036cc21d78e8b97065afc026b332878e9f49aadac6cc6",
-    "manifestHash": "70791996fdbb6556e9a79afb3689b14233c5d842c3ca1b8958be2e99a11ea5d9",
+    "contentRevision": "40d5867579f4ff4229926fb12e651b72360a1ebda36e3512560599789ac19d14",
+    "manifestHash": "0598f953b0e55270c7cfa2b7d94a889921edbfa052bdb7804f469c8ab66ad567",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-boyles-law": {
     "lessonId": "chem-gas-boyles-law",
-    "contentRevision": "22d1d8c1e4304bc81b61f72f833c87a7fbe10f36e757ee01190599ca92dac38a",
-    "manifestHash": "9c954cab35978637ff4ba34645cfc794d819e1c323736c66a6ecb1a0a7cb54d0",
+    "contentRevision": "3c2d6310b9c43e8fbb65d35f54f22c0f15a6796f38c6147ecc901c45da2aa1a1",
+    "manifestHash": "6306e586ca66e37abdf8eb9d57badebb30129bd3936d4f4133769c9d07b8f67f",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-boyle-problems": {
     "lessonId": "chem-gas-boyle-problems",
-    "contentRevision": "6b983ca25f3170cfd11df058aba05ec6c4b43fd4234c5e9c199fee22b6bcd449",
-    "manifestHash": "d8c1539939809e293071402246cedde51f791bdb8b07b0c07f0fe17ff024d741",
+    "contentRevision": "7968b838f8523a027c63358fafcede2fd89c7799ccbf8ae7fd22eceae6f3478b",
+    "manifestHash": "d08abae8d90ee8ef4fa951077565a5bf2438313d59eeb901ba8543d3e198ace9",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-charles-law": {
     "lessonId": "chem-gas-charles-law",
-    "contentRevision": "21122148f5de65d302c6c269a09b0a32ce8f855050559abe4fe119f4b64437e1",
-    "manifestHash": "70f0c1a544942358e7571b25bc0d10cfd563413f5b4f6f67c1f9aadd7fe1b19c",
+    "contentRevision": "0d0745a10c70f261ea133fdf00696fbcc396f66f3fb94183444a1577074d2294",
+    "manifestHash": "8f194fd5413f93610c2b58cffb7957f44c0fc0c3d63ccd914313b7b75495e063",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-charles-problems": {
     "lessonId": "chem-gas-charles-problems",
-    "contentRevision": "c0139b427eeeb683f619df55ed70d867808458cd969a9c50fb1e304f27af69a2",
-    "manifestHash": "4dea0767f25f2b114fd719140f152c0b426d44e4ac8c2db25d3be2ad66ff9a36",
+    "contentRevision": "9b26f99456188d225fa3e8bf435a788b191ec50818922f4919c910a96badcaf6",
+    "manifestHash": "ccfd9cbf0da2626f9bd6b7bf459ce86582a35b4bf4d5769bf4533610f4c8bdc0",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-pressure-temperature": {
     "lessonId": "chem-gas-pressure-temperature",
-    "contentRevision": "d73a885630aec249efd0cae5bbae2fb98b079d9bd1458cf9d3f21eac54aa4caf",
-    "manifestHash": "18d9e36e22ffc7734166f33d43a8d611dc7f09ad317cc8fdb4aaee6ad1a8905f",
+    "contentRevision": "c483d28ff9be56bdd0b5f017336f2fc35ac1a9a12a594ce385130aa67477a55f",
+    "manifestHash": "65f2e77288879be9583bd428d477a245086c662566e6a98abbbc234bc5678bd3",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-combined-law": {
     "lessonId": "chem-gas-combined-law",
-    "contentRevision": "3a5bfa5fb60f6085261f236749b03e9c4658303cf85b3eeceef9beb5af7a11d8",
-    "manifestHash": "30e97271079ccb9e36cf6ed9215949985aa7032792cf3b12acc585fca72a888e",
+    "contentRevision": "ffd38726716594afd36dae503c7f93f1552287ecebc8529317626bddd936e8a9",
+    "manifestHash": "ae213aa90eb147773304189e78dfa2f2aa76d53e55601c2d4807095d07d04723",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
   "reading:chem-gas-mock-exam": {
     "lessonId": "chem-gas-mock-exam",
-    "contentRevision": "8baba224722d072a42b5df45cffbf3d1b1bbad8bcf78d1aa6e824a414c336f14",
-    "manifestHash": "915d881b4aa4b2d04418efaa56a950dc766cc16347b0b3ab9870a3ce3aadb067",
+    "contentRevision": "eb3009fd1ce5cb875a2e8324cd049e6330ccdbe0fbb2f0c0c37f54a89d3ad503",
+    "manifestHash": "d3533f319548928511dcf08304931f125c4c4aaac80e4b397da2be57db629d7d",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },

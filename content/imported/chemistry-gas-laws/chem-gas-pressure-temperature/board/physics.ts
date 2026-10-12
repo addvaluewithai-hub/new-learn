@@ -37,7 +37,7 @@ export const phaseChanges = [
     id: 'vaporization',
     from: 'liquid',
     to: 'gas',
-    name: 'Vaporization — التبخر',
+    name: 'Evaporation — التبخر',
     heating: true,
   },
   {

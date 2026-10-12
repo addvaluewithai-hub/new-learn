@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "chem-gas-charles-problems",
   "curriculumId": "chemistry-gas-laws",
-  "contentRevision": "c0139b427eeeb683f619df55ed70d867808458cd969a9c50fb1e304f27af69a2",
+  "contentRevision": "9b26f99456188d225fa3e8bf435a788b191ec50818922f4919c910a96badcaf6",
   "title": "مسائل قانون شارل",
   "englishTitle": "Kelvin",
   "curriculumTitle": "الكيمياء · قوانين الغازات",
@@ -32,6 +32,10 @@
             "kind": "kelvin"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -57,6 +61,10 @@
             "kind": "kelvin"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -112,6 +120,10 @@
                 "kind": "kelvin"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
             }
           }
@@ -132,6 +144,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -159,6 +175,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -216,6 +236,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
             }
           }
@@ -236,6 +260,10 @@
             "worked": true
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -263,6 +291,10 @@
             "worked": true
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -320,6 +352,10 @@
                 "worked": true
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
             }
           }
@@ -340,6 +376,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -367,6 +407,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -424,6 +468,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
             }
           }
@@ -444,6 +492,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -471,6 +523,10 @@
             "worked": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -528,6 +584,10 @@
                 "worked": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
             }
           }
@@ -546,6 +606,10 @@
             "kind": "kelvin"
           },
           "availableLaws": 4,
+          "initialCelsius": 22,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -571,6 +635,10 @@
             "kind": "kelvin"
           },
           "availableLaws": 4,
+          "initialCelsius": 22,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
         }
       },
@@ -626,6 +694,10 @@
                 "kind": "kelvin"
               },
               "availableLaws": 4,
+              "initialCelsius": 22,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
             }
           }

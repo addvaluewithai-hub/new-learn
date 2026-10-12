@@ -11,17 +11,20 @@ export default function GasExplorer({
   onDiscuss,
   canDiscuss,
   reducedMotion,
+  referenceVolume = 2.4,
 }: {
   law: GasLaw;
   focus: Extract<ChemistryBoardSpec, { kind: 'gas' }>['focus'];
   onDiscuss: (text: string) => void;
   canDiscuss: boolean;
   reducedMotion: boolean;
+  referenceVolume?: number;
 }) {
   const [pressure, setPressure] = useState(1),
     [temperature, setTemperature] = useState(300),
     [reciprocal, setReciprocal] = useState(false);
-  const state = gasState(law, pressure, temperature),
+  const base = gasState(law, pressure, temperature);
+  const state = { ...base, volume: (base.volume * referenceVolume) / 2.4 },
     info = gasLawLabels[law];
   const pressureChanges = law === 'boyle' || law === 'combined';
   const temperatureChanges = law !== 'boyle';

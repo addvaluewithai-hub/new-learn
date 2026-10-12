@@ -5,7 +5,7 @@
   "englishTitle": "Kelvin",
   "subtitle": "حوّل الحرارة صح، شوف مثال محلول، وبعدها حل بنفسك",
   "delivery": "reading",
-  "contentRevision": "c0139b427eeeb683f619df55ed70d867808458cd969a9c50fb1e304f27af69a2",
+  "contentRevision": "9b26f99456188d225fa3e8bf435a788b191ec50818922f4919c910a96badcaf6",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -58,8 +58,8 @@
     },
     {
       "path": "board/GasExplorer.tsx",
-      "sha256": "580e28778c23889b904f24384aef62856fdaf2dbee63b637e74295b7dc2f369a",
-      "bytes": 7536
+      "sha256": "73d694f94e7fb734cf50bbaf11703a6da9c61878b660f1d6ae37a5fc6355312e",
+      "bytes": 7664
     },
     {
       "path": "board/GasPlot.tsx",
@@ -68,18 +68,18 @@
     },
     {
       "path": "board/KelvinExplorer.tsx",
-      "sha256": "804a472a5d7ce02dcd00c378bf69708eba43baa450d1543a76eae6347dd1f85b",
-      "bytes": 2069
+      "sha256": "c2135b2d0c1d00d9342a926766ed4fbd5168ddd178b7ce422b2cffa9d403c440",
+      "bytes": 2112
     },
     {
       "path": "board/LawSelector.tsx",
-      "sha256": "4429f87ad0454e6f7e3a952acdfaccd03397a27d3120e1d39f9ac74491c4d75a",
-      "bytes": 2234
+      "sha256": "0c2015dc7d9fee621abd95aaf6cd2487f55d7b5c5831ec1be7313ee2f637ace6",
+      "bytes": 2346
     },
     {
       "path": "board/LegacyBoard.tsx",
-      "sha256": "db437d81e87dfc9812040c28f7b248370bcb6db2903fa47b30180bde8f707fc0",
-      "bytes": 3849
+      "sha256": "b2ceff4ff492c4e72db81e98045f331bc52b2b36f6a44d234fdce432f24e4408",
+      "bytes": 4511
     },
     {
       "path": "board/MatterExplorer.tsx",
@@ -88,8 +88,8 @@
     },
     {
       "path": "board/Notation.tsx",
-      "sha256": "423ea1399f9ef65efbb35b72139bc304ea4fe562daa2860dd9becaab0aceaa05",
-      "bytes": 3962
+      "sha256": "f7c0decc157c33baa2fd55c06b77ec94733f19ddaa20a85d7f81a30c20ad20ac",
+      "bytes": 4608
     },
     {
       "path": "board/Particles.tsx",
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "738a4ed0d45a8b3e423e5d1d559747415a63a26b8c33783da15c47cbf917677a",
-      "bytes": 2175
+      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
+      "bytes": 2512
     },
     {
       "path": "board/format.ts",
@@ -143,8 +143,8 @@
     },
     {
       "path": "board/physics.ts",
-      "sha256": "af0f6509f7b3058f2c2d03205f1ca8150652f6a69b20ecf64245cdfcdfc2e090",
-      "bytes": 2463
+      "sha256": "4a075e01a9329af0295421d0e8f3c6197988479d804163a560ee2728a5bd39bf",
+      "bytes": 2462
     },
     {
       "path": "board/problem.css",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "2a9a95dbee4dde4a671baa4b0f48b8240671fc0b6b85cd8c066df31dda9740f9",
-      "bytes": 25822
+      "sha256": "bc516d96e2e120917f12949c7c5c78037b4b0fd16d328f4e23b7796dd3b2f1cf",
+      "bytes": 28348
     }
   ],
-  "manifestHash": "4dea0767f25f2b114fd719140f152c0b426d44e4ac8c2db25d3be2ad66ff9a36"
+  "manifestHash": "ccfd9cbf0da2626f9bd6b7bf459ce86582a35b4bf4d5769bf4533610f4c8bdc0"
 }

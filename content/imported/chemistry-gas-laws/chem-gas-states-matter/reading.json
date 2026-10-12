@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "chem-gas-states-matter",
   "curriculumId": "chemistry-gas-laws",
-  "contentRevision": "e5c1dec84a2e9d60b13455d383db1bb815825e41dd190571604e77f27fd37d7a",
+  "contentRevision": "a2f8843093ea07387ddc882b60013fb55e08898cdff9743c06d28dd3d5223eeb",
   "title": "حالات المادة: الخصائص",
   "englishTitle": "States of Matter",
   "curriculumTitle": "الكيمياء · قوانين الغازات",
@@ -33,6 +33,10 @@
             "focus": "shape"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "revealStates": true,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
@@ -74,6 +78,10 @@
             "focus": "shape"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "revealStates": true,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
@@ -131,6 +139,10 @@
                 "focus": "shape"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "revealStates": true,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
             }
@@ -151,6 +163,10 @@
             "focus": "compression"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -177,6 +193,10 @@
             "focus": "compression"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -233,6 +253,10 @@
                 "focus": "compression"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
             }
           }
@@ -252,6 +276,10 @@
             "focus": "diffusion"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -278,6 +306,10 @@
             "focus": "diffusion"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -334,6 +366,10 @@
                 "focus": "diffusion"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
             }
           }
@@ -353,6 +389,10 @@
             "focus": "particles"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -379,6 +419,10 @@
             "focus": "particles"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -435,6 +479,10 @@
                 "focus": "particles"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
             }
           }
@@ -454,6 +502,10 @@
             "focus": "summary"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -480,6 +532,10 @@
             "focus": "summary"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
         }
       },
@@ -536,6 +592,10 @@
                 "focus": "summary"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
             }
           }

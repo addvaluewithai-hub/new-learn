@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "chem-gas-phase-changes",
   "curriculumId": "chemistry-gas-laws",
-  "contentRevision": "22c139c3497d01cffca036cc21d78e8b97065afc026b332878e9f49aadac6cc6",
+  "contentRevision": "40d5867579f4ff4229926fb12e651b72360a1ebda36e3512560599789ac19d14",
   "title": "سلوك الغاز",
   "englishTitle": "Phase Changes",
   "curriculumTitle": "الكيمياء · قوانين الغازات",
@@ -33,6 +33,10 @@
             "direct": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -59,6 +63,10 @@
             "direct": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -115,6 +123,10 @@
                 "direct": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
             }
           }
@@ -134,6 +146,10 @@
             "direct": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -160,6 +176,10 @@
             "direct": false
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -216,6 +236,10 @@
                 "direct": false
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
             }
           }
@@ -235,6 +259,10 @@
             "direct": true
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -261,6 +289,10 @@
             "direct": true
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -317,6 +349,10 @@
                 "direct": true
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
             }
           }
@@ -336,6 +372,10 @@
             "focus": "compression"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -362,6 +402,10 @@
             "focus": "compression"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -418,6 +462,10 @@
                 "focus": "compression"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
             }
           }
@@ -437,6 +485,10 @@
             "direct": true
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -463,6 +515,10 @@
             "direct": true
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
         }
       },
@@ -519,6 +575,10 @@
                 "direct": true
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
             }
           }

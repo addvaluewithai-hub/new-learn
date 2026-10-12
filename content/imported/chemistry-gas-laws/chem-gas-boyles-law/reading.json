@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "chem-gas-boyles-law",
   "curriculumId": "chemistry-gas-laws",
-  "contentRevision": "22d1d8c1e4304bc81b61f72f833c87a7fbe10f36e757ee01190599ca92dac38a",
+  "contentRevision": "3c2d6310b9c43e8fbb65d35f54f22c0f15a6796f38c6147ecc901c45da2aa1a1",
   "title": "قانون بويل: الضغط والحجم",
   "englishTitle": "Boyle's Law",
   "curriculumTitle": "الكيمياء · قوانين الغازات",
@@ -34,6 +34,10 @@
             "focus": "overview"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -61,6 +65,10 @@
             "focus": "overview"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -118,6 +126,10 @@
                 "focus": "overview"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
             }
           }
@@ -138,6 +150,10 @@
             "focus": "conditions"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -165,6 +181,10 @@
             "focus": "conditions"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -222,6 +242,10 @@
                 "focus": "conditions"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
             }
           }
@@ -242,6 +266,10 @@
             "focus": "graph"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -269,6 +297,10 @@
             "focus": "graph"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -326,6 +358,10 @@
                 "focus": "graph"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
             }
           }
@@ -346,6 +382,10 @@
             "focus": "equation"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 1,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -373,6 +413,10 @@
             "focus": "equation"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 1,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -430,6 +474,10 @@
                 "focus": "equation"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 1,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
             }
           }
@@ -450,6 +498,10 @@
             "focus": "overview"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -477,6 +529,10 @@
             "focus": "overview"
           },
           "availableLaws": 4,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
         }
       },
@@ -534,6 +590,10 @@
                 "focus": "overview"
               },
               "availableLaws": 4,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
             }
           }

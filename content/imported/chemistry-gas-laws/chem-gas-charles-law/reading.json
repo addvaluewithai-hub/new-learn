@@ -3,7 +3,7 @@
   "delivery": "reading",
   "lessonId": "chem-gas-charles-law",
   "curriculumId": "chemistry-gas-laws",
-  "contentRevision": "21122148f5de65d302c6c269a09b0a32ce8f855050559abe4fe119f4b64437e1",
+  "contentRevision": "0d0745a10c70f261ea133fdf00696fbcc396f66f3fb94183444a1577074d2294",
   "title": "قانون شارل: الحجم ودرجة الحرارة",
   "englishTitle": "Charles' Law",
   "curriculumTitle": "الكيمياء · قوانين الغازات",
@@ -34,6 +34,10 @@
             "focus": "overview"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -61,6 +65,10 @@
             "focus": "overview"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -118,6 +126,10 @@
                 "focus": "overview"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }
@@ -138,6 +150,10 @@
             "focus": "conditions"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -165,6 +181,10 @@
             "focus": "conditions"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -222,6 +242,10 @@
                 "focus": "conditions"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }
@@ -240,6 +264,10 @@
             "kind": "selector"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -265,6 +293,10 @@
             "kind": "selector"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -320,6 +352,10 @@
                 "kind": "selector"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }
@@ -340,6 +376,10 @@
             "focus": "graph"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -367,6 +407,10 @@
             "focus": "graph"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -424,6 +468,10 @@
                 "focus": "graph"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }
@@ -444,6 +492,10 @@
             "focus": "absolute-zero"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -471,6 +523,10 @@
             "focus": "absolute-zero"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -528,6 +584,10 @@
                 "focus": "absolute-zero"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }
@@ -548,6 +608,10 @@
             "focus": "equation"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -575,6 +639,10 @@
             "focus": "equation"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -632,6 +700,10 @@
                 "focus": "equation"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }
@@ -652,6 +724,10 @@
             "focus": "overview"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -679,6 +755,10 @@
             "focus": "overview"
           },
           "availableLaws": 2,
+          "initialCelsius": 27,
+          "initialLaw": "boyle",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
           "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
         }
       },
@@ -736,6 +816,10 @@
                 "focus": "overview"
               },
               "availableLaws": 2,
+              "initialCelsius": 27,
+              "initialLaw": "boyle",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
               "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
             }
           }

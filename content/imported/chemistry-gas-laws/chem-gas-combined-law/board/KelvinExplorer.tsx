@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { celsiusToKelvin } from './physics';
 import { format } from './format';
 
-export default function KelvinExplorer() {
-  const [celsius, setCelsius] = useState(20);
+export default function KelvinExplorer({ initial = 27 }: { initial?: number }) {
+  const [celsius, setCelsius] = useState(initial);
   return (
     <>
       <div className="chem-title">
