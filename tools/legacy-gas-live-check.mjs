@@ -36,7 +36,10 @@ try {
   assert.equal(catalog.response.status, 200);
   const live = catalog.value.curricula.find((c) => c.id === course.id);
   assert.ok(live, 'curriculum visible');
-  assert.deepEqual(live.lessons.map((l) => l.id), course.lessons.map((l) => l.id));
+  assert.deepEqual(
+    live.lessons.map((l) => l.id),
+    course.lessons.map((l) => l.id),
+  );
   assert.ok(live.lessons.every((l) => l.availability === 'published'));
   for (const expected of course.lessons) {
     const edition = await call('/lessons/' + expected.id);
@@ -54,7 +57,9 @@ try {
     });
     assert.equal(asset.status, 200, 'font available');
     assert.equal(
-      createHash('sha256').update(Buffer.from(await asset.arrayBuffer())).digest('hex'),
+      createHash('sha256')
+        .update(Buffer.from(await asset.arrayBuffer()))
+        .digest('hex'),
       font.sha256,
       'live asset hash',
     );
