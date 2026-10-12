@@ -3,7 +3,13 @@ import type { LessonContext, ThreadNote } from '@learn/lesson-runtime';
 import { api } from '../../../shared/api';
 import { positionOf } from '../types';
 import { atOf, chatTurns, earlierText, whereText } from './notes';
-import { LessonVoice, type VoiceEvents, type VoiceState } from './LessonVoice';
+import {
+  LessonVoice,
+  type TeachEvents,
+  type TeachLine,
+  type VoiceEvents,
+  type VoiceState,
+} from './LessonVoice';
 
 const id = () => crypto.randomUUID();
 
@@ -114,8 +120,8 @@ export function useLessonTalk(context: LessonContext | null, onEngage?: () => vo
     press: () => engine.press(),
     release: () => engine.release(),
     stop: () => engine.stop(),
-    read: (text: string) => engine.read(text),
-    stopReading: () => engine.endRead('cut'),
+    teach: (lines: TeachLine[], on: TeachEvents) => engine.teach(lines, on),
+    stopTeaching: () => engine.endTeach('cut'),
     setVolume: (value: number) => engine.setVolume(value),
   }));
   const voice = { state, ...actions };

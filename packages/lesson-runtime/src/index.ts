@@ -9,7 +9,7 @@ export type {
   ReadingLessonProps,
   ReadingPace,
   ReadingProgress,
-} from './reading/ReadingLesson';
+} from './reading/props';
 export * from './core';
 
 export type { LessonContext, LessonController } from './context';

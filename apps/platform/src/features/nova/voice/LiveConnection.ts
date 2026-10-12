@@ -6,6 +6,8 @@ export type LiveCallbacks = {
   transcript: (role: 'user' | 'assistant', text: string) => void;
   error: (message: string) => void;
   answer: (index: number, choice: number) => unknown;
+  /** Other client tools (e.g. moving the lesson board); the result goes back as-is. */
+  tool?: (name: string, args: Record<string, unknown>) => unknown;
 };
 export class LiveConnection {
   private socket: WebSocket | null = null;
@@ -67,7 +69,9 @@ export class LiveConnection {
               const result =
                 call.name === 'answer_question'
                   ? this.callbacks.answer(call.args?.questionIndex, call.args?.choice)
-                  : { error: 'Unknown tool' };
+                  : (this.callbacks.tool?.(call.name, call.args ?? {}) ?? {
+                      error: 'Unknown tool',
+                    });
               this.send({
                 toolResponse: {
                   functionResponses: [{ id: call.id, name: call.name, response: result }],

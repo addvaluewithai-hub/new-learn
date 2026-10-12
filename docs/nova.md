@@ -48,13 +48,17 @@ when the lesson closes. Speaking over Nova interrupts it. Errors appear in the c
 How the lesson moves is a per-device setting in the top bar (default: by Next only).
 A reading pace (slower/normal/faster) fills the Next button for a time based on the line's
 length and turns the page; it holds while the conversation, a sheet or a hidden tab needs the
-learner, and a pause button sits beside Back. "Nova reads the lesson" (off by default, with
-volume) sends each line to the same live session as `READ:` + the exact text; Nova says it word
-for word, and the page turns when the audio ends. It reads a question and then waits for the
-answer, retries a dropped session once, and turns itself off with a note in the conversation if
-it still fails. Asking Nova (typed or held) pauses a moving lesson; the play button resumes, and
-a step that was already read moves on. Produced recordings can later replace the live voice
-behind the same `read(text)` call.
+learner, and a pause button sits beside Back. "Nova reads the lesson" (off by default, with volume) is one continuous live session, not a
+request per step: from where the learner is, the client sends one `TEACH` message with the
+numbered lines up to the next question; Nova reads them continuously, word for word and slowly,
+and turns the board itself by calling the non-blocking `show_step(n)` tool before each line.
+The client answers each call silently (`scheduling: SILENT`) and turns the page when the audio
+received so far has played, so the board changes as Nova starts that line. Nova reads the
+question, then waits; after the answer the next stretch starts from the feedback. Turning the
+page by hand, asking Nova (typed or held) or pausing cuts the teaching; it continues from
+wherever the learner then is. A dropped session is retried once, then narration turns itself
+off with a note in the conversation. Each new reply starts with a short audio cushion so a
+slow network does not make the voice stutter.
 
 ## Server boundary
 
