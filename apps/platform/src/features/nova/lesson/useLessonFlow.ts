@@ -1,6 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
-import type { LessonContext, LessonController, ReadingPace } from '@learn/lesson-runtime';
-import type { ReadResult } from './LessonVoice';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  readingContext,
+  readingPageIndex,
+  readingPages,
+  readingPositionOf,
+  type LessonContext,
+  type LessonController,
+  type ReadingPackage,
+  type ReadingPace,
+  type ReadingPosition,
+} from '@learn/lesson-runtime';
+import type { TeachEvents, TeachLine } from './LessonVoice';
 
 export type FlowSettings = { narration: boolean; volume: number; pace: ReadingPace | null };
 const KEY = 'learn.lesson.flow';
@@ -41,60 +51,90 @@ export function useLessonFlow() {
 }
 
 /**
- * Nova reads each step aloud and turns the page when the audio ends. It stops at a question
- * (reads it, then waits for the answer). Resuming on a step that was already read moves on;
- * a dropped session is retried once before narration gives up.
+ * Nova teaches the lesson aloud in one live session: from where the learner is, it gets the
+ * numbered lines up to the next question in one message, reads them continuously and turns
+ * the board itself as it goes (show_step), then waits for the answer. Moving by hand, asking
+ * something or pausing cuts it; it continues from wherever the learner then is. A dropped
+ * session is retried once before narration gives up.
  */
 export function useNarrator({
   enabled,
   paused,
+  lesson,
   context,
   controller,
-  read,
+  teach,
   stop,
   onFail,
 }: {
   enabled: boolean;
   paused: boolean;
+  lesson: ReadingPackage | null;
   context: LessonContext | null;
   controller: LessonController | null;
-  read: (text: string) => Promise<ReadResult>;
+  teach: (lines: TeachLine[], on: TeachEvents) => void;
   stop: () => void;
   onFail: () => void;
 }) {
-  const key =
+  const pages = useMemo(() => (lesson ? readingPages(lesson) : []), [lesson]);
+  const position: ReadingPosition | null =
     context && context.phase !== 'complete'
-      ? `${context.sceneId}:${context.phase}:${context.step}`
-      : '';
-  const last = useRef({ key: '', done: false, retried: false });
-  const now = useRef({ context, controller, read, stop, onFail });
-  now.current = { context, controller, read, stop, onFail };
+      ? { sceneId: context.sceneId, phase: context.phase, step: context.step ?? 0 }
+      : null;
+  const index = lesson && position ? readingPageIndex(lesson, pages, position) : -1;
+  /** The page Nova itself moved to (its own page turn must not restart the teaching). */
+  const steered = useRef(-1);
+  const retried = useRef(false);
+  const now = useRef({ controller, teach, stop, onFail });
+  now.current = { controller, teach, stop, onFail };
+  // Pausing, turning narration off or leaving the lesson cuts Nova off.
   useEffect(() => {
-    const { context: c, controller: control } = now.current;
-    if (!enabled || paused || !key || !c?.line) return;
-    const advance = () => c.phase !== 'attempt' && control?.next?.();
-    if (last.current.key === key && last.current.done) {
-      advance();
-      return;
-    }
-    if (last.current.key !== key) last.current = { key, done: false, retried: false };
-    let alive = true;
-    const attempt = (): void => {
-      now.current.read(c.line!).then((result) => {
-        if (!alive) return;
-        if (result === 'done') {
-          last.current.done = true;
-          advance();
-        } else if (result === 'failed' && !last.current.retried) {
-          last.current.retried = true;
-          attempt();
-        } else if (result === 'failed') now.current.onFail();
-      });
-    };
-    attempt();
+    if (!enabled || paused) return;
     return () => {
-      alive = false;
+      steered.current = -1;
       now.current.stop();
     };
-  }, [enabled, paused, key]);
+  }, [enabled, paused, lesson]);
+  useEffect(() => {
+    if (!enabled || paused || !lesson || index < 0) return;
+    // Nova's own page turn: it is already reading this line.
+    if (steered.current === index) return;
+    steered.current = -1;
+    const lines: TeachLine[] = [];
+    for (let n = index; n < pages.length; n++) {
+      const page = pages[n];
+      lines.push({
+        n,
+        text: readingContext(lesson, page, false).line ?? '',
+        question: page.kind === 'attempt',
+      });
+      if (page.kind === 'attempt') break;
+    }
+    const at = (n: number) => readingPositionOf(lesson, pages[n], false);
+    const last = lines[lines.length - 1];
+    const events: TeachEvents = {
+      show: (n) => {
+        steered.current = n;
+        now.current.controller?.goTo?.(at(n));
+      },
+      done: (shown) => {
+        retried.current = false;
+        if (last.question && shown >= last.n) return; // waits for the answer
+        steered.current = -1;
+        // End of the lesson: on to completion. Nova stopped early or never moved the board:
+        // step on by one, which starts the next stretch from there.
+        if (shown >= last.n || shown < index) now.current.controller?.next?.();
+        else now.current.controller?.goTo?.(at(shown + 1));
+      },
+      failed: () => {
+        steered.current = -1;
+        if (retried.current) return now.current.onFail();
+        retried.current = true;
+        now.current.teach(lines, events);
+      },
+    };
+    now.current.teach(lines, events);
+    // A new stretch starts only when the learner (not Nova) changes the page.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enabled, paused, lesson, index]);
 }

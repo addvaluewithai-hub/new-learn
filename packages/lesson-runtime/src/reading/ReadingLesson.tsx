@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { useMediaQuery } from '../useMediaQuery';
 import { goalProgress } from './goals';
+import { useHostBridge, useReport } from './host';
 import {
   boardTimeMs,
   readingBoardProps,
@@ -9,6 +10,7 @@ import {
   readingPageIndex,
   readingPages,
   readingPositionOf,
+  type ReadingPosition,
 } from './model';
 import { ReadingBoard } from './ReadingBoard';
 import { PageCaption } from './stage/Caption';
@@ -26,14 +28,6 @@ import './stage/stage-parts.css';
 import './stage/stage-sheets.css';
 import './stage/thread.css';
 import './stage/flow.css';
-
-export type {
-  ReadingConversation,
-  ReadingFlow,
-  ReadingLessonProps,
-  ReadingPace,
-  ReadingProgress,
-} from './props';
 
 // A content change remounts the session, like recorded lessons.
 export function ReadingLesson(props: ReadingLessonProps) {
@@ -119,29 +113,30 @@ function ReadingSession(props: ReadingLessonProps) {
   };
 
   const context = readingContext(lesson, page, complete);
-  const live = useRef(context);
-  live.current = context;
-  const forward = useRef(() => {});
-  forward.current = () => !answering && !complete && go(index + 1);
-  useEffect(() => {
-    onReady?.({
-      pause: () => undefined,
-      getContext: () => live.current,
-      next: () => forward.current(),
-    });
-    return () => onReady?.(null);
-  }, [onReady]);
-  useEffect(() => onContext?.(live.current), [index, complete, onContext]);
-  const progress = useRef<ReadingProgress | null>(null);
-  progress.current = {
-    position: readingPositionOf(lesson, page, complete),
-    reachedSceneIds: reachedIds,
-    answers,
-    complete: done,
-  };
-  useEffect(() => {
-    if (progress.current) onProgress?.(progress.current);
-  }, [index, reached, answers, complete, done, onProgress]);
+  // Host-driven navigation (e.g. narration): never past an unanswered question.
+  useHostBridge(
+    context,
+    {
+      next: () => void (!answering && !complete && go(index + 1)),
+      goTo: (at) => {
+        const target = readingPageIndex(lesson, pages, at as ReadingPosition);
+        if (target >= 0 && (target <= index || !answering)) go(target);
+      },
+    },
+    `${index}:${complete}`,
+    onReady,
+    onContext,
+  );
+  useReport<ReadingProgress>(
+    {
+      position: readingPositionOf(lesson, page, complete),
+      reachedSceneIds: reachedIds,
+      answers,
+      complete: done,
+    },
+    [index, reached, answers, complete, done],
+    onProgress,
+  );
   useEffect(() => {
     if (props.suspended || sheet) return;
     const onKey = (event: KeyboardEvent) => {

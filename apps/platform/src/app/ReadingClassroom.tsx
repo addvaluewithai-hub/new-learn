@@ -45,15 +45,16 @@ export default function ReadingClassroom({
   // Asking Nova pauses a lesson that moves alone, so the answer can be read in peace.
   const talk = useLessonTalk(context, () => moving && flow.setPaused(true));
   useSpaceToTalk(talk.voice, Boolean(module) && !assistantOpen);
-  const { setVolume, read, stopReading } = talk.voice;
+  const { setVolume, teach, stopTeaching } = talk.voice;
   useEffect(() => setVolume(flow.settings.volume), [flow.settings.volume, setVolume]);
   useNarrator({
     enabled: flow.settings.narration && !assistantOpen,
     paused: flow.paused,
+    lesson: module?.readingLesson ?? null,
     context,
     controller,
-    read,
-    stop: stopReading,
+    teach,
+    stop: stopTeaching,
     onFail: () => {
       flow.change({ narration: false });
       talk.notify('مقدرتش أقرا الدرس بصوتي دلوقتي، فقفلت القراية. جرّب تشغّلها تاني بعد شوية.');

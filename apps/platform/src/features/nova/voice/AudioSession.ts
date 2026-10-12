@@ -55,7 +55,10 @@ export class AudioSession {
     source.connect(this.gain);
     this.active.add(source);
     this.complete = false;
-    const at = Math.max(this.context.currentTime + 0.02, this.next);
+    // A new reply (or a stall) starts with a short cushion, so a slow network doesn't make
+    // the voice stutter: the next chunks usually arrive while this one plays.
+    const starting = this.next <= this.context.currentTime;
+    const at = Math.max(this.context.currentTime + (starting ? 0.25 : 0.02), this.next);
     this.next = at + buffer.duration;
     source.onended = () => {
       this.active.delete(source);
@@ -65,6 +68,10 @@ export class AudioSession {
       }
     };
     source.start(at);
+  }
+  /** Seconds until the audio received so far has finished playing. */
+  get endsIn() {
+    return Math.max(0, this.next - this.context.currentTime);
   }
   get speaking() {
     return this.active.size > 0;
