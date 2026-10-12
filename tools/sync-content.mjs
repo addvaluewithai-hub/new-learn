@@ -3,12 +3,14 @@
 //   DATABASE_URL=<admin/direct URL> npm run content:sync            # apply
 //   npm run content:sync -- --print                                 # show SQL only
 // Lessons not ready yet are listed (catalog shows them as coming soon) without a release.
+// Curricula in content/withheld.json stay listed but lose their release pointers.
 import { readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { neon } from '@neondatabase/serverless';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
 const registry = JSON.parse(await readFile(join(root, 'content/imported/registry.json'), 'utf8'));
+const withheld = JSON.parse(await readFile(join(root, 'content/withheld.json'), 'utf8')).curricula;
 const statements = [];
 const q = (text, params) => statements.push({ text, params });
 for (const course of registry.curricula) {
@@ -25,6 +27,11 @@ for (const course of registry.curricula) {
      WHERE curriculum_id=$1 AND position < 10000`,
     [course.id],
   );
+  const held = Object.hasOwn(withheld, course.id);
+  if (held)
+    q(`DELETE FROM learn_app.lesson_releases WHERE lesson_id = ANY($1)`, [
+      course.lessons.map((lesson) => lesson.id),
+    ]);
   for (const lesson of course.lessons) {
     q(
       `INSERT INTO learn_app.lessons(id,curriculum_id,position,title,subtitle)
@@ -33,7 +40,7 @@ for (const course of registry.curricula) {
          subtitle=EXCLUDED.subtitle`,
       [lesson.id, course.id, lesson.order, lesson.title, lesson.subtitle ?? ''],
     );
-    if (!lesson.moduleId) continue;
+    if (held || !lesson.moduleId) continue;
     q(
       `INSERT INTO learn_app.lesson_editions(lesson_id,content_revision,module_id,manifest_hash,runtime_version)
        VALUES ($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING`,
@@ -66,7 +73,9 @@ if (process.argv.includes('--print')) {
 if (!process.env.DATABASE_URL) throw new Error('Set DATABASE_URL to an admin/direct connection.');
 const sql = neon(process.env.DATABASE_URL);
 await sql.transaction(statements.map(({ text, params }) => sql.query(text, params)));
-const lessons = registry.curricula.flatMap((c) => c.lessons);
+const lessons = registry.curricula
+  .filter((c) => !Object.hasOwn(withheld, c.id))
+  .flatMap((c) => c.lessons);
 console.log(
   `Synced ${registry.curricula.length} curricula, ${lessons.length} lessons, ` +
     `${lessons.filter((l) => l.moduleId).length} released reading lessons.`,

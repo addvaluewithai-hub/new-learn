@@ -1,0 +1,6 @@
+{
+  "note": "Curricula imported but withheld from students: their lessons show as coming soon and content sync removes their release pointers. Editions and saved progress are kept. Remove an entry to release it again.",
+  "curricula": {
+    "chemistry-gas-laws": "Owner decision 2026-10-12: visuals below the release bar; a rebuilt chemistry curriculum will replace it."
+  }
+}
