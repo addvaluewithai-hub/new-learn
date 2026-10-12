@@ -29,7 +29,7 @@ The build registry is an allowlist; the student app never evaluates uploaded cod
 
 Code/custom scenes and media remain content artifacts, separate from these DB metadata tables.
 `apps/platform/content-modules.json` pins the bundled review module. The renderer lives in `content/`.
-Production factory import, immutable artifact retention, review receipts and release administration are pending.
+Reading-lesson import and release are implemented (docs/content-import.md): bundles are hash-verified, compiled into the app and pinned in content-modules.json, and `content:sync` writes editions/releases. Recorded-audio import, artifact storage outside the build and release administration UI are pending.
 Those steps must bind the exact source/audio/renderers/runtime; a DB stage flag alone is not review evidence.
 The reviewed legacy package remains a technical review fixture, not newly approved course content.
 

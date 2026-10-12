@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { LessonContext, LessonController, LessonPackage } from '@learn/lesson-runtime';
+import type { LessonContext, LessonController } from '@learn/lesson-runtime';
 import { NovaIcon } from './NovaIcon';
 import { NovaModal } from './NovaModal';
 import { useChat } from './useChat';
@@ -15,7 +15,7 @@ export function NovaAssistant({
   controller,
   onOpen,
 }: {
-  lesson: LessonPackage;
+  lesson: { guide?: { image: string } };
   studentName?: string;
   context: LessonContext | null;
   controller: LessonController | null;

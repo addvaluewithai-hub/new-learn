@@ -4,7 +4,7 @@ export type NovaPurpose = 'help' | 'quiz';
 export type Message = { id: string; role: 'user' | 'assistant'; text: string };
 export type Position = Pick<
   LessonContext,
-  'lessonId' | 'contentRevision' | 'sceneId' | 'phase' | 'frame'
+  'lessonId' | 'contentRevision' | 'sceneId' | 'phase' | 'frame' | 'step'
 >;
 export type PracticeQuestion = {
   english: string;
@@ -27,4 +27,5 @@ export const positionOf = (context: LessonContext): Position => ({
   sceneId: context.sceneId,
   phase: context.phase,
   frame: context.frame,
+  step: context.step,
 });

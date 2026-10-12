@@ -1,0 +1,101 @@
+{
+  "id": "math1-bridge-fractions",
+  "order": 1,
+  "title": "الكسور: حتت بنفس الحجم",
+  "englishTitle": "Fractions: Equal Pieces",
+  "subtitle": "Fractions: Equal Pieces",
+  "delivery": "reading",
+  "contentRevision": "e136274383f5342b00f0f1c12e96f5aaacb201b716230c65652acb6361acce11",
+  "renderers": {
+    "math-board": "board/MathBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions",
+  "files": [
+    {
+      "path": "assets/fonts/LICENSE-IBM-Plex-Sans-Arabic-OFL.txt",
+      "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98",
+      "bytes": 4808
+    },
+    {
+      "path": "assets/fonts/LICENSE-STIX-Two-OFL.txt",
+      "sha256": "9d80d69f6a70033f4d113604bed4a3038b6e5b700c0266e7fe9f4033365ff076",
+      "bytes": 4510
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2",
+      "sha256": "6010e7fd0dce5d527583951750728cbe3c895efbd16aa0f809ab8c824878c9d8",
+      "bytes": 42848
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2",
+      "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac",
+      "bytes": 45688
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2",
+      "sha256": "9ed8dcb02e6c7246de4c120295fafa39a7bb73085f4951a4524a07dc911069f2",
+      "bytes": 19164
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2",
+      "sha256": "63f4757271e403f7baec0862f284ffaa4560ea6096ba9fe8bc6e585ca656e724",
+      "bytes": 20500
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-italic.woff2",
+      "sha256": "3d76ab92269582b8e11f3d969eaf93bb9609f1e08d5433fd18633e78e7900638",
+      "bytes": 18192
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-normal.woff2",
+      "sha256": "65f8cdee99e0c883fa05a493812ad15fd93e3af5510276661e34c204f771e514",
+      "bytes": 16776
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-600-normal.woff2",
+      "sha256": "c81c437a0d17a895f9d82f62611c1af238f04b0c996e6ef75c5441dd07769997",
+      "bytes": 17148
+    },
+    {
+      "path": "board/MathBoard.tsx",
+      "sha256": "e24819663ad17a1c3bb2cbf181ca21c80366ec42c07ec4dc156fe0a16a8a0538",
+      "bytes": 1170
+    },
+    {
+      "path": "board/beats.ts",
+      "sha256": "b850739406423329057e00c9da113335230e6218e1717638b23e6b13193cd010",
+      "bytes": 8241
+    },
+    {
+      "path": "board/clock.ts",
+      "sha256": "fb8e08261b361b0812a13e322f06176862e024a10585781db83c91b34d7e17b4",
+      "bytes": 1112
+    },
+    {
+      "path": "board/mathkit.tsx",
+      "sha256": "71668f04e0e9b83c27144c4454defbd927ffb5b04e85995dc2e08a269a474c2d",
+      "bytes": 9927
+    },
+    {
+      "path": "board/shapes.tsx",
+      "sha256": "47d042609b4375e27508217ec0abed38294d9bca4b8367210b06aea7eed15195",
+      "bytes": 4041
+    },
+    {
+      "path": "board/stage.tsx",
+      "sha256": "8dc7d34c438f342fa61047785bd5d35760bfe54257f074f49901754b5703fc06",
+      "bytes": 9427
+    },
+    {
+      "path": "board/widgets.tsx",
+      "sha256": "887f7746daf21048702b5e8d312be5859d4c9333854226c058964a41255cd04d",
+      "bytes": 8548
+    },
+    {
+      "path": "reading.json",
+      "sha256": "cb643b79b9716e68c0549374dc7bbe2700569b342747de91ae64beec9427ae5f",
+      "bytes": 15590
+    }
+  ],
+  "manifestHash": "89031e45fc9befbd30ae28c261630761bd7b338115320a03a49d9d9ada2116f4"
+}

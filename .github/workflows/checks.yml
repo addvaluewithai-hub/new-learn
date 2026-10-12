@@ -32,6 +32,7 @@ jobs:
       - run: npm run test:browser:chemistry
       - run: npm run test:browser:platform
       - run: npm run test:browser:nova
+      - run: npm run test:browser:reading
       - uses: actions/upload-artifact@v4
         if: always()
         with:

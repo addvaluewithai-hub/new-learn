@@ -1,0 +1,89 @@
+{
+  "id": "mathematics-i-algebra",
+  "title": "رياضة 1 · الجبر",
+  "description": "من جمع الكسور العادية لحد تفكيك الكسور الجزئية، خطوة بخطوة وبالأمثلة.",
+  "subject": "Mathematics — رياضيات",
+  "lessons": [
+    {
+      "id": "math1-bridge-fractions",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 1,
+      "title": "الكسور: حتت بنفس الحجم",
+      "subtitle": "Fractions: Equal Pieces",
+      "moduleId": "reading:math1-bridge-fractions",
+      "contentRevision": "e136274383f5342b00f0f1c12e96f5aaacb201b716230c65652acb6361acce11",
+      "manifestHash": "89031e45fc9befbd30ae28c261630761bd7b338115320a03a49d9d9ada2116f4",
+      "runtimeVersion": "0.3.0",
+      "delivery": "reading"
+    },
+    {
+      "id": "math1-bridge-algebra",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 2,
+      "title": "الحروف بدل الأرقام",
+      "subtitle": "Letters for Numbers",
+      "moduleId": "reading:math1-bridge-algebra",
+      "contentRevision": "74b08b5b888eaaa12dff847ab73820d183cd4cdbc415983f47507a95f995e038",
+      "manifestHash": "a357a2de3668ea7adbc3f9a9e90ed0c6a9d7bbb4fcf7da6056e9d23d4d24e08e",
+      "runtimeVersion": "0.3.0",
+      "delivery": "reading"
+    },
+    {
+      "id": "math1-bridge-factorising",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 3,
+      "title": "ضرب قوسين والتحليل لعوامل",
+      "subtitle": "Expanding and Factorising",
+      "moduleId": "reading:math1-bridge-factorising",
+      "contentRevision": "b861435ef3508d86ff4c6306277c021b3c56239312adefbe51404f3065456bad",
+      "manifestHash": "653c44acd5fc8ae52f120069e59b1d2a573756559ba3c9d608c0d2b8c441bd25",
+      "runtimeVersion": "0.3.0",
+      "delivery": "reading"
+    },
+    {
+      "id": "math1-bridge-exam-english",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 4,
+      "title": "إزاي تقرا سؤال رياضة بالإنجليزي",
+      "subtitle": "Reading Maths Questions in English",
+      "moduleId": "reading:math1-bridge-exam-english",
+      "contentRevision": "2f3d7fcfc06a4c15398fae29e0949d48889a65bd4982a49617cbfcfaa6e3f4f5",
+      "manifestHash": "b74fa2b92ea4e6f5594ab730fa8269579d63fecd882d00648f0fb683129f2c7d",
+      "runtimeVersion": "0.3.0",
+      "delivery": "reading"
+    },
+    {
+      "id": "math1-pf-foundations",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 5,
+      "title": "الكسور الجبرية: الفكرة والتصنيف",
+      "subtitle": "Partial Fractions Foundations",
+      "moduleId": "reading:math1-pf-foundations",
+      "contentRevision": "9d90f5bcc968e06543021db8d1f6c393207a63a5adc3b81175e05c3a1532c886",
+      "manifestHash": "ff42ffb7ddcd3df2be19ed447ef55a006a63a0780dc807c4ee6ab4cb2144141b",
+      "runtimeVersion": "0.3.0",
+      "delivery": "reading"
+    },
+    {
+      "id": "math1-pf-forms",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 6,
+      "title": "اختيار صورة الكسور الجزئية",
+      "subtitle": "Choosing Partial Fraction Forms"
+    },
+    {
+      "id": "math1-pf-two-linear",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 7,
+      "title": "حساب معاملين لعاملين خطيين",
+      "subtitle": "Two Distinct Linear Factors"
+    },
+    {
+      "id": "math1-pf-three-linear",
+      "curriculumId": "mathematics-i-algebra",
+      "order": 8,
+      "title": "ثلاثة عوامل ومقارنة المعاملات",
+      "subtitle": "Three Linear Factors and Coefficient Matching"
+    }
+  ]
+}

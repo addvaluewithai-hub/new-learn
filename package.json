@@ -12,10 +12,10 @@
   ],
   "scripts": {
     "prepare:fixture": "node tools/generate-fixture-audio.mjs",
-    "predev": "npm run sdk:build && npm run prepare:fixture && npm run prepare:review",
+    "predev": "npm run sdk:build && npm run prepare:fixture && npm run prepare:review && npm run prepare:content",
     "dev": "node tools/start-dev.mjs",
     "typecheck": "tsc --noEmit",
-    "prebuild": "npm run sdk:build && npm run prepare:fixture && npm run prepare:review",
+    "prebuild": "npm run sdk:build && npm run prepare:fixture && npm run prepare:review && npm run prepare:content",
     "build": "npm run typecheck && vite build --config apps/platform/vite.config.ts",
     "preview": "vite preview --config apps/platform/vite.config.ts",
     "check": "node tools/check-boundaries.mjs",
@@ -28,13 +28,17 @@
     "sdk:pack": "npm run sdk:build && node tools/package-sdk.mjs",
     "sdk:check": "node tools/check-sdk.mjs",
     "prepare:review": "node tools/prepare-review-media.mjs",
+    "prepare:content": "node tools/prepare-content-assets.mjs",
+    "content:import": "node --import tsx tools/import-content.mjs",
+    "content:sync": "node tools/sync-content.mjs",
     "test:browser:chemistry": "node tests/chemistry-browser.mjs",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "dev:full": "wrangler pages dev dist --port 8788",
     "functions:check": "wrangler pages functions build functions --outdir .functions-check",
     "test:browser:platform": "node tests/platform-browser.mjs",
-    "test:browser:nova": "node tests/nova-browser.mjs"
+    "test:browser:nova": "node tests/nova-browser.mjs",
+    "test:browser:reading": "node tests/reading-browser.mjs"
   },
   "devDependencies": {
     "@types/node": "24.13.4",

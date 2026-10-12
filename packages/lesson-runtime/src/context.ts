@@ -17,6 +17,9 @@ export type LessonContext = {
   word: { index: number; text: string; startMs: number; endMs: number } | null;
   excerpt: string;
   questionVisible: boolean;
+  /** Reading lessons have no clock: frame/timeMs stay 0 and `step` gives the position. */
+  delivery?: 'recorded' | 'reading';
+  step?: number;
 };
 export type LessonController = {
   pause: () => void;

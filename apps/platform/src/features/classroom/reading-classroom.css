@@ -1,0 +1,51 @@
+.reading-classroom {
+  font-family: var(--learn-font);
+  min-height: 100dvh;
+  background: #f3f5ee;
+  color: #193a35;
+  padding-bottom: 32px;
+}
+.reading-classroom-header {
+  display: grid;
+  gap: 4px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 16px 12px;
+}
+.reading-classroom-back {
+  color: #4b6a5f;
+  font-size: 14px;
+  text-decoration: none;
+  width: fit-content;
+}
+.reading-classroom-back:hover {
+  text-decoration: underline;
+}
+.reading-classroom-header h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.35;
+}
+.reading-classroom-header small {
+  display: block;
+  color: #62746c;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+.reading-classroom-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+@media (max-width: 650px) {
+  .reading-classroom-header {
+    padding: 12px 12px 8px;
+  }
+  .reading-classroom-header h1 {
+    font-size: 20px;
+  }
+  .reading-classroom-main {
+    padding: 0 8px;
+  }
+}

@@ -14,3 +14,12 @@ export type {
 
 export { lessonContext } from './context';
 export type { LessonContext, LessonController } from './context';
+export { validateReadingPackage } from './reading/validate';
+export { readingContext, readingPages } from './reading/model';
+export type {
+  ReadingPackage,
+  ReadingPage,
+  ReadingQuestion,
+  ReadingScene,
+  ReadingStep,
+} from './reading/types';
