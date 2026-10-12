@@ -73,7 +73,55 @@
       "curriculumId": "physics-1-mechanics-waves",
       "order": 802,
       "title": "معامل يونج والصلابة المحورية",
-      "subtitle": "Young's Modulus and Axial Stiffness"
+      "subtitle": "Young's Modulus and Axial Stiffness",
+      "moduleId": "reading:phys1-young-axial-stiffness",
+      "contentRevision": "937354517c1b6c183f7fb69ed0fd55a89a516a193f79a4c63d3f7dc4f3179898",
+      "manifestHash": "ce6e9862a73862b0602d340f03e3c9f4589a5004c623593973bd7621f103ef51",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O1",
+          "text": "تحسب استطالة قضيب من قوته وأبعاده ومعامل يونج.",
+          "sceneIds": [
+            "S01",
+            "S02",
+            "S03",
+            "S04",
+            "S09"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O2",
+          "text": "تفرّق بين معامل المادة وصلابة القضيب وتحدد وحدة كل واحد.",
+          "sceneIds": [
+            "S05",
+            "S06",
+            "S09"
+          ],
+          "questionIds": [
+            "Q01",
+            "Q02"
+          ]
+        },
+        {
+          "id": "O3",
+          "text": "تتوقع أثر الطول والمقطع وتحول وحدات الطول والمساحة صح.",
+          "sceneIds": [
+            "S03",
+            "S04",
+            "S05",
+            "S06",
+            "S09"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        }
+      ]
     },
     {
       "id": "phys1-shear-deformation",

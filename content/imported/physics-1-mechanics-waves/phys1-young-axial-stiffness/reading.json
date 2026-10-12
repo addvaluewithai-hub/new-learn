@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "phys1-young-axial-stiffness",
+  "curriculumId": "physics-1-mechanics-waves",
+  "contentRevision": "937354517c1b6c183f7fb69ed0fd55a89a516a193f79a4c63d3f7dc4f3179898",
+  "title": "معامل يونج والصلابة المحورية",
+  "englishTitle": "Young's Modulus and Axial Stiffness",
+  "curriculumTitle": "Physics I — Mechanics and Waves | فيزياء 1: الميكانيكا والموجات",
+  "lessonOrder": 802,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "ليه قضيب يتمدد أكتر من التاني؟",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S01",
+          "heading": "ليه قضيب يتمدد أكتر من التاني؟",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U1"
+          ],
+          "text": "في 801 عرفنا الإجهاد $σ = F/A$ والانفعال $ε = ΔL/L₀$. دلوقتي عايزين نتوقع استطالة قضيب قبل التجربة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U2"
+          ],
+          "text": "قضيبان من مادتين مختلفتين، بنفس الطول والمقطع والقوة. ممكن استطالتهما تختلف: المادة بتفرق في الاستجابة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U3"
+          ],
+          "text": "مثال توضيحي من تأليفنا: عند $σ = 2×10⁶ Pa$، الانفعال في المادة الأولى $0.001$ وفي الثانية $0.002$. الثانية بتتشوه نسبيًا أكتر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U4"
+          ],
+          "text": "في النطاق المرن الخطي، القضيب بيرجع بعد إزالة الحمل و$σ$ يتناسب مع $ε$. نقسم الإجهاد على الانفعال علشان نقارن استجابة المادتين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U5"
+          ],
+          "text": "النسبة اسمها معامل يونج (Young’s modulus)، ورمزها $Y$؛ وممكن تُكتب $E$. عند نفس الإجهاد، $Y$ الأكبر يعني انفعالًا أقل، مش بالضرورة مقاومة كسر أكبر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "من الاستجابة لقانون الاستطالة",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S02",
+          "heading": "من الاستجابة لقانون الاستطالة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U1"
+          ],
+          "text": "نموذجنا: قضيب مستقيم منتظم المقطع، شد محوري، استطالة صغيرة وسلوك مرن خطي. $A$ و$L₀$ هما المساحة والطول قبل الشد.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U2"
+          ],
+          "text": "معامل يونج هو نسبة الإجهاد للانفعال: $Y = σ/ε$. بنستخدم العلاقة في النطاق المرن الخطي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U3"
+          ],
+          "text": "بالتعويض: $Y = (F/A)/(ΔL/L₀)$. القسمة على كسر تعني الضرب في مقلوبه: $Y = (F/A)×(L₀/ΔL)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U4"
+          ],
+          "text": "إذن $Y = FL₀/(AΔL)$. نضرب في $ΔL$ ثم نقسم على $Y$ فنحصل على $ΔL = FL₀/(YA)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U5"
+          ],
+          "text": "$σ$ و$Y$ بوحدة الباسكال $Pa = N/m²$، و$ε$ بلا وحدة. الإجهاد يصف التحميل الحالي؛ معامل يونج يصف استجابة المادة. هنشوف دلوقتي تأثير كل عامل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "إيه اللي يزوّد الاستطالة؟",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S03",
+          "heading": "إيه اللي يزوّد الاستطالة؟",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U1"
+          ],
+          "text": "في $ΔL = FL₀/(YA)$: مضاعفة $F$ وحدها تضاعف $ΔL$ داخل النطاق المرن الخطي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U2"
+          ],
+          "text": "مضاعفة $L₀$ وحده تضاعف $ΔL$: جزآن متماثلان على التوالي، استطالتاهما بتتجمعا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U3"
+          ],
+          "text": "مضاعفة $A$ وحدها تقلل الإجهاد للنصف، فتقل $ΔL$ للنصف.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U4"
+          ],
+          "text": "مضاعفة $Y$ وحده تقلل $ΔL$ للنصف. كل مقارنة هنا بتغيّر عاملًا واحدًا فقط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U5"
+          ],
+          "text": "$1 mm = 10⁻³ m$، لكن $1 mm² = (10⁻³ m)² = 10⁻⁶ m²$. بنربّع عامل التحويل لأن المساحة لها بُعدان.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "مثال محلول: الاستطالة ثم الصلابة",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S04",
+          "heading": "مثال محلول: الاستطالة ثم الصلابة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U1"
+          ],
+          "text": "مثال من تأليفنا: $L₀ = 2 m$، $A = 2×10⁻⁴ m²$، $F = 1000 N$، $Y = 10¹¹ Pa$. احسب $ΔL$ في الشد المرن الخطي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U2"
+          ],
+          "text": "$ΔL = FL₀/(YA)$. البسط $1000×2 = 2000$، والمقام $10¹¹×2×10⁻⁴ = 2×10⁷$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U3"
+          ],
+          "text": "$ΔL = 2000/(2×10⁷) = 10⁻⁴ m = 0.1 mm$. الاستطالة مكبّرة في الرسم للتوضيح.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U4"
+          ],
+          "text": "فحص مستقل: $σ = 5×10⁶ Pa$، ثم $ε = σ/Y = 5×10⁻⁵$. إذن $εL₀ = 10⁻⁴ m$، نفس النتيجة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U5"
+          ],
+          "text": "جرّب قبل «التالي»: لو $F = 2000 N$ والباقي ثابت والسلوك خطي، الاستطالة تبقى كام؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U6"
+          ],
+          "text": "القوة اتضاعفت، فـ$ΔL = 0.2 mm$. ننتقل من استجابة المادة إلى صلابة القضيب كعنصر كامل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "معامل المادة غير صلابة القضيب",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S05",
+          "heading": "معامل المادة غير صلابة القضيب",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U1"
+          ],
+          "text": "صلابة العنصر المحورية $k$ هي نسبة القوة للاستطالة في النموذج الخطي، ووحدتها $N/m$. الوحدة لا تعني جواز إطالة القضيب مترًا فعليًا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U2"
+          ],
+          "text": "قانون هوك للمقادير: $F = kΔL$، إذن $k = F/ΔL$. في مثالنا $k = 1000/10⁻⁴ = 10⁷ N/m$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U3"
+          ],
+          "text": "$F = (YA/L₀)ΔL$. بالمقارنة مع $F = kΔL$، نجد $k = YA/L₀$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U4"
+          ],
+          "text": "لنفس المادة والمقطع: مضاعفة الطول لا تغيّر $Y$، لكنها تخفض $k$ للنصف. $Y$ خاصية مادة؛ $k$ خاصية عنصر بأبعاد محددة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U5"
+          ],
+          "text": "للاتجاهات: $Fᵣ = -kx$؛ قوة الاسترجاع عكس الإزاحة $x$. للمقادير في شد قضيب: $F = kΔL$. الاختلاف في وصف الاتجاه، مش تناقض.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "اختار النموذج قبل الحساب",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S06",
+          "heading": "اختار النموذج قبل الحساب",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U1"
+          ],
+          "text": "قبل التعويض: تحميل محوري، مقطع منتظم، تغير صغير وسلوك مرن خطي. دي شروط نموذج $ΔL = FL₀/(YA)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U2"
+          ],
+          "text": "المرونة وحدها لا تضمن الخطية. علاقة غير خطية، تشوه دائم، انحناء أو قص تحتاج نموذجًا مناسبًا؛ ما نطبقش قانون الشد ده تلقائيًا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U3"
+          ],
+          "text": "دلوقتي سؤال مستقل بأرقام جديدة. اقرأ المطلوب، وحّد الوحدات، واكتب محاولتك قبل عرض الحل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "جرّب: احسب المقادير الأربعة",
+      "clipId": "NQ01",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S07",
+          "heading": "جرّب: احسب المقادير الأربعة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "E01"
+          ],
+          "text": "A uniform rod has $L₀ = 0.80 m$, $A = 4×10⁻⁴ m²$, $F = 400 N$ and $ΔL = 0.40 mm$ in the linear elastic range. Calculate tensile stress, engineering strain, Young’s modulus and axial stiffness $k$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "A01"
+          ],
+          "text": "قضيب منتظم: $L₀ = 0.80 m$، $A = 4×10⁻⁴ m²$، $F = 400 N$، $ΔL = 0.40 mm$ في النطاق المرن الخطي. احسب $σ$ و$ε$ و$Y$ و$k$ ووحدة كل كمية.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "A uniform rod has $L₀ = 0.80 m$, $A = 4×10⁻⁴ m²$, $F = 400 N$ and $ΔL = 0.40 mm$ in the linear elastic range. Calculate tensile stress, engineering strain, Young’s modulus and axial stiffness $k$.",
+        "arabic": "قضيب منتظم: $L₀ = 0.80 m$، $A = 4×10⁻⁴ m²$، $F = 400 N$، $ΔL = 0.40 mm$ في النطاق المرن الخطي. احسب $σ$ و$ε$ و$Y$ و$k$ ووحدة كل كمية.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Stress = 400/(4 × 10⁻⁴) = 1 × 10⁶ Pa. Strain = 0.00040/0.80 = 5 × 10⁻⁴. Young's modulus Y = (10⁶)/(5 × 10⁻⁴) = 2 × 10⁹ Pa. Axial stiffness k = 400/0.00040 = 1 × 10⁶ N/m.",
+          "arabic": "أولًا نحول الاستطالة: 0.40 ملّيمتر تساوي 0.00040 متر، علشان نقسم ونضرب بوحدات متفقة.\n\nالإجهاد هو القوة على المساحة: أربعمائة على أربعة في عشرة أس سالب أربعة، يساوي مليون باسكال.\n\nالانفعال هو الاستطالة على الطول الأصلي: 0.00040 على 0.80، يساوي خمسة في عشرة أس سالب أربعة، ومن غير وحدة.\n\nمعامل يونج هو الإجهاد على الانفعال: مليون على خمسة في عشرة أس سالب أربعة، يساوي اتنين في عشرة أس تسعة باسكال.\n\nصلابة القضيب هي القوة على الاستطالة: أربعمائة على 0.00040، يساوي مليون نيوتن لكل متر. ولو راجعت بمعامل يونج في المساحة على الطول، هتلاقي نفس الناتج."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "E01"
+              ],
+              "text": "$σ = 10⁶ Pa$, $ε = 5×10⁻⁴$, $Y = 2×10⁹ Pa$, $k = 10⁶ N/m$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "A01"
+              ],
+              "text": "نحوّل الاستطالة: $ΔL = 0.40 mm = 0.00040 m$. نوحّد الوحدات قبل الحساب.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "A02"
+              ],
+              "text": "$σ = F/A = 400/(4×10⁻⁴) = 10⁶ Pa$. الإجهاد يصف القوة على مساحة المقطع.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "A03"
+              ],
+              "text": "$ε = ΔL/L₀ = 0.00040/0.80 = 5×10⁻⁴$. نسبة طولين، فبلا وحدة.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "A04"
+              ],
+              "text": "$Y = σ/ε = 10⁶/(5×10⁻⁴) = 2×10⁹ Pa$. دي استجابة المادة في النطاق الخطي.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "A05"
+              ],
+              "text": "$k = F/ΔL = 400/0.00040 = 10⁶ N/m$. فحص: $YA/L₀ = 10⁶ N/m$. دي صلابة القضيب بأبعاده.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-802-concept-board",
+            "params": {
+              "scene": "S07",
+              "heading": "جرّب: احسب المقادير الأربعة",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "جرّب: نفس المادة وطول مختلف",
+      "clipId": "NQ02",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S08",
+          "heading": "جرّب: نفس المادة وطول مختلف",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "E01"
+          ],
+          "text": "Rods A and B have the same material and cross-sectional area. B is twice as long as A. The same small axial tensile force acts on both in the linear elastic range. Compare extension, Young’s modulus and axial stiffness.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "A01"
+          ],
+          "text": "قضيبان من نفس المادة والمقطع، تحت نفس قوة الشد في النطاق المرن الخطي. طول B ضعف A. قارن الاستطالة، ومعامل يونج $Y$، والصلابة $k$.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Rods A and B have the same material and cross-sectional area. B is twice as long as A. The same small axial tensile force acts on both in the linear elastic range. Compare extension, Young’s modulus and axial stiffness.",
+        "arabic": "قضيبان من نفس المادة والمقطع، تحت نفس قوة الشد في النطاق المرن الخطي. طول B ضعف A. قارن الاستطالة، ومعامل يونج $Y$، والصلابة $k$.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "B extends twice as much as A; their Young's moduli are equal; A has twice B's effective axial stiffness.",
+          "arabic": "لأن ΔL بيتناسب مع L0، الأطول يتمدد ضعف الأقصر. Y مش بيتغير مع طول الجسم في نفس المادة وظروف الاختبار. لكن k يتناسب عكسيًا مع L0، فالقضيب الأقصر له ضعف الصلابة المحورية. الفرق بين خاصية المادة وخاصية العنصر هو الإجابة الأساسية."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "E01"
+              ],
+              "text": "$ΔLʙ = 2ΔLᴀ$, $Yᴀ = Yʙ$, $kᴀ = 2kʙ$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "A01"
+              ],
+              "text": "$ΔL$ يتناسب مع $L₀$، فيتمدد B ضعف A. نفس المادة تعني نفس $Y$ في الظروف نفسها. ولأن $k = YA/L₀$، تكون صلابة A ضعف B.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-802-concept-board",
+            "params": {
+              "scene": "S08",
+              "heading": "جرّب: نفس المادة وطول مختلف",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "خريطة الحل والخطوة الجاية",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "phys1-802-concept-board",
+        "params": {
+          "scene": "S09",
+          "heading": "خريطة الحل والخطوة الجاية",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-young-axial-stiffness"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-U1"
+          ],
+          "text": "$σ = F/A$ و$ε = ΔL/L₀$، ثم $Y = σ/ε$. نميّز الحمل، والتغير النسبي، واستجابة المادة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U2"
+          ],
+          "text": "$ΔL = FL₀/(YA)$ و$k = YA/L₀$. $Y$ بوحدة $Pa$؛ و$k$ بوحدة $N/m$. راجع دائمًا الوحدات وشروط النموذج.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U3"
+          ],
+          "text": "الدرس الجاي: قوة موازية لوجه بلوك تغيّر شكله. ده القص (Shear)، وله مقياس تشوه مختلف عن الاستطالة المحورية.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Young's Modulus",
+      "definition": "Explained contextually in the spoken scenes."
+    },
+    {
+      "term": "Hooke's Law",
+      "definition": "Explained contextually in the spoken scenes."
+    },
+    {
+      "term": "Axial stiffness",
+      "definition": "Explained contextually in the spoken scenes."
+    },
+    {
+      "term": "Tensile stress",
+      "definition": "Explained contextually in the spoken scenes."
+    }
+  ],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "تحسب استطالة قضيب من قوته وأبعاده ومعامل يونج.",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "تفرّق بين معامل المادة وصلابة القضيب وتحدد وحدة كل واحد.",
+      "sceneIds": [
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تتوقع أثر الطول والمقطع وتحول وحدات الطول والمساحة صح.",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}
