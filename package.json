@@ -41,6 +41,7 @@
     "test:browser:reading": "node tests/reading-browser.mjs",
     "test:browser:talk": "node tests/talk-browser.mjs",
     "test:browser:flow": "node tests/flow-browser.mjs",
+    "test:browser:legacy-gas": "node tests/legacy-gas-reading-browser.mjs",
     "test:browser:statics": "node tests/statics-reading-browser.mjs"
   },
   "devDependencies": {

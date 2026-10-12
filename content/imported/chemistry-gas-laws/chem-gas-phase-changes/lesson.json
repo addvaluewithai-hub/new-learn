@@ -1,0 +1,166 @@
+{
+  "id": "chem-gas-phase-changes",
+  "order": 2,
+  "title": "سلوك الغاز",
+  "englishTitle": "Phase Changes",
+  "subtitle": "اربط اسم كل تحول باتجاهه وافهم جسر الانضغاط قبل Boyle",
+  "delivery": "reading",
+  "contentRevision": "26fe4b0b6935a85c79a63dd09eb68297730525ee337a69696b5f1a64f4732cd6",
+  "renderers": {
+    "chemistry-legacy-board": "board/LegacyBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes",
+  "files": [
+    {
+      "path": "assets/fonts/LICENSE-IBM-Plex-Sans-Arabic-OFL.txt",
+      "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98",
+      "bytes": 4808
+    },
+    {
+      "path": "assets/fonts/LICENSE-STIX-Two-OFL.txt",
+      "sha256": "9d80d69f6a70033f4d113604bed4a3038b6e5b700c0266e7fe9f4033365ff076",
+      "bytes": 4510
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2",
+      "sha256": "6010e7fd0dce5d527583951750728cbe3c895efbd16aa0f809ab8c824878c9d8",
+      "bytes": 42848
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2",
+      "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac",
+      "bytes": 45688
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2",
+      "sha256": "9ed8dcb02e6c7246de4c120295fafa39a7bb73085f4951a4524a07dc911069f2",
+      "bytes": 19164
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2",
+      "sha256": "63f4757271e403f7baec0862f284ffaa4560ea6096ba9fe8bc6e585ca656e724",
+      "bytes": 20500
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-italic.woff2",
+      "sha256": "3d76ab92269582b8e11f3d969eaf93bb9609f1e08d5433fd18633e78e7900638",
+      "bytes": 18192
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-normal.woff2",
+      "sha256": "65f8cdee99e0c883fa05a493812ad15fd93e3af5510276661e34c204f771e514",
+      "bytes": 16776
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-600-normal.woff2",
+      "sha256": "c81c437a0d17a895f9d82f62611c1af238f04b0c996e6ef75c5441dd07769997",
+      "bytes": 17148
+    },
+    {
+      "path": "board/GasExplorer.tsx",
+      "sha256": "73d694f94e7fb734cf50bbaf11703a6da9c61878b660f1d6ae37a5fc6355312e",
+      "bytes": 7664
+    },
+    {
+      "path": "board/GasPlot.tsx",
+      "sha256": "95a466da93f3fcba4591e00a4fcaacc2177d30f6a5fd41ec7c713a341fb5ed90",
+      "bytes": 3654
+    },
+    {
+      "path": "board/KelvinExplorer.tsx",
+      "sha256": "c2135b2d0c1d00d9342a926766ed4fbd5168ddd178b7ce422b2cffa9d403c440",
+      "bytes": 2112
+    },
+    {
+      "path": "board/LawSelector.tsx",
+      "sha256": "0c2015dc7d9fee621abd95aaf6cd2487f55d7b5c5831ec1be7313ee2f637ace6",
+      "bytes": 2346
+    },
+    {
+      "path": "board/LegacyBoard.tsx",
+      "sha256": "b2ceff4ff492c4e72db81e98045f331bc52b2b36f6a44d234fdce432f24e4408",
+      "bytes": 4511
+    },
+    {
+      "path": "board/MatterExplorer.tsx",
+      "sha256": "06196ba556d9147fa18ae1706f2d9130d8fd7ec1ced942c298e6b5cd6a70df0c",
+      "bytes": 4394
+    },
+    {
+      "path": "board/Notation.tsx",
+      "sha256": "f7c0decc157c33baa2fd55c06b77ec94733f19ddaa20a85d7f81a30c20ad20ac",
+      "bytes": 4608
+    },
+    {
+      "path": "board/Particles.tsx",
+      "sha256": "dfcb35c45af62f4a488880ac9b78076da61192abbe4e5e881aa3e36f92ba3db4",
+      "bytes": 2308
+    },
+    {
+      "path": "board/PhaseExplorer.tsx",
+      "sha256": "ecd1302a33bacd4f4be9fe871bf35a50c7cdcccdd5a8c248fedee0680cedfccb",
+      "bytes": 2371
+    },
+    {
+      "path": "board/ProblemWorkspace.tsx",
+      "sha256": "e736fbca35c15a047b291794bd90c21b28463603e5a921066c6b8a5bcbf94470",
+      "bytes": 3439
+    },
+    {
+      "path": "board/ReviewBoard.tsx",
+      "sha256": "a9ba0081ba954c94f26e2f78b3cae47df27462efd299f601be57a72a87682425",
+      "bytes": 1719
+    },
+    {
+      "path": "board/boardContent.ts",
+      "sha256": "a5f7ccf5b6519b6865a9ceeb54665735716f94cb90b70d984e7173382db88672",
+      "bytes": 6871
+    },
+    {
+      "path": "board/fit.css",
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
+    },
+    {
+      "path": "board/format.ts",
+      "sha256": "97261ea0af76097ceeb079608413570558ddfbfd4a472e1fe4c791fd9529ed8e",
+      "bytes": 169
+    },
+    {
+      "path": "board/gas.css",
+      "sha256": "56b8c12781c677f8cbcf3d51aeeed2158f2d2634a93aa29a7468103eab763d3c",
+      "bytes": 3452
+    },
+    {
+      "path": "board/layout.css",
+      "sha256": "abfc52f97051e3df7f31512243b0f9195edc8e0e7787e1717552088a3aa84484",
+      "bytes": 6931
+    },
+    {
+      "path": "board/matter.css",
+      "sha256": "3596ee587af13aebf932bec967e0e5a1b41a9e74bc9b06040f968eca956f7160",
+      "bytes": 3194
+    },
+    {
+      "path": "board/physics.ts",
+      "sha256": "4a075e01a9329af0295421d0e8f3c6197988479d804163a560ee2728a5bd39bf",
+      "bytes": 2462
+    },
+    {
+      "path": "board/problem.css",
+      "sha256": "8dcdb86abc6c4152e025927a67b6d93833d4e64acafebc0b99ef1f04b0203ec7",
+      "bytes": 5849
+    },
+    {
+      "path": "board/reveal.css",
+      "sha256": "707ad0c6bfd42e8f536743a9768b9652a66b39c958d7b2f6202c44a9bd8ecde8",
+      "bytes": 282
+    },
+    {
+      "path": "reading.json",
+      "sha256": "7b4e96b9f1f947998a66ee5299a41c9e22136fca662b032acdb511e707b95a75",
+      "bytes": 23235
+    }
+  ],
+  "manifestHash": "62143abeab11e87b51a70ae3939dfad036c1472099b59b20bae519c0b08ae404"
+}

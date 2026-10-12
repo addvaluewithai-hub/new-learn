@@ -5,6 +5,69 @@
     "manifestHash": "c95691965d6c34ce720e2235790210258c37f910ae4225932133fbcfd871b211",
     "runtimeVersion": "0.2.1"
   },
+  "reading:chem-gas-states-matter": {
+    "lessonId": "chem-gas-states-matter",
+    "contentRevision": "57b9bdcac849add91b637988a1f55141bf749000f0848903053db333b35e7f35",
+    "manifestHash": "d3943cefb3faf51d54425b109fd7ec8fc189b67c27e50cef9d6db0f1bee21177",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-phase-changes": {
+    "lessonId": "chem-gas-phase-changes",
+    "contentRevision": "26fe4b0b6935a85c79a63dd09eb68297730525ee337a69696b5f1a64f4732cd6",
+    "manifestHash": "62143abeab11e87b51a70ae3939dfad036c1472099b59b20bae519c0b08ae404",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-boyles-law": {
+    "lessonId": "chem-gas-boyles-law",
+    "contentRevision": "5527ce138dd46bd179e16cf26e8b3c728a1856916bebccbf54439e446fc27bef",
+    "manifestHash": "d2ccb48aceaf1d8795269efb35fde2463d67c454b50d873b1c3c6cf206512e2d",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-boyle-problems": {
+    "lessonId": "chem-gas-boyle-problems",
+    "contentRevision": "d7e56db83b7cf2410587682d95b10c1fc93a0bc71322b9d0df80867e80974710",
+    "manifestHash": "a0fdb105b170ee7df7ae154ec8124168d05d8bc6a852bf8181c7ec0fa22e1a4d",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-charles-law": {
+    "lessonId": "chem-gas-charles-law",
+    "contentRevision": "0aee6f114bcfcd4dea17dd7b46298f61a98719d702630c561c9f7dc9d65f07c7",
+    "manifestHash": "6448a3f2320dae209cf3475d07a1e7d7d8770b346f83f33f3939f8e856ee3d9f",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-charles-problems": {
+    "lessonId": "chem-gas-charles-problems",
+    "contentRevision": "ab968e52725870f72beed522b5df1f1e964cf9d0cce9f7bcde9f3a96c458f138",
+    "manifestHash": "a40d9c92b59d2e4aec30086d29d684e23641d2770a709dde20ec43c51c0f6794",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-pressure-temperature": {
+    "lessonId": "chem-gas-pressure-temperature",
+    "contentRevision": "4e5d29403ed9d48e8b9684e326a0515d10f38eff409e755b909ac9adfe06864c",
+    "manifestHash": "5dead8dbbd24a58e78915877d6b125fb750eebe5623d7eb393eda642a3068b8f",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-combined-law": {
+    "lessonId": "chem-gas-combined-law",
+    "contentRevision": "2bffd9d83a21b3c010b9777f90b7a09b87851b471b3435cf35c7342f2a6b5058",
+    "manifestHash": "f2f4e851a49e006fad87bc646bf35a84e54869eb06df373b8a19c9d322959087",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:chem-gas-mock-exam": {
+    "lessonId": "chem-gas-mock-exam",
+    "contentRevision": "7d5186455b2c6a11ed4f738bb1d4154378c31371f7d6fd2345bc857332a602bb",
+    "manifestHash": "37ec4368904e9244365d7fcd5b956d8e9d5dbc8dc2a18b03eb27ebb5d42a5a35",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
   "reading:ems-y1-foundations-models": {
     "lessonId": "ems-y1-foundations-models",
     "contentRevision": "07a8ccadbe108437e4d94b6b8823282342f54f3dc841be007ff24b72c424d0cf",

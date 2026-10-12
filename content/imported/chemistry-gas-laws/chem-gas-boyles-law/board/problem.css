@@ -1,0 +1,275 @@
+.legacy-chem .chem-law-reveal p {
+  font-size: 0.87em;
+  min-height: 50px;
+}
+.legacy-chem .chem-reflection {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px dashed #cbd8c4;
+  border-radius: 13px;
+  font-size: 0.85em;
+  color: #6c7e65;
+}
+.legacy-chem .chem-temperature-scales {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
+  align-items: center;
+  direction: ltr;
+  gap: 14px;
+  margin-block: 26px;
+}
+.legacy-chem .chem-temperature-scales article {
+  display: grid;
+  gap: 18px;
+  border: 1px solid #e0e7da;
+  border-radius: 20px;
+  background: #f6f7ed;
+  padding: 26px 18px;
+  text-align: center;
+}
+.legacy-chem .chem-temperature-scales article:last-child {
+  background: #f0ecf8;
+  border-color: #e5dff0;
+}
+.legacy-chem .chem-temperature-scales article > span {
+  font-size: 0.84em;
+}
+.legacy-chem .chem-temperature-scales output {
+  font:
+    600 1.8em Arial,
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.legacy-chem .chem-temperature-scales output small {
+  font-size: 1em;
+}
+.legacy-chem .temperature-bridge {
+  text-align: center;
+  color: #8873ae;
+  font:
+    600 1.2em Arial,
+    sans-serif;
+}
+.legacy-chem .chem-temperature-scales + .chem-slider {
+  margin-bottom: 22px;
+}
+.legacy-chem .chem-problem-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.76em;
+  color: #6a8067;
+  margin-bottom: 16px;
+}
+.legacy-chem .chem-problem-meta > span {
+  background: #eff4e9;
+  border-radius: 20px;
+  padding: 8px 12px;
+}
+.legacy-chem .chem-state-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #dfe7d9;
+  border-radius: 18px;
+  overflow: hidden;
+  font-size: 0.86em;
+}
+.legacy-chem .chem-state-table th,
+.legacy-chem .chem-state-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e5ebdf;
+  text-align: center;
+}
+.legacy-chem .chem-state-table thead th {
+  background: #eff4e9;
+  font-size: 0.76em;
+  font-weight: 500;
+}
+.legacy-chem .chem-state-table tbody th {
+  background: #fafbf7;
+  font-size: 0.82em;
+  font-weight: 500;
+}
+.legacy-chem .chem-state-table tbody tr:last-child th,
+.legacy-chem .chem-state-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.legacy-chem .chem-state-table td {
+  font-variant-numeric: tabular-nums;
+}
+.legacy-chem .chem-state-table .unknown-value {
+  background: #f2eef9;
+  color: #8b75b1;
+  font-size: 1.15em;
+}
+.legacy-chem .chem-worked-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.legacy-chem .chem-worked-tabs .chem-button > span {
+  font:
+    12px Arial,
+    sans-serif;
+  background: #e7ede0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+}
+.legacy-chem .chem-worked-step {
+  margin-top: 12px;
+  border: 1px solid #e3daef;
+  background: #f6f2fb;
+  border-radius: 18px;
+  padding: 20px;
+  min-height: 115px;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+}
+.legacy-chem .chem-worked-step > span {
+  font-size: 0.72em;
+  color: #8b75ab;
+}
+.legacy-chem .chem-worked-step > strong {
+  font-size: 1.15em;
+  line-height: 1.8;
+}
+.legacy-chem .chem-working {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 20px;
+  background: #fafbf7;
+  border: 1px solid #e4e9de;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.legacy-chem .chem-working h3 {
+  grid-column: 1/-1;
+  font-size: 0.98em;
+  margin: 0 0 3px;
+}
+.legacy-chem .chem-working h3 small {
+  font-size: 0.71em;
+  font-weight: 400;
+  color: #7d8974;
+  margin-inline-start: 12px;
+}
+.legacy-chem .chem-working label {
+  display: grid;
+  gap: 7px;
+  font-size: 0.78em;
+  line-height: 1.8;
+}
+.legacy-chem .chem-working label:nth-of-type(2) {
+  grid-column: 1/-1;
+  grid-row: 3;
+}
+.legacy-chem .chem-working input,
+.legacy-chem .chem-working textarea {
+  width: 100%;
+  border: 1px solid #dce5d5;
+  background: white;
+  border-radius: 11px;
+  padding: 10px 12px;
+  font-size: 0.84em;
+  line-height: 1.7;
+  color: #345640;
+}
+.legacy-chem .chem-working textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+.legacy-chem .chem-working-submit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  grid-column: 1/-1;
+  flex-wrap: wrap;
+}
+.legacy-chem .chem-working-submit > span {
+  font-size: 0.7em;
+  color: #7f8a75;
+}
+.legacy-chem .chem-review-path {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+.legacy-chem .chem-review-path li {
+  min-height: 90px;
+  border: 1px solid #e1e9dc;
+  border-radius: 17px;
+  background: #eff5e9;
+  padding: 15px;
+  display: grid;
+  gap: 10px;
+}
+.legacy-chem .chem-review-path li > span {
+  color: #849b73;
+  font:
+    13px Arial,
+    sans-serif;
+}
+.legacy-chem .chem-review-path li strong {
+  font-size: 0.83em;
+}
+.legacy-chem .chem-review-graphs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.legacy-chem .chem-stp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-block: 25px;
+}
+.legacy-chem .chem-stp-grid article {
+  display: grid;
+  gap: 14px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid #e3e8da;
+  background: #f0f5e9;
+  border-radius: 22px;
+}
+.legacy-chem .chem-stp-grid article > span {
+  font-size: 0.85em;
+}
+.legacy-chem .chem-stp-grid article > strong {
+  font:
+    600 2em Arial,
+    sans-serif;
+}
+.legacy-chem .chem-stp-grid article > small {
+  font:
+    1em Arial,
+    sans-serif;
+  color: #708569;
+}
+.legacy-chem .chem-source-anchor {
+  margin-top: 20px;
+  border-top: 1px solid #e7ece2;
+  padding-top: 12px;
+}
+.legacy-chem .chem-source-anchor summary {
+  font-size: 0.7em;
+  color: #7d8b77;
+  cursor: pointer;
+  min-height: 36px;
+}
+.legacy-chem .chem-source-anchor p {
+  font-size: 0.74em;
+  color: #74806f;
+  overflow-wrap: anywhere;
+}

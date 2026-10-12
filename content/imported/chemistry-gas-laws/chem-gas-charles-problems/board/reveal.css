@@ -1,0 +1,6 @@
+/* Reserve all state-card space; reveal only the states explained so far. */
+.legacy-chem[data-beat='01.01'][data-step='1'] .phase-liquid,
+.legacy-chem[data-beat='01.01'][data-step='1'] .phase-gas,
+.legacy-chem[data-beat='01.01'][data-step='2'] .phase-gas {
+  visibility: hidden;
+}

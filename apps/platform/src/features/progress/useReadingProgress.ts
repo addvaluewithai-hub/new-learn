@@ -48,6 +48,7 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
   const [status, setStatus] = useState<SaveState>('idle');
   const revision = useRef<number | null>(null);
   const pending = useRef<ReadingProgress | null>(null);
+  const generation = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const lessonId = lesson?.lessonId;
 
@@ -68,6 +69,7 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
       clearTimeout(timer.current);
       const progress = pending.current;
       if (!lesson || !progress) return;
+      const writing = generation.current;
       pending.current = null;
       setStatus('saving');
       try {
@@ -88,14 +90,19 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
         );
         const body = await response.json();
         if (response.status === 409 && body.current && !retried) {
-          revision.current = body.current.revision;
+          revision.current =
+            body.current.revision === null
+              ? null
+              : Math.max(revision.current ?? -1, body.current.revision);
+          if (writing !== generation.current) return;
           pending.current = progress;
           return flush(keepalive, true);
         }
         if (!response.ok) throw new Error(body.error);
-        revision.current = body.revision;
-        setStatus(pending.current ? 'saving' : 'saved');
+        revision.current = Math.max(revision.current ?? -1, body.revision);
+        if (writing === generation.current) setStatus(pending.current ? 'saving' : 'saved');
       } catch {
+        if (writing !== generation.current) return;
         pending.current ??= progress;
         setStatus('offline');
         timer.current = setTimeout(() => void flush(), 8000);
@@ -107,6 +114,9 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
   const record = useCallback(
     (progress: ReadingProgress) => {
       pending.current = progress;
+      generation.current++;
+      // A previous acknowledgement must never label this queued position as saved.
+      setStatus('saving');
       clearTimeout(timer.current);
       timer.current = setTimeout(() => void flush(), 900);
     },

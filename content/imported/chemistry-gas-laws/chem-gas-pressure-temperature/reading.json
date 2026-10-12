@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-pressure-temperature",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "4e5d29403ed9d48e8b9684e326a0515d10f38eff409e755b909ac9adfe06864c",
+  "title": "الضغط ودرجة الحرارة: قانون الحجم الثابت",
+  "englishTitle": "Pressure–Temperature",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 7,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Rigid vs Movable — وعاء ثابت مقابل مكبس متحرك",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.01",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": false,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "حركة المكبس وحدها مش كفاية لضمان ضغط ثابت؛ نموذج شارل هنا يفترض تثبيت الضغط الخارجي وكمية الغاز. في Charles' Law (قانون شارل) كان المكبس يقدر يتحرك، فـPressure (الضغط) ثابت وVolume (الحجم) يتغير. هنا تخيل Rigid container (وعاء صلب ثابت الحجم): Volume (الحجم) لا يتغير. لما نسخّن الغاز، مفيش مساحة إضافية يتمدد فيها، فاللي يتغير بوضوح هو Pressure (الضغط).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Rigid vs Movable — وعاء ثابت مقابل مكبس متحرك",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.01",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": false,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare a pressure-controlled movable piston and a rigid container. What stays constant in each model?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح الفرق بين Movable piston (مكبس متحرك) وRigid container (وعاء ثابت الحجم): إيه المتغير الثابت في كل حالة؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Compare a pressure-controlled movable piston and a rigid container. What stays constant in each model?",
+        "arabic": "اشرح الفرق بين Movable piston (مكبس متحرك) وRigid container (وعاء ثابت الحجم): إيه المتغير الثابت في كل حالة؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Charles' model specifies constant pressure with a movable piston; a rigid container fixes volume.",
+          "arabic": "في نموذج شارل ذي المكبس المتحرك والضغط الثابت، يتغير الحجم مع الحرارة. في الوعاء الجاسئ ثابت الحجم، يتغير الضغط مع الحرارة. حركة المكبس وحدها لا تضمن ثبات الضغط من غير هذا الشرط."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Charles' model specifies constant pressure with a movable piston; a rigid container fixes volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "في نموذج شارل ذي المكبس المتحرك والضغط الثابت، يتغير الحجم مع الحرارة. في الوعاء الجاسئ ثابت الحجم، يتغير الضغط مع الحرارة. حركة المكبس وحدها لا تضمن ثبات الضغط من غير هذا الشرط.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "07.01",
+              "boardSpec": {
+                "kind": "selector"
+              },
+              "availableLaws": 3,
+              "initialCelsius": 27,
+              "initialLaw": "pressure",
+              "showLawEquations": false,
+              "referenceVolume": 2.4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Direct P–T Relation — العلاقة الطردية بين الضغط والحرارة",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "pressure",
+            "focus": "overview"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "عند Constant Volume (حجم ثابت)، Pressure (الضغط) وAbsolute Temperature (درجة الحرارة المطلقة) يتحركوا في نفس الاتجاه: لو $T$ تزيد، $P$ تزيد؛ ولو $T$ تقل، $P$ تقل. لذلك العلاقة Direct (طردية).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Direct P–T Relation — العلاقة الطردية بين الضغط والحرارة",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "pressure",
+            "focus": "overview"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "At constant volume, what happens to pressure when absolute temperature increases or decreases?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "عند Constant Volume (حجم ثابت)، لو Temperature (درجة الحرارة) زادت، Pressure (الضغط) يعمل إيه؟ ولو قلت؟ اشرح نوع العلاقة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "At constant volume, what happens to pressure when absolute temperature increases or decreases?",
+        "arabic": "عند Constant Volume (حجم ثابت)، لو Temperature (درجة الحرارة) زادت، Pressure (الضغط) يعمل إيه؟ ولو قلت؟ اشرح نوع العلاقة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "At constant volume and gas amount, pressure is directly proportional to absolute temperature.",
+          "arabic": "عند حجم وكمية غاز ثابتين، الضغط يزيد مع زيادة الحرارة المطلقة، ويقل مع انخفاضها. العلاقة طردية، والحرارة في الحساب بالكلفن."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "At constant volume and gas amount, pressure is directly proportional to absolute temperature.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "عند حجم وكمية غاز ثابتين، الضغط يزيد مع زيادة الحرارة المطلقة، ويقل مع انخفاضها. العلاقة طردية، والحرارة في الحساب بالكلفن.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "07.02",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "pressure",
+                "focus": "overview"
+              },
+              "availableLaws": 3,
+              "initialCelsius": 27,
+              "initialLaw": "pressure",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Equation and Kelvin — المعادلة وكلفن",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.03",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "pressure",
+            "focus": "equation"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "بما إن $P$ و$T$ علاقة طردية عند Volume (حجم) ثابت، نكتب $P ∝ T$، ثم $P/T=k$. ولحالتين: $P₁/T₁=P₂/T₂$. زي Charles، أي Temperature (درجة حرارة) داخل النسبة لازم تكون Kelvin (كلفن) لأنها Absolute Temperature (درجة حرارة مطلقة).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Equation and Kelvin — المعادلة وكلفن",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.03",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "pressure",
+            "focus": "equation"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain $P/T = k$, its two-state equation and the Kelvin requirement.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي معنى $P/T=k$، وبعدها قول معادلة الحالتين وليه $T$ لازم تكون Kelvin (كلفن).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "Explain $P/T = k$, its two-state equation and the Kelvin requirement.",
+        "arabic": "اشرحلي معنى $P/T=k$، وبعدها قول معادلة الحالتين وليه $T$ لازم تكون Kelvin (كلفن).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "P₁/T₁ = P₂/T₂ at constant volume, with Kelvin temperatures.",
+          "arabic": "الضغط يتناسب طرديًا مع الحرارة المطلقة عند حجم ثابت، فتظل النسبة $P/T$ ثابتة. نكتب $P₁/T₁ = P₂/T₂$، والحرارتان بالكلفن."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$P₁/T₁ = P₂/T₂$ at constant volume, with Kelvin temperatures.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الضغط يتناسب طرديًا مع الحرارة المطلقة عند حجم ثابت، فتظل النسبة $P/T$ ثابتة. نكتب $P₁/T₁ = P₂/T₂$، والحرارتان بالكلفن.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "07.03",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "pressure",
+                "focus": "equation"
+              },
+              "availableLaws": 3,
+              "initialCelsius": 27,
+              "initialLaw": "pressure",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Choose the Law — اختار القانون",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.04",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "لو نسيت اسم القانون، دور على What is constant? (إيه اللي ثابت؟). $T$ ثابتة → Boyle's Law (قانون بويل). $P$ ثابت → Charles' Law (قانون شارل). $V$ ثابت → Pressure–Temperature relation (علاقة الضغط والحرارة). دي طريقة أكثر أمانًا من اختيار القانون لمجرد الحروف اللي ظهرت في السؤال.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Choose the Law — اختار القانون",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.04",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Choose a gas law when $T$ is constant, when $P$ is constant and when $V$ is constant. Explain each choice.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح القاعدة الثلاثية: لو $T$ ثابتة تستخدم إيه؟ لو $P$ ثابت تستخدم إيه؟ لو $V$ ثابت تستخدم إيه؟ واذكر السبب في كل واحدة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "Choose a gas law when $T$ is constant, when $P$ is constant and when $V$ is constant. Explain each choice.",
+        "arabic": "اشرح القاعدة الثلاثية: لو $T$ ثابتة تستخدم إيه؟ لو $P$ ثابت تستخدم إيه؟ لو $V$ ثابت تستخدم إيه؟ واذكر السبب في كل واحدة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Constant T: Boyle; constant P: Charles; constant V: the pressure-temperature law.",
+          "arabic": "ثبات الحرارة: بويل يربط الضغط والحجم. ثبات الضغط: شارل يربط الحجم والحرارة. ثبات الحجم: علاقة الضغط والحرارة، مع كلفن في كل نسبة حرارة."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Constant $T$: Boyle; constant $P$: Charles; constant $V$: the pressure-temperature law.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "ثبات الحرارة: بويل يربط الضغط والحجم. ثبات الضغط: شارل يربط الحجم والحرارة. ثبات الحجم: علاقة الضغط والحرارة، مع كلفن في كل نسبة حرارة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "07.04",
+              "boardSpec": {
+                "kind": "selector"
+              },
+              "availableLaws": 3,
+              "initialCelsius": 27,
+              "initialLaw": "pressure",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Guided Mini-problem — مسألة موجهة قصيرة",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "pressure-worked",
+            "worked": true
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "نشوف مثال كامل: Gas (غاز) في Rigid container (وعاء ثابت الحجم) ضغطه $1.00 atm$ عند $300 K$، واتسخن إلى $450 K$. نتوقع Pressure (الضغط) يزيد لأن $T$ زادت والحجم ثابت. نعوض $1.00/300=P₂/450$، فنحصل على $P₂=1.50 atm$. الزيادة منطقية لأن الحرارة زادت بنسبة $1.5$ مرة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Guided Mini-problem — مسألة موجهة قصيرة",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "pressure-worked",
+            "worked": true
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A rigid container has pressure $1.00 atm$ at $300 K$. Explain why heating to $450 K$ gives $1.50 atm$. What happens on cooling back to $300 K$?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "لخصلي ليه استخدمنا $P₁/T₁=P₂/T₂$ وليه $1.50 atm$ نتيجة منطقية. وبعدها لو $T$ رجعت $300 K$ عند نفس الحجم، تتوقع $P$ يعمل إيه؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "A rigid container has pressure $1.00 atm$ at $300 K$. Explain why heating to $450 K$ gives $1.50 atm$. What happens on cooling back to $300 K$?",
+        "arabic": "لخصلي ليه استخدمنا $P₁/T₁=P₂/T₂$ وليه $1.50 atm$ نتيجة منطقية. وبعدها لو $T$ رجعت $300 K$ عند نفس الحجم، تتوقع $P$ يعمل إيه؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "P₂ = 1.50 atm at 450 K; cooling back to 300 K returns pressure to 1.00 atm.",
+          "arabic": "$P₂ = 1.00 × 450 / 300 = 1.50 atm$ لأن الحجم ثابت. الحرارة المطلقة والضغط زادا بنفس النسبة. عند الرجوع إلى $300 K$ يرجع الضغط إلى $1.00 atm$."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$P₂ = 1.50 atm$ at $450 K$; cooling back to $300 K$ returns pressure to $1.00 atm$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$P₂ = 1.00 × 450 / 300 = 1.50 atm$ لأن الحجم ثابت. الحرارة المطلقة والضغط زادا بنفس النسبة. عند الرجوع إلى $300 K$ يرجع الضغط إلى $1.00 atm$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "07.05",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "pressure-worked",
+                "worked": true
+              },
+              "availableLaws": 3,
+              "initialCelsius": 27,
+              "initialLaw": "pressure",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S11",
+      "title": "Teach-back — القوانين الثلاثة",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.06",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي عندك ثلاث حالات واضحة قبل القانون المجمّع. اجمعهم في جدول ذهني واحد: إيه الثابت، إيه المتغيرين، وإيه اتجاه العلاقة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "تطبيق: Teach-back — القوانين الثلاثة",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "07.06",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 3,
+          "initialCelsius": 27,
+          "initialLaw": "pressure",
+          "showLawEquations": true,
+          "referenceVolume": 2.4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare Boyle, Charles and the pressure-temperature law, including the constant condition.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح الفرق بين Boyle's Law (قانون بويل)، Charles' Law (قانون شارل)، وPressure–Temperature / Constant Volume Law (علاقة الضغط والحرارة / قانون الحجم الثابت).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q06",
+        "english": "Compare Boyle, Charles and the pressure-temperature law, including the constant condition.",
+        "arabic": "اشرح الفرق بين Boyle's Law (قانون بويل)، Charles' Law (قانون شارل)، وPressure–Temperature / Constant Volume Law (علاقة الضغط والحرارة / قانون الحجم الثابت).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Boyle fixes T; Charles fixes P; the pressure-temperature law fixes V. Temperature ratios require Kelvin.",
+          "arabic": "بويل: حرارة ثابتة وعلاقة عكسية بين الضغط والحجم. شارل: ضغط ثابت وعلاقة طردية بين الحجم والحرارة المطلقة. قانون الحجم الثابت: حجم ثابت وعلاقة طردية بين الضغط والحرارة المطلقة."
+        },
+        "feedback": {
+          "clipId": "F06",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Boyle fixes $T$; Charles fixes $P$; the pressure-temperature law fixes $V$. Temperature ratios require Kelvin.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "بويل: حرارة ثابتة وعلاقة عكسية بين الضغط والحجم. شارل: ضغط ثابت وعلاقة طردية بين الحجم والحرارة المطلقة. قانون الحجم الثابت: حجم ثابت وعلاقة طردية بين الضغط والحرارة المطلقة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "07.06",
+              "boardSpec": {
+                "kind": "selector"
+              },
+              "availableLaws": 3,
+              "initialCelsius": 27,
+              "initialLaw": "pressure",
+              "showLawEquations": true,
+              "referenceVolume": 2.4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يميز الحجم الثابت عن الضغط الثابت قبل القانون.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يفهم أن P تزيد مع T عند V ثابت.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يربط العلاقة الطردية بـP/T=k ويستخدم Kelvin.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يختار بين Boyle وCharles وP–T من المتغير الثابت.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يحل P–T problem ويعمل تحقق اتجاهي.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    },
+    {
+      "id": "O06",
+      "text": "يلخص Boyle وCharles وP–T من حيث الثابت والاتجاه والمعادلة.",
+      "sceneIds": [
+        "S11"
+      ],
+      "questionIds": [
+        "Q06"
+      ]
+    }
+  ]
+}
