@@ -1,58 +1,31 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import type { LessonContext, LessonController } from '../context';
-import type { RendererRegistry } from '../renderers';
-import type { LessonLayout } from '../types';
 import { useMediaQuery } from '../useMediaQuery';
 import { goalProgress } from './goals';
 import {
   boardTimeMs,
-  pageSteps,
   readingBoardProps,
   readingContext,
   readingPageIndex,
   readingPages,
   readingPositionOf,
-  type ReadingPosition,
 } from './model';
 import { ReadingBoard } from './ReadingBoard';
-import { Caption, QuestionCaption } from './stage/Caption';
+import { PageCaption } from './stage/Caption';
 import { Complete } from './stage/Complete';
 import { AnswerDock, Dock } from './stage/Dock';
-import { ScenesList, Sheet, Transcript } from './stage/Sheets';
+import { ScenesList, Sheet } from './stage/Sheets';
+import { Thread } from './stage/Thread';
 import { GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
-import type { ReadingPackage } from './types';
+import { threadItems } from './thread';
+import type { ReadingLessonProps, ReadingProgress } from './props';
 import { validateReadingPackage } from './validate';
 import './stage/stage.css';
 import './stage/stage-parts.css';
 import './stage/stage-sheets.css';
+import './stage/thread.css';
 
-export type ReadingProgress = {
-  position: ReadingPosition;
-  reachedSceneIds: string[];
-  answers: Record<string, string>;
-  complete: boolean;
-};
-export type ReadingLessonProps = {
-  lesson: ReadingPackage;
-  registry: RendererRegistry;
-  layout?: LessonLayout;
-  /** Saved progress to resume from (positions that no longer exist start at the top). */
-  initial?: Partial<ReadingProgress>;
-  /** Host overlay (e.g. the assistant) is open: keyboard navigation pauses. */
-  suspended?: boolean;
-  onContext?: (context: LessonContext) => void;
-  onReady?: (controller: LessonController | null) => void;
-  onProgress?: (progress: ReadingProgress) => void;
-  /** Leaving the lesson (top bar close) and the default end action. */
-  exit?: { label: string; href: string };
-  /** The lesson that follows, offered on the completion screen. */
-  next?: { title: string; href: string } | null;
-  /** Host tool in the middle of the controls, e.g. asking the assistant. */
-  assistant?: ReactNode;
-  /** Small host status in the top bar, e.g. "saved". */
-  status?: ReactNode;
-};
+export type { ReadingConversation, ReadingLessonProps, ReadingProgress } from './props';
 
 // A content change remounts the session, like recorded lessons.
 export function ReadingLesson(props: ReadingLessonProps) {
@@ -87,7 +60,11 @@ function ReadingSession(props: ReadingLessonProps) {
   const [complete, setComplete] = useState(false);
   const [done, setDone] = useState(Boolean(initial?.complete));
   const [fromMs, setFromMs] = useState<number | null>(null);
-  const [sheet, setSheet] = useState<'scenes' | 'history' | null>(null);
+  const [sheet, setSheet] = useState<'scenes' | null>(null);
+  const talk = props.conversation;
+  const [ownOpen, setOwnOpen] = useState(false);
+  const threadOpen = talk ? talk.open : ownOpen;
+  const setThread = talk ? talk.onOpenChange : setOwnOpen;
   const portrait = useMediaQuery('(max-width: 650px)');
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const layout = props.layout ?? (portrait ? 'portrait' : 'landscape');
@@ -154,17 +131,18 @@ function ReadingSession(props: ReadingLessonProps) {
   useEffect(() => {
     if (props.suspended || sheet) return;
     const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && threadOpen) setThread(false);
       if ((event.target as HTMLElement | null)?.closest('textarea, input, select')) return;
       if (event.key === 'ArrowLeft' && !answering && !complete) go(index + 1);
       if (event.key === 'ArrowRight') go(index - 1);
     };
     addEventListener('keydown', onKey);
     return () => removeEventListener('keydown', onKey);
-  }, [go, index, answering, complete, props.suspended, sheet]);
+  }, [go, index, answering, complete, props.suspended, sheet, threadOpen, setThread]);
 
   const inScene = pages.filter((p) => p.scene === page.scene);
   const fill = (inScene.indexOf(page) + 1) / inScene.length;
-  const steps = pageSteps(scene, page);
+  const items = threadOpen ? threadItems(lesson, pages, index, answers, talk?.notes) : [];
   const board = readingBoardProps(scene, page, layout, lesson.fps, reducedMotion);
   const Board = board ? registry[board.spec.renderer] : undefined;
   const size = lesson.dimensions[layout];
@@ -175,6 +153,8 @@ function ReadingSession(props: ReadingLessonProps) {
       dir="rtl"
       data-layout={layout}
       data-page={complete ? 'complete' : page.kind}
+      data-thread={(threadOpen && !complete) || undefined}
+      data-answering={answering || undefined}
     >
       <TopBar
         start={
@@ -231,29 +211,26 @@ function ReadingSession(props: ReadingLessonProps) {
             </div>
           </div>
           <div className="rl-caption-zone">
-            {answering ? (
-              <QuestionCaption question={question!} onChoose={answer} onSkip={() => answer('')} />
-            ) : (
-              <Caption
-                label={
-                  page.kind === 'feedback'
-                    ? 'الإجابة النموذجية'
-                    : page.kind === 'attempt'
-                      ? 'سؤال'
-                      : undefined
-                }
-                text={page.kind === 'attempt' ? question!.english : steps[page.step].text}
-                answer={
-                  page.kind === 'feedback' && page.step === 0 && question
-                    ? answers[question.id]
-                    : undefined
-                }
-                step={page.kind === 'attempt' ? 0 : page.step}
-                steps={page.kind === 'attempt' ? 1 : steps.length}
-                onHistory={page.step > 0 ? () => setSheet('history') : undefined}
-              />
-            )}
+            <PageCaption
+              scene={scene}
+              page={page}
+              answers={answers}
+              answering={Boolean(answering)}
+              onAnswer={answer}
+              onThread={() => setThread(true)}
+              onHint={talk ? () => talk.onAsk('محتاج تلميح للسؤال ده') : undefined}
+            />
           </div>
+          {threadOpen ? (
+            <Thread
+              items={items}
+              tutor={talk?.tutor ?? ''}
+              busy={talk?.busy}
+              onAsk={talk?.onAsk}
+              onClose={() => setThread(false)}
+              footer={portrait ? talk?.composer : undefined}
+            />
+          ) : null}
           {answering ? (
             <AnswerDock
               canBack={index > 0}
@@ -267,7 +244,7 @@ function ReadingSession(props: ReadingLessonProps) {
               onBack={() => go(index - 1)}
               onNext={() => go(index + 1)}
               nextLabel={index === pages.length - 1 ? 'خلّص الدرس' : 'التالي'}
-              center={props.assistant}
+              center={talk ? (portrait ? talk.orb : talk.composer) : null}
             />
           )}
         </>
@@ -280,11 +257,6 @@ function ReadingSession(props: ReadingLessonProps) {
             reached={reached}
             onOpen={(i) => go(pages.findIndex((p) => p.scene === i))}
           />
-        </Sheet>
-      ) : null}
-      {sheet === 'history' ? (
-        <Sheet title="اللي فات في المشهد ده" onClose={() => setSheet(null)}>
-          <Transcript steps={steps.slice(0, page.step + 1)} />
         </Sheet>
       ) : null}
     </section>

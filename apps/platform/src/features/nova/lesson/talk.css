@@ -1,0 +1,131 @@
+/* Talking to Nova from the lesson controls: one field, one hold-to-talk button. */
+.talk {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 99px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 6%),
+    0 8px 24px rgb(16 32 28 / 7%);
+  transition: box-shadow 0.2s ease;
+}
+.talk:focus-within {
+  box-shadow:
+    0 0 0 3px #e3dcfb,
+    0 8px 24px rgb(16 32 28 / 7%);
+}
+.talk img {
+  flex: none;
+  margin-inline-start: 4px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.talk input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 6px;
+  border: 0;
+  background: none;
+  color: #1b2925;
+  font: inherit;
+  font-size: 15px;
+  outline: none;
+}
+.talk input::placeholder {
+  color: #8a9690;
+}
+.talk-hold,
+.talk-send {
+  height: 42px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 99px;
+  background: #1b2925;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.talk-send {
+  width: 42px;
+  padding: 0;
+  background: #6a55b8;
+}
+.talk-send:disabled {
+  opacity: 0.45;
+}
+.talk[data-state='listening'] .talk-hold {
+  background: #2e6b3f;
+  animation: talk-pulse 1.2s ease-in-out infinite;
+}
+.talk[data-state='thinking'] .talk-hold,
+.talk[data-state='connecting'] .talk-hold {
+  background: #4a4f5c;
+}
+.talk[data-state='speaking'] .talk-hold {
+  background: #6a55b8;
+}
+.talk-orb {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 6%),
+    0 8px 24px rgb(16 32 28 / 10%);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.talk-orb img {
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.talk-orb[data-state='listening'] {
+  animation: talk-pulse 1.2s ease-in-out infinite;
+}
+.talk-orb[data-state='speaking'] {
+  box-shadow:
+    0 0 0 3px #b9a9f2,
+    0 8px 24px rgb(106 85 184 / 30%);
+}
+.talk-orb[data-state='thinking'],
+.talk-orb[data-state='connecting'] {
+  box-shadow:
+    0 0 0 3px #d5d9e2,
+    0 8px 24px rgb(16 32 28 / 10%);
+}
+@keyframes talk-pulse {
+  50% {
+    box-shadow: 0 0 0 7px rgb(196 235 103 / 45%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .talk-hold,
+  .talk-orb {
+    animation: none !important;
+  }
+}

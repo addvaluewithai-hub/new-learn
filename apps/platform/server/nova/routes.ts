@@ -4,6 +4,7 @@ import { assistantContext, teachingInstruction } from './context';
 import { generate, gemini } from './provider';
 import { quizSchema, validateQuiz } from './quiz';
 import { limitNova } from './limits';
+import { liveConfig } from './live';
 export function chatHistory(value: unknown) {
   if (!Array.isArray(value) || !value.length || value.length > 16)
     throw new HttpError(400, 'المحادثة غير صحيحة.');
@@ -51,37 +52,7 @@ export async function novaRoute(request: Request, env: Env, user: AuthUser, acti
     });
   }
   const model = env.GEMINI_LIVE_MODEL || 'gemini-3.8-live';
-  const config = {
-    generationConfig: {
-      responseModalities: ['AUDIO'],
-      speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } } },
-    },
-    systemInstruction: {
-      parts: [
-        {
-          text: `${instruction}\nWhen the client supplies a practice question, ask that exact question and wait. If the learner clearly selects an option, call answer_question with questionIndex and zero-based choice. Do not advance or grade without the tool result; never reveal the answer before their attempt. If unclear, ask them to clarify. Client practice state overrides your count. After the result, explain briefly and ask the next supplied question.`,
-        },
-      ],
-    },
-    inputAudioTranscription: {},
-    outputAudioTranscription: {},
-    tools: [
-      {
-        functionDeclarations: [
-          {
-            name: 'answer_question',
-            description: 'Submit the learner’s explicit option for the current practice question.',
-            behavior: 'BLOCKING',
-            parameters: {
-              type: 'OBJECT',
-              properties: { questionIndex: { type: 'INTEGER' }, choice: { type: 'INTEGER' } },
-              required: ['questionIndex', 'choice'],
-            },
-          },
-        ],
-      },
-    ],
-  };
+  const config = liveConfig(instruction, input.purpose === 'talk' ? 'talk' : 'practice');
   const token = await gemini(
     env,
     'auth_tokens',

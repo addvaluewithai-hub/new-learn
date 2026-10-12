@@ -9,7 +9,9 @@ import type {
 import '@learn/lesson-runtime/style.css';
 import { NovaAssistant } from '../features/nova/NovaAssistant';
 import { useReadingProgress, type SaveState } from '../features/progress/useReadingProgress';
-import { NovaBar } from '../features/classroom/NovaBar';
+import { NovaOrb, TalkComposer } from '../features/nova/lesson/TalkControls';
+import { useLessonTalk } from '../features/nova/lesson/useLessonTalk';
+import { useSpaceToTalk } from '../features/nova/lesson/useSpaceToTalk';
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 
@@ -21,7 +23,7 @@ const SAVE: Record<SaveState, string> = {
   offline: 'مش متصل',
 };
 
-/** Full-screen reading lesson: the runtime stage, saved progress and Nova in the controls. */
+/** Full-screen reading lesson: the runtime stage, saved progress, and Nova in the conversation. */
 export default function ReadingClassroom({
   load,
   backHref,
@@ -36,9 +38,8 @@ export default function ReadingClassroom({
   const [context, setContext] = useState<LessonContext | null>(null);
   const [controller, setController] = useState<LessonController | null>(null);
   const [assistantOpen, setAssistantOpen] = useState(false);
-  const [ask, setAsk] = useState<{ id: number; text: string; mode?: 'chat' | 'voice' } | null>(
-    null,
-  );
+  const talk = useLessonTalk(context);
+  useSpaceToTalk(talk.voice, Boolean(module) && !assistantOpen);
   const onReady = useCallback((value: LessonController | null) => setController(value), []);
   const saved = useReadingProgress(module?.readingLesson ?? null);
   useEffect(() => {
@@ -90,7 +91,16 @@ export default function ReadingClassroom({
             </span>
           ) : null
         }
-        assistant={<NovaBar onAsk={(text, mode) => setAsk({ id: Date.now(), text, mode })} />}
+        conversation={{
+          tutor: 'Nova',
+          notes: talk.notes,
+          busy: talk.busy,
+          onAsk: talk.ask,
+          open: talk.open,
+          onOpenChange: talk.setOpen,
+          composer: <TalkComposer voice={talk.voice} busy={talk.busy} onAsk={talk.ask} />,
+          orb: <NovaOrb voice={talk.voice} onTap={() => talk.setOpen(!talk.open)} />,
+        }}
       />
       <NovaAssistant
         lesson={{}}
@@ -98,7 +108,6 @@ export default function ReadingClassroom({
         context={context}
         controller={controller}
         onOpen={setAssistantOpen}
-        ask={ask}
         hideCapsule
       />
     </div>

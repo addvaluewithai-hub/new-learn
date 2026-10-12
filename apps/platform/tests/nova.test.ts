@@ -3,6 +3,8 @@ import { test } from 'node:test';
 import { lessonContext } from '@learn/lesson-runtime/core';
 import { resolvePosition } from '../server/nova/context';
 import { chatHistory } from '../server/nova/routes';
+import { liveConfig } from '../server/nova/live';
+import { chatTurns } from '../src/features/nova/lesson/notes';
 import { validateQuiz } from '../server/nova/quiz';
 import { applyAnswer } from '../src/features/nova/useQuiz';
 import { encodePcm, decodePcm } from '../src/features/nova/voice/pcm';
@@ -92,4 +94,36 @@ test('voice PCM is little endian and resamples browser audio to 16kHz', () => {
   assert.ok(Math.abs(decoded[0] + 0.75) < 0.001);
   assert.ok(Math.abs(decoded[2] - 0.5) < 0.001);
   assert.equal(decodePcm(encodePcm(new Float32Array(480), 48000)).length, 160);
+});
+test('lesson talk: hold-to-talk turns manual activity on; the spoken quiz keeps its tool', () => {
+  const talk = liveConfig('I', 'talk') as Record<string, any>;
+  assert.deepEqual(talk.realtimeInputConfig, { automaticActivityDetection: { disabled: true } });
+  assert.equal(talk.tools, undefined);
+  const practice = liveConfig('I', 'practice') as Record<string, any>;
+  assert.equal(practice.realtimeInputConfig, undefined);
+  assert.equal(practice.tools[0].functionDeclarations[0].name, 'answer_question');
+});
+test('lesson talk history merges spoken and typed turns into what chat accepts', () => {
+  const at = { sceneId: 'S01', phase: 'narration' as const, step: 0 };
+  const n = (role: 'learner' | 'tutor', text: string, extra = {}) => ({
+    id: text,
+    role,
+    text,
+    at,
+    ...extra,
+  });
+  const turns = chatTurns([
+    n('tutor', 'orphan reply'),
+    n('learner', 'spoken'),
+    n('learner', 'typed'),
+    n('tutor', 'answer'),
+    n('tutor', 'failed', { failed: true }),
+    n('learner', 'next question'),
+  ]);
+  assert.deepEqual(turns, [
+    { role: 'user', text: 'spoken\ntyped' },
+    { role: 'assistant', text: 'answer' },
+    { role: 'user', text: 'next question' },
+  ]);
+  assert.doesNotThrow(() => chatHistory(turns));
 });

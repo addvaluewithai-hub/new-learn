@@ -1,6 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
-import { ReadText, textDirection } from '../ReadText';
-import type { ReadingPackage, ReadingStep } from '../types';
+import type { ReadingPackage } from '../types';
 
 /** Side panel on wide screens, bottom sheet on phones. Esc or the backdrop closes it. */
 export function Sheet({
@@ -65,18 +64,6 @@ export function ScenesList({
             </span>
             <span>{s.title}</span>
           </button>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-export function Transcript({ steps }: { steps: ReadingStep[] }) {
-  return (
-    <ol className="rl-transcript">
-      {steps.map((step, i) => (
-        <li key={i} dir={textDirection(step.text)}>
-          <ReadText text={step.text} />
         </li>
       ))}
     </ol>
