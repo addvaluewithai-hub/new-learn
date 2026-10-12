@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ComponentType } from 'react';
 import { Thumbnail } from '@remotion/player';
 import { useCurrentFrame } from 'remotion';
 import type { VisualProps } from '../renderers';
+import { readingTransitionStart, readingTransitionTime } from './transition';
 
 type BoardInput = { Board: ComponentType<VisualProps>; props: Omit<VisualProps, 'frame'> };
 
@@ -20,25 +21,34 @@ export function ReadingBoard({
   toMs,
   size,
 }: BoardInput & { fromMs: number | null; toMs: number; size: { width: number; height: number } }) {
-  const [timeMs, setTimeMs] = useState(toMs);
+  const [clock, setClock] = useState({ target: toMs, value: toMs });
   const raf = useRef(0);
+  const startMs = readingTransitionStart(fromMs, toMs, props.reducedMotion);
+  // A new caption and its current cue reach the very same render, before effects run.
+  const timeMs = props.reducedMotion ? toMs : clock.target === toMs ? clock.value : startMs;
   useEffect(() => {
-    if (props.reducedMotion || fromMs == null || fromMs >= toMs) {
-      setTimeMs(toMs);
+    setClock({ target: toMs, value: startMs });
+    if (startMs === toMs) {
       return;
     }
     const begin = performance.now();
     const tick = (now: number) => {
-      const next = Math.min(toMs, fromMs + (now - begin));
-      setTimeMs(next);
+      const next = readingTransitionTime(startMs, toMs, now - begin);
+      setClock({ target: toMs, value: next });
       if (next < toMs) raf.current = requestAnimationFrame(tick);
     };
     raf.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf.current);
-  }, [fromMs, toMs, props.reducedMotion]);
+  }, [startMs, toMs]);
   const frame = Math.round((timeMs * props.fps) / 1000);
   return (
-    <div className="rl-board" data-layout={props.layout} dir="ltr">
+    <div
+      className="rl-board"
+      data-layout={props.layout}
+      data-frame={frame}
+      data-target-ms={toMs}
+      dir="ltr"
+    >
       <Thumbnail
         component={BoardFrame}
         inputProps={{ Board, props }}
