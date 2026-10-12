@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-phase-changes",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "22c139c3497d01cffca036cc21d78e8b97065afc026b332878e9f49aadac6cc6",
+  "title": "سلوك الغاز",
+  "englishTitle": "Phase Changes",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 2,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "State-change Map — خريطة التحولات",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.01",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "هنحفظ الاتجاه قبل الاسم. Melting (الانصهار) هو Solid (صلب) إلى Liquid (سائل). Freezing (التجمد) هو العكس: Liquid إلى Solid. Evaporation (التبخر) هو Liquid إلى Gas (غاز). Condensation (التكاثف) هو Gas إلى Liquid. لما تربط الكلمة بالسهم، الحفظ يبقى أسهل وأقل عرضة للخلط.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: State-change Map — خريطة التحولات",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.01",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "State the directions of melting, freezing, evaporation and condensation.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي الأربع اتجاهات الأساسية: Melting (الانصهار)، Freezing (التجمد)، Evaporation (التبخر)، وCondensation (التكاثف).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "State the directions of melting, freezing, evaporation and condensation.",
+        "arabic": "اشرحلي الأربع اتجاهات الأساسية: Melting (الانصهار)، Freezing (التجمد)، Evaporation (التبخر)، وCondensation (التكاثف).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Melting is solid to liquid; freezing is liquid to solid; evaporation is liquid to gas; condensation is gas to liquid.",
+          "arabic": "الانصهار (Melting): صلب إلى سائل. التجمد (Freezing): سائل إلى صلب. التبخر (Evaporation): سائل إلى غاز. التكثف (Condensation): غاز إلى سائل."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Melting is solid to liquid; freezing is liquid to solid; evaporation is liquid to gas; condensation is gas to liquid.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الانصهار (Melting): صلب إلى سائل. التجمد (Freezing): سائل إلى صلب. التبخر (Evaporation): سائل إلى غاز. التكثف (Condensation): غاز إلى سائل.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.01",
+              "boardSpec": {
+                "kind": "phases",
+                "direct": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Reverse Pairs — الأزواج العكسية",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.02",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "بدل أربع كلمات منفصلة، خليك شايف زوجين: Melting (الانصهار) وعكسه Freezing (التجمد). Evaporation (التبخر) وعكسه Condensation (التكاثف). الفكرة إن كل سهم له سهم راجع في الاتجاه المعاكس.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Reverse Pairs — الأزواج العكسية",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.02",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain each of the two reversible pairs: melting/freezing and evaporation/condensation.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اختار زوج واحد واشرح العملية واتجاهها وعكسها واتجاهه، وبعدها اعمل نفس الكلام للزوج التاني.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Explain each of the two reversible pairs: melting/freezing and evaporation/condensation.",
+        "arabic": "اختار زوج واحد واشرح العملية واتجاهها وعكسها واتجاهه، وبعدها اعمل نفس الكلام للزوج التاني.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Melting/freezing and evaporation/condensation are two pairs of reverse transformations.",
+          "arabic": "الانصهار والتجمد طريقان متعاكسان بين الصلب والسائل. التبخر والتكثف طريقان متعاكسان بين السائل والغاز؛ اتجاه التحول هو الذي يحدد الاسم."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Melting/freezing and evaporation/condensation are two pairs of reverse transformations.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الانصهار والتجمد طريقان متعاكسان بين الصلب والسائل. التبخر والتكثف طريقان متعاكسان بين السائل والغاز؛ اتجاه التحول هو الذي يحدد الاسم.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.02",
+              "boardSpec": {
+                "kind": "phases",
+                "direct": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Sublimation and Deposition — التسامي والترسيب المباشر",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.03",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "فيه طريق مباشر بين Solid (الصلب) وGas (الغاز) من غير المرور بـLiquid (السائل). Sublimation (التسامي) هو Solid → Gas مباشرة. Deposition (الترسيب المباشر من غاز إلى صلب) هو الاتجاه العكسي Gas → Solid مباشرة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Sublimation and Deposition — التسامي والترسيب المباشر",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.03",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain sublimation and deposition. What do both transformations have in common?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح Sublimation (التسامي) واتجاهه، وبعدها Deposition (الترسيب المباشر) واتجاهه. إيه الحاجة المشتركة بينهم؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "Explain sublimation and deposition. What do both transformations have in common?",
+        "arabic": "اشرح Sublimation (التسامي) واتجاهه، وبعدها Deposition (الترسيب المباشر) واتجاهه. إيه الحاجة المشتركة بينهم؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Sublimation is solid directly to gas; deposition is gas directly to solid, without a liquid stage.",
+          "arabic": "التسامي (Sublimation) من صلب إلى غاز مباشرة، والترسيب المباشر (Deposition) من غاز إلى صلب مباشرة. كلاهما لا يمر بالحالة السائلة."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Sublimation is solid directly to gas; deposition is gas directly to solid, without a liquid stage.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "التسامي (Sublimation) من صلب إلى غاز مباشرة، والترسيب المباشر (Deposition) من غاز إلى صلب مباشرة. كلاهما لا يمر بالحالة السائلة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.03",
+              "boardSpec": {
+                "kind": "phases",
+                "direct": true
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Compression Bridge — جسر انضغاط الغاز",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.04",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "compression"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "قبل ما ندخل Boyle's Law (قانون بويل)، رجّع نموذج الجسيمات. Gas (الغاز) فيه مسافات كبيرة بين الجسيمات. لما نعمل Compression (انضغاط)، نفس الجسيمات تقرب من بعض والمسافات تقل. إحنا لا نصغر الجسيمات نفسها. ده اللي يخلي حجم الغاز قابل للتغير بشكل واضح تحت الضغط.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Compression Bridge — جسر انضغاط الغاز",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.04",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "compression"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "What changes and what stays unchanged in the particle model when a gas is compressed?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي بطريقتك إيه اللي يتغير في نموذج الجسيمات لما نضغط Gas (الغاز)، وإيه اللي لا يتغير.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "What changes and what stays unchanged in the particle model when a gas is compressed?",
+        "arabic": "اشرحلي بطريقتك إيه اللي يتغير في نموذج الجسيمات لما نضغط Gas (الغاز)، وإيه اللي لا يتغير.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Particle spacing and occupied volume decrease; particle number and particle size remain unchanged.",
+          "arabic": "تقل المسافات بين الجسيمات ويقل الحيز الذي تشغله نفس الكمية. عدد الجسيمات وحجم الجسيم نفسه لا يتغيران في هذه المقارنة المبسطة."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Particle spacing and occupied volume decrease; particle number and particle size remain unchanged.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "تقل المسافات بين الجسيمات ويقل الحيز الذي تشغله نفس الكمية. عدد الجسيمات وحجم الجسيم نفسه لا يتغيران في هذه المقارنة المبسطة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.04",
+              "boardSpec": {
+                "kind": "matter",
+                "focus": "compression"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Teach-back — اربط الصورة كلها",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.05",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي عندك جزئين: أسماء تغيرات الحالة واتجاهاتها، ثم ليه Gas (الغاز) سلوكه مختلف في الانضغاط. اجمعهم في شرح واحد بسيط.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Teach-back — اربط الصورة كلها",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.05",
+          "boardSpec": {
+            "kind": "phases",
+            "direct": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain the main phase-change pairs and why a gas is more compressible.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح أهم Phase changes (تغيرات الحالة) بين Solid (الصلب)، Liquid (السائل)، وGas (الغاز)، وبعدها اشرح ليه Gas (الغاز) قابل للانضغاط أكتر.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "Explain the main phase-change pairs and why a gas is more compressible.",
+        "arabic": "اشرح أهم Phase changes (تغيرات الحالة) بين Solid (الصلب)، Liquid (السائل)، وGas (الغاز)، وبعدها اشرح ليه Gas (الغاز) قابل للانضغاط أكتر.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The transformations link the three states, while the larger spaces between gas particles explain compression.",
+          "arabic": "صلب وسـائل: انصهار وتجمد. سائل وغاز: تبخر وتكثف. صلب وغاز مباشرة: تسامٍ وترسيب مباشر. قابلية الغاز للانضغاط مرتبطة بالمسافات الأكبر بين الجسيمات."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "The transformations link the three states, while the larger spaces between gas particles explain compression.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "صلب وسـائل: انصهار وتجمد. سائل وغاز: تبخر وتكثف. صلب وغاز مباشرة: تسامٍ وترسيب مباشر. قابلية الغاز للانضغاط مرتبطة بالمسافات الأكبر بين الجسيمات.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.05",
+              "boardSpec": {
+                "kind": "phases",
+                "direct": true
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-phase-changes"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يربط التحولات الأساسية بالاتجاه بين Solid وLiquid وGas.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يربط melting/freezing وevaporation/condensation كأزواج عكسية.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يميز التحول المباشر Solid↔Gas في الاتجاهين.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يربط قابلية الغاز للانضغاط بتقليل المسافات بين الجسيمات.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يلخص تغيرات الحالة ويربط سلوك الغاز بالانضغاط.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    }
+  ]
+}

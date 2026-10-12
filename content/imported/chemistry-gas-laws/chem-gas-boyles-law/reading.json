@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-boyles-law",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "22d1d8c1e4304bc81b61f72f833c87a7fbe10f36e757ee01190599ca92dac38a",
+  "title": "قانون بويل: الضغط والحجم",
+  "englishTitle": "Boyle's Law",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 3,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Pressure and Volume — الضغط والحجم",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.01",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "overview"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "الضغط هو تأثير الغاز على كل وحدة مساحة من جدار الوعاء. في البورد نرمز للضغط بـ$P$، وللحجم بـ$V$، ولدرجة الحرارة بـ$T$. atm وحدة ضغط اسمها ضغط جوي، وL لتر لقياس الحجم؛ mL ملليلتر، وكل لتر يساوي $1000$ ملليلتر. K وحدة حرارة اسمها كلفن؛ هنشرح مقياسها قبل استخدام نسب الحرارة. خلّينا نشرحها من الصفر قبل ما أسألك. تخيل كمية غاز محبوسة في سرنجة طرفها مقفول. لما نزق المكبس لجوه، نفس كمية الغاز تبقى محبوسة في مساحة أصغر؛ المساحة اللي الغاز واخدها هي Volume (الحجم)، فـVolume (الحجم) يقل. ولأن نفس الجزيئات بقت في حيز أصغر وبتصطدم بالجدران أكتر، Pressure (الضغط) يزيد. لو Temperature (درجة الحرارة) ثابتة، تبقى العلاقة بين Pressure (الضغط) وVolume (الحجم) inverse (عكسية): لما واحد يزيد، التاني يقل. البورد بيورّي نفس الفكرة: Pressure (الضغط) أقل مع Volume (حجم) أكبر، وPressure (ضغط) أعلى مع Volume (حجم) أصغر. ما نقولش «مفيش ضغط»؛ إحنا بنقارن ضغط أقل بضغط أعلى.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Pressure and Volume — الضغط والحجم",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.01",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "overview"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "At constant temperature, what happens to gas volume when pressure increases or decreases?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "دلوقتي اشرحها بطريقتك في جملة أو اتنين: عند Temperature (درجة حرارة) ثابتة، لو Pressure (الضغط) زاد، Volume (الحجم) يعمل إيه؟ ولو Pressure (الضغط) قل، Volume (الحجم) يعمل إيه؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "At constant temperature, what happens to gas volume when pressure increases or decreases?",
+        "arabic": "دلوقتي اشرحها بطريقتك في جملة أو اتنين: عند Temperature (درجة حرارة) ثابتة، لو Pressure (الضغط) زاد، Volume (الحجم) يعمل إيه؟ ولو Pressure (الضغط) قل، Volume (الحجم) يعمل إيه؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "At constant temperature and gas amount, pressure and volume have an inverse relationship.",
+          "arabic": "عند ثبات درجة الحرارة وكمية الغاز، زيادة الضغط تقابلها قلة الحجم، وقلة الضغط تقابلها زيادة الحجم: علاقة عكسية (Inverse relationship)."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "At constant temperature and gas amount, pressure and volume have an inverse relationship.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "عند ثبات درجة الحرارة وكمية الغاز، زيادة الضغط تقابلها قلة الحجم، وقلة الضغط تقابلها زيادة الحجم: علاقة عكسية (Inverse relationship).",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.01",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "boyle",
+                "focus": "overview"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Constant condition — الشرط الثابت",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "conditions"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Boyle's Law (قانون بويل) مش مجرد $P$ مع $V$. الشرط المهم هو إن Temperature (درجة الحرارة) تكون constant (ثابتة) لنفس كمية الغاز. في سؤال الامتحان، عبارة at constant temperature (عند درجة حرارة ثابتة) أو assuming the temperature remains constant (بافتراض أن درجة الحرارة تظل ثابتة) هي علامة مهمة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Constant condition — الشرط الثابت",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "conditions"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "How do you recognize that Boyle's law is appropriate? Name the constant variable.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي إزاي تعرف من نص السؤال إن Boyle's Law (قانون بويل) هو المناسب. لازم تذكر المتغير اللي ثابت ومعناه بالعربي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "How do you recognize that Boyle's law is appropriate? Name the constant variable.",
+        "arabic": "اشرحلي إزاي تعرف من نص السؤال إن Boyle's Law (قانون بويل) هو المناسب. لازم تذكر المتغير اللي ثابت ومعناه بالعربي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Boyle's law applies to the same gas amount at constant temperature.",
+          "arabic": "العلامة هي ثبات درجة الحرارة (Constant temperature) لنفس كمية الغاز، مع مقارنة الضغط والحجم في حالتين. الاسم وحده لا يحدد القانون؛ الشرط الثابت يحدده."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Boyle's law applies to the same gas amount at constant temperature.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "العلامة هي ثبات درجة الحرارة (Constant temperature) لنفس كمية الغاز، مع مقارنة الضغط والحجم في حالتين. الاسم وحده لا يحدد القانون؛ الشرط الثابت يحدده.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.02",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "boyle",
+                "focus": "conditions"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Graphs — الرسوم البيانية",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.03",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "graph"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "مقلوب الضغط $1/P$ يعني واحد مقسوم على قيمة الضغط؛ مثلًا مقلوب $2$ هو $0.5$. في الرسم الأول $V$ versus $P$ (الحجم مقابل الضغط)، المنحنى نازل لأن العلاقة inverse (عكسية): كلما $P$ (الضغط) يزيد، $V$ (الحجم) يقل. في الرسم الثاني $V$ versus $1/P$ (الحجم مقابل مقلوب الضغط)، إحنا بدل ما نحط $P$ على المحور بنحط $1/P$ (مقلوب الضغط). بما إن $V$ (الحجم) يتناسب طرديًا مع $1/P$، النقاط تصطف كعلاقة linear (خطية) في النموذج المثالي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Graphs — الرسوم البيانية",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.03",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "graph"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare $V$ versus $P$ and $V$ versus $1/P$. Why is the second graph a straight line?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح الفرق بين الرسمين بطريقتك: لما $P$ (الضغط) يزيد، $V$ (الحجم) يعمل إيه؟ وليه رسم $V$ versus $1/P$ (الحجم مقابل مقلوب الضغط) يبان كخط مستقيم؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "Compare $V$ versus $P$ and $V$ versus $1/P$. Why is the second graph a straight line?",
+        "arabic": "اشرح الفرق بين الرسمين بطريقتك: لما $P$ (الضغط) يزيد، $V$ (الحجم) يعمل إيه؟ وليه رسم $V$ versus $1/P$ (الحجم مقابل مقلوب الضغط) يبان كخط مستقيم؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V decreases as P increases; V is proportional to 1/P, so V versus 1/P is linear.",
+          "arabic": "الحجم يقل عندما يزيد الضغط، لذلك رسم $V$ مقابل $P$ منحنى نازل. أما $V$ مقابل $1/P$ فهو خط مستقيم لأن الحجم يتناسب طرديًا مع مقلوب الضغط في النموذج المثالي."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V$ decreases as $P$ increases; $V$ is proportional to $1/P$, so $V$ versus $1/P$ is linear.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الحجم يقل عندما يزيد الضغط، لذلك رسم $V$ مقابل $P$ منحنى نازل. أما $V$ مقابل $1/P$ فهو خط مستقيم لأن الحجم يتناسب طرديًا مع مقلوب الضغط في النموذج المثالي.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.03",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "boyle",
+                "focus": "graph"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Equation bridge — من المعنى للمعادلة",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.04",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "equation"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "علامة $∝$ معناها «يتناسب مع». و$k$ ترمز لقيمة ثابتة لنفس كمية الغاز عند درجة حرارة ثابتة. دلوقتي المعادلة جاية من المعنى: $V$ (الحجم) يتناسب عكسيًا مع $P$ (الضغط)، فنكتب $V ∝ 1/P$. معنى ده إن حاصل الضرب $PV$ يفضل ثابتًا فنكتب $PV = k$. ولو عندنا حالتين لنفس كمية الغاز عند Temperature ثابتة (درجة حرارة ثابتة)، حاصل الضرب في الحالة الأولى يساوي حاصل الضرب في الحالة الثانية: $P₁V₁ = P₂V₂$. مثال سريع: لو كان $1 atm$ مع $1 L$، فـ$2 atm$ يقابلها $0.5 L$ حتى يفضل حاصل الضرب نفسه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Equation bridge — من المعنى للمعادلة",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.04",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "equation"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain $P₁V₁ = P₂V₂$. If pressure doubles, what fraction of the original volume remains?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "من غير ما تحفظها كرموز بس: اشرحلي ليه $P₁V₁ = P₂V₂$ منطقية في Boyle's Law (قانون بويل). ولو $P$ (الضغط) اتضاعف بالضبط، تتوقع $V$ (الحجم) يبقى كام من قيمته؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "Explain $P₁V₁ = P₂V₂$. If pressure doubles, what fraction of the original volume remains?",
+        "arabic": "من غير ما تحفظها كرموز بس: اشرحلي ليه $P₁V₁ = P₂V₂$ منطقية في Boyle's Law (قانون بويل). ولو $P$ (الضغط) اتضاعف بالضبط، تتوقع $V$ (الحجم) يبقى كام من قيمته؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The product PV is constant; doubling pressure halves the volume.",
+          "arabic": "العلاقة العكسية تعني ثبات حاصل الضرب $PV$ لنفس كمية الغاز عند حرارة ثابتة. لذلك $P₁V₁ = P₂V₂$. عند مضاعفة الضغط يصبح الحجم نصف قيمته حتى يبقى حاصل الضرب ثابتًا."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "The product $PV$ is constant; doubling pressure halves the volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "العلاقة العكسية تعني ثبات حاصل الضرب $PV$ لنفس كمية الغاز عند حرارة ثابتة. لذلك $P₁V₁ = P₂V₂$. عند مضاعفة الضغط يصبح الحجم نصف قيمته حتى يبقى حاصل الضرب ثابتًا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.04",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "boyle",
+                "focus": "equation"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Teach-back — اشرح القانون بنفسك",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.05",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "overview"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "إحنا دلوقتي شرحنا العلاقة والشرط والرسوم والمعادلة. آخر خطوة هدفها أتأكد إن الصورة كلها اتجمعت عندك، مش إنك تكتشفها لوحدك. اعتبر إنك بتشرح لزميلك اللي غاب المحاضرة، واستخدم المصطلحات الإنجليزية ومع كل مصطلح قول معناه العربي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Teach-back — اشرح القانون بنفسك",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.05",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "boyle",
+            "focus": "overview"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain Boyle's law: variables, constant condition, relationship and equation.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح Boyle's Law (قانون بويل) من البداية للنهاية بطريقتك: Pressure (الضغط)، Volume (الحجم)، Temperature (درجة الحرارة)، نوع العلاقة، وبعدها المعادلة. مش مطلوب تحفظ كلام معين.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "Explain Boyle's law: variables, constant condition, relationship and equation.",
+        "arabic": "اشرح Boyle's Law (قانون بويل) من البداية للنهاية بطريقتك: Pressure (الضغط)، Volume (الحجم)، Temperature (درجة الحرارة)، نوع العلاقة، وبعدها المعادلة. مش مطلوب تحفظ كلام معين.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "For a fixed gas amount at constant temperature, P₁V₁ = P₂V₂.",
+          "arabic": "قانون بويل (Boyle's law) يربط الضغط والحجم لنفس كمية الغاز عند درجة حرارة ثابتة. العلاقة عكسية، وحاصل الضرب $PV$ ثابت، فنكتب $P₁V₁ = P₂V₂$."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "For a fixed gas amount at constant temperature, $P₁V₁ = P₂V₂$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "قانون بويل (Boyle's law) يربط الضغط والحجم لنفس كمية الغاز عند درجة حرارة ثابتة. العلاقة عكسية، وحاصل الضرب $PV$ ثابت، فنكتب $P₁V₁ = P₂V₂$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.05",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "boyle",
+                "focus": "overview"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyles-law"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يتوقع أن زيادة Pressure (الضغط) تقلل Volume (الحجم) عند ثبات Temperature (درجة الحرارة).",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يحدد أن Temperature (درجة الحرارة) ثابتة في Boyle's Law (قانون بويل).",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يقرأ منحنى V versus P (الحجم مقابل الضغط) ويفهم خطية V versus 1/P (الحجم مقابل مقلوب الضغط).",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يربط العلاقة العكسية بصيغ V ∝ 1/P وPV = k وP₁V₁ = P₂V₂.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يلخص Boyle's Law (قانون بويل) كاملًا: المتغيرات، الشرط، الاتجاه، والمعادلة.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    }
+  ]
+}

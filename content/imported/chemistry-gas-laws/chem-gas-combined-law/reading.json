@@ -1,0 +1,810 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-combined-law",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "3a5bfa5fb60f6085261f236749b03e9c4658303cf85b3eeceef9beb5af7a11d8",
+  "title": "الظروف القياسية",
+  "englishTitle": "Combined Gas Law",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 8,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "When to Use Combined — إمتى تستخدم القانون المجمّع",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.01",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "قبل أي معادلة اسأل What is constant? (إيه اللي ثابت؟). لو $T$ ثابتة عندك Boyle، لو $P$ ثابت عندك Charles، لو $V$ ثابت عندك $P$–$T$. لكن لو Pressure (الضغط) وVolume (الحجم) وTemperature (درجة الحرارة) كلهم بيتغيروا ومفيش واحد ثابت بوضوح، نستخدم Combined Gas Law (القانون العام المجمّع للغازات).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: When to Use Combined — إمتى تستخدم القانون المجمّع",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.01",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "When is the combined gas law needed rather than a simpler constant-variable law?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي إمتى تختار Combined Gas Law (القانون المجمّع)، وليه قانون أبسط مش كفاية في الحالة دي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "When is the combined gas law needed rather than a simpler constant-variable law?",
+        "arabic": "اشرحلي إمتى تختار Combined Gas Law (القانون المجمّع)، وليه قانون أبسط مش كفاية في الحالة دي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Use the combined law for a fixed gas amount when P, V and T change without a simplifying constant condition.",
+          "arabic": "عندما يتغير الضغط والحجم والحرارة لنفس كمية الغاز، ولا يوجد متغير ثابت يختصر العلاقة. عند وجود شرط ثابت، يمكن اختصار القانون المجمّع إلى القانون الأبسط المناسب."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Use the combined law for a fixed gas amount when $P$, $V$ and $T$ change without a simplifying constant condition.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "عندما يتغير الضغط والحجم والحرارة لنفس كمية الغاز، ولا يوجد متغير ثابت يختصر العلاقة. عند وجود شرط ثابت، يمكن اختصار القانون المجمّع إلى القانون الأبسط المناسب.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.01",
+              "boardSpec": {
+                "kind": "selector"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Equation Bridge — جسر المعادلة",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "combined",
+            "focus": "equation"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "المصدر يجمع العلاقات في $PV/T=k$. ولحالتين من نفس الغاز نكتب ($P₁V₁$)/$T₁$=($P₂V₂$)/$T₂$. كل طرف يمثل State (حالة) كاملة، وأي Temperature (درجة حرارة) تدخل النسبة لازم تكون Kelvin (كلفن).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Equation Bridge — جسر المعادلة",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "combined",
+            "focus": "equation"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain both sides of $P₁V₁/T₁ = P₂V₂/T₂$ and why $T$ must be in Kelvin.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح معنى الطرف الأول والطرف الثاني في المعادلة، وليه $T$ لازم تكون Kelvin (كلفن).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Explain both sides of $P₁V₁/T₁ = P₂V₂/T₂$ and why $T$ must be in Kelvin.",
+        "arabic": "اشرح معنى الطرف الأول والطرف الثاني في المعادلة، وليه $T$ لازم تكون Kelvin (كلفن).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Each side describes a complete state: P₁V₁/T₁ = P₂V₂/T₂, using Kelvin.",
+          "arabic": "كل طرف يمثل حالة كاملة: ضغطها وحجمها وحرارتها المطلقة. $P₁V₁/T₁ = P₂V₂/T₂$ لنفس كمية الغاز، ونستخدم كلفن لأن النسبة تخص الحرارة المطلقة."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Each side describes a complete state: $P₁V₁/T₁ = P₂V₂/T₂$, using Kelvin.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "كل طرف يمثل حالة كاملة: ضغطها وحجمها وحرارتها المطلقة. $P₁V₁/T₁ = P₂V₂/T₂$ لنفس كمية الغاز، ونستخدم كلفن لأن النسبة تخص الحرارة المطلقة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.02",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "combined",
+                "focus": "equation"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Organize State 1 and State 2 — نظّم الحالتين",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-organize",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "لو الضغط بوحدة atm في حالة وبوحدة mmHg في الحالة الثانية، وحّد الوحدة أولًا: $1 atm = 760 mmHg$. أكبر حماية من الأخطاء هنا هي التنظيم. اكتب State $1$ (الحالة $1$): $P₁$,$V₁$,$T₁$، وState $2$ (الحالة $2$): $P₂$,$V₂$,$T₂$. بعدين اسأل: إيه المطلوب؟ هل $T$ بالكلفن؟ هل Pressure units (وحدات الضغط) متوافقة؟ وبعدها فقط ابدأ Algebra (الجبر).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Organize State 1 and State 2 — نظّم الحالتين",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-organize",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $2.00 L$ at $745 mmHg$ and $25°C$. Organize the data for finding its volume at this course's $STP$ convention.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "لو الحالة الأولى $2.00 L$ و$745 mmHg$ و$25°C$، والحالة الثانية $STP$ (الظروف القياسية) ومطلوب $V₂$، اشرحلي إزاي ترتب القيم وإيه التحويلات اللي هتحتاجها قبل الحساب.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "A gas occupies $2.00 L$ at $745 mmHg$ and $25°C$. Organize the data for finding its volume at this course's $STP$ convention.",
+        "arabic": "لو الحالة الأولى $2.00 L$ و$745 mmHg$ و$25°C$، والحالة الثانية $STP$ (الظروف القياسية) ومطلوب $V₂$، اشرحلي إزاي ترتب القيم وإيه التحويلات اللي هتحتاجها قبل الحساب.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "State 1: 2.00 L, 745 mmHg, 298.15 K. State 2: unknown volume, 760 mmHg, 273.15 K.",
+          "arabic": "الحالة الأولى: $2.00 L$ و$745 mmHg$ و$298.15 K$. الثانية: $V₂$ مطلوب، والضغط $760 mmHg$ والحرارة $273.15 K$ حسب تعريف STP المستخدم هنا. الضغطان بنفس الوحدة."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "State $1$: $2.00 L$, $745 mmHg$, $298.15 K$. State $2$: unknown volume, $760 mmHg$, $273.15 K$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الحالة الأولى: $2.00 L$ و$745 mmHg$ و$298.15 K$. الثانية: $V₂$ مطلوب، والضغط $760 mmHg$ والحرارة $273.15 K$ حسب تعريف $STP$ المستخدم هنا. الضغطان بنفس الوحدة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.03",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "combined-organize",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "STP Is a State — الظروف القياسية حالة",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.04",
+          "boardSpec": {
+            "kind": "stp"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Assignment ($3$) يقول At $STP$ (عند الظروف القياسية) من غير ما يطبع القيم. تعريف الكورس هنا: Temperature (درجة الحرارة) =$273.15 K$ أو $0°C$، وPressure (الضغط)=$1 atm=760 mmHg$. $STP$ مش Law (قانون) خامس؛ دي Conditions (شروط) للحالة الثانية، فنحطها مكان $P₂$ و$T₂$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: STP Is a State — الظروف القياسية حالة",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.04",
+          "boardSpec": {
+            "kind": "stp"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "State the $STP$ convention used in this course. Why are these state conditions rather than a new law?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "قوللي قيم $STP$ (الظروف القياسية) في الكورس، وبعدها اشرح ليه بنعتبرها State conditions (شروط حالة) مش قانون جديد.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "State the $STP$ convention used in this course. Why are these state conditions rather than a new law?",
+        "arabic": "قوللي قيم $STP$ (الظروف القياسية) في الكورس، وبعدها اشرح ليه بنعتبرها State conditions (شروط حالة) مش قانون جديد.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "This course uses 273.15 K and 1 atm = 760 mmHg for STP; these are state conditions, not a separate law.",
+          "arabic": "يستخدم هذا الكورس $273.15 K$ و$1 atm = 760 mmHg$ للظروف القياسية (STP). هذه قيم تصف الحالة الثانية، وليست علاقة جديدة بين المتغيرات. يجب الالتزام بالتعريف المعطى في السؤال."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "This course uses $273.15 K$ and $1 atm = 760 mmHg$ for $STP$; these are state conditions, not a separate law.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "يستخدم هذا الكورس $273.15 K$ و$1 atm = 760 mmHg$ للظروف القياسية ($STP$). هذه قيم تصف الحالة الثانية، وليست علاقة جديدة بين المتغيرات. يجب الالتزام بالتعريف المعطى في السؤال.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.04",
+              "boardSpec": {
+                "kind": "stp"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Worked Mixed Example — مثال مختلط محلول",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-worked",
+            "worked": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "هحل مثال كامل الأول. Gas (غاز) حجمه $1.50 L$ عند $300 K$ و$1.00 atm$، وبقى عند $330 K$ و$1.20 atm$. مفيش متغير ثابت، فنستخدم Combined. نعوض: ($1.00×1.50$)/$300$=($1.20×V₂$)/$330$، فيطلع $V₂≈1.38 L$. هنا الحرارة الأعلى تميل لزيادة الحجم، لكن الضغط الأعلى يميل لتقليله؛ لذلك ما نعتمدش على اتجاه عامل واحد فقط. لعزل الحجم النهائي نضرب في $T₂$ ثم نقسم على $P₂$: $V₂$=($P₁V$₁$T₂$)/($T₁P₂$).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Worked Mixed Example — مثال مختلط محلول",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-worked",
+            "worked": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $1.50 L$ at $300 K$ and $1.00 atm$, then changes to $330 K$ and $1.20 atm$. Explain the law and the approximately $1.38 L$ result.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "لخصلي ليه اخترنا Combined Gas Law (القانون المجمّع)، وإزاي اتنظمت الحالتان، وليه النتيجة حوالي $1.38 L$ معقولة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "A gas occupies $1.50 L$ at $300 K$ and $1.00 atm$, then changes to $330 K$ and $1.20 atm$. Explain the law and the approximately $1.38 L$ result.",
+        "arabic": "لخصلي ليه اخترنا Combined Gas Law (القانون المجمّع)، وإزاي اتنظمت الحالتان، وليه النتيجة حوالي $1.38 L$ معقولة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ = 1.375 L ≈ 1.38 L. The pressure increase outweighs the temperature increase.",
+          "arabic": "لا يوجد متغير ثابت، فنستخدم القانون المجمّع. $V₂ = 1.00 × 1.50 × 330 / (300 × 1.20) = 1.375 L ≈ 1.38 L$. أثر زيادة الضغط أكبر هنا من أثر زيادة الحرارة، فيقل الحجم قليلًا."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ = 1.375 L ≈ 1.38 L$. The pressure increase outweighs the temperature increase.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "لا يوجد متغير ثابت، فنستخدم القانون المجمّع. $V₂ = 1.00 × 1.50 × 330 / (300 × 1.20) = 1.375 L ≈ 1.38 L$. أثر زيادة الضغط أكبر هنا من أثر زيادة الحرارة، فيقل الحجم قليلًا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.05",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "combined-worked",
+                "worked": true
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S11",
+      "title": "Assignment 3 — التكليف الثالث",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.06",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي مسألة المصدر: $2.00 L$ من غاز عند $25.0°C$ و$745.0 mmHg$، والمطلوب Volume (الحجم) عند $STP$ (الظروف القياسية). أنت هتعمل State organization (تنظيم الحالتين)، تحويل Kelvin، وتستخدم $760 mmHg$ و$273.15 K$ للحالة الثانية حسب تعريف الكورس.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "تطبيق: Assignment 3 — التكليف الثالث",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.06",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $2.00 L$ at $25.0°C$ and $745 mmHg$. Find the volume at $273.15 K$ and $760 mmHg$. Show the full method and check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $2.00 L$ عند $25.0°C$ و$745.0 mmHg$. الحالة النهائية وفق تعريف الكورس: $273.15 K$ و$760 mmHg$؛ كمية الغاز ثابتة. حل Assignment ($3$) كاملًا واشرح كل خطوة: اختيار القانون، ترتيب الحالتين، التحويلات، المعادلة، النتيجة، والتحقق المنطقي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q06",
+        "english": "A gas occupies $2.00 L$ at $25.0°C$ and $745 mmHg$. Find the volume at $273.15 K$ and $760 mmHg$. Show the full method and check.",
+        "arabic": "المعطيات: $2.00 L$ عند $25.0°C$ و$745.0 mmHg$. الحالة النهائية وفق تعريف الكورس: $273.15 K$ و$760 mmHg$؛ كمية الغاز ثابتة. حل Assignment ($3$) كاملًا واشرح كل خطوة: اختيار القانون، ترتيب الحالتين، التحويلات، المعادلة، النتيجة، والتحقق المنطقي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 1.80 L. Cooling and slightly increased pressure both reduce the volume.",
+          "arabic": "$T₁ = 298.15 K$. من القانون المجمّع: $V₂ = 745 × 2.00 × 273.15 / (760 × 298.15) ≈ 1.80 L$. التبريد وزيادة الضغط قليلًا كلاهما يميل لتقليل الحجم، فيتفق الناتج مع التوقع."
+        },
+        "feedback": {
+          "clipId": "F06",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 1.80 L$. Cooling and slightly increased pressure both reduce the volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$T₁ = 298.15 K$. من القانون المجمّع: $V₂ = 745 × 2.00 × 273.15 / (760 × 298.15) ≈ 1.80 L$. التبريد وزيادة الضغط قليلًا كلاهما يميل لتقليل الحجم، فيتفق الناتج مع التوقع.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.06",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "combined-source",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S13",
+      "title": "Teach-back — طريقة القانون المجمّع",
+      "clipId": "N13",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.07",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "strategy"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "آخر خطوة نخلي الطريقة بتاعتك مش مجرد مسألة واحدة. اجمع قرار اختيار القانون مع تنظيم الحالتين والتحويلات والتحقق.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "تطبيق: Teach-back — طريقة القانون المجمّع",
+      "clipId": "N14",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "08.07",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "strategy"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain a complete combined-gas-law solution method, including units and a sanity check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح طريقة حل أي Combined Gas Law Problem (مسألة قانون مجمّع): إمتى تختاره؟ إزاي ترتب State $1/2$ (الحالتين)؟ إمتى تحول Kelvin؟ تعمل إيه في Pressure units (وحدات الضغط)؟ وإزاي تعمل Check (تحقق)؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q07",
+        "english": "Explain a complete combined-gas-law solution method, including units and a sanity check.",
+        "arabic": "اشرح طريقة حل أي Combined Gas Law Problem (مسألة قانون مجمّع): إمتى تختاره؟ إزاي ترتب State $1/2$ (الحالتين)؟ إمتى تحول Kelvin؟ تعمل إيه في Pressure units (وحدات الضغط)؟ وإزاي تعمل Check (تحقق)؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Organize both complete states, use Kelvin and compatible pressure units, then apply and check the combined law.",
+          "arabic": "حدد أن نفس كمية الغاز ثابتة وأن المتغيرات الثلاثة تدخل في التغير. رتب كل حالة كاملة، وحول الحرارة إلى كلفن ووحد الضغط، ثم استخدم $P₁V₁/T₁ = P₂V₂/T₂$. راجع النتيجة بمقارنة نسب الضغط والحرارة."
+        },
+        "feedback": {
+          "clipId": "F07",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Organize both complete states, use Kelvin and compatible pressure units, then apply and check the combined law.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "حدد أن نفس كمية الغاز ثابتة وأن المتغيرات الثلاثة تدخل في التغير. رتب كل حالة كاملة، وحول الحرارة إلى كلفن ووحد الضغط، ثم استخدم $P₁V₁/T₁ = P₂V₂/T₂$. راجع النتيجة بمقارنة نسب الضغط والحرارة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "08.07",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "strategy"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-combined-law"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يختار القانون المجمّع عندما لا يوجد P/V/T ثابت بوضوح.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يفهم PV/T=k وصيغة الحالتين مع Kelvin.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يرتب القيم في الحالة الصحيحة ويراجع الوحدات قبل الجبر.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يعرف قيم STP المعتمدة في الكورس ويفهم أنها شروط حالة.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يتابع حل مثال مختلط كامل قبل Assignment (3).",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    },
+    {
+      "id": "O06",
+      "text": "يحل مسألة 2.00 L عند 25°C و745 mmHg إلى STP.",
+      "sceneIds": [
+        "S11"
+      ],
+      "questionIds": [
+        "Q06"
+      ]
+    },
+    {
+      "id": "O07",
+      "text": "يلخص قرار الاختيار والتنظيم والتحويل والتحقق.",
+      "sceneIds": [
+        "S13"
+      ],
+      "questionIds": [
+        "Q07"
+      ]
+    }
+  ]
+}

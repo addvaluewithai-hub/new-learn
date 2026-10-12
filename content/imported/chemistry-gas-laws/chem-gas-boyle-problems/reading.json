@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-boyle-problems",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "6b983ca25f3170cfd11df058aba05ec6c4b43fd4234c5e9c199fee22b6bcd449",
+  "title": "مسائل قانون بويل",
+  "englishTitle": "Boyle Problems",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 4,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Given, Constant, Find — المعطيات والثابت والمطلوب",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.01",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-organize",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "قبل الآلة الحاسبة، هوريك طريقة ثابتة لترتيب السؤال. Given (المعطيات) هي القيم اللي السؤال مديهالك: $P₁$ و$V₁$ و$P₂$. Constant (الثابت) هو المتغير اللي السؤال قال إنه لا يتغير: هنا Temperature (درجة الحرارة). Find (المطلوب) هو $V₂$. لما تشوف ضغط وحجم في حالتين وTemperature (درجة الحرارة) ثابتة، ده يشير إلى Boyle's Law (قانون بويل). التنظيم ده هو اللي يختار القانون بدل الحفظ العشوائي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Given, Constant, Find — المعطيات والثابت والمطلوب",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.01",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-organize",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Given $P₁$, $V₁$ and $P₂$, find $V₂$ at constant temperature. Identify the givens, constant and suitable law.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "دلوقتي قولها بطريقتك: لو السؤال أعطاك $P₁$ و$V₁$ و$P₂$ وطلب $V₂$ وقال إن Temperature (درجة الحرارة) constant (ثابتة)، إيه الـGiven (المعطيات)، وإيه الـConstant (الثابت)، وإيه الـFind (المطلوب)، وليه ده يشير لـBoyle's Law (قانون بويل)؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Given $P₁$, $V₁$ and $P₂$, find $V₂$ at constant temperature. Identify the givens, constant and suitable law.",
+        "arabic": "دلوقتي قولها بطريقتك: لو السؤال أعطاك $P₁$ و$V₁$ و$P₂$ وطلب $V₂$ وقال إن Temperature (درجة الحرارة) constant (ثابتة)، إيه الـGiven (المعطيات)، وإيه الـConstant (الثابت)، وإيه الـFind (المطلوب)، وليه ده يشير لـBoyle's Law (قانون بويل)؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The givens are P₁, V₁ and P₂; find V₂ using Boyle's law at constant temperature.",
+          "arabic": "المعطيات $P₁$ و$V₁$ و$P₂$، والمطلوب $V₂$. الحرارة ثابتة، لذلك نستخدم بويل: $P₁V₁ = P₂V₂$، مع إبقاء قيم كل حالة معًا."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "The givens are $P₁$, $V₁$ and $P₂$; find $V₂$ using Boyle's law at constant temperature.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "المعطيات $P₁$ و$V₁$ و$P₂$، والمطلوب $V₂$. الحرارة ثابتة، لذلك نستخدم بويل: $P₁V₁ = P₂V₂$، مع إبقاء قيم كل حالة معًا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.01",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "boyle-organize",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Guided example — مثال موجه",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.02",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-worked",
+            "worked": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "مثال من عندنا للتدريب: Gas (غاز) حجمه $600 mL$ عند $1.00 atm$. عند Temperature ثابتة (درجة حرارة ثابتة)، Pressure (الضغط) بقى $1.50 atm$. قبل الحساب: Pressure (الضغط) زاد، إذن Volume (الحجم) لازم يقل. نستخدم $P₁V₁=P₂V₂$، فنعوض: ($1.00$)($600$) = ($1.50$)($V₂$)، وبعد القسمة $V₂ = 400 mL$. بعدين نعمل Check (تحقق): $400$ أقل من $600$، وده متفق مع توقعنا إن الحجم يقل لما الضغط يزيد. المثال ده نموذج للطريقة، وبعده هتعمل واحد بنفسك.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Guided example — مثال موجه",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.02",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-worked",
+            "worked": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $500 mL$ at $1.00 atm$. Find its volume at $2.00 atm$, at constant temperature. Explain your choice and check the direction.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "في مثال جديد: لو نفس الغاز كان $500 mL$ عند $1.00 atm$ وبقى الضغط $2.00 atm$ عند Temperature (درجة حرارة) ثابتة، احسب $V₂$ وبعد الرقم اشرح ليه اخترت Boyle's Law (قانون بويل) وإزاي تعرف إن اتجاه الإجابة منطقي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "A gas occupies $500 mL$ at $1.00 atm$. Find its volume at $2.00 atm$, at constant temperature. Explain your choice and check the direction.",
+        "arabic": "في مثال جديد: لو نفس الغاز كان $500 mL$ عند $1.00 atm$ وبقى الضغط $2.00 atm$ عند Temperature (درجة حرارة) ثابتة، احسب $V₂$ وبعد الرقم اشرح ليه اخترت Boyle's Law (قانون بويل) وإزاي تعرف إن اتجاه الإجابة منطقي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ = 250 mL. Constant temperature gives Boyle's law; doubling pressure halves volume.",
+          "arabic": "نستخدم بويل لأن الحرارة ثابتة. $V₂ = 1.00 × 500 / 2.00 = 250 mL$. الضغط تضاعف فالحجم قل إلى النصف، والناتج أقل من $500 mL$ كما توقعنا."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ = 250 mL$. Constant temperature gives Boyle's law; doubling pressure halves volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "نستخدم بويل لأن الحرارة ثابتة. $V₂ = 1.00 × 500 / 2.00 = 250 mL$. الضغط تضاعف فالحجم قل إلى النصف، والناتج أقل من $500 mL$ كما توقعنا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.02",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "boyle-worked",
+                "worked": true
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Assignment 1 — التكليف الأول",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي بعد ما شفنا الطريقة بمثال محلول، دي مسألة المصدر نفسها. A sample of nitrogen (عينة من النيتروجين) occupies a volume (تشغل حجمًا) of $725 mL$ at a pressure (ضغط) of $0.971 atm$. What volume (ما الحجم) will the gas occupy at a pressure (عند ضغط) of $1.40 atm$, assuming the temperature remains constant (بافتراض أن درجة الحرارة تظل ثابتة)؟ ابدأ Prediction (التوقع): بما إن Pressure (الضغط) زاد، إحنا متوقعين Volume (الحجم) يقل. بعد كده طبّق القانون بنفسك.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Assignment 1 — التكليف الأول",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Nitrogen occupies $725 mL$ at $0.971 atm$. Find the volume at $1.40 atm$ at constant temperature. Predict, calculate and check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $725 mL$ عند $0.971 atm$؛ الضغط النهائي $1.40 atm$، والحرارة وكمية الغاز ثابتتان. حل المسألة بصوتك أو كتابةً: ابدأ Prediction (التوقع)، بعده Law (القانون)، بعده Substitute (التعويض)، وبعد الرقم اعمل Check (تحقق منطقي).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "Nitrogen occupies $725 mL$ at $0.971 atm$. Find the volume at $1.40 atm$ at constant temperature. Predict, calculate and check.",
+        "arabic": "المعطيات: $725 mL$ عند $0.971 atm$؛ الضغط النهائي $1.40 atm$، والحرارة وكمية الغاز ثابتتان. حل المسألة بصوتك أو كتابةً: ابدأ Prediction (التوقع)، بعده Law (القانون)، بعده Substitute (التعويض)، وبعد الرقم اعمل Check (تحقق منطقي).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 503 mL. Increased pressure reduces volume at constant temperature.",
+          "arabic": "الضغط زاد، فنتوقع حجمًا أقل. من بويل: $V₂ = 0.971 × 725 / 1.40 ≈ 503 mL$. النتيجة أقل من $725 mL$، ومتوافقة مع العلاقة العكسية."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 503 mL$. Increased pressure reduces volume at constant temperature.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الضغط زاد، فنتوقع حجمًا أقل. من بويل: $V₂ = 0.971 × 725 / 1.40 ≈ 503 mL$. النتيجة أقل من $725 mL$، ومتوافقة مع العلاقة العكسية.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.03",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "boyle-source",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Teach-back solution — اشرح الحل لزميلك",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.04",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "strategy"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "إحنا اتعلمنا الطريقة وشوفنا مثالًا محلولًا وطبّقنا على مسألة المصدر. آخر خطوة مش رقم جديد؛ هدفها أتأكد إن الطريقة بقت بتاعتك. اشرح كأنك بتعلّم زميلك إزاي يعرف مسألة Boyle's Law (قانون بويل) ويحلها من غير ما يحفظ مكان كل رقم.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Teach-back solution — اشرح الحل لزميلك",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "02.04",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "strategy"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain a complete method for solving a Boyle-law problem, including a sanity check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح طريقة حل أي مسألة Boyle's Law (قانون بويل): إيه الكلمات اللي تدور عليها في السؤال؟ إيه الثابت؟ تتوقع الاتجاه إزاي؟ تستخدم إيه؟ وإزاي تعمل sanity check (تحقق منطقي) في الآخر؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "Explain a complete method for solving a Boyle-law problem, including a sanity check.",
+        "arabic": "اشرح طريقة حل أي مسألة Boyle's Law (قانون بويل): إيه الكلمات اللي تدور عليها في السؤال؟ إيه الثابت؟ تتوقع الاتجاه إزاي؟ تستخدم إيه؟ وإزاي تعمل sanity check (تحقق منطقي) في الآخر؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Identify constant temperature, organize each state, apply P₁V₁ = P₂V₂ and check units and inverse direction.",
+          "arabic": "حدد أن الحرارة ثابتة، ورتب ضغط وحجم كل حالة. توقع الاتجاه، ثم استخدم $P₁V₁ = P₂V₂$ بوحدات متوافقة. راجع أن زيادة الضغط صاحبتها قلة الحجم، أو العكس."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Identify constant temperature, organize each state, apply $P₁V₁ = P₂V₂$ and check units and inverse direction.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "حدد أن الحرارة ثابتة، ورتب ضغط وحجم كل حالة. توقع الاتجاه، ثم استخدم $P₁V₁ = P₂V₂$ بوحدات متوافقة. راجع أن زيادة الضغط صاحبتها قلة الحجم، أو العكس.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "02.04",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "strategy"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-boyle-problems"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "ينظم قيم الحالة الأولى والثانية ويحدد Temperature (درجة الحرارة) كمتغير ثابت.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يحل مثال Boyle مع prediction (توقع) وsanity check (تحقق منطقي).",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يحل مسألة المصدر 725 mL و0.971 atm إلى 1.40 atm عند ثبات Temperature.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يشرح طريقة حل مسألة Boyle كاملة من نص السؤال إلى التحقق النهائي.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    }
+  ]
+}

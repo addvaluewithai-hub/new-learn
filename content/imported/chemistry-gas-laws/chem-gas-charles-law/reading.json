@@ -1,0 +1,819 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-charles-law",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "21122148f5de65d302c6c269a09b0a32ce8f855050559abe4fe119f4b64437e1",
+  "title": "قانون شارل: الحجم ودرجة الحرارة",
+  "englishTitle": "Charles' Law",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 5,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Heating at Constant Pressure — التسخين عند ضغط ثابت",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.01",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "overview"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "تخيل Gas (غاز) تحت Piston (مكبس) يقدر يتحرك. لو Pressure (الضغط) ثابت وسخّنا الغاز، الجزيئات تتحرك أكتر والمكبس يقدر يطلع لفوق، فيزيد Volume (الحجم). والعكس مع التبريد: عند نفس الضغط، الحجم يقل. إذن الاتجاه الأساسي هنا: Temperature (درجة الحرارة) تزيد → Volume (الحجم) يزيد، طالما Pressure (الضغط) ثابت.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Heating at Constant Pressure — التسخين عند ضغط ثابت",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.01",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "overview"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "At constant pressure, how does volume respond when temperature increases or decreases?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي الاتجاه بطريقتك: عند Constant Pressure (ضغط ثابت)، لو Temperature (درجة الحرارة) زادت أو قلت، Volume (الحجم) يعمل إيه؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "At constant pressure, how does volume respond when temperature increases or decreases?",
+        "arabic": "اشرحلي الاتجاه بطريقتك: عند Constant Pressure (ضغط ثابت)، لو Temperature (درجة الحرارة) زادت أو قلت، Volume (الحجم) يعمل إيه؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "At constant pressure and gas amount, volume increases with absolute temperature and decreases when it falls.",
+          "arabic": "عند ضغط ثابت ونفس كمية الغاز، ارتفاع الحرارة المطلقة يقابله ارتفاع الحجم، وانخفاضها يقابله انخفاض الحجم: علاقة طردية (Direct relationship)."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "At constant pressure and gas amount, volume increases with absolute temperature and decreases when it falls.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "عند ضغط ثابت ونفس كمية الغاز، ارتفاع الحرارة المطلقة يقابله ارتفاع الحجم، وانخفاضها يقابله انخفاض الحجم: علاقة طردية (Direct relationship).",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.01",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "charles",
+                "focus": "overview"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Constant Condition — الشرط الثابت",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "conditions"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "اسم القانون وحده مش كفاية. في Charles' Law (قانون شارل)، المتغير Constant (الثابت) هو Pressure (الضغط). اللي بيتغيروا هما Volume (الحجم) وTemperature (درجة الحرارة). الجملة دي هي مفتاح اختيار القانون من نص السؤال.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Constant Condition — الشرط الثابت",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.02",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "conditions"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "What stays constant in Charles' law? Which two variables are related?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "إيه المتغير Constant (الثابت) في Charles' Law (قانون شارل)؟ وبعدها اشرح إيه المتغيرين اللي بنقارن بينهم.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "What stays constant in Charles' law? Which two variables are related?",
+        "arabic": "إيه المتغير Constant (الثابت) في Charles' Law (قانون شارل)؟ وبعدها اشرح إيه المتغيرين اللي بنقارن بينهم.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Pressure and gas amount stay constant; volume and temperature are related.",
+          "arabic": "الضغط (Pressure) ثابت، وكمية الغاز ثابتة. المتغيران المرتبطان هما الحجم (Volume) ودرجة الحرارة (Temperature)."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Pressure and gas amount stay constant; volume and temperature are related.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الضغط (Pressure) ثابت، وكمية الغاز ثابتة. المتغيران المرتبطان هما الحجم (Volume) ودرجة الحرارة (Temperature).",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.02",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "charles",
+                "focus": "conditions"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Direct vs Inverse — طردي مقابل عكسي",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.03",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "الحرارة المطلقة هي الحرارة على مقياس كلفن الذي يبدأ من الصفر المطلق، بدل نقطة الصفر الخاصة بسيلسيوس. عند مقارنة نسب الحرارة نستخدم كلفن؛ هنشوف التحويل بالأرقام في درس المسائل. قارن القانونين. Boyle's Law (قانون بويل): Pressure (الضغط) وVolume (الحجم) علاقة Inverse (عكسية) عند Temperature (درجة حرارة) ثابتة. Charles' Law (قانون شارل): Volume (الحجم) وAbsolute Temperature (درجة الحرارة المطلقة) علاقة Direct (طردية) عند Pressure (ضغط) ثابت.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Direct vs Inverse — طردي مقابل عكسي",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.03",
+          "boardSpec": {
+            "kind": "selector"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare Boyle's and Charles' laws: the constant variable and the direction of each relationship.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح الفرق بين Boyle's Law (قانون بويل) وCharles' Law (قانون شارل): إيه الثابت وإيه اتجاه العلاقة في كل واحد؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "Compare Boyle's and Charles' laws: the constant variable and the direction of each relationship.",
+        "arabic": "اشرح الفرق بين Boyle's Law (قانون بويل) وCharles' Law (قانون شارل): إيه الثابت وإيه اتجاه العلاقة في كل واحد؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Boyle fixes temperature and relates P inversely to V; Charles fixes pressure and relates V directly to absolute T.",
+          "arabic": "بويل: الحرارة ثابتة، والضغط والحجم بينهما علاقة عكسية. شارل: الضغط ثابت، والحجم والحرارة المطلقة بينهما علاقة طردية."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Boyle fixes temperature and relates $P$ inversely to $V$; Charles fixes pressure and relates $V$ directly to absolute $T$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "بويل: الحرارة ثابتة، والضغط والحجم بينهما علاقة عكسية. شارل: الضغط ثابت، والحجم والحرارة المطلقة بينهما علاقة طردية.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.03",
+              "boardSpec": {
+                "kind": "selector"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Read the Graph — اقرأ الرسم",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.04",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "graph"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "على $V$–$T$ Graph (رسم الحجم مقابل درجة الحرارة)، الخطوط طالعة لفوق: كل ما Temperature (درجة الحرارة) تزيد، Volume (الحجم) يزيد عند Pressure (ضغط) ثابت. الرسم هنا مش مجرد شكل؛ هو نفس الفكرة اللي قلناها بالكلام لكن ممثلة بصريًا.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Read the Graph — اقرأ الرسم",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.04",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "graph"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Describe the direction of a volume-versus-temperature graph at constant pressure. Why is the relationship direct?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي الرسم: لما Temperature (درجة الحرارة) تتحرك لليمين وتزيد، Volume (الحجم) بيتحرك إزاي؟ وليه ده معناه Direct relationship (علاقة طردية)؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "Describe the direction of a volume-versus-temperature graph at constant pressure. Why is the relationship direct?",
+        "arabic": "اشرحلي الرسم: لما Temperature (درجة الحرارة) تتحرك لليمين وتزيد، Volume (الحجم) بيتحرك إزاي؟ وليه ده معناه Direct relationship (علاقة طردية)؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The graph rises: volume increases as absolute temperature increases at constant pressure.",
+          "arabic": "عندما تزيد الحرارة المطلقة على المحور الأفقي، يزيد الحجم على المحور الرأسي. لذلك الاتجاه صاعد: المتغيران يزيدان معًا عند ثبات الضغط."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "The graph rises: volume increases as absolute temperature increases at constant pressure.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "عندما تزيد الحرارة المطلقة على المحور الأفقي، يزيد الحجم على المحور الرأسي. لذلك الاتجاه صاعد: المتغيران يزيدان معًا عند ثبات الضغط.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.04",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "charles",
+                "focus": "graph"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Absolute Zero — الصفر المطلق",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.05",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "absolute-zero"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "المصدر يوضح Absolute zero (الصفر المطلق) عند $−273.15°C$، وده يساوي $0 K$. الفكرة التعليمية المهمة: نسب قوانين الغازات لازم تستخدم Absolute Temperature (درجة الحرارة المطلقة)، يعني Kelvin (كلفن)، مش Celsius (سيلسيوس) الخام. مش بنعوض $−273.15$ في كل مسألة؛ إحنا بنحوّل مقياس الحرارة لكلفن.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Absolute Zero — الصفر المطلق",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.05",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "absolute-zero"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Why must Charles-law temperature ratios use Kelvin rather than Celsius?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "ليه حسابات Charles' Law (قانون شارل) تستخدم Kelvin (كلفن) بدل Celsius (سيلسيوس) داخل النسبة؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "Why must Charles-law temperature ratios use Kelvin rather than Celsius?",
+        "arabic": "ليه حسابات Charles' Law (قانون شارل) تستخدم Kelvin (كلفن) بدل Celsius (سيلسيوس) داخل النسبة؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Kelvin is an absolute scale; Celsius zero is offset, so Celsius values cannot be used in these temperature ratios.",
+          "arabic": "كلفن (Kelvin) مقياس حرارة مطلق يبدأ عند الصفر المطلق. النسب في القانون تخص هذه الحرارة المطلقة. سيلسيوس له نقطة صفر مختلفة؛ مثلًا $20°C$ ليست نصف الحرارة المطلقة عند $40°C$."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Kelvin is an absolute scale; Celsius zero is offset, so Celsius values cannot be used in these temperature ratios.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "كلفن (Kelvin) مقياس حرارة مطلق يبدأ عند الصفر المطلق. النسب في القانون تخص هذه الحرارة المطلقة. سيلسيوس له نقطة صفر مختلفة؛ مثلًا $20°C$ ليست نصف الحرارة المطلقة عند $40°C$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.05",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "charles",
+                "focus": "absolute-zero"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S11",
+      "title": "Equation Bridge — جسر المعادلة",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.06",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "equation"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي المعادلة نتيجة للمعنى. لو Volume (الحجم) يتناسب طرديًا مع Absolute Temperature (درجة الحرارة المطلقة)، نكتب $V ∝ T$. ده يخلي النسبة $V/T$ ثابتة، أي $V/T=k$. ولحالتين من نفس الغاز عند Pressure (ضغط) ثابت: $V₁/T₁=V₂/T₂$، مع $T$ بالكلفن.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "تطبيق: Equation Bridge — جسر المعادلة",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.06",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "equation"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain why $V/T$ is constant and state the two-state form of Charles' law.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي ليه $V/T$ تبقى ثابتة في Charles' Law (قانون شارل)، وبعدها قول صيغة الحالتين.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q06",
+        "english": "Explain why $V/T$ is constant and state the two-state form of Charles' law.",
+        "arabic": "اشرحلي ليه $V/T$ تبقى ثابتة في Charles' Law (قانون شارل)، وبعدها قول صيغة الحالتين.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V/T is constant; V₁/T₁ = V₂/T₂ with Kelvin temperatures at constant pressure.",
+          "arabic": "الحجم يتناسب طرديًا مع الحرارة المطلقة عند ضغط وكمية غاز ثابتين، لذلك $V/T$ ثابت. للحالتين: $V₁/T₁ = V₂/T₂$، ودرجة الحرارة بالكلفن."
+        },
+        "feedback": {
+          "clipId": "F06",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V/T$ is constant; $V₁/T₁ = V₂/T₂$ with Kelvin temperatures at constant pressure.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الحجم يتناسب طرديًا مع الحرارة المطلقة عند ضغط وكمية غاز ثابتين، لذلك $V/T$ ثابت. للحالتين: $V₁/T₁ = V₂/T₂$، ودرجة الحرارة بالكلفن.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.06",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "charles",
+                "focus": "equation"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S13",
+      "title": "Teach-back — اشرح قانون شارل",
+      "clipId": "N13",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.07",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "overview"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي اجمع كل القطع: الشرط، الاتجاه، الرسم، كلفن، والمعادلة. اشرحهم كأنك بتشرح لزميلك اللي غاب المحاضرة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "تطبيق: Teach-back — اشرح قانون شارل",
+      "clipId": "N14",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "05.07",
+          "boardSpec": {
+            "kind": "gas",
+            "law": "charles",
+            "focus": "overview"
+          },
+          "availableLaws": 2,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain Charles' law, its graph, Kelvin requirement and equation.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح Charles' Law (قانون شارل) من البداية للنهاية: إيه الثابت؟ العلاقة إيه؟ الرسم بيقول إيه؟ ليه Kelvin (كلفن)؟ وإيه المعادلة؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q07",
+        "english": "Explain Charles' law, its graph, Kelvin requirement and equation.",
+        "arabic": "اشرح Charles' Law (قانون شارل) من البداية للنهاية: إيه الثابت؟ العلاقة إيه؟ الرسم بيقول إيه؟ ليه Kelvin (كلفن)؟ وإيه المعادلة؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Charles' law relates volume directly to absolute temperature at constant pressure: V₁/T₁ = V₂/T₂.",
+          "arabic": "الضغط وكمية الغاز ثابتان. الحجم يزيد مع الحرارة المطلقة، والرسم صاعد. نستخدم كلفن في النسبة ونكتب $V₁/T₁ = V₂/T₂$."
+        },
+        "feedback": {
+          "clipId": "F07",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Charles' law relates volume directly to absolute temperature at constant pressure: $V₁/T₁ = V₂/T₂$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الضغط وكمية الغاز ثابتان. الحجم يزيد مع الحرارة المطلقة، والرسم صاعد. نستخدم كلفن في النسبة ونكتب $V₁/T₁ = V₂/T₂$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "05.07",
+              "boardSpec": {
+                "kind": "gas",
+                "law": "charles",
+                "focus": "overview"
+              },
+              "availableLaws": 2,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-law"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يفهم أن رفع الحرارة يزيد الحجم عند ضغط ثابت.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يحدد Pressure كمتغير ثابت في Charles' Law.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يميز علاقة شارل الطردية عن علاقة بويل العكسية.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يقرأ اتجاه V–T graph باعتباره علاقة طردية.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يربط −273.15°C بـ0 K والحاجة للحرارة المطلقة في النسب.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    },
+    {
+      "id": "O06",
+      "text": "يربط العلاقة الطردية بـV/T=k ثم V₁/T₁=V₂/T₂.",
+      "sceneIds": [
+        "S11"
+      ],
+      "questionIds": [
+        "Q06"
+      ]
+    },
+    {
+      "id": "O07",
+      "text": "يلخص قانون شارل بالمفهوم والرسم والشرط والحرارة المطلقة والمعادلة.",
+      "sceneIds": [
+        "S13"
+      ],
+      "questionIds": [
+        "Q07"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+.legacy-chem .chem-matter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.legacy-chem .chem-matter-card {
+  min-width: 0;
+  padding: 17px;
+  border-radius: 20px;
+  border: 1px solid #e5e8dc;
+  background: #faf3e8;
+}
+.legacy-chem .chem-matter-card.phase-liquid {
+  background: #edf4fa;
+  border-color: #deebf1;
+}
+.legacy-chem .chem-matter-card.phase-gas {
+  background: #f3eff9;
+  border-color: #e9e0f1;
+}
+.legacy-chem .chem-matter-card h3 {
+  font-size: 0.98em;
+  margin: 0;
+  text-align: center;
+}
+.legacy-chem .chem-matter-card > strong {
+  display: block;
+  min-height: 44px;
+  font-size: 0.87em;
+  line-height: 1.8;
+}
+.legacy-chem .chem-matter-card p {
+  margin: 7px 0 0;
+  min-height: 62px;
+  font-size: 0.79em;
+  line-height: 1.8;
+  color: #5e7364;
+}
+.legacy-chem .chem-particles {
+  display: block;
+  width: 100%;
+  aspect-ratio: 240/174;
+  margin-block: 10px;
+}
+.legacy-chem .chem-explore-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.legacy-chem .chem-note {
+  font-size: 0.71em;
+  line-height: 1.8;
+  color: #71816e;
+}
+.legacy-chem .chem-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  gap: 7px;
+  border: 1px solid #d9e4d8;
+  border-radius: 12px;
+  background: #f7faf4;
+  color: #385c44;
+  padding: 8px 13px;
+  font-size: 0.79em;
+}
+.legacy-chem .chem-button:hover:not(:disabled) {
+  background: #edf3e9;
+  border-color: #b7cbae;
+}
+.legacy-chem .chem-button[aria-pressed='true'] {
+  background: #ece7f6;
+  border-color: #aa99c7;
+  color: #6c548f;
+}
+.legacy-chem .chem-button.primary {
+  background: #326f51;
+  color: white;
+  border-color: #326f51;
+}
+.legacy-chem .chem-slider {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 180px;
+  font-size: 0.78em;
+  line-height: 1.7;
+}
+.legacy-chem .chem-slider input {
+  min-width: 110px;
+  flex: 1;
+  accent-color: #8471b1;
+  height: 32px;
+  direction: ltr;
+}
+.legacy-chem .chem-slider output {
+  min-width: 80px;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+.legacy-chem .control-locked {
+  opacity: 0.65;
+}
+.legacy-chem .chem-phase-buttons,
+.legacy-chem .chem-selector-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.legacy-chem .chem-phase-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+  gap: 15px;
+  align-items: center;
+  margin: 22px 0;
+}
+.legacy-chem .chem-phase-flow article {
+  background: #f1f5f0;
+  border: 1px solid #e0e9dc;
+  border-radius: 20px;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+.legacy-chem .chem-phase-flow .chem-particles {
+  max-height: 180px;
+  margin: 0;
+}
+.legacy-chem .phase-direction {
+  display: grid;
+  justify-items: center;
+  color: #b17949;
+  font-size: 0.85em;
+}
+.legacy-chem .phase-direction > span {
+  font-size: 42px;
+  line-height: 1.4;
+}
+.legacy-chem .phase-direction.is-cooling {
+  color: #618db0;
+}
+.legacy-chem .chem-observation {
+  border-inline-start: 3px solid #ab9bc8;
+  background: #f5f2fa;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 17px;
+}

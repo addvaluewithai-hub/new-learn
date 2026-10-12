@@ -1,0 +1,79 @@
+/* Phone labels stay legible; experiments occupy the board's reserved safe area. */
+.legacy-chem[data-layout='landscape'] .chem-matter-card .chem-particles {
+  height: 140px;
+  margin-block: 8px;
+}
+.legacy-chem[data-layout='landscape'] .chem-matter-card > strong {
+  min-height: 40px;
+  line-height: 1.45;
+}
+.legacy-chem[data-layout='landscape'] .chem-matter-card p {
+  min-height: 56px;
+  line-height: 1.55;
+}
+.legacy-chem[data-layout='landscape'] .chem-gas-stage {
+  grid-row: 2 / span 2;
+}
+.legacy-chem[data-layout='landscape'] .chem-gas-explorer .chem-piston {
+  grid-template-columns: minmax(230px, 1fr) minmax(140px, 0.8fr);
+}
+.legacy-chem .chem-piston svg {
+  width: min(100%, 300px);
+}
+.legacy-chem .chem-piston svg text,
+.legacy-chem .chem-plot svg text {
+  font-size: 18px;
+}
+.legacy-chem[data-layout='landscape'] .chem-gas-explorer .chem-plot svg {
+  max-height: 200px;
+}
+.legacy-chem[data-layout='portrait'] .chem-gas-explorer .chem-piston {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.legacy-chem[data-layout='portrait'] .chem-gas-explorer .chem-piston svg {
+  width: 330px;
+  max-height: 260px;
+}
+.legacy-chem[data-layout='portrait'] .chem-gas-explorer .chem-plot svg {
+  max-height: 275px;
+}
+.legacy-chem .chem-gas-readouts output {
+  white-space: nowrap;
+}
+.legacy-chem .chem-temperature-scales {
+  margin-block: 14px;
+  gap: 8px;
+}
+.legacy-chem .chem-temperature-scales article {
+  padding: 14px 18px;
+  gap: 6px;
+}
+.legacy-chem .temperature-bridge::after {
+  content: ' →';
+}
+.legacy-chem[data-layout='portrait'] .temperature-bridge {
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 28px;
+}
+.legacy-chem[data-layout='portrait'] .temperature-bridge::after {
+  content: '↓';
+}
+.legacy-chem[data-kind='kelvin'] .chem-observation {
+  margin-top: 14px;
+  padding: 14px;
+}
+.legacy-chem[data-kind='kelvin'] .chem-temperature-scales + .chem-slider {
+  margin-bottom: 14px;
+}
+.legacy-chem[data-layout='landscape'] .chem-state-table th,
+.legacy-chem[data-layout='landscape'] .chem-state-table td {
+  padding: 8px 15px;
+}
+.legacy-chem[data-layout='landscape'] .chem-worked-step {
+  min-height: 70px;
+  padding: 12px 16px;
+}

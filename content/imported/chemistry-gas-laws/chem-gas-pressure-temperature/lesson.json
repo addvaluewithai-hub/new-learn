@@ -1,0 +1,166 @@
+{
+  "id": "chem-gas-pressure-temperature",
+  "order": 7,
+  "title": "الضغط ودرجة الحرارة: قانون الحجم الثابت",
+  "englishTitle": "Pressure–Temperature",
+  "subtitle": "افهم علاقة P–T واختار القانون من المتغير الثابت",
+  "delivery": "reading",
+  "contentRevision": "d73a885630aec249efd0cae5bbae2fb98b079d9bd1458cf9d3f21eac54aa4caf",
+  "renderers": {
+    "chemistry-legacy-board": "board/LegacyBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-pressure-temperature",
+  "files": [
+    {
+      "path": "assets/fonts/LICENSE-IBM-Plex-Sans-Arabic-OFL.txt",
+      "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98",
+      "bytes": 4808
+    },
+    {
+      "path": "assets/fonts/LICENSE-STIX-Two-OFL.txt",
+      "sha256": "9d80d69f6a70033f4d113604bed4a3038b6e5b700c0266e7fe9f4033365ff076",
+      "bytes": 4510
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2",
+      "sha256": "6010e7fd0dce5d527583951750728cbe3c895efbd16aa0f809ab8c824878c9d8",
+      "bytes": 42848
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2",
+      "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac",
+      "bytes": 45688
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2",
+      "sha256": "9ed8dcb02e6c7246de4c120295fafa39a7bb73085f4951a4524a07dc911069f2",
+      "bytes": 19164
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2",
+      "sha256": "63f4757271e403f7baec0862f284ffaa4560ea6096ba9fe8bc6e585ca656e724",
+      "bytes": 20500
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-italic.woff2",
+      "sha256": "3d76ab92269582b8e11f3d969eaf93bb9609f1e08d5433fd18633e78e7900638",
+      "bytes": 18192
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-normal.woff2",
+      "sha256": "65f8cdee99e0c883fa05a493812ad15fd93e3af5510276661e34c204f771e514",
+      "bytes": 16776
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-600-normal.woff2",
+      "sha256": "c81c437a0d17a895f9d82f62611c1af238f04b0c996e6ef75c5441dd07769997",
+      "bytes": 17148
+    },
+    {
+      "path": "board/GasExplorer.tsx",
+      "sha256": "580e28778c23889b904f24384aef62856fdaf2dbee63b637e74295b7dc2f369a",
+      "bytes": 7536
+    },
+    {
+      "path": "board/GasPlot.tsx",
+      "sha256": "95a466da93f3fcba4591e00a4fcaacc2177d30f6a5fd41ec7c713a341fb5ed90",
+      "bytes": 3654
+    },
+    {
+      "path": "board/KelvinExplorer.tsx",
+      "sha256": "804a472a5d7ce02dcd00c378bf69708eba43baa450d1543a76eae6347dd1f85b",
+      "bytes": 2069
+    },
+    {
+      "path": "board/LawSelector.tsx",
+      "sha256": "4429f87ad0454e6f7e3a952acdfaccd03397a27d3120e1d39f9ac74491c4d75a",
+      "bytes": 2234
+    },
+    {
+      "path": "board/LegacyBoard.tsx",
+      "sha256": "db437d81e87dfc9812040c28f7b248370bcb6db2903fa47b30180bde8f707fc0",
+      "bytes": 3849
+    },
+    {
+      "path": "board/MatterExplorer.tsx",
+      "sha256": "06196ba556d9147fa18ae1706f2d9130d8fd7ec1ced942c298e6b5cd6a70df0c",
+      "bytes": 4394
+    },
+    {
+      "path": "board/Notation.tsx",
+      "sha256": "423ea1399f9ef65efbb35b72139bc304ea4fe562daa2860dd9becaab0aceaa05",
+      "bytes": 3962
+    },
+    {
+      "path": "board/Particles.tsx",
+      "sha256": "dfcb35c45af62f4a488880ac9b78076da61192abbe4e5e881aa3e36f92ba3db4",
+      "bytes": 2308
+    },
+    {
+      "path": "board/PhaseExplorer.tsx",
+      "sha256": "ecd1302a33bacd4f4be9fe871bf35a50c7cdcccdd5a8c248fedee0680cedfccb",
+      "bytes": 2371
+    },
+    {
+      "path": "board/ProblemWorkspace.tsx",
+      "sha256": "e736fbca35c15a047b291794bd90c21b28463603e5a921066c6b8a5bcbf94470",
+      "bytes": 3439
+    },
+    {
+      "path": "board/ReviewBoard.tsx",
+      "sha256": "a9ba0081ba954c94f26e2f78b3cae47df27462efd299f601be57a72a87682425",
+      "bytes": 1719
+    },
+    {
+      "path": "board/boardContent.ts",
+      "sha256": "a5f7ccf5b6519b6865a9ceeb54665735716f94cb90b70d984e7173382db88672",
+      "bytes": 6871
+    },
+    {
+      "path": "board/fit.css",
+      "sha256": "738a4ed0d45a8b3e423e5d1d559747415a63a26b8c33783da15c47cbf917677a",
+      "bytes": 2175
+    },
+    {
+      "path": "board/format.ts",
+      "sha256": "97261ea0af76097ceeb079608413570558ddfbfd4a472e1fe4c791fd9529ed8e",
+      "bytes": 169
+    },
+    {
+      "path": "board/gas.css",
+      "sha256": "56b8c12781c677f8cbcf3d51aeeed2158f2d2634a93aa29a7468103eab763d3c",
+      "bytes": 3452
+    },
+    {
+      "path": "board/layout.css",
+      "sha256": "abfc52f97051e3df7f31512243b0f9195edc8e0e7787e1717552088a3aa84484",
+      "bytes": 6931
+    },
+    {
+      "path": "board/matter.css",
+      "sha256": "3596ee587af13aebf932bec967e0e5a1b41a9e74bc9b06040f968eca956f7160",
+      "bytes": 3194
+    },
+    {
+      "path": "board/physics.ts",
+      "sha256": "af0f6509f7b3058f2c2d03205f1ca8150652f6a69b20ecf64245cdfcdfc2e090",
+      "bytes": 2463
+    },
+    {
+      "path": "board/problem.css",
+      "sha256": "8dcdb86abc6c4152e025927a67b6d93833d4e64acafebc0b99ef1f04b0203ec7",
+      "bytes": 5849
+    },
+    {
+      "path": "board/reveal.css",
+      "sha256": "707ad0c6bfd42e8f536743a9768b9652a66b39c958d7b2f6202c44a9bd8ecde8",
+      "bytes": 282
+    },
+    {
+      "path": "reading.json",
+      "sha256": "2af5a31b58ad9a79c2169021aef7a40daab37479114eaae7420f98777008a25d",
+      "bytes": 26218
+    }
+  ],
+  "manifestHash": "18d9e36e22ffc7734166f33d43a8d611dc7f09ad317cc8fdb4aaee6ad1a8905f"
+}

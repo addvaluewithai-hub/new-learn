@@ -1,0 +1,713 @@
+{
+  "id": "chemistry-gas-laws",
+  "title": "الكيمياء: قوانين الغازات",
+  "description": "تسعة دروس: حالات المادة وتحولاتها، بويل وشارل، الضغط والحرارة، القانون المجمّع، ثم امتحان تجريبي. شرح مكتوب مع السبورات التفاعلية الأصلية وأسئلة قبل الحل.",
+  "subject": "Chemistry",
+  "parts": [
+    {
+      "title": "المادة وتحولاتها",
+      "summary": "",
+      "lessons": [
+        "chem-gas-states-matter",
+        "chem-gas-phase-changes"
+      ]
+    },
+    {
+      "title": "بويل وشارل",
+      "summary": "",
+      "lessons": [
+        "chem-gas-boyles-law",
+        "chem-gas-boyle-problems",
+        "chem-gas-charles-law",
+        "chem-gas-charles-problems"
+      ]
+    },
+    {
+      "title": "ربط القوانين والتطبيق",
+      "summary": "",
+      "lessons": [
+        "chem-gas-pressure-temperature",
+        "chem-gas-combined-law",
+        "chem-gas-mock-exam"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "chem-gas-states-matter",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 1,
+      "title": "حالات المادة: الخصائص",
+      "subtitle": "افهم خصائص Solid وLiquid وGas قبل قوانين الغازات",
+      "moduleId": "reading:chem-gas-states-matter",
+      "contentRevision": "e5c1dec84a2e9d60b13455d383db1bb815825e41dd190571604e77f27fd37d7a",
+      "manifestHash": "a3dc53245b88def2eca1d1727345683bf6283559be71ebf06cbb840fb479b736",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يميز Solid وLiquid وGas من حيث الشكل والحجم.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يربط Gas بقابلية الانضغاط والكثافة المنخفضة في جدول المصدر.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يميز الحالات المائعة وسرعة انتشار الغاز.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يفهم أن المسافات الأكبر بين جسيمات الغاز هي مفتاح قابلية الانضغاط.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يلخص خصائص الحالات ويربط سلوك الغاز بنموذج الجسيمات.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-phase-changes",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 2,
+      "title": "سلوك الغاز",
+      "subtitle": "اربط اسم كل تحول باتجاهه وافهم جسر الانضغاط قبل Boyle",
+      "moduleId": "reading:chem-gas-phase-changes",
+      "contentRevision": "22c139c3497d01cffca036cc21d78e8b97065afc026b332878e9f49aadac6cc6",
+      "manifestHash": "70791996fdbb6556e9a79afb3689b14233c5d842c3ca1b8958be2e99a11ea5d9",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يربط التحولات الأساسية بالاتجاه بين Solid وLiquid وGas.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يربط melting/freezing وevaporation/condensation كأزواج عكسية.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يميز التحول المباشر Solid↔Gas في الاتجاهين.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يربط قابلية الغاز للانضغاط بتقليل المسافات بين الجسيمات.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يلخص تغيرات الحالة ويربط سلوك الغاز بالانضغاط.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-boyles-law",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 3,
+      "title": "قانون بويل: الضغط والحجم",
+      "subtitle": "افهم العلاقة العكسية واشرحها بطريقتك قبل ما تستخدم القانون",
+      "moduleId": "reading:chem-gas-boyles-law",
+      "contentRevision": "22d1d8c1e4304bc81b61f72f833c87a7fbe10f36e757ee01190599ca92dac38a",
+      "manifestHash": "9c954cab35978637ff4ba34645cfc794d819e1c323736c66a6ecb1a0a7cb54d0",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يتوقع أن زيادة Pressure (الضغط) تقلل Volume (الحجم) عند ثبات Temperature (درجة الحرارة).",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يحدد أن Temperature (درجة الحرارة) ثابتة في Boyle's Law (قانون بويل).",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يقرأ منحنى V versus P (الحجم مقابل الضغط) ويفهم خطية V versus 1/P (الحجم مقابل مقلوب الضغط).",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يربط العلاقة العكسية بصيغ V ∝ 1/P وPV = k وP₁V₁ = P₂V₂.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يلخص Boyle's Law (قانون بويل) كاملًا: المتغيرات، الشرط، الاتجاه، والمعادلة.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-boyle-problems",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 4,
+      "title": "مسائل قانون بويل",
+      "subtitle": "اختار القانون، حل، وبعدين اشرح ليه الحل منطقي",
+      "moduleId": "reading:chem-gas-boyle-problems",
+      "contentRevision": "6b983ca25f3170cfd11df058aba05ec6c4b43fd4234c5e9c199fee22b6bcd449",
+      "manifestHash": "d8c1539939809e293071402246cedde51f791bdb8b07b0c07f0fe17ff024d741",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "ينظم قيم الحالة الأولى والثانية ويحدد Temperature (درجة الحرارة) كمتغير ثابت.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يحل مثال Boyle مع prediction (توقع) وsanity check (تحقق منطقي).",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يحل مسألة المصدر 725 mL و0.971 atm إلى 1.40 atm عند ثبات Temperature.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يشرح طريقة حل مسألة Boyle كاملة من نص السؤال إلى التحقق النهائي.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-charles-law",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 5,
+      "title": "قانون شارل: الحجم ودرجة الحرارة",
+      "subtitle": "افهم العلاقة الطردية والرسوم والصفر المطلق قبل الحساب",
+      "moduleId": "reading:chem-gas-charles-law",
+      "contentRevision": "21122148f5de65d302c6c269a09b0a32ce8f855050559abe4fe119f4b64437e1",
+      "manifestHash": "70f0c1a544942358e7571b25bc0d10cfd563413f5b4f6f67c1f9aadd7fe1b19c",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يفهم أن رفع الحرارة يزيد الحجم عند ضغط ثابت.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يحدد Pressure كمتغير ثابت في Charles' Law.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يميز علاقة شارل الطردية عن علاقة بويل العكسية.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يقرأ اتجاه V–T graph باعتباره علاقة طردية.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يربط −273.15°C بـ0 K والحاجة للحرارة المطلقة في النسب.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        },
+        {
+          "id": "O06",
+          "text": "يربط العلاقة الطردية بـV/T=k ثم V₁/T₁=V₂/T₂.",
+          "sceneIds": [
+            "S11"
+          ],
+          "questionIds": [
+            "Q06"
+          ]
+        },
+        {
+          "id": "O07",
+          "text": "يلخص قانون شارل بالمفهوم والرسم والشرط والحرارة المطلقة والمعادلة.",
+          "sceneIds": [
+            "S13"
+          ],
+          "questionIds": [
+            "Q07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-charles-problems",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 6,
+      "title": "مسائل قانون شارل",
+      "subtitle": "حوّل الحرارة صح، شوف مثال محلول، وبعدها حل بنفسك",
+      "moduleId": "reading:chem-gas-charles-problems",
+      "contentRevision": "c0139b427eeeb683f619df55ed70d867808458cd969a9c50fb1e304f27af69a2",
+      "manifestHash": "4dea0767f25f2b114fd719140f152c0b426d44e4ac8c2db25d3be2ad66ff9a36",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يحول Celsius إلى Kelvin ويشرح سبب التحويل.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "ينظم مسألة شارل ويحدد الضغط كمتغير ثابت.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يتابع نموذج حل كامل قبل المحاولة المستقلة.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يطبق قانون شارل في مثال جديد بعد مشاهدة النموذج المحلول.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يحل مسألة المصدر 349 mL عند 22°C إلى 50°C.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        },
+        {
+          "id": "O06",
+          "text": "يشخص استخدام Celsius مباشرة ويلخص طريقة حل مسائل شارل.",
+          "sceneIds": [
+            "S11"
+          ],
+          "questionIds": [
+            "Q06"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-pressure-temperature",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 7,
+      "title": "الضغط ودرجة الحرارة: قانون الحجم الثابت",
+      "subtitle": "افهم علاقة P–T واختار القانون من المتغير الثابت",
+      "moduleId": "reading:chem-gas-pressure-temperature",
+      "contentRevision": "d73a885630aec249efd0cae5bbae2fb98b079d9bd1458cf9d3f21eac54aa4caf",
+      "manifestHash": "18d9e36e22ffc7734166f33d43a8d611dc7f09ad317cc8fdb4aaee6ad1a8905f",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يميز الحجم الثابت عن الضغط الثابت قبل القانون.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يفهم أن P تزيد مع T عند V ثابت.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يربط العلاقة الطردية بـP/T=k ويستخدم Kelvin.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يختار بين Boyle وCharles وP–T من المتغير الثابت.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يحل P–T problem ويعمل تحقق اتجاهي.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        },
+        {
+          "id": "O06",
+          "text": "يلخص Boyle وCharles وP–T من حيث الثابت والاتجاه والمعادلة.",
+          "sceneIds": [
+            "S11"
+          ],
+          "questionIds": [
+            "Q06"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-combined-law",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 8,
+      "title": "الظروف القياسية",
+      "subtitle": "لما الضغط والحجم والحرارة يتغيروا معًا، نظّم الحالتين قبل الحساب",
+      "moduleId": "reading:chem-gas-combined-law",
+      "contentRevision": "3a5bfa5fb60f6085261f236749b03e9c4658303cf85b3eeceef9beb5af7a11d8",
+      "manifestHash": "30e97271079ccb9e36cf6ed9215949985aa7032792cf3b12acc585fca72a888e",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يختار القانون المجمّع عندما لا يوجد P/V/T ثابت بوضوح.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يفهم PV/T=k وصيغة الحالتين مع Kelvin.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يرتب القيم في الحالة الصحيحة ويراجع الوحدات قبل الجبر.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يعرف قيم STP المعتمدة في الكورس ويفهم أنها شروط حالة.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يتابع حل مثال مختلط كامل قبل Assignment (3).",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        },
+        {
+          "id": "O06",
+          "text": "يحل مسألة 2.00 L عند 25°C و745 mmHg إلى STP.",
+          "sceneIds": [
+            "S11"
+          ],
+          "questionIds": [
+            "Q06"
+          ]
+        },
+        {
+          "id": "O07",
+          "text": "يلخص قرار الاختيار والتنظيم والتحويل والتحقق.",
+          "sceneIds": [
+            "S13"
+          ],
+          "questionIds": [
+            "Q07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem-gas-mock-exam",
+      "curriculumId": "chemistry-gas-laws",
+      "order": 9,
+      "title": "عيادة الأخطاء",
+      "subtitle": "اختار القانون بنفسك، حل أسئلة مختلطة، وشخّص الأخطاء",
+      "moduleId": "reading:chem-gas-mock-exam",
+      "contentRevision": "8baba224722d072a42b5df45cffbf3d1b1bbad8bcf78d1aa6e824a414c336f14",
+      "manifestHash": "915d881b4aa4b2d04418efaa56a950dc766cc16347b0b3ab9870a3ce3aadb067",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O01",
+          "text": "يسترجع خصائص الغاز والتحولات الأساسية من غير تلقين كامل.",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O02",
+          "text": "يختار القانون من المتغير الثابت لا من الحروف فقط.",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O03",
+          "text": "يحل Assignment 1 أو يشرح حله كاملًا باستقلالية.",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O04",
+          "text": "يحل Assignment 2 مع Kelvin وتحقق منطقي.",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        },
+        {
+          "id": "O05",
+          "text": "يحل سؤال P–T صحيح بدل سؤال المصدر غير المتسق.",
+          "sceneIds": [
+            "S09"
+          ],
+          "questionIds": [
+            "Q05"
+          ]
+        },
+        {
+          "id": "O06",
+          "text": "يحل Assignment 3 باستقلالية.",
+          "sceneIds": [
+            "S11"
+          ],
+          "questionIds": [
+            "Q06"
+          ]
+        },
+        {
+          "id": "O07",
+          "text": "يفسر V–P وV–T graphs من غير حساب.",
+          "sceneIds": [
+            "S13"
+          ],
+          "questionIds": [
+            "Q07"
+          ]
+        },
+        {
+          "id": "O08",
+          "text": "يشخص Celsius, pairing, units, direction errors.",
+          "sceneIds": [
+            "S15"
+          ],
+          "questionIds": [
+            "Q08"
+          ]
+        },
+        {
+          "id": "O09",
+          "text": "يفحص p.35 Q2 علميًا ولا يضاعف Celsius مباشرة.",
+          "sceneIds": [
+            "S17"
+          ],
+          "questionIds": [
+            "Q09"
+          ]
+        },
+        {
+          "id": "O10",
+          "text": "يلخص استراتيجية حل واختيار قوانين الغازات كاملة.",
+          "sceneIds": [
+            "S19"
+          ],
+          "questionIds": [
+            "Q10"
+          ]
+        }
+      ]
+    }
+  ]
+}

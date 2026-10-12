@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-states-matter",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "e5c1dec84a2e9d60b13455d383db1bb815825e41dd190571604e77f27fd37d7a",
+  "title": "حالات المادة: الخصائص",
+  "englishTitle": "States of Matter",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 1,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Shape and Volume — الشكل والحجم",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.01",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "shape"
+          },
+          "availableLaws": 4,
+          "revealStates": true,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "نبدأ من الأساس. Solid (الصلب) له definite shape (شكل محدد) وdefinite volume (حجم محدد).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "Liquid (السائل) ملوش شكل ثابت؛ بياخد shape of container (شكل الوعاء)، لكن حجمه محدد تقريبًا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U03"
+          ],
+          "text": "Gas (الغاز) ملوش شكل محدد ولا حجم محدد، وبيملأ الوعاء الموجود فيه. الفكرة هنا مش حفظ كلمات؛ إحنا بنقارن إيه اللي ثابت وإيه اللي بيتغير في كل حالة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Shape and Volume — الشكل والحجم",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.01",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "shape"
+          },
+          "availableLaws": 4,
+          "revealStates": true,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare solids, liquids and gases in shape and volume.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرحلي بطريقتك الفرق بين Solid (الصلب)، Liquid (السائل)، وGas (الغاز) من ناحية Shape (الشكل) وVolume (الحجم).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Compare solids, liquids and gases in shape and volume.",
+        "arabic": "اشرحلي بطريقتك الفرق بين Solid (الصلب)، Liquid (السائل)، وGas (الغاز) من ناحية Shape (الشكل) وVolume (الحجم).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "A solid has definite shape and volume; a liquid has nearly definite volume but takes its container's shape; a gas fills its container.",
+          "arabic": "الصلب له شكل وحجم محددان. السائل يأخذ شكل الوعاء مع حجم محدد تقريبًا. الغاز يملأ الحيز المتاح، فليس له شكل أو حجم محددان."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "A solid has definite shape and volume; a liquid has nearly definite volume but takes its container's shape; a gas fills its container.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الصلب له شكل وحجم محددان. السائل يأخذ شكل الوعاء مع حجم محدد تقريبًا. الغاز يملأ الحيز المتاح، فليس له شكل أو حجم محددان.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.01",
+              "boardSpec": {
+                "kind": "matter",
+                "focus": "shape"
+              },
+              "availableLaws": 4,
+              "revealStates": true,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Compressibility and Density — الانضغاط والكثافة",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.02",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "compression"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "الكثافة (Density) معناها كتلة المادة في وحدة الحجم. لنفس الكتلة، الحجم الأكبر يعني كثافة أقل. دلوقتي خاصيتين مهمين لقوانين الغازات. Compressibility (قابلية الانضغاط) معناها قد إيه نقدر نقلل الحجم بالضغط. Solid (الصلب) تقريبًا لا ينضغط، Liquid (السائل) انضغاطه قليل جدًا، أما Gas (الغاز) فهو compressible (قابل للانضغاط). وفي جدول المصدر، الغاز كمان low density (كثافته منخفضة) مقارنة بالحالتين التانيين.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Compressibility and Density — الانضغاط والكثافة",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.02",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "compression"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Which state is most compressible and has relatively low density? Explain both properties.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "أي حالة هي الأكثر Compressible (قابلة للانضغاط) ولها Low density (كثافة منخفضة)؟ اشرح الخاصيتين، مش الاسم بس.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Which state is most compressible and has relatively low density? Explain both properties.",
+        "arabic": "أي حالة هي الأكثر Compressible (قابلة للانضغاط) ولها Low density (كثافة منخفضة)؟ اشرح الخاصيتين، مش الاسم بس.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Gas: spaces between particles allow compression, and its mass per unit volume is relatively low.",
+          "arabic": "الغاز (Gas) أكثر قابلية للانضغاط: توجد مسافات كبيرة نسبيًا بين جسيماته. الكثافة هي الكتلة في وحدة الحجم؛ لنفس الكتلة، الحجم الأكبر يعني كثافة أقل."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Gas: spaces between particles allow compression, and its mass per unit volume is relatively low.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الغاز (Gas) أكثر قابلية للانضغاط: توجد مسافات كبيرة نسبيًا بين جسيماته. الكثافة هي الكتلة في وحدة الحجم؛ لنفس الكتلة، الحجم الأكبر يعني كثافة أقل.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.02",
+              "boardSpec": {
+                "kind": "matter",
+                "focus": "compression"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Fluidity and Diffusion — الميوعة والانتشار",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.03",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "diffusion"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Fluid (مائع) يعني مادة تقدر تتدفق وتأخذ شكل الوعاء. Solid (الصلب) مش fluid (مائع)، لكن Liquid (السائل) وGas (الغاز) موائع. أما Diffusion (الانتشار)، فالغاز في الجدول diffuses rapidly (ينتشر بسرعة)، بينما الانتشار في الحالات الأكثر تراصًا أبطأ.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Fluidity and Diffusion — الميوعة والانتشار",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.03",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "diffusion"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Which two states are fluids? Which state diffuses rapidly? Explain the connection.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "قوللي: أي حالتين Fluids (موائع)؟ وأي حالة Diffuses rapidly (تنتشر بسرعة)؟ وبعدها اربط الإجابتين في جملة واحدة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "Which two states are fluids? Which state diffuses rapidly? Explain the connection.",
+        "arabic": "قوللي: أي حالتين Fluids (موائع)؟ وأي حالة Diffuses rapidly (تنتشر بسرعة)؟ وبعدها اربط الإجابتين في جملة واحدة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Liquids and gases are fluids; gases usually diffuse rapidly.",
+          "arabic": "السائل والغاز موائع (Fluids)، أي يمكنهما السريان. الغاز ينتشر سريعًا عادةً لأن جسيماته متباعدة وتتحرك خلال الحيز المتاح."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Liquids and gases are fluids; gases usually diffuse rapidly.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "السائل والغاز موائع (Fluids)، أي يمكنهما السريان. الغاز ينتشر سريعًا عادةً لأن جسيماته متباعدة وتتحرك خلال الحيز المتاح.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.03",
+              "boardSpec": {
+                "kind": "matter",
+                "focus": "diffusion"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Particle Arrangement — ترتيب الجسيمات",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.04",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "particles"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "بص على نموذج Particles (الجسيمات). في Solid (الصلب) الجسيمات قريبة ومرتبة، وفي Liquid (السائل) قريبة لكن أقل ترتيبًا وبتتحرك، أما Gas (الغاز) فجسيماته متباعدة وفيه much empty space (مساحات فارغة كبيرة). لما نضغط الغاز، اللي بنقلله أساسًا هو Space between particles (المسافة بين الجسيمات)، مش حجم الجسيم نفسه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Particle Arrangement — ترتيب الجسيمات",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.04",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "particles"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "When a gas is compressed, do the particles become smaller or do the spaces between them decrease? Explain.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "لما Gas (الغاز) ينضغط، إيه اللي بيقل: Particle size (حجم الجسيم) ولا Space between particles (المسافة بين الجسيمات)؟ وبعدها اشرح الفكرة بطريقتك.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "When a gas is compressed, do the particles become smaller or do the spaces between them decrease? Explain.",
+        "arabic": "لما Gas (الغاز) ينضغط، إيه اللي بيقل: Particle size (حجم الجسيم) ولا Space between particles (المسافة بين الجسيمات)؟ وبعدها اشرح الفكرة بطريقتك.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The spaces between particles decrease; the particles themselves do not shrink in this model.",
+          "arabic": "المسافات بين الجسيمات هي التي تقل. في النموذج المبسط لا نعامل الجسيم نفسه كأنه ينكمش؛ نفس الجسيمات تصبح في حيز أصغر."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "The spaces between particles decrease; the particles themselves do not shrink in this model.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "المسافات بين الجسيمات هي التي تقل. في النموذج المبسط لا نعامل الجسيم نفسه كأنه ينكمش؛ نفس الجسيمات تصبح في حيز أصغر.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.04",
+              "boardSpec": {
+                "kind": "matter",
+                "focus": "particles"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Teach-back — اشرح الفرق بنفسك",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.05",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "summary"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي الصورة كلها اتبنت: الشكل والحجم، قابلية الانضغاط، الميوعة والانتشار، وترتيب الجسيمات. هطلب منك تلخصها كأنك بتشرح لزميلك، ومش مطلوب تحفظ صياغتي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Teach-back — اشرح الفرق بنفسك",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "01.05",
+          "boardSpec": {
+            "kind": "matter",
+            "focus": "summary"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare all three states and explain why a gas is easier to compress.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح أهم فرق بين Solid (الصلب)، Liquid (السائل)، وGas (الغاز)، وبعدها اشرح ليه Gas (الغاز) أسهل في Compression (الانضغاط).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "Compare all three states and explain why a gas is easier to compress.",
+        "arabic": "اشرح أهم فرق بين Solid (الصلب)، Liquid (السائل)، وGas (الغاز)، وبعدها اشرح ليه Gas (الغاز) أسهل في Compression (الانضغاط).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Gas particles are farther apart, so a gas is easier to compress than a solid or liquid.",
+          "arabic": "الصلب يحتفظ بالشكل والحجم، والسائل يحتفظ بحجمه تقريبًا ويأخذ شكل الوعاء، والغاز يملأ الوعاء. الفراغات الأكبر بين جسيمات الغاز تسمح بتقليل الحجم بسهولة أكبر."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Gas particles are farther apart, so a gas is easier to compress than a solid or liquid.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الصلب يحتفظ بالشكل والحجم، والسائل يحتفظ بحجمه تقريبًا ويأخذ شكل الوعاء، والغاز يملأ الوعاء. الفراغات الأكبر بين جسيمات الغاز تسمح بتقليل الحجم بسهولة أكبر.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "01.05",
+              "boardSpec": {
+                "kind": "matter",
+                "focus": "summary"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-states-matter"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يميز Solid وLiquid وGas من حيث الشكل والحجم.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يربط Gas بقابلية الانضغاط والكثافة المنخفضة في جدول المصدر.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يميز الحالات المائعة وسرعة انتشار الغاز.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يفهم أن المسافات الأكبر بين جسيمات الغاز هي مفتاح قابلية الانضغاط.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يلخص خصائص الحالات ويربط سلوك الغاز بنموذج الجسيمات.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    }
+  ]
+}

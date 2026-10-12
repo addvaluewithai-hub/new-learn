@@ -1,0 +1,1152 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-mock-exam",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "8baba224722d072a42b5df45cffbf3d1b1bbad8bcf78d1aa6e824a414c336f14",
+  "title": "عيادة الأخطاء",
+  "englishTitle": "Mock Exam",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 9,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Vocabulary & Phase Changes — المصطلحات وتغيرات الحالة",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.01",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "matter"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دي مراجعة مستقلة للي اتعلمته، مش شرح جديد. هسألك سؤالين من نفس محتوى المصدر، وبعد إجابتك هراجع المعنى معاك.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Vocabulary & Phase Changes — المصطلحات وتغيرات الحالة",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.01",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "matter"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Which state is compressible, has relatively low density and diffuses rapidly? Name solid-to-liquid, gas-to-liquid, direct solid-to-gas and direct gas-to-solid changes.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "أي حالة قابلة للانضغاط، وكثافتها منخفضة نسبيًا، وتنتشر بسرعة؟ سمِّ التحولات: صلب إلى سائل، غاز إلى سائل، صلب إلى غاز مباشرة، وغاز إلى صلب مباشرة، بالإنجليزية ومعناها العربي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Which state is compressible, has relatively low density and diffuses rapidly? Name solid-to-liquid, gas-to-liquid, direct solid-to-gas and direct gas-to-solid changes.",
+        "arabic": "أي حالة قابلة للانضغاط، وكثافتها منخفضة نسبيًا، وتنتشر بسرعة؟ سمِّ التحولات: صلب إلى سائل، غاز إلى سائل، صلب إلى غاز مباشرة، وغاز إلى صلب مباشرة، بالإنجليزية ومعناها العربي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Gas; melting, condensation, sublimation and deposition describe the listed transformations.",
+          "arabic": "الغاز هو الحالة المطلوبة. صلب إلى سائل: Melting (انصهار). غاز إلى سائل: Condensation (تكثف). صلب إلى غاز مباشرة: Sublimation (تسامٍ). غاز إلى صلب مباشرة: Deposition (ترسيب مباشر)."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Gas; melting, condensation, sublimation and deposition describe the listed transformations.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الغاز هو الحالة المطلوبة. صلب إلى سائل: Melting (انصهار). غاز إلى سائل: Condensation (تكثف). صلب إلى غاز مباشرة: Sublimation (تسامٍ). غاز إلى صلب مباشرة: Deposition (ترسيب مباشر).",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.01",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "matter"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Law Selection — اختيار القانون",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.02",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "laws"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "هنا مفيش حساب. المطلوب تختار القانون من What is constant? (إيه اللي ثابت؟) أو من غياب متغير ثابت واضح.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Law Selection — اختيار القانون",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.02",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "laws"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Choose a law for constant $T$, constant $P$, constant $V$, and changing $P$, $V$ and $T$. Explain the conditions.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح القانون المناسب لكل حالة: $T$ constant (الحرارة ثابتة)؛ $P$ constant (الضغط ثابت)؛ $V$ constant (الحجم ثابت)؛ و$P$,$V$,$T$ all change (الضغط والحجم والحرارة كلهم يتغيروا). اذكر السبب مع كل اختيار.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Choose a law for constant $T$, constant $P$, constant $V$, and changing $P$, $V$ and $T$. Explain the conditions.",
+        "arabic": "اشرح القانون المناسب لكل حالة: $T$ constant (الحرارة ثابتة)؛ $P$ constant (الضغط ثابت)؛ $V$ constant (الحجم ثابت)؛ و$P$,$V$,$T$ all change (الضغط والحجم والحرارة كلهم يتغيروا). اذكر السبب مع كل اختيار.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Constant T: Boyle; constant P: Charles; constant V: pressure-temperature; all three change: combined law.",
+          "arabic": "حرارة ثابتة: بويل. ضغط ثابت: شارل. حجم ثابت: علاقة الضغط والحرارة. تغير الضغط والحجم والحرارة دون ثابت بسيط: القانون المجمّع. كلها تخص نفس كمية الغاز، ونستخدم كلفن في نسب الحرارة."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Constant $T$: Boyle; constant $P$: Charles; constant $V$: pressure-temperature; all three change: combined law.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "حرارة ثابتة: بويل. ضغط ثابت: شارل. حجم ثابت: علاقة الضغط والحرارة. تغير الضغط والحجم والحرارة دون ثابت بسيط: القانون المجمّع. كلها تخص نفس كمية الغاز، ونستخدم كلفن في نسب الحرارة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.02",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "laws"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Boyle Source-style — مسألة بويل على نمط المصدر",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "هنا محاولة مستقلة. نفس مسألة المصدر: $725 mL$ عند $0.971 atm$، ثم $1.40 atm$ عند Temperature constant (درجة حرارة ثابتة). ابدأ بالتوقع قبل الآلة الحاسبة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Boyle Source-style — مسألة بويل على نمط المصدر",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "boyle-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $725 mL$ at $0.971 atm$. Find its volume at $1.40 atm$ at constant temperature, and check the direction.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $725 mL$ عند $0.971 atm$؛ الضغط النهائي $1.40 atm$، والحرارة وكمية الغاز ثابتتان. حل المسألة من Given (المعطيات) لحد Sanity check (التحقق المنطقي)، واشرح ليه اتجاه الناتج منطقي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "A gas occupies $725 mL$ at $0.971 atm$. Find its volume at $1.40 atm$ at constant temperature, and check the direction.",
+        "arabic": "المعطيات: $725 mL$ عند $0.971 atm$؛ الضغط النهائي $1.40 atm$، والحرارة وكمية الغاز ثابتتان. حل المسألة من Given (المعطيات) لحد Sanity check (التحقق المنطقي)، واشرح ليه اتجاه الناتج منطقي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 503 mL by Boyle's law; increased pressure reduces volume.",
+          "arabic": "$V₂ = 0.971 × 725 / 1.40 ≈ 503 mL$ من بويل. الحجم قل عندما زاد الضغط، مع ثبات الحرارة وكمية الغاز، والناتج أقل من الحجم الأصلي."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 503 mL$ by Boyle's law; increased pressure reduces volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$V₂ = 0.971 × 725 / 1.40 ≈ 503 mL$ من بويل. الحجم قل عندما زاد الضغط، مع ثبات الحرارة وكمية الغاز، والناتج أقل من الحجم الأصلي.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.03",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "boyle-source",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Charles Source-style — مسألة شارل على نمط المصدر",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.04",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "المسألة التالية: $349 mL$ عند $22°C$ إلى $50°C$ عند Constant Pressure (ضغط ثابت). أهم فخ هنا هو Celsius (سيلسيوس) الخام.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Charles Source-style — مسألة شارل على نمط المصدر",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.04",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $349 mL$ at $22°C$. Find its volume at $50°C$ at constant pressure, and explain why the raw Celsius ratio is wrong.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $349 mL$ عند $22°C$ إلى $50°C$ عند ضغط وكمية غاز ثابتين. حل المسألة كاملة، ووضح التحويل إلى Kelvin (كلفن)، القانون، الناتج، وليه استخدام $22$ و$50$ مباشرة داخل النسبة خطأ.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "A gas occupies $349 mL$ at $22°C$. Find its volume at $50°C$ at constant pressure, and explain why the raw Celsius ratio is wrong.",
+        "arabic": "المعطيات: $349 mL$ عند $22°C$ إلى $50°C$ عند ضغط وكمية غاز ثابتين. حل المسألة كاملة، ووضح التحويل إلى Kelvin (كلفن)، القانون، الناتج، وليه استخدام $22$ و$50$ مباشرة داخل النسبة خطأ.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 382 mL using Kelvin; raw Celsius values do not give the required absolute-temperature ratio.",
+          "arabic": "$T₁ = 295.15 K$ و$T₂ = 323.15 K$. $V₂ = 349 × 323.15 / 295.15 ≈ 382 mL$. سيلسيوس لا يمثل الحرارة المطلقة المطلوبة في النسبة، والحجم يزيد مع زيادة الحرارة."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 382 mL$ using Kelvin; raw Celsius values do not give the required absolute-temperature ratio.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$T₁ = 295.15 K$ و$T₂ = 323.15 K$. $V₂ = 349 × 323.15 / 295.15 ≈ 382 mL$. سيلسيوس لا يمثل الحرارة المطلقة المطلوبة في النسبة، والحجم يزيد مع زيادة الحرارة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.04",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "charles-source",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Valid P–T Question — سؤال صحيح لعلاقة الضغط والحرارة",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "pressure-exam",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "قبل ما نفحص سؤال p.$35$ المشكلة، نثبت إنك بتعرف العلاقة بسؤال صحيح: Gas (غاز) في Rigid container (وعاء ثابت الحجم) ضغطه $1.20 bar$ عند $300 K$ واتسخن إلى $450 K$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Valid P–T Question — سؤال صحيح لعلاقة الضغط والحرارة",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "pressure-exam",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A rigid container holds a gas at $1.20 bar$ and $300 K$. Find its pressure at $450 K$ and explain the law.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: وعاء ثابت الحجم، $1.20 bar$ عند $300 K$ إلى $450 K$ لنفس كمية الغاز. احسب Pressure (الضغط) الجديد واشرح ليه القانون المناسب هو $P₁/T₁=P₂/T₂$.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "A rigid container holds a gas at $1.20 bar$ and $300 K$. Find its pressure at $450 K$ and explain the law.",
+        "arabic": "المعطيات: وعاء ثابت الحجم، $1.20 bar$ عند $300 K$ إلى $450 K$ لنفس كمية الغاز. احسب Pressure (الضغط) الجديد واشرح ليه القانون المناسب هو $P₁/T₁=P₂/T₂$.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "P₂ = 1.80 bar by P₁/T₁ = P₂/T₂ at constant volume.",
+          "arabic": "$P₂ = 1.20 × 450 / 300 = 1.80 bar$. الحجم ثابت، فنستخدم $P₁/T₁ = P₂/T₂$. الحرارة المطلقة زادت مرة ونصف، وكذلك الضغط."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$P₂ = 1.80 bar$ by $P₁/T₁ = P₂/T₂$ at constant volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$P₂ = 1.20 × 450 / 300 = 1.80 bar$. الحجم ثابت، فنستخدم $P₁/T₁ = P₂/T₂$. الحرارة المطلقة زادت مرة ونصف، وكذلك الضغط.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.05",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "pressure-exam",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S11",
+      "title": "Combined / STP — القانون المجمّع والظروف القياسية",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.06",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Assignment ($3$): $2.00 L$ عند $25.0°C$ و$745.0 mmHg$، والمطلوب Volume (الحجم) عند $STP$ (الظروف القياسية). استخدم تعريف الكورس للـ$STP$: $273.15 K$ و$760 mmHg$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "تطبيق: Combined / STP — القانون المجمّع والظروف القياسية",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.06",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "combined-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $2.00 L$ at $25.0°C$ and $745 mmHg$. Find its volume at $273.15 K$ and $760 mmHg$, explaining all conversions.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $2.00 L$ عند $25.0°C$ و$745.0 mmHg$ إلى $273.15 K$ و$760 mmHg$، لنفس كمية الغاز. حل المسألة كاملة واشرح State $1/2$ (الحالتين)، Kelvin (كلفن)، وحدات الضغط، والنتيجة النهائية.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q06",
+        "english": "A gas occupies $2.00 L$ at $25.0°C$ and $745 mmHg$. Find its volume at $273.15 K$ and $760 mmHg$, explaining all conversions.",
+        "arabic": "المعطيات: $2.00 L$ عند $25.0°C$ و$745.0 mmHg$ إلى $273.15 K$ و$760 mmHg$، لنفس كمية الغاز. حل المسألة كاملة واشرح State $1/2$ (الحالتين)، Kelvin (كلفن)، وحدات الضغط، والنتيجة النهائية.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 1.80 L using the combined law, Kelvin and matching pressure units.",
+          "arabic": "$T₁ = 298.15 K$، والضغطان بوحدة $mmHg$. $V₂ = 745 × 2.00 × 273.15 / (760 × 298.15) ≈ 1.80 L$. نفس كمية الغاز ثابتة، والتبريد مع زيادة الضغط يقللان الحجم."
+        },
+        "feedback": {
+          "clipId": "F06",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 1.80 L$ using the combined law, Kelvin and matching pressure units.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$T₁ = 298.15 K$، والضغطان بوحدة $mmHg$. $V₂ = 745 × 2.00 × 273.15 / (760 × 298.15) ≈ 1.80 L$. نفس كمية الغاز ثابتة، والتبريد مع زيادة الضغط يقللان الحجم.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.06",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "combined-source",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S13",
+      "title": "Graph Reading — قراءة الرسوم",
+      "clipId": "N13",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.07",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "graphs"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي قراءة رسم فقط. $V$ vs $P$ (الحجم مقابل الضغط) في Boyle منحنى نازل: علاقة عكسية. $V$ vs absolute $T$ (الحجم مقابل الحرارة المطلقة) في Charles خط صاعد: علاقة طردية عند ضغط ثابت.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "تطبيق: Graph Reading — قراءة الرسوم",
+      "clipId": "N14",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.07",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "graphs"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Compare $V$ versus $P$ with $V$ versus absolute $T$. Describe each direction, relationship and constant condition.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح الرسمين: لما $P$ تزيد في $V$ vs $P$، $V$ يعمل إيه؟ ولما Absolute $T$ (الحرارة المطلقة) تزيد في $V$ vs $T$، $V$ يعمل إيه؟ اذكر نوع العلاقة والقانون.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q07",
+        "english": "Compare $V$ versus $P$ with $V$ versus absolute $T$. Describe each direction, relationship and constant condition.",
+        "arabic": "اشرح الرسمين: لما $P$ تزيد في $V$ vs $P$، $V$ يعمل إيه؟ ولما Absolute $T$ (الحرارة المطلقة) تزيد في $V$ vs $T$، $V$ يعمل إيه؟ اذكر نوع العلاقة والقانون.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Boyle: inverse V–P at constant T. Charles: direct V–absolute-T at constant P.",
+          "arabic": "بويل: عند حرارة ثابتة، الحجم يقل مع زيادة الضغط، فالرسم نازل والعلاقة عكسية. شارل: عند ضغط ثابت، الحجم يزيد مع الحرارة المطلقة، فالرسم صاعد والعلاقة طردية."
+        },
+        "feedback": {
+          "clipId": "F07",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Boyle: inverse $V$–$P$ at constant $T$. Charles: direct $V$–absolute-$T$ at constant $P$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "بويل: عند حرارة ثابتة، الحجم يقل مع زيادة الضغط، فالرسم نازل والعلاقة عكسية. شارل: عند ضغط ثابت، الحجم يزيد مع الحرارة المطلقة، فالرسم صاعد والعلاقة طردية.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.07",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "graphs"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S15",
+      "title": "Error Clinic — عيادة الأخطاء",
+      "clipId": "N15",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.08",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "errors"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "هعرض أربع أخطاء شائعة: Celsius مباشرة في النسبة؛ خلط $P₁$ مع $V₂$؛ ضغط بوحدتين مختلفتين من غير تحويل؛ ونتيجة Boyle فيها الضغط زاد والحجم كبر جدًا. المطلوب تشخص الخطأ قبل ما تصلحه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "title": "تطبيق: Error Clinic — عيادة الأخطاء",
+      "clipId": "N16",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.08",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "errors"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain how to correct raw Celsius ratios, mixed state pairing, incompatible units and results with an unreasonable direction.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح الخطأ والتصحيح في كل حالة: Celsius مباشرة، State pairing (ربط الحالات)، Unit mismatch (اختلاف الوحدات)، وDirection sanity check (التحقق من الاتجاه).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q08",
+        "english": "Explain how to correct raw Celsius ratios, mixed state pairing, incompatible units and results with an unreasonable direction.",
+        "arabic": "اشرح الخطأ والتصحيح في كل حالة: Celsius مباشرة، State pairing (ربط الحالات)، Unit mismatch (اختلاف الوحدات)، وDirection sanity check (التحقق من الاتجاه).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Use Kelvin, keep each state's quantities together, match units and check the physical direction.",
+          "arabic": "استخدم كلفن في نسب الحرارة، وأبقِ ضغط وحجم وحرارة كل حالة معًا، ووحد وحدات الضغط. توقع الاتجاه قبل الحساب، ثم راجع المعادلة والتعويض إذا خالف الناتج علاقة القانون."
+        },
+        "feedback": {
+          "clipId": "F08",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Use Kelvin, keep each state's quantities together, match units and check the physical direction.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "استخدم كلفن في نسب الحرارة، وأبقِ ضغط وحجم وحرارة كل حالة معًا، ووحد وحدات الضغط. توقع الاتجاه قبل الحساب، ثم راجع المعادلة والتعويض إذا خالف الناتج علاقة القانون.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.08",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "errors"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S17",
+      "title": "Source Inconsistency — عدم اتساق سؤال المصدر",
+      "clipId": "N17",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.09",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "source-error",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "سؤال المصدر يذكر $22°C$ و$1.1 bar$ ثم يسأل الحرارة عند $2.2 bar$، عند حجم وكمية غاز ثابتين. الاختيارات المطبوعة: $11°C$ و$44°C$ و$33°C$ و$22°C$. اختبر اتساق الاختيارات مع علاقة الضغط والحرارة المطلقة، واحسب قبل اختيار أي إجابة. بعد محاولتك هنراجع الحل ونفحص الاختيارات.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "title": "تطبيق: Source Inconsistency — عدم اتساق سؤال المصدر",
+      "clipId": "N18",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.09",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "source-error",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "At constant volume, a gas has pressure $1.1 bar$ at $22°C$ and changes to $2.2 bar$. Why do $11°C$, $44°C$, $33°C$ and $22°C$ all fail? Calculate the correct temperature.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $1.1 bar$ عند $22°C$ إلى $2.2 bar$ عند حجم وكمية غاز ثابتين. الاختيارات المطبوعة: $11°C$، $44°C$، $33°C$، $22°C$. اشرح ليه ولا اختيار من المطبوعين يطابق القانون، وليه $44°C$ مش إجابة علمية صحيحة هنا.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q09",
+        "english": "At constant volume, a gas has pressure $1.1 bar$ at $22°C$ and changes to $2.2 bar$. Why do $11°C$, $44°C$, $33°C$ and $22°C$ all fail? Calculate the correct temperature.",
+        "arabic": "المعطيات: $1.1 bar$ عند $22°C$ إلى $2.2 bar$ عند حجم وكمية غاز ثابتين. الاختيارات المطبوعة: $11°C$، $44°C$، $33°C$، $22°C$. اشرح ليه ولا اختيار من المطبوعين يطابق القانون، وليه $44°C$ مش إجابة علمية صحيحة هنا.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The correct temperature is 590.30 K = 317.15°C. None of the printed choices matches; doubling Celsius to 44°C is invalid.",
+          "arabic": "$T₁ = 295.15 K$. الضغط تضاعف، فتتضاعف الحرارة المطلقة إلى $590.30 K$، أي $317.15°C$. لا يوجد اختيار مطابق. $44°C$ ينتج من مضاعفة سيلسيوس مباشرة، وهو استخدام خاطئ للنسبة."
+        },
+        "feedback": {
+          "clipId": "F09",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "The correct temperature is $590.30 K = 317.15°C$. None of the printed choices matches; doubling Celsius to $44°C$ is invalid.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$T₁ = 295.15 K$. الضغط تضاعف، فتتضاعف الحرارة المطلقة إلى $590.30 K$، أي $317.15°C$. لا يوجد اختيار مطابق. $44°C$ ينتج من مضاعفة سيلسيوس مباشرة، وهو استخدام خاطئ للنسبة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.09",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "source-error",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S19",
+      "title": "Final Teach-back — الشرح النهائي للكورس",
+      "clipId": "N19",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.10",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "strategy"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دي آخر مراجعة في الكورس. مش عايز حفظ جدول فقط؛ عايز طريقة تفكير: تختار القانون إزاي، تتعامل مع الحرارة والوحدات إزاي، وتعرف منين إن الناتج منطقي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "title": "تطبيق: Final Teach-back — الشرح النهائي للكورس",
+      "clipId": "N20",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "09.10",
+          "boardSpec": {
+            "kind": "review",
+            "topic": "strategy"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Explain how to choose and solve a gas-law problem: constant condition, Kelvin, state pairing, units and a sanity check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "من غير ما تقرأ البورد كقائمة، اشرحلي إزاي تختار القانون في سؤال غازات، وإزاي تحل وتراجع إجابتك. لازم تذكر What is constant? (إيه اللي ثابت؟)، Kelvin (كلفن) لو فيه حرارة، تنظيم الحالات، الوحدات، والـSanity check (التحقق المنطقي).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q10",
+        "english": "Explain how to choose and solve a gas-law problem: constant condition, Kelvin, state pairing, units and a sanity check.",
+        "arabic": "من غير ما تقرأ البورد كقائمة، اشرحلي إزاي تختار القانون في سؤال غازات، وإزاي تحل وتراجع إجابتك. لازم تذكر What is constant? (إيه اللي ثابت؟)، Kelvin (كلفن) لو فيه حرارة، تنظيم الحالات، الوحدات، والـSanity check (التحقق المنطقي).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Choose the law from its constant condition, use Kelvin where required, organize states and units, then check the result.",
+          "arabic": "ابدأ بالمتغير الثابت ونفس كمية الغاز، واختر العلاقة المناسبة. حول أي حرارة داخل النسبة إلى كلفن، ورتب الحالتين ووحد الوحدات، ثم احسب وراجع الناتج مقارنة بالاتجاه المتوقع."
+        },
+        "feedback": {
+          "clipId": "F10",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Choose the law from its constant condition, use Kelvin where required, organize states and units, then check the result.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "ابدأ بالمتغير الثابت ونفس كمية الغاز، واختر العلاقة المناسبة. حول أي حرارة داخل النسبة إلى كلفن، ورتب الحالتين ووحد الوحدات، ثم احسب وراجع الناتج مقارنة بالاتجاه المتوقع.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "09.10",
+              "boardSpec": {
+                "kind": "review",
+                "topic": "strategy"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-mock-exam"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يسترجع خصائص الغاز والتحولات الأساسية من غير تلقين كامل.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "يختار القانون من المتغير الثابت لا من الحروف فقط.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يحل Assignment 1 أو يشرح حله كاملًا باستقلالية.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يحل Assignment 2 مع Kelvin وتحقق منطقي.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يحل سؤال P–T صحيح بدل سؤال المصدر غير المتسق.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    },
+    {
+      "id": "O06",
+      "text": "يحل Assignment 3 باستقلالية.",
+      "sceneIds": [
+        "S11"
+      ],
+      "questionIds": [
+        "Q06"
+      ]
+    },
+    {
+      "id": "O07",
+      "text": "يفسر V–P وV–T graphs من غير حساب.",
+      "sceneIds": [
+        "S13"
+      ],
+      "questionIds": [
+        "Q07"
+      ]
+    },
+    {
+      "id": "O08",
+      "text": "يشخص Celsius, pairing, units, direction errors.",
+      "sceneIds": [
+        "S15"
+      ],
+      "questionIds": [
+        "Q08"
+      ]
+    },
+    {
+      "id": "O09",
+      "text": "يفحص p.35 Q2 علميًا ولا يضاعف Celsius مباشرة.",
+      "sceneIds": [
+        "S17"
+      ],
+      "questionIds": [
+        "Q09"
+      ]
+    },
+    {
+      "id": "O10",
+      "text": "يلخص استراتيجية حل واختيار قوانين الغازات كاملة.",
+      "sceneIds": [
+        "S19"
+      ],
+      "questionIds": [
+        "Q10"
+      ]
+    }
+  ]
+}

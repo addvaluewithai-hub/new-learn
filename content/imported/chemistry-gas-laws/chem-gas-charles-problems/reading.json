@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "chem-gas-charles-problems",
+  "curriculumId": "chemistry-gas-laws",
+  "contentRevision": "c0139b427eeeb683f619df55ed70d867808458cd969a9c50fb1e304f27af69a2",
+  "title": "مسائل قانون شارل",
+  "englishTitle": "Kelvin",
+  "curriculumTitle": "الكيمياء · قوانين الغازات",
+  "lessonOrder": 6,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Celsius to Kelvin — من سيلسيوس إلى كلفن",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.01",
+          "boardSpec": {
+            "kind": "kelvin"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "قبل أي Ratio (نسبة) فيها Temperature (درجة الحرارة)، لازم نستخدم Absolute Temperature (درجة الحرارة المطلقة). التحويل العلمي: $T(K)=T(°C)+273.15$. في مسائل المستوى ده، +$273$ تقريب مقبول لو الدقة المطلوبة لا تتأثر. مثال: $27°C = 300.15 K$، أو تقريبًا $300 K$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "تطبيق: Celsius to Kelvin — من سيلسيوس إلى كلفن",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.01",
+          "boardSpec": {
+            "kind": "kelvin"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Convert $20°C$ to Kelvin. Explain why $20$ cannot be used directly in $V/T$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "حوّل $20°C$ إلى Kelvin (كلفن)، وبعدها اشرح ليه ما ينفعش نحط $20$ مباشرة في $V/T$.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Convert $20°C$ to Kelvin. Explain why $20$ cannot be used directly in $V/T$.",
+        "arabic": "حوّل $20°C$ إلى Kelvin (كلفن)، وبعدها اشرح ليه ما ينفعش نحط $20$ مباشرة في $V/T$.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "20°C = 293.15 K, approximately 293 K. The ratio needs absolute temperature.",
+          "arabic": "$T = 20 + 273.15 = 293.15 K$، أو $293 K$ بالتقريب. لا نضع $20$ داخل النسبة لأن القانون يحتاج الحرارة المطلقة بالكلفن."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$20°C = 293.15 K$, approximately $293 K$. The ratio needs absolute temperature.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$T = 20 + 273.15 = 293.15 K$، أو $293 K$ بالتقريب. لا نضع $20$ داخل النسبة لأن القانون يحتاج الحرارة المطلقة بالكلفن.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "06.01",
+              "boardSpec": {
+                "kind": "kelvin"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Read Before Calculating — اقرأ قبل الحساب",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.02",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-organize",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "قبل الحساب رتّب السؤال. في Charles' Law (قانون شارل)، Pressure (الضغط) ثابت. لو عندك $V₁$ و$T₁$ و$T₂$ وعايز $V₂$، يبقى القانون $V₁/T₁=V₂/T₂$، لكن بعد تحويل أي Celsius (سيلسيوس) إلى Kelvin (كلفن).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "تطبيق: Read Before Calculating — اقرأ قبل الحساب",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.02",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-organize",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Given $V₁$, $T₁$ and $T₂$, find $V₂$ at constant pressure. Identify the givens and law.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "لو معاك $V₁$ و$T₁$ و$T₂$ وعايز $V₂$ عند Constant Pressure (ضغط ثابت)، اشرحلي Given (المعطيات)، Constant (الثابت)، Find (المطلوب)، وLaw (القانون).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Given $V₁$, $T₁$ and $T₂$, find $V₂$ at constant pressure. Identify the givens and law.",
+        "arabic": "لو معاك $V₁$ و$T₁$ و$T₂$ وعايز $V₂$ عند Constant Pressure (ضغط ثابت)، اشرحلي Given (المعطيات)، Constant (الثابت)، Find (المطلوب)، وLaw (القانون).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Find V₂ using V₁/T₁ = V₂/T₂ at constant pressure, after converting temperatures to Kelvin.",
+          "arabic": "المعطيات حجم الحالة الأولى وحرارتها وحرارة الحالة الثانية؛ المطلوب الحجم النهائي. الضغط ثابت، فنستخدم $V₁/T₁ = V₂/T₂$ بعد تحويل الحرارتين إلى كلفن."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Find $V₂$ using $V₁/T₁ = V₂/T₂$ at constant pressure, after converting temperatures to Kelvin.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "المعطيات حجم الحالة الأولى وحرارتها وحرارة الحالة الثانية؛ المطلوب الحجم النهائي. الضغط ثابت، فنستخدم $V₁/T₁ = V₂/T₂$ بعد تحويل الحرارتين إلى كلفن.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "06.02",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "charles-organize",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Worked Example — مثال محلول",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-worked",
+            "worked": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "هحل مثال كامل قدامك الأول. Gas (غاز) حجمه $250 mL$ عند $27°C$، واتسخن عند Constant Pressure (ضغط ثابت) إلى $87°C$. نحول: $T₁≈300 K$ و$T₂≈360 K$. قبل الحساب نتوقع إن Volume (الحجم) يزيد لأن الحرارة زادت. نعوض: $250/300 = V₂/360$، فيطلع $V₂≈300 mL$. والنتيجة منطقية لأنها أكبر من $250 mL$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "تطبيق: Worked Example — مثال محلول",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.03",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-worked",
+            "worked": true
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "For $250 mL$ at $300 K$ heated to $360 K$ at constant pressure, summarize the conversion, law, prediction and result.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "من المثال اللي لسه حليناه، لخصلي الأربع أفكار: التحويل، القانون، التوقع، والتحقق من الناتج.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "For $250 mL$ at $300 K$ heated to $360 K$ at constant pressure, summarize the conversion, law, prediction and result.",
+        "arabic": "من المثال اللي لسه حليناه، لخصلي الأربع أفكار: التحويل، القانون، التوقع، والتحقق من الناتج.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ = 300 mL. Kelvin is already given; the volume increases with temperature.",
+          "arabic": "درجات الحرارة هنا بالكلفن بالفعل. شارل يناسب ثبات الضغط. $V₂ = 250 × 360 / 300 = 300 mL$. الحرارة المطلقة زادت، والحجم زاد كما توقعنا."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ = 300 mL$. Kelvin is already given; the volume increases with temperature.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "درجات الحرارة هنا بالكلفن بالفعل. شارل يناسب ثبات الضغط. $V₂ = 250 × 360 / 300 = 300 mL$. الحرارة المطلقة زادت، والحجم زاد كما توقعنا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "06.03",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "charles-worked",
+                "worked": true
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Independent Equivalent — مثال مكافئ مستقل",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.04",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-independent",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي نفس الطريقة لكن بأرقام جديدة. Gas (غاز) حجمه $180 mL$ عند $27°C$، واتسخن عند Constant Pressure (ضغط ثابت) إلى $77°C$. إنت هتعمل التحويل والتوقع والحساب والتحقق.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "تطبيق: Independent Equivalent — مثال مكافئ مستقل",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.04",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-independent",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $180 mL$ at $27°C$. Find the volume at $77°C$ at constant pressure. Explain and check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "حل المثال: $180 mL$ عند $27°C$ إلى $77°C$ عند ضغط ثابت. اشرح خطواتك والنتيجة وليه اتجاهها منطقي.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "A gas occupies $180 mL$ at $27°C$. Find the volume at $77°C$ at constant pressure. Explain and check.",
+        "arabic": "حل المثال: $180 mL$ عند $27°C$ إلى $77°C$ عند ضغط ثابت. اشرح خطواتك والنتيجة وليه اتجاهها منطقي.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 210 mL, using approximately 300 K and 350 K; the volume increases.",
+          "arabic": "بالتقريب المدرسي، الحرارتان $300 K$ و$350 K$. $V₂ = 180 × 350 / 300 = 210 mL$. الحجم زاد مع الحرارة. باستخدام $273.15$ تكون النتيجة قريبة أيضًا من $210 mL$."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 210 mL$, using approximately $300 K$ and $350 K$; the volume increases.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "بالتقريب المدرسي، الحرارتان $300 K$ و$350 K$. $V₂ = 180 × 350 / 300 = 210 mL$. الحجم زاد مع الحرارة. باستخدام $273.15$ تكون النتيجة قريبة أيضًا من $210 mL$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "06.04",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "charles-independent",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Assignment 2 — التكليف الثاني",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "دلوقتي مسألة المصدر نفسها: Container of oxygen (وعاء أكسجين) حجمه $349 mL$ عند $22°C$. المطلوب Volume (الحجم) عند $50°C$. هنطبق نفس الروتين: Kelvin (كلفن) أولًا، Prediction (توقع)، ثم القانون والحساب والتحقق. الضغط وكمية الغاز ثابتان في هذه المسألة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "تطبيق: Assignment 2 — التكليف الثاني",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.05",
+          "boardSpec": {
+            "kind": "problem",
+            "problem": "charles-source",
+            "worked": false
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "A gas occupies $349 mL$ at $22°C$. Find the volume at $50°C$ at constant pressure. Show the Kelvin conversion and check.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "المعطيات: $349 mL$ عند $22°C$، والحرارة النهائية $50°C$ عند ضغط وكمية غاز ثابتين. حل Assignment ($2$): $349 mL$ عند $22°C$ إلى $50°C$. اشرح التحويل والتوقع والمعادلة والنتيجة والتحقق.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q05",
+        "english": "A gas occupies $349 mL$ at $22°C$. Find the volume at $50°C$ at constant pressure. Show the Kelvin conversion and check.",
+        "arabic": "المعطيات: $349 mL$ عند $22°C$، والحرارة النهائية $50°C$ عند ضغط وكمية غاز ثابتين. حل Assignment ($2$): $349 mL$ عند $22°C$ إلى $50°C$. اشرح التحويل والتوقع والمعادلة والنتيجة والتحقق.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "V₂ ≈ 382 mL using 295.15 K and 323.15 K; heating increases the volume.",
+          "arabic": "$T₁ = 295.15 K$ و$T₂ = 323.15 K$. من شارل: $V₂ = 349 × 323.15 / 295.15 ≈ 382 mL$. الحرارة زادت، والحجم النهائي أكبر من $349 mL$."
+        },
+        "feedback": {
+          "clipId": "F05",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "$V₂ ≈ 382 mL$ using $295.15 K$ and $323.15 K$; heating increases the volume.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "$T₁ = 295.15 K$ و$T₂ = 323.15 K$. من شارل: $V₂ = 349 × 323.15 / 295.15 ≈ 382 mL$. الحرارة زادت، والحجم النهائي أكبر من $349 mL$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "06.05",
+              "boardSpec": {
+                "kind": "problem",
+                "problem": "charles-source",
+                "worked": false
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S11",
+      "title": "Celsius Trap & Final Teach-back — فخ السيلسيوس والشرح النهائي",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.06",
+          "boardSpec": {
+            "kind": "kelvin"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "أشهر خطأ هو التعويض بدرجات Celsius مباشرة، زي $349/22 = V₂/50$. المشكلة قبل أي حساب إن $22$ و$50$ مش Absolute Temperature (حرارة مطلقة). لازم تتحول لكلفن. دلوقتي اجمع طريقة الحل كلها في شرح واحد.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "تطبيق: Celsius Trap & Final Teach-back — فخ السيلسيوس والشرح النهائي",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "chemistry-legacy-board",
+        "params": {
+          "beatId": "06.06",
+          "boardSpec": {
+            "kind": "kelvin"
+          },
+          "availableLaws": 4,
+          "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "U01"
+          ],
+          "text": "Why is $349/22 = V₂/50$ wrong? Explain a correct Charles-law solution method.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "U02"
+          ],
+          "text": "اشرح ليه $349/22 = V₂/50$ خطأ، وبعدها اشرح طريقة حل أي Charles Problem (مسألة شارل) من قراءة السؤال لحد Sanity check (التحقق المنطقي).",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q06",
+        "english": "Why is $349/22 = V₂/50$ wrong? Explain a correct Charles-law solution method.",
+        "arabic": "اشرح ليه $349/22 = V₂/50$ خطأ، وبعدها اشرح طريقة حل أي Charles Problem (مسألة شارل) من قراءة السؤال لحد Sanity check (التحقق المنطقي).",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Convert Celsius to Kelvin before using Charles' law, and check pressure, units and direction.",
+          "arabic": "الخطأ هو استخدام سيلسيوس مباشرة في النسبة. حول الحرارتين إلى كلفن، وتحقق من ثبات الضغط، ثم استخدم $V₁/T₁ = V₂/T₂$ وراجع اتجاه الحجم والوحدة."
+        },
+        "feedback": {
+          "clipId": "F06",
+          "steps": [
+            {
+              "unitIds": [
+                "U01"
+              ],
+              "text": "Convert Celsius to Kelvin before using Charles' law, and check pressure, units and direction.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "U02"
+              ],
+              "text": "الخطأ هو استخدام سيلسيوس مباشرة في النسبة. حول الحرارتين إلى كلفن، وتحقق من ثبات الضغط، ثم استخدم $V₁/T₁ = V₂/T₂$ وراجع اتجاه الحجم والوحدة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "chemistry-legacy-board",
+            "params": {
+              "beatId": "06.06",
+              "boardSpec": {
+                "kind": "kelvin"
+              },
+              "availableLaws": 4,
+              "assetBase": "/lesson-assets/chemistry-gas-laws/chem-gas-charles-problems"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O01",
+      "text": "يحول Celsius إلى Kelvin ويشرح سبب التحويل.",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O02",
+      "text": "ينظم مسألة شارل ويحدد الضغط كمتغير ثابت.",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O03",
+      "text": "يتابع نموذج حل كامل قبل المحاولة المستقلة.",
+      "sceneIds": [
+        "S05"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    },
+    {
+      "id": "O04",
+      "text": "يطبق قانون شارل في مثال جديد بعد مشاهدة النموذج المحلول.",
+      "sceneIds": [
+        "S07"
+      ],
+      "questionIds": [
+        "Q04"
+      ]
+    },
+    {
+      "id": "O05",
+      "text": "يحل مسألة المصدر 349 mL عند 22°C إلى 50°C.",
+      "sceneIds": [
+        "S09"
+      ],
+      "questionIds": [
+        "Q05"
+      ]
+    },
+    {
+      "id": "O06",
+      "text": "يشخص استخدام Celsius مباشرة ويلخص طريقة حل مسائل شارل.",
+      "sceneIds": [
+        "S11"
+      ],
+      "questionIds": [
+        "Q06"
+      ]
+    }
+  ]
+}
