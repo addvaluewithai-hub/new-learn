@@ -29,6 +29,25 @@ interruption and hangup. Transcripts are displayed; a disconnected session requi
 Context remains fixed while the modal is open because lesson playback is suspended.
 Changing mode ends the old voice connection. A new connection receives fresh authorized context.
 
+## Nova inside reading lessons (the lesson conversation)
+
+Reading lessons have no Nova modal. The runtime shows the lesson as one conversation
+(`ReadingLesson` `conversation` prop): every authored line up to the current step, the
+learner's answers, and the host's notes pinned to the step they were asked on (`ThreadNote`).
+Authored lines read like a page; Nova replies carry its name and a tint, so AI text is never
+mistaken for curriculum. On wide screens the conversation is a column beside the board and the
+controls hold the field; on phones the board shrinks to the top and a round Nova button sits in
+the controls (tap opens the conversation, hold to speak). The controls never move.
+Typed questions use /nova/chat with the conversation as history (spoken and typed turns merged).
+Voice is hold-to-talk by default: the button, the Nova button or the Space key is held while
+speaking. /nova/live with `purpose: "talk"` locks manual activity detection, so the client
+sends activityStart/activityEnd and audio flows only while held. The session opens on the
+first hold, gets earlier talk and the current position as silent context (turnComplete false),
+receives silent position updates as the learner moves, and closes after two quiet minutes or
+when the lesson closes. Speaking over Nova interrupts it. Errors appear in the conversation.
+Not built yet (decided defaults when they are): Nova reading the lesson aloud, "continue on your
+own" auto-advance (off by default), and spoken navigation commands.
+
 ## Server boundary
 
 POST /api/nova/chat, /live, /quiz require same-origin requests and a valid account.

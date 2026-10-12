@@ -18,6 +18,8 @@ export { validateReadingPackage } from './reading/validate';
 export { readingContext, readingPageIndex, readingPages, readingPositionOf } from './reading/model';
 export type { ReadingPosition } from './reading/model';
 export { goalProgress } from './reading/goals';
+export { threadItems } from './reading/thread';
+export type { ThreadItem, ThreadNote } from './reading/thread';
 export type {
   ReadingGoal,
   ReadingPackage,

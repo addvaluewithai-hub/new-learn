@@ -8,6 +8,7 @@ import {
   readingPages,
   STEP_MS,
 } from '../src/reading/model';
+import { threadItems, type ThreadNote } from '../src/reading/thread';
 import type { ReadingPackage } from '../src/reading/types';
 
 const board = { renderer: 'probe-board', params: { scene: 'S01' } };
@@ -110,4 +111,42 @@ test('assistant context names the step and the written text instead of a clock',
   const attempt = readingContext(lesson, { scene: 1, kind: 'attempt', step: 0 }, false);
   assert.equal(attempt.phase, 'attempt');
   assert.equal(attempt.questionVisible, true);
+});
+test('the lesson thread interleaves lines, the answer and notes at the step they were asked', () => {
+  const pages = readingPages(lesson);
+  const note = (id: string, at: ThreadNote['at']): ThreadNote => ({
+    id,
+    role: 'tutor',
+    text: id,
+    at,
+  });
+  const notes = [
+    note('on-step-2', { sceneId: 'S01', phase: 'narration', step: 1 }),
+    note('on-feedback', { sceneId: 'S02', phase: 'feedback', step: 0 }),
+  ];
+  const items = threadItems(lesson, pages, pages.length - 1, { Q1: '5/6' }, notes);
+  assert.deepEqual(
+    items.map((i) => (i.kind === 'note' ? i.note.id : i.kind)),
+    [
+      'scene',
+      'line',
+      'line',
+      'on-step-2',
+      'scene',
+      'line',
+      'question',
+      'answer',
+      'line',
+      'on-feedback',
+    ],
+  );
+  const last = items.filter((i) => i.kind === 'line').at(-1);
+  assert.equal(last?.kind === 'line' && last.label, 'الإجابة النموذجية');
+  assert.equal(last?.kind === 'line' && last.current, true);
+  // Back on the first step: nothing ahead is shown, but later notes are kept, not lost.
+  const back = threadItems(lesson, pages, 0, {}, notes);
+  assert.deepEqual(
+    back.map((i) => (i.kind === 'note' ? i.note.id : i.kind)),
+    ['scene', 'line', 'on-step-2', 'on-feedback'],
+  );
 });

@@ -1,0 +1,253 @@
+/* The lesson conversation. Authored lines read like a page; the learner speaks in solid
+   bubbles; the tutor's replies carry its name and a tint so they never pass as curriculum. */
+.rl-thread {
+  z-index: 5;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--rl-card);
+  box-shadow: var(--rl-shadow);
+  animation: rl-in 0.22s ease both;
+}
+.rl-thread-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px 8px 12px;
+  font-size: 15px;
+}
+.rl-grip {
+  display: none;
+}
+.rl-thread-list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 4px 18px 16px;
+  list-style: none;
+}
+.rl-t p {
+  margin: 0;
+  unicode-bidi: plaintext;
+}
+.rl-t-scene {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--rl-faint);
+  font-size: 12.5px;
+}
+.rl-t-scene span {
+  color: var(--rl-soft);
+  font-weight: 600;
+}
+.rl-t-scene::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid rgb(27 41 37 / 9%);
+}
+.rl-t-line {
+  padding-inline-start: 12px;
+  border-inline-start: 2px solid transparent;
+  color: var(--rl-soft);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+.rl-t-line[aria-current] {
+  border-color: var(--rl-accent);
+  color: var(--rl-ink);
+}
+.rl-t-line .rl-tag,
+.rl-t-question .rl-tag {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.rl-t-question {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--rl-wash);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.rl-t-answer,
+.rl-t-note[data-role='learner'] {
+  align-self: flex-end;
+  max-width: 86%;
+  padding: 9px 14px;
+  border-radius: 18px 18px 18px 6px;
+  background: var(--rl-accent);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+.rl-t-voice {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-inline-end: 7px;
+  border-radius: 50%;
+  background: var(--rl-lime);
+  vertical-align: middle;
+}
+.rl-t-note[data-role='tutor'] {
+  align-self: flex-start;
+  max-width: 92%;
+  padding: 9px 14px 11px;
+  border-radius: 18px 18px 6px 18px;
+  background: #f1eefa;
+  color: var(--rl-ink);
+  font-size: 15px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+.rl-t-note[data-failed] {
+  background: #fdeceb;
+  color: #8a2a22;
+}
+.rl-t-who {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+  color: #6a55b8;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: normal;
+}
+.rl-t-who::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b6cf0, #4fc3c9);
+}
+.rl-dots {
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px 0 2px;
+}
+.rl-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a596d8;
+  animation: rl-dot 1s ease-in-out infinite;
+}
+.rl-dots i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.rl-dots i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes rl-dot {
+  50% {
+    opacity: 0.3;
+    transform: translateY(-3px);
+  }
+}
+.rl-suggest {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 16px 12px;
+  border-top: 1px solid rgb(27 41 37 / 7%);
+  scrollbar-width: none;
+}
+.rl-suggest button,
+.rl-hint {
+  flex: none;
+  padding: 7px 13px;
+  border: 1px solid rgb(106 85 184 / 22%);
+  border-radius: 99px;
+  background: #faf9fe;
+  color: #4f3f95;
+  font: inherit;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.rl-suggest button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.rl-thread-foot {
+  padding: 0 12px 12px;
+}
+/* Wide screens: the conversation is a column beside the board. It already shows the
+   current line, so the caption steps aside unless a question is waiting for an answer. */
+@media (min-width: 651px) {
+  .rl[data-thread] {
+    grid-template-columns: minmax(0, 1fr) clamp(320px, 31vw, 420px);
+  }
+  .rl > .rl-top,
+  .rl > .rl-dock,
+  .rl > .rl-stage-end {
+    grid-column: 1 / -1;
+  }
+  .rl[data-thread] .rl-thread {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    margin-inline-end: 24px;
+    margin-top: 6px;
+  }
+  .rl[data-thread]:not([data-answering]) .rl-stage {
+    grid-row: 2 / 4;
+    padding-bottom: 8px;
+  }
+  .rl[data-thread]:not([data-answering]) .rl-caption-zone {
+    display: none;
+  }
+}
+/* Phones: the board shrinks to the top and the conversation takes the rest. While a
+   question waits, the conversation is a sheet over the board so the choices stay put. */
+@media (max-width: 650px) {
+  .rl[data-thread]:not([data-answering]) {
+    grid-template-rows: auto minmax(0, 1fr) minmax(0, 1.75fr) auto;
+  }
+  .rl[data-thread]:not([data-answering]) .rl-caption-zone {
+    display: none;
+  }
+  .rl-thread {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 10px 8px 0;
+    box-shadow: 0 -12px 40px -12px rgb(16 32 28 / 26%);
+  }
+  .rl[data-answering] .rl-thread {
+    grid-row: 2 / 4;
+    align-self: end;
+    height: 74%;
+  }
+  .rl-thread-head {
+    position: relative;
+    padding-top: 16px;
+  }
+  .rl-grip {
+    display: block;
+    position: absolute;
+    top: 6px;
+    inset-inline: calc(50% - 22px);
+    width: 44px;
+    height: 5px;
+    padding: 0;
+    border: 0;
+    border-radius: 99px;
+    background: rgb(27 41 37 / 16%);
+  }
+  .rl-thread-list {
+    padding-inline: 14px;
+  }
+}
+.rl-caption-meta .rl-hint {
+  padding: 2px 11px;
+  font-size: 12.5px;
+}

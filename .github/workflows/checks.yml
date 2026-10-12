@@ -33,6 +33,7 @@ jobs:
       - run: npm run test:browser:platform
       - run: npm run test:browser:nova
       - run: npm run test:browser:reading
+      - run: npm run test:browser:talk
       - uses: actions/upload-artifact@v4
         if: always()
         with:

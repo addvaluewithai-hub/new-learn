@@ -1,5 +1,6 @@
 import { ReadText, textDirection } from '../ReadText';
-import type { ReadingQuestion } from '../types';
+import { pageSteps } from '../model';
+import type { ReadingPage, ReadingQuestion, ReadingScene } from '../types';
 
 /** The one sentence beside the board. Its zone has a fixed height, so nothing moves. */
 export function Caption({
@@ -8,23 +9,24 @@ export function Caption({
   answer,
   step,
   steps,
-  onHistory,
+  onThread,
 }: {
   label?: string;
   text: string;
   answer?: string;
   step: number;
   steps: number;
-  onHistory?: () => void;
+  /** Opens the whole lesson conversation. */
+  onThread?: () => void;
 }) {
   return (
     <div className="rl-caption" data-label={label ? 'yes' : undefined}>
       <div className="rl-caption-meta">
         {label ? <span className="rl-tag">{label}</span> : <span />}
         <span className="rl-caption-step">
-          {onHistory ? (
-            <button type="button" className="rl-link" onClick={onHistory}>
-              اللي فات
+          {onThread ? (
+            <button type="button" className="rl-link" onClick={onThread}>
+              المحادثة
             </button>
           ) : null}
           <bdi dir="ltr">
@@ -49,19 +51,29 @@ export function QuestionCaption({
   question,
   onChoose,
   onSkip,
+  onHint,
 }: {
   question: ReadingQuestion;
   onChoose: (option: string) => void;
   onSkip: () => void;
+  /** Ask the tutor for a hint (never the answer). */
+  onHint?: () => void;
 }) {
   const choices = question.attempt !== 'written' ? question.options : [];
   return (
     <div className="rl-caption rl-question">
       <div className="rl-caption-meta">
         <span className="rl-tag rl-tag-ask">جرّب بنفسك</span>
-        <button type="button" className="rl-link" onClick={onSkip}>
-          معرفتش، وريني الحل
-        </button>
+        <span className="rl-caption-step">
+          {onHint ? (
+            <button type="button" className="rl-hint" onClick={onHint}>
+              تلميح
+            </button>
+          ) : null}
+          <button type="button" className="rl-link" onClick={onSkip}>
+            معرفتش، وريني الحل
+          </button>
+        </span>
       </div>
       <div key={question.id} className="rl-caption-text">
         <p dir="ltr" lang="en" className="rl-question-en">
@@ -81,5 +93,49 @@ export function QuestionCaption({
         </div>
       ) : null}
     </div>
+  );
+}
+
+/** The caption for a page: the question while answering, otherwise the current line. */
+export function PageCaption({
+  scene,
+  page,
+  answers,
+  answering,
+  onAnswer,
+  onThread,
+  onHint,
+}: {
+  scene: ReadingScene;
+  page: ReadingPage;
+  answers: Record<string, string>;
+  answering: boolean;
+  onAnswer: (value: string) => void;
+  onThread: () => void;
+  onHint?: () => void;
+}) {
+  const question = scene.question;
+  if (answering && question)
+    return (
+      <QuestionCaption
+        question={question}
+        onChoose={onAnswer}
+        onSkip={() => onAnswer('')}
+        onHint={onHint}
+      />
+    );
+  const steps = pageSteps(scene, page);
+  const attempt = page.kind === 'attempt';
+  return (
+    <Caption
+      label={page.kind === 'feedback' ? 'الإجابة النموذجية' : attempt ? 'سؤال' : undefined}
+      text={attempt ? question!.english : steps[page.step].text}
+      answer={
+        page.kind === 'feedback' && page.step === 0 && question ? answers[question.id] : undefined
+      }
+      step={attempt ? 0 : page.step}
+      steps={attempt ? 1 : steps.length}
+      onThread={onThread}
+    />
   );
 }

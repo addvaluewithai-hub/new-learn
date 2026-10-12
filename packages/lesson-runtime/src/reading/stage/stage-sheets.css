@@ -82,19 +82,6 @@
   background: var(--rl-accent);
   color: #fff;
 }
-.rl-transcript {
-  margin: 0;
-  padding: 0 28px 0 8px;
-  color: var(--rl-soft);
-  font-size: 15.5px;
-  line-height: 1.85;
-}
-.rl-transcript li {
-  margin-bottom: 12px;
-}
-.rl-transcript li:last-child {
-  color: var(--rl-ink);
-}
 .rl-stage-end {
   overflow: auto;
   grid-row: 2 / -1;

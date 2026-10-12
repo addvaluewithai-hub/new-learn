@@ -100,6 +100,21 @@ export class LiveConnection {
   endAudio() {
     if (this.ready) this.send({ realtimeInput: { audioStreamEnd: true } });
   }
+  /** Hold-to-talk: the learner started or stopped speaking (automatic detection is off). */
+  activity(start: boolean) {
+    if (this.ready)
+      this.send({ realtimeInput: start ? { activityStart: {} } : { activityEnd: {} } });
+  }
+  /** Adds context without asking for a reply. */
+  note(text: string) {
+    if (this.ready)
+      this.send({
+        clientContent: { turns: [{ role: 'user', parts: [{ text }] }], turnComplete: false },
+      });
+  }
+  get open() {
+    return this.ready;
+  }
   text(text: string) {
     if (this.ready)
       this.send({
