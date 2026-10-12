@@ -28,6 +28,8 @@ export type LessonController = {
   getContext: () => LessonContext;
   /** Reading lessons: move to the next step, as the Next button would (not past a question). */
   next?: () => void;
+  /** Reading lessons: show this step (not past a question the learner has not answered). */
+  goTo?: (position: { sceneId: string; phase: LessonContext['phase']; step: number }) => void;
 };
 // The host observes the same Remotion frame as the board. No second clock.
 export function lessonContext(
