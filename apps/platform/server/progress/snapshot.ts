@@ -82,6 +82,34 @@ export function validateSnapshot(outline: Outline, input: unknown): ProgressSnap
   };
 }
 
+/**
+ * A save from an older edition of the lesson, kept for the new one: scenes and answers that
+ * still exist carry over; a position that no longer exists restarts at the top. Saves that
+ * do not fit at all are dropped rather than failing the lesson.
+ */
+export function carryOver(outline: Outline, saved: ProgressSnapshot): ProgressSnapshot | null {
+  const ids = outline.scenes.map((s) => s.id);
+  const attempts = saved.attempts.filter((a) =>
+    outline.scenes.some((s) => s.id === a.sceneId && s.questionId === a.questionId),
+  );
+  const reachedSceneIds = ids.filter((id) => saved.reachedSceneIds.includes(id));
+  try {
+    return validateSnapshot(outline, { ...saved, reachedSceneIds, attempts });
+  } catch {
+    if (!ids.length) return null;
+    const step = outline.delivery === 'reading' ? { step: 0 } : {};
+    return validateSnapshot(outline, {
+      schemaVersion: 1,
+      sceneId: ids[0],
+      phase: 'narration',
+      frame: 0,
+      ...step,
+      reachedSceneIds,
+      attempts,
+    });
+  }
+}
+
 /** Cursor from the newest save; reached scenes and attempt history only ever grow. */
 export function mergeSnapshots(
   outline: Outline,
