@@ -4,43 +4,13 @@ import { LiveConnection, type LiveToken } from '../voice/LiveConnection';
 import type { Position } from '../types';
 import { reason } from './voiceError';
 import { readMessage, type TeachEvents, type TeachLine } from './teach';
+import { LOOKAHEAD_S, type ReadJob, type Session, type VoiceEvents } from './voiceTypes';
+
+export type { VoiceEvents } from './voiceTypes';
 
 export type { TeachEvents, TeachLine } from './teach';
 
 export type VoiceState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'reading';
-export type VoiceEvents = {
-  state: (state: VoiceState) => void;
-  position: () => Position | null;
-  /** Silent context sent when a session opens: earlier talk and where the learner is. */
-  primer: () => string[];
-  begin: () => void;
-  heard: (text: string) => void;
-  said: (text: string) => void;
-  done: () => void;
-  failed: (message: string) => void;
-};
-type Session = {
-  audio: AudioSession;
-  live: LiveConnection;
-  ready: boolean;
-  connected: Promise<void>;
-  mic?: Promise<void>;
-  /** The learner's turn is open on the server (activityStart sent). */
-  talking: boolean;
-  buffer: string[];
-};
-type TeachJob = {
-  lines: TeachLine[];
-  on: TeachEvents;
-  /** The line whose speech is being generated now (-1: none yet). */
-  line: number;
-  heard: boolean;
-  askedAt: number;
-  complete: boolean;
-  timers: number[];
-};
-/** Ask for the next line while this much speech is still queued, so lines join up. */
-const LOOKAHEAD_S = 6;
 const IDLE_CLOSE_MS = 120_000;
 const REPLY_WAIT_MS = 20_000;
 
@@ -56,7 +26,7 @@ export class LessonVoice {
   private holding = false;
   private starting = false;
   private turn = false;
-  private teaching: TeachJob | null = null;
+  private teaching: ReadJob | null = null;
   /** The model is producing a response (until turnComplete or interrupted). */
   private generating = false;
   /** Audio still arriving from teaching that was cut; dropped until that response ends. */
@@ -245,7 +215,7 @@ export class LessonVoice {
     if (this.holding || this.turn || !lines.length) return;
     clearTimeout(this.timers.idle);
     const s = this.session();
-    const job: TeachJob = {
+    const job: ReadJob = {
       lines,
       on,
       line: -1,
@@ -261,7 +231,7 @@ export class LessonVoice {
       () => this.teaching === job && this.endTeach('failed'),
     );
   }
-  private readLine(s: Session, job: TeachJob, line: number) {
+  private readLine(s: Session, job: ReadJob, line: number) {
     // A reply still running (e.g. a cut reading) is replaced: drop what is left of it.
     if (this.generating) this.discard = true;
     if (line === 0) s.audio.interrupt();
@@ -273,7 +243,7 @@ export class LessonVoice {
     clearTimeout(this.timers.read);
     this.timers.read = window.setTimeout(() => this.endTeach('failed'), REPLY_WAIT_MS);
   }
-  private lineDone(s: Session, job: TeachJob) {
+  private lineDone(s: Session, job: ReadJob) {
     // An end right after asking belongs to the reply this line replaced; ignore it. A line
     // that really produced no speech is a failure, never a silent skip ahead.
     if (!job.heard && performance.now() - job.askedAt < 1500) return;
