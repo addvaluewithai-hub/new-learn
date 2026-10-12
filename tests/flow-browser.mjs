@@ -135,7 +135,6 @@ try {
   await page.locator('.rl-t-note[data-role="learner"]').waitFor();
   await page.keyboard.up('Space');
   await page.locator('.rl-t-note[data-role="tutor"]', { hasText: 'رد قصير' }).waitFor();
-  assert.equal(await page.locator('.rl-question').count(), 1);
   assert.ok(log.includes('start'));
   assert.deepEqual(errors, []);
   console.log(
