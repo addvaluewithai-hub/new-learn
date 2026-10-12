@@ -1402,14 +1402,110 @@
           "curriculumId": "physics-1-mechanics-waves",
           "order": 802,
           "title": "معامل يونج والصلابة المحورية",
-          "subtitle": "Young's Modulus and Axial Stiffness"
+          "subtitle": "Young's Modulus and Axial Stiffness",
+          "moduleId": "reading:phys1-young-axial-stiffness",
+          "contentRevision": "937354517c1b6c183f7fb69ed0fd55a89a516a193f79a4c63d3f7dc4f3179898",
+          "manifestHash": "ce6e9862a73862b0602d340f03e3c9f4589a5004c623593973bd7621f103ef51",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تحسب استطالة قضيب من قوته وأبعاده ومعامل يونج.",
+              "sceneIds": [
+                "S01",
+                "S02",
+                "S03",
+                "S04",
+                "S09"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "تفرّق بين معامل المادة وصلابة القضيب وتحدد وحدة كل واحد.",
+              "sceneIds": [
+                "S05",
+                "S06",
+                "S09"
+              ],
+              "questionIds": [
+                "Q01",
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تتوقع أثر الطول والمقطع وتحول وحدات الطول والمساحة صح.",
+              "sceneIds": [
+                "S03",
+                "S04",
+                "S05",
+                "S06",
+                "S09"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            }
+          ]
         },
         {
           "id": "phys1-shear-deformation",
           "curriculumId": "physics-1-mechanics-waves",
           "order": 803,
           "title": "تشوه القص ومعامل القص",
-          "subtitle": "Shear Deformation and Shear Modulus"
+          "subtitle": "Shear Deformation and Shear Modulus",
+          "moduleId": "reading:phys1-shear-deformation",
+          "contentRevision": "f517213c3ff4d6a68af34dcf8f78ed3eb1e54c44c995051cf0ae8f0186eb9b49",
+          "manifestHash": "497ca8c66de3718652eabd2b7f74c85f865e6098fe00df4cdc4275229afbea28",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تفرّق بين قوة موازية للوجه (قص) وقوة عمودية عليه (شد)",
+              "sceneIds": [
+                "S01",
+                "S06",
+                "S07",
+                "S10"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "تحسب إجهاد القص τ وانفعال القص γ وتعرف معنى h وΔx",
+              "sceneIds": [
+                "S02",
+                "S03",
+                "S06",
+                "S10"
+              ],
+              "questionIds": [
+                "Q01",
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تحسب معامل القص S وتتوقع أثر تغيير المساحة أو الارتفاع",
+              "sceneIds": [
+                "S04",
+                "S05",
+                "S06",
+                "S10"
+              ],
+              "questionIds": [
+                "Q01",
+                "Q02"
+              ]
+            }
+          ]
         },
         {
           "id": "phys1-bulk-compression",

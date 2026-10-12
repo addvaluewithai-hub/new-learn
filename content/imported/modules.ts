@@ -21,4 +21,6 @@ export const readingModules = {
   "reading:math1-pf-two-linear": () => import('./mathematics-i-algebra/math1-pf-two-linear/index'),
   "reading:math1-pf-three-linear": () => import('./mathematics-i-algebra/math1-pf-three-linear/index'),
   "reading:phys1-solid-structure-stress-strain": () => import('./physics-1-mechanics-waves/phys1-solid-structure-stress-strain/index'),
+  "reading:phys1-young-axial-stiffness": () => import('./physics-1-mechanics-waves/phys1-young-axial-stiffness/index'),
+  "reading:phys1-shear-deformation": () => import('./physics-1-mechanics-waves/phys1-shear-deformation/index'),
 } as const;
