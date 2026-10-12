@@ -38,7 +38,7 @@ export function ReadingBoard({
   }, [fromMs, toMs, props.reducedMotion]);
   const frame = Math.round((timeMs * props.fps) / 1000);
   return (
-    <div className="reading-board" data-layout={props.layout} dir="ltr">
+    <div className="rl-board" data-layout={props.layout} dir="ltr">
       <Thumbnail
         component={BoardFrame}
         inputProps={{ Board, props }}
@@ -50,7 +50,7 @@ export function ReadingBoard({
         )}
         frameToDisplay={frame}
         fps={props.fps}
-        style={{ width: '100%', height: 'auto', aspectRatio: `${size.width} / ${size.height}` }}
+        style={{ width: '100%', height: '100%' }}
       />
     </div>
   );

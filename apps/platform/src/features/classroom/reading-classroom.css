@@ -1,106 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+/* The lesson owns the whole screen: no page scroll, no outer frame. */
+html.in-lesson,
+html.in-lesson body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
 .reading-classroom {
-  font-family: var(--learn-font);
-  min-height: 100dvh;
-  background: #f3f5ee;
-  color: #193a35;
-  padding-bottom: 32px;
+  height: 100dvh;
+  font-family: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
+  background: #f6f5f0;
 }
-.reading-classroom-header {
+.reading-loading {
   display: grid;
-  gap: 4px;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 18px 16px 12px;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  color: #5f6f69;
 }
-.reading-classroom-back {
-  color: #4b6a5f;
-  font-size: 14px;
-  text-decoration: none;
-  width: fit-content;
+.reading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #dfe5df;
+  border-top-color: #17463c;
+  border-radius: 50%;
+  animation: reading-spin 0.8s linear infinite;
 }
-.reading-classroom-back:hover {
-  text-decoration: underline;
-}
-.reading-classroom-header h1 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.35;
-}
-.reading-classroom-header small {
-  display: block;
-  color: #62746c;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: right;
-}
-.reading-classroom-main {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-@media (max-width: 650px) {
-  .reading-classroom-header {
-    padding: 12px 12px 8px;
+@keyframes reading-spin {
+  to {
+    transform: rotate(360deg);
   }
-  .reading-classroom-header h1 {
-    font-size: 20px;
-  }
-  .reading-classroom-main {
-    padding: 0 8px;
-  }
-}
-.reading-classroom-header {
-  position: relative;
 }
 .reading-save {
-  position: absolute;
-  inset-inline-end: 16px;
-  bottom: 12px;
-  color: #7a8c84;
-  font-size: 12px;
+  color: #97a39d;
+  font-size: 12.5px;
+  white-space: nowrap;
 }
 .reading-save[data-state='offline'] {
   color: #b3462f;
 }
-.reading-ask {
+.nova-bar {
+  width: 100%;
+  height: 48px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid #dde4da;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 99px;
   background: #fff;
-  border-radius: 999px;
-  padding: 4px 4px 4px 6px;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 6%),
+    0 8px 24px rgb(16 32 28 / 7%);
 }
-.reading-ask input {
+.nova-bar img,
+.nova-round img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nova-bar img {
+  margin-inline-start: 4px;
+}
+.nova-bar input {
   flex: 1;
   min-width: 0;
+  padding: 0 8px;
   border: 0;
   background: none;
+  color: #1b2925;
   font: inherit;
   font-size: 15px;
-  padding: 8px 10px;
   outline: none;
 }
-.reading-ask:focus-within {
-  border-color: #8fb3a3;
-  box-shadow: 0 0 0 3px #d9ebe2;
-}
-.reading-ask button {
+.nova-bar button {
+  width: 40px;
+  height: 40px;
+  flex: none;
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  flex: none;
   border: 0;
   border-radius: 50%;
-  background: #edf4ef;
-  color: #153d35;
+  background: #eef3ef;
+  color: #17463c;
   cursor: pointer;
 }
-.reading-ask button[type='submit'] {
+.nova-bar button[type='submit'] {
   background: #d7f77b;
 }
-.reading-ask button:disabled {
+.nova-bar button:disabled {
   opacity: 0.45;
   cursor: default;
+}
+.nova-bar:focus-within {
+  box-shadow:
+    0 0 0 3px #d9ebe2,
+    0 8px 24px rgb(16 32 28 / 7%);
+}
+.nova-round {
+  display: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 6%),
+    0 8px 24px rgb(16 32 28 / 7%);
+  cursor: pointer;
+}
+@media (max-width: 650px) {
+  .nova-bar {
+    display: none;
+  }
+  .nova-round {
+    display: grid;
+  }
 }

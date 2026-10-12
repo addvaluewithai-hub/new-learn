@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 import type { LessonContext, LessonController } from '../context';
 import type { RendererRegistry } from '../renderers';
 import type { LessonLayout } from '../types';
@@ -14,14 +15,17 @@ import {
   readingPositionOf,
   type ReadingPosition,
 } from './model';
-import { ReadingAttempt } from './ReadingAttempt';
 import { ReadingBoard } from './ReadingBoard';
-import { GoalsChip, ScenePath } from './ReadingChrome';
-import { ReadText, textDirection } from './ReadText';
+import { Caption, QuestionCaption } from './stage/Caption';
+import { Complete } from './stage/Complete';
+import { AnswerDock, Dock } from './stage/Dock';
+import { ScenesList, Sheet, Transcript } from './stage/Sheets';
+import { GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
 import type { ReadingPackage } from './types';
 import { validateReadingPackage } from './validate';
-import './reading.css';
-import './reading-chrome.css';
+import './stage/stage.css';
+import './stage/stage-parts.css';
+import './stage/stage-sheets.css';
 
 export type ReadingProgress = {
   position: ReadingPosition;
@@ -40,9 +44,14 @@ export type ReadingLessonProps = {
   onContext?: (context: LessonContext) => void;
   onReady?: (controller: LessonController | null) => void;
   onProgress?: (progress: ReadingProgress) => void;
-  /** Host control shown between «السابق» and «التالي», e.g. asking the assistant. */
-  dock?: ReactNode;
-  finish?: { label: string; href: string };
+  /** Leaving the lesson (top bar close) and the default end action. */
+  exit?: { label: string; href: string };
+  /** The lesson that follows, offered on the completion screen. */
+  next?: { title: string; href: string } | null;
+  /** Host tool in the middle of the controls, e.g. asking the assistant. */
+  assistant?: ReactNode;
+  /** Small host status in the top bar, e.g. "saved". */
+  status?: ReactNode;
 };
 
 // A content change remounts the session, like recorded lessons.
@@ -78,19 +87,20 @@ function ReadingSession(props: ReadingLessonProps) {
   const [complete, setComplete] = useState(false);
   const [done, setDone] = useState(Boolean(initial?.complete));
   const [fromMs, setFromMs] = useState<number | null>(null);
+  const [sheet, setSheet] = useState<'scenes' | 'history' | null>(null);
   const portrait = useMediaQuery('(max-width: 650px)');
-  const narrow = useMediaQuery('(max-width: 900px)');
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const layout = props.layout ?? (portrait ? 'portrait' : 'landscape');
   const page = pages[index];
   const scene = lesson.scenes[page.scene];
   const question = scene.question;
-  const locked = page.kind === 'attempt' && question && !(question.id in answers);
+  const answering = page.kind === 'attempt' && question && !(question.id in answers);
   const reachedIds = sceneIds.slice(0, reached + 1);
   const goals = goalProgress(lesson.goals, Object.keys(answers), reachedIds);
 
   const go = useCallback(
     (wanted: number) => {
+      setSheet(null);
       if (wanted >= pages.length) {
         setComplete(true);
         setDone(true);
@@ -117,6 +127,11 @@ function ReadingSession(props: ReadingLessonProps) {
     },
     [answers, index, lesson, pages],
   );
+  const answer = (value: string) => {
+    setAnswers((all) => ({ ...all, [question!.id]: value }));
+    setFromMs(null);
+    setIndex(index + 1);
+  };
 
   const context = readingContext(lesson, page, complete);
   const live = useRef(context);
@@ -137,133 +152,140 @@ function ReadingSession(props: ReadingLessonProps) {
     if (progress.current) onProgress?.(progress.current);
   }, [index, reached, answers, complete, done, onProgress]);
   useEffect(() => {
-    if (props.suspended) return;
+    if (props.suspended || sheet) return;
     const onKey = (event: KeyboardEvent) => {
-      if ((event.target as HTMLElement | null)?.closest('textarea, input, select, button')) return;
-      if (event.key === 'ArrowLeft' && !locked) go(index + 1);
+      if ((event.target as HTMLElement | null)?.closest('textarea, input, select')) return;
+      if (event.key === 'ArrowLeft' && !answering && !complete) go(index + 1);
       if (event.key === 'ArrowRight') go(index - 1);
     };
     addEventListener('keydown', onKey);
     return () => removeEventListener('keydown', onKey);
-  }, [go, index, locked, props.suspended]);
+  }, [go, index, answering, complete, props.suspended, sheet]);
 
-  const firstOf = (sceneIndex: number) => pages.findIndex((p) => p.scene === sceneIndex);
-  const top = (
-    <div className="reading-top">
-      <div className="reading-where">
-        <span>
-          المشهد {page.scene + 1} من {lesson.scenes.length}
-        </span>
-        <h2>{complete ? 'خلّصت الدرس' : scene.title}</h2>
-      </div>
-      <GoalsChip goals={lesson.goals ?? []} met={goals.met} />
-    </div>
-  );
-  if (complete)
-    return (
-      <section className="reading-lesson reading-complete" dir="rtl">
-        {top}
-        <p>
-          {lesson.title} · جاوبت {Object.keys(answers).length} من{' '}
-          {lesson.scenes.filter((s) => s.question).length} أسئلة
-          {goals.total ? ` · الأهداف ${goals.done} من ${goals.total}` : ''}
-        </p>
-        <div className="reading-nav">
-          <button type="button" className="reading-quiet" onClick={() => go(0)}>
-            راجع من الأول
-          </button>
-          {props.finish ? (
-            <a className="reading-primary" href={props.finish.href}>
-              {props.finish.label}
-            </a>
-          ) : null}
-        </div>
-      </section>
-    );
-
+  const inScene = pages.filter((p) => p.scene === page.scene);
+  const fill = (inScene.indexOf(page) + 1) / inScene.length;
   const steps = pageSteps(scene, page);
   const board = readingBoardProps(scene, page, layout, lesson.fps, reducedMotion);
   const Board = board ? registry[board.spec.renderer] : undefined;
-  const text = page.kind === 'attempt' ? '' : steps[page.step].text;
-  const isLast = index === pages.length - 1;
+  const size = lesson.dimensions[layout];
+  const shape = { '--rl-ar': `${size.width / size.height}` } as CSSProperties;
   return (
-    <section className="reading-lesson" dir="rtl" data-layout={layout} data-page={page.kind}>
-      {top}
-      <div className="reading-stage">
-        <div className="reading-main">
-          {Board && board ? (
-            <ReadingBoard
-              Board={Board}
-              props={board}
-              fromMs={fromMs}
-              toMs={boardTimeMs(page)}
-              size={lesson.dimensions[layout]}
-            />
-          ) : null}
-          {page.kind === 'attempt' && question ? (
-            <ReadingAttempt
-              key={question.id}
-              question={question}
-              onSubmit={(answer) => {
-                setAnswers((value) => ({ ...value, [question.id]: answer }));
-                setFromMs(null);
-                setIndex(index + 1);
-              }}
+    <section
+      className="rl"
+      dir="rtl"
+      data-layout={layout}
+      data-page={complete ? 'complete' : page.kind}
+    >
+      <TopBar
+        start={
+          props.exit ? (
+            <a
+              className="rl-round rl-round-sm"
+              href={props.exit.href}
+              aria-label={props.exit.label}
+            >
+              ×
+            </a>
+          ) : null
+        }
+        title={lesson.title}
+        sceneTitle={complete ? 'خلّصت الدرس' : scene.title}
+        track={
+          <SceneTrack
+            lesson={lesson}
+            scene={page.scene}
+            reached={reached}
+            fill={complete ? 1 : fill}
+            onOpen={() => setSheet('scenes')}
+          />
+        }
+        goals={<GoalsChip goals={lesson.goals ?? []} met={goals.met} />}
+        end={props.status}
+      />
+      {complete ? (
+        <div className="rl-stage rl-stage-end">
+          <Complete
+            title={lesson.title}
+            goals={lesson.goals ?? []}
+            met={goals.met}
+            answered={Object.keys(answers).length}
+            questions={lesson.scenes.filter((s) => s.question).length}
+            next={props.next}
+            exit={props.exit}
+            onReview={() => go(0)}
+          />
+        </div>
+      ) : (
+        <>
+          <div className="rl-stage" style={shape}>
+            <div className="rl-board-frame" key={`${scene.id}:${page.kind === 'feedback'}`}>
+              {Board && board ? (
+                <ReadingBoard
+                  Board={Board}
+                  props={board}
+                  fromMs={fromMs}
+                  toMs={boardTimeMs(page)}
+                  size={size}
+                />
+              ) : null}
+            </div>
+          </div>
+          <div className="rl-caption-zone">
+            {answering ? (
+              <QuestionCaption question={question!} onChoose={answer} onSkip={() => answer('')} />
+            ) : (
+              <Caption
+                label={
+                  page.kind === 'feedback'
+                    ? 'الإجابة النموذجية'
+                    : page.kind === 'attempt'
+                      ? 'سؤال'
+                      : undefined
+                }
+                text={page.kind === 'attempt' ? question!.english : steps[page.step].text}
+                answer={
+                  page.kind === 'feedback' && page.step === 0 && question
+                    ? answers[question.id]
+                    : undefined
+                }
+                step={page.kind === 'attempt' ? 0 : page.step}
+                steps={page.kind === 'attempt' ? 1 : steps.length}
+                onHistory={page.step > 0 ? () => setSheet('history') : undefined}
+              />
+            )}
+          </div>
+          {answering ? (
+            <AnswerDock
+              canBack={index > 0}
+              onBack={() => go(index - 1)}
+              onSubmit={answer}
+              written={question!.attempt !== 'choice'}
             />
           ) : (
-            <div className="reading-card">
-              {page.kind === 'feedback' ? (
-                <span className="reading-tag">الإجابة النموذجية</span>
-              ) : null}
-              <p className="reading-text" dir={textDirection(text)} aria-live="polite">
-                <ReadText text={text} />
-              </p>
-              {page.kind === 'feedback' && question && answers[question.id] ? (
-                <p className="reading-yours">
-                  إجابتك: <bdi dir="auto">{answers[question.id]}</bdi>
-                </p>
-              ) : null}
-              <span className="reading-step">
-                خطوة {page.step + 1} من {steps.length}
-              </span>
-            </div>
+            <Dock
+              canBack={index > 0}
+              onBack={() => go(index - 1)}
+              onNext={() => go(index + 1)}
+              nextLabel={index === pages.length - 1 ? 'خلّص الدرس' : 'التالي'}
+              center={props.assistant}
+            />
           )}
-        </div>
-        <ScenePath
-          lesson={lesson}
-          current={page.scene}
-          reached={reached}
-          compact={narrow || layout === 'portrait'}
-          onOpen={(i) => go(firstOf(i))}
-        />
-      </div>
-      <div className="reading-nav">
-        <button
-          type="button"
-          className="reading-quiet"
-          onClick={() => go(index - 1)}
-          disabled={index === 0}
-        >
-          السابق
-        </button>
-        {props.dock ? <div className="reading-dock">{props.dock}</div> : null}
-        {locked ? null : (
-          <button type="button" className="reading-primary" onClick={() => go(index + 1)}>
-            {isLast ? 'خلّص الدرس' : 'التالي'}
-          </button>
-        )}
-      </div>
-      {page.kind !== 'attempt' && page.step > 0 ? (
-        <details className="reading-earlier">
-          <summary>اللي فات في المشهد ده</summary>
-          <ol>
-            {steps.slice(0, page.step).map((step, i) => (
-              <li key={i} dir={textDirection(step.text)}>
-                <ReadText text={step.text} />
-              </li>
-            ))}
-          </ol>
-        </details>
+        </>
+      )}
+      {sheet === 'scenes' ? (
+        <Sheet title="مشاهد الدرس" onClose={() => setSheet(null)}>
+          <ScenesList
+            lesson={lesson}
+            current={page.scene}
+            reached={reached}
+            onOpen={(i) => go(pages.findIndex((p) => p.scene === i))}
+          />
+        </Sheet>
+      ) : null}
+      {sheet === 'history' ? (
+        <Sheet title="اللي فات في المشهد ده" onClose={() => setSheet(null)}>
+          <Transcript steps={steps.slice(0, page.step + 1)} />
+        </Sheet>
       ) : null}
     </section>
   );

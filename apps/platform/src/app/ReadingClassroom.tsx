@@ -8,19 +8,20 @@ import type {
 } from '@learn/lesson-runtime';
 import '@learn/lesson-runtime/style.css';
 import { NovaAssistant } from '../features/nova/NovaAssistant';
-import { NovaIcon } from '../features/nova/NovaIcon';
-import { useReadingProgress } from '../features/progress/useReadingProgress';
+import { useReadingProgress, type SaveState } from '../features/progress/useReadingProgress';
+import { NovaBar } from '../features/classroom/NovaBar';
+import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 
 export type ReadingModule = { readingLesson: ReadingPackage; readingRenderers: RendererRegistry };
-const SAVE_LABEL = {
+const SAVE: Record<SaveState, string> = {
   idle: '',
   saving: 'بنحفظ…',
-  saved: 'اتحفظ تقدمك',
-  offline: 'مش متصل، هنحفظ تاني',
+  saved: 'اتحفظ',
+  offline: 'مش متصل',
 };
 
-/** Text-first lesson page: the lesson's board, its written explanation, and Nova. */
+/** Full-screen reading lesson: the runtime stage, saved progress and Nova in the controls. */
 export default function ReadingClassroom({
   load,
   backHref,
@@ -35,7 +36,6 @@ export default function ReadingClassroom({
   const [context, setContext] = useState<LessonContext | null>(null);
   const [controller, setController] = useState<LessonController | null>(null);
   const [assistantOpen, setAssistantOpen] = useState(false);
-  const [question, setQuestion] = useState('');
   const [ask, setAsk] = useState<{ id: number; text: string; mode?: 'chat' | 'voice' } | null>(
     null,
   );
@@ -51,6 +51,10 @@ export default function ReadingClassroom({
       live = false;
     };
   }, [load]);
+  useEffect(() => {
+    document.documentElement.classList.add('in-lesson');
+    return () => document.documentElement.classList.remove('in-lesson');
+  }, []);
   if (error)
     return (
       <main className="platform-ui lesson-entry-message">
@@ -58,74 +62,45 @@ export default function ReadingClassroom({
         <a href={backHref}>ارجع للمنهج</a>
       </main>
     );
-  if (!module || saved.initial === null) return <p role="status">بنجهّز الدرس…</p>;
+  if (!module || saved.initial === null)
+    return (
+      <div className="reading-classroom reading-loading" role="status">
+        <span className="reading-spinner" aria-hidden />
+        بنجهّز الدرس…
+      </div>
+    );
   const lesson = module.readingLesson;
-  const send = (mode: 'chat' | 'voice') => {
-    setAsk({ id: Date.now(), text: mode === 'chat' ? question : '', mode });
-    setQuestion('');
-  };
-  const dock = (
-    <form
-      className="reading-ask"
-      onSubmit={(event) => {
-        event.preventDefault();
-        send('chat');
-      }}
-    >
-      <input
-        aria-label="اسأل Nova عن الخطوة دي"
-        placeholder="اسأل Nova عن الخطوة دي…"
-        value={question}
-        onChange={(event) => setQuestion(event.target.value)}
-      />
-      <button type="button" aria-label="كلّم Nova بالصوت" onClick={() => send('voice')}>
-        <NovaIcon name="voice" />
-      </button>
-      <button type="submit" aria-label="ابعت السؤال لـ Nova" disabled={!question.trim()}>
-        <NovaIcon name="send" />
-      </button>
-    </form>
-  );
+  const next = nextImported(lesson.curriculumId, lesson.lessonId);
   return (
     <div className="reading-classroom">
-      <header className="reading-classroom-header">
-        <a href={backHref} className="reading-classroom-back">
-          <span aria-hidden="true">→</span> ارجع للمنهج
-        </a>
-        <h1>
-          {lesson.title}
-          {lesson.englishTitle !== lesson.title ? (
-            <small lang="en" dir="ltr">
-              {lesson.englishTitle}
-            </small>
-          ) : null}
-        </h1>
-        <span className="reading-save" role="status" data-state={saved.status}>
-          {SAVE_LABEL[saved.status]}
-        </span>
-      </header>
-      <main className="reading-classroom-main">
-        <ReadingLesson
-          lesson={lesson}
-          registry={module.readingRenderers}
-          initial={saved.initial}
-          suspended={assistantOpen}
-          onContext={setContext}
-          onReady={onReady}
-          onProgress={saved.record}
-          dock={dock}
-          finish={{ label: 'ارجع للمنهج', href: backHref }}
-        />
-        <NovaAssistant
-          lesson={{}}
-          studentName={studentName}
-          context={context}
-          controller={controller}
-          onOpen={setAssistantOpen}
-          ask={ask}
-          hideCapsule
-        />
-      </main>
+      <ReadingLesson
+        lesson={lesson}
+        registry={module.readingRenderers}
+        initial={saved.initial}
+        suspended={assistantOpen}
+        onContext={setContext}
+        onReady={onReady}
+        onProgress={saved.record}
+        exit={{ label: 'ارجع للمنهج', href: backHref }}
+        next={next ? { title: next.title, href: lessonHref(lesson.curriculumId, next.id) } : null}
+        status={
+          SAVE[saved.status] ? (
+            <span className="reading-save" data-state={saved.status}>
+              {SAVE[saved.status]}
+            </span>
+          ) : null
+        }
+        assistant={<NovaBar onAsk={(text, mode) => setAsk({ id: Date.now(), text, mode })} />}
+      />
+      <NovaAssistant
+        lesson={{}}
+        studentName={studentName}
+        context={context}
+        controller={controller}
+        onOpen={setAssistantOpen}
+        ask={ask}
+        hideCapsule
+      />
     </div>
   );
 }

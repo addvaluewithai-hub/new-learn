@@ -10,6 +10,7 @@ import '../../shared/platform.css';
 import './library-shell.css';
 import './library-account.css';
 import './catalog-cards.css';
+import './home-pick.css';
 import './study-plan.css';
 export default function CatalogPage({
   user,
@@ -51,9 +52,12 @@ export default function CatalogPage({
             ← كل المناهج
           </a>
         )}
-        <span className="eyebrow">{current ? current.subject : 'مساحة تعلّمك'}</span>
-        <h1>{current?.title ?? `أهلًا، ${user.name.split(' ')[0]}.`}</h1>
-        <p>{current?.description ?? 'كل منهج له مكانه، ودروسه، ورحلتك الخاصة فيه.'}</p>
+        {current ? <span className="eyebrow">{current.subject}</span> : null}
+        <h1>
+          {current?.title ??
+            `${new Date().getHours() < 12 ? 'صباح الخير' : 'مساء الخير'}، ${user.name.split(' ')[0]}`}
+        </h1>
+        {current ? <p>{current.description}</p> : null}
       </div>
       {loading ? (
         <p role="status">بنجهّز مناهجك…</p>

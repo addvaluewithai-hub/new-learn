@@ -10,9 +10,9 @@ export function GoalMarks({ done, total }: { done: number; total: number }) {
       {Array.from({ length: total }, (_, i) => (
         <i key={i} data-met={i < done || undefined} aria-hidden="true" />
       ))}
-      <span>
-        {done} من {total}
-      </span>
+      <bdi dir="ltr">
+        {done} / {total}
+      </bdi>
     </span>
   );
 }
@@ -31,35 +31,41 @@ export function ContinueCard({
   const lesson = course && nextLesson(course, resume);
   if (!course || !lesson) return null;
   const goals = goalsOf(course.id, lesson.id);
+  const total = lesson.progress?.goalsTotal || goals.length;
   const done = lesson.progress?.goalsDone ?? 0;
-  const total = stats(course);
   const started = lesson.progress?.status === 'started';
+  const course_ = stats(course);
   return (
-    <section className="continue-card" aria-labelledby="continue-title">
-      <div className="continue-head">
+    <section className="pick" aria-labelledby="pick-title">
+      <header className="pick-head">
         <span className="eyebrow">
           {started ? 'كمّل من مكانك' : resume ? 'الدرس الجاي' : 'ابدأ من هنا'}
         </span>
-        <span className="continue-course">
-          {course.title} · خلّصت {total.completed} من {total.lessons} دروس
-        </span>
-      </div>
-      <div className="continue-lesson">
-        <div>
-          <h2 id="continue-title">{lesson.title}</h2>
-          <GoalMarks done={done} total={lesson.progress?.goalsTotal || goals.length} />
+        <a href={`/?curriculum=${encodeURIComponent(course.id)}`} className="pick-course">
+          {course.title} · {course_.completed} من {course_.lessons} دروس
+        </a>
+      </header>
+      <div className="pick-card">
+        <div className="pick-main">
+          <h2 id="pick-title">{lesson.title}</h2>
+          <div className="pick-progress">
+            <span className="pick-bar" aria-hidden="true">
+              <i style={{ inlineSize: `${total ? (100 * done) / total : 0}%` }} />
+            </span>
+            <GoalMarks done={done} total={total} />
+          </div>
         </div>
-        <a className="button primary" href={lessonHref(course.id, lesson.id)}>
+        <a className="pick-go" href={lessonHref(course.id, lesson.id)}>
           {started ? 'كمّل' : 'ابدأ'} <PlatformIcon name="arrow" />
         </a>
+        {goals.length ? (
+          <ul className="pick-goals">
+            {goals.map((goal) => (
+              <li key={goal.id}>{goal.text}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
-      {goals.length ? (
-        <ul className="continue-goals">
-          {goals.map((goal) => (
-            <li key={goal.id}>{goal.text}</li>
-          ))}
-        </ul>
-      ) : null}
     </section>
   );
 }

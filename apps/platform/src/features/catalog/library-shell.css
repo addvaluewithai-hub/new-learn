@@ -1,100 +1,84 @@
+/* Library frame: a quiet paper sidebar and one white sheet for the page. No filler chrome. */
+.library-shell {
+  --paper: #f1efe8;
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  min-height: 100dvh;
+  background: var(--paper);
+}
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100vh;
-  background: #fff;
-  border-inline-end: 1px solid var(--line);
-  padding: 38px 22px 24px;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
+  padding: 26px 16px 18px;
+  background: var(--paper);
 }
 .sidebar .brand {
-  margin-inline: 13px;
+  margin-inline: 10px;
 }
 .nav-label {
-  font-size: 0.75rem;
+  margin: 34px 12px 10px;
   color: var(--muted);
-  margin: 55px 16px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 .sidebar nav {
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
-.sidebar nav button {
-  width: 100%;
-  border: 0;
-  background: transparent;
+.sidebar nav a {
   display: flex;
   align-items: center;
-  gap: 13px;
-  text-align: start;
-  padding: 14px 17px;
-  border-radius: 10px;
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: #627268;
-}
-.sidebar nav button[aria-current] {
-  background: var(--green);
-  color: white;
-}
-.sidebar nav button > span {
-  margin-inline-start: auto;
-  font-size: 0.8rem;
-  background: #edf3eb;
-  border-radius: 5px;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 5%),
+    0 4px 14px rgb(16 32 28 / 5%);
   color: var(--ink);
-  min-width: 24px;
-  text-align: center;
+  font-weight: 600;
 }
-.sidebar nav button:hover:not([aria-current]) {
-  background: var(--soft);
-}
-
-.library-shell {
-  display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  min-height: 100dvh;
+.sidebar-account {
+  margin-top: auto;
 }
 .library-main {
   min-width: 0;
+  padding: 12px 12px 12px 0;
+}
+.library-sheet {
+  min-height: calc(100dvh - 24px);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 4%),
+    0 10px 40px rgb(16 32 28 / 5%);
 }
 .library-content {
-  max-width: 1220px;
-  margin: auto;
-  padding: 38px 45px;
+  padding: 44px clamp(22px, 5vw, 64px) 64px;
+}
+.library-content > * {
+  max-width: 860px;
+  margin-inline: auto;
 }
 .topbar {
-  height: 78px;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 45px;
-  color: var(--muted);
-  font-size: 0.8rem;
+  display: none;
 }
 .page-heading {
   margin-bottom: 30px;
 }
 .page-heading h1 {
-  font-size: 2.2rem;
-  font-weight: 500;
-  margin: 14px 0;
+  margin: 10px 0 8px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .page-heading p {
-  line-height: 1.9;
+  max-width: 640px;
   color: var(--muted);
-}
-.sidebar nav a {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  border-radius: 10px;
-  padding: 14px 17px;
-  background: var(--green);
-  color: #fff;
+  line-height: 1.9;
 }
 .mobile-menu,
 .mobile-close,
@@ -102,9 +86,9 @@
   display: none;
 }
 .icon-button {
+  padding: 8px;
   border: 0;
   background: transparent;
-  padding: 8px;
 }
 .empty-state {
   padding: 30px 0;
@@ -116,10 +100,13 @@
   }
   .sidebar {
     position: fixed;
+    inset-block: 0;
     right: 0;
-    width: 250px;
     z-index: 30;
+    width: 260px;
     transform: translateX(100%);
+    transition: transform 0.25s ease;
+    box-shadow: 0 0 40px rgb(16 32 28 / 18%);
   }
   .sidebar.open {
     transform: translateX(0);
@@ -128,7 +115,7 @@
     display: flex;
     position: absolute;
     left: 10px;
-    top: 15px;
+    top: 14px;
   }
   .mobile-menu {
     display: inline-flex;
@@ -138,16 +125,35 @@
     position: fixed;
     inset: 0;
     z-index: 20;
-    background: #153d3550;
     border: 0;
-  }
-  .library-content {
-    padding: 28px 20px;
+    background: rgb(21 61 53 / 30%);
   }
   .topbar {
-    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 58px;
+    padding: 0 10px;
+    background: var(--paper);
+  }
+  .topbar .brand {
+    transform: scale(0.82);
+    transform-origin: right center;
+  }
+  .library-main {
+    padding: 0 8px 8px;
+  }
+  .library-sheet {
+    min-height: calc(100dvh - 66px);
+    border-radius: 20px;
+  }
+  .library-content {
+    padding: 26px 16px 40px;
   }
   .page-heading h1 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 }

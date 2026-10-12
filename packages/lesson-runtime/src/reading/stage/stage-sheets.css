@@ -1,0 +1,184 @@
+/* Stage overlays (scene list, earlier steps, completion) and shared motion. */
+.rl-sheet-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+}
+.rl-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgb(15 25 22 / 28%);
+}
+.rl-sheet {
+  position: relative;
+  width: min(380px, 92vw);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--rl-paper);
+  box-shadow: 0 0 60px rgb(10 24 20 / 22%);
+  animation: rl-in 0.22s ease;
+}
+.rl-sheet header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 10px;
+  font-size: 16px;
+}
+.rl-sheet-body {
+  overflow: auto;
+  padding: 4px 12px 24px;
+}
+.rl-scenes {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rl-scenes button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 0;
+  border-radius: 14px;
+  background: none;
+  color: var(--rl-ink);
+  font: inherit;
+  font-size: 15px;
+  text-align: start;
+  cursor: pointer;
+}
+.rl-scenes button[aria-current] {
+  background: var(--rl-card);
+  box-shadow: var(--rl-shadow);
+  font-weight: 600;
+}
+.rl-scenes button:disabled {
+  color: var(--rl-faint);
+  cursor: default;
+}
+.rl-node {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rl-wash);
+  font-size: 12.5px;
+}
+.rl-scenes [data-done] .rl-node {
+  background: #e3f2d3;
+  color: #3f7a1f;
+}
+.rl-scenes [aria-current] .rl-node {
+  background: var(--rl-accent);
+  color: #fff;
+}
+.rl-transcript {
+  margin: 0;
+  padding: 0 28px 0 8px;
+  color: var(--rl-soft);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+.rl-transcript li {
+  margin-bottom: 12px;
+}
+.rl-transcript li:last-child {
+  color: var(--rl-ink);
+}
+.rl-stage-end {
+  overflow: auto;
+  grid-row: 2 / -1;
+  padding: 24px;
+}
+.rl-complete {
+  width: min(560px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+  animation: rl-in 0.4s ease both;
+}
+.rl-complete-mark circle {
+  fill: var(--rl-lime);
+}
+.rl-complete-mark path {
+  fill: none;
+  stroke: var(--rl-accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rl-complete h2 {
+  margin: 0;
+  font-size: 26px;
+}
+.rl-complete-sub {
+  margin: 0;
+  color: var(--rl-soft);
+}
+.rl-complete-goals {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--rl-card);
+  box-shadow: var(--rl-shadow);
+  text-align: start;
+}
+.rl-complete-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.rl-quiet {
+  height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--rl-wash);
+  color: var(--rl-ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+@keyframes rl-scene {
+  from {
+    opacity: 0.4;
+    transform: scale(0.985);
+  }
+}
+@keyframes rl-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@media (max-width: 650px) {
+  .rl-sheet-layer {
+    align-items: flex-end;
+  }
+  .rl-sheet {
+    width: 100%;
+    height: auto;
+    max-height: 78%;
+    border-radius: 22px 22px 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rl *,
+  .rl *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}

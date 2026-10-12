@@ -1,4 +1,21 @@
-export function CourseArt({ subject = '', math = false }: { subject?: string; math?: boolean }) {
+export function CourseArt({
+  subject = '',
+  math = false,
+  badge = false,
+}: {
+  subject?: string;
+  math?: boolean;
+  badge?: boolean;
+}) {
+  if (math && badge)
+    return (
+      <div className="course-art math-art" aria-hidden="true">
+        <span className="art-equation">
+          <i>x</i>
+          <sup>2</sup>
+        </span>
+      </div>
+    );
   if (math)
     return (
       <div className="course-art math-art" aria-hidden="true">

@@ -35,41 +35,55 @@ export function StudyPlan({
           <i style={{ width: `${percent}%` }} />
         </div>
       </section>
-      {partsOf(curriculum).map((part, p) => (
-        <section className="plan-part" key={part.title}>
-          <header>
-            <span className="plan-part-node">{p + 1}</span>
-            <div>
-              <h2>{part.title}</h2>
-              {part.summary ? <p>{part.summary}</p> : null}
-            </div>
-          </header>
-          <ol className="plan-lessons">
-            {part.lessons.map((lesson) => {
-              const goals = goalsOf(curriculum.id, lesson.id);
-              const isCurrent = lesson.id === current?.id;
-              const done = lesson.progress?.status === 'completed';
-              return (
-                <li
-                  key={lesson.id}
-                  data-current={isCurrent || undefined}
-                  data-done={done || undefined}
-                  data-soon={!open(lesson) || undefined}
-                >
-                  <span className="plan-node" aria-hidden="true">
-                    {done ? '✓' : lesson.position}
-                  </span>
-                  <div className="plan-lesson-copy">
-                    <h3>{lesson.title}</h3>
-                    {lesson.subtitle ? <p dir="auto">{lesson.subtitle}</p> : null}
+      <ol className="plan">
+        {partsOf(curriculum).map((part, p) => (
+          <li className="plan-part" key={part.title}>
+            <header className="plan-part-head">
+              <span className="plan-part-node">{p + 1}</span>
+              <div>
+                <h2>{part.title}</h2>
+                {part.summary ? <p>{part.summary}</p> : null}
+              </div>
+            </header>
+            <ol className="plan-lessons">
+              {part.lessons.map((lesson) => {
+                const goals = goalsOf(curriculum.id, lesson.id);
+                const isCurrent = lesson.id === current?.id;
+                const done = lesson.progress?.status === 'completed';
+                return (
+                  <li
+                    key={lesson.id}
+                    data-current={isCurrent || undefined}
+                    data-done={done || undefined}
+                    data-soon={!open(lesson) || undefined}
+                  >
+                    <span className="plan-node" aria-hidden="true">
+                      {done ? '✓' : lesson.position}
+                    </span>
+                    <div className="plan-lesson-copy">
+                      <h3>{lesson.title}</h3>
+                      {lesson.subtitle ? <p dir="auto">{lesson.subtitle}</p> : null}
+                      {open(lesson) ? (
+                        <GoalMarks
+                          done={lesson.progress?.goalsDone ?? 0}
+                          total={lesson.progress?.goalsTotal || goals.length}
+                        />
+                      ) : (
+                        <span className="plan-soon">قريبًا</span>
+                      )}
+                    </div>
                     {open(lesson) ? (
-                      <GoalMarks
-                        done={lesson.progress?.goalsDone ?? 0}
-                        total={lesson.progress?.goalsTotal || goals.length}
-                      />
-                    ) : (
-                      <span className="plan-soon">قريبًا</span>
-                    )}
+                      <a
+                        className={isCurrent ? 'button primary plan-go' : 'plan-go plan-go-quiet'}
+                        href={lessonHref(curriculum.id, lesson.id)}
+                        aria-label={`${action(lesson)}: ${lesson.title}`}
+                      >
+                        <span>{action(lesson)}</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M15 5l-7 7 7 7" />
+                        </svg>
+                      </a>
+                    ) : null}
                     {isCurrent && goals.length ? (
                       <ul className="plan-goals">
                         {goals.map((goal) => (
@@ -77,21 +91,13 @@ export function StudyPlan({
                         ))}
                       </ul>
                     ) : null}
-                  </div>
-                  {open(lesson) ? (
-                    <a
-                      className={`button ${isCurrent ? 'primary' : 'secondary'}`}
-                      href={lessonHref(curriculum.id, lesson.id)}
-                    >
-                      {action(lesson)}
-                    </a>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ol>
-        </section>
-      ))}
+                  </li>
+                );
+              })}
+            </ol>
+          </li>
+        ))}
+      </ol>
     </>
   );
 }

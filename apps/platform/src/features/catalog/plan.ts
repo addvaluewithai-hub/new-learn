@@ -50,3 +50,10 @@ export function stats(curriculum: Curriculum) {
     ),
   };
 }
+
+/** The next imported lesson that students can open, after the given one. */
+export function nextImported(curriculumId: string, lessonId: string) {
+  const lessons = imported.get(curriculumId)?.lessons ?? [];
+  const at = lessons.findIndex((l) => l.id === lessonId);
+  return at < 0 ? undefined : lessons.slice(at + 1).find((l) => 'moduleId' in l && l.moduleId);
+}
