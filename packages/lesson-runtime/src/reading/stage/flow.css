@@ -1,0 +1,50 @@
+/* Moving on alone: the Next button fills while the page-turn timer runs, and a quiet
+   pause control sits beside Back. Narration shows a breathing ring while it reads. */
+.rl-next {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.rl-next-fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(255 255 255 / 20%);
+  transform: scaleX(0);
+  transform-origin: right;
+  animation-name: rl-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.rl-next > span,
+.rl-next > svg {
+  position: relative;
+}
+@keyframes rl-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+.rl-flow {
+  color: var(--rl-accent);
+}
+.rl-flow[aria-pressed='true'] {
+  background: var(--rl-accent);
+  color: #fff;
+}
+.rl-flow[data-speaking] {
+  animation: rl-breathe 1.6s ease-in-out infinite;
+}
+@keyframes rl-breathe {
+  50% {
+    box-shadow:
+      0 0 0 6px rgb(106 85 184 / 18%),
+      var(--rl-shadow);
+  }
+}
+@media (max-width: 650px) {
+  .rl-dock .rl-flow {
+    width: 44px;
+    height: 44px;
+  }
+}

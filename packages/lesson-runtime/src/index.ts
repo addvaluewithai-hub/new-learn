@@ -5,7 +5,9 @@ export type { CompositionProps, RendererRegistry, VisualProps } from './renderer
 export { ReadingLesson } from './reading/ReadingLesson';
 export type {
   ReadingConversation,
+  ReadingFlow,
   ReadingLessonProps,
+  ReadingPace,
   ReadingProgress,
 } from './reading/ReadingLesson';
 export * from './core';

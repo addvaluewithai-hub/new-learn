@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NovaIcon } from '../NovaIcon';
-import type { VoiceState } from './useHoldToTalk';
+import type { VoiceState } from './LessonVoice';
 import { useHold } from './useHold';
 import './talk.css';
 
@@ -16,6 +16,7 @@ const HOLD_LABEL: Record<VoiceState, string> = {
   listening: 'بسمعك…',
   thinking: 'بتفكّر…',
   speaking: 'وقّف',
+  reading: 'اضغط واتكلم',
 };
 const PLACEHOLDER: Record<VoiceState, string> = {
   idle: 'اسأل Nova عن الخطوة دي…',
@@ -23,6 +24,7 @@ const PLACEHOLDER: Record<VoiceState, string> = {
   listening: 'Nova بتسمعك… سيب الزرار لما تخلص',
   thinking: 'Nova بتفكّر…',
   speaking: 'Nova بترد… اضغط واتكلم عشان تقاطعها',
+  reading: 'Nova بتقرا… اضغط واتكلم عشان تسألها',
 };
 const TIP = 'دوس على الزرار وسيبه مضغوط وانت بتتكلم';
 

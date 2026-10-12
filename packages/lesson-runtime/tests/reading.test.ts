@@ -150,3 +150,14 @@ test('the lesson thread interleaves lines, the answer and notes at the step they
     ['scene', 'line', 'on-step-2', 'on-feedback'],
   );
 });
+test('a reading pace waits longer for longer lines, within bounds', async () => {
+  const { readingMs } = await import('../src/reading/stage/flow');
+  const short = readingMs('نص', 'normal');
+  const long = readingMs(Array(60).fill('كلمة').join(' '), 'normal');
+  assert.equal(short, 2500);
+  assert.ok(long > short && long <= 20000);
+  assert.ok(
+    readingMs('a b c d e f g h i j k l m n o p', 'slower') >
+      readingMs('a b c d e f g h i j k l m n o p', 'faster'),
+  );
+});

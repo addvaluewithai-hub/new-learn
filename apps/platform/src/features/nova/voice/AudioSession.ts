@@ -1,6 +1,7 @@
 import { encodePcm, decodePcm } from './pcm';
 export class AudioSession {
   private context = new AudioContext({ latencyHint: 'interactive' });
+  private gain = this.context.createGain();
   private stream: MediaStream | null = null;
   private source: MediaStreamAudioSourceNode | null = null;
   private worklet: AudioWorkletNode | null = null;
@@ -11,7 +12,11 @@ export class AudioSession {
   private paused = false;
   private complete = false;
   constructor(private onIdle: () => void) {
+    this.gain.connect(this.context.destination);
     void this.context.resume().catch(() => {});
+  }
+  setVolume(value: number) {
+    this.gain.gain.value = Math.max(0, Math.min(1, value));
   }
   async capture(send: (chunk: string) => void) {
     if (!navigator.mediaDevices?.getUserMedia)
@@ -47,7 +52,7 @@ export class AudioSession {
     buffer.copyToChannel(samples, 0);
     const source = this.context.createBufferSource();
     source.buffer = buffer;
-    source.connect(this.context.destination);
+    source.connect(this.gain);
     this.active.add(source);
     this.complete = false;
     const at = Math.max(this.context.currentTime + 0.02, this.next);
