@@ -100,8 +100,7 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
         }
         if (!response.ok) throw new Error(body.error);
         revision.current = Math.max(revision.current ?? -1, body.revision);
-        if (writing === generation.current)
-          setStatus(pending.current ? 'saving' : 'saved');
+        if (writing === generation.current) setStatus(pending.current ? 'saving' : 'saved');
       } catch {
         if (writing !== generation.current) return;
         pending.current ??= progress;
