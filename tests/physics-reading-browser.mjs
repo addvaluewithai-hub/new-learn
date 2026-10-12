@@ -143,6 +143,9 @@ try {
         else await next(page);
       }
       assert.equal(await page.locator('.rl').getAttribute('data-page'), 'complete');
+      // Progress is saved after the page settles; wait for the write that carries both attempts.
+      for (let wait = 0; wait < 50 && saved.get(lesson.id).state.attempts.length < 2; wait++)
+        await page.waitForTimeout(100);
       assert.equal(saved.get(lesson.id).state.attempts.length, 2);
       await page.screenshot({
         path: `${output}/${lesson.id}-${width}-complete.png`,
