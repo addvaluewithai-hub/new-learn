@@ -5,7 +5,7 @@
   "englishTitle": "Mock Exam",
   "subtitle": "اختار القانون بنفسك، حل أسئلة مختلطة، وشخّص الأخطاء",
   "delivery": "reading",
-  "contentRevision": "eb3009fd1ce5cb875a2e8324cd049e6330ccdbe0fbb2f0c0c37f54a89d3ad503",
+  "contentRevision": "7d5186455b2c6a11ed4f738bb1d4154378c31371f7d6fd2345bc857332a602bb",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "9bf0b69bd91fcd81354fac4dd30586ee43d0deecbb53e474d20fbe259291ab6f",
+      "sha256": "a7cf320ffef996482d3547da59f79ac1da8bec3c0b87d97c896251405326f305",
       "bytes": 49372
     }
   ],
-  "manifestHash": "d3533f319548928511dcf08304931f125c4c4aaac80e4b397da2be57db629d7d"
+  "manifestHash": "37ec4368904e9244365d7fcd5b956d8e9d5dbc8dc2a18b03eb27ebb5d42a5a35"
 }

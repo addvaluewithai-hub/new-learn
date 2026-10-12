@@ -85,3 +85,27 @@
   padding: 8px;
   gap: 4px;
 }
+/* The selector's explanation and footer share a fixed vertical safe area. */
+.legacy-chem[data-layout='landscape'][data-kind='selector'] .chemistry-experience {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.legacy-chem[data-layout='landscape'][data-kind='selector'] .chem-title,
+.legacy-chem[data-layout='landscape'][data-kind='selector'] .chem-reflection {
+  margin: 0;
+}
+.legacy-chem[data-layout='landscape'][data-kind='selector'] .chem-law-reveal {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 14px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
+}
+.legacy-chem[data-layout='landscape'][data-kind='selector'] .chem-law-reveal h3,
+.legacy-chem[data-layout='landscape'][data-kind='selector'] .chem-law-reveal p {
+  margin: 0;
+}

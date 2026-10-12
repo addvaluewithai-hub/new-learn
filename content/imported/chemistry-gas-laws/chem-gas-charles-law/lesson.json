@@ -5,7 +5,7 @@
   "englishTitle": "Charles' Law",
   "subtitle": "افهم العلاقة الطردية والرسوم والصفر المطلق قبل الحساب",
   "delivery": "reading",
-  "contentRevision": "0d0745a10c70f261ea133fdf00696fbcc396f66f3fb94183444a1577074d2294",
+  "contentRevision": "0aee6f114bcfcd4dea17dd7b46298f61a98719d702630c561c9f7dc9d65f07c7",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "1e035a56f7a9ee821b7849c0170c3c9a7ec40b31865aacbd3e6ccadfe0db1576",
+      "sha256": "74e46e798964a545d6a28cf33f3d40c2cb1f541320b8ada9f6c41c4499c418d6",
       "bytes": 33244
     }
   ],
-  "manifestHash": "8f194fd5413f93610c2b58cffb7957f44c0fc0c3d63ccd914313b7b75495e063"
+  "manifestHash": "6448a3f2320dae209cf3475d07a1e7d7d8770b346f83f33f3939f8e856ee3d9f"
 }

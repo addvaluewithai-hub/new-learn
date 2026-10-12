@@ -5,7 +5,7 @@
   "englishTitle": "Combined Gas Law",
   "subtitle": "لما الضغط والحجم والحرارة يتغيروا معًا، نظّم الحالتين قبل الحساب",
   "delivery": "reading",
-  "contentRevision": "ffd38726716594afd36dae503c7f93f1552287ecebc8529317626bddd936e8a9",
+  "contentRevision": "2bffd9d83a21b3c010b9777f90b7a09b87851b471b3435cf35c7342f2a6b5058",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "2ac17a5d720d54d91574be301358a3fcd93f1f5f2e8e2d48f54a1a739b120154",
+      "sha256": "0b4eaef2e3d73b985ed03640984c48b4b298c949198f1017cd34de4e2b614b6d",
       "bytes": 34788
     }
   ],
-  "manifestHash": "ae213aa90eb147773304189e78dfa2f2aa76d53e55601c2d4807095d07d04723"
+  "manifestHash": "f2f4e851a49e006fad87bc646bf35a84e54869eb06df373b8a19c9d322959087"
 }

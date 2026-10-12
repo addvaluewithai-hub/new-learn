@@ -5,7 +5,7 @@
   "englishTitle": "States of Matter",
   "subtitle": "افهم خصائص Solid وLiquid وGas قبل قوانين الغازات",
   "delivery": "reading",
-  "contentRevision": "a2f8843093ea07387ddc882b60013fb55e08898cdff9743c06d28dd3d5223eeb",
+  "contentRevision": "57b9bdcac849add91b637988a1f55141bf749000f0848903053db333b35e7f35",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "14d53b20013f01e52a254247028f6fd32cf339f78790ac0945282a2d1cb586b7",
+      "sha256": "6645666d8dcc4f4102a1016f8dc0cc9aa12e0f24f3dfbebb23ac24c212b25299",
       "bytes": 24467
     }
   ],
-  "manifestHash": "2e0bb5dcacbaba536b077a2d3ae7246a4af8efe2509f33415c9725e6420374d5"
+  "manifestHash": "d3943cefb3faf51d54425b109fd7ec8fc189b67c27e50cef9d6db0f1bee21177"
 }

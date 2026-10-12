@@ -5,7 +5,7 @@
   "englishTitle": "Boyle Problems",
   "subtitle": "اختار القانون، حل، وبعدين اشرح ليه الحل منطقي",
   "delivery": "reading",
-  "contentRevision": "7968b838f8523a027c63358fafcede2fd89c7799ccbf8ae7fd22eceae6f3478b",
+  "contentRevision": "d7e56db83b7cf2410587682d95b10c1fc93a0bc71322b9d0df80867e80974710",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "a827ae3a4cb717074b0220be5d7d35a84546f78fec9a44a4aa0afe64352ba463",
+      "sha256": "5ec60842f965ef4dfdff8227e0e10a051639f1467079ad3066f6db3edafefb0f",
       "bytes": 21583
     }
   ],
-  "manifestHash": "d08abae8d90ee8ef4fa951077565a5bf2438313d59eeb901ba8543d3e198ace9"
+  "manifestHash": "a0fdb105b170ee7df7ae154ec8124168d05d8bc6a852bf8181c7ec0fa22e1a4d"
 }

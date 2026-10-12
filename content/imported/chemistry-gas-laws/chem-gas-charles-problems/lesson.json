@@ -5,7 +5,7 @@
   "englishTitle": "Kelvin",
   "subtitle": "حوّل الحرارة صح، شوف مثال محلول، وبعدها حل بنفسك",
   "delivery": "reading",
-  "contentRevision": "9b26f99456188d225fa3e8bf435a788b191ec50818922f4919c910a96badcaf6",
+  "contentRevision": "ab968e52725870f72beed522b5df1f1e964cf9d0cce9f7bcde9f3a96c458f138",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "bc516d96e2e120917f12949c7c5c78037b4b0fd16d328f4e23b7796dd3b2f1cf",
+      "sha256": "a65050b61d1aff0b328a8492f4c7a1456542a15927011a8948168f6f40b65e87",
       "bytes": 28348
     }
   ],
-  "manifestHash": "ccfd9cbf0da2626f9bd6b7bf459ce86582a35b4bf4d5769bf4533610f4c8bdc0"
+  "manifestHash": "a40d9c92b59d2e4aec30086d29d684e23641d2770a709dde20ec43c51c0f6794"
 }

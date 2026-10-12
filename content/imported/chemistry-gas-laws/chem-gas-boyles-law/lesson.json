@@ -5,7 +5,7 @@
   "englishTitle": "Boyle's Law",
   "subtitle": "افهم العلاقة العكسية واشرحها بطريقتك قبل ما تستخدم القانون",
   "delivery": "reading",
-  "contentRevision": "3c2d6310b9c43e8fbb65d35f54f22c0f15a6796f38c6147ecc901c45da2aa1a1",
+  "contentRevision": "5527ce138dd46bd179e16cf26e8b3c728a1856916bebccbf54439e446fc27bef",
   "renderers": {
     "chemistry-legacy-board": "board/LegacyBoard.tsx"
   },
@@ -118,8 +118,8 @@
     },
     {
       "path": "board/fit.css",
-      "sha256": "68e08682b9e8d855e6c7062bf630d5a379b738d18d82b4a67aabdc45b7e0ca9f",
-      "bytes": 2512
+      "sha256": "0a1456cded0baa7d0cac613f8352c098a6276f118ec82b0f50f68eaef61106dd",
+      "bytes": 3294
     },
     {
       "path": "board/format.ts",
@@ -158,9 +158,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "18a43def73705b9bfb901eb65356a45fe99d674c84dca2e571dfcb0c92e6684e",
+      "sha256": "4e80607d798ad5b459804a89a762b9695c33664d0682725b298933f6a477fcc7",
       "bytes": 26555
     }
   ],
-  "manifestHash": "6306e586ca66e37abdf8eb9d57badebb30129bd3936d4f4133769c9d07b8f67f"
+  "manifestHash": "d2ccb48aceaf1d8795269efb35fde2463d67c454b50d873b1c3c6cf206512e2d"
 }
