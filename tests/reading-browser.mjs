@@ -96,7 +96,10 @@ try {
   await mkdir('test-results', { recursive: true });
   for (const width of [1280, 390]) {
     const store = new Map();
-    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    const page = await browser.newPage({
+      viewport: { width, height: 900 },
+      reducedMotion: 'no-preference',
+    });
     const errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.route('**/api/**', api(store));
@@ -108,6 +111,54 @@ try {
     await page.screenshot({ path: `test-results/plan-${width}.png`, fullPage: true });
     await page.locator('.plan-lessons a', { hasText: 'ابدأ' }).first().click();
     await page.locator('.rl').waitFor();
+    // A normal-motion Next must reach the current cue with its caption, not wait 8.4s.
+    const firstTarget = Number(await page.locator('.rl-board').getAttribute('data-target-ms'));
+    await next(page);
+    await page.waitForFunction(
+      (target) =>
+        Number(document.querySelector('.rl-board')?.getAttribute('data-target-ms')) > target,
+      firstTarget,
+    );
+    await page.waitForFunction(
+      () => {
+        const board = document.querySelector('.rl-board');
+        return (
+          (Number(board?.getAttribute('data-frame')) * 1000) / 30 >=
+          Number(board?.getAttribute('data-target-ms')) - 1600
+        );
+      },
+      null,
+      { timeout: 500 },
+    );
+    await page.waitForFunction(
+      () => {
+        const board = document.querySelector('.rl-board');
+        return (
+          Math.abs(
+            (Number(board?.getAttribute('data-frame')) * 1000) / 30 -
+              Number(board?.getAttribute('data-target-ms')),
+          ) < 34
+        );
+      },
+      null,
+      { timeout: 700 },
+    );
+    // Interrupt an unfinished transition with another Next, then Back; abandoned frames
+    // may never restore an older cue or leave a future answer visible.
+    await next(page);
+    await page.locator('.rl-dock .rl-round').click();
+    const heldTarget = Number(await page.locator('.rl-board').getAttribute('data-target-ms'));
+    await page.waitForTimeout(450);
+    assert.equal(
+      Number(await page.locator('.rl-board').getAttribute('data-target-ms')),
+      heldTarget,
+    );
+    assert.ok(
+      Math.abs(
+        (Number(await page.locator('.rl-board').getAttribute('data-frame')) * 1000) / 30 -
+          heldTarget,
+      ) < 34,
+    );
     await page.getByRole('button', { name: /أهداف الدرس: 0 من/ }).click();
     await page.locator('.rl-pop').waitFor();
     await page.keyboard.press('Escape');
