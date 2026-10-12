@@ -29,6 +29,10 @@ any audio exists. Audio is a later upgrade of the same lesson, imported the same
    (`published`). `npm run content:sync -- --print` shows the SQL without connecting.
    The `Content sync` workflow runs it on `main` when `CONTENT_DATABASE_URL` is set.
 
+**Withholding a curriculum:** list its ID in `content/withheld.json` (hand-edited, with the
+reason). Its lessons stay in the catalog as "coming soon", and every sync deletes their release
+pointers; editions and saved progress are kept, so removing the entry releases it again.
+
 Until step 5 runs, a newly imported lesson stays "coming soon" (catalog requires both the
 DB release and a matching build pin). After it runs, students see it as available.
 

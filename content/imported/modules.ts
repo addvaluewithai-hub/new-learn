@@ -20,4 +20,5 @@ export const readingModules = {
   "reading:math1-pf-forms": () => import('./mathematics-i-algebra/math1-pf-forms/index'),
   "reading:math1-pf-two-linear": () => import('./mathematics-i-algebra/math1-pf-two-linear/index'),
   "reading:math1-pf-three-linear": () => import('./mathematics-i-algebra/math1-pf-three-linear/index'),
+  "reading:phys1-solid-structure-stress-strain": () => import('./physics-1-mechanics-waves/phys1-solid-structure-stress-strain/index'),
 } as const;

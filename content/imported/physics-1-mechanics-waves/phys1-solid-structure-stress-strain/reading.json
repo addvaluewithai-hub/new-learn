@@ -1,0 +1,703 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "phys1-solid-structure-stress-strain",
+  "curriculumId": "physics-1-mechanics-waves",
+  "contentRevision": "95c36c826270d62c8459374b14a8dda259444f1c3ceecc0552dff9ae5191369d",
+  "title": "بنية الصلب والتشوه والإجهاد والانفعال",
+  "englishTitle": "Solids, Deformation, Stress and Strain",
+  "curriculumTitle": "Physics I — Mechanics and Waves | فيزياء 1: الميكانيكا والموجات",
+  "lessonOrder": 801,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "الصلب بيحافظ على شكله… ليه؟",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S01",
+          "view": "states",
+          "kicker": "تركيب المادة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U1"
+          ],
+          "text": "تخيّل إنك مهندس جديد في ورشة، وقدامك قضيب معدني وحتة زجاج. الاتنين شكلهم ثابت وإنت ماسكهم. طب هل ده معناه إن الجسيمات اللي جوّاهم واقفة خالص؟ ولو شدّينا القضيب شوية، هيفضل ممدود ولا هيرجع لطوله؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U2"
+          ],
+          "text": "عشان نجاوب، نبدأ بمقارنة سريعة بين States of Matter (حالات المادة). الـSolid (الصلب) بيحافظ على شكل ثابت وحجم ثابت في الظروف العادية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U3"
+          ],
+          "text": "الـLiquid (السائل) بيحافظ تقريبًا على حجمه، لكنه بياخد شكل الوعاء اللي هو فيه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U4"
+          ],
+          "text": "والـGas (الغاز) بينتشر ويملا أي حيّز متاح. وفيه حالة رابعة اسمها Plasma فيها جسيمات مشحونة، بس مش موضوعنا هنا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U5"
+          ],
+          "text": "المقارنة دي مهمة لسبب واحد: الصلب بيقاوم تغيير شكله بطريقة مختلفة عن السائل والغاز. وده بالظبط اللي الدرس كله مبني عليه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "جوه الصلب: جسيمات مربوطة",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S02",
+          "view": "lattice",
+          "kicker": "جوه الصلب",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U1"
+          ],
+          "text": "جوه الصلب، الجسيمات مش واقفة. كل جسيم بيهتز حوالين مكان ثابت اسمه موضع الاتزان (Equilibrium position)، بدل ما يتحرك بحرية جوه الجسم زي الغاز.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U2"
+          ],
+          "text": "والجسيمات مرتبطة ببعض بقوى تآثر (Interactions). عشان نتخيّلها، بنرسمها كأنها سوست صغيرة بين الجسيمات. ده نموذج للتوضيح بس؛ مفيش سوست حقيقية بين الذرات.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U3"
+          ],
+          "text": "لو بعّدنا جسيمين عن بعض مسافة صغيرة، السوستة اللي بينهم تتمط، والتآثر يشدّهم يرجّعهم لموضع الاتزان.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U4"
+          ],
+          "text": "ولو قرّبناهم من بعض أكتر من اللازم، التآثر يزقّهم يبعدوا. عشان كده الصلب بيقاوم أي تغيير في شكله: كل محاولة تشوّهه بتقابلها قوى بترجّعه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "بلوري ولا غير متبلور؟",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S03",
+          "view": "structures",
+          "kicker": "نوعين من الصلب",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U1"
+          ],
+          "text": "بس هل كل المواد الصلبة ترتيبها من جوه واحد؟ لأ. لو الجسيمات عاملة نمط منتظم بيتكرر لمسافات طويلة، المادة اسمها Crystalline solid (صلب بلوري).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U2"
+          ],
+          "text": "المثال المشهور هو ملح الطعام NaCl: أيونات صوديوم وكلور متبادلة في شبكة منتظمة، والوحدة الصغيرة دي بتتكرر في كل الاتجاهات.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U3"
+          ],
+          "text": "ولو الترتيب مفيهوش التكرار المنتظم ده لمسافات طويلة، المادة اسمها Amorphous solid (صلب غير متبلور)، والمثال المشهور هو الزجاج.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U4"
+          ],
+          "text": "خلّي بالك من حاجتين: Amorphous مش معناها إن مفيش روابط؛ المقصود إن مفيش شبكة متكررة ممتدة. وكمان مينفعش نقول إن البلوري «أقوى» من شكل الرسم؛ قوة التحمّل محتاجة اختبار.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "نشد القضيب: يرجع ولا لأ؟",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S04",
+          "view": "deform",
+          "kicker": "التشوّه",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U1"
+          ],
+          "text": "نرجع للقضيب. نثبّت طرف، ونشد الطرف التاني بقوة على طول القضيب، فيطول مقدار صغير. أي تغيير في شكل الجسم أو أبعاده اسمه Deformation (تشوّه).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U2"
+          ],
+          "text": "دلوقتي نشيل القوة. لو القضيب رجع لطوله الأصلي بالظبط، يبقى اللي حصل Elastic deformation (تشوّه مرن): التغيير اترجع بالكامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U3"
+          ],
+          "text": "لكن لو شدّينا بقوة أكبر وبعدين شلناها، ممكن القضيب يرجع جزء بس ويفضل أطول من الأول. الجزء اللي فضل ده اسمه Plastic deformation (تشوّه دائم).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U4"
+          ],
+          "text": "ولو كمّلنا نزوّد القوة، في الآخر القضيب ممكن يتكسر. عشان كده كلمة Elastic مش معناها إن الجسم آمن تحت أي قوة؛ معناها إنه بيرجع في حدود حمل معيّن.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "الإجهاد: القوة على أد إيه مساحة",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S05",
+          "view": "stress",
+          "kicker": "Stress — الإجهاد",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U1"
+          ],
+          "text": "عندنا قضيبين من نفس المادة، واحد رفيع وواحد تخين، وبنشد الاتنين بنفس القوة. مين اللي «حاسس» بالشد أكتر؟ الرفيع، لأن نفس القوة متوزّعة على مساحة أصغر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U2"
+          ],
+          "text": "عشان كده بنقيس الشد بالقوة على المساحة. ده اسمه Normal stress (الإجهاد العمودي) ورمزه $σ$: $σ = F/A$. الـ$F$ هي القوة بالنيوتن، والـ$A$ هي مساحة المقطع العمودية على اتجاه القوة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U3"
+          ],
+          "text": "الوحدة نيوتن لكل متر مربع $N/m²$، واسمها Pascal ورمزها $Pa$. ولأن الأرقام بتطلع كبيرة، بنستخدم كتير الميجاباسكال: $1 MPa = 10⁶ Pa$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U4"
+          ],
+          "text": "ملحوظة: $F/A$ ده متوسط الإجهاد في قضيب منتظم بيتشد على محوره، كأن القوة متوزّعة بالتساوي على المقطع. لو الحمل موزّع بشكل معقّد، الإجهاد بيختلف من نقطة للتانية.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "الانفعال: اتغيّر أد إيه بالنسبة لطوله",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S06",
+          "view": "strain",
+          "kicker": "Strain — الانفعال",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U1"
+          ],
+          "text": "الإجهاد بيوصف الحمل اللي على القضيب. بس القضيب نفسه اتغيّر أد إيه؟ هنا محتاجين كمية تانية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U2"
+          ],
+          "text": "لو الطول الأصلي $L₀$، وبعد الشد بقى $L$، يبقى الزيادة $ΔL = L − L₀$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U3"
+          ],
+          "text": "والانفعال (Strain) ورمزه $ε$ هو الزيادة دي بالنسبة للطول الأصلي: $ε = ΔL/L₀$. في الشد $ΔL$ موجبة، وفي الضغط اللي بيقصّر الطول بتبقى سالبة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U4"
+          ],
+          "text": "ولأننا بنقسم طول على طول، الانفعال ملوش وحدة. هو نسبة، وده اللي بيخلّينا نقارن عيّنات أطوالها مختلفة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U5"
+          ],
+          "text": "مثال: مليمتر واحد زيادة في قضيب طوله $2 m$ يدّي $ε = 0.001/2 = 0.0005$. لكن نفس المليمتر في قضيب طوله $0.25 m$ يدّي $ε = 0.004$، يعني تمن أضعاف. فـ«زاد مليمتر» لوحدها مش كفاية.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "مثال محلول: الإجهاد والانفعال",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S07",
+          "view": "example",
+          "kicker": "مثال",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-U1"
+          ],
+          "text": "نحل مثال كامل. قضيب مساحة مقطعه $A = 0.0003 m²$ وطوله الأصلي $L₀ = 0.5 m$، بنشدّه بقوة $F = 300 N$ فيطول $0.5 mm$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U2"
+          ],
+          "text": "الإجهاد: $σ = F/A = 300/0.0003 = 1 × 10⁶ Pa$، يعني $1 MPa$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U3"
+          ],
+          "text": "قبل الانفعال لازم الطولين يبقوا بنفس الوحدة، فنحوّل: $ΔL = 0.5 mm = 0.0005 m$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U4"
+          ],
+          "text": "الانفعال: $ε = ΔL/L₀ = 0.0005/0.5 = 0.001$، من غير وحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U5"
+          ],
+          "text": "كده وصفنا الحمل ($σ$) والاستجابة ($ε$) لنفس القضيب. بس لسه ما عرفناش الثابت اللي بيربطهم ببعض؛ ده موضوع الدرس الجاي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "منحنى الإجهاد والانفعال",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S08",
+          "view": "curve",
+          "kicker": "Stress–Strain curve",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-U1"
+          ],
+          "text": "لو فضلنا نزوّد القوة شوية بشوية، ونسجّل الإجهاد والانفعال كل مرة، ونرسم $σ$ على المحور الرأسي و$ε$ على الأفقي، هنطلع بمنحنى اسمه Stress–Strain curve.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U2"
+          ],
+          "text": "أول جزء تقريبًا خط مستقيم: الإجهاد والانفعال بيزيدوا بنسبة ثابتة. ده الجزء الخطي (Linear).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U3"
+          ],
+          "text": "لحد نقطة اسمها Elastic limit (حد المرونة)، لو شلنا الحمل القضيب بيرجع لطوله. بعدها بتبدأ منطقة الـPlastic: لو شلنا الحمل يفضل جزء من الاستطالة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U4"
+          ],
+          "text": "ولو كمّلنا نزوّد الحمل، بنوصل لـBreaking point (نقطة الكسر) والقضيب يتكسر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U5"
+          ],
+          "text": "فرق مهم: Elastic معناها إنه بيرجع، وLinear معناها إن العلاقة خط مستقيم، والاتنين مش لازم يحصلوا مع بعض في كل مادة. وخط ميله أكبر معناه إجهاد كبير لانفعال صغير، يعني مادة أجسأ (Stiffer)، مش بالضرورة أقوى في الكسر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "سؤال 1: التركيب والمرونة",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S09",
+          "view": "q1",
+          "kicker": "جرّب بنفسك",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-UEN"
+          ],
+          "text": "One sample has a regular particle arrangement that repeats over long distances; another has no long-range periodic order. Classify each. A bar returns to its original length after a small axial force is removed: is this elastic or plastic behaviour? Does this observation alone tell you the bar's breaking strength?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-UAR"
+          ],
+          "text": "صنّف العيّنتين: واحدة فيها نمط بيتكرر بانتظام لمسافات طويلة، والتانية لأ. وبعد ما شلنا قوة صغيرة، القضيب رجع لطوله: ده Elastic ولا Plastic؟ وهل المشاهدة دي لوحدها بتقولنا قوة الكسر؟ اكتب إجابتك بأسبابها.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "One sample has a regular particle arrangement that repeats over long distances; another has no long-range periodic order. Classify each. A bar returns to its original length after a small axial force is removed: is this elastic or plastic behaviour? Does this observation alone tell you the bar's breaking strength?",
+        "arabic": "صنّف العيّنتين: واحدة فيها نمط بيتكرر بانتظام لمسافات طويلة، والتانية لأ. وبعد ما شلنا قوة صغيرة، القضيب رجع لطوله: ده Elastic ولا Plastic؟ وهل المشاهدة دي لوحدها بتقولنا قوة الكسر؟ اكتب إجابتك بأسبابها.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The first sample is crystalline and the second is amorphous. Returning to the original length is elastic behaviour at that load. It does not establish the breaking strength, because the bar was never loaded to fracture.",
+          "arabic": "العيّنة الأولى Crystalline لأن نمطها بيتكرر بانتظام، والتانية Amorphous لأن مفيهاش التكرار ده لمسافات طويلة. القضيب رجع لطوله الأصلي بعد ما شلنا القوة، يعني اللي حصل تشوّه Elastic في حدود الحمل ده. لكن إحنا ما حمّلناهوش لحد الكسر، فالمشاهدة دي ما تقولناش قوة الكسر. التركيب، والمرونة، وقوة الكسر تلات أسئلة مختلفة."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "The first sample is crystalline and the second is amorphous. Returning to the original length is elastic behaviour at that load. It does not establish the breaking strength, because the bar was never loaded to fracture.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "العيّنة الأولى Crystalline لأن نمطها بيتكرر بانتظام، والتانية Amorphous لأن مفيهاش التكرار ده لمسافات طويلة.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "القضيب رجع لطوله الأصلي بعد ما شلنا القوة، يعني اللي حصل تشوّه Elastic في حدود الحمل ده.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "لكن إحنا ما حمّلناهوش لحد الكسر، فالمشاهدة دي ما تقولناش قوة الكسر. التركيب، والمرونة، وقوة الكسر تلات أسئلة مختلفة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-board",
+            "params": {
+              "scene": "S09",
+              "view": "q1",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S10",
+      "title": "سؤال 2: احسب الإجهاد والانفعال",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S10",
+          "view": "q2",
+          "kicker": "جرّب بنفسك",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S10-UEN"
+          ],
+          "text": "A uniform rod of original length 1.2 m extends by 0.60 mm under a tensile force of 180 N. Its original cross-sectional area is 2 × 10⁻⁴ m². Calculate the average tensile stress and the axial strain, with SI units.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-UAR"
+          ],
+          "text": "قضيب طوله الأصلي $1.2 m$ زاد $0.60 mm$ تحت قوة شد $180 N$، ومساحة مقطعه $2 × 10⁻⁴ m²$. احسب الإجهاد والانفعال بوحداتهم. رتّب حلّك: تحويل وحدات، وبعدين القانون، وبعدين التعويض.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "A uniform rod of original length 1.2 m extends by 0.60 mm under a tensile force of 180 N. Its original cross-sectional area is 2 × 10⁻⁴ m². Calculate the average tensile stress and the axial strain, with SI units.",
+        "arabic": "قضيب طوله الأصلي $1.2 m$ زاد $0.60 mm$ تحت قوة شد $180 N$، ومساحة مقطعه $2 × 10⁻⁴ m²$. احسب الإجهاد والانفعال بوحداتهم. رتّب حلّك: تحويل وحدات، وبعدين القانون، وبعدين التعويض.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Stress = 180/(2 × 10⁻⁴) = 9 × 10⁵ Pa. Strain = (6.0 × 10⁻⁴)/1.2 = 5 × 10⁻⁴, with no unit.",
+          "arabic": "الإجهاد: σ = F/A = 180/(2 × 10⁻⁴) = 9 × 10⁵ Pa. قبل الانفعال نحوّل الاستطالة للمتر: ΔL = 0.60 mm = 6.0 × 10⁻⁴ m. الانفعال: ε = ΔL/L₀ = (6.0 × 10⁻⁴)/1.2 = 5 × 10⁻⁴، من غير وحدة. لو كتبت وحدة Pa للانفعال، أو قسمت المليمتر على المتر من غير تحويل، ارجع لتعريف كل كمية."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "Stress = 180/(2 × 10⁻⁴) = 9 × 10⁵ Pa. Strain = (6.0 × 10⁻⁴)/1.2 = 5 × 10⁻⁴, with no unit.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR",
+                "F02-U1"
+              ],
+              "text": "الإجهاد: $σ = F/A = 180/(2 × 10⁻⁴) = 9 × 10⁵ Pa$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "قبل الانفعال نحوّل الاستطالة للمتر: $ΔL = 0.60 mm = 6.0 × 10⁻⁴ m$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "الانفعال: $ε = ΔL/L₀ = (6.0 × 10⁻⁴)/1.2 = 5 × 10⁻⁴$، من غير وحدة.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U4"
+              ],
+              "text": "لو كتبت وحدة Pa للانفعال، أو قسمت المليمتر على المتر من غير تحويل، ارجع لتعريف كل كمية.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-board",
+            "params": {
+              "scene": "S10",
+              "view": "q2",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S11",
+      "title": "الخلاصة",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S11",
+          "view": "recap",
+          "kicker": "الخلاصة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S11-U1"
+          ],
+          "text": "الخلاصة: الصلب جسيماته مربوطة ببعض وبتهتز حوالين أماكن ثابتة، وده سبب مقاومته للتشوّه. وممكن يكون بلوري (Crystalline) أو غير متبلور (Amorphous).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S11-U2"
+          ],
+          "text": "تحت الحمل الجسم بيتشوّه: لو رجع بالكامل يبقى Elastic، ولو فضل جزء يبقى Plastic، ولو زاد الحمل كفاية بيتكسر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S11-U3"
+          ],
+          "text": "ووصفنا الحمل بالإجهاد $σ = F/A$ بوحدة $Pa$، والاستجابة بالانفعال $ε = ΔL/L₀$ من غير وحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S11-U4"
+          ],
+          "text": "السؤال الجاي: لو عارف الإجهاد، أقدر أتوقّع الانفعال؟ ده اللي هيجاوب عليه Young's Modulus في الدرس التالي.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Crystalline solid",
+      "definition": "صلب بلوري: جسيماته في نمط منتظم بيتكرر لمسافات طويلة."
+    },
+    {
+      "term": "Amorphous solid",
+      "definition": "صلب غير متبلور: مفيهوش التكرار المنتظم ده، زي الزجاج."
+    },
+    {
+      "term": "Deformation",
+      "definition": "تشوّه: أي تغيير في شكل الجسم أو أبعاده."
+    },
+    {
+      "term": "Elastic deformation",
+      "definition": "تشوه مرن: الجسم بيرجع لأبعاده الأصلية لما نشيل الحمل."
+    },
+    {
+      "term": "Plastic deformation",
+      "definition": "تشوه دائم: جزء من التغيير بيفضل بعد ما نشيل الحمل."
+    },
+    {
+      "term": "Stress (σ)",
+      "definition": "الإجهاد: القوة على مساحة المقطع، σ = F/A، بوحدة Pa."
+    },
+    {
+      "term": "Strain (ε)",
+      "definition": "الانفعال: التغير في الطول على الطول الأصلي، ε = ΔL/L₀، من غير وحدة."
+    },
+    {
+      "term": "Elastic limit",
+      "definition": "حد المرونة: أكبر إجهاد يرجع بعده الجسم لطوله بالكامل."
+    }
+  ],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "تفرّق بين الصلب البلوري وغير المتبلور من ترتيب جسيماته",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S11"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "تفرّق بين التشوه المرن والدائم وتقرا منحنى الإجهاد والانفعال",
+      "sceneIds": [
+        "S04",
+        "S08",
+        "S11"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تحسب الإجهاد والانفعال بالوحدات الصح",
+      "sceneIds": [
+        "S05",
+        "S06",
+        "S07",
+        "S11"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}

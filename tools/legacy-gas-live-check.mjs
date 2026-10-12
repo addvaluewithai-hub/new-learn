@@ -6,7 +6,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 const origin = 'https://new-learn.pages.dev';
 const registry = JSON.parse(await readFile('content/imported/registry.json', 'utf8'));
 const course = registry.curricula.find((c) => c.id === 'chemistry-gas-laws');
-if (!course) process.exit(0);
+const withheld = JSON.parse(await readFile('content/withheld.json', 'utf8')).curricula;
+if (!course || Object.hasOwn(withheld, course.id)) process.exit(0);
 assert.equal(course.lessons.length, 9);
 let cookie = '';
 async function call(path, payload, method) {

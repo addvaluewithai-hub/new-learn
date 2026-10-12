@@ -1,0 +1,106 @@
+{
+  "id": "phys1-solid-structure-stress-strain",
+  "order": 801,
+  "title": "بنية الصلب والتشوه والإجهاد والانفعال",
+  "englishTitle": "Solids, Deformation, Stress and Strain",
+  "subtitle": "Solids, Deformation, Stress and Strain",
+  "delivery": "reading",
+  "contentRevision": "95c36c826270d62c8459374b14a8dda259444f1c3ceecc0552dff9ae5191369d",
+  "renderers": {
+    "phys1-board": "board/PhysicsBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-solid-structure-stress-strain",
+  "files": [
+    {
+      "path": "assets/fonts/LICENSE-IBM-Plex-Sans-Arabic-OFL.txt",
+      "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98",
+      "bytes": 4808
+    },
+    {
+      "path": "assets/fonts/LICENSE-STIX-Two-OFL.txt",
+      "sha256": "9d80d69f6a70033f4d113604bed4a3038b6e5b700c0266e7fe9f4033365ff076",
+      "bytes": 4510
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2",
+      "sha256": "6010e7fd0dce5d527583951750728cbe3c895efbd16aa0f809ab8c824878c9d8",
+      "bytes": 42848
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2",
+      "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac",
+      "bytes": 45688
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2",
+      "sha256": "9ed8dcb02e6c7246de4c120295fafa39a7bb73085f4951a4524a07dc911069f2",
+      "bytes": 19164
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2",
+      "sha256": "63f4757271e403f7baec0862f284ffaa4560ea6096ba9fe8bc6e585ca656e724",
+      "bytes": 20500
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-italic.woff2",
+      "sha256": "3d76ab92269582b8e11f3d969eaf93bb9609f1e08d5433fd18633e78e7900638",
+      "bytes": 18192
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-normal.woff2",
+      "sha256": "65f8cdee99e0c883fa05a493812ad15fd93e3af5510276661e34c204f771e514",
+      "bytes": 16776
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-600-normal.woff2",
+      "sha256": "c81c437a0d17a895f9d82f62611c1af238f04b0c996e6ef75c5441dd07769997",
+      "bytes": 17148
+    },
+    {
+      "path": "board/PhysicsBoard.tsx",
+      "sha256": "2a68e729703fbd47ee640a8552edca1a951d61cc3aad08f8e7b58be3fd2bb0dc",
+      "bytes": 2281
+    },
+    {
+      "path": "board/clock.ts",
+      "sha256": "fb8e08261b361b0812a13e322f06176862e024a10585781db83c91b34d7e17b4",
+      "bytes": 1112
+    },
+    {
+      "path": "board/curve.tsx",
+      "sha256": "f72c62548c0f0f5e65db921649b40c105f83ef326746460bd6cc16a11b89ed5d",
+      "bytes": 4294
+    },
+    {
+      "path": "board/mathkit.tsx",
+      "sha256": "71668f04e0e9b83c27144c4454defbd927ffb5b04e85995dc2e08a269a474c2d",
+      "bytes": 9927
+    },
+    {
+      "path": "board/matter.tsx",
+      "sha256": "411b66080d7c26b2c9df23a27a10189d8e886335b020a13709720bec3599cd2c",
+      "bytes": 10552
+    },
+    {
+      "path": "board/parts.tsx",
+      "sha256": "c9d29ad527820209cd69de9bb783770baaf347faa9aa24324c12b73bedc351d0",
+      "bytes": 8086
+    },
+    {
+      "path": "board/qa.tsx",
+      "sha256": "71ddcceb344535f4e3558e0146166fed5875b48e0903a76063d653dab005c7f0",
+      "bytes": 5692
+    },
+    {
+      "path": "board/rod.tsx",
+      "sha256": "6a2d5fc2d4540cff043a8b888b2101f41fd96cdec8dae50f1f6f9b774a4dc367",
+      "bytes": 10810
+    },
+    {
+      "path": "reading.json",
+      "sha256": "59b371ae18bff4cbdcb6d3f98c07b71f32346af444421f76cf507cf0c24b75bd",
+      "bytes": 29556
+    }
+  ],
+  "manifestHash": "c470641dbacd81ebfe9e45cbc6a0560094030d4138365251187eef3300722fbd"
+}

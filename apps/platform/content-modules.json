@@ -144,5 +144,12 @@
     "manifestHash": "f988903572cb7dc1c1de1701967dc66ef0271d9ec50c31cbddf7ed5a37139147",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
+  },
+  "reading:phys1-solid-structure-stress-strain": {
+    "lessonId": "phys1-solid-structure-stress-strain",
+    "contentRevision": "95c36c826270d62c8459374b14a8dda259444f1c3ceecc0552dff9ae5191369d",
+    "manifestHash": "c470641dbacd81ebfe9e45cbc6a0560094030d4138365251187eef3300722fbd",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
   }
 }
