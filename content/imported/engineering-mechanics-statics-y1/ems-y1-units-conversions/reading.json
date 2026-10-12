@@ -1,0 +1,1582 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "ems-y1-units-conversions",
+  "curriculumId": "engineering-mechanics-statics-y1",
+  "contentRevision": "b96caa638ee31c8b366c93be04aca7365a73696414cf40884d657f186884215a",
+  "title": "الوحدات والتحويلات في الاستاتيكا",
+  "englishTitle": "Systems of Units and Unit Conversions",
+  "curriculumTitle": "الميكانيكا الهندسية - الاستاتيكا | أولى هندسة",
+  "lessonOrder": 3,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "الرقم وحده لا يكفي",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "measure",
+          "heading": "الرقم وحده لا يكفي",
+          "sceneId": "S01",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "طول جزء من كمرة",
+              "math": "4"
+            },
+            {
+              "id": "B02",
+              "key": "units",
+              "label": "نحتاج وحدة مع الرقم",
+              "math": "4 m أو 4 ft"
+            },
+            {
+              "id": "B03",
+              "key": "weight",
+              "label": "كتلة أم قوة وزن؟",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "result",
+              "label": "نغير الوحدة ونحافظ على الكمية",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "تخيّل كمرة، يعني جزءًا طويلًا في مبنى بيحمل أحمالًا، زي اللي فوق فتحة باب. لو حد قال طولها $4$ وسكت، تقدر تعرف طولها فعلًا؟ الرقم محتاج وحدة تكمل معناه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "ممكن يقصد $4 m$، وممكن يقصد $4 ft$. القدم (Foot) وحدة طول مختلفة عن المتر، واختصارها $ft$. نفس الرقم مع وحدتين مختلفتين ما بيوصفش نفس الطول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "والنوع نفسه مهم: لو قال «خمسة»، هل بيتكلم عن كتلة بالكيلوجرام $kg$، ولا قوة وزن بالنيوتن $N$؟ قبل الحساب، نحدد الكمية والوحدة؛ مش بنضيف اسم وحدة بعد الرقم وخلاص.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "في الدرس ده هنراجع الوحدات اللي استخدمناها، ونفهم وحدة القوة، وبعدين نحول الطول أو القوة إلى وحدة تانية. الهدف نوصف نفس الكمية بطريقة تانية، من غير ما نغيّرها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "الوحدات التي استخدمناها",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "quantities",
+          "heading": "الوحدات التي استخدمناها",
+          "sceneId": "S02",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "length",
+              "label": "وحدة الطول",
+              "math": "m"
+            },
+            {
+              "id": "B02",
+              "key": "time",
+              "label": "وحدة الزمن",
+              "math": "s"
+            },
+            {
+              "id": "B03",
+              "key": "mass",
+              "label": "وحدة الكتلة",
+              "math": "kg"
+            },
+            {
+              "id": "B04",
+              "key": "force",
+              "label": "وحدة القوة",
+              "math": "N"
+            },
+            {
+              "id": "B05",
+              "key": "system",
+              "label": "وحدات متوافقة في نظام واحد",
+              "math": "SI"
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "نبدأ بالطول (Length). زي طول الترابيزة في أول درس، بنقيسه بالمتر (Meter) ونكتب $m$ بعد الرقم. الوحدة بتقول المسافة محسوبة بوحدات حجمها قد إيه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "والزمن (Time) بنقيسه بالثانية (Second)، ورمزها $s$. لو السرعة بالمتر لكل ثانية، فإنت بتربط قياس المسافة بقياس الزمن.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "أما الكتلة (Mass)، فوحدتها الكيلوجرام (Kilogram)، ورمزه $kg$. دي الوحدة اللي استخدمناها لكتلة عربية المثال، مش لقوة دفعها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "وللقوة (Force) بنستخدم النيوتن (Newton)، ورمزه $N$. المتر والثانية والكيلوجرام والنيوتن هي الوحدات اللي هنستخدمها معًا في حسابات النظام الدولي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "مجموعة الوحدات المرتبطة ببعض في الحساب اسمها نظام وحدات. اسم النظام الدولي بالإنجليزي International System of Units، واختصاره SI. قبل ما نشتق وحدة النيوتن، نراجع ليه الكتلة والوزن وحدتاهما مختلفتان.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "الكتلة والوزن لهما وحدتان مختلفتان",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "massforce",
+          "heading": "الكتلة والوزن لهما وحدتان مختلفتان",
+          "sceneId": "S03",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "mass",
+              "label": "الكتلة بالكيلوجرام",
+              "math": "5 kg"
+            },
+            {
+              "id": "B02",
+              "key": "weight",
+              "label": "الوزن بالنيوتن",
+              "math": "W = m g"
+            },
+            {
+              "id": "B03",
+              "key": "check",
+              "label": "نوع الكمية يحدد الوحدة",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "لو جسم كتلته $5 kg$، فالعدد ده بيصف الكتلة. ما ينفعش نكتب نفس الرقم ونغيّر الوحدة إلى نيوتن ونسميه وزنًا؛ الوزن قوة جذب، والكتلة كمية مختلفة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "عشان نجيب الوزن، نعمل حسابًا من $W = m g$ باستخدام تسارع الجاذبية. الناتج قوة، فكتبنا وحدته $N$. عشان كده وحدة الكتلة مش هي وحدة الوزن.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "يبقى قبل أي حساب، اسأل «أنا بحسب إيه؟». ده اللي يحدد الوحدة المناسبة. دلوقتي نستخدم قانون القوة اللي عرفناه عشان نفهم ليه النيوتن له علاقة بالكيلوجرام والمتر والثانية.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "كيف تتكوّن وحدة النيوتن؟",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "dimension",
+          "heading": "كيف تتكوّن وحدة النيوتن؟",
+          "sceneId": "S04",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "formula",
+              "label": "نراجع وحدات القانون",
+              "math": "ΣF = m a"
+            },
+            {
+              "id": "B02",
+              "key": "mass",
+              "label": "وحدة الكتلة",
+              "math": "kg"
+            },
+            {
+              "id": "B03",
+              "key": "accel",
+              "label": "وحدة التسارع كاملة",
+              "math": "m/s²"
+            },
+            {
+              "id": "B04",
+              "key": "product",
+              "label": "نضرب وحدتي الكتلة والتسارع",
+              "math": "kg × m/s² = kg·m/s²"
+            },
+            {
+              "id": "B05",
+              "key": "result",
+              "label": "النيوتن اسم الوحدة المركبة",
+              "math": "1 N = 1 kg·m/s²"
+            },
+            {
+              "id": "B06",
+              "key": "check",
+              "label": "تربيع الثانية جزء من الوحدة",
+              "math": "s²"
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "فاكر قانون نيوتن الثاني $ΣF = m a$؟ المحصلة تساوي الكتلة في التسارع. المرة دي هنترك الأرقام مؤقتًا، ونتتبع الوحدات اللي بنضربها في بعض.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "وحدة الكتلة هي $kg$. إذن الجزء الخاص بالكتلة في حاصل الضرب هيفضل كيلوجرام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "ووحدة التسارع $m/s²$. عرفنا ليه فيها ثانية تربيع: التسارع تغير في السرعة خلال الزمن. لازم ننقل الوحدة كاملة زي ما هي، بما فيها التربيع.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "لما نضرب الكتلة في التسارع، بنضرب وحدتيهما أيضًا: $kg × m/s² = kg·m/s²$. النقطة بين الكيلوجرام والمتر معناها ضرب، والخط تحتها يقسم على الثانية المربعة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "اسم الوحدة المركبة دي هو النيوتن: $1 N = 1 kg·m/s²$. يعني نيوتن واحد هي محصلة القوة اللي تعطي جسمًا كتلته كيلوجرام واحد تسارعًا مقداره متر لكل ثانية تربيع. ده يوضح معنى وحدة القوة اللي استخدمناها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B06"
+          ],
+          "text": "خلي بالك: لو كتبت ثانية بدل ثانية تربيع، تكون غيّرت الوحدة، مش اختصرت طريقة كتابتها. نطبق ده على عربية بأرقام محددة، ونشوف إزاي نراجع الرقم والوحدة معًا.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "نحسب القوة ونراجع وحدتها",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "forcecalc",
+          "heading": "نحسب القوة ونراجع وحدتها",
+          "sceneId": "S05",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "mass",
+              "label": "كتلة العربية",
+              "math": "m = 2 kg"
+            },
+            {
+              "id": "B02",
+              "key": "accel",
+              "label": "تسارع العربية",
+              "math": "a = 3 m/s²"
+            },
+            {
+              "id": "B03",
+              "key": "product",
+              "label": "نضرب الكتلة في التسارع",
+              "math": "ΣF = 2 × 3"
+            },
+            {
+              "id": "B04",
+              "key": "result",
+              "label": "المحصلة بالنيوتن",
+              "math": "ΣF = 6 N"
+            },
+            {
+              "id": "B05",
+              "key": "detail",
+              "label": "نفس القوة بصورتين للوحدة",
+              "math": "6 N = 6 kg·m/s²"
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "عندنا عربية كتلتها $m = 2 kg$. هنحسب محصلة القوة اللازمة للتسارع المعطى، فالمعطى الأول هو الكتلة بوحدتها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "تسارعها $a = 3 m/s²$ في اتجاه واحد. ده المعطى التاني: معدل تغير الحركة، مش سرعة العربية نفسها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "من قانون نيوتن الثاني، نضرب الكتلة في التسارع: $ΣF = 2 × 3$. وبنحمل وحدتي الكيلوجرام والمتر لكل ثانية تربيع مع الضرب، بدل ما نراجع الأرقام وحدها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "الحاصل $ΣF = 6 N$، وفي اتجاه التسارع. بنكتب نيوتن لأن حاصل ضرب الوحدات هو وحدة قوة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "وممكن نكتب نفس النتيجة بشكل مطول: $6 N = 6 kg·m/s²$. الشكلان لنفس القوة. لو عايز تتأكد من التربيع، نرجع خطوة ونفكر وحدة التسارع اتكونت إزاي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "لماذا الثانية مربعة؟",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "derived",
+          "heading": "لماذا الثانية مربعة؟",
+          "sceneId": "S06",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "speed",
+              "label": "وحدة السرعة",
+              "math": "m/s"
+            },
+            {
+              "id": "B02",
+              "key": "accel",
+              "label": "وحدة التسارع",
+              "math": "m/s²"
+            },
+            {
+              "id": "B03",
+              "key": "guided",
+              "label": "ضرب الكتلة لا يلغي ثانية",
+              "math": "kg × m/s²"
+            },
+            {
+              "id": "B04",
+              "key": "check",
+              "label": "راجع الوحدة في مثال جديد",
+              "math": "kg·m/s² = N"
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "السرعة بتقارن مسافة بزمن، فوحدتها $m/s$: متر لكل ثانية. لو بنوصف سرعة ثابتة، العدد بيقول بنقطع كام متر في كل ثانية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "والتسارع بيقارن تغير السرعة بزمن، فنقسم وحدة السرعة على ثانية كمان: $(m/s)/s = m/s²$. الثانية التانية ما اختفتش؛ هي اللي خلّت المقام ثانية تربيع.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "لما نضرب ده في الكتلة، الكيلوجرام لا يلغي أي ثانية؛ مفيش وحدة ثانية في الأعلى تختصرها. يبقى $kg × m/s²$ تحتفظ بمقامها كما هو.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "إذن وحدة القوة فيها $s²$ تحت خط الكسر. لو الرقم الحسابي صحيح والوحدة ناقصة، الإجابة لسه محتاجة إصلاح. جرّب اكتشاف الغلطة دي في السؤال الجاي؛ العزوم ووحداتها هنسيبها لدرسها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "سؤال: رقم صحيح ووحدة خاطئة",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: رقم صحيح ووحدة خاطئة",
+          "sceneId": "S07",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A trolley has mass $4 kg$ and acceleration $3 m/s²$. A student reports net force $12 kg·m/s$. Is the unit correct? Correct it and explain.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "عربية كتلتها $4 kg$ وتسارعها $3 m/s²$. طالب حسب المحصلة وكتب $12 kg·m/s$. هل الوحدة صحيحة؟ لو غلط، صححها واشرح إيه اللي ناقص، حتى لو الرقم نفسه صحيح.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "A trolley has mass $4 kg$ and acceleration $3 m/s²$. A student reports net force $12 kg·m/s$. Is the unit correct? Correct it and explain.",
+        "arabic": "عربية كتلتها $4 kg$ وتسارعها $3 m/s²$. طالب حسب المحصلة وكتب $12 kg·m/s$. هل الوحدة صحيحة؟ لو غلط، صححها واشرح إيه اللي ناقص، حتى لو الرقم نفسه صحيح.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "No. The net force is twelve newtons, or twelve kilogram meters per second squared.",
+          "arabic": "الحساب العددي صحيح: أربعة في تلاتة يساوي اتناشر. لكن صحة الرقم وحدها مش كفاية، لأن القوة لازم تتكتب بوحدة القوة المناسبة. بنضرب كيلوجرام في متر على ثانية تربيع، فتكون النتيجة اتناشر كيلوجرام في متر على ثانية تربيع، وهي اتناشر نيوتن. الطالب حذف تربيع الثانية في المقام. عشان تتجنب ده، انقل وحدتي المعطيات كاملتين مع الضرب. دلوقتي عرفنا وحدات النظام الدولي والعلاقة بينها. هنشوف مجموعة وحدات تانية بتقيس نفس الكميات، ونتأكد ما نخلطش وحدة كتلة بوحدة قوة."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "No. The force is $12 N = 12 kg·m/s²$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "الحساب العددي صحيح: $4 × 3 = 12$. لكن صحة الرقم وحدها مش كفاية، لأن القوة لازم تتكتب بوحدة القوة المناسبة.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "بنضرب $kg$ في $m/s²$، فتكون النتيجة $12 kg·m/s²$، وهي $12 N$. الطالب حذف تربيع الثانية في المقام. عشان تتجنب ده، انقل وحدتي المعطيات كاملتين مع الضرب.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F04"
+              ],
+              "text": "دلوقتي عرفنا وحدات النظام الدولي والعلاقة بينها. هنشوف مجموعة وحدات تانية بتقيس نفس الكميات، ونتأكد ما نخلطش وحدة كتلة بوحدة قوة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S07",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "التربيع ناقص في الوحدة",
+                  "math": "12 N = 12 kg·m/s²"
+                },
+                {
+                  "id": "F02",
+                  "key": "numbers",
+                  "label": "الرقم صحيح",
+                  "math": "4 × 3 = 12"
+                },
+                {
+                  "id": "F03",
+                  "key": "units",
+                  "label": "نراجع الوحدة رغم صحة الرقم",
+                  "math": "kg·m/s²"
+                },
+                {
+                  "id": "F04",
+                  "key": "next",
+                  "label": "بعدها: نظام القدم والرطل والثانية",
+                  "math": ""
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "نظام آخر لنفس الكميات",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "fps",
+          "heading": "نظام آخر لنفس الكميات",
+          "sceneId": "S08",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "length",
+              "label": "الطول بالقدم",
+              "math": "ft"
+            },
+            {
+              "id": "B02",
+              "key": "time",
+              "label": "الزمن بالثانية",
+              "math": "s"
+            },
+            {
+              "id": "B03",
+              "key": "force",
+              "label": "القوة بالرطل قوة",
+              "math": "lbf"
+            },
+            {
+              "id": "B04",
+              "key": "mass",
+              "label": "الكتلة بوحدة سلَج",
+              "math": "slug"
+            },
+            {
+              "id": "B05",
+              "key": "system",
+              "label": "نظام وحدات آخر",
+              "math": "FPS"
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "بدل المتر، ممكن نقيس الطول بالقدم (Foot)، ورمزها $ft$. وحدة مختلفة، لكن نوع الكمية ما زال طولًا؛ تغيير وحدة القياس ما يحولش الطول إلى نوع تاني.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "وفي المجموعة دي، الزمن بيتقاس بالثانية برضه، ورمزها $s$. مش كل الوحدات لازم تتغير لما نستخدم نظامًا آخر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "أما القوة، فممكن تتقاس بالرطل قوة (Pound-force)، ورمزه $lbf$. ركز في كلمة «قوة»؛ الوحدة دي بتقيس قوة، زي النيوتن، ومش هي الكيلوجرام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "وللكتلة في المجموعة دي وحدة اسمها سلَج (Slug)، ورمزها $slug$. الكيلوجرام والسلج وحدتا كتلة؛ النيوتن والرطل قوة وحدتا قوة. التصنيف ده أهم دلوقتي من حفظ معاملات التحويل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "دي مجموعة من النظام الأمريكي العرفي (U.S. Customary)، وبنشير لها هنا باسم FPS. هتقابل الاختصار في الأسئلة، فتعرف إنه مرتبط بالمجموعة اللي شرحناها. نطبق الفرق بين الكتلة والقوة قبل استخدام أي معامل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "قبل التحويل: كتلة ولا قوة؟",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "massforce",
+          "heading": "قبل التحويل: كتلة ولا قوة؟",
+          "sceneId": "S09",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "force",
+              "label": "الرطل قوة وحدة قوة",
+              "math": "lbf"
+            },
+            {
+              "id": "B02",
+              "key": "mass",
+              "label": "الكيلوجرام وحدة كتلة",
+              "math": "kg"
+            },
+            {
+              "id": "B03",
+              "key": "check",
+              "label": "حساب الوزن يختلف عن تحويل وحدة القوة",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "لو الرقم مكتوب بعده $lbf$، فالمعنى رطل قوة. وجود كلمة قوة في الاسم بيقول لك الكمية المقاسة، حتى لو كلمة «رطل» وحدها مألوفة لك من استعمال آخر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "لكن $kg$ بيقيس كتلة. عشان كده ما نقدرش نحوّل كيلوجرام إلى رطل قوة كأنهما وحدتان لنفس الشيء. لازم نسأل هل المطلوب تحويل وحدة، ولا حساب كمية مختلفة؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "لو عايزين وزنًا من كتلة، نحتاج تسارع الجاذبية وقانون $W = m g$. أما لو عندنا قوة بالنيوتن ونريدها بالرطل قوة، فبنغيّر الوحدة للقوة نفسها. الفرق ده هو اللي يحدد الطريقة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "الكمية ثابتة والوحدة تتغير",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "samequantity",
+          "heading": "الكمية ثابتة والوحدة تتغير",
+          "sceneId": "S10",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "length",
+              "label": "نفس الطول بوحدتين",
+              "math": "m ↔ ft"
+            },
+            {
+              "id": "B02",
+              "key": "force",
+              "label": "نفس القوة بوحدتين",
+              "math": "N ↔ lbf"
+            },
+            {
+              "id": "B03",
+              "key": "check",
+              "label": "نصنف الوحدات قبل الحساب",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "تخيّل نفس المسطرة أو نفس اللوح: ممكن تقيس طوله بالمتر أو بالقدم. رقم القياس والوحدة يتغيران، لكن اللوح ما بيطولش ولا بيقصر بسبب تغيير طريقة القياس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "والقوة نفسها ممكن نوصفها بالنيوتن أو بالرطل قوة. تحويل الوحدة يغيّر الرقم اللي بنكتب به القوة، لكنه ما يزوّدش الزق أو يقلله في الواقع.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "إذن أول خطوة في التحويل هي التأكد إن الوحدتين لنفس نوع الكمية. قبل الحساب، جرّب تصنيف الوحدات الأربع في السؤال التالي إلى كتلة أو قوة، وحدد مجموعتها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "سؤال: تصنيف الوحدات",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: تصنيف الوحدات",
+          "sceneId": "S11",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "Classify $kg$, $N$, $slug$ and $lbf$ as mass or force units. State their SI or FPS system.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "صنّف الوحدات $kg$ و$N$ و$slug$ و$lbf$: كل واحدة بتقيس كتلة ولا قوة؟ وحدد هل تنتمي للنظام الدولي SI، ولا مجموعة FPS اللي عرفناها.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Classify $kg$, $N$, $slug$ and $lbf$ as mass or force units. State their SI or FPS system.",
+        "arabic": "صنّف الوحدات $kg$ و$N$ و$slug$ و$lbf$: كل واحدة بتقيس كتلة ولا قوة؟ وحدد هل تنتمي للنظام الدولي SI، ولا مجموعة FPS اللي عرفناها.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Mass units are kilogram in SI and slug in FPS. Force units are newton in SI and pound-force in FPS.",
+          "arabic": "الكيلوجرام كيلوجرام والسلج سلج وحدتا كتلة: الأولى في SI، والتانية في مجموعة FPS. اختلاف الاسمين ما يغيرش نوع الكمية اللي بيقيسانها. والنيوتن نيوتن والرطل قوة رطل قوة وحدتا قوة: الأولى في SI والتانية في FPS. نبدأ التطبيق العددي بتحويل طول بين القدم والمتر؛ دي وحدتان لنفس الكمية فعلًا."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "Mass: $kg$ in SI, $slug$ in FPS. Force: $N$ in SI, $lbf$ in FPS.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "الكيلوجرام $kg$ والسلج $slug$ وحدتا كتلة: الأولى في SI، والتانية في مجموعة FPS. اختلاف الاسمين ما يغيرش نوع الكمية اللي بيقيسانها.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "والنيوتن $N$ والرطل قوة $lbf$ وحدتا قوة: الأولى في SI والتانية في FPS. نبدأ التطبيق العددي بتحويل طول بين القدم والمتر؛ دي وحدتان لنفس الكمية فعلًا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S11",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "نصنف بحسب الكمية والنظام",
+                  "math": ""
+                },
+                {
+                  "id": "F02",
+                  "key": "mass",
+                  "label": "وحدتان للكتلة",
+                  "math": "kg, slug"
+                },
+                {
+                  "id": "F03",
+                  "key": "force",
+                  "label": "وحدتان للقوة",
+                  "math": "N, lbf"
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S12",
+      "title": "من القدم إلى المتر",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "lengthcalc",
+          "heading": "من القدم إلى المتر",
+          "sceneId": "S12",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "given",
+              "label": "الطول الأصلي بالقدم",
+              "math": "5 ft"
+            },
+            {
+              "id": "B02",
+              "key": "factor",
+              "label": "علاقة تعريف دقيقة",
+              "math": "1 ft = 0.3048 m"
+            },
+            {
+              "id": "B02FRACTION",
+              "key": "fraction",
+              "label": "فوق الخط بسط، وتحته مقام",
+              "math": "0.3048 m/1 ft"
+            },
+            {
+              "id": "B02RATIO",
+              "key": "ratio",
+              "label": "نفس الطول على نفسه: النسبة واحد",
+              "math": "0.3048 m/1 ft = 1"
+            },
+            {
+              "id": "B03",
+              "key": "product",
+              "label": "نضع القدم في المقام",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "cancel",
+              "label": "نلغي القدم ونحتفظ بالمتر",
+              "math": ""
+            },
+            {
+              "id": "B05",
+              "key": "result",
+              "label": "نفس الطول بالمتر",
+              "math": "1.524 m"
+            },
+            {
+              "id": "B06",
+              "key": "check",
+              "label": "الوحدة الأكبر تعطي عددًا أصغر",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "عندنا لوح طوله $5 ft$، وعايزين نكتب نفس طوله بالمتر. مش هنغيّر اللوح؛ هنحسب عدد الأمتار اللي بيساوي خمسة أقدام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "المعلومة اللي نبدأ بها هي $1 ft = 0.3048 m$. القدم الواحد يساوي الطول ده بالمتر بالضبط. المساواة بين طولين متساويين، حتى لو الرقم والوحدة مختلفين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02FRACTION"
+          ],
+          "text": "نكتب الطولين فوق بعض: $0.3048 m/1 ft$. اللي فوق خط الكسر اسمه البسط، واللي تحته المقام؛ والخط معناه قسمة. هنا بنقسم طولًا مكتوبًا بالمتر على نفس الطول مكتوبًا بالقدم.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02RATIO"
+          ],
+          "text": "عشان الطولين متساويان، النسبة $0.3048 m/1 ft = 1$. الضرب في النسبة دي ما يغيرش الطول الحقيقي. ده سبب استخدام معامل التحويل: نغيّر الوحدة اللي بنكتب بها نفس الكمية، من غير ما نغيّرها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "دلوقتي نضرب $5 ft$ في $0.3048 m/1 ft$. ليه رتبنا المعامل كده؟ لأننا عايزين القدم تختصر؛ فوضعنا القدم تحت الخط مقابل القدم اللي في الكمية الأصلية، وخلّينا المتر فوق.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "القدم موجودة في الكمية الأصلية وفي مقام المعامل، فتختصر مثل عامل مشترك فوق خط الكسر وتحته. تبقى وحدة المتر وحدها. الاختصار بيقول إن اختيار اتجاه المعامل مناسب للمطلوب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "نحسب الأرقام: $5 × 0.3048 = 1.524 m$. إذن خمسة أقدام تساوي واحدًا فاصلة خمسة اتنين أربعة متر. النتيجة لها الرقم الجديد والوحدة المطلوبة معًا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B06"
+          ],
+          "text": "عدد الأمتار أقل من عدد الأقدام لأن المتر أطول من القدم، فنحتاج وحدات أقل لنفس الطول. دي مراجعة منطقية للناتج. طب لو الطول معلوم بالمتر وعايزينه بالقدم؟",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "لماذا نقلب معامل التحويل؟",
+      "clipId": "N13",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "reverseconvert",
+          "heading": "لماذا نقلب معامل التحويل؟",
+          "sceneId": "S13",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "factor",
+              "label": "المعامل نسبة بين طولين متساويين",
+              "math": "0.3048 m/1 ft = 1"
+            },
+            {
+              "id": "B02",
+              "key": "given",
+              "label": "نريد إلغاء المتر",
+              "math": "0.9144 m"
+            },
+            {
+              "id": "B03",
+              "key": "product",
+              "label": "نضع المتر في المقام",
+              "math": "0.9144 m × 1 ft/0.3048 m"
+            },
+            {
+              "id": "B04",
+              "key": "result",
+              "label": "نفس الطول بالقدم",
+              "math": "3 ft"
+            },
+            {
+              "id": "B05",
+              "key": "check",
+              "label": "الاختصار يحدد اتجاه المعامل",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "المعامل اللي استخدمناه نسبة بين طولين متساويين، فقيمته واحد. تغيير اتجاه النسبة يفضل بين نفس الطولين، لكن هنختار الاتجاه اللي يترك الوحدة المطلوبة في الناتج.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "المرة دي الطول $0.9144 m$، وعايزينه بالقدم. إذن الوحدة القديمة اللي لازم تختصر هي المتر. نحدد ده قبل ما نقرر هنضرب في أي صورة للمعامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "نضع القدم فوق والمتر تحت: $1 ft/0.3048 m$. لما نضربه في الطول الأصلي، المتر يختصر وتبقى القدم. ده سبب قلب المعامل؛ مش قاعدة عشوائية تقول «اقلبه في السؤال التاني».",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "الحساب يبقى $0.9144/0.3048 = 3$، والوحدة الباقية قدم. إذن الطول نفسه $3 ft$. لو كتبت ثلاثة من غير الوحدة، النتيجة ما زالت ناقصة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "عشان تختار المعامل، اكتب الوحدة القديمة واسأل هتختصر مع إيه تحت خط الكسر. لو فضلت وحدة غريبة، راجع الاتجاه قبل الحساب. جرّب تحويلًا عكسيًا بأرقام جديدة في السؤال التالي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "سؤال: من المتر إلى القدم",
+      "clipId": "N14",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: من المتر إلى القدم",
+          "sceneId": "S14",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A shelf is $1.8288 m$ long. Convert to feet using $1 ft = 0.3048 m$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "رف طوله $1.8288 m$. اكتب نفس الطول بالقدم باستخدام العلاقة $1 ft = 0.3048 m$. اختار اتجاه المعامل، وراجع الوحدة الباقية، وبعدها احسب.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "A shelf is $1.8288 m$ long. Convert to feet using $1 ft = 0.3048 m$.",
+        "arabic": "رف طوله $1.8288 m$. اكتب نفس الطول بالقدم باستخدام العلاقة $1 ft = 0.3048 m$. اختار اتجاه المعامل، وراجع الوحدة الباقية، وبعدها احسب.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The shelf length is six feet.",
+          "arabic": "الطول مكتوب بالمتر، وعايزينه بالقدم. نضرب في واحد قدم على صفر فاصلة تلاتة صفر أربعة تمانية متر عشان المتر يختصر، وتبقى القدم في الأعلى. ده سبب اتجاه المعامل. الحساب واحد فاصلة تمانية اتنين تمانية تمانية على صفر فاصلة تلاتة صفر أربعة تمانية يساوي ستة، فتكون النتيجة ستة قدم. ما ضربناش في عدد محفوظ؛ بدأنا بالمساواة والوحدة المطلوبة. نستخدم نفس الفكرة دلوقتي مع وحدتي قوة."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "The length is $6 ft$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "الطول مكتوب بالمتر، وعايزينه بالقدم. نضرب في $1 ft/0.3048 m$ عشان المتر يختصر، وتبقى القدم في الأعلى. ده سبب اتجاه المعامل.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "الحساب $1.8288/0.3048 = 6$، فتكون النتيجة $6 ft$. ما ضربناش في عدد محفوظ؛ بدأنا بالمساواة والوحدة المطلوبة. نستخدم نفس الفكرة دلوقتي مع وحدتي قوة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S14",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "الطول بالقدم",
+                  "math": "6 ft"
+                },
+                {
+                  "id": "F02",
+                  "key": "factor",
+                  "label": "نلغي الوحدة الأصلية",
+                  "math": "1.8288 m × 1 ft/0.3048 m"
+                },
+                {
+                  "id": "F03",
+                  "key": "result",
+                  "label": "نقسم لاختيار الوحدة المطلوبة",
+                  "math": "1.8288/0.3048 = 6"
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S15",
+      "title": "من الرطل قوة إلى النيوتن",
+      "clipId": "N15",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "forceconvert",
+          "heading": "من الرطل قوة إلى النيوتن",
+          "sceneId": "S15",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "given",
+              "label": "قوة أصلية بالرطل قوة",
+              "math": "10 lbf"
+            },
+            {
+              "id": "B02",
+              "key": "factor",
+              "label": "معامل تحويل مقرّب",
+              "math": "1 lbf ≈ 4.448 N"
+            },
+            {
+              "id": "B03",
+              "key": "product",
+              "label": "نختار معامل قوة إلى قوة",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "cancel",
+              "label": "نلغي الرطل قوة ونحتفظ بالنيوتن",
+              "math": ""
+            },
+            {
+              "id": "B05",
+              "key": "result",
+              "label": "القوة نفسها بوحدة أخرى",
+              "math": "44.48 N"
+            },
+            {
+              "id": "B06",
+              "key": "check",
+              "label": "نتيجة تقريبية من معامل مقرب",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "عندنا قوة شد مقدارها $10 lbf$، وعايزين نكتب مقدارها بالنيوتن. الوحدتان هنا للقوة، فده تحويل لنفس الكمية، مش حساب وزن من كتلة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "المعطى $1 lbf ≈ 4.448 N$. العلامة $≈$ معناها «تقريبًا يساوي»، لأن العدد اللي هنستخدمه مقرب. ده مختلف عن علاقة القدم والمتر الدقيقة في المثال السابق.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "نرتب المعامل $4.448 N/1 lbf$، ونضربه في القوة الأصلية. الرطل قوة تحت الخط علشان يختصر مع وحدة القوة المعطاة، والنيوتن فوق لأنه الوحدة المطلوبة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "تختصر وحدة $lbf$ من القوة ومن مقام المعامل، وتبقى $N$. بنستخدم نفس منطق التحويل اللي طبقناه في الأطوال؛ الأسماء تغيرت، لكن سبب ترتيب الوحدات هو نفسه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "الحساب $10 × 4.448 ≈ 44.48 N$. ده مقدار نفس القوة مكتوبًا بالنيوتن. العلامة تقريبًا تذكّرنا إن معامل التحويل اللي بدأنا به مقرب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B06"
+          ],
+          "text": "لو السؤال طلب تقريب الإجابة، نعمله بعد الحساب، مش وسطه بلا سبب. قبل ما تجرب قوة جديدة، نشوف إزاي نراجع معامل التحويل، ونقرب الناتج لرقم عشري واحد.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "title": "مراجعة التحويل والتقريب",
+      "clipId": "N16",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "conversioncheck",
+          "heading": "مراجعة التحويل والتقريب",
+          "sceneId": "S16",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "factor",
+              "label": "المعامل من السؤال أو الجدول",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "units",
+              "label": "النتيجة تظل وحدة قوة",
+              "math": "N/lbf"
+            },
+            {
+              "id": "B03",
+              "key": "round",
+              "label": "نقرب بعد حساب الناتج",
+              "math": "44.48 → 44.5"
+            },
+            {
+              "id": "B04",
+              "key": "check",
+              "label": "الاختصار ثم الحساب ثم التقريب",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "ابدأ بمعامل التحويل المعطى في السؤال أو الجدول. مش محتاج تحفظ كل الأعداد؛ المهم تعرف تختار العلاقة بين الوحدتين وتكتبها في الاتجاه المناسب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "مثلًا، معامل بوحدة $N/lbf$ يلغي وحدة $lbf$ الموجودة في القوة ويترك $N$. راجع الاختصار على الورق قبل ضغط أزرار الحساب؛ كده تكتشف المعامل المقلوب بدري.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "لو المطلوب رقم عشري واحد، نحتفظ بالأعشار ونبص للرقم اللي بعدها. إذا كان خمسة أو أكثر نزود الأعشار واحدًا. في $44.48$ الرقم التالي هو $8$، فتصبح $44.5$. التقريب مش مجرد حذف آخر الأرقام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "إذن نمشي بالترتيب: نختار المعامل، نراجع الوحدات، نحسب، ثم نقرب إذا طُلب. السؤال الجاي فيه قوة كابل مختلفة؛ جرّب الخطوات بنفسك، واكتب نتيجة تقريبية بوحدتها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "title": "سؤال: تحويل قوة كابل",
+      "clipId": "N17",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: تحويل قوة كابل",
+          "sceneId": "S17",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A cable force is $8 lbf$. Convert using $1 lbf ≈ 4.448 N$ and round to one decimal place.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "قوة شد في كابل مقدارها $8 lbf$. حوّلها إلى النيوتن باستخدام $1 lbf ≈ 4.448 N$، وقرّب الناتج لرقم عشري واحد. اكتب الرقم والوحدة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "A cable force is $8 lbf$. Convert using $1 lbf ≈ 4.448 N$ and round to one decimal place.",
+        "arabic": "قوة شد في كابل مقدارها $8 lbf$. حوّلها إلى النيوتن باستخدام $1 lbf ≈ 4.448 N$، وقرّب الناتج لرقم عشري واحد. اكتب الرقم والوحدة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The force is approximately thirty-five point six newtons.",
+          "arabic": "نضرب القوة في معامل النيوتن لكل رطل قوة، فتختصر وحدة رطل قوة. الحساب تمانية في أربعة فاصلة أربعة أربعة تمانية يساوي خمسة وتلاتين فاصلة خمسة تمانية أربعة نيوتن. ده الناتج قبل التقريب المطلوب. هنحتفظ برقم الأعشار، وهو خمسة، ونراجع الرقم اللي بعده، وهو تمانية. لأنه أكبر من خمسة، نزيد الأعشار إلى ستة: خمسة وتلاتين فاصلة خمسة تمانية أربعة تصبح خمسة وتلاتين فاصلة ستة نيوتن. ما نكتبش خمسة وتلاتين فاصلة خمسة بمجرد حذف الباقي. إذن القوة تقريبًا خمسة وتلاتين فاصلة ستة نيوتن. الوحدة نيوتن لأننا حوّلنا قوة إلى وحدة قوة أخرى. الرقم الصحيح مع الوحدة الصحيحة والتقريب المطلوب هم الإجابة الكاملة. نلخص الآن طريقة المراجعة."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "The force is approximately $35.6 N$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "نضرب القوة في معامل النيوتن لكل رطل قوة، فتختصر وحدة $lbf$. الحساب $8 × 4.448 = 35.584 N$. ده الناتج قبل التقريب المطلوب.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "هنحتفظ برقم الأعشار، وهو خمسة، ونراجع الرقم اللي بعده، وهو $8$. لأنه أكبر من خمسة، نزيد الأعشار إلى ستة: $35.584 → 35.6 N$. ما نكتبش $35.5$ بمجرد حذف الباقي.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F04"
+              ],
+              "text": "إذن القوة تقريبًا $35.6 N$. الوحدة نيوتن لأننا حوّلنا قوة إلى وحدة قوة أخرى. الرقم الصحيح مع الوحدة الصحيحة والتقريب المطلوب هم الإجابة الكاملة. نلخص الآن طريقة المراجعة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S17",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "قوة بالنيوتن بعد التقريب",
+                  "math": "35.6 N"
+                },
+                {
+                  "id": "F02",
+                  "key": "product",
+                  "label": "الحساب قبل التقريب",
+                  "math": "8 × 4.448 = 35.584 N"
+                },
+                {
+                  "id": "F03",
+                  "key": "round",
+                  "label": "نقرب بعد الحساب",
+                  "math": "35.584 → 35.6 N"
+                },
+                {
+                  "id": "F04",
+                  "key": "next",
+                  "label": "نحافظ على نوع الكمية",
+                  "math": ""
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S18",
+      "title": "ثلاث مراجعات قبل أي حساب",
+      "clipId": "N18",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "unitrecap",
+          "heading": "ثلاث مراجعات قبل أي حساب",
+          "sceneId": "S18",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "type",
+              "label": "نوع الكمية أولًا",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "formula",
+              "label": "راجع وحدات القانون",
+              "math": "kg·m/s² = N"
+            },
+            {
+              "id": "B03",
+              "key": "cancel",
+              "label": "ألغِ القديمة واترك المطلوبة",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "next",
+              "label": "بعدها: تحليل اتجاهات القوى",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-units-conversions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "قبل الحساب اسأل عن نوع الكمية: طول، ولا كتلة، ولا قوة؟ النوع يحدد أي وحدات ممكن تتحول إلى بعضها، ويمنع خلط الكتلة بالوزن.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "وإنت بتستخدم قانونًا، انقل الوحدات كاملة مع الأرقام. في قانون نيوتن، حاصل ضرب الكتلة في التسارع يعطي $kg·m/s² = N$. تربيع الثانية جزء من الوحدة، مش إضافة شكلية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "وفي التحويل، اكتب المعامل بحيث الوحدة القديمة تختصر وتفضل المطلوبة. المعامل مبني على نفس الكمية مكتوبة بوحدتين، فبنغيّر وصفها من غير ما نغيّر قيمتها الحقيقية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "كده بقينا نحدد القوة ونربطها بالحركة، ونراجع وحدتها ونحوّلها. بعد كده هنحتاج نفهم اتجاه القوة بتفصيل أكبر ونحسب مركباتها؛ ونبدأ من نفس الفكرة: وصف واضح قبل الرموز والحساب.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "تصنف وحدات الكتلة والقوة قبل ما تستخدمها في الحساب",
+      "sceneIds": [
+        "S08",
+        "S09",
+        "S10",
+        "S18"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "تفهم وحدة النيوتن وتراجع ليه الثانية فيها مربعة",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تحول الطول والقوة بين وحدتين، وتراجع الاختصار والتقريب",
+      "sceneIds": [
+        "S12",
+        "S13",
+        "S15",
+        "S16",
+        "S18"
+      ],
+      "questionIds": [
+        "Q03",
+        "Q04"
+      ]
+    }
+  ]
+}
