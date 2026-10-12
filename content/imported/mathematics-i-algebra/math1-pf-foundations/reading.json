@@ -1,0 +1,712 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-pf-foundations",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "b71c1976f35aed53089cc44d0cad926601151a9d3cbdb3d48a7d197ddb7f5f66",
+  "title": "الكسور الجبرية: الفكرة والتصنيف",
+  "englishTitle": "Partial Fractions Foundations",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 5,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: جسر الكسر الجبري والدرجة والمجال",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "sourceScope": "printed pages 1–2 / PDF pages 3–4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "فاكر جمع وطرح الكسور اللي مقاماتها مختلفة؟ مثلًا $1/2 + 1/3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "بنوحّد المقامات على 6: $3/6 + 2/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "والناتج $5/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "يعني الخطوات: مقام مشترك، وبعدين نجمع أو نطرح البسطين، فيطلع كسر واحد. النهارده هنسأل السؤال العكسي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U05"
+          ],
+          "text": "لو معاك $5/6$، تقدر ترجّعها $1/2 + 1/3$؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U06"
+          ],
+          "text": "ده اللي هنعمله، بس مع كسور فيها x: نبدأ بكسر واحد ونرجّعه لكسرين أو أكتر بمقامات أبسط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U07"
+          ],
+          "text": "العملية العكسية دي اسمها Partial Fractions، يعني تحليل الكسر الجبري إلى كسور جزئية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U08"
+          ],
+          "text": "القيمة ما بتتغيرش؛ اللي بيتغير هو الشكل، لصورة أسهل في الخطوات اللي جاية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U09"
+          ],
+          "text": "Example 1 (صفحة 1): $(x + 1)/(x² − 3x + 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U10"
+          ],
+          "text": "ابدأ بالمقام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U11"
+          ],
+          "text": "$x² − 3x + 2 = (x − 1)(x − 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U12"
+          ],
+          "text": "والكتاب بيكتب الكسر نفسه كده: $(x + 1)/(x² − 3x + 2) = 3/(x − 2) − 2/(x − 1)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U13"
+          ],
+          "text": "لاحظ إن بين الكسرين علامة طرح، وده طبيعي: الطرح جمع بإشارة سالبة، يعني $3/(x − 2) + (−2)/(x − 1)$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: جسر الكسر الجبري والدرجة والمجال",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "sourceScope": "printed pages 1–2 / PDF pages 3–4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "إزاي نتأكد إن دي نفس القيمة؟ نوحّد المقامات: البسط الجديد $3(x − 1) − 2(x − 2)$ والمقام $(x − 1)(x − 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "نفك الأقواس: $3x − 3 − 2x + 4$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "والناتج $x + 1$، وهو البسط الأصلي بالظبط. يعني رجعنا لنفس الكسر، مش تقريب. بس فيه شرط:",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "$x ≠ 1$ و $x ≠ 2$، لأن القيمتين دول بيصفّروا المقام. قبل ما نسمّي الكسر ده، خلينا نفهم المقادير اللي فوقه وتحته.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U05"
+          ],
+          "text": "بص على $x² − 3x + 2$: مبني من حدود فيها x",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U06"
+          ],
+          "text": "بأسس صحيحة غير سالبة (2 و 1 و 0) ومعاملات ثابتة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U07"
+          ],
+          "text": "المقدار اللي بالشكل ده اسمه Polynomial، أو كثيرة حدود.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U08"
+          ],
+          "text": "أعلى أس معامله مش صفر اسمه Degree، أو درجة كثيرة الحدود. هنا الدرجة 2.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U09"
+          ],
+          "text": "البسط $x + 1$ درجته 1،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U10"
+          ],
+          "text": "وأي ثابت مش صفر، زي 5، درجته 0.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: جسر الكسر الجبري والدرجة والمجال",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "sourceScope": "printed pages 1–2 / PDF pages 3–4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "عندنا لحد دلوقتي كلمتين: كثيرة حدود، ودرجتها. نضيف كلمة تالتة: لو البسط والمقام الاتنين Polynomials، والمقام مش الصفر نفسه،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "نسمي النسبة بينهم Rational Fraction، أو كسر جبري نسبي. خد بالك من كلمة «نسبة»:",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "لو المقام بقى صفر عند قيمة معينة، الكسر مش معرّف عند القيمة دي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "في Example 1 بنستبعد $x = 1$ و $x = 2$. حتى لو الصورتين متساويتين في باقي القيم، ده ما يسمحش إننا نعوّض بالقيمتين دول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U05"
+          ],
+          "text": "الدرجة بتقول لنا: نبدأ التحليل على طول، ولا محتاجين خطوة قبله؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U06"
+          ],
+          "text": "لو درجة البسط أقل من درجة المقام، الكسر اسمه Proper Rational Fraction.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U07"
+          ],
+          "text": "في مثالنا: البسط درجة 1 والمقام درجة 2، يبقى Proper.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U08"
+          ],
+          "text": "لو درجة البسط مساوية أو أكبر، يبقى Improper Rational Fraction. والكلمة هنا مش معناها «غلط»،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U09"
+          ],
+          "text": "معناها إننا نقسم كثيرات الحدود الأول، وبعدين نفك.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: جسر الكسر الجبري والدرجة والمجال",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "sourceScope": "printed pages 1–2 / PDF pages 3–4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "مثال الكتاب: $x²/(x² + 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "ده Improper، لأن درجة البسط 2 ودرجة المقام 2.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "ونقدر نكتبه $1 − 2/(x² + 2)$. جت منين؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "لأن $x² = (x² + 2) − 2$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U05"
+          ],
+          "text": "فالجزء الأول $(x² + 2)/(x² + 2) = 1$،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U06"
+          ],
+          "text": "والباقي $−2/(x² + 2)$: بسطه ثابت درجته 0، أقل من درجة المقام 2. القسمة المطولة للحالات الأكبر هنشرحها في جزء لاحق؛ المطلوب دلوقتي تعرف إمتى تحتاجها. وفي المثال التاني في الكتاب:",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U07"
+          ],
+          "text": "$x³/(x² + 2) = x − 2x/(x² + 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U08"
+          ],
+          "text": "فصلنا $x$ عن $−2x/(x² + 2)$ على نفس المقام، فالقسمة جت قبل التفكيك. احفظ الفكرة مش شكل الناتج: دول خطوتين منفصلتين،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U09"
+          ],
+          "text": "الأولى: نحوّل الكسر الـImproper لجزء Polynomial وباقي Proper. التانية: نفك الباقي بعد ما ندرس شكل المقام.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: جسر الكسر الجبري والدرجة والمجال",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "sourceScope": "printed pages 1–2 / PDF pages 3–4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "دلوقتي نجرب سؤالين صغيرين نتأكد بيهم إن الفكرة وضحت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "الأول عن رجوع الكسور لبعض،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U03"
+          ],
+          "text": "والتاني عن الدرجات اللي بتحدد أول خطوة. حل كل سؤال على ورقة الأول،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U04"
+          ],
+          "text": "وبعد ما تجاوب هنشوف الحل سوا.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "اختبار مستقل Q01 — Partial Fractions Foundations",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-UEN"
+          ],
+          "text": "Verify, by combining fractions, that $2/(x − 1) + 1/(x + 2) = (3x + 3)/[(x − 1)(x + 2)]$. State all excluded real values of x.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-UAR"
+          ],
+          "text": "اجمع الكسرين بنفسك، واكتب البسط اللي هتوصل له، وقيم x اللي لازم نستبعدها. حلها على ورقة قبل ما تكمل.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Verify, by combining fractions, that $2/(x − 1) + 1/(x + 2) = (3x + 3)/[(x − 1)(x + 2)]$. State all excluded real values of x.",
+        "arabic": "اجمع الكسرين بنفسك، واكتب البسط اللي هتوصل له، وقيم x اللي لازم نستبعدها. حلها على ورقة قبل ما تكمل.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Combining over x minus one times x plus two, the numerator is two times x plus two, plus x minus one, which equals three x plus three. The excluded values are x equals one and x equals minus two.",
+          "arabic": "الفكرة إن البسط الأول لازم يتضرب في العامل اللي ناقص من مقامه، يعني إكس زائد اتنين، والتاني في إكس ناقص واحد. النتيجة تلاتة إكس زائد تلاتة. والقيم واحد وسالب اتنين ممنوعة لأن كل واحدة بتصفّر عاملًا في المقام. لو البسط طلع مختلف، جرّب تشوف هل نسيت تضرب بسط أحد الكسرين في العامل المناسب."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$2/(x − 1) + 1/(x + 2) = [2(x + 2) + (x − 1)]/[(x − 1)(x + 2)] = (3x + 3)/[(x − 1)(x + 2)]$, for $x ≠ 1, −2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR"
+              ],
+              "text": "الفكرة:",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U1"
+              ],
+              "text": "كل بسط بيتضرب في العامل الناقص من مقامه: الأول في $(x + 2)$ والتاني في $(x − 1)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "النتيجة $3x + 3$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "و $x = 1$ و $x = −2$ ممنوعين، لأن كل قيمة فيهم بتصفّر عامل في المقام.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "لو البسط طلع مختلف، راجع: هل نسيت تضرب أحد البسطين في العامل المناسب؟",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S06",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "اختبار مستقل Q02 — Partial Fractions Foundations",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Classify $(2x + 3)/(x² + 4)$ and $(x² + 1)/(x + 1)$ as proper or improper rational fractions. Give the numerator and denominator degrees, and state which one needs polynomial division before decomposition.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "في كل كسر: درجة البسط كام والمقام كام؟ Proper ولا Improper؟ وأنهي واحد لازم نقسمه قبل التفكيك؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Classify $(2x + 3)/(x² + 4)$ and $(x² + 1)/(x + 1)$ as proper or improper rational fractions. Give the numerator and denominator degrees, and state which one needs polynomial division before decomposition.",
+        "arabic": "في كل كسر: درجة البسط كام والمقام كام؟ Proper ولا Improper؟ وأنهي واحد لازم نقسمه قبل التفكيك؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "The first fraction is proper, degree one over degree two. The second is improper, degree two over degree one, and it needs polynomial division before direct partial-fraction decomposition.",
+          "arabic": "اتنين إكس زائد تلاتة أعلى قوة فيه واحد، وإكس تربيع زائد أربعة أعلى قوة اتنين، فالأول Proper. وفي التاني البسط درجة اتنين والمقام درجة واحد، فـImproper. إحنا بنحسب أعلى أس، مش عدد الحدود، ومش بنسمي كل كسر طويل Improper. لو الدرجة مش واضحة لأن التعبير متفكك لعوامل، افتكر إن درجات العوامل بتتجمع لما نضربها."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "The first fraction is proper (degree 1 over degree 2). The second is improper (degree 2 over degree 1) and needs polynomial division before direct partial-fraction decomposition.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR"
+              ],
+              "text": "في $2x + 3$ أعلى أس 1، وفي $x² + 4$ أعلى أس 2،",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U1"
+              ],
+              "text": "فالأول Proper. وفي التاني البسط درجته 2 والمقام درجته 1،",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "فهو Improper.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "بنبص على أعلى أس، مش عدد الحدود، ومش كل كسر طويل يبقى Improper. ولو التعبير مكتوب كعوامل مضروبة، درجته = مجموع درجات العوامل.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "ملخص وجسر 8: جسر الكسر الجبري والدرجة والمجال",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "sourceScope": "printed pages 1–2 / PDF pages 3–4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-foundations"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-U01"
+          ],
+          "text": "الخلاصة: Partial Fractions هي عكس توحيد المقامات، وأي مساواة بنكتبها",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U02"
+          ],
+          "text": "لازم معاها قيم x الممنوعة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U03"
+          ],
+          "text": "اتعلمنا Polynomial و Degree و Rational Fraction،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U04"
+          ],
+          "text": "والفرق بين Proper و Improper.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U05"
+          ],
+          "text": "الدرس الجاي هنبدأ من كسر Proper ونبص على أنواع عوامل مقامه، ونقرر شكل الكسور الجزئية قبل ما نحسب أي معاملات. لو فهمت ليه بنبص على الدرجة والمجال، الخطوة الجاية هتبقى منطقية مش حفظ.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Partial Fractions",
+      "meaning": "تحليل الكسر الجبري إلى كسور أبسط"
+    },
+    {
+      "term": "Polynomial",
+      "meaning": "كثيرة حدود بأسس صحيحة غير سالبة"
+    },
+    {
+      "term": "Degree",
+      "meaning": "أعلى أس بمعامل غير صفري"
+    },
+    {
+      "term": "Proper Fraction",
+      "meaning": "كسر درجـة بسطه أقل من درجة المقام"
+    },
+    {
+      "term": "Improper Fraction",
+      "meaning": "كسر درجـة بسطه أكبر من أو تساوي درجة المقام"
+    }
+  ],
+  "goals": [
+    {
+      "id": "F1",
+      "text": "تفهم إن Partial Fractions هي عكس جمع الكسور، ومن غير قيم ممنوعة",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S08"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "F2",
+      "text": "تعرف يعني إيه Polynomial وDegree",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "F3",
+      "text": "تفرّق بين Proper وImproper وتعرف إمتى لازم القسمة الأول",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}

@@ -22,6 +22,20 @@
       "when": 1791559236761,
       "tag": "0002_student_contracts",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791780244652,
+      "tag": "0003_enrollment_per_edition",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791780253441,
+      "tag": "0004_progress_writer_grants",
+      "breakpoints": true
     }
   ]
 }

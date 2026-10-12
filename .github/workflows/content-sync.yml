@@ -1,0 +1,35 @@
+name: Content sync
+# Writes the imported catalog (content/imported/registry.json) to the database after it
+# reaches main. Needs the repository secret CONTENT_DATABASE_URL (admin/direct URL of the
+# target Neon branch). Without the secret the job explains and does nothing.
+on:
+  push:
+    branches: [main]
+    paths: ['content/imported/**', 'apps/platform/content-modules.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: content-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run content:sync -- --print
+      - name: Apply to database
+        env:
+          DATABASE_URL: ${{ secrets.CONTENT_DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "CONTENT_DATABASE_URL is not set; nothing was written."
+            exit 0
+          fi
+          npm run content:sync

@@ -1,0 +1,494 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-bridge-fractions",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "5b8ec09ba2921e171483b41056299e2f1dfb0b9da9064af623de86841335655c",
+  "title": "الكسور: حتت بنفس الحجم",
+  "englishTitle": "Fractions: Equal Pieces",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 1,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: يعني إيه كسر؟",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "عندك بيتزا، قطعتها حتتين متساويين، وخدت حتة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "اللي معاك اسمه نص، وبيتكتب $1/2$: واحد فوق الخط واتنين تحته.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "الرقم اللي تحت: البيتزا اتقسمت كام حتة. الرقم اللي فوق: إنت خدت كام حتة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "بيتزا مقطعة 3 حتت وخدت حتة: $1/3$. ولو خدت حتتين: $2/3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U05"
+          ],
+          "text": "الشكل ده اسمه كسر (Fraction). الرقم اللي فوق اسمه البسط (Numerator): عدد الحتت اللي معاك.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U06"
+          ],
+          "text": "والرقم اللي تحت اسمه المقام (Denominator): بيحدد حجم الحتة. كل ما يكبر الحتة تصغر، فـ $1/3$ أصغر من $1/2$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: نفس القيمة بشكل تاني",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "خد النص، وقطّع كل حتة فيه 3 حتت أصغر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "البيتزا بقت 6 حتت، والنص بقى 3 منهم: $1/2 = 3/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "ما زودتش وما نقصتش؛ قطّعت أصغر بس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "على الورق: نضرب البسط والمقام في نفس الرقم: $(1 × 3)/(2 × 3) = 3/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U05"
+          ],
+          "text": "القيمة واحدة، والشكل بس اللي اتغير.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: نجمع ونطرح الكسور",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "معاك $1/2$ وجالك $1/3$. بقى معاك كام؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "غلطة مشهورة: نجمع فوق مع فوق وتحت مع تحت فيطلع $2/5$. بس $2/5$ أقل من $1/2$! أخدت زيادة وبقى معاك أقل؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "المشكلة: حتة النص وحتة التلت مش نفس الحجم، فما ينفعش نعدّهم مع بعض.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "الحل: نخلي الحتت كلها بنفس الحجم. نقطّع الاتنين 6 حتت: $1/2 = 3/6$ و $1/3 = 2/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U05"
+          ],
+          "text": "دلوقتي نعدّ عادي: $3/6 + 2/6 = 5/6$. المقام فضل 6 لأن حجم الحتة ما اتغيرش.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U06"
+          ],
+          "text": "الرقم 6 اسمه المقام المشترك (Common Denominator)، والخطوة اسمها توحيد المقامات. أسهل طريقة: اضرب المقامين: $2 × 3 = 6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U07"
+          ],
+          "text": "الطرح نفس الفكرة: $1/2 − 1/3 = 3/6 − 2/6 = 1/6$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: المقام صفر؟ وفكرة التفكيك",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "ينفع المقام يبقى صفر؟ المقام = اتقسمت كام حتة، وتقسيمها لصفر حتت مالوش معنى.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "عشان كده القسمة على صفر غير معرّفة، والكسر اللي مقامه صفر مش موجود. هتقابلها كتير لما المقام يبقى فيه حروف.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "آخر فكرة: جمعنا $1/2 + 1/3$ وطلع $5/6$. لو حد إداك $5/6$ وقالك رجّعها لكسرين مقاماتهم 2 و 3، هتقول: $1/2 + 1/3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "العكس ده اسمه Partial Fractions، وهو أول فصل في الكتاب. الفرق إن الكتاب بيعمله مع كسور فيها حروف، ودي اللي هنجهّز لها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "سؤال 1: نجمع كسرين",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-UEN"
+          ],
+          "text": "Find $1/3 + 1/4$ as a single fraction.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-UAR"
+          ],
+          "text": "اجمع $1/3 + 1/4$ واكتب الناتج ككسر واحد. الحتت لازم تبقى بنفس الحجم الأول.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Find $1/3 + 1/4$ as a single fraction.",
+        "arabic": "اجمع $1/3 + 1/4$ واكتب الناتج ككسر واحد. الحتت لازم تبقى بنفس الحجم الأول.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "One third plus one quarter equals four twelfths plus three twelfths, which is seven twelfths.",
+          "arabic": "المقام المشترك اتناشر، لأن تلاتة في أربعة باتناشر. التلت بقى أربعة على اتناشر، لأننا ضربنا فوق وتحت في أربعة، والربع بقى تلاتة على اتناشر. نجمع البسطين: سبعة على اتناشر. لو كتبت اتنين على سبعة، يبقى جمعت اللي فوق مع اللي فوق واللي تحت مع اللي تحت؛ ارجع لفكرة إن الحتت لازم تبقى نفس الحجم قبل ما نعدها."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$1/3 + 1/4 = 4/12 + 3/12 = 7/12$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U1",
+                "F01-UAR"
+              ],
+              "text": "المقام المشترك 12، لأن $3 × 4 = 12$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "$1/3 = 4/12$ و $1/4 = 3/12$، والمجموع $7/12$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "لو طلع $2/7$، يبقى جمعت فوق مع فوق وتحت مع تحت. الحتت لازم تبقى نفس الحجم الأول.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S05",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S06",
+      "title": "سؤال 2: نطرح، والمقام صفر",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-UEN"
+          ],
+          "text": "Find $3/4 − 1/2$. Then explain why the denominator of a fraction can never be zero.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-UAR"
+          ],
+          "text": "احسب $3/4 − 1/2$، وبعدين قول بكلامك ليه المقام ما ينفعش يبقى صفر.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Find $3/4 − 1/2$. Then explain why the denominator of a fraction can never be zero.",
+        "arabic": "احسب $3/4 − 1/2$، وبعدين قول بكلامك ليه المقام ما ينفعش يبقى صفر.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Three quarters minus one half equals three quarters minus two quarters, which is one quarter. A zero denominator would mean dividing into zero equal parts, which has no meaning, so division by zero is undefined.",
+          "arabic": "النص هو هو اتنين على أربعة، فالطرح بيبقى تلاتة ناقص اتنين على أربعة، يعني ربع. هنا ما احتجناش نضرب المقامين، لأن أربعة أصلًا ينفع تبقى مقام مشترك. وبالنسبة للصفر: المقام عدد الحتت المتساوية، وما ينفعش تقسم حاجة صفر حتت، فالكسر ده مالوش معنى."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "$3/4 − 1/2 = 3/4 − 2/4 = 1/4$. A zero denominator would mean dividing into zero equal parts, which has no meaning, so division by zero is undefined.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U1",
+                "F02-UAR"
+              ],
+              "text": "$1/2 = 2/4$، فـ $3/4 − 2/4 = 1/4$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "ما احتجناش نضرب المقامين: 4 تنفع مقام مشترك أصلًا.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "والصفر: المقام عدد الحتت، وما ينفعش تقسم لصفر حتت، فالكسر ده مالوش معنى.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S06",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "خلاصة: الكسور",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-fractions"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-U01"
+          ],
+          "text": "الكسر = بسط على مقام: المقام حجم الحتة، والبسط عدد الحتت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U02"
+          ],
+          "text": "نضرب فوق وتحت في نفس الرقم والقيمة ما تتغيرش.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U03"
+          ],
+          "text": "عشان نجمع أو نطرح: نوحّد المقامات الأول. والمقام عمره ما يبقى صفر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U04"
+          ],
+          "text": "ورجوع الكسر لكسور أبسط = Partial Fractions. الدرس الجاي: حروف مكان الأرقام.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Fraction",
+      "meaning": "كسر: بسط على مقام"
+    },
+    {
+      "term": "Numerator",
+      "meaning": "البسط: عدد الحتت اللي معاك"
+    },
+    {
+      "term": "Denominator",
+      "meaning": "المقام: الحاجة اتقسمت كام حتة متساوية"
+    },
+    {
+      "term": "Common Denominator",
+      "meaning": "مقام مشترك بيخلي الحتت كلها بنفس الحجم"
+    }
+  ],
+  "goals": [
+    {
+      "id": "B1",
+      "text": "تفهم الكسر: بسط ومقام، وتكتب نفس القيمة بشكل تاني",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "تجمع وتطرح كسرين مقاماتهم مختلفة بتوحيد المقامات",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    },
+    {
+      "id": "B3",
+      "text": "تشرح ليه المقام عمره ما يبقى صفر",
+      "sceneIds": [
+        "S04"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}

@@ -33,7 +33,7 @@ Preview is ephemeral and has no login, DB, localStorage or student-progress pers
 The runtime-probe uses generated tones and synthetic anchors. Do not present it as speech or course review.
 Structural runtime validation is not an editorial/audio/publication approval.
 The contentAudit field preserves legacy shape; it is not trusted publication authorization.
-Authoring sources are not executable LessonPackage artifacts. The authoring preview adapter is independent; platform artifact import/release is still pending.
+Authoring sources are not executable LessonPackage artifacts. Curricula arrive as reviewed platform bundles through `npm run content:import` (docs/content-import.md); lessons may be published text-first as reading lessons and gain audio later. Generated files under content/imported/ are never hand-edited.
 Do not execute unreviewed uploaded JSX or arbitrary module URLs in the student application.
 Production import must retain immutable files and bind review to the exact content/runtime edition.
 No resets or schema renames merely to match new code folder names.

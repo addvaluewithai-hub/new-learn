@@ -1,0 +1,2 @@
+ALTER TABLE "learn_app"."lesson_enrollments" DROP CONSTRAINT "user_lesson";--> statement-breakpoint
+ALTER TABLE "learn_app"."lesson_enrollments" ADD CONSTRAINT "user_lesson_edition" UNIQUE("user_id","lesson_id","content_revision");

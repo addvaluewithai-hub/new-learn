@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-bridge-factorising",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "0ebc80964ecfb26c7e4d2c4a91c8508f942429c04809c4bb7c05a8b7fbaffda6",
+  "title": "ضرب قوسين والتحليل لعوامل",
+  "englishTitle": "Expanding and Factorising",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 3,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: مستطيل بيضرب قوسين",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "فكينا قوس واحد. النهارده: قوسين في بعض، وبعدين العكس، وده أهم مهارة في الكسور الجزئية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "مستطيل عرضه $x + 2$ وطوله $x + 3$. مساحته $(x + 2)(x + 3)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "نقسمه 4 حتت: $x²$ و $3x$ و $2x$ و $6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "المجموع: $x² + 5x + 6$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: كل حد في كل حد",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "من غير رسم: كل حد في الأول × كل حد في التاني: 4 حدود، وبعدين نجمع المتشابه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "مع السالب: $(x − 1)(x − 2) = x² − 2x − x + 2$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "يعني $x² − 3x + 2$، وده مقام أول مثال في الكتاب.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: النمط… والعكس",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "في $(x + 2)(x + 3)$: الرقمين 2 و 3، مجموعهم 5 = الرقم قدام $x$، وحاصل ضربهم 6 = الثابت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "وفي $(x − 1)(x − 2)$: $−1$ و $−2$، مجموعهم $−3$ وحاصل ضربهم $+2$. نفس النمط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "نرجع بالعكس: $x² + 5x + 6$، دوّر على رقمين ضربهم 6 وجمعهم 5: هما 2 و 3.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "يبقى $(x + 2)(x + 3)$. العكس ده اسمه التحليل (Factorise)، وكل قوس اسمه عامل (Factor)، والضرب اسمه Expand.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U05"
+          ],
+          "text": "الطريقة دي لما $x²$ يكون من غير رقم قدامه، وده اللي هنحتاجه دلوقتي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: مثال بالسالب من الكتاب",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "من الكتاب: $x² − x − 12$. رقمين ضربهم $−12$ وجمعهم $−1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "الضرب سالب، يبقى واحد موجب وواحد سالب: $−4$ و $+3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "يبقى $x² − x − 12 = (x − 4)(x + 3)$. واتأكد دايمًا بالفرد.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: العامل المشترك",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "أحيانًا فيه حاجة مشتركة: $x³ + x² − 6x$ كل حدوده فيها $x$، فنطلعها: $x(x² + x − 6)$. ده عامل مشترك.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "وبعدين نحلل اللي جوه: 3 و $−2$. يبقى $x(x − 2)(x + 3)$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "شرح 6: مش كل تعبير بيتحلل",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U01"
+          ],
+          "text": "مش كل تعبير بيتحلل: $x² + 1$ محتاج رقمين ضربهم 1 وجمعهم 0.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U02"
+          ],
+          "text": "1 و 1 جمعهم 2، و $−1$ و $−1$ جمعهم $−2$. مفيش رقمين ينفعوا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U03"
+          ],
+          "text": "يبقى ما بيتحللش، وفي الكسور الجزئية ليه معاملة خاصة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "سؤال 1: حلّل",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Factorise $x² + 7x + 10$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "حلّل لقوسين: رقمين ضربهم 10 وجمعهم 7. وبعدين افرد عشان تتأكد.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Factorise $x² + 7x + 10$.",
+        "arabic": "حلّل لقوسين: رقمين ضربهم 10 وجمعهم 7. وبعدين افرد عشان تتأكد.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "x squared plus seven x plus ten equals x plus two, times x plus five.",
+          "arabic": "اتنين وخمسة: ضربهم عشرة وجمعهم سبعة. لو جربت واحد وعشرة، ضربهم عشرة بس جمعهم حداشر، فمش هما. وللتأكد: إكس في إكس بإكس تربيع، وخمسة إكس زائد اتنين إكس بسبعة إكس، واتنين في خمسة بعشرة."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$x² + 7x + 10 = (x + 2)(x + 5)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U1",
+                "F01-UAR"
+              ],
+              "text": "2 و 5: ضربهم 10 وجمعهم 7. أما 1 و 10 فجمعهم 11.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "تأكيد: $x² + 5x + 2x + 10 = x² + 7x + 10$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "سؤال 2: حلّل وتأكد",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-UEN"
+          ],
+          "text": "Factorise $x² − 2x − 15$. Then check your answer by expanding.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-UAR"
+          ],
+          "text": "حلّل لقوسين. الضرب سالب، يبقى رقم موجب ورقم سالب. وبعدين افرد عشان تتأكد.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Factorise $x² − 2x − 15$. Then check your answer by expanding.",
+        "arabic": "حلّل لقوسين. الضرب سالب، يبقى رقم موجب ورقم سالب. وبعدين افرد عشان تتأكد.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "x squared minus two x minus fifteen equals x minus five, times x plus three.",
+          "arabic": "محتاجين رقمين ضربهم سالب خمستاشر وجمعهم سالب اتنين: سالب خمسة وموجب تلاتة. لو كتبت القوس إكس زائد خمسة في القوس إكس ناقص تلاتة، افرده وهتلاقي الحد الوسطاني موجب اتنين إكس مش سالب، يعني الإشارتين متبدلين."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "$x² − 2x − 15 = (x − 5)(x + 3)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U1",
+                "F02-UAR"
+              ],
+              "text": "رقمين ضربهم $−15$ وجمعهم $−2$: $−5$ و $+3$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "لو كتبت $(x + 5)(x − 3)$، افرده: الحد الوسطاني $+2x$ مش $−2x$، يعني الإشارتين متبدلين.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S08",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "خلاصة: الضرب والتحليل",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S09",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-factorising"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-U01"
+          ],
+          "text": "ضرب قوسين: كل حد في كل حد، وبعدين نجمع المتشابه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U02"
+          ],
+          "text": "التحليل: عامل مشترك لو موجود، وبعدين رقمين ضربهم الثابت وجمعهم معامل $x$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U03"
+          ],
+          "text": "نتأكد بالفرد، و $x² + 1$ مثلًا ما بيتحللش. الدرس الجاي: نقرا السؤال بالإنجليزي.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Expand",
+      "meaning": "افرد الأقواس: نضرب كل حد في كل حد"
+    },
+    {
+      "term": "Factorise",
+      "meaning": "حلّل: نكتب التعبير قوسين مضروبين"
+    },
+    {
+      "term": "Factor",
+      "meaning": "عامل: قوس من الأقواس المضروبة"
+    },
+    {
+      "term": "Common factor",
+      "meaning": "عامل مشترك موجود في كل الحدود"
+    }
+  ],
+  "goals": [
+    {
+      "id": "F1",
+      "text": "تضرب قوسين في بعض وتجمع الحدود المتشابهة",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "F2",
+      "text": "تحلّل تعبير زي x² + 5x + 6 لقوسين، وتعرف إن مش كل تعبير بيتحلل",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    }
+  ]
+}

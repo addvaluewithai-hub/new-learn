@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { User } from '../auth/session';
-import type { Curriculum } from './types';
+import type { Catalog, Curriculum, Resume } from './types';
 import { LibraryShell } from './LibraryShell';
 import { CurriculumCards } from './CurriculumCards';
-import { CurriculumDetail } from './CurriculumDetail';
+import { ContinueCard } from './ContinueCard';
+import { StudyPlan } from './StudyPlan';
 import '../../shared/platform.css';
 import './library-shell.css';
 import './library-account.css';
 import './catalog-cards.css';
-import './curriculum-detail.css';
+import './study-plan.css';
 export default function CatalogPage({
   user,
   onSignOut,
@@ -20,6 +21,7 @@ export default function CatalogPage({
   curriculumId: string | null;
 }) {
   const [curricula, setCurricula] = useState<Curriculum[]>([]),
+    [resume, setResume] = useState<Resume | null>(null),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
     [retry, setRetry] = useState(0);
@@ -27,8 +29,11 @@ export default function CatalogPage({
     const controller = new AbortController();
     setLoading(true);
     setError('');
-    api<{ curricula: Curriculum[] }>('/catalog', undefined, controller.signal)
-      .then((result) => setCurricula(result.curricula))
+    api<Catalog>('/catalog', undefined, controller.signal)
+      .then((result) => {
+        setCurricula(result.curricula);
+        setResume(result.resume ?? null);
+      })
       .catch((error) => {
         if (!controller.signal.aborted) setError(error.message);
       })
@@ -46,7 +51,7 @@ export default function CatalogPage({
             ← كل المناهج
           </a>
         )}
-        <span className="eyebrow">{current ? 'رحلتك خطوة بخطوة' : 'مساحة تعلّمك'}</span>
+        <span className="eyebrow">{current ? current.subject : 'مساحة تعلّمك'}</span>
         <h1>{current?.title ?? `أهلًا، ${user.name.split(' ')[0]}.`}</h1>
         <p>{current?.description ?? 'كل منهج له مكانه، ودروسه، ورحلتك الخاصة فيه.'}</p>
       </div>
@@ -62,9 +67,12 @@ export default function CatalogPage({
       ) : curriculumId && !current ? (
         <p role="alert">المنهج غير موجود أو مش متاح حاليًا.</p>
       ) : current ? (
-        <CurriculumDetail curriculum={current} />
+        <StudyPlan curriculum={current} resume={resume} />
       ) : (
-        <CurriculumCards curricula={curricula} />
+        <>
+          <ContinueCard curricula={curricula} resume={resume} />
+          <CurriculumCards curricula={curricula} />
+        </>
       )}
     </LibraryShell>
   );

@@ -18,6 +18,16 @@ npm run dev
 المعاينة لا تعني اعتماد الدرس من جديد. `?preview=probe` يفتح اختبار المحرك بالنغمات.
 أول Play يبدأ بتفاعل المستخدم؛ بعدها الشرح والسؤال والتعقيب والتكملة تعمل بالتتابع.
 
+## إضافة منهج من learn-curriculums
+
+```bash
+npm run content:import -- ../learn-curriculums/dist/platform/<course>   # بعد export:platform هناك
+npm run content:sync -- --print                                         # الـSQL من غير اتصال
+```
+
+الدروس بتتنشر **بالكتابة أولًا** (درس قراءة: البورد والشرح المكتوب والأسئلة)، والصوت مرحلة لاحقة.
+التفاصيل في docs/content-import.md، ومراجعة تجربة الطالب في docs/ux-audit.md.
+
 ## مكان كل شيء
 
 | المسار                  | المسؤولية                                            |

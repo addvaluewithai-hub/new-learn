@@ -1,7 +1,16 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import pinnedModules from '../../../content-modules.json';
+import { readingModules } from '../../../../../content/imported/modules';
 const ChemistryLesson = lazy(() => import('../../app/ChemistryLesson'));
+const ReadingClassroom = lazy(() => import('../../app/ReadingClassroom'));
+type Pin = {
+  lessonId: string;
+  contentRevision: string;
+  manifestHash: string;
+  runtimeVersion: string;
+  delivery?: 'reading';
+};
 type Edition = {
   lessonId: string;
   contentRevision: string;
@@ -43,10 +52,12 @@ export default function LessonEntry({
       });
     return () => controller.abort();
   }, [lessonId, retry]);
-  const module = edition ? modules[edition.moduleId] : undefined;
-  const pinned = edition
-    ? pinnedModules[edition.moduleId as keyof typeof pinnedModules]
-    : undefined;
+  const pinned = edition ? (pinnedModules as Record<string, Pin>)[edition.moduleId] : undefined;
+  const reading =
+    edition && pinned?.delivery === 'reading'
+      ? readingModules[edition.moduleId as keyof typeof readingModules]
+      : undefined;
+  const module = edition && !reading ? modules[edition.moduleId] : undefined;
   const backHref = curriculumId ? `/?curriculum=${encodeURIComponent(curriculumId)}` : '/';
   if (error)
     return (
@@ -59,14 +70,20 @@ export default function LessonEntry({
       </main>
     );
   if (!edition) return <p role="status">بنجهّز الدرس…</p>;
-  if (
-    !module ||
-    !pinned ||
-    pinned.manifestHash !== edition.manifestHash ||
-    module.lessonId !== edition.lessonId ||
-    module.revision !== edition.contentRevision ||
-    edition.runtimeVersion !== '0.2.1'
-  )
+  // The build allowlist must match the released edition exactly.
+  const matches =
+    !!pinned &&
+    pinned.lessonId === edition.lessonId &&
+    pinned.contentRevision === edition.contentRevision &&
+    pinned.manifestHash === edition.manifestHash &&
+    pinned.runtimeVersion === edition.runtimeVersion;
+  if (matches && reading)
+    return (
+      <Suspense fallback={<p role="status">بنجهّز مساحة الدرس…</p>}>
+        <ReadingClassroom load={reading} backHref={backHref} studentName={studentName} />
+      </Suspense>
+    );
+  if (!matches || !module || module.lessonId !== edition.lessonId)
     return (
       <main className="platform-ui lesson-entry-message">
         <p role="alert">نسخة الدرس دي لسه مش متاحة على المنصة الجديدة.</p>

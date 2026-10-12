@@ -4,5 +4,40 @@
     "contentRevision": "curriculum-v3-english-2026-10-06",
     "manifestHash": "c95691965d6c34ce720e2235790210258c37f910ae4225932133fbcfd871b211",
     "runtimeVersion": "0.2.1"
+  },
+  "reading:math1-bridge-fractions": {
+    "lessonId": "math1-bridge-fractions",
+    "contentRevision": "5b8ec09ba2921e171483b41056299e2f1dfb0b9da9064af623de86841335655c",
+    "manifestHash": "bd368639b63f6ffa3be99f148eaa903cd0101649144d241bea18763e3b4fe246",
+    "runtimeVersion": "0.3.0",
+    "delivery": "reading"
+  },
+  "reading:math1-bridge-algebra": {
+    "lessonId": "math1-bridge-algebra",
+    "contentRevision": "c7e6467f5a422d677e5201606b81e79bf79e2a236d50f329840a3687fa03975e",
+    "manifestHash": "44a4697a963ab4dcfcf41049920a4158230d321c309f9da7f5afc091711512bd",
+    "runtimeVersion": "0.3.0",
+    "delivery": "reading"
+  },
+  "reading:math1-bridge-factorising": {
+    "lessonId": "math1-bridge-factorising",
+    "contentRevision": "0ebc80964ecfb26c7e4d2c4a91c8508f942429c04809c4bb7c05a8b7fbaffda6",
+    "manifestHash": "b3db0230876b5e540b33a191ccc8d11010fde4f5ed7017812db6b0cbef770c10",
+    "runtimeVersion": "0.3.0",
+    "delivery": "reading"
+  },
+  "reading:math1-bridge-exam-english": {
+    "lessonId": "math1-bridge-exam-english",
+    "contentRevision": "34910b3916643a0d1a7090ed542547658e4bda3178dc7695667b308dace5c966",
+    "manifestHash": "7b58b7ad6840ca8bd601d1e2dd2bb74a2130e2f0ccc38c7bc70ff2487148a196",
+    "runtimeVersion": "0.3.0",
+    "delivery": "reading"
+  },
+  "reading:math1-pf-foundations": {
+    "lessonId": "math1-pf-foundations",
+    "contentRevision": "b71c1976f35aed53089cc44d0cad926601151a9d3cbdb3d48a7d197ddb7f5f66",
+    "manifestHash": "89b4e70a36742fc71e7ad4f672fd3b8dc3f4943076d978f23e51c49c65872c5e",
+    "runtimeVersion": "0.3.0",
+    "delivery": "reading"
   }
 }

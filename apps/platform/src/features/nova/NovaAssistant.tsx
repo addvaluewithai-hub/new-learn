@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import type { LessonContext, LessonController, LessonPackage } from '@learn/lesson-runtime';
+import { useEffect, useState } from 'react';
+import type { LessonContext, LessonController } from '@learn/lesson-runtime';
 import { NovaIcon } from './NovaIcon';
 import { NovaModal } from './NovaModal';
 import { useChat } from './useChat';
 import { useQuiz } from './useQuiz';
-import type { NovaMode, NovaPurpose } from './types';
+import { positionOf, type NovaMode, type NovaPurpose } from './types';
 import './nova.css';
 import './nova-chat.css';
 import './nova-practice.css';
@@ -14,12 +14,18 @@ export function NovaAssistant({
   context,
   controller,
   onOpen,
+  ask,
+  hideCapsule,
 }: {
-  lesson: LessonPackage;
+  lesson: { guide?: { image: string } };
   studentName?: string;
   context: LessonContext | null;
   controller: LessonController | null;
   onOpen: (open: boolean) => void;
+  /** A question typed in the lesson's own bar: opens the chat and sends it. */
+  ask?: { id: number; text: string; mode?: NovaMode } | null;
+  /** The host shows its own entry point (e.g. the lesson bar). */
+  hideCapsule?: boolean;
 }) {
   const [mode, setMode] = useState<NovaMode>('chat'),
     [purpose, setPurpose] = useState<NovaPurpose>('help'),
@@ -35,6 +41,14 @@ export function NovaAssistant({
     setOpen(true);
     onOpen(true);
   }
+  useEffect(() => {
+    if (!ask) return;
+    const snap = controller?.getContext() ?? context;
+    show(ask.mode ?? 'chat', 'help');
+    if (snap && ask.mode !== 'voice' && ask.text.trim()) void chat.send(ask.text, positionOf(snap));
+    // Only a new request (id) opens the chat.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ask?.id]);
   function close() {
     chat.stop();
     practice.stop();
@@ -68,7 +82,7 @@ export function NovaAssistant({
           </div>
         </section>
       )}
-      {!open && (
+      {!open && !hideCapsule && (
         <aside className="nova-capsule" aria-label="مساعدة نوفا">
           <img
             src={lesson.guide?.image ?? '/lesson-assets/nova.webp'}

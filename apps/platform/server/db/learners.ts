@@ -15,6 +15,8 @@ export type ProgressSnapshot = {
   sceneId: string;
   phase: 'narration' | 'attempt' | 'feedback' | 'complete';
   frame: number;
+  /** Reading lessons: the step inside the scene/feedback (frame stays 0). */
+  step?: number;
   reachedSceneIds: string[];
   attempts: { id: string; sceneId: string; questionId: string; choice?: number; written: string }[];
 };
@@ -28,7 +30,7 @@ export const enrollments = appSchema.table(
     createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [
-    unique('user_lesson').on(t.userId, t.lessonId),
+    unique('user_lesson_edition').on(t.userId, t.lessonId, t.contentRevision),
     foreignKey({
       columns: [t.lessonId, t.contentRevision],
       foreignColumns: [editions.lessonId, editions.contentRevision],

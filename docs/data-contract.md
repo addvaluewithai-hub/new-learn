@@ -29,7 +29,7 @@ The build registry is an allowlist; the student app never evaluates uploaded cod
 
 Code/custom scenes and media remain content artifacts, separate from these DB metadata tables.
 `apps/platform/content-modules.json` pins the bundled review module. The renderer lives in `content/`.
-Production factory import, immutable artifact retention, review receipts and release administration are pending.
+Reading-lesson import and release are implemented (docs/content-import.md): bundles are hash-verified, compiled into the app and pinned in content-modules.json, and `content:sync` writes editions/releases. Recorded-audio import, artifact storage outside the build and release administration UI are pending.
 Those steps must bind the exact source/audio/renderers/runtime; a DB stage flag alone is not review evidence.
 The reviewed legacy package remains a technical review fixture, not newly approved course content.
 
@@ -44,7 +44,19 @@ Completion is separate from the cursor and must survive rewinding/replay.
 An update must increment revision by one; the future writer must compare expected revision in its WHERE.
 Future handlers derive user_id from currentUser, never from caller JSON, validate against the pinned lesson,
 merge durable reached ends/attempt history, and return 409 for conflicts. Trigger checks alone are not that API.
-No enrollment/progress/notes write endpoint exists in this batch. UI does not claim progress is saved.
+Progress API (reading lessons and the recorded review lesson): `GET /api/lessons/:id/progress`
+returns the learner's state for the current released edition plus `completed` from any edition;
+`PUT` takes `{contentRevision, revision (expected, null for the first save), complete, state}`,
+validates the snapshot against the lesson package (scene ids, phase, step bounds, question ids,
+answer size), merges reached scenes and attempts (never dropped), and writes with
+`WHERE revision = expected`; a mismatch returns 409 with the current state. The user id comes
+from the session only. Reading snapshots add an optional `step` (schemaVersion stays 1).
+Migration 0003 lets a learner hold one enrollment per edition (unique user+lesson+revision), so a
+newer release starts a fresh enrollment without rewriting old progress; completion is kept.
+Migration 0004 grants the runtime role INSERT on enrollments and INSERT/UPDATE on progress
+(conditional on the role existing). `GET /api/catalog` adds per-lesson `progress` (status, goals
+met/total) and `resume`; if the progress tables are unreadable the catalog still loads without it.
+Notes are still session-only.
 
 ## Security and migrations
 

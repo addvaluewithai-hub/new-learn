@@ -154,10 +154,14 @@ try {
   await page.getByRole('heading', { name: 'مناهجي', exact: true }).waitFor();
   await page.getByRole('link', { name: 'افتح المنهج', exact: true }).click();
   await page.getByRole('heading', { name: curriculum.title, exact: true }).waitFor();
-  assert.equal(await page.getByRole('button', { name: 'قريبًا', exact: true }).isDisabled(), true);
+  assert.equal(
+    await page.locator('.plan-lessons li[data-soon] a').count(),
+    0,
+    'coming soon has no link',
+  );
   await safe(page);
   await page.screenshot({ path: 'test-results/curriculum-320.png', fullPage: true });
-  await page.getByRole('link', { name: 'افتح الدرس', exact: true }).click();
+  await page.locator('.plan-lessons a', { hasText: 'ابدأ' }).first().click();
   await page.locator('.lesson-preview').waitFor();
   assert.equal(await page.locator('.lesson-preview').getAttribute('data-mode'), 'narration');
   await safe(page);

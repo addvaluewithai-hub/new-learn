@@ -40,7 +40,8 @@ async function scan(folder) {
     if (
       !sourceExtensions.test(name) ||
       generated.has(name) ||
-      /^database\/migrations\/meta\/\d+_snapshot\.json$/.test(name)
+      /^database\/migrations\/meta\/\d+_snapshot\.json$/.test(name) ||
+      /^content\/imported\/[a-z0-9-]+\/[a-z0-9-]+\/(reading|lesson)\.json$/.test(name)
     )
       continue;
     const content = await readFile(path, 'utf8');

@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-bridge-exam-english",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "34910b3916643a0d1a7090ed542547658e4bda3178dc7695667b308dace5c966",
+  "title": "إزاي تقرا سؤال رياضة بالإنجليزي",
+  "englishTitle": "Reading Maths Questions in English",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 4,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: عشرين كلمة بس",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "الامتحان بالإنجليزي، بس مش محتاج إنجليزي قوي: سؤال الرياضة بيتبني من حوالي 20 كلمة بتتكرر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "العمليات: $+$ plus، $−$ minus، $×$ times، $=$ equals.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "وفي الكسور: over يعني «على»: $5/6$ = five over six.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "$(x + 1)/(x − 2)$ = x plus one over x minus two. اللي قبل over فوق الخط، واللي بعدها تحته.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: الأسس وأجزاء الكسر",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "$x²$ = x squared، $x³$ = x cubed، $x⁴$ = x to the power four.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "$2x²$ = two x squared.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "البسط numerator والمقام denominator.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "factor = عامل، factorise = حلّل، expand = افرد الأقواس، degree = الدرجة (أعلى أس).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: أفعال الطلب والشروط",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "أفعال الطلب بتقولك تعمل إيه: Find = أوجد، Solve = حل، Simplify = بسّط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "Verify = اتأكد إنه صح، Express أو Resolve = اكتبه في صورة تانية، State = اذكر الإجابة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "الشروط: not equal to = لا يساوي ($≠$). for $x ≠ 1$ = بشرط $x$ ما تساويش 1.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "excluded values = القيم الممنوعة اللي بتخلي المقام صفر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: نقرا سؤال كامل",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "سؤال كامل: Resolve $(x + 1)/(x² − 3x + 2)$ into partial fractions.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "Resolve: اكتبه في صورة تانية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "الكسر: فوق $x + 1$، وتحت $x² − 3x + 2$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "into partial fractions: الصورة المطلوبة كسور جزئية. يعني: فكّك الكسر لكسور أبسط.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: مثال من الكتاب ونصيحة",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "من الكتاب: Find the partial fraction representations of $(5x + 1)/(x² − x − 12)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "Find = طلّع، representations = الصورة. نفس الطلب: فكّك الكسر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U03"
+          ],
+          "text": "النصيحة: الفعل الأول، بعدين الرموز، بعدين الشروط. وكلمة مش عارفها؟ الفعل والرموز غالبًا كفاية.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "سؤال 1: من الكلام للرموز",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-UEN"
+          ],
+          "text": "Write in symbols: “x squared minus four over x plus two”.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-UAR"
+          ],
+          "text": "اكتب الجملة رموز. اللي قبل over فوق الخط، واللي بعدها تحته.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Write in symbols: “x squared minus four over x plus two”.",
+        "arabic": "اكتب الجملة رموز. اللي قبل over فوق الخط، واللي بعدها تحته.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "x squared minus four, over x plus two.",
+          "arabic": "كل اللي قبل over، يعني إكس تربيع ناقص أربعة، بيبقى البسط، وكل اللي بعدها، إكس زائد اتنين، بيبقى المقام. لو كتبت إكس تربيع ناقص أربعة على إكس، وبعدين زائد اتنين لوحدها برة الكسر، يبقى قسمت الجملة في المكان الغلط؛ الكلام اللي بعد over كله تحت الخط."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$(x² − 4)/(x + 2)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U1",
+                "F01-UAR"
+              ],
+              "text": "قبل over: $x² − 4$ = البسط. بعدها: $x + 2$ = المقام.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "لو كتبت $(x² − 4)/x + 2$، يبقى قسمت غلط: كل اللي بعد over تحت الخط.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S06",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "سؤال 2: السؤال طالب إيه؟",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Expand $2(x − 3)$ and state the coefficient of $x$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "قبل ما تحل: السؤال طالب إيه بالظبط؟ وبعدين حلّه.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Expand $2(x − 3)$ and state the coefficient of $x$.",
+        "arabic": "قبل ما تحل: السؤال طالب إيه بالظبط؟ وبعدين حلّه.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Two times x minus three equals two x minus six; the coefficient of x is two.",
+          "arabic": "فيه طلبين: Expand يعني افرد القوس، وstate the coefficient of x يعني اكتب الرقم اللي قدام إكس. الاتنين في إكس باتنين إكس، والاتنين في سالب تلاتة بسالب ستة، والمعامل اتنين. لو كتبت ستة، دي الثابت مش المعامل."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "$2(x − 3) = 2x − 6$; the coefficient of $x$ is 2.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U1",
+                "F02-UAR"
+              ],
+              "text": "طلبين: Expand = افرد القوس، و state the coefficient of x = اكتب الرقم قدام $x$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "$2x − 6$، والمعامل 2. لو كتبت 6 أو $−6$، ده الثابت مش المعامل.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "خلاصة: نقرا السؤال",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-exam-english"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-U01"
+          ],
+          "text": "السؤال بيتبني من كلمات قليلة: العمليات، والأسس، وأجزاء الكسر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U02"
+          ],
+          "text": "وأفعال الطلب: find, solve, simplify, verify, express, state.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U03"
+          ],
+          "text": "والشروط: not equal to و excluded values. الفعل، بعدين الرموز، بعدين الشروط. وكده جاهز للكسور الجزئية.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "plus / minus / times / equals",
+      "meaning": "زائد / ناقص / في / يساوي"
+    },
+    {
+      "term": "over",
+      "meaning": "على (خط الكسر): اللي قبلها فوق واللي بعدها تحت"
+    },
+    {
+      "term": "find / solve / simplify / verify / express / resolve / state",
+      "meaning": "أوجد / حل / بسّط / اتأكد / اكتبه بصورة تانية / اكتبه بصورة تانية / اذكر"
+    },
+    {
+      "term": "not equal to / excluded values",
+      "meaning": "لا يساوي / القيم الممنوعة"
+    }
+  ],
+  "goals": [
+    {
+      "id": "E1",
+      "text": "تحوّل جملة إنجليزي زي «x squared minus four over x plus two» لرموز",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "E2",
+      "text": "تعرف السؤال طالب منك إيه: فعل الطلب، الرموز، الشروط",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}

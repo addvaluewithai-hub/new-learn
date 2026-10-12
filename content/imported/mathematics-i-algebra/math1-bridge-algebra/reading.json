@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-bridge-algebra",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "c7e6467f5a422d677e5201606b81e79bf79e2a236d50f329840a3687fa03975e",
+  "title": "الحروف بدل الأرقام",
+  "englishTitle": "Letters for Numbers",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 2,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: x رقم مستخبي",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "لعبة: فكرت في رقم، ضربته في 3، وزودت 1، طلع 7. الرقم كام؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "جرّب 2: $2 × 3 + 1 = 7$. صح، الرقم 2.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "بدل «الرقم اللي فكرت فيه» بنكتب حرف، وأشهرهم $x$: $3x + 1 = 7$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "الحرف مكان رقم مستخبي أو بيتغير، واسمه Variable (متغير).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U05"
+          ],
+          "text": "لاحظ: $3x$ من غير علامة ضرب، ومعناها $3 × x$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U06"
+          ],
+          "text": "الرقم قدام الحرف اسمه المعامل (Coefficient)، والرقم اللي لوحده اسمه الثابت (Constant). و $x$ لوحدها معاملها 1.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: الأسس والتعويض",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "$x × x$ بنكتبها $x²$ ونقراها x تربيع (x squared).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "الرقم الصغير اسمه الأس: الحرف مضروب في نفسه كام مرة. $x³ = x × x × x$ (x cubed).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "خد بالك: $x²$ غير $2x$. لو $x = 3$: $x² = 9$ لكن $2x = 6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "التعويض: رقم مكان الحرف. لو $x = 4$: $x² − 3x + 2 = 16 − 12 + 2 = 6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U05"
+          ],
+          "text": "الترتيب: الأس، بعدين الضرب، بعدين الجمع والطرح.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: الحدود المتشابهة",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "كل جزء بين $+$ و $−$ اسمه حد (Term). في $x² − 3x + 2$ تلات حدود.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "الحدود اللي فيها نفس الحرف بنفس الأس اسمها متشابهة، وبتتجمع: $3x + 2x = 5x$، زي 3 تفاحات + 2 تفاح.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "لكن $3x + 2$ مش $5x$: الـ 2 مش $x$، وتفاح وبرتقان ما بيتجمعوش.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "جرّب: $5x − x$ = ؟ … $4x$، لأن $x$ يعني $1x$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: فك الأقواس",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "3 أكياس، في كل كيس $x$ جنيه ناقص جنيه. معاك: $3(x − 1)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "كل كيس فيه $x$ و $−1$، فالتلاتة: $3x − 3$. الرقم اللي برة بيتضرب في كل حد جوه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "خد بالك لو اللي برة سالب: $−2(x − 2)$. أولًا $−2 × x = −2x$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "و $(−2) × (−2) = +4$: السالب في السالب موجب، زي ما شيل دين عليك مكسب. النتيجة $−2x + 4$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: حساب هتقابله تاني",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "حساب هيقابلك في الكسور الجزئية: $3(x − 1) − 2(x − 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "نفك: $3x − 3 − 2x + 4$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U03"
+          ],
+          "text": "نجمع المتشابه: $3x − 2x = x$ و $−3 + 4 = 1$. الناتج $x + 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U04"
+          ],
+          "text": "لما تشوفه في درس الكسور الجزئية، هتعرفه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "سؤال 1: نعوّض",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-UEN"
+          ],
+          "text": "Evaluate $2x² − x$ when $x = 3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-UAR"
+          ],
+          "text": "عوّض بـ $x = 3$ في $2x² − x$ واحسب. الأس الأول.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Evaluate $2x² − x$ when $x = 3$.",
+        "arabic": "عوّض بـ $x = 3$ في $2x² − x$ واحسب. الأس الأول.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Two times three squared minus three equals two times nine minus three, which is eighteen minus three, so fifteen.",
+          "arabic": "إكس تربيع بتسعة، في اتنين بتمنتاشر، ناقص تلاتة يبقى خمستاشر. لو طلعلك تلاتة وتلاتين، يبقى ضربت اتنين في تلاتة الأول وبعدين ربعت؛ الأس بيتحسب على إكس بس، قبل الضرب."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$2(3)² − 3 = 2(9) − 3 = 18 − 3 = 15$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U1",
+                "F01-UAR"
+              ],
+              "text": "$3² = 9$، في 2 = 18، ناقص 3 = 15.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "لو طلع 33، يبقى ضربت $2 × 3$ الأول وربعت. الأس على $x$ بس، وقبل الضرب.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S06",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "سؤال 2: نفك ونبسّط",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Expand and simplify $4(x + 2) − 3(x − 1)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "فك $4(x + 2) − 3(x − 1)$ واجمع المتشابه. خد بالك من الإشارة قبل الـ 3.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Expand and simplify $4(x + 2) − 3(x − 1)$.",
+        "arabic": "فك $4(x + 2) − 3(x − 1)$ واجمع المتشابه. خد بالك من الإشارة قبل الـ 3.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Four x plus eight minus three x plus three, which equals x plus eleven.",
+          "arabic": "القوس الأول بيدي أربعة إكس زائد تمنية. التاني: ناقص تلاتة في إكس بناقص تلاتة إكس، وناقص تلاتة في ناقص واحد بموجب تلاتة. نجمع: أربعة إكس ناقص تلاتة إكس بإكس، وتمنية زائد تلاتة بحداشر. لو طلعلك إكس زائد خمسة، يبقى نسيت إن السالب في السالب بيدي موجب."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "$4x + 8 − 3x + 3 = x + 11$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U1",
+                "F02-UAR"
+              ],
+              "text": "$4(x + 2) = 4x + 8$، و $−3(x − 1) = −3x + 3$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "نجمع: $4x − 3x = x$ و $8 + 3 = 11$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "لو طلع $x + 5$، يبقى نسيت إن السالب في السالب موجب.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "خلاصة: الحروف والأقواس",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-bridge-algebra"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-U01"
+          ],
+          "text": "$x$ رقم بيتغير، و $3x$ يعني $3 × x$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U02"
+          ],
+          "text": "الأس: الحرف مضروب في نفسه كام مرة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U03"
+          ],
+          "text": "الحدود المتشابهة بس هي اللي بتتجمع.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U04"
+          ],
+          "text": "اللي برة القوس بيتضرب في كل حد جوه، والسالب في السالب موجب. الدرس الجاي: قوسين في بعض.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Variable",
+      "meaning": "متغير: حرف مكان رقم مستخبي أو بيتغير"
+    },
+    {
+      "term": "Coefficient",
+      "meaning": "المعامل: الرقم اللي قدام الحرف"
+    },
+    {
+      "term": "Constant",
+      "meaning": "الثابت: رقم لوحده من غير حرف"
+    },
+    {
+      "term": "Term",
+      "meaning": "حد: جزء مفصول بزائد أو ناقص"
+    },
+    {
+      "term": "x squared / x cubed",
+      "meaning": "x تربيع / x تكعيب"
+    }
+  ],
+  "goals": [
+    {
+      "id": "A1",
+      "text": "تقرا x و3x وx² وتعوّض برقم مكان الحرف بالترتيب الصح",
+      "sceneIds": [
+        "S01",
+        "S02"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "تجمع الحدود المتشابهة وتفك الأقواس حتى مع السالب",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}

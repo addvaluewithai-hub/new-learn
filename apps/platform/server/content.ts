@@ -1,10 +1,13 @@
 import { and, eq, asc } from 'drizzle-orm';
 import { curricula, lessons, releases, editions } from './db/content';
 import { database } from './db/connection';
-import type { Env } from './env';
+import type { AuthUser, Env } from './env';
+import { learnerSummaries, resumeTarget } from './progress/summary';
+import type { ProgressSummary } from './progress/snapshot';
 import { HttpError } from './http';
 import { supportedEdition } from './moduleAvailability';
-export async function catalog(env: Env) {
+export async function catalog(env: Env, user?: AuthUser) {
+  const summaries = user ? await learnerSummaries(env, user) : new Map<string, ProgressSummary>();
   const rows = await database(env)
     .select({
       curriculum: curricula,
@@ -37,6 +40,7 @@ export async function catalog(env: Env) {
         subtitle: string;
         position: number;
         availability: 'review' | 'published' | 'coming-soon';
+        progress?: ProgressSummary;
       }[];
     }
   >();
@@ -55,9 +59,11 @@ export async function catalog(env: Env) {
           (row.release.stage === 'published' || env.ALLOW_CONTENT_REVIEW === 'true')
             ? row.release.stage
             : 'coming-soon',
+        progress: summaries.get(row.lesson.id),
       });
   }
-  return { curricula: [...groups.values()] };
+  const list = [...groups.values()];
+  return { curricula: list, resume: resumeTarget(list) };
 }
 export async function lessonEdition(env: Env, id: string) {
   const [row] = await database(env)

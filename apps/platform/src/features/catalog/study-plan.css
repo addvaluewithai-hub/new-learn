@@ -1,0 +1,215 @@
+.goal-marks {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.goal-marks i {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  border: 1.5px solid #b8c6bd;
+  border-radius: 2px;
+}
+.goal-marks i[data-met] {
+  background: #7ac143;
+  border-color: #5d9c31;
+}
+.goal-marks span {
+  margin-inline-start: 4px;
+}
+.continue-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px 26px;
+  margin-bottom: 34px;
+  box-shadow: 0 10px 30px #163b350d;
+}
+.continue-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.continue-lesson {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 10px;
+}
+.continue-lesson h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+.continue-goals,
+.plan-goals {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px 22px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.continue-goals li::before,
+.plan-goals li::before {
+  content: '◇';
+  color: #8fb08f;
+  margin-inline-end: 8px;
+}
+.plan-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 16px;
+  align-items: end;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 22px;
+}
+.plan-summary strong {
+  font-size: 26px;
+}
+.plan-summary strong span {
+  color: #9aa79f;
+  font-weight: 500;
+}
+.plan-summary > div > span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+.plan-percent {
+  color: #4d8a2a;
+  font-weight: 700;
+}
+.plan-bar {
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: 99px;
+  background: #edf0ea;
+  overflow: hidden;
+}
+.plan-bar i {
+  display: block;
+  height: 100%;
+  background: #9fd356;
+  border-radius: inherit;
+}
+.plan-part {
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.plan-part > header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.plan-part h2 {
+  margin: 0;
+  font-size: 19px;
+}
+.plan-part header p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.plan-part-node,
+.plan-node {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  font-weight: 700;
+  font-size: 14px;
+}
+.plan-lessons {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0;
+  display: grid;
+  gap: 10px;
+}
+.plan-lessons > li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+.plan-lessons > li[data-current] {
+  border: 1.5px solid var(--green);
+  box-shadow: 0 8px 24px #163b3514;
+}
+.plan-lessons > li[data-done] .plan-node {
+  background: #e4f2d6;
+  border-color: #9fcf72;
+  color: #3f7a1f;
+}
+.plan-lessons > li[data-current] .plan-node {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.plan-lessons > li[data-soon] {
+  background: transparent;
+  color: #8a988f;
+}
+.plan-lesson-copy h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.plan-lesson-copy p {
+  margin: 2px 0 6px;
+  text-align: right;
+  color: var(--muted);
+  font-size: 13px;
+}
+.plan-soon {
+  font-size: 12px;
+}
+.plan-goals {
+  grid-column: 2 / -1;
+}
+@media (max-width: 650px) {
+  .continue-card {
+    padding: 18px;
+  }
+  .continue-lesson {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .plan-part {
+    padding: 12px;
+  }
+  .plan-lessons > li {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+  .plan-lessons > li > .button {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

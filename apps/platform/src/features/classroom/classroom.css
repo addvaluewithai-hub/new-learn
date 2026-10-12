@@ -87,6 +87,8 @@
   font-size: 12px;
   direction: rtl;
   white-space: nowrap;
+  color: inherit;
+  text-decoration: none;
 }
 .classroom-workspace {
   display: grid;
