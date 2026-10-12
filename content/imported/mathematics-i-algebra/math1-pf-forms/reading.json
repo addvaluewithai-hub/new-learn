@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-pf-forms",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "da5d4d8cde96f7591ba73c75d498ebb5c188dfebc2b772b099ddf1fd027551a0",
+  "title": "اختيار صورة الكسور الجزئية",
+  "englishTitle": "Choosing Partial Fraction Forms",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 6,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "في الدرس اللي فات شفنا إن الكسر الواحد ممكن نكتبه مجموع كسور أبسط من غير ما قيمته تتغير. بس قبل ما نكتب أي حاجة، لازم نجاوب على سؤال منطقي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "السؤال هو: هنكتب كام كسر؟ وكل كسر منهم مقامه إيه؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "لو كتبت كسور بالتخمين من غير ما تحلل المقام، زي $A/? + B/?$، ممكن يطلع الشكل غلط ويضيع الحل كله. والحرفين $A$ و$B$ هنا أرقام ثابتة لسه مش معروفة، اسمها الثوابت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "عشان كده الدرس ده عن مهارة واحدة: اختيار الشكل العام للكسور الجزئية، أو general partial-fraction form.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U05"
+          ],
+          "text": "ومش هنحسب قيم $A$ و$B$ في الدرس ده؛ هنركّز إننا نكتب الشكل الصح بس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U06"
+          ],
+          "text": "الخطوة الأولى: بص على الدرجات. لو درجة البسط أكبر من أو تساوي درجة المقام، يعني الكسر Improper، نقسم الأول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U07"
+          ],
+          "text": "ولو الكسر Proper، نحلل المقام لعوامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U08"
+          ],
+          "text": "والنقطة المهمة هنا: نوع كل عامل في المقام هو اللي بيحدد شكل البسط اللي فوقه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U09"
+          ],
+          "text": "وإحنا شغالين على الأعداد الحقيقية، فلازم نفرّق بين نوعين من العامل التربيعي اللي درجته 2: نوع بيتحلل لعاملين خطيين درجة كل واحد 1، اسمه reducible، زي $x² − 1 = (x − 1)(x + 1)$؛ ونوع ما بيتحللش لعوامل خطية حقيقية، اسمه irreducible، زي $x² + 1$. وهنشوف كل نوع بالتفصيل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "نبدأ بأبسط حالة: المقام $(x − 1)(x + 4)$. فيه عاملين خطيين مختلفين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "خطي (linear) يعني أعلى درجة فيه 1.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "نكتب $A/(x − 1) + B/(x + 4)$: كسر مستقل لكل عامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "طب ليه $A$ و $B$ ثوابت بس؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U05"
+          ],
+          "text": "لأن كل كسر جزئي لازم يبقى Proper: البسط اللي فوق عامل خطي درجته لازم تكون أقل من 1، يعني ثابت. إحنا هنا بنختار الشكل بس؛ الثابت لسه مالوش قيمة معينة قبل الحساب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U06"
+          ],
+          "text": "Example 2 (صفحة 3): $(x − 19)/[(x + 2)(x − 5)]$. المقام عاملين خطيين مختلفين، فالشكل $A/(x + 2) + B/(x − 5)$. الفكرة إنك تعرف نوع العاملين، فتكتب حد مستقل لكل واحد.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U07"
+          ],
+          "text": "وفي الدرس الجاي هنوحّد المقامات عشان نطلع قيم الثوابت.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "لكن لو فيه عامل متكرر، الشكل بيختلف. خد $(x − 2)²$ في المقام: يعني العامل $(x − 2)$ مضروب في نفسه مرتين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "حد واحد زي $A/(x − 2)²$ مش كفاية، لأن $A$ ثابت، والبسط الأصلي ممكن يكون فيه x.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "لازم نكتب $A/(x − 2) + B/(x − 2)²$. لو وحّدنا المقامات، البسط يبقى $A(x − 2) + B$: فيه x وفيه ثابت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "ولو نفس العامل مرفوع لقوة 3، يبقى تلات حدود: للقوة الأولى والتانية والتالتة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U05"
+          ],
+          "text": "يعني بنكتب كل القوى المتتالية من 1 لحد أعلى قوة، مش بنكرر نفس الكسر. وجرّب بنفسك: لو المقام فيه $(x − 5)⁴$،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U11"
+          ],
+          "text": "محتاج كام حد للمقام اللي فيه $(x − 5)⁴$؟ فكّر قبل ما تكمل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U12"
+          ],
+          "text": "أربعة، من القوة الأولى لحد الرابعة: $A/(x − 5) + B/(x − 5)² + C/(x − 5)³ + D/(x − 5)⁴$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U06"
+          ],
+          "text": "ولو المقام فيه عامل مختلف وعامل متكرر، بنجمع القاعدتين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U07"
+          ],
+          "text": "ده Example 3 (صفحة 3 في الكتاب المطبوع): المقام $(x + 3)(x − 2)²$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U08"
+          ],
+          "text": "فالشكل اللي بيطلع من المقام ده نفسه هو: $A/(x + 3) + B/(x − 2) + C/(x − 2)²$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U09"
+          ],
+          "text": "وخد بالك: في الكتاب، القالب المكتوب تحت المثال ده مش ماشي مع عوامل المقام. إحنا مش بننقل القالب المطبوع زي ما هو؛ بنختار الشكل الصح من المقام نفسه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U10"
+          ],
+          "text": "ودي قاعدة عملية مهمة: أي قالب لازم تقدر تبرره من تحليل المقام، مش من حفظ سطر في الورق.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "طب لو المقام فيه $x² + 1$؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "العامل ده quadratic، يعني تربيعي: درجته 2. طيب، هل ممكن يتحلل لعاملين خطيين بمعاملات حقيقية؟ الإجابة لأ.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "والسبب إن $x² + 1$ ما بيساويش صفر عند أي $x$ حقيقي: $x²$ عمره ما بيبقى سالب، فـ$x² + 1 ≥ 1$ دايمًا، والمنحنى ما بيقطعش محور $x$. ولو كان بيتحلل لعاملين خطيين، كان لازم يصفر عند القيمة اللي بتصفّر أي عامل منهم.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "اسمه irreducible quadratic factor over the reals: عامل تربيعي غير قابل للتحليل على الأعداد الحقيقية ($ℝ$).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U05"
+          ],
+          "text": "فوقه بنكتب بسط درجته أقل من 2، عشان الكسر يفضل Proper. يعني البسط ممكن يكون فيه x، مش لازم ثابت بس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U06"
+          ],
+          "text": "فالشكل: $(Ax + B)/(x² + 1)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U07"
+          ],
+          "text": "قارن ده بسرعة بالعامل $x² − 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U08"
+          ],
+          "text": "ده بيتحلل: $x² − 1 = (x − 1)(x + 1)$، ومنحناه بيقطع محور $x$ عند $x = 1$ و$x = −1$. فمش بنعامله كعامل تربيعي غير قابل للتحليل، لأنه اتفصل لعاملين خطيين مختلفين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U09"
+          ],
+          "text": "وده معنى «على الأعداد الحقيقية»: نوع العامل بيتحدد على حسب الأعداد اللي بنشتغل بيها، وهنا هي الأعداد الحقيقية.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "طيب، لو العامل التربيعي غير القابل للتحليل متكرر؟ نفس القاعدة: كل قوة ليها حد. مثلًا لو المقام فيه $(x² + 1)²$:",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "نكتب $(Ax + B)/(x² + 1) + (Cx + D)/(x² + 1)²$. يعني البسط الخطي بيتكرر مع كل قوة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U03"
+          ],
+          "text": "لكن المعاملات مستقلة: $A$ و$B$ غير $C$ و$D$. ومش مطلوب نحسبها هنا؛ بنكتب الشكل بس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U04"
+          ],
+          "text": "ودلوقتي نجمع كل الأنواع في خريطة بسيطة واحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U05"
+          ],
+          "text": "عامل خطي مختلف، نكتبه $x − a$ (و $a$ أي عدد ثابت): فوقه ثابت، $A/(x − a)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U06"
+          ],
+          "text": "عامل خطي مكرر، زي $(x − a)²$: حد لكل قوة، والبسط ثابت في كل مرة: $A/(x − a) + B/(x − a)²$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U07"
+          ],
+          "text": "عامل تربيعي غير قابل للتحليل، نكتبه $q(x)$: فوقه بسط خطي، $(Ax + B)/q$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U08"
+          ],
+          "text": "تربيعي مكرر، زي $q(x)²$: حد لكل قوة، وكل حد ليه بسط خطي مستقل: $(Ax + B)/q + (Cx + D)/q²$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U09"
+          ],
+          "text": "ولو المقام مختلط، بتجمع الأشكال دي مع بعض من غير ما تغيّر أي عامل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "شرح 6: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U01"
+          ],
+          "text": "نطبّق مع بعض على مثال من إعدادنا: $(2x + 3)/[(x − 1)(x + 4)²]$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U02"
+          ],
+          "text": "الكسر Proper: البسط درجته 1، والمقام درجته $1 + 2 = 3$ (1 من $(x − 1)$ و 2 من $(x + 4)²$).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U03"
+          ],
+          "text": "في المقام، $(x − 1)$ موجود مرة واحدة، فليه حد واحد،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U04"
+          ],
+          "text": "و $(x + 4)$ موجود مرتين، فليه حدين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U05"
+          ],
+          "text": "فالقالب: $A/(x − 1) + B/(x + 4) + C/(x + 4)²$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U06"
+          ],
+          "text": "لاحظ إننا ما حسبناش $A$ ولا $B$ ولا $C$، ومع ذلك خلصنا خطوة مهمة جدًا من الحل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "اختبار مستقل Q01 — Choosing Partial Fraction Forms",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Write the general partial-fraction form, without evaluating constants, for $(3x + 2)/[(x − 3)(x + 2)²]$. Explain why the form has that number of terms.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "من غير ما تحسب المعاملات: خد عوامل المقام زي ما هي، واكتب الكسور اللي لازم تظهر في الشكل، وقول ليه عددها كده.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Write the general partial-fraction form, without evaluating constants, for $(3x + 2)/[(x − 3)(x + 2)²]$. Explain why the form has that number of terms.",
+        "arabic": "من غير ما تحسب المعاملات: خد عوامل المقام زي ما هي، واكتب الكسور اللي لازم تظهر في الشكل، وقول ليه عددها كده.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "A over x minus three, plus B over x plus two, plus C over x plus two all squared. The repeated factor x plus two squared needs both the first and second powers, and the distinct factor x minus three needs one term.",
+          "arabic": "عندنا عامل إكس ناقص تلاتة مرة واحدة، وعامل إكس زائد اتنين متكرر للقوة التانية. علشان كده في ثلاثة حدود، مش اتنين. لو كتبت بس الحد اللي المقام فيه مربع، إنت نسيت القوة الأولى. ولو حسبت أرقام A وB وC، إنت عملت خطوة زيادة مش مطلوبة في السؤال."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$(3x + 2)/[(x − 3)(x + 2)²] = A/(x − 3) + B/(x + 2) + C/(x + 2)²$. The repeated factor $(x + 2)²$ needs both the first and second powers, and the distinct factor $(x − 3)$ needs one term.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "عندنا العامل $(x − 3)$ مرة واحدة، فليه حد واحد،",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "والعامل $(x + 2)$ متكرر لحد القوة التانية، فليه حدين: واحد للقوة الأولى وواحد للتانية.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "علشان كده الشكل فيه تلات حدود، مش اتنين.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "لو كتبت بس الحد اللي مقامه $(x + 2)²$، تبقى نسيت القوة الأولى. ولو حسبت قيم $A$ و $B$ و $C$، تبقى عملت خطوة زيادة السؤال ما طلبهاش.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "اختبار مستقل Q02 — Choosing Partial Fraction Forms",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-UEN"
+          ],
+          "text": "Over the real numbers, write the general partial-fraction form of $(x + 4)/[(x − 2)²(x² + 1)]$, without finding the constants. Briefly justify your numerator choices.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-UAR"
+          ],
+          "text": "حدد نوع كل عامل بنفسك، وقرر شكل بسط كل كسر وعدد الحدود، من غير تعويض ومن غير أرقام للمعاملات.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Over the real numbers, write the general partial-fraction form of $(x + 4)/[(x − 2)²(x² + 1)]$, without finding the constants. Briefly justify your numerator choices.",
+        "arabic": "حدد نوع كل عامل بنفسك، وقرر شكل بسط كل كسر وعدد الحدود، من غير تعويض ومن غير أرقام للمعاملات.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "A over x minus two, plus B over x minus two all squared, plus C x plus D over x squared plus one, with x not equal to two.",
+          "arabic": "العامل الخطي إكس ناقص اتنين مكرر، فلازم حد للقوة الأولى وحد للقوة التانية، وكل واحد بسطه ثابت. أما إكس تربيع زائد واحد فمش بيتحلل لخطيات حقيقية، وبسطه لازم يكون خطيًا علشان درجته تبقى أقل من اتنين. المجال الحقيقي هنا يستبعد إكس يساوي اتنين؛ إكس تربيع زائد واحد مش بيصفر عند أي إكس حقيقي."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "$(x + 4)/[(x − 2)²(x² + 1)] = A/(x − 2) + B/(x − 2)² + (Cx + D)/(x² + 1)$, with $x ≠ 2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR",
+                "F02-U1"
+              ],
+              "text": "العامل الخطي $(x − 2)$ متكرر، فلازم حد للقوة الأولى وحد للقوة التانية، وكل واحد فيهم بسطه ثابت.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "أما $x² + 1$ فما بيتحللش لعوامل خطية حقيقية، فبسطه لازم يكون خطي، $Cx + D$، عشان درجته تبقى أقل من 2.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "وعلى الأعداد الحقيقية بنستبعد $x = 2$ بس، لأن $x² + 1$ ما بيصفرش عند أي x حقيقي.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S08",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "ملخص وجسر 9: تحليل المقام ورسم صورة الكسور",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S09",
+          "sourceScope": "printed pages 2–3 / PDF page 4",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-forms"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-U01"
+          ],
+          "text": "الدرس ده علّمك تكتب شكل الحل قبل ما تحسبه، ودي مهارة لوحدها: مش لازم تخلص كل الحسابات عشان تعرف إنك فاهم قاعدة كل عامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U02"
+          ],
+          "text": "لو تقدر تبص على المقام وتقول بثقة فين البسط ثابت، يعني فوق عامل خطي،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U03"
+          ],
+          "text": "وفين البسط خطي، يعني فوق عامل تربيعي غير قابل للتحليل،",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U04"
+          ],
+          "text": "وفين نكرر القوى، يعني لما العامل يتكرر، تبقى جاهز للخطوة الجاية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U05"
+          ],
+          "text": "الخطوة الجاية إننا نبدأ بأبسط حالة حسابية، عاملين خطيين مختلفين، ونطلع قيم $A$ و$B$ فعلًا. وحساب المعاملات في العوامل المكررة والتربيعية ليه دروس بعدين.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Distinct Linear Factor",
+      "meaning": "عامل خطي يظهر مرة واحدة دون تكرار"
+    },
+    {
+      "term": "Repeated Factor",
+      "meaning": "عامل مكرر بقوة أعلى من واحد"
+    },
+    {
+      "term": "Irreducible Quadratic",
+      "meaning": "عامل تربيعي لا يتحلل إلى عاملين خطيين بمعاملات حقيقية"
+    },
+    {
+      "term": "General Form",
+      "meaning": "الصيغة التي تحدد عدد الكسور وشكل بسوطها قبل إيجاد الثوابت"
+    }
+  ],
+  "goals": [
+    {
+      "id": "S1",
+      "text": "تكتب صورة الكسور الجزئية لعوامل خطية مختلفة ومكررة",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "S2",
+      "text": "تعرف ليه العامل التربيعي اللي مش بيتحلل بياخد بسط خطي",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S09"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "S3",
+      "text": "تختار الصورة الصح لمقام فيه أنواع عوامل مختلفة",
+      "sceneIds": [
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    }
+  ]
+}

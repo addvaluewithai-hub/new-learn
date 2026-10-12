@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-pf-two-linear",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "e8c904d76eb0d765aa6a47c94a65599d276d1d8534a0bbf49488cb2ac18fe00f",
+  "title": "حساب معاملين لعاملين خطيين",
+  "englishTitle": "Two Distinct Linear Factors",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 7,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: هوية البسط وحساب الثوابت",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "في الدرس اللي فات اتعلمت تختار صورة التفكيك من تحليل المقام: الكسر $P(x)/[(x − a)(x − b)]$، حيث $a$ و $b$ عددين مختلفين، بيتكتب $A/(x − a) + B/(x − b)$. بس فاضل سؤال: إزاي نعرف قيمة $A$ و $B$؟ النهارده هنوصل من القالب لأرقام فعلية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "مش هنفتح كل الحالات مرة واحدة. هنركّز على عاملين خطيين مختلفين، لأنها أحسن حالة تتعلم فيها الفكرة اللي هتكمل معاك في كل مسائل Partial Fractions. وقبل ما نبدأ، نفتكر ترتيب الشغل خطوة خطوة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "أول حاجة: لو الكسر Improper، نقسم الأول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "ولو الكسر Proper، نحلل المقام لعوامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U05"
+          ],
+          "text": "بعدها نكتب القالب المناسب من غير ما نخمّن قيمة $A$ و$B$. ولو المقام فيه عاملين خطيين مختلفين، كل عامل ليه كسر بسطه ثابت مجهول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U06"
+          ],
+          "text": "والخطوة الجديدة النهارده إننا نرجّع الكسور لمقام مشترك.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U07"
+          ],
+          "text": "وبدل ما نشتغل في الكسور، نشتغل في البسط: نكتب $P(x)$ بدلالة $A$ و$B$ بالشكل ده: $P(x) = A(x − b) + B(x − a)$. والمثال الجاي هيورّيك الصورة دي جت منين.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: هوية البسط وحساب الثوابت",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "نمشي على Example 4 في الكتاب، صفحة 4: $(5x + 1)/(x² − x − 12)$. قبل أي حاجة اسأل نفسك: الكسر Proper ولا Improper؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "البسط درجته 1 والمقام درجته 2، و$1 < 2$، يبقى Proper. فنقدر نبدأ نحلل المقام على طول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "عايزين عددين حاصل ضربهم $−12$ ومجموعهم $−1$. نجرب أزواج حاصل ضربها $−12$ ونحسب مجموعها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "هما $−4$ و $+3$: حاصل ضربهم $−12$ ومجموعهم $−1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U05"
+          ],
+          "text": "يبقى المقام $(x − 4)(x + 3)$، ولو فكّيت الأقواس هترجع $x² − x − 12$. يعني عندنا عاملين خطيين مختلفين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U06"
+          ],
+          "text": "فنكتب القالب ونساويه بالكسر الأصلي: $(5x + 1)/[(x − 4)(x + 3)] = A/(x − 4) + B/(x + 3)$. طبيعي إن $A$ و $B$ لسه مجهولين؛ إحنا لسه مختارين الصورة العامة بس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U07"
+          ],
+          "text": "بعدين نضرب طرفين المساواة في المقام المشترك $(x − 4)(x + 3)$، علشان نتخلص من المقامات.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U08"
+          ],
+          "text": "على الشمال: مقام الكسر هو المقام المشترك نفسه، فيروح ويفضل البسط $5x + 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U09"
+          ],
+          "text": "وعلى اليمين: كل كسر بيختصر عامله مع المقام المشترك، ويفضل معاه العامل التاني. فالحد الأول يبقى $A(x + 3)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U10"
+          ],
+          "text": "والحد التاني يبقى $B(x − 4)$. يعني وصلنا لـ: $5x + 1 = A(x + 3) + B(x − 4)$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: هوية البسط وحساب الثوابت",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "نكتب اللي وصلنا له بوضوح: $5x + 1 = A(x + 3) + B(x − 4)$. ودي مش مجرد معادلة صحيحة عند رقم واحد.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "دي Polynomial Identity، يعني هوية كثيرات حدود: لما $A$ و$B$ ياخدوا قيمهم الصح، الطرفين بيبقوا نفس كثيرة الحدود، ومتساويين عند كل قيمة لـ$x$. وعشان نفرّقها عن المعادلة العادية، ساعات بنكتبها بعلامة التطابق $≡$ بدل $=$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "وفيه نقطة مهمة قوي: الكسر الأصلي مش معرّف عند $x = 4$ ولا عند $x = −3$، يعني $x ≠ 4, −3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "لكن بعد ما ضربنا وكتبنا هوية البسط، نقدر نعوّض بالقيمتين دول جوه الهوية. ليه؟ لأن الكسرين متساويين ومقامهم واحد، فالبسطين متساويين عند كل قيمة مسموحة لـ$x$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U05"
+          ],
+          "text": "والقيم المسموحة دي كتير جدًا، مش عدد محدود. وكثيرتين حدود متساويتين عند عدد لا نهائي من القيم لازم يكونوا نفس كثيرة الحدود بالظبط، يعني متساويين عند أي $x$، حتى $4$ و$−3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U06"
+          ],
+          "text": "بس ده ما بيخليش الكسر الأصلي معرّف عند القيم اللي بتصفّر المقام: الكسر لسه مش معرّف عند $4$ و $−3$، والتعويض بيهم مسموح في الهوية بس. افتكر الفرق ده كل مرة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: هوية البسط وحساب الثوابت",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "إيه أذكى قيمة نبدأ بيها؟ لو عوّضنا بأي رقم، هتطلع معادلة فيها $A$ و $B$ مع بعض. الأذكى نختار رقم يلغي واحد منهم، فيفضل مجهول واحد. نبدأ بإننا نلغي $B$، وهو مضروب في $(x − 4)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "فنحط $x = 4$ في هوية البسط: $5(4) + 1 = A(4 + 3) + B(4 − 4)$. القوس $(4 − 4) = 0$، فالحد بتاع $B$ كله بيبقى صفر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "الطرف الشمال: $5(4) + 1 = 21$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "والطرف اليمين: $A$ في $7$، و$B$ في $0$. يعني $21 = 7A + 0$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U05"
+          ],
+          "text": "ونقسم الطرفين على 7، فـ$A = 3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U06"
+          ],
+          "text": "وعشان نلغي $A$ المرة دي، نرجع للهوية ونخلي $(x + 3)$ يساوي صفر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U07"
+          ],
+          "text": "يعني $x = −3$: $5(−3) + 1 = A(−3 + 3) + B(−3 − 4)$. القوس $(−3 + 3) = 0$، فالحد بتاع $A$ بيبقى صفر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U08"
+          ],
+          "text": "الطرف الشمال: $5(−3) + 1 = −15 + 1 = −14$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U09"
+          ],
+          "text": "والطرف اليمين: $A$ في $0$، و $B$ في $−7$. يعني $−14 = 0 − 7B$، وبالتالي $B = 2$. كده عندنا $A = 3$ و $B = 2$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: هوية البسط وحساب الثوابت",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "خلص الحساب، بس لسه التحقق. الناتج عندنا $3/(x − 4) + 2/(x + 3)$، ونجمعه تاني ونشوف هيرجع لإيه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "على المقام المشترك $(x − 4)(x + 3)$، البسط يبقى $3(x + 3) + 2(x − 4)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U03"
+          ],
+          "text": "نفك الأقواس، فيبقى البسط $3x + 9 + 2x − 8$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U04"
+          ],
+          "text": "ونجمع الحدود، فيطلع $5x + 1$، وده البسط الأصلي بالظبط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U05"
+          ],
+          "text": "وقيود المجال زي ما هي: $x ≠ 4$ و$x ≠ −3$. والمهم دلوقتي تفكّر في الطريقة، مش في الأرقام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U06"
+          ],
+          "text": "أولًا: القالب طلّعناه من عوامل المقام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U07"
+          ],
+          "text": "ثانيًا: وصلنا لهوية البسط لما شلنا المقامات.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U08"
+          ],
+          "text": "ثالثًا: اخترنا قيم لـ$x$ بتصفّر أحد العوامل في هوية البسط، فطلع كل معامل لوحده.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U09"
+          ],
+          "text": "ورابعًا: اتحققنا بإعادة الجمع. ودي طريقة حل تقدر تستخدمها في أي مسألة شبهها، بدل ما تحفظ Example 4 حرفيًا.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "شرح 6: هوية البسط وحساب الثوابت",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U01"
+          ],
+          "text": "تجربة صغيرة من إعدادنا، مش من الكتاب، علشان تشوف إن الطريقة عامة: $(2x + 3)/[(x − 1)(x + 4)]$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U02"
+          ],
+          "text": "نفترض القالب: $A/(x − 1) + B/(x + 4)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U03"
+          ],
+          "text": "هوية البسط: $2x + 3 = A(x + 4) + B(x − 1)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U04"
+          ],
+          "text": "عند $x = 1$، اللي بيصفّر $(x − 1)$ فيلغي $B$: الشمال $2(1) + 3 = 5$، واليمين $A(1 + 4) + 0 = 5A$. يعني $5 = 5A$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U05"
+          ],
+          "text": "ونقسم على 5، فـ$A = 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U06"
+          ],
+          "text": "وعند $x = −4$، اللي بيصفّر $(x + 4)$ فيلغي $A$: الشمال $2(−4) + 3 = −5$، واليمين $0 + B(−4 − 1) = −5B$. يعني $−5 = −5B$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U07"
+          ],
+          "text": "ونقسم على $−5$، فـ$B = 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U08"
+          ],
+          "text": "تحقق سريع: $1(x + 4) + 1(x − 1) = 2x + 3$ ✓. نفس الفكرة بتشتغل حتى لو الأرقام أو إشارات العوامل اتغيرت.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "اختبار مستقل Q01 — Two Distinct Linear Factors",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Resolve $(7x − 1)/[(x + 1)(x − 3)]$ into partial fractions. Determine the constants by a valid algebraic method, verify the identity, and state the excluded values.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "المطلوب: الصورة العامة، وبعدها قيم المعاملات، وبعدها تتحقق إنك لو جمعت الكسور هترجع لنفس الكسر. وخد بالك من القيم اللي بتصفّر المقام. حلها لوحدك على ورقة قبل ما تفتح الحل.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Resolve $(7x − 1)/[(x + 1)(x − 3)]$ into partial fractions. Determine the constants by a valid algebraic method, verify the identity, and state the excluded values.",
+        "arabic": "المطلوب: الصورة العامة، وبعدها قيم المعاملات، وبعدها تتحقق إنك لو جمعت الكسور هترجع لنفس الكسر. وخد بالك من القيم اللي بتصفّر المقام. حلها لوحدك على ورقة قبل ما تفتح الحل.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Seven x minus one over x plus one times x minus three equals two over x plus one, plus five over x minus three, for x not equal to minus one or three.",
+          "arabic": "هنكتب A على إكس زائد واحد، زائد B على إكس ناقص تلاتة. بعد إزالة المقامات، سبعة إكس ناقص واحد تساوي A في إكس ناقص تلاتة، زائد B في إكس زائد واحد. عند إكس يساوي سالب واحد، الطرف الأول سالب تمنية، والطرف الآخر سالب أربعة A، فـ A تساوي اتنين. وعند إكس يساوي تلاتة، الطرف الأول عشرين، والطرف الآخر أربعة B، فـ B تساوي خمسة. وللتحقق: اتنين في إكس ناقص تلاتة زائد خمسة في إكس زائد واحد، يساوي سبعة إكس ناقص واحد. ممنوع إكس تساوي سالب واحد أو تلاتة في الكسر الأصلي. لو حصل خطأ في الإشارة، راجع ناتج إكس ناقص تلاتة عند إكس سالب واحد؛ قيمته سالب أربعة، مش موجب أربعة."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$(7x − 1)/[(x + 1)(x − 3)] = 2/(x + 1) + 5/(x − 3)$, for $x ≠ −1, 3$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "الحل خطوة بخطوة. نكتب القالب: $(7x − 1)/[(x + 1)(x − 3)] = A/(x + 1) + B/(x − 3)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "بعد إزالة المقامات، هوية البسط: $7x − 1 = A(x − 3) + B(x + 1)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "عند $x = −1$: الشمال $7(−1) − 1 = −8$، واليمين $A(−1 − 3) + 0 = −4A$. يعني $−8 = −4A$، فـ $A = 2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "وعند $x = 3$: الشمال $7(3) − 1 = 20$، واليمين $0 + B(3 + 1) = 4B$. يعني $20 = 4B$، فـ $B = 5$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U6"
+              ],
+              "text": "وللتحقق: $2(x − 3) + 5(x + 1) = 2x − 6 + 5x + 5 = 7x − 1$ ✓.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U5"
+              ],
+              "text": "ممنوع $x = −1$ و $x = 3$ في الكسر الأصلي. ولو غلطت في إشارة، راجع قيمة $(x − 3)$ عند $x = −1$: هي $−4$، مش $+4$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "ملخص وجسر 8: هوية البسط وحساب الثوابت",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "sourceScope": "printed pages 3–4 / PDF pages 4–5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-two-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-U01"
+          ],
+          "text": "دلوقتي إنت مش بس بتكتب القالب؛ إنت عرفت تحلّه وتتحقق منه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U02"
+          ],
+          "text": "اتعلمنا هوية البسط، وفرّقنا بينها وبين مجال الكسر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U03"
+          ],
+          "text": "واخترنا قيم ذكية لـ$x$ عشان نطلّع $A$ و$B$ بأقل حساب. والدرس الجاي هيكبّر المسألة خطوة واحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U04"
+          ],
+          "text": "تلات عوامل خطية مختلفة، وتلات معاملات بدل اتنين، زي اللي على السبورة: $(x + 1)/[x(x − 2)(x + 3)] = A/x + B/(x − 2) + C/(x + 3)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-U05"
+          ],
+          "text": "وهناك هنتعلم طريقة منظمة اسمها Comparing Coefficients (مقارنة المعاملات)، ونشوف إزاي نراجعها بالتعويض كمان. أما العوامل المكررة والتربيعية، فإيجاد معاملاتها مؤجل لأجزاء جاية.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Polynomial Identity",
+      "meaning": "مساواة بين كثيرتي حدود صالحة لكل قيم المتغير"
+    },
+    {
+      "term": "Common Denominator",
+      "meaning": "مقام مشترك عند جمع أو تحويل الكسور"
+    },
+    {
+      "term": "Excluded Values",
+      "meaning": "قيم للمتغير تصفّر مقام الكسر ولا يجوز التعويض بها فيه"
+    }
+  ],
+  "goals": [
+    {
+      "id": "T1",
+      "text": "تختار صورة التفكيك لمقام فيه عاملين خطيين مختلفين",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S08"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "T2",
+      "text": "تكتب Polynomial Identity من مساواة الكسور",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "T3",
+      "text": "تطلّع A وB وتتأكد بإنك تجمع الكسور تاني",
+      "sceneIds": [
+        "S05",
+        "S06",
+        "S08"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    }
+  ]
+}

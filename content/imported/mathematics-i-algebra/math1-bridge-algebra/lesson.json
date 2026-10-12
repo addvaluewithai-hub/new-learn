@@ -5,7 +5,7 @@
   "englishTitle": "Letters for Numbers",
   "subtitle": "Letters for Numbers",
   "delivery": "reading",
-  "contentRevision": "c7e6467f5a422d677e5201606b81e79bf79e2a236d50f329840a3687fa03975e",
+  "contentRevision": "92d2477ea009ddf795b19dfa9b8ea6a74e374c608610e9e8ae4686cb27d6c47f",
   "renderers": {
     "math-board": "board/MathBoard.tsx"
   },
@@ -63,8 +63,8 @@
     },
     {
       "path": "board/beats.ts",
-      "sha256": "9891ab3f72f97bb7b5f24456f733746cf4e387c0f4bcfe943e7aa2369efc9ba2",
-      "bytes": 7062
+      "sha256": "4d5a0afb754baab5ff7509941329a69fefb0fcda862e1ec83feed38130e860aa",
+      "bytes": 6939
     },
     {
       "path": "board/clock.ts",
@@ -93,9 +93,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "d59962164275e7cc8ab3c515e376ab2f119ea908eb0da757ac861a0f02a36446",
-      "bytes": 15069
+      "sha256": "ff022964c2c7d29648677d60ce42cfda9dffa3728f89e36e9144a5a5a654a780",
+      "bytes": 22441
     }
   ],
-  "manifestHash": "44a4697a963ab4dcfcf41049920a4158230d321c309f9da7f5afc091711512bd"
+  "manifestHash": "17561ce0f119a3dc29840be56425c94a7fc1cea5365d059dad1cd005497e72ca"
 }

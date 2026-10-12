@@ -1,6 +1,7 @@
 .rl-caption {
+  position: relative;
   width: min(780px, 100%);
-  max-height: 100%;
+  max-height: 46dvh;
   overflow: auto;
   padding: 12px 20px 14px;
   border-radius: 20px;
@@ -27,6 +28,20 @@
   line-height: 1.8;
   unicode-bidi: plaintext;
   animation: rl-in 0.28s ease both;
+}
+.rl-ruler {
+  position: absolute;
+  inset-inline: 20px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+/* Same typography as .rl-caption-text, so the measured height is the shown height. */
+.rl-ruler p {
+  margin: 4px 0 0;
+  font-size: 18px;
+  line-height: 1.8;
+  unicode-bidi: plaintext;
 }
 .rl-lead {
   color: var(--rl-faint);
@@ -166,6 +181,15 @@
     border-radius: 18px;
   }
   .rl-caption-text {
+    font-size: 16.5px;
+    line-height: 1.7;
+  }
+}
+@media (max-width: 650px) {
+  .rl-ruler {
+    inset-inline: 14px;
+  }
+  .rl-ruler p {
     font-size: 16.5px;
     line-height: 1.7;
   }
