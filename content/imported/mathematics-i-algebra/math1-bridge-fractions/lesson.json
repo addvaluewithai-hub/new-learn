@@ -5,7 +5,7 @@
   "englishTitle": "Fractions: Equal Pieces",
   "subtitle": "Fractions: Equal Pieces",
   "delivery": "reading",
-  "contentRevision": "5b8ec09ba2921e171483b41056299e2f1dfb0b9da9064af623de86841335655c",
+  "contentRevision": "c379fba1cdfee29a1ca7d87fa0be8618544acaba6e5a91d6174bf123dd25b3da",
   "renderers": {
     "math-board": "board/MathBoard.tsx"
   },
@@ -63,8 +63,8 @@
     },
     {
       "path": "board/beats.ts",
-      "sha256": "b850739406423329057e00c9da113335230e6218e1717638b23e6b13193cd010",
-      "bytes": 8241
+      "sha256": "d9266f71f1398b366d57a2e8c8b55965a3d1191300e5c345f66d44d6a222e3e0",
+      "bytes": 8156
     },
     {
       "path": "board/clock.ts",
@@ -93,9 +93,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "20d0af5c602172c14da8e9509dbba6c63ea5eed53b4bcc7285e20d41ff0dc8cc",
-      "bytes": 16285
+      "sha256": "6cc766a52024cea7eb1be6de51acfbd604576a4e7f1fb3157c9fa8008ee07e9b",
+      "bytes": 21321
     }
   ],
-  "manifestHash": "bd368639b63f6ffa3be99f148eaa903cd0101649144d241bea18763e3b4fe246"
+  "manifestHash": "d81011688d3c76bc9200c5c1078cd9e22e036b80566d37f4020fdba862cf27de"
 }

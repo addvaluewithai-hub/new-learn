@@ -15,7 +15,9 @@
   height: 100%;
   min-height: 0;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) var(--rl-caption-h) auto;
+  /* The caption row fits the longest line of the current scene (see Caption), never less
+     than --rl-caption-h; the board takes what is left. */
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
   overflow: hidden;
   background: var(--rl-paper);
   color: var(--rl-ink);
@@ -110,7 +112,7 @@
   height: 100%;
 }
 .rl-caption-zone {
-  min-height: 0;
+  min-height: var(--rl-caption-h);
   display: flex;
   justify-content: center;
   align-items: center;

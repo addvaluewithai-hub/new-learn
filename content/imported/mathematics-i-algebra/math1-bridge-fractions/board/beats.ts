@@ -73,9 +73,8 @@ export const SCENES: Record<string, SceneSpec> = {
         at: 'U01',
         rows: [
           { tex: m`\f{1}{2} + \f{1}{3} = \ ?` },
-          { at: 'U02', tex: m`\g{bad}{\f{1 + 1}{2 + 3} = \f{2}{5}}`, size: 0.85 },
+          { at: 'U02', tex: m`\f{1 + 1}{2 + 3} = \no{\f{2}{5}}\ \no{\cross}`, size: 0.85 },
         ],
-        fx: [{ at: 'U02', g: 'bad', k: 'strike' }],
         widget: {
           kind: 'pies', at: 'U01',
           pies: [
@@ -168,9 +167,8 @@ export const FEEDBACK: Record<string, SceneSpec> = {
         rows: [
           { tex: m`\f{1}{3} + \f{1}{4} = \f{4}{12} + \f{3}{12} = \f{\ok{7}}{12}` },
           { at: 'U1', tex: m`3 \times 4 = \c4{12}`, size: 0.7 },
-          { at: 'U3', tex: m`\g{bad}{\f{1 + 1}{3 + 4} = \f{2}{7}}`, size: 0.8 },
+          { at: 'U3', tex: m`\f{1 + 1}{3 + 4} = \no{\f{2}{7}}\ \no{\cross}`, size: 0.8 },
         ],
-        fx: [{ at: 'U3', g: 'bad', k: 'strike' }],
       },
     ],
   },

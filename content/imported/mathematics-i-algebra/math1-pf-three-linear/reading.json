@@ -1,0 +1,757 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "math1-pf-three-linear",
+  "curriculumId": "mathematics-i-algebra",
+  "contentRevision": "dddc5998ec2fd2419035c10d4668a17052691f5dd0fb132427d9df18a465ece6",
+  "title": "ثلاثة عوامل ومقارنة المعاملات",
+  "englishTitle": "Three Linear Factors and Coefficient Matching",
+  "curriculumTitle": "Mathematics I — Algebra | رياضيات 1: الجبر",
+  "lessonOrder": 8,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "شرح 1: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S01",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U01"
+          ],
+          "text": "في الدرس اللي فات كان المقام فيه عاملين خطيين مختلفين، فكتبنا كسرين بمجهولين A و B، وبعد ما شلنا المقام المشترك طلّعنا قيمتهم. النهارده نفس الطريقة، بس هنزوّد عامل خطي تالت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U02"
+          ],
+          "text": "يعني تلات كسور وتلات معاملات: A و B و C. وعلشان ما نتوهش بين الحدود محتاجين طريقة مرتّبة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U03"
+          ],
+          "text": "الطريقة اسمها Comparing Coefficients، يعني مقارنة المعاملات.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U04"
+          ],
+          "text": "نبدأ بـ Example 5 في الكتاب (الصفحات المطبوعة 4 و 5): $(x + 1)/(x³ + x² − 6x)$. أول سؤال دايمًا: الكسر Proper ولا Improper؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U05"
+          ],
+          "text": "درجة البسط 1 ودرجة المقام 3، و $1 < 3$، إذن الكسر Proper. نحلّل المقام بقى.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U06"
+          ],
+          "text": "أولًا نطلّع $x$ عامل مشترك: $x³ + x² − 6x = x(x² + x − 6)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U07"
+          ],
+          "text": "والتربيعي بيتحلل: $x² + x − 6 = (x − 2)(x + 3)$، لأن $(−2)(3) = −6$ و $−2 + 3 = 1$. إذن المقام $x(x − 2)(x + 3)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U08"
+          ],
+          "text": "مراجعة سريعة: $(x − 2)(x + 3) = x² + x − 6$، ولما نضرب في $x$ نرجع للمقام الأصلي $x³ + x² − 6x$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "شرح 2: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S02",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U01"
+          ],
+          "text": "المقام دلوقتي فيه تلات عوامل خطية مختلفة: $x$ و$(x − 2)$ و$(x + 3)$. فكل عامل منهم هياخد كسر لوحده.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U02"
+          ],
+          "text": "يعني الصورة اللي هنكتبها: $(x + 1)/[x(x − 2)(x + 3)] = A/x + B/(x − 2) + C/(x + 3)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U03"
+          ],
+          "text": "كل بسط هنا ثابت، لأن العامل اللي تحته خطي. وليه تلات حدود؟ لأن عندنا تلات عوامل مختلفة؛ مفيش قوة مكررة ولا عامل تربيعي ما بيتحللش.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U04"
+          ],
+          "text": "نضرب الطرفين في $x(x − 2)(x + 3)$ علشان نشيل المقام المشترك. الكسر الأصلي يفضل منه البسط بس. وكل كسر جزئي بيتشال منه عامله، فمعامله يفضل مضروب في العاملين التانيين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U05"
+          ],
+          "text": "فيبقى أول حد في هوية البسط $A(x − 2)(x + 3)$: يعني $A$ اتضربت في العاملين اللي مش تحتها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U06"
+          ],
+          "text": "وبنفس الطريقة، $B$ اتضربت في $x(x + 3)$، فالحد التاني $Bx(x + 3)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U07"
+          ],
+          "text": "و C اتضربت في $x(x − 2)$، فالحد التالت $Cx(x − 2)$. دي هوية البسط (Polynomial Identity) اللي هنشتغل عليها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U08"
+          ],
+          "text": "تحذير: ما تعوّضش بـ $x = 0$ أو $2$ أو $−3$ في الكسر الأصلي؛ ممنوع، $x ≠ 0, 2, −3$. لكن بعدين هينفع نعوّض بيهم في هوية البسط، لأنها مساواة متطابقة بين كثيرتين حدود بعد ما شلنا المقام، مش مجرد قيم للكسر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "شرح 3: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S03",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U01"
+          ],
+          "text": "الخطوة الجديدة: نرتّب الحدود حسب قوى $x$: $x²$ و $x$ والثابت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U02"
+          ],
+          "text": "افتكر فك الأقواس: $(x − 2)(x + 3) = x² + x − 6$، و$x(x + 3) = x² + 3x$، و$x(x − 2) = x² − 2x$. ودلوقتي نضرب كل واحدة في المعامل اللي قدامها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U03"
+          ],
+          "text": "حد $A$ يبقى: $A(x² + x − 6) = Ax² + Ax − 6A$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U04"
+          ],
+          "text": "وحد $B$ يبقى: $B(x² + 3x) = Bx² + 3Bx$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U05"
+          ],
+          "text": "وحد $C$ يبقى: $C(x² − 2x) = Cx² − 2Cx$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U06"
+          ],
+          "text": "ونلم الحدود حسب القوة. كل حدود $x²$ مع بعض: معاملها $A + B + C$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U07"
+          ],
+          "text": "وكل حدود $x$ مع بعض: معاملها $A + 3B − 2C$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U08"
+          ],
+          "text": "والحد الثابت لوحده: $−6A$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U09"
+          ],
+          "text": "وفي الطرف التاني عندنا $x + 1$، ونقدر نكتبه $0x² + 1x + 1$. وكتبنا $0x²$ عشان نوضّح الفكرة الجاية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U10"
+          ],
+          "text": "معامل كل قوة لازم يتساوى في الطرفين، حتى لو القوة دي مش ظاهرة أصلًا في طرف منهم. ده معنى Comparing Coefficients: معامل $x²$ قصاد معامل $x²$، ومعامل $x$ قصاد معامل $x$، والثابت قصاد الثابت؛ مش أي رقم قصاد أي رقم.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "شرح 4: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S04",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U01"
+          ],
+          "text": "نساوي معامل كل قوة في الطرفين، فيطلع عندنا تلات معادلات. من $x²$: (1) $A + B + C = 0$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U02"
+          ],
+          "text": "ومن $x$: (2) $A + 3B − 2C = 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U03"
+          ],
+          "text": "ومن الثابت: (3) $−6A = 1$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U04"
+          ],
+          "text": "نبدأ بالأسهل، المعادلة (3): نقسم على $−6$، فـ $A = −1/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U05"
+          ],
+          "text": "نعوّض A في (1): $−1/6 + B + C = 0$، يعني $B + C = 1/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U06"
+          ],
+          "text": "ونعوّض A في (2): $−1/6 + 3B − 2C = 1$، يعني $3B − 2C = 1 + 1/6 = 7/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U07"
+          ],
+          "text": "فاضل معادلتين فيهم B و C. من $B + C = 1/6$: $C = 1/6 − B$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U08"
+          ],
+          "text": "نحط دي في $3B − 2C = 7/6$: $3B − 2(1/6 − B) = 7/6$. نفك القوس: $3B − 1/3 + 2B = 7/6$، يعني $5B − 1/3 = 7/6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U09"
+          ],
+          "text": "نضيف $1/3$ (يعني $2/6$) للطرفين: $5B = 9/6 = 3/2$. نقسم على 5: $B = 3/10$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U10"
+          ],
+          "text": "وأخيرًا $C = 1/6 − 3/10$. بمقام 30: $5/30 − 9/30 = −4/30$، يعني $C = −2/15$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "شرح 5: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S05",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U01"
+          ],
+          "text": "الناتج الكامل: $(x + 1)/[x(x − 2)(x + 3)] = −1/(6x) + 3/[10(x − 2)] − 2/[15(x + 3)]$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U02"
+          ],
+          "text": "كل حد هنا كسر منفصل: المعامل مضروب في 1 على عامله، زي $3/[10(x − 2)] = (3/10) · 1/(x − 2)$. يعني 6 و 10 و 15 جايين من مقامات A و B و C، مش عوامل جديدة في المقام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U03"
+          ],
+          "text": "والكسر الأصلي مش معرّف عند $x = 0$ أو $2$ أو $−3$، يعني $x ≠ 0, 2, −3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U04"
+          ],
+          "text": "ملاحظة مهمة لو بتذاكر من النسخة المصوّرة: في صفحة 5 فيه سطور وسيطة متعارضة مع تحليل المقام أو مع معاملات الهوية، وخصوصًا قيمة C الوسيطة المطبوعة مش متسقة مع الحل الصحيح. إحنا فكّينا الأقواس من جديد وحلّينا النظام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U05"
+          ],
+          "text": "وطلع $C = −2/15$، ودي القيمة اللي بتحقق الهوية. ما تنقلش السطر الوسيط المختلف كأنه خطوة لازم تتحفظ.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U06"
+          ],
+          "text": "المرجع هو المساواة اللي نقدر نتحقق منها بالحساب.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "شرح 6: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S06",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U01"
+          ],
+          "text": "نقدر نراجع المعاملات بطريقة تانية؟ أيوه، وده تأكيد مش طريقة سحرية. ارجع لهوية البسط قبل فك الأقواس: $x + 1 = A(x − 2)(x + 3) + Bx(x + 3) + Cx(x − 2)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U02"
+          ],
+          "text": "عند $x = 0$: حدّي B و C فيهم العامل $x$ فيختفوا. الشمال $0 + 1 = 1$، واليمين $A(−2)(3) = −6A$، يعني $1 = −6A$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U03"
+          ],
+          "text": "فـ $A = −1/6$ ✓.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U04"
+          ],
+          "text": "عند $x = 2$: حدّي A و C فيهم العامل $(x − 2)$ فيختفوا. الشمال $2 + 1 = 3$، واليمين $B(2)(5) = 10B$، يعني $3 = 10B$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U05"
+          ],
+          "text": "فـ $B = 3/10$ ✓.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U06"
+          ],
+          "text": "عند $x = −3$: حدّي A و B فيهم العامل $(x + 3)$ فيختفوا. الشمال $−3 + 1 = −2$، واليمين $C(−3)(−5) = 15C$، يعني $−2 = 15C$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U07"
+          ],
+          "text": "فـ $C = −2/15$ ✓، نفس اللي طلع بمقارنة المعاملات. لاحظ إن التعويض ده في هوية البسط، مش في الكسر الأصلي عند القيم الممنوعة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U08"
+          ],
+          "text": "ونستنتج قاعدة مفيدة: لو المقام اتحلل لعوامل خطية مختلفة، مقارنة المعاملات بتوصّلنا لنظام معادلات واضح، والتعويض بقيم بتصفّر العوامل في الهوية ممكن يختصر الحساب. وفي الحالتين لازم نتحقق في الآخر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U09"
+          ],
+          "text": "والتحقق إننا نرجع من الحل للبسط الأصلي: يا إما نجمع الكسور، يا إما نتأكد إن المعاملات اللي طلعت بتحقق نفس الهوية. وإن أرقام $A$ و$B$ و$C$ شكلها مريح، ده مش دليل إنها صح.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "اختبار مستقل Q01 — Three Linear Factors and Coefficient Matching",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S07",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "Resolve $(8x − 2)/[x(x − 1)(x + 2)]$ into partial fractions. Use coefficient matching to set up the equations for A, B and C, solve them, and verify the result. State excluded values.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "المطلوب بالـ coefficient matching هو نفسه Comparing Coefficients، يعني مقارنة المعاملات. ابدأ بالصورة المناسبة للمقام، وبعدين اكتب هوية البسط وفكّها ورتّبها حسب $x²$ و $x$ والثابت. طلّع المعاملات، واتحقق بإعادة الجمع، وما تنساش القيم الممنوعة. خد وقتك؛ الإجابة مش هتظهر قبل ما تحاول.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "Resolve $(8x − 2)/[x(x − 1)(x + 2)]$ into partial fractions. Use coefficient matching to set up the equations for A, B and C, solve them, and verify the result. State excluded values.",
+        "arabic": "المطلوب بالـ coefficient matching هو نفسه Comparing Coefficients، يعني مقارنة المعاملات. ابدأ بالصورة المناسبة للمقام، وبعدين اكتب هوية البسط وفكّها ورتّبها حسب $x²$ و $x$ والثابت. طلّع المعاملات، واتحقق بإعادة الجمع، وما تنساش القيم الممنوعة. خد وقتك؛ الإجابة مش هتظهر قبل ما تحاول.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Eight x minus two over x times x minus one times x plus two equals one over x, plus two over x minus one, minus three over x plus two, for x not equal to zero, one, or minus two.",
+          "arabic": "الصورة A على إكس، زائد B على إكس ناقص واحد، زائد C على إكس زائد اتنين. بعد إزالة المقام، تمنية إكس ناقص اتنين تساوي A في إكس ناقص واحد في إكس زائد اتنين، زائد B في إكس في إكس زائد اتنين، زائد C في إكس في إكس ناقص واحد. بالتوسيع: إكس ناقص واحد في إكس زائد اتنين بتدي إكس تربيع زائد إكس ناقص اتنين، وإكس في إكس زائد اتنين بتدي إكس تربيع زائد اتنين إكس، وإكس في إكس ناقص واحد بتدي إكس تربيع ناقص إكس. فمعامل إكس تربيع A زائد B زائد C، ومعامل إكس A زائد اتنين B ناقص C، والثابت سالب اتنين A. نساويهم بالطرف الآخر: صفر إكس تربيع، زائد تمنية إكس، ناقص اتنين. فنحصل على: A زائد B زائد C يساوي صفر، وA زائد اتنين B ناقص C يساوي تمنية، وسالب اتنين A يساوي سالب اتنين. يبقى A واحد، ومنه B زائد C سالب واحد، واتنين B ناقص C سبعة؛ بجمع المعادلتين تلاتة B تساوي ستة، فـB اتنين وC سالب تلاتة. لما نجمع الكسور، البسط يرجع تمنية إكس ناقص اتنين: إكس تربيع زائد إكس ناقص اتنين، زائد اتنين إكس تربيع زائد أربعة إكس، ناقص تلاتة إكس تربيع زائد تلاتة إكس. وماينفعش إكس تكون صفر أو واحد أو سالب اتنين."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "$(8x − 2)/[x(x − 1)(x + 2)] = 1/x + 2/(x − 1) − 3/(x + 2)$, for $x ≠ 0, 1, −2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "الصورة: $A/x + B/(x − 1) + C/(x + 2)$. بعد ما نشيل المقام: $8x − 2 = A(x − 1)(x + 2) + Bx(x + 2) + Cx(x − 1)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "نفك الأقواس: $(x − 1)(x + 2) = x² + x − 2$، و $x(x + 2) = x² + 2x$، و $x(x − 1) = x² − x$. فمعامل $x²$ هو $A + B + C$، ومعامل $x$ هو $A + 2B − C$، والثابت $−2A$. ونساويهم بالطرف التاني: $0x² + 8x − 2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "فنحصل على: $A + B + C = 0$، و $A + 2B − C = 8$، و $−2A = −2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "يبقى $A = 1$. ومنها $B + C = −1$ و $2B − C = 7$. بجمع المعادلتين: $3B = 6$، فـ $B = 2$ و $C = −3$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U5"
+              ],
+              "text": "تحقق: $1(x² + x − 2) + 2(x² + 2x) − 3(x² − x) = 8x − 2$ ✓، يعني لما نجمع الكسور البسط يرجع $8x − 2$. والقيم الممنوعة: $x ≠ 0, 1, −2$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S07",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "اختبار مستقل Q02 — Three Linear Factors and Coefficient Matching",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S08",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-UEN"
+          ],
+          "text": "A student claims that expanding $A(x − 2)(x + 3) + Bx(x + 3) + Cx(x − 2)$ gives an x-coefficient of $A + 3B − C$. Is that correct? If not, find the correct x-coefficient and explain the source of the error.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-UAR"
+          ],
+          "text": "افحص معامل $x$ اللي الطالب كتبه، بإنك تفك الأقواس بنفسك. المطلوب تصحّح معامل واحد وتشرح سبب الغلطة، من غير ما تعتمد على نتيجة مثال الكتاب كإجابة محفوظة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "A student claims that expanding $A(x − 2)(x + 3) + Bx(x + 3) + Cx(x − 2)$ gives an x-coefficient of $A + 3B − C$. Is that correct? If not, find the correct x-coefficient and explain the source of the error.",
+        "arabic": "افحص معامل $x$ اللي الطالب كتبه، بإنك تفك الأقواس بنفسك. المطلوب تصحّح معامل واحد وتشرح سبب الغلطة، من غير ما تعتمد على نتيجة مثال الكتاب كإجابة محفوظة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Incorrect. The x-coefficient is A plus three B minus two C, because C x times x minus two equals C x squared minus two C x, not C x squared minus C x.",
+          "arabic": "ببساطة في الحد الأخير C مضروبة في إكس في إكس ناقص اتنين، يعني C إكس تربيع ناقص اتنين C إكس. لو كتبنا ناقص C بس، إحنا ضيعنا الاتنين الموجودة في العامل إكس ناقص اتنين. التصحيح مهم لأن خطأ معامل واحد هيغيّر النظام كله، وممكن يدي معاملات لا تحقق الكسر الأصلي."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "Incorrect. The x-coefficient is $A + 3B − 2C$, because $Cx(x − 2) = Cx² − 2Cx$, not $Cx² − Cx$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR",
+                "F02-U1"
+              ],
+              "text": "خلّينا نبص على الحد الأخير: C مضروبة في $x(x − 2)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "يعني $Cx(x − 2) = Cx² − 2Cx$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "لو كتبنا $−C$ بس، نكون ضيّعنا الـ 2 اللي جوه العامل $(x − 2)$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U4"
+              ],
+              "text": "والتصحيح مهم: غلطة في معامل واحد بتغيّر النظام كله، وممكن تطلّع معاملات ما بتحققش الكسر الأصلي.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "math-board",
+            "params": {
+              "scene": "S08",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "ملخص وجسر 9: التحليل والمقارنة بين معاملات القوى",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "math-board",
+        "params": {
+          "scene": "S09",
+          "sourceScope": "printed pages 4–5 / PDF page 5",
+          "assetBase": "/lesson-assets/mathematics-i-algebra/math1-pf-three-linear"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-U01"
+          ],
+          "text": "من الأول للآخر المسألة ماشية بنفس المنطق: نتأكد إن الكسر Proper، نحلّل المقام، نكتب صورة الكسور، نحوّلها لهوية في البسط، وبعدين نحسب المعاملات ونتحقق.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U02"
+          ],
+          "text": "الجديد النهارده: اتعلمنا Comparing Coefficients مع تلات عوامل مختلفة، وشفنا إزاي نربط كل معامل بقوته ($x²$ و $x$ والثابت) من غير ما نخلطهم.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U03"
+          ],
+          "text": "وراجعنا النتيجة بالتعويض في الهوية بالقيم اللي بتصفّر العوامل، من غير ما نكسر مجال الكسر الأصلي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U04"
+          ],
+          "text": "الجزء الجاي من المنهج فيه عوامل خطية مكررة زي $(x − a)²$. اختيار شكل الصورة شفته قبل كده، لكن حل المعاملات في الحالة دي محتاج شرح جديد؛ مش كل حاجة هتطلع بنفس الخطوتين بس.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Comparing Coefficients",
+      "meaning": "مساواة معاملات نفس القوى بعد توسعة هوية كثيرات الحدود"
+    },
+    {
+      "term": "Linear Factors",
+      "meaning": "عوامل من الدرجة الأولى في المقام"
+    },
+    {
+      "term": "Polynomial Identity",
+      "meaning": "هوية كثيرات حدود بعد إزالة المقام المشترك"
+    }
+  ],
+  "goals": [
+    {
+      "id": "C1",
+      "text": "تحلّل مقام لتلات عوامل خطية وتكتب صورة من تلات كسور",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "C2",
+      "text": "تفرد الهوية وتقارن معاملات القوى وتطلّع A وB وC",
+      "sceneIds": [
+        "S03",
+        "S04",
+        "S05",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "تتأكد من الحل وتكتشف غلطة في الفرد",
+      "sceneIds": [
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    }
+  ]
+}

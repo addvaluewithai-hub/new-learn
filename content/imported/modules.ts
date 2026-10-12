@@ -17,4 +17,7 @@ export const readingModules = {
   "reading:math1-bridge-factorising": () => import('./mathematics-i-algebra/math1-bridge-factorising/index'),
   "reading:math1-bridge-exam-english": () => import('./mathematics-i-algebra/math1-bridge-exam-english/index'),
   "reading:math1-pf-foundations": () => import('./mathematics-i-algebra/math1-pf-foundations/index'),
+  "reading:math1-pf-forms": () => import('./mathematics-i-algebra/math1-pf-forms/index'),
+  "reading:math1-pf-two-linear": () => import('./mathematics-i-algebra/math1-pf-two-linear/index'),
+  "reading:math1-pf-three-linear": () => import('./mathematics-i-algebra/math1-pf-three-linear/index'),
 } as const;

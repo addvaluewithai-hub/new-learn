@@ -5,7 +5,7 @@
   "englishTitle": "Reading Maths Questions in English",
   "subtitle": "Reading Maths Questions in English",
   "delivery": "reading",
-  "contentRevision": "34910b3916643a0d1a7090ed542547658e4bda3178dc7695667b308dace5c966",
+  "contentRevision": "a525072eea5467a53968a9409769272143d4ac290175595f22ef26826b8af8e3",
   "renderers": {
     "math-board": "board/MathBoard.tsx"
   },
@@ -93,9 +93,9 @@
     },
     {
       "path": "reading.json",
-      "sha256": "1c2dd4ade9584bed81c3687b7b823de50e4b4c1c6a599c18b0e2a7d14490fff6",
-      "bytes": 14193
+      "sha256": "393b2f08273710f5d2d94f11c784a21231b77008e92f87219cf8a75d2cdfccfb",
+      "bytes": 16495
     }
   ],
-  "manifestHash": "7b58b7ad6840ca8bd601d1e2dd2bb74a2130e2f0ccc38c7bc70ff2487148a196"
+  "manifestHash": "f8cd9d0eef1442a0f7fb912376fdc8ff4b908a3f820652d3ea9c37a765fc09ee"
 }
