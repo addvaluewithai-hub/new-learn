@@ -28,6 +28,8 @@ jobs:
       - run: npm run content:import -- .authoring-import/dist/platform/chemistry-gas-laws
       - name: Remove the temporary authoring checkout
         run: rm -rf -- .authoring-import
+      - name: Format the deployment acceptance check
+        run: npx prettier --write tools/legacy-gas-live-check.mjs
       - run: npm run format:check
       - run: npm run check
       - run: npm test
@@ -49,7 +51,7 @@ jobs:
         run: |
           git config user.name Codex
           git config user.email codex@openai.com
-          git add -- content/imported apps/platform/content-modules.json
+          git add -- content/imported apps/platform/content-modules.json tools/legacy-gas-live-check.mjs
           if ! git diff --cached --quiet; then
             git commit -m "Import verified legacy gas laws from the reviewed authoring source"
             git push origin "HEAD:refs/heads/$IMPORT_BRANCH"
