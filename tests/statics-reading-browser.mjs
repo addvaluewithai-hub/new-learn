@@ -117,6 +117,15 @@ try {
       await page.locator('.rl-question').waitFor();
       await page.waitForTimeout(450);
       const board = plain(await page.locator('.rl-board').innerText());
+      const overflow = await page.evaluate(() =>
+        Array.from(
+          document.querySelectorAll('.rl-top, .rl-caption, .rl-dock, .rl-board-frame, .rl-answer'),
+        )
+          .map((element) => ({ name: element.className, rect: element.getBoundingClientRect() }))
+          .filter(({ rect }) => rect.left < -1 || rect.right > innerWidth + 1)
+          .map(({ name }) => name),
+      );
+      assert.deepEqual(overflow, [], 'answering UI stays inside the viewport');
       assert.ok(board.includes(plain(question.english)), 'English question on actual board');
       assert.ok(board.includes(plain(question.arabic)), 'Arabic question on actual board');
       assert.ok(!board.includes(plain(question.answer.english)), 'answer hidden before attempt');
