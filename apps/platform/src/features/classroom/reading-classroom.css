@@ -12,8 +12,10 @@ html.in-lesson body {
   background: #f6f5f0;
 }
 /* An answer form must not set the implicit grid column's minimum width on phones. */
-.reading-classroom > .rl {
-  grid-template-columns: minmax(0, 1fr);
+@media (max-width: 650px) {
+  .reading-classroom > .rl {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 .reading-classroom .rl-caption {
   min-width: 0;
