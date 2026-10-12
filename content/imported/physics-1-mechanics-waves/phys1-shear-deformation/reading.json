@@ -1,0 +1,594 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "phys1-shear-deformation",
+  "curriculumId": "physics-1-mechanics-waves",
+  "contentRevision": "f517213c3ff4d6a68af34dcf8f78ed3eb1e54c44c995051cf0ae8f0186eb9b49",
+  "title": "تشوه القص ومعامل القص",
+  "englishTitle": "Shear Deformation and Shear Modulus",
+  "curriculumTitle": "Physics I — Mechanics and Waves | فيزياء 1: الميكانيكا والموجات",
+  "lessonOrder": 803,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "نشد ولا نزق على جنب؟",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S01",
+          "view": "compare",
+          "kicker": "نوع جديد من التشوّه",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U1"
+          ],
+          "text": "في الدرسين اللي فاتوا كنا بنشد القضيب على طوله، فيطول، وبنوصف ده بـ Young's Modulus.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U2"
+          ],
+          "text": "دلوقتي خد بلوك مطاط على ترابيزة. هنثبّت قاعدته، ونزق الوجه اللي فوق على جنب بقوة أفقية. الحافة اللي فوق تتحرك يمين، واللي تحت تفضل مكانها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U3"
+          ],
+          "text": "البلوك كده مش بيطول؛ شكله نفسه بيميل. التغيير ده اسمه Shear deformation (تشوّه القص).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U4"
+          ],
+          "text": "قبل أي قانون، اسأل: القوة اتجاهها إيه بالنسبة للوجه اللي بتأثر عليه؟ في الشد القوة عمودية على المقطع. في القص القوة Tangential (مماسية)، يعني موازية للسطح نفسه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "إجهاد القص",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S02",
+          "view": "tau",
+          "kicker": "Shear stress — إجهاد القص",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U1"
+          ],
+          "text": "نسمّي الأبعاد: البلوك ارتفاعه $h$، وقاعدته مثبّتة، والوجه اللي فوق مساحته $A$، وعليه قوة $F$ موازية له.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U2"
+          ],
+          "text": "زي الإجهاد في الشد، بنقسم القوة على المساحة، بس هنا القوة موازية للوجه: $τ = F/A$. ده Shear stress (إجهاد القص)، ووحدته برضه $Pa$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U3"
+          ],
+          "text": "وده متوسط على الوجه في الحالة البسيطة دي، كأن القوة متوزّعة بالتساوي. في جسم حقيقي شكله معقّد، التوزيع ممكن يختلف من نقطة لنقطة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "انفعال القص",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S03",
+          "view": "gamma",
+          "kicker": "Shear strain — انفعال القص",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U1"
+          ],
+          "text": "هنا مفيش طول بيزيد. اللي بنقيسه هو المسافة اللي الوجه العلوي اتحركها على جنب بالنسبة للوجه المثبّت، $Δx$، مقارنة بالارتفاع $h$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U2"
+          ],
+          "text": "انفعال القص (Shear strain) ورمزه $γ$: $γ = Δx/h$. طول على طول، فملوش وحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U3"
+          ],
+          "text": "ولو بصّينا على زاوية الميل $θ$، هندسيًا $tan θ = Δx/h$. ولما الزاوية صغيرة ومقاسة بالراديان، $θ ≈ γ$؛ عشان كده ساعات تلاقي انفعال القص مكتوب كزاوية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U4"
+          ],
+          "text": "خلّي بالك: الكلام ده لتشوّه صغير وقص منتظم تقريبًا. التشوّهات الكبيرة أو القص غير المنتظم محتاجة وصف تاني.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "معامل القص",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S04",
+          "view": "modulus",
+          "kicker": "Shear modulus — معامل القص",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U1"
+          ],
+          "text": "زي ما في الشد كان عندنا Young's Modulus، في القص عندنا Shear modulus (معامل القص). في المجال المرن الخطي: $τ = S γ$. الكتاب بيستخدم الرمز $S$، ومراجع تانية بتكتبه $G$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U2"
+          ],
+          "text": "يعني $S = τ/γ$. وفي البلوك البسيط: $S = (F/A)/(Δx/h) = Fh/(AΔx)$. إجهاد بالباسكال على انفعال من غير وحدة، فـ$S$ وحدته $Pa$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U3"
+          ],
+          "text": "معنى ده: تحت نفس إجهاد القص، المادة اللي $S$ بتاعها أكبر بتميل أقل، يعني $γ$ أصغر. دي مقاومة للتشوّه المرن، مش قوة الكسر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "مثال محلول",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S05",
+          "view": "example",
+          "kicker": "مثال",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U1"
+          ],
+          "text": "بلوك ارتفاعه $h = 0.10 m$، ومساحة وجهه العلوي $A = 0.020 m²$. قوة أفقية $F = 60 N$ حرّكت الوجه العلوي $Δx = 0.20 mm$. نفترض قص بسيط ومنتظم في المجال المرن.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U2"
+          ],
+          "text": "أول خطوة نحوّل الإزاحة للمتر: $Δx = 0.20 mm = 2.0 × 10⁻⁴ m$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U3"
+          ],
+          "text": "إجهاد القص: $τ = F/A = 60/0.020 = 3000 Pa$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U4"
+          ],
+          "text": "انفعال القص: $γ = Δx/h = (2.0 × 10⁻⁴)/0.10 = 0.002$، من غير وحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U5"
+          ],
+          "text": "ومعامل القص: $S = τ/γ = 3000/0.002 = 1.5 × 10⁶ Pa$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "خلّي بالك من الأبعاد",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S06",
+          "view": "dims",
+          "kicker": "أخطاء شائعة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U1"
+          ],
+          "text": "أكتر غلطة هنا في الأطوال. $h$ هي المسافة بين الوجه اللي بيتحرك والوجه المثبّت، و$Δx$ هي الحركة الجانبية النسبية بينهم. لو استخدمت $ΔL/L₀$ من مسائل يونج، تبقى غيّرت نوع التشوّه من غير ما تاخد بالك.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U2"
+          ],
+          "text": "سؤال للتفكير: لو كبّرنا مساحة الوجه للضعف، بنفس القوة والارتفاع والمادة؟ $τ = F/A$ يقل للنص، فـ$γ = τ/S$ يقل للنص، ومع نفس $h$ الإزاحة $Δx$ تقل للنص.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U3"
+          ],
+          "text": "ولو كبّرنا الارتفاع مع نفس الإجهاد ونفس المادة؟ $γ$ زي ما هو، لكن $Δx = γ h$ تكبر. الأبعاد بتفرق هنا زي ما فرقت في القضيب.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "إمتى القانون ده يصح؟",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S07",
+          "view": "conditions",
+          "kicker": "شروط النموذج",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-U1"
+          ],
+          "text": "القانون $S = Fh/(AΔx)$ بيصح بشروط: أوجه مستوية تقريبًا، قاعدة مثبّتة، قوة موازية للوجه، تشوّه صغير، قص منتظم نقدر نوصفه بمتوسط، وسلوك مرن خطي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U2"
+          ],
+          "text": "مسائل فيها التواء أو انحناء محتاجة علاقات تانية؛ مينفعش نطبّق القانون ده لمجرد إن فيه قوة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "سؤال 1: احسب τ وγ وS",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S08",
+          "view": "q1",
+          "kicker": "جرّب بنفسك",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-UEN"
+          ],
+          "text": "A block has height 0.15 m and a top-face area of 0.030 m². Its bottom face is fixed. A tangential force of 90 N shifts the top face sideways by 0.30 mm. Assuming uniform, small, linear-elastic simple shear, calculate the average shear stress, engineering shear strain and shear modulus.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-UAR"
+          ],
+          "text": "بلوك ارتفاعه $0.15 m$ ومساحة وجهه العلوي $0.030 m²$، وقاعدته مثبّتة. قوة مماسية $90 N$ حرّكت الوجه العلوي $0.30 mm$. احسب إجهاد القص وانفعال القص ومعامل القص. ابدأ بالرسم واتجاه القوة وتحويل الوحدات.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "A block has height 0.15 m and a top-face area of 0.030 m². Its bottom face is fixed. A tangential force of 90 N shifts the top face sideways by 0.30 mm. Assuming uniform, small, linear-elastic simple shear, calculate the average shear stress, engineering shear strain and shear modulus.",
+        "arabic": "بلوك ارتفاعه $0.15 m$ ومساحة وجهه العلوي $0.030 m²$، وقاعدته مثبّتة. قوة مماسية $90 N$ حرّكت الوجه العلوي $0.30 mm$. احسب إجهاد القص وانفعال القص ومعامل القص. ابدأ بالرسم واتجاه القوة وتحويل الوحدات.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "τ = 90/0.030 = 3000 Pa. γ = (3.0 × 10⁻⁴)/0.15 = 0.002. S = τ/γ = 1.5 × 10⁶ Pa.",
+          "arabic": "القوة موازية للوجه، فده قص مش شد. إجهاد القص: τ = F/A = 90/0.030 = 3000 Pa. نحوّل الإزاحة: Δx = 0.30 mm = 3.0 × 10⁻⁴ m. انفعال القص: γ = Δx/h = (3.0 × 10⁻⁴)/0.15 = 0.002، من غير وحدة. خلّي بالك إن المقام هو الارتفاع 0.15 m. معامل القص: S = τ/γ = 3000/0.002 = 1.5 × 10⁶ Pa."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "τ = 90/0.030 = 3000 Pa. γ = (3.0 × 10⁻⁴)/0.15 = 0.002. S = τ/γ = 1.5 × 10⁶ Pa.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "القوة موازية للوجه، فده قص مش شد. إجهاد القص: $τ = F/A = 90/0.030 = 3000 Pa$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "نحوّل الإزاحة: $Δx = 0.30 mm = 3.0 × 10⁻⁴ m$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "انفعال القص: $γ = Δx/h = (3.0 × 10⁻⁴)/0.15 = 0.002$، من غير وحدة. خلّي بالك إن المقام هو الارتفاع $0.15 m$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "معامل القص: $S = τ/γ = 3000/0.002 = 1.5 × 10⁶ Pa$.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-board",
+            "params": {
+              "scene": "S08",
+              "view": "q1",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "سؤال 2: ضعف المساحة",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S09",
+          "view": "q2",
+          "kicker": "جرّب بنفسك",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-UEN"
+          ],
+          "text": "Two blocks of the same material and height are subjected to equal tangential forces. Block B has twice the loaded-face area of block A. Compare their average shear stresses and their sideways displacements in the same linear simple-shear approximation.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-UAR"
+          ],
+          "text": "بلوكين من نفس المادة وبنفس الارتفاع، وعليهم نفس القوة المماسية، لكن مساحة الوجه في B ضعف A. قارن إجهاد القص والإزاحة الجانبية للاتنين، واشرح السبب قبل ما تكتب النسب.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "Two blocks of the same material and height are subjected to equal tangential forces. Block B has twice the loaded-face area of block A. Compare their average shear stresses and their sideways displacements in the same linear simple-shear approximation.",
+        "arabic": "بلوكين من نفس المادة وبنفس الارتفاع، وعليهم نفس القوة المماسية، لكن مساحة الوجه في B ضعف A. قارن إجهاد القص والإزاحة الجانبية للاتنين، واشرح السبب قبل ما تكتب النسب.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Block B has half the average shear stress of A, half the shear strain and half the sideways displacement.",
+          "arabic": "بما إن τ = F/A، المساحة الضعف بنفس القوة تدّي نص الإجهاد: τʙ = τᴀ/2. ونفس المادة يعني نفس S، فـγ = τ/S ينزل للنص برضه. ونفس الارتفاع h، فـΔx = γ h تنزل للنص: البلوك B بيميل نص ميل A."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "Block B has half the average shear stress of A, half the shear strain and half the sideways displacement.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR",
+                "F02-U1"
+              ],
+              "text": "بما إن $τ = F/A$، المساحة الضعف بنفس القوة تدّي نص الإجهاد: $τʙ = τᴀ/2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "ونفس المادة يعني نفس $S$، فـ$γ = τ/S$ ينزل للنص برضه.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "ونفس الارتفاع $h$، فـ$Δx = γ h$ تنزل للنص: البلوك B بيميل نص ميل A.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-board",
+            "params": {
+              "scene": "S09",
+              "view": "q2",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S10",
+      "title": "الخلاصة",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S10",
+          "view": "recap",
+          "kicker": "الخلاصة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-shear-deformation"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S10-U1"
+          ],
+          "text": "الخلاصة: في القص القوة موازية للوجه، والجسم شكله بيميل بدل ما يطول.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-U2"
+          ],
+          "text": "وصفنا الحمل بإجهاد القص $τ = F/A$، والاستجابة بانفعال القص $γ = Δx/h$، اللي بيساوي تقريبًا زاوية الميل للزوايا الصغيرة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-U3"
+          ],
+          "text": "وربطناهم بمعامل القص $S = τ/γ = Fh/(AΔx)$، مع الانتباه إن $h$ هي المسافة بين الوجهين و$Δx$ حركة جانبية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-U4"
+          ],
+          "text": "في الدرس الجاي: ضغط ييجي من كل الاتجاهات ويغيّر الحجم نفسه، مش الطول ولا الميل. ده Bulk modulus.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Shear deformation",
+      "definition": "تشوّه القص: الوجه العلوي يتحرك جنب بالنسبة للوجه المثبّت، فالشكل يميل."
+    },
+    {
+      "term": "Tangential force",
+      "definition": "قوة مماسية: موازية للسطح اللي بتأثر عليه."
+    },
+    {
+      "term": "Shear stress (τ)",
+      "definition": "إجهاد القص: τ = F/A، القوة الموازية على مساحة الوجه، بوحدة Pa."
+    },
+    {
+      "term": "Shear strain (γ)",
+      "definition": "انفعال القص: γ = Δx/h، من غير وحدة؛ للزاوية الصغيرة γ ≈ θ."
+    },
+    {
+      "term": "Shear modulus (S أو G)",
+      "definition": "معامل القص: S = τ/γ = Fh/(AΔx)، بوحدة Pa."
+    }
+  ],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "تفرّق بين قوة موازية للوجه (قص) وقوة عمودية عليه (شد)",
+      "sceneIds": [
+        "S01",
+        "S06",
+        "S07",
+        "S10"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "تحسب إجهاد القص τ وانفعال القص γ وتعرف معنى h وΔx",
+      "sceneIds": [
+        "S02",
+        "S03",
+        "S06",
+        "S10"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تحسب معامل القص S وتتوقع أثر تغيير المساحة أو الارتفاع",
+      "sceneIds": [
+        "S04",
+        "S05",
+        "S06",
+        "S10"
+      ],
+      "questionIds": [
+        "Q01",
+        "Q02"
+      ]
+    }
+  ]
+}

@@ -1457,7 +1457,55 @@
           "curriculumId": "physics-1-mechanics-waves",
           "order": 803,
           "title": "تشوه القص ومعامل القص",
-          "subtitle": "Shear Deformation and Shear Modulus"
+          "subtitle": "Shear Deformation and Shear Modulus",
+          "moduleId": "reading:phys1-shear-deformation",
+          "contentRevision": "f517213c3ff4d6a68af34dcf8f78ed3eb1e54c44c995051cf0ae8f0186eb9b49",
+          "manifestHash": "497ca8c66de3718652eabd2b7f74c85f865e6098fe00df4cdc4275229afbea28",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تفرّق بين قوة موازية للوجه (قص) وقوة عمودية عليه (شد)",
+              "sceneIds": [
+                "S01",
+                "S06",
+                "S07",
+                "S10"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "تحسب إجهاد القص τ وانفعال القص γ وتعرف معنى h وΔx",
+              "sceneIds": [
+                "S02",
+                "S03",
+                "S06",
+                "S10"
+              ],
+              "questionIds": [
+                "Q01",
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تحسب معامل القص S وتتوقع أثر تغيير المساحة أو الارتفاع",
+              "sceneIds": [
+                "S04",
+                "S05",
+                "S06",
+                "S10"
+              ],
+              "questionIds": [
+                "Q01",
+                "Q02"
+              ]
+            }
+          ]
         },
         {
           "id": "phys1-bulk-compression",
