@@ -1,0 +1,56 @@
+name: Restore legacy gas-law package
+on:
+  push:
+    branches: ['feat/restore-legacy-gas-laws']
+permissions:
+  contents: write
+jobs:
+  import-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v4
+        with:
+          repository: addvaluewithai-hub/learn-curriculums
+          ref: 688ef13ed7c29febae4e20a4423ecb904e5dbf7e
+          path: .authoring-import
+          persist-credentials: false
+      - run: npm ci --prefix .authoring-import/preview-sdk
+      - run: python3 .authoring-import/tools/cli.py export-platform --course chemistry-gas-laws
+      - run: npm ci
+      - run: npm run content:import -- .authoring-import/dist/platform/chemistry-gas-laws
+      - name: Remove the temporary authoring checkout
+        run: rm -rf -- .authoring-import
+      - run: npm run format:check
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - run: npm run functions:check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser:reading
+      - run: npm run test:browser:legacy-gas
+      - run: npm run test:browser:statics
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: legacy-gas-student-acceptance
+          path: test-results/
+          if-no-files-found: error
+      - name: Commit the verified generated package
+        env:
+          IMPORT_BRANCH: feat/restore-legacy-gas-laws
+        run: |
+          git config user.name Codex
+          git config user.email codex@openai.com
+          git add -- content/imported apps/platform/content-modules.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Import verified legacy gas laws from the reviewed authoring source"
+            git push origin "HEAD:refs/heads/$IMPORT_BRANCH"
+          fi

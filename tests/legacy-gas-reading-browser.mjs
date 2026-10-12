@@ -55,6 +55,11 @@ try {
       const questionScene = pkg.scenes.find((s) => s.question);
       const question = questionScene.question;
       const saved = new Map();
+      let delayedFirstWrite = false;
+      let firstWriteStarted;
+      const firstWrite = new Promise((resolve) => {
+        firstWriteStarted = resolve;
+      });
       const errors = [];
       const page = await browser.newPage({
         viewport: { width, height: 900 },
@@ -87,13 +92,25 @@ try {
           const key = decodeURIComponent(progress[1]);
           if (request.method() === 'PUT') {
             const input = request.postDataJSON();
+            const current = saved.get(key);
+            if (input.revision !== (current?.revision ?? null)) {
+              await route.fulfill({ status: 409, json: { error: 'conflict', current } });
+              return;
+            }
             saved.set(key, {
               revision: (saved.get(key)?.revision ?? -1) + 1,
               state: input.state,
               completed: input.complete,
             });
+            body = saved.get(key);
+            if (lesson.order === 1 && width === 1280 && !delayedFirstWrite) {
+              delayedFirstWrite = true;
+              firstWriteStarted();
+              // A slow old acknowledgement may not label a later position as saved.
+              await new Promise((resolve) => setTimeout(resolve, 2000));
+            }
           }
-          body = { revision: null, state: null, completed: false, ...saved.get(key) };
+          body ??= { revision: null, state: null, completed: false, ...saved.get(key) };
         } else if (path.startsWith('/api/lessons/') && pins[`reading:${id}`])
           body = { ...pins[`reading:${id}`], moduleId: `reading:${id}`, stage: 'published' };
         await route.fulfill({ status: body ? 200 : 404, json: body ?? { error: 'unavailable' } });
@@ -138,6 +155,7 @@ try {
         path: `${output}/${lesson.id}-${width}-teaching.png`,
         fullPage: true,
       });
+      if (lesson.order === 1 && width === 1280) await firstWrite;
       for (let guard = 0; guard < 120 && !(await page.locator('.rl-question').count()); guard++)
         await next(page);
       await page.locator('.rl-question').waitFor();
@@ -172,6 +190,11 @@ try {
         fullPage: true,
       });
       await page.locator('.reading-save', { hasText: 'اتحفظ' }).waitFor();
+      assert.equal(
+        saved.get(lesson.id).state.phase,
+        'feedback',
+        'saved indicator acknowledges this feedback position',
+      );
       await page.reload();
       await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).waitFor();
       assert.ok(saved.get(lesson.id).state.attempts.some((a) => a.questionId === question.id));
