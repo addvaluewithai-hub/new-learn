@@ -1,0 +1,286 @@
+/* Reading lesson stage: a full-height study room. Every region has a fixed place, so moving
+   between steps never shifts the layout; the board is the hero and everything else is quiet. */
+.rl {
+  --rl-paper: #f6f5f0;
+  --rl-card: #fff;
+  --rl-ink: #1b2925;
+  --rl-soft: #5f6f69;
+  --rl-faint: #97a39d;
+  --rl-wash: rgb(27 41 37 / 6%);
+  --rl-accent: #17463c;
+  --rl-lime: #c4eb67;
+  --rl-shadow: 0 1px 2px rgb(16 32 28 / 6%), 0 8px 24px rgb(16 32 28 / 7%);
+  --rl-caption-h: 136px;
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) var(--rl-caption-h) auto;
+  overflow: hidden;
+  background: var(--rl-paper);
+  color: var(--rl-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.rl :focus-visible {
+  outline: 3px solid #9ccf73;
+  outline-offset: 2px;
+}
+.rl-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 440px) minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  padding: 14px 24px 8px;
+}
+.rl-top-start,
+.rl-top-end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.rl-top-end {
+  justify-content: flex-end;
+}
+.rl-titles {
+  display: grid;
+  min-width: 0;
+  line-height: 1.35;
+}
+.rl-titles span {
+  color: var(--rl-faint);
+  font-size: 12.5px;
+}
+.rl-titles strong,
+.rl-titles span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.rl-titles strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+.rl-track {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.rl-track-seg {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: rgb(27 41 37 / 10%);
+  overflow: hidden;
+}
+.rl-track-seg i {
+  display: block;
+  height: 100%;
+  inline-size: 0;
+  border-radius: inherit;
+  background: var(--rl-accent);
+  transition: inline-size 0.35s ease;
+}
+.rl-track-seg[data-state='done'] i {
+  inline-size: 100%;
+  background: #8fbf6a;
+}
+.rl-stage {
+  container-type: size;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 6px 24px 0;
+}
+.rl-board-frame {
+  animation: rl-scene 0.35s ease both;
+  width: min(100cqw, calc(100cqh * var(--rl-ar)));
+  aspect-ratio: var(--rl-ar);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d1626;
+  box-shadow: 0 30px 60px -28px rgb(10 24 30 / 55%);
+}
+.rl-board {
+  width: 100%;
+  height: 100%;
+}
+.rl-caption-zone {
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 0;
+}
+.rl-dock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 24px calc(18px + env(safe-area-inset-bottom));
+}
+.rl-dock-center {
+  flex: 0 1 460px;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+.rl-dock-hint {
+  flex: 0 1 460px;
+  margin: 0;
+  text-align: center;
+  color: var(--rl-soft);
+}
+.rl-round {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rl-card);
+  color: var(--rl-ink);
+  box-shadow: var(--rl-shadow);
+  font: inherit;
+  font-size: 22px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.rl-round-sm {
+  width: 38px;
+  height: 38px;
+  font-size: 21px;
+  background: var(--rl-wash);
+  box-shadow: none;
+}
+.rl-round:disabled {
+  opacity: 0.35;
+  box-shadow: none;
+  cursor: default;
+}
+.rl-next {
+  min-width: 136px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--rl-accent);
+  color: #fff;
+  box-shadow: 0 10px 22px -10px rgb(23 70 60 / 70%);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
+}
+.rl-next:hover {
+  filter: brightness(1.12);
+}
+.rl-next:active {
+  transform: scale(0.97);
+}
+.rl-next:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: default;
+}
+.rl-answer {
+  flex: 0 1 580px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 28px;
+  background: var(--rl-card);
+  box-shadow: var(--rl-shadow);
+}
+.rl-answer:focus-within {
+  box-shadow:
+    0 0 0 3px #d4ebc4,
+    var(--rl-shadow);
+}
+.rl-answer textarea:focus-visible {
+  outline: none;
+}
+.rl-answer textarea {
+  flex: 1;
+  min-width: 0;
+  max-height: 96px;
+  padding: 11px 16px;
+  border: 0;
+  background: none;
+  color: var(--rl-ink);
+  font: inherit;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+}
+.rl-answer .rl-next {
+  min-width: 96px;
+  height: 44px;
+}
+@media (max-width: 650px) {
+  .rl {
+    --rl-caption-h: 132px;
+  }
+  .rl-top {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'start end' 'track track';
+    gap: 2px 10px;
+    padding: 10px 14px 0;
+  }
+  .rl-top-start {
+    grid-area: start;
+  }
+  .rl-top-end {
+    grid-area: end;
+  }
+  .rl-top-track {
+    grid-area: track;
+  }
+  .rl-titles span {
+    display: none;
+  }
+  .rl-track {
+    padding: 8px 0 4px;
+  }
+  .rl-stage {
+    padding: 6px 14px 0;
+  }
+  .rl-board-frame {
+    border-radius: 18px;
+  }
+  .rl-caption-zone {
+    padding: 10px 14px 0;
+  }
+  .rl-dock {
+    gap: 10px;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+  }
+  .rl-dock-center {
+    flex: none;
+  }
+  .rl-dock .rl-next,
+  .rl-answer {
+    flex: 1;
+    min-width: 0;
+  }
+}
+@media (max-height: 700px) and (min-width: 651px) {
+  .rl {
+    --rl-caption-h: 116px;
+  }
+}

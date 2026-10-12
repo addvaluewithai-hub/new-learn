@@ -43,11 +43,6 @@ export function LibraryShell({
             مناهجي
           </a>
         </nav>
-        <div className="sidebar-note">
-          <PlatformIcon name="spark" />
-          <strong>خد وقتك في الفهم.</strong>
-          <p>كل فكرة بتفتح لك طريق جديد.</p>
-        </div>
         <div className="sidebar-account">
           <div className="avatar">{user.name.slice(0, 1)}</div>
           <div>
@@ -77,10 +72,9 @@ export function LibraryShell({
           >
             <PlatformIcon name="menu" />
           </button>
-          <span>مساحة تعلّمك، على مهلك.</span>
-          <span>{user.name.split(' ')[0]}</span>
+          <Brand />
         </header>
-        <main className="library-content" id="main-content">
+        <main className="library-content library-sheet" id="main-content">
           {error && (
             <p className="error-message" role="alert">
               {error}

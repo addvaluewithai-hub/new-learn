@@ -1,43 +1,96 @@
 .section-heading {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 28px 0 18px;
+  align-items: baseline;
+  margin: 40px 0 14px;
 }
 .section-heading h2 {
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 .section-heading > span {
-  font-size: 0.8rem;
   color: var(--muted);
+  font-size: 0.82rem;
 }
-.course-grid {
+.course-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-.course-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  overflow: hidden;
-}
-.course-cover {
-  display: block;
-  position: relative;
-  border: 0;
-  width: 100%;
+  gap: 4px;
+  margin: 0;
   padding: 0;
-  text-align: inherit;
+  list-style: none;
 }
-.course-art {
-  height: 185px;
+.course-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 14px;
+  border-radius: 18px;
+  transition: background 0.15s ease;
+}
+.course-row {
+  position: relative;
+}
+/* The title link covers the row, so the whole row opens the curriculum. */
+.course-copy h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.course-row:hover {
+  background: #f6f5f0;
+}
+.course-copy h3 {
+  margin: 2px 0 4px;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+.course-copy p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.course-progress {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.course-progress .pick-bar {
+  flex: 0 1 220px;
+}
+.course-progress > span:last-child {
+  white-space: nowrap;
+}
+.course-badge .course-art {
+  width: 64px;
+  height: 64px;
+  gap: 0;
+  border-radius: 18px;
+}
+.course-badge .earth-art svg {
+  width: 40px;
+  height: 40px;
+  stroke-width: 2;
+}
+.course-badge .art-equation {
+  font-size: 1.6rem;
+}
+.art-equation sup {
+  font-size: 0.55em;
+}
+.course-badge .ratio-dots,
+.course-badge .art-note {
+  display: none;
+}
+.course-art {
+  display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  justify-content: center;
 }
 .math-art {
   background: #efeafb;
@@ -48,103 +101,37 @@
   color: #254f40;
 }
 .earth-art svg {
-  width: 128px;
-  height: 128px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.1;
 }
 .art-equation {
-  font-family: Georgia, serif;
-  font-size: 3.5rem;
-  font-weight: 500;
   direction: ltr;
+  font-family: Georgia, serif;
+  font-weight: 500;
   line-height: 1;
 }
-.ratio-dots {
-  display: flex;
-  gap: 7px;
-  direction: ltr;
-}
-.ratio-dots i,
-.ratio-dots b {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #8b78ad;
-}
-.ratio-dots b {
-  background: #c0afd9;
-}
-.ratio-dots i:nth-child(2) {
-  margin-right: 14px;
-}
-.art-note {
-  font-size: 0.72rem;
-  opacity: 0.8;
-}
-.course-category {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: #ffffffbf;
-  backdrop-filter: blur(4px);
-  padding: 5px 12px;
-  border-radius: 7px;
-  font-size: 0.72rem;
-}
-.course-body {
-  padding: 22px 25px 18px;
-}
-.course-meta {
-  display: flex;
-  gap: 15px;
-  color: var(--muted);
-  font-size: 0.73rem;
-}
-.course-body h3 {
-  font-size: 1.22rem;
-  font-weight: 500;
-  margin: 11px 0 6px;
-}
-.course-body h3 button {
-  background: none;
-  border: 0;
-  font: inherit;
-  text-align: start;
-  padding: 0;
-}
-.course-body > p {
-  font-size: 0.83rem;
-  line-height: 1.8;
-  color: var(--muted);
-  min-height: 46px;
-}
-.course-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 12px;
-  font-size: 0.76rem;
-}
-
-@media (max-width: 900px) {
-  .course-grid {
-    gap: 16px;
-  }
-  .course-body {
-    padding: 18px;
-  }
-  .course-body h3 {
-    font-size: 1.06rem;
-  }
-}
 @media (max-width: 700px) {
-  .course-grid {
-    grid-template-columns: 1fr;
+  .course-row {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px 4px;
   }
-  .course-bottom {
-    flex-wrap: wrap;
-    gap: 12px;
+  .course-badge .course-art {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
   }
+  .course-open {
+    display: none;
+  }
+  .course-progress .pick-bar {
+    flex: 1;
+  }
+  .course-available {
+    display: none;
+  }
+}
+.course-open {
+  position: relative;
+  z-index: 1;
 }

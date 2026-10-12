@@ -1,0 +1,102 @@
+/* Home "pick": the one lesson to do next, with goals as diamonds and a thin progress bar. */
+.goal-marks {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.goal-marks i {
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid #b3bfb8;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+.goal-marks i[data-met] {
+  border-color: #79ad3f;
+  background: #c4eb67;
+}
+.goal-marks bdi {
+  margin-inline-start: 4px;
+}
+.pick-bar {
+  height: 6px;
+  display: block;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #ebede7;
+}
+.pick-bar i {
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: #8fcf4a;
+}
+.pick {
+  padding: 22px;
+  border-radius: 26px;
+  background: radial-gradient(120% 140% at 100% 0%, #eef3e4 0%, transparent 60%), #f4f2ec;
+}
+.pick-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-inline: 4px;
+}
+.pick-course {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.pick-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 24px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 5%),
+    0 12px 30px rgb(16 32 28 / 7%);
+}
+.pick-main h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.pick-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 420px;
+  margin-top: 12px;
+}
+.pick-go {
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 24px;
+  border-radius: 99px;
+  background: #17463c;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 10px 22px -10px rgb(23 70 60 / 70%);
+}
+@media (max-width: 700px) {
+  .pick {
+    padding: 14px;
+    border-radius: 22px;
+  }
+  .pick-card {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 18px;
+  }
+  .pick-go {
+    justify-content: center;
+  }
+}

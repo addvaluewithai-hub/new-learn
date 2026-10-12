@@ -82,7 +82,7 @@ function api(store) {
     });
   };
 }
-const next = (page) => page.locator('.reading-nav .reading-primary').click();
+const next = (page) => page.locator('.rl-dock .rl-next').click();
 let browser;
 try {
   for (let i = 0; ; i++) {
@@ -101,40 +101,41 @@ try {
     page.on('pageerror', (e) => errors.push(e.message));
     await page.route('**/api/**', api(store));
     await page.goto(url);
-    await page.locator('.continue-card', { hasText: first.title }).waitFor();
+    await page.locator('.pick', { hasText: first.title }).waitFor();
     await page.screenshot({ path: `test-results/home-${width}.png`, fullPage: true });
     await page.goto(`${url}/?curriculum=${course.id}`);
     await page.locator('.plan-part').first().waitFor();
     await page.screenshot({ path: `test-results/plan-${width}.png`, fullPage: true });
     await page.locator('.plan-lessons a', { hasText: 'ابدأ' }).first().click();
-    await page.locator('.reading-lesson').waitFor();
-    await page.getByRole('button', { name: /الأهداف 0 من/ }).click();
-    await page.locator('.reading-goals-panel').waitFor();
+    await page.locator('.rl').waitFor();
+    await page.getByRole('button', { name: /أهداف الدرس: 0 من/ }).click();
+    await page.locator('.rl-pop').waitFor();
+    await page.keyboard.press('Escape');
     await page.screenshot({ path: `test-results/reading-${width}.png`, fullPage: true });
-    while (!(await page.locator('.reading-attempt').count())) await next(page);
-    assert.equal(await page.locator('.reading-tag').count(), 0, 'no answer before attempt');
+    while (!(await page.locator('.rl-question').count())) await next(page);
+    assert.equal(
+      await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).count(),
+      0,
+      'no answer before attempt',
+    );
     await page.getByLabel('إجابتك').fill('7/12');
-    await page.getByRole('button', { name: 'ابعت وشوف الحل' }).click();
-    await page.locator('.reading-tag', { hasText: 'الإجابة النموذجية' }).waitFor();
-    await page.getByRole('button', { name: /الأهداف 1 من/ }).waitFor();
-    await page.locator('.reading-save', { hasText: 'اتحفظ تقدمك' }).waitFor();
-    const where = await page.locator('.reading-where h2').innerText();
+    await page.getByRole('button', { name: 'ابعت' }).click();
+    await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).waitFor();
+    await page.getByRole('button', { name: /أهداف الدرس: 1 من/ }).waitFor();
+    await page.locator('.reading-save', { hasText: 'اتحفظ' }).waitFor();
+    const where = await page.locator('.rl-titles strong').innerText();
     await page.reload();
-    await page.locator('.reading-lesson').waitFor();
-    assert.equal(await page.locator('.reading-where h2').innerText(), where, 'resumed in place');
-    await page.getByRole('button', { name: /الأهداف 1 من/ }).waitFor();
+    await page.locator('.rl').waitFor();
+    assert.equal(await page.locator('.rl-titles strong').innerText(), where, 'resumed in place');
+    await page.getByRole('button', { name: /أهداف الدرس: 1 من/ }).waitFor();
     await page.screenshot({ path: `test-results/reading-feedback-${width}.png`, fullPage: true });
-    for (
-      let guard = 0;
-      guard < 300 && !(await page.locator('.reading-complete').count());
-      guard++
-    ) {
-      if (await page.locator('.reading-attempt').count())
+    for (let guard = 0; guard < 300 && !(await page.locator('.rl-complete').count()); guard++) {
+      if (await page.locator('.rl-question').count())
         await page.getByRole('button', { name: 'معرفتش، وريني الحل' }).click();
       else await next(page);
     }
-    await page.getByRole('heading', { name: 'خلّصت الدرس' }).waitFor();
-    await page.locator('.reading-save', { hasText: 'اتحفظ تقدمك' }).waitFor();
+    await page.locator('.rl-complete', { hasText: 'خلّصت الدرس' }).waitFor();
+    await page.locator('.reading-save', { hasText: 'اتحفظ' }).waitFor();
     assert.equal(store.get(first.id).completed, true);
     await page.goto(`${url}/?curriculum=${course.id}`);
     await page.locator('.plan-lessons li[data-done]').first().waitFor();
