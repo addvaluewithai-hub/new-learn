@@ -21,4 +21,5 @@ export const readingPackages = {
   "reading:math1-pf-two-linear": () => import('./mathematics-i-algebra/math1-pf-two-linear/reading.json'),
   "reading:math1-pf-three-linear": () => import('./mathematics-i-algebra/math1-pf-three-linear/reading.json'),
   "reading:phys1-solid-structure-stress-strain": () => import('./physics-1-mechanics-waves/phys1-solid-structure-stress-strain/reading.json'),
+  "reading:phys1-young-axial-stiffness": () => import('./physics-1-mechanics-waves/phys1-young-axial-stiffness/reading.json'),
 } as const;
