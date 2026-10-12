@@ -1,0 +1,1452 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "ems-y1-foundations-models",
+  "curriculumId": "engineering-mechanics-statics-y1",
+  "contentRevision": "07a8ccadbe108437e4d94b6b8823282342f54f3dc841be007ff24b72c424d0cf",
+  "title": "مدخل الميكانيكا ونماذج الأجسام",
+  "englishTitle": "Engineering Mechanics and Idealized Models",
+  "curriculumTitle": "الميكانيكا الهندسية - الاستاتيكا | أولى هندسة",
+  "lessonOrder": 1,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "من الجسم الحقيقي للسؤال الهندسي",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "overview",
+          "heading": "من الجسم الحقيقي للسؤال الهندسي",
+          "sceneId": "S01",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "bridge",
+              "label": "نختار الجسم: الكوبري",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "door",
+              "label": "القوة: زق أو شد",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "box",
+              "label": "السكون يحتاج تفسيرًا",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "body",
+              "label": "الجسم ثم القوى ثم السؤال",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "تخيّل إنك واقف قدام كوبري وعليه عربيات. العربيات بتضغط عليه، ومع كده الكوبري ثابت. عشان نفهم ده، أول حاجة نحدد إحنا بندرس مين: هنا الجسم اللي بندرسه هو الكوبري.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "ونفس الفكرة بتقابلك لما تفتح باب: إيدك بتزقه أو بتشده. الزق أو الشد ده تأثير على الباب، وبنسميه قوة (Force). يبقى كلمة قوة هنا لها معنى شفته بإيدك، قبل أي حساب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "طب الصندوق اللي على الأرض ومش بيتحرك؟ هل ده معناه إن مفيش حاجة بتأثر عليه؟ هنبدأ بالصندوق عشان نشوف إزاي جسم ممكن يبقى ساكن رغم إن عليه قوى.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "في الأمثلة دي، بنختار جسم ونشوف مين بيأثر عليه، وبعدين نفسر اللي بيحصل بالرسم والحساب. دراسة الأجسام والقوى بالطريقة دي اسمها الميكانيكا الهندسية (Engineering Mechanics). نبدأ بالفرق بين سؤال عن الاتزان وسؤال عن الحركة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "اتزان ولا تغيّر في الحركة؟",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "branches",
+          "heading": "اتزان ولا تغيّر في الحركة؟",
+          "sceneId": "S02",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "statics",
+              "label": "الاستاتيكا: اتزان",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "moving",
+              "label": "الأسانسير يزداد سرعة",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "accel",
+              "label": "التسارع: تغيّر سرعة أو اتجاه",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "dynamics",
+              "label": "الديناميكا: الحركة وتغيّرها",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "بص على جسم ساكن، زي الصندوق. لو تأثيرات القوى عليه متوازنة، يفضل ساكن: قوة مش بتغلب التانية فتغيّر حالته. الحالة دي اسمها اتزان، ودراسة الاتزان اسمها الاستاتيكا (Statics). هنشوف القوى اللي على الصندوق بعد شوية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "طب الأسانسير وهو بيبدأ يطلع؟ في الأول بيبقى ساكن، وبعدها سرعته بتزيد. السرعة بتقول الحركة بتحصل قد إيه خلال الزمن؛ لو بتزيد، يبقى حالة الحركة نفسها بتتغير.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "التغير ده بنسميه تسارع (Acceleration): السرعة ممكن تزيد أو تقل، وممكن اتجاه الحركة يتغير. فالتسارع مش معناه بس «الجسم ماشي بسرعة»؛ معناه إن سرعته أو اتجاهه بيتغيروا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "دراسة الحركة وعلاقتها بالقوى اسمها الديناميكا (Dynamics). يبقى سؤالنا الأول: بندرس اتزان جسم، ولا حركته وتغيّرها؟ نرجع للصندوق ونشوف ليه السكون مش معناه غياب القوى.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "الصندوق الساكن عليه قوى",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "supported",
+          "heading": "الصندوق الساكن عليه قوى",
+          "sceneId": "S03",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "صندوق ساكن على أرض أفقية",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "down",
+              "label": "جذب الأرض لأسفل",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "up",
+              "label": "دعم السطح لأعلى",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "result",
+              "label": "قوتان موجودتان وتأثير متوازن",
+              "math": ""
+            },
+            {
+              "id": "B05",
+              "key": "check",
+              "label": "السكون لا يعني غياب القوى",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "حط صندوق على أرض أفقية وسيبه من غير زق إضافي. الصندوق ساكن. قبل ما نفسر سكونه، نحدد القوى اللي واقعة عليه، واحدة واحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "الأرض بتجذب الصندوق لتحت. دي قوة الجاذبية، وهي موجودة حتى وإنت مش لامس الصندوق. السهم اللي لتحت بيمثل قوة الأرض على الصندوق.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "وفي المقابل، السطح اللي الصندوق مستند عليه بيدعمه لفوق. دي قوة بسبب التلامس بين الصندوق والسطح؛ السهم اللي لفوق بيمثلها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "في الحالة دي القوتان على نفس الخط: واحدة لفوق وواحدة لتحت، ومقداراهما متساويان. فواحدة بتوازن تأثير التانية على الصندوق. لاحظ إن كل قوة موجودة؛ اللي متوازن هو تأثيرهما مع بعض.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "إذن الصندوق ساكن مش لأن القوى اختفت، لكن لأن تأثيرها عليه متوازن. دي مسألة اتزان. دلوقتي نقارنها بمسألة فيها حركة بتتغير، عشان اختيار الفرع يبقى مفهوم.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "اختيار الفرع المناسب",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "prompt",
+          "heading": "اختيار الفرع المناسب",
+          "sceneId": "S04",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "العربية تزداد سرعة",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "question",
+              "label": "نطبق الاختيار على موقف جديد",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "قارن الصندوق بعربية لعبة بنزقها وسرعتها بتزيد. مع الصندوق كنا بنسأل ليه ثابت. مع العربية بنسأل سرعتها بتتغير إزاي، وإيه علاقة القوى بالتغير ده.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "سؤال العربية يناسب الديناميكا لأننا بندرس الحركة وتغيّرها. جرّب بنفسك في موقف جديد: قطار سرعته بتزيد. اقرا السؤال الجاي، واختار الفرع واذكر السبب قبل ما تشوف الحل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "سؤال: قطار سرعته بتزيد",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: الأسانسير",
+          "sceneId": "S05",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A train moves in a straight line and its speed increases. Which branch is suitable for studying this change: statics or dynamics? Give a reason.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "قطار بيتحرك في خط مستقيم وسرعته بتزيد. لدراسة التغير ده، تختار الاستاتيكا (Statics) ولا الديناميكا (Dynamics)؟ اكتب السبب بكلامك.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "A train moves in a straight line and its speed increases. Which branch is suitable for studying this change: statics or dynamics? Give a reason.",
+        "arabic": "قطار بيتحرك في خط مستقيم وسرعته بتزيد. لدراسة التغير ده، تختار الاستاتيكا (Statics) ولا الديناميكا (Dynamics)؟ اكتب السبب بكلامك.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Dynamics, because the train speed changes and it has acceleration.",
+          "arabic": "نختار الديناميكا: سرعة القطار بتزيد، يعني حركته بتتغير وفيه تسارع. السبب هنا هو إننا بندرس تغير الحركة، مش مجرد وجود جسم متحرك. الاستاتيكا كان سؤالها عن الاتزان. بعد ما عرفنا نوع السؤال، محتاجين نوصف الجسم والقوى بأرقام لها معنى. هنشوف دلوقتي الفرق بين طول وزمن وكتلة وقوة، والوحدة اللي بنقيس بيها كل واحدة."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "Dynamics, because the train speed changes and it has acceleration.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "نختار الديناميكا: سرعة القطار بتزيد، يعني حركته بتتغير وفيه تسارع. السبب هنا هو إننا بندرس تغير الحركة، مش مجرد وجود جسم متحرك. الاستاتيكا كان سؤالها عن الاتزان.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "بعد ما عرفنا نوع السؤال، محتاجين نوصف الجسم والقوى بأرقام لها معنى. هنشوف دلوقتي الفرق بين طول وزمن وكتلة وقوة، والوحدة اللي بنقيس بيها كل واحدة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S05",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "الديناميكا: السرعة تتغير",
+                  "math": ""
+                },
+                {
+                  "id": "F02",
+                  "key": "reason",
+                  "label": "السبب هو تغيّر الحركة",
+                  "math": ""
+                },
+                {
+                  "id": "F03",
+                  "key": "next",
+                  "label": "بعدها: الكميات ووحداتها",
+                  "math": ""
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S06",
+      "title": "الكميات ووحدات قياسها",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "quantities",
+          "heading": "الكميات ووحدات قياسها",
+          "sceneId": "S06",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "length",
+              "label": "طول الترابيزة",
+              "math": "2 m"
+            },
+            {
+              "id": "B02",
+              "key": "time",
+              "label": "زمن الحركة",
+              "math": "5 s"
+            },
+            {
+              "id": "B03",
+              "key": "mass",
+              "label": "كتلة الجسم",
+              "math": "kg"
+            },
+            {
+              "id": "B04",
+              "key": "inertia",
+              "label": "كتلة أكبر: تغيير الحركة أصعب",
+              "math": ""
+            },
+            {
+              "id": "B05",
+              "key": "force",
+              "label": "النيوتن وحدة قياس القوة",
+              "math": ""
+            },
+            {
+              "id": "B06",
+              "key": "newton",
+              "label": "قوة مقاسة بالنيوتن",
+              "math": "30 N"
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "لو قست طول ترابيزة وطلع $2 m$، ده معناه اتنين متر. الطول (Length) بيقول الترابيزة ممتدة قد إيه، والمتر وحدة قياسه. الحرف $m$ بعد رقم الطول اختصار لكلمة متر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "ولو حدث استغرق $5 s$، فده زمن قدره خمس ثواني. الزمن (Time) بيقول الحدث أخد وقت قد إيه، والحرف $s$ اختصار للثانية. الرقم لوحده من غير وحدة مش كفاية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "طب الجسم نفسه، زي عربية لعبة فاضية أو محملة؟ الكتلة (Mass) بتوصف قد إيه فيه مادة في الجسم، في التعريف التمهيدي ده. بنقيسها بالكيلوجرام، ورمزه $kg$. وهنشوف للكتلة أثر واضح لما نحاول نغيّر الحركة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "لو زقّيت عربية فاضية وعربية محملة بنفس القوة وفي نفس ظروف المقارنة، تغيير حركة المحملة أصعب. مقاومة الجسم لتغيير حركته اسمها القصور الذاتي (Inertia)، وكل ما الكتلة تكبر يزيد القصور الذاتي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "أما القوة فهي الزق أو الشد اللي عرفناه عند الباب. زي ما بنقيس الطول بالمتر، بنقيس مقدار القوة بوحدة اسمها النيوتن (Newton). النيوتن إذن وحدة قوة، مش اسم جسم ولا وحدة كتلة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B06"
+          ],
+          "text": "اختصار النيوتن هو $N$؛ لما نكتب $30 N$ نقصد قوة مقدارها تلاتين نيوتن. ده مختلف عن $30 kg$ اللي بتوصف كتلة. هنفهم بعدين إزاي وحدة النيوتن مرتبطة بالكتلة والتسارع؛ دلوقتي نشوف هل مقدار القوة وحده كفاية لوصفها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "القوة: كام وفين وفي أي اتجاه؟",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "doorforce",
+          "heading": "القوة: كام وفين وفي أي اتجاه؟",
+          "sceneId": "S07",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "length",
+              "label": "طول محدد بمقدار ووحدة",
+              "math": "2 m"
+            },
+            {
+              "id": "B02",
+              "key": "body",
+              "label": "المقدار: كام؟",
+              "math": "30 N"
+            },
+            {
+              "id": "B03",
+              "key": "force",
+              "label": "الاتجاه: الزق ناحية إيه؟",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "point",
+              "label": "الموضع: قرب المقبض أم المفصلة؟",
+              "math": ""
+            },
+            {
+              "id": "B05",
+              "key": "check",
+              "label": "المقدار والاتجاه والموضع",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "لما أقول طول الترابيزة $2 m$، عرفت طولها قد إيه. طب لو قلت لك «بزق الباب بقوة $30 N$»؟ عرفت مقدار الزق، لكن لسه فيه معلومات ناقصة عن اللي بعمله بالباب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "العدد $30$ مع وحدة $N$ بيقول القوة قد إيه. الجزء ده من الوصف اسمه المقدار (Magnitude). لما السؤال يقول magnitude، فهو بيسأل «كام؟»، ولسه ما قالش «ناحية فين؟».",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "ممكن نفس مقدار القوة يبقى ناحية اليمين أو ناحية الشمال، والاتجاه يفرق في التأثير. عشان كده وصف القوة محتاج مقدار واتجاه مع بعض. الكمية اللي لها مقدار واتجاه اسمها كمية متجهة (Vector).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "وفي الباب، كمان لازم تقول بتزقه فين: قريب من المفصلة ولا قريب من المقبض؟ مكان تأثير القوة يفرق. المكان ده اسمه موضع تطبيق القوة (Point of application). ده جواب سؤال «القوة على أنهي نقطة؟».",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "يبقى وصف القوة على الباب فيه تلات حاجات: مقدارها، واتجاهها، وموضع تأثيرها. دي معلومات بنحتاجها قبل الحساب. مش هنحسب دوران الباب هنا؛ هدفنا الأول نكتب وصفًا واضحًا للقوة اللي عليه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "راجع وصف القوة قبل الحل",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "vector",
+          "heading": "راجع وصف القوة قبل الحل",
+          "sceneId": "S08",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "نميز الطول عن القوة",
+              "math": "30 N"
+            },
+            {
+              "id": "B02",
+              "key": "force",
+              "label": "اتجاه معلوم مع المقدار",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "point",
+              "label": "طبّق الوصف على جسم جديد",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "ارجع للجملة «قوة $30 N$ على الباب». النيوتن وضّح نوع الكمية، والعدد وضّح مقدارها. لو كانت $2 m$ كنا بنتكلم عن طول، مش قوة. قراءة الوحدة بتمنع خلط الكميتين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "لو أضفت «ناحية اليمين»، يبقى عندك مقدار واتجاه. لكن الباب جسم له أبعاد؛ لازم تحدد كمان النقطة اللي القوة واقعة عليها. السهم بيوضح الاتجاه، وبدايته على الجسم بتوضح الموضع.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "دلوقتي جرّب نفس التفكير على لوح خشب في السؤال الجاي: هل المقدار كفاية، ولا ناقص معلومات؟ اكتبها بنفسك. جمع القوى المتجهة وحساب تأثيرها بالتفصيل هييجوا في دروس بعد كده.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "سؤال: وصف القوة على لوح",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: وصف القوة على لوح",
+          "sceneId": "S09",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A force of $30 N$ acts on a wooden panel. Is its magnitude enough to describe its action? What information is missing?",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "قوة مقدارها $30 N$ بتأثر على لوح خشب. هل المقدار وحده كفاية عشان نوصف تأثير القوة؟ إيه المعلومات اللي لسه محتاجين نعرفها؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "A force of $30 N$ acts on a wooden panel. Is its magnitude enough to describe its action? What information is missing?",
+        "arabic": "قوة مقدارها $30 N$ بتأثر على لوح خشب. هل المقدار وحده كفاية عشان نوصف تأثير القوة؟ إيه المعلومات اللي لسه محتاجين نعرفها؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "No. The force direction and point of application are also needed.",
+          "arabic": "العدد ووحدة النيوتن قالوا لنا مقدار القوة، لكن ما قالوش اتجاهها. نفس المقدار ممكن يبقى ناحية اليمين أو ناحية الشمال، فالمقدار وحده مش وصف كامل. وكمان اللوح له أبعاد، فمحتاجين موضع تأثير القوة عليه. إذن المعلومات الناقصة هي الاتجاه وموضع التطبيق. بعد ما وصفنا القوة، فيه قرار تاني: نرسم الجسم بكل تفاصيله، ولا نقدر نستخدم نموذج أبسط؟"
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "No. The direction and point of application are also needed.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "العدد ووحدة النيوتن قالوا لنا مقدار القوة، لكن ما قالوش اتجاهها. نفس المقدار ممكن يبقى ناحية اليمين أو ناحية الشمال، فالمقدار وحده مش وصف كامل.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "وكمان اللوح له أبعاد، فمحتاجين موضع تأثير القوة عليه. إذن المعلومات الناقصة هي الاتجاه وموضع التطبيق. بعد ما وصفنا القوة، فيه قرار تاني: نرسم الجسم بكل تفاصيله، ولا نقدر نستخدم نموذج أبسط؟",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S09",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "الاتجاه والموضع مطلوبان",
+                  "math": ""
+                },
+                {
+                  "id": "F02",
+                  "key": "magnitude",
+                  "label": "الرقم يحدد المقدار فقط",
+                  "math": "30 N"
+                },
+                {
+                  "id": "F03",
+                  "key": "point",
+                  "label": "بعد وصف القوة نختار نموذج الجسم",
+                  "math": ""
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S10",
+      "title": "ليه نستخدم نموذجًا؟",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "idealization",
+          "heading": "ليه نستخدم نموذجًا؟",
+          "sceneId": "S10",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "جسم حقيقي بتفاصيله",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "model",
+              "label": "النموذج يحتفظ بالتفاصيل المؤثرة",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "check",
+              "label": "نذكر حدود النموذج",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "بص على الحامل المرسوم: فيه شكل عام، وسُمك، وثقوب للمسامير. لو هنحسب تأثير القوى عليه، هل لازم نحط كل التفاصيل دي في كل رسمة؟ الإجابة بتبدأ من السؤال المطلوب حله.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "لو تفاصيل الثقوب مش هتغيّر الإجابة المطلوبة، نقدر نهملها في النموذج ونحتفظ بالشكل والأبعاد المهمة للحساب. ده اسمه التبسيط الهندسي (Idealization): نعمل تمثيل أبسط للجسم الحقيقي يخدم سؤالنا.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "التبسيط له حدود؛ لو السؤال اتغير وبقى عن المنطقة حوالين الثقب، التفاصيل اللي أهملناها ممكن تبقى مهمة. عشان كده بنوضح إيه اللي احتفظنا بيه وإيه اللي أهملناه. نبدأ بمثال نقدر فيه نمثل الجسم بنقطة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "متى نمثل الجسم بنقطة؟",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "particle",
+          "heading": "متى نمثل الجسم بنقطة؟",
+          "sceneId": "S11",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "كاميرا لها كتلة وأبعاد",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "sensor",
+              "label": "المطلوب: مكان مركز الكاميرا",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "path",
+              "label": "نهمل الأبعاد في هذا الحساب",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "model",
+              "label": "الجسيم: كتلة دون أبعاد في النموذج",
+              "math": ""
+            },
+            {
+              "id": "B05",
+              "key": "check",
+              "label": "السؤال يحدد ما يمكن إهماله",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "تخيّل كاميرا صغيرة ونش بينقلها من مكان لمكان. الكاميرا جسم حقيقي: لها حجم وشكل وكتلة، حتى لو إحنا رسمناها بشكل مبسط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "لو المطلوب بس نحدد مكان مركز الكاميرا أثناء النقل، مش ندرس دورانها أو تفاصيل سطحها، نركز في نقطة واحدة: مركزها. التفاصيل اللي حوالين المركز قد لا تلزم الإجابة دي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "في حساب الموضع ده، لو الأبعاد والدوران مش مؤثرين في الدقة المطلوبة، نقدر نمثل الكاميرا بنقطة لها نفس الكتلة. إحنا أهملنا الأبعاد في الحساب، لكن احتفظنا بالكتلة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "التمثيل ده اسمه نموذج الجسيم (Particle). الجسيم هنا نموذج رياضي، مش ادعاء إن الكاميرا الحقيقية حجمها صفر. دي نقطة مهمة: الجسم الحقيقي حاجة، والنموذج اللي بنحسب بيه حاجة تانية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B05"
+          ],
+          "text": "طب لو السؤال عن دوران الكاميرا، أو مكان تثبيتها على الونش؟ ساعتها أبعادها ومواضع النقاط عليها ممكن تفرق، فنحتاج نموذجًا يحتفظ بالأبعاد. وده اللي هنشوفه دلوقتي.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "نحتفظ بالأبعاد ونهمل التشوه",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "rigid",
+          "heading": "نحتفظ بالأبعاد ونهمل التشوه",
+          "sceneId": "S12",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "أبعاد الحامل مهمة",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "distance",
+              "label": "نهمل التشوه ونحتفظ بالأبعاد",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "model",
+              "label": "الجسم الجاسئ: الأبعاد موجودة",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "check",
+              "label": "حساب الانحناء يحتاج نموذجًا آخر",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "ارجع للحامل الطويل. لو القوة بتأثر عند طرفه، طول الحامل ومكان الطرف مهمان. تمثيله بنقطة واحدة هيضيّع المعلومات دي، فهنا بنحتفظ بالشكل والأبعاد.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "لكن ممكن نهمل التشوه: يعني نفترض إن الشكل والأبعاد ما بيتغيروش بسبب القوة في الحساب ده. على الرسم، المسافة بين النقطتين «أ» و«ب» تفضل ثابتة. ده معنى إهمال التشوه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "نموذج يحتفظ بأبعاد الجسم ويفترض إنها ثابتة اسمه الجسم الجاسئ (Rigid Body). كلمة جاسئ هنا وصف للنموذج: مش بنحسب تشوهه. تذكّر الفرق: الجسيم يهمل الأبعاد، والجسم الجاسئ يحتفظ بيها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "لو المطلوب مقدار انحناء الحامل، ما ينفعش نفترض إنه ما بيتشوهش؛ الانحناء نفسه هو اللي عايزين نحسبه. يبقى اختيار النموذج تابع للمطلوب. عرفنا تبسيط الجسم؛ نشوف دلوقتي تبسيط تمثيل القوة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "من مساحة تلامس إلى سهم قوة",
+      "clipId": "N13",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "contact",
+          "heading": "من مساحة تلامس إلى سهم قوة",
+          "sceneId": "S13",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "distributed",
+              "label": "قوة موزعة على مساحة تلامس",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "scope",
+              "label": "المطلوب: التأثير الكلي",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "model",
+              "label": "قوة مركزة بدل توزيع القوة",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "check",
+              "label": "الضغط المحلي يحتاج تفاصيل التوزيع",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "المسمار بيلمس الحامل على مساحة صغيرة، فالقوة واقعة على أجزاء المساحة دي، مش على نقطة حقيقية واحدة. الأسهم الصغيرة بتوضح توزيع القوة. وكلمة حمل (Load) هنا معناها القوة المؤثرة على الحامل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "لو السؤال عن تأثير الحمل على الحامل ككل، ومش محتاجين تفاصيل اللي بيحصل عند التلامس، ممكن نستبدل التوزيع بتمثيل أبسط يحافظ على التأثير الكلي المطلوب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "نرسم سهم قوة واحد عند موضع مناسب بدل الأسهم الصغيرة. ده نموذج القوة المركزة (Concentrated Force). السهم الواحد طريقة للتمثيل، مش معناه إن مساحة التلامس الحقيقية اختفت.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "أما لو السؤال عن الضغط تحت المسمار، فهو عن توزيع القوة على مساحة التلامس نفسها، فلازم نحتفظ بالتفاصيل دي. إذن القوة المركزة نموذج للقوة؛ والجسيم والجسم الجاسئ نموذجان للجسم. هنجرّب اختيار النموذج حسب السؤال.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "اختيار النموذج يبدأ بالمطلوب",
+      "clipId": "N14",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "particle",
+          "heading": "اختيار النموذج يبدأ بالمطلوب",
+          "sceneId": "S14",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "حدد المطلوب أولًا",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "sensor",
+              "label": "اختر التفاصيل اللازمة",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "path",
+              "label": "اختبر النموذج في موقف جديد",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "قبل ما تختار اسم النموذج، اسأل: المطلوب أعرف مكان مركز الجسم فقط، ولا محتاج أبعاده ومكان تأثير القوة عليه؟ نفس الجسم ممكن يحتاج تمثيلًا مختلفًا في كل سؤال.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "في مثال الكاميرا، لو مركزها وحده كفاية للإجابة، ممكن نهمل الأبعاد. ولو أبعادها بتفرق في المطلوب، لازم نحتفظ بيها. يبقى القرار له سبب؛ مش بنختار نموذج الجسيم لمجرد إن الجسم صغير.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "جرّب دلوقتي على طرد أثناء النقل. اقرأ المطلوب، وحدد التفاصيل اللي تلزمه، وبعدين اكتب اسم النموذج وشرط استخدامه. الشرط جزء من الإجابة، مش كلمة بنحفظها بعد اسم النموذج.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "title": "سؤال: نموذج لطرد أثناء النقل",
+      "clipId": "N15",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: نموذج لطرد أثناء النقل",
+          "sceneId": "S15",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A small parcel travels several kilometers. Only its centre position is required. Is a particle model reasonable? State the condition.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "طرد صغير بينتقل مسافة كيلومترات. المطلوب نحدد مكان مركزه فقط. هل ينفع نستخدم نموذج الجسيم (Particle)؟ اكتب الشرط اللي يخلي الاختيار مناسبًا.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "A small parcel travels several kilometers. Only its centre position is required. Is a particle model reasonable? State the condition.",
+        "arabic": "طرد صغير بينتقل مسافة كيلومترات. المطلوب نحدد مكان مركزه فقط. هل ينفع نستخدم نموذج الجسيم (Particle)؟ اكتب الشرط اللي يخلي الاختيار مناسبًا.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "A particle model is reasonable if the parcel dimensions and rotation do not affect the required position calculation.",
+          "arabic": "ينفع نموذج الجسيم لو أبعاد الطرد ودورانه مش بيغيّروا حساب موضع المركز بالدقة المطلوبة. بنحتفظ بالكتلة، وبنهمل الأبعاد في النموذج. مجرد كلمة «صغير» وحدها مش سبب كفاية. لو المطلوب اتغير وبقى عن دوران الطرد أو طريقة تثبيته، نعيد النظر في النموذج لأن الأبعاد قد تبقى مهمة. دلوقتي نجمع قرارين: نموذج للجسم، وتمثيل للقوة اللي عليه."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "A particle model is reasonable if its dimensions and rotation do not affect the required position.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "ينفع نموذج الجسيم لو أبعاد الطرد ودورانه مش بيغيّروا حساب موضع المركز بالدقة المطلوبة. بنحتفظ بالكتلة، وبنهمل الأبعاد في النموذج. مجرد كلمة «صغير» وحدها مش سبب كفاية.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "لو المطلوب اتغير وبقى عن دوران الطرد أو طريقة تثبيته، نعيد النظر في النموذج لأن الأبعاد قد تبقى مهمة. دلوقتي نجمع قرارين: نموذج للجسم، وتمثيل للقوة اللي عليه.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S15",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "الجسيم مناسب بشرط",
+                  "math": ""
+                },
+                {
+                  "id": "F02",
+                  "key": "reason",
+                  "label": "الأبعاد لا تؤثر في المطلوب",
+                  "math": ""
+                },
+                {
+                  "id": "F03",
+                  "key": "next",
+                  "label": "المطلوب قد يغيّر النموذج",
+                  "math": ""
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S16",
+      "title": "نموذج للجسم ونموذج للقوة",
+      "clipId": "N16",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "bodyload",
+          "heading": "نموذج للجسم ونموذج للقوة",
+          "sceneId": "S16",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "حامل طويل له أبعاد",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "distributed",
+              "label": "قوة على مساحة صغيرة",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "model",
+              "label": "الجسم الجاسئ يحتفظ بالأبعاد",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "force",
+              "label": "القوة المركزة للتأثير الكلي",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "تخيّل لوحًا طويلًا مستندًا عند طرفيه، ومسمارًا بيضغط عليه. لو المطلوب تأثير القوة على اللوح ككل، فطوله وموضع القوة مهمان. نحتفظ بالأبعاد، ونفترض إن التشوه مهمل في المسألة دي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "المسمار بيلمس جزءًا صغيرًا من اللوح. دي معلومة عن توزيع القوة، وهي قرار غير قرار الاحتفاظ بأبعاد الجسم نفسه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "لأننا محتفظين بالأبعاد ومهملين التشوه، نموذج الجسم هو الجسم الجاسئ (Rigid Body). لسه محتاجين نقرر هنمثل قوة المسمار إزاي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "لو توزيع القوة عند التلامس مش مؤثر في الإجابة عن التأثير الكلي، نمثلها بقوة مركزة. جرّب القرارين في السؤال الجاي على سلم وشخص واقف عليه؛ اكتب كل اختيار وسببه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "title": "سؤال: نموذج السلم وقوة الحذاء",
+      "clipId": "N17",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "question",
+          "heading": "سؤال: نموذج الحامل وقوة المسمار",
+          "sceneId": "S17",
+          "beats": [],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "EN"
+          ],
+          "text": "A long ladder has negligible deformation. A person stands on it, with a shoe pressing on a small area. Choose a body model and a model for the shoe force in overall analysis. State the condition.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "AR"
+          ],
+          "text": "سلم طويل، وتشوهه مهمل في المسألة. شخص واقف عليه، وحذاؤه بيضغط على مساحة صغيرة. اختار نموذجًا لجسم السلم وتمثيلًا لقوة الحذاء عند دراسة التأثير الكلي. اكتب شرط تبسيط القوة.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q04",
+        "english": "A long ladder has negligible deformation. A person stands on it, with a shoe pressing on a small area. Choose a body model and a model for the shoe force in overall analysis. State the condition.",
+        "arabic": "سلم طويل، وتشوهه مهمل في المسألة. شخص واقف عليه، وحذاؤه بيضغط على مساحة صغيرة. اختار نموذجًا لجسم السلم وتمثيلًا لقوة الحذاء عند دراسة التأثير الكلي. اكتب شرط تبسيط القوة.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Use a rigid-body model. A concentrated force is suitable if the contact distribution does not affect the required overall result.",
+          "arabic": "نحتفظ بطول السلم ومواضع النقاط عليه، ونهمل تشوهه كما قالت المسألة. عشان كده نستخدم نموذج الجسم الجاسئ. ما ينفعش نستبدله بنقطة لو الأبعاد مهمة للتأثير المطلوب. وممكن نمثل قوة الحذاء بسهم قوة مركزة لو تفاصيل توزيع التلامس مش بتغيّر التأثير الكلي المطلوب. لو السؤال عن الضغط تحت الحذاء نفسه، التوزيع يبقى لازمًا ونراجع التبسيط. لاحظ إننا جاوبنا سؤالين: هنمثل الجسم إزاي، وهنمثل القوة إزاي. الاختيار في الاتنين بدأ من المطلوب والافتراضات. نربط دلوقتي ده بوصف القوة واختيار فرع الميكانيكا."
+        },
+        "feedback": {
+          "clipId": "F04",
+          "steps": [
+            {
+              "unitIds": [
+                "F01"
+              ],
+              "text": "Use a rigid body. A concentrated force is suitable if the contact distribution does not affect the overall result.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02"
+              ],
+              "text": "نحتفظ بطول السلم ومواضع النقاط عليه، ونهمل تشوهه كما قالت المسألة. عشان كده نستخدم نموذج الجسم الجاسئ. ما ينفعش نستبدله بنقطة لو الأبعاد مهمة للتأثير المطلوب.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03"
+              ],
+              "text": "وممكن نمثل قوة الحذاء بسهم قوة مركزة لو تفاصيل توزيع التلامس مش بتغيّر التأثير الكلي المطلوب. لو السؤال عن الضغط تحت الحذاء نفسه، التوزيع يبقى لازمًا ونراجع التبسيط.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F04"
+              ],
+              "text": "لاحظ إننا جاوبنا سؤالين: هنمثل الجسم إزاي، وهنمثل القوة إزاي. الاختيار في الاتنين بدأ من المطلوب والافتراضات. نربط دلوقتي ده بوصف القوة واختيار فرع الميكانيكا.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "statics-reading-board",
+            "params": {
+              "kind": "feedback",
+              "heading": "تفسير الإجابة",
+              "sceneId": "S17",
+              "beats": [
+                {
+                  "id": "F01",
+                  "key": "answer",
+                  "label": "جسم جاسئ وقوة مركزة بشروطهما",
+                  "math": ""
+                },
+                {
+                  "id": "F02",
+                  "key": "body",
+                  "label": "الأبعاد موجودة والتشوه مهمل",
+                  "math": ""
+                },
+                {
+                  "id": "F03",
+                  "key": "force",
+                  "label": "التأثير الكلي يختلف عن الضغط المحلي",
+                  "math": ""
+                },
+                {
+                  "id": "F04",
+                  "key": "next",
+                  "label": "نربط خطوات التفكير",
+                  "math": ""
+                }
+              ],
+              "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S18",
+      "title": "الجسم والقوة والنموذج",
+      "clipId": "N18",
+      "visual": {
+        "renderer": "statics-reading-board",
+        "params": {
+          "kind": "foundationrecap",
+          "heading": "الجسم والقوة والنموذج",
+          "sceneId": "S18",
+          "beats": [
+            {
+              "id": "B01",
+              "key": "body",
+              "label": "حدد الجسم ونوع السؤال",
+              "math": ""
+            },
+            {
+              "id": "B02",
+              "key": "force",
+              "label": "صف القوة بوحدتها واتجاهها وموضعها",
+              "math": ""
+            },
+            {
+              "id": "B03",
+              "key": "model",
+              "label": "النموذج تابع للمطلوب",
+              "math": ""
+            },
+            {
+              "id": "B04",
+              "key": "next",
+              "label": "بعدها: محصلة القوى وقوانين نيوتن",
+              "math": ""
+            }
+          ],
+          "assetBase": "/lesson-assets/engineering-mechanics-statics-y1/ems-y1-foundations-models"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "B01"
+          ],
+          "text": "ابدأ بتحديد الجسم اللي بتدرسه، وبعدها نوع السؤال. لو السؤال عن الاتزان، فده في الاستاتيكا. ولو عن الحركة وعلاقتها بالقوى، فده في الديناميكا. اختار الفرع بسبب المطلوب، مش بسبب اسم الجسم.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B02"
+          ],
+          "text": "بعد كده اوصف القوة: مقدارها بوحدة، واتجاهها، وموضع تأثيرها على الجسم الممتد. النيوتن $N$ وحدة قوة، والكيلوجرام $kg$ وحدة كتلة؛ ما نخلطش بينهم.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B03"
+          ],
+          "text": "وأخيرًا اختار النموذج اللي يحتفظ بالمعلومات اللازمة للإجابة. ممكن نهمل أبعاد الجسم، أو نهمل تشوهه، أو نبسط توزيع القوة؛ كل اختيار له شرط. النموذج الأبسط مفيد لما يفضل محافظًا على المطلوب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "B04"
+          ],
+          "text": "كده عرفنا نحدد الجسم ونوصف القوى ونختار تمثيلًا مناسبًا. الدرس الجاي هنبدأ من قوتين معروفتي المقدار والاتجاه، ونسأل: تأثيرهما مع بعض يساوي إيه، وإيه علاقته بتغيّر الحركة؟",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "تفرق بين سؤال عن الاتزان وسؤال عن الحركة وتغيّرها",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S18"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "توصف القوة بمقدارها ووحدتها واتجاهها وموضع تأثيرها",
+      "sceneIds": [
+        "S06",
+        "S07",
+        "S08",
+        "S18"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تختار نموذج الجسم والقوة، وتشرح إيه اللي أهملته وليه",
+      "sceneIds": [
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14",
+        "S16",
+        "S18"
+      ],
+      "questionIds": [
+        "Q03",
+        "Q04"
+      ]
+    }
+  ]
+}

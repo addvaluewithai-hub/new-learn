@@ -11,6 +11,15 @@ html.in-lesson body {
   font-family: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
   background: #f6f5f0;
 }
+/* An answer form must not set the implicit grid column's minimum width on phones. */
+@media (max-width: 650px) {
+  .reading-classroom > .rl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.reading-classroom .rl-caption {
+  min-width: 0;
+}
 .reading-loading {
   display: grid;
   place-content: center;

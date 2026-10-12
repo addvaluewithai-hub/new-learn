@@ -18,6 +18,8 @@ const generated = new Set([
   'fixtures/runtime-probe/audio-manifest.json',
   'content/chemistry/states-of-matter/data/manifest.json',
   'database/migrations/meta/0000_snapshot.json',
+  // Imported catalog data grows with curricula; its generated JSON is not authored code.
+  'content/imported/registry.json',
 ]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];
@@ -41,7 +43,8 @@ async function scan(folder) {
       !sourceExtensions.test(name) ||
       generated.has(name) ||
       /^database\/migrations\/meta\/\d+_snapshot\.json$/.test(name) ||
-      /^content\/imported\/[a-z0-9-]+\/[a-z0-9-]+\/(reading|lesson)\.json$/.test(name)
+      /^content\/imported\/[a-z0-9-]+\/[a-z0-9-]+\/(reading|lesson)\.json$/.test(name) ||
+      /^content\/imported\/[a-z0-9-]+\/curriculum\.json$/.test(name)
     )
       continue;
     const content = await readFile(path, 'utf8');

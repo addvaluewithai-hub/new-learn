@@ -5,6 +5,27 @@
     "manifestHash": "c95691965d6c34ce720e2235790210258c37f910ae4225932133fbcfd871b211",
     "runtimeVersion": "0.2.1"
   },
+  "reading:ems-y1-foundations-models": {
+    "lessonId": "ems-y1-foundations-models",
+    "contentRevision": "07a8ccadbe108437e4d94b6b8823282342f54f3dc841be007ff24b72c424d0cf",
+    "manifestHash": "38508e20d68f6b4dede377bdd8fc5e8eec7b25f41353596529f01fbd2d6729e3",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:ems-y1-newton-gravity": {
+    "lessonId": "ems-y1-newton-gravity",
+    "contentRevision": "177cfe3d1ffb106066939c1f7ee20740dd6345e283654590556160d91cfe97d6",
+    "manifestHash": "955b840ea6ccae6269bc7e59162d483984aa44404b143b2655d6495f10eb724e",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
+  "reading:ems-y1-units-conversions": {
+    "lessonId": "ems-y1-units-conversions",
+    "contentRevision": "b96caa638ee31c8b366c93be04aca7365a73696414cf40884d657f186884215a",
+    "manifestHash": "333daa0136eebad2bb2879b06e73decfc8f1e449762f6e55d1ee23bf744e0a3d",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
   "reading:math1-bridge-fractions": {
     "lessonId": "math1-bridge-fractions",
     "contentRevision": "5b8ec09ba2921e171483b41056299e2f1dfb0b9da9064af623de86841335655c",

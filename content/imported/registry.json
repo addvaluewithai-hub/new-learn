@@ -2,6 +2,219 @@
   "schemaVersion": 1,
   "curricula": [
     {
+      "id": "engineering-mechanics-statics-y1",
+      "title": "الميكانيكا الهندسية: بداية الاستاتيكا",
+      "description": "ابدأ بفهم الجسم والقوة، واربط القوى بتغيّر الحركة، وبعدها راجع الوحدات والتحويل. شرح مكتوب ورسوم بتتدرج معاك، وأسئلة تحاول فيها قبل ما تشوف الحل.",
+      "subject": "Engineering Mechanics / Statics",
+      "parts": [
+        {
+          "title": "الجسم والقوة والحركة",
+          "summary": "من وصف موقف حقيقي إلى النموذج والحساب والوحدة المناسبة.",
+          "lessons": [
+            "ems-y1-foundations-models",
+            "ems-y1-newton-gravity",
+            "ems-y1-units-conversions"
+          ]
+        }
+      ],
+      "lessons": [
+        {
+          "id": "ems-y1-foundations-models",
+          "curriculumId": "engineering-mechanics-statics-y1",
+          "order": 1,
+          "title": "مدخل الميكانيكا ونماذج الأجسام",
+          "subtitle": "Engineering Mechanics and Idealized Models",
+          "moduleId": "reading:ems-y1-foundations-models",
+          "contentRevision": "07a8ccadbe108437e4d94b6b8823282342f54f3dc841be007ff24b72c424d0cf",
+          "manifestHash": "38508e20d68f6b4dede377bdd8fc5e8eec7b25f41353596529f01fbd2d6729e3",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تفرق بين سؤال عن الاتزان وسؤال عن الحركة وتغيّرها",
+              "sceneIds": [
+                "S01",
+                "S02",
+                "S03",
+                "S04",
+                "S18"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "توصف القوة بمقدارها ووحدتها واتجاهها وموضع تأثيرها",
+              "sceneIds": [
+                "S06",
+                "S07",
+                "S08",
+                "S18"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تختار نموذج الجسم والقوة، وتشرح إيه اللي أهملته وليه",
+              "sceneIds": [
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S16",
+                "S18"
+              ],
+              "questionIds": [
+                "Q03",
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ems-y1-newton-gravity",
+          "curriculumId": "engineering-mechanics-statics-y1",
+          "order": 2,
+          "title": "قوانين نيوتن والجاذبية والوزن",
+          "subtitle": "Newton's Laws, Gravitation and Weight",
+          "moduleId": "reading:ems-y1-newton-gravity",
+          "contentRevision": "177cfe3d1ffb106066939c1f7ee20740dd6345e283654590556160d91cfe97d6",
+          "manifestHash": "955b840ea6ccae6269bc7e59162d483984aa44404b143b2655d6495f10eb724e",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تفسر ليه محصلة صفر مش معناها إن كل جسم لازم يقف",
+              "sceneIds": [
+                "S01",
+                "S02",
+                "S03",
+                "S04",
+                "S20"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "تحسب التسارع من محصلة القوى والكتلة، بوحدته واتجاهه",
+              "sceneIds": [
+                "S06",
+                "S07",
+                "S08",
+                "S20"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تحدد الفعل ورد الفعل على جسمين مختلفين من غير ما تلغيهما على جسم واحد",
+              "sceneIds": [
+                "S10",
+                "S11",
+                "S20"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "تحسب إزاي تغيير المسافة بين كتلتين يغيّر قوة التجاذب",
+              "sceneIds": [
+                "S13",
+                "S14",
+                "S20"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            },
+            {
+              "id": "O5",
+              "text": "تفرق بين الكتلة والوزن وتحسب وزن جسم قرب الأرض",
+              "sceneIds": [
+                "S16",
+                "S17",
+                "S18",
+                "S20"
+              ],
+              "questionIds": [
+                "Q05"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ems-y1-units-conversions",
+          "curriculumId": "engineering-mechanics-statics-y1",
+          "order": 3,
+          "title": "الوحدات والتحويلات في الاستاتيكا",
+          "subtitle": "Systems of Units and Unit Conversions",
+          "moduleId": "reading:ems-y1-units-conversions",
+          "contentRevision": "b96caa638ee31c8b366c93be04aca7365a73696414cf40884d657f186884215a",
+          "manifestHash": "333daa0136eebad2bb2879b06e73decfc8f1e449762f6e55d1ee23bf744e0a3d",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تصنف وحدات الكتلة والقوة قبل ما تستخدمها في الحساب",
+              "sceneIds": [
+                "S08",
+                "S09",
+                "S10",
+                "S18"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "تفهم وحدة النيوتن وتراجع ليه الثانية فيها مربعة",
+              "sceneIds": [
+                "S01",
+                "S02",
+                "S03",
+                "S04",
+                "S05",
+                "S06",
+                "S18"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تحول الطول والقوة بين وحدتين، وتراجع الاختصار والتقريب",
+              "sceneIds": [
+                "S12",
+                "S13",
+                "S15",
+                "S16",
+                "S18"
+              ],
+              "questionIds": [
+                "Q03",
+                "Q04"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "mathematics-i-algebra",
       "title": "رياضة 1 · الجبر",
       "description": "من جمع الكسور العادية لحد تفكيك الكسور الجزئية، خطوة بخطوة وبالأمثلة.",
