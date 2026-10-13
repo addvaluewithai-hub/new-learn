@@ -55,7 +55,7 @@ export function LessonSettings({
         <Icon size={19} aria-hidden="true" />
       </button>
       {open ? (
-        <div className="flow-pop" role="dialog" aria-label="طريقة مشي الدرس">
+        <div className="flow-pop" role="dialog" aria-label="إعدادات الدرس وصوت Nova">
           <label className="flow-row">
             <span>
               <strong>Nova تقرا الدرس</strong>

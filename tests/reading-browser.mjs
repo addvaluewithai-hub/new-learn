@@ -146,7 +146,7 @@ try {
     // Interrupt an unfinished transition with another Next, then Back; abandoned frames
     // may never restore an older cue or leave a future answer visible.
     await next(page);
-    await page.locator('.rl-dock .rl-round').click();
+    await page.getByRole('button', { name: 'الخطوة اللي فاتت' }).click();
     const heldTarget = Number(await page.locator('.rl-board').getAttribute('data-target-ms'));
     await page.waitForTimeout(450);
     assert.equal(
@@ -162,6 +162,11 @@ try {
     await page.getByRole('button', { name: /أهداف الدرس: 0 من/ }).click();
     await page.locator('.rl-pop').waitFor();
     await page.keyboard.press('Escape');
+    // The learner can hide the line under the board and bring it back.
+    await page.getByRole('button', { name: 'إخفاء النص' }).click();
+    await page.locator('.rl-caption-zone').waitFor({ state: 'hidden' });
+    await page.getByRole('button', { name: 'إظهار النص' }).click();
+    await page.locator('.rl-caption-text').waitFor();
     await page.screenshot({ path: `test-results/reading-${width}.png`, fullPage: true });
     while (!(await page.locator('.rl-question').count())) await next(page);
     assert.equal(

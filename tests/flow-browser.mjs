@@ -36,6 +36,7 @@ try {
     permissions: ['microphone'],
   });
   const errors = [];
+  const lives = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.route('**/api/**', async (route) => {
     const request = route.request();
@@ -50,8 +51,10 @@ try {
             ? { revision: null, state: null, completed: false }
             : { revision: 0 },
       });
-    if (path === '/api/nova/live')
+    if (path === '/api/nova/live') {
+      lives.push(request.postDataJSON());
       return route.fulfill({ json: { token: 't', model: 'm', config: {} } });
+    }
     return route.fulfill({
       json: { ...pins[`reading:${id}`], moduleId: `reading:${id}`, stage: 'published' },
     });
@@ -82,7 +85,7 @@ try {
   await page.goto(`${url}/?lesson=${lesson.id}&curriculum=${course.id}`);
   await page.locator('.rl').waitFor();
   const line = () => page.locator('.rl-caption-text').innerText();
-  const settings = page.getByRole('button', { name: 'طريقة مشي الدرس' });
+  const settings = page.getByRole('button', { name: 'إعدادات الدرس وصوت Nova' });
 
   // Default: nothing moves alone.
   const first = await line();
@@ -106,7 +109,10 @@ try {
   await page.getByRole('button', { name: 'كمّل لوحده' }).click();
 
   // Narration: line after line in one session, up to the question, then it waits.
+  // Nova's voice settings travel with the live session request.
   await settings.click();
+  await page.getByRole('radio', { name: 'رزين' }).click();
+  await page.getByLabel('تحب Nova تكون إزاي؟').fill('هادية وصبورة');
   await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).check();
   await page.keyboard.press('Escape');
   await page.locator('.rl-question').waitFor({ timeout: 60000 });
@@ -116,6 +122,11 @@ try {
     'lines verbatim',
   );
   assert.match(reads.at(-1), /^READ QUESTION:\n/, 'stops at the question');
+  assert.deepEqual(lives.at(-1).style, {
+    voice: 'Charon',
+    pace: 'slowest',
+    persona: 'هادية وصبورة',
+  });
   const atQuestion = reads.length;
   await page.waitForTimeout(2500);
   assert.equal(reads.length, atQuestion, 'waits for the answer');
