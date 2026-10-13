@@ -1,0 +1,111 @@
+{
+  "id": "em1-prelim-real-sets",
+  "order": 1,
+  "title": "الأعداد الحقيقية وخط الأعداد والمجموعات",
+  "englishTitle": "Real Numbers, the Real Line and Sets",
+  "subtitle": "Real Numbers, the Real Line and Sets",
+  "delivery": "reading",
+  "contentRevision": "26803dc2d59f5709d8a1530d6e583605978d0a384f2eeb757fcb6404eb7be6eb",
+  "renderers": {
+    "em1-board": "board/CalcBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets",
+  "files": [
+    {
+      "path": "assets/fonts/LICENSE-IBM-Plex-Sans-Arabic-OFL.txt",
+      "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98",
+      "bytes": 4808
+    },
+    {
+      "path": "assets/fonts/LICENSE-STIX-Two-OFL.txt",
+      "sha256": "9d80d69f6a70033f4d113604bed4a3038b6e5b700c0266e7fe9f4033365ff076",
+      "bytes": 4510
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2",
+      "sha256": "6010e7fd0dce5d527583951750728cbe3c895efbd16aa0f809ab8c824878c9d8",
+      "bytes": 42848
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2",
+      "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac",
+      "bytes": 45688
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2",
+      "sha256": "9ed8dcb02e6c7246de4c120295fafa39a7bb73085f4951a4524a07dc911069f2",
+      "bytes": 19164
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2",
+      "sha256": "63f4757271e403f7baec0862f284ffaa4560ea6096ba9fe8bc6e585ca656e724",
+      "bytes": 20500
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-italic.woff2",
+      "sha256": "3d76ab92269582b8e11f3d969eaf93bb9609f1e08d5433fd18633e78e7900638",
+      "bytes": 18192
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-400-normal.woff2",
+      "sha256": "65f8cdee99e0c883fa05a493812ad15fd93e3af5510276661e34c204f771e514",
+      "bytes": 16776
+    },
+    {
+      "path": "assets/fonts/stix-two-text-latin-600-normal.woff2",
+      "sha256": "c81c437a0d17a895f9d82f62611c1af238f04b0c996e6ef75c5441dd07769997",
+      "bytes": 17148
+    },
+    {
+      "path": "board/CalcBoard.tsx",
+      "sha256": "5f3e6357bd751ef2596316ff20315eacb10eba90bdd8a90ff6b931a919efd237",
+      "bytes": 2303
+    },
+    {
+      "path": "board/axis.tsx",
+      "sha256": "1d325f612e168d17169f3fb4dfd5395fa946753eeb8aa7abbfa3528df5c0957c",
+      "bytes": 5231
+    },
+    {
+      "path": "board/clock.ts",
+      "sha256": "fb8e08261b361b0812a13e322f06176862e024a10585781db83c91b34d7e17b4",
+      "bytes": 1112
+    },
+    {
+      "path": "board/line.tsx",
+      "sha256": "d0f118b07d676d00467bd6e6a0a01fcb1810bb0a4fc360f3e0ce0199f92a30ee",
+      "bytes": 8093
+    },
+    {
+      "path": "board/mathkit.tsx",
+      "sha256": "e03332629fd022838e7c7e70c45e50778425f1d9741f229f314e5c19dafc9428",
+      "bytes": 11282
+    },
+    {
+      "path": "board/numbers.tsx",
+      "sha256": "8a638e12a5db802c359da184f3a9a3b8dc84b2d64a57d7ee725a0f6f6abd463d",
+      "bytes": 10173
+    },
+    {
+      "path": "board/parts.tsx",
+      "sha256": "b6d403cd02213f9844fb643494112a1daa6683e4e975669285f92b09d579844c",
+      "bytes": 8092
+    },
+    {
+      "path": "board/qa.tsx",
+      "sha256": "b5c21ec32203ec918d995870847efac91c796d4c207aae011d30285fd9dbbbc6",
+      "bytes": 8940
+    },
+    {
+      "path": "board/sets.tsx",
+      "sha256": "4479a3e6b595596ae5b48618e80eafbea1951b935a6e3a90e236002df171c407",
+      "bytes": 7389
+    },
+    {
+      "path": "reading.json",
+      "sha256": "4aae9f6d2a190ced41b63fec2cbc57a0d12693dca103f67a6e5c7f7dd634b6bb",
+      "bytes": 31906
+    }
+  ],
+  "manifestHash": "ba1f2a9cfa86ed84a1b725651e1d69b200e6175cb421e9335bdcc4080d450065"
+}

@@ -9,6 +9,7 @@ export const readingModules = {
   "reading:chem-gas-pressure-temperature": () => import('./chemistry-gas-laws/chem-gas-pressure-temperature/index'),
   "reading:chem-gas-combined-law": () => import('./chemistry-gas-laws/chem-gas-combined-law/index'),
   "reading:chem-gas-mock-exam": () => import('./chemistry-gas-laws/chem-gas-mock-exam/index'),
+  "reading:em1-prelim-real-sets": () => import('./engineering-math-1/em1-prelim-real-sets/index'),
   "reading:ems-y1-foundations-models": () => import('./engineering-mechanics-statics-y1/ems-y1-foundations-models/index'),
   "reading:ems-y1-newton-gravity": () => import('./engineering-mechanics-statics-y1/ems-y1-newton-gravity/index'),
   "reading:ems-y1-units-conversions": () => import('./engineering-mechanics-statics-y1/ems-y1-units-conversions/index'),

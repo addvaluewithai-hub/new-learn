@@ -1,0 +1,800 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "em1-prelim-real-sets",
+  "curriculumId": "engineering-math-1",
+  "contentRevision": "26803dc2d59f5709d8a1530d6e583605978d0a384f2eeb757fcb6404eb7be6eb",
+  "title": "الأعداد الحقيقية وخط الأعداد والمجموعات",
+  "englishTitle": "Real Numbers, the Real Line and Sets",
+  "curriculumTitle": "Mathematics I — Calculus (Differentiation) | رياضة 1: التفاضل",
+  "lessonOrder": 1,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "خط الأعداد الحقيقية",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S01",
+          "view": "line",
+          "kicker": "منين بنبدأ؟",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U1"
+          ],
+          "text": "التفاضل كله مبني على الأعداد الحقيقية (real numbers)، فهنبدأ من عندها. ارسم خط مستقيم، وعلّم عليه نقطة سمّيها $0$، واختار طول ثابت يمثّل خطوة واحدة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U2"
+          ],
+          "text": "كل خطوة ناحية اليمين بتزوّد واحد: $1$ ثم $2$ ثم $3$. وكل خطوة ناحية الشمال بتنقص واحد: $−1$ ثم $−2$ ثم $−3$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U3"
+          ],
+          "text": "والنقط اللي بين الخطوات ليها أعداد برضه: $1/2$ في نص المسافة بين $0$ و$1$، و$−3/4$ على شمال الصفر بتلات أرباع خطوة، و$√2 ≈ 1.414$ بين $1$ و$2$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U4"
+          ],
+          "text": "يعني كل نقطة على الخط ليها عدد واحد، وكل عدد حقيقي ليه نقطة واحدة. الخط ده اسمه the real line (خط الأعداد الحقيقية)، ومجموعة الأعداد الحقيقية كلها رمزها $ℝ$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "مين الأكبر؟",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S02",
+          "view": "order",
+          "kicker": "الترتيب على الخط",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U1"
+          ],
+          "text": "على الخط ده المقارنة سهلة: العدد اللي على اليمين هو الأكبر. والكتابة $a < b$ معناها إن $a$ واقع على شمال $b$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U2"
+          ],
+          "text": "خد $−2$ و$−5$. الـ$5$ أكبر من الـ$2$، بس $−5$ أبعد ناحية الشمال، فـ$−5 < −2$. في السوالب ما تبصّش على الرقم لوحده؛ بُص على مكانه على الخط.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U3"
+          ],
+          "text": "والعلامة $≤$ معناها «أصغر من أو يساوي». فـ$3 ≤ 3$ صح لأن فيها «يساوي»، لكن $3 < 3$ غلط، لأن العدد مش على شمال نفسه.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "إمتى الترتيب يتقلب؟",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S03",
+          "view": "rules",
+          "kicker": "قواعد الترتيب",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U1"
+          ],
+          "text": "عندنا $2 < 5$. لو زوّدت نفس العدد على الطرفين، النقطتين بيتحركوا نفس المسافة لنفس الناحية، فالترتيب ما بيتغيرش: $2 + 3 < 5 + 3$، يعني $5 < 8$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U2"
+          ],
+          "text": "والضرب في عدد موجب بيمط المسافات بس، فالترتيب برضه ثابت: لو ضربنا في $3$، تبقى $6 < 15$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U3"
+          ],
+          "text": "أما الضرب في عدد سالب فبيقلب الخط حوالين الصفر زي المراية: $2$ تروح $−2$، و$5$ تروح $−5$، و$−5$ بقت هي اللي على الشمال. عشان كده $2 < 5$ تبقى $−2 > −5$: العلامة لازم تتقلب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U4"
+          ],
+          "text": "ونفس الحكاية مع المقلوب لو العددين نفس الإشارة: $2 < 5$ لكن $1/2 > 1/5$، لأن نص الحاجة أكبر من خُمسها. القاعدة: الجمع والضرب في موجب بيحافظوا على العلامة، والضرب في سالب والمقلوب بيقلبوها.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "عائلات الأعداد",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S04",
+          "view": "families",
+          "kicker": "ℕ و ℤ و ℚ",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U1"
+          ],
+          "text": "جوه $ℝ$ فيه عائلات مشهورة. أولها الأعداد الطبيعية (natural numbers) اللي بنعد بيها: $1, 2, 3, …$ ورمزها $ℕ$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U2"
+          ],
+          "text": "لو ضفنا الصفر والسوالب نوصل للأعداد الصحيحة (integers): $0, ±1, ±2, ±3, …$ ورمزها $ℤ$. كل عدد طبيعي صحيح، لكن $−7$ صحيح ومش طبيعي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U3"
+          ],
+          "text": "وبعدها الأعداد النسبية (rational numbers) ورمزها $ℚ$: أي عدد نقدر نكتبه كسر $m/n$، البسط $m$ والمقام $n$ أعداد صحيحة، و$n ≠ 0$ لأن القسمة على صفر مش معرّفة. زي $1/3$ و$−4/9$ و$0.75 = 3/4$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U4"
+          ],
+          "text": "وأي عدد صحيح نسبي برضه، لأننا نقدر نكتبه على $1$: $−7 = −7/1$. فالعائلات جوه بعض: $ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ$، والرمز $⊂$ معناه «جوه» أو «جزء من».",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "النسبي من شكله العشري",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S05",
+          "view": "decimals",
+          "kicker": "منتهي ولا دوري؟",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U1"
+          ],
+          "text": "طب لو العدد مكتوب عشري، نعرف إزاي إنه نسبي؟ اقسم $3 ÷ 4$: هتطلع $0.75$ وبعدها أصفار للأبد، $0.75000…$. ده عشري منتهي (terminating).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U2"
+          ],
+          "text": "واقسم $23 ÷ 11$: هتطلع $2.090909…$، والجزء $09$ بيتكرر على طول. ده عشري دوري (repeating)، ونكتبه بشَرطة فوق الجزء اللي بيتكرر: $2.0̅9̅$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U3"
+          ],
+          "text": "والقاعدة في الاتجاهين: أي عدد نسبي عشريه يا منتهي يا دوري، وأي عشري منتهي أو دوري هو عدد نسبي. والمنتهي في الحقيقة دوري برضه، بس اللي بيتكرر فيه هو الصفر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "الأعداد غير النسبية",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S06",
+          "view": "irrational",
+          "kicker": "الخُرم اللي في الخط",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U1"
+          ],
+          "text": "$√2$ هو العدد الموجب اللي مربعه $2$. ارسم مربع ضلعه خطوة واحدة؛ قطره طوله $√2$. ولو لفّيت القطر بالبرجل لحد الخط، هيقع بين $1$ و$2$، عند حوالي $1.414$، لأن $1² = 1$ و$2² = 4$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U2"
+          ],
+          "text": "بس مهما كمّلت الأرقام العشرية، $1.41421356…$ عمرها ما بتخلص ولا بتتكرر، ومفيش كسر $m/n$ مربعه $2$ بالظبط. يعني لو الخط فيه الأعداد النسبية بس، مكان $√2$ هيبقى «خُرم» (hole).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U3"
+          ],
+          "text": "الأعداد الحقيقية اللي مش نسبية اسمها الأعداد غير النسبية (irrational numbers)، وعشريها لا منتهي ولا دوري، زي $π ≈ 3.14159…$ و$∛5 ≈ 1.70998…$ و$√2$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U4"
+          ],
+          "text": "النسبي وغير النسبي مع بعض بيملوا الخط كله من غير ولا خُرم؛ وده اللي الكتاب بيسميه completeness (الكمال). والتفاضل محتاج الخاصية دي، عشان لما نقرّب من أي نقطة نلاقي عدد مستنّينا هناك.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "مثال: صنّف",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S07",
+          "view": "classify",
+          "kicker": "مثال محلول",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-U1"
+          ],
+          "text": "مثال: صنّف $2.5$ و$√9$ و$√3$. السؤال الوحيد اللي تسأله لكل عدد: أقدر أكتبه كسر صحيح على صحيح؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U2"
+          ],
+          "text": "$2.5 = 5/2$، يبقى نسبي. و$√9 = 3 = 3/1$، يبقى نسبي برضه، مع إن شكله جذر. ما تحكمش على العدد من شكله.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-U3"
+          ],
+          "text": "أما $√3$: بما إن $1² = 1$ و$2² = 4$، فـ$√3$ بين $1$ و$2$ ومش عدد صحيح، و$3$ مش مربع كامل، فـ$√3$ غير نسبي. القاعدة: جذر العدد الصحيح يبقى نسبي بس لو العدد مربع كامل، زي $4$ و$9$ و$16$.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "سؤال 1: نسبي ولا لأ؟",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S08",
+          "view": "q1",
+          "kicker": "جرّب بنفسك",
+          "questionId": "EM1-RS-Q1",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-UEN"
+          ],
+          "text": "Classify each number as rational or irrational, and give a short reason: $−9/5$, $√7$, $0.375$, $√16$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-UAR"
+          ],
+          "text": "صنّف كل عدد من دول: نسبي ولا غير نسبي، مع سبب قصير: $−9/5$ و$√7$ و$0.375$ و$√16$. اكتب إجابتك قبل ما تفتح الحل.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "EM1-RS-Q1",
+        "english": "Classify each number as rational or irrational, and give a short reason: $−9/5$, $√7$, $0.375$, $√16$.",
+        "arabic": "صنّف كل عدد من دول: نسبي ولا غير نسبي، مع سبب قصير: $−9/5$ و$√7$ و$0.375$ و$√16$. اكتب إجابتك قبل ما تفتح الحل.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "−9/5 is rational (already m/n); 0.375 = 3/8 is rational (terminating); √16 = 4 is rational; √7 is irrational (7 is not a perfect square).",
+          "arabic": "−9/5 مكتوب أصلاً على شكل m/n بأعداد صحيحة والمقام مش صفر، فهو نسبي. الإشارة السالبة ما بتفرقش. 0.375 عشري منتهي: 0.375 = 375/1000 = 3/8، فهو نسبي. √16 = 4 = 4/1، فهو نسبي، لأن 16 مربع كامل. أما √7: 2² = 4 و3² = 9، فـ√7 بين 2 و3، و7 مش مربع كامل، فهو غير نسبي."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "−9/5 is rational (already m/n); 0.375 = 3/8 is rational (terminating); √16 = 4 is rational; √7 is irrational (7 is not a perfect square).",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "$−9/5$ مكتوب أصلاً على شكل $m/n$ بأعداد صحيحة والمقام مش صفر، فهو نسبي. الإشارة السالبة ما بتفرقش.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "$0.375$ عشري منتهي: $0.375 = 375/1000 = 3/8$، فهو نسبي.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "$√16 = 4 = 4/1$، فهو نسبي، لأن $16$ مربع كامل.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "أما $√7$: $2² = 4$ و$3² = 9$، فـ$√7$ بين $2$ و$3$، و$7$ مش مربع كامل، فهو غير نسبي.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "em1-board",
+            "params": {
+              "scene": "S08",
+              "view": "q1",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "المجموعات",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S09",
+          "view": "sets",
+          "kicker": "Sets — المجموعات",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-U1"
+          ],
+          "text": "في التفاضل هنتكلم كتير عن «كل الأعداد اللي بتحقق شرط معيّن»، والكلام ده بنكتبه كمجموعة (set): تجميعة حاجات، وكل حاجة فيها اسمها عنصر (element).",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U2"
+          ],
+          "text": "أسهل طريقة إننا نعدّ العناصر بين قوسين { }. مثلاً الأعداد الطبيعية الأصغر من $6$: $A = {1, 2, 3, 4, 5}$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U3"
+          ],
+          "text": "والرمز $3 ∈ A$ معناه إن $3$ عنصر في $A$، و$7 ∉ A$ معناه إن $7$ مش فيها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U4"
+          ],
+          "text": "ونقدر نكتب نفس المجموعة بقاعدة بدل القائمة: $A = {x | x ∈ ℤ, 0 < x < 6}$. الخط الرأسي $|$ بيتقري «بحيث»، فالجملة: كل $x$ بحيث $x$ عدد صحيح بين $0$ و$6$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U5"
+          ],
+          "text": "والقاعدة هي الطريقة الوحيدة لما المجموعة ملهاش آخر، زي كل الأعداد الحقيقية الموجبة: ${x | x ∈ ℝ, x > 0}$؛ دي ما تتعدّش أصلاً. وفي الدرس الجاي هنكتب المجموعات دي بشكل أسهل اسمه الفترات (intervals).",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "الاتحاد والتقاطع",
+      "clipId": "N10",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S10",
+          "view": "ops",
+          "kicker": "∪ و ∩",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S10-U1"
+          ],
+          "text": "خد مجموعتين: $A = {1, 3, 5}$ و$B = {3, 4, 5}$. ارسم كل واحدة دايرة؛ العنصرين $3$ و$5$ موجودين في الاتنين، فمكانهم في الجزء المشترك.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-U2"
+          ],
+          "text": "الاتحاد (union) $A ∪ B$ هو كل عنصر موجود في $A$ أو في $B$ أو في الاتنين، من غير تكرار: $A ∪ B = {1, 3, 4, 5}$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-U3"
+          ],
+          "text": "والتقاطع (intersection) $A ∩ B$ هو العناصر الموجودة في الاتنين مع بعض: $A ∩ B = {3, 5}$. افتكرها كده: الاتحاد «أو»، والتقاطع «و».",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S10-U4"
+          ],
+          "text": "ولو مفيش ولا عنصر مشترك، التقاطع هو المجموعة الخالية (empty set) $∅$. مثلاً الأعداد النسبية مع غير النسبية: تقاطعهم $∅$، لأن مفيش عدد يبقى الاتنين. وخلّي بالك: $∅$ مش هي ${0}$؛ دي فيها عنصر واحد هو الصفر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "سؤال 2: اتحاد وتقاطع",
+      "clipId": "N11",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S11",
+          "view": "q2",
+          "kicker": "جرّب بنفسك",
+          "questionId": "EM1-RS-Q2",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S11-UEN"
+          ],
+          "text": "Let $A = {0, 2, 5, 7}$ and $B = {1, 2, 6, 7}$. Find $A ∪ B$ and $A ∩ B$, and decide whether $5 ∈ B$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S11-UAR"
+          ],
+          "text": "عندك $A = {0, 2, 5, 7}$ و$B = {1, 2, 6, 7}$. أوجد $A ∪ B$ و$A ∩ B$، وقول هل $5 ∈ B$ ولا لأ.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "EM1-RS-Q2",
+        "english": "Let $A = {0, 2, 5, 7}$ and $B = {1, 2, 6, 7}$. Find $A ∪ B$ and $A ∩ B$, and decide whether $5 ∈ B$.",
+        "arabic": "عندك $A = {0, 2, 5, 7}$ و$B = {1, 2, 6, 7}$. أوجد $A ∪ B$ و$A ∩ B$، وقول هل $5 ∈ B$ ولا لأ.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "A ∪ B = {0, 1, 2, 5, 6, 7}; A ∩ B = {2, 7}; 5 ∉ B.",
+          "arabic": "الأول دوّر على المشترك: 2 و7 موجودين في A وB، فمكانهم في النص. و0 و5 في A بس، و1 و6 في B بس. الاتحاد هو كل اللي في الدايرتين من غير تكرار: A ∪ B = {0, 1, 2, 5, 6, 7}. والتقاطع هو اللي في النص بس: A ∩ B = {2, 7}. و5 موجود في A لكن مش في B، فـ5 ∉ B. السؤال بيسأل عن B نفسها، مش عن أي مجموعة في المسألة."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "A ∪ B = {0, 1, 2, 5, 6, 7}; A ∩ B = {2, 7}; 5 ∉ B.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR",
+                "F02-U1"
+              ],
+              "text": "الأول دوّر على المشترك: $2$ و$7$ موجودين في $A$ و$B$، فمكانهم في النص. و$0$ و$5$ في $A$ بس، و$1$ و$6$ في $B$ بس.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "الاتحاد هو كل اللي في الدايرتين من غير تكرار: $A ∪ B = {0, 1, 2, 5, 6, 7}$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "والتقاطع هو اللي في النص بس: $A ∩ B = {2, 7}$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U4"
+              ],
+              "text": "و$5$ موجود في $A$ لكن مش في $B$، فـ$5 ∉ B$. السؤال بيسأل عن $B$ نفسها، مش عن أي مجموعة في المسألة.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "em1-board",
+            "params": {
+              "scene": "S11",
+              "view": "q2",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S12",
+      "title": "سؤال 3: رتّب واقلب",
+      "clipId": "N12",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S12",
+          "view": "q3",
+          "kicker": "جرّب بنفسك",
+          "questionId": "EM1-RS-Q3",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S12-UEN"
+          ],
+          "text": "Arrange $−√3$, $−2$ and $−3/2$ in increasing order. Then multiply each number by $−1$ and arrange the results in increasing order.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S12-UAR"
+          ],
+          "text": "رتّب $−√3$ و$−2$ و$−3/2$ من الأصغر للأكبر. وبعدين اضرب كل عدد في $−1$، ورتّب النتايج من الأصغر للأكبر.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "EM1-RS-Q3",
+        "english": "Arrange $−√3$, $−2$ and $−3/2$ in increasing order. Then multiply each number by $−1$ and arrange the results in increasing order.",
+        "arabic": "رتّب $−√3$ و$−2$ و$−3/2$ من الأصغر للأكبر. وبعدين اضرب كل عدد في $−1$، ورتّب النتايج من الأصغر للأكبر.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "−2 < −√3 < −3/2. After multiplying by −1: 3/2 < √3 < 2 (the order reverses).",
+          "arabic": "الأول نعرف √3 قد إيه: 1.7² = 2.89 و1.8² = 3.24، فـ√3 ≈ 1.73، يعني −√3 ≈ −1.73. و−3/2 = −1.5. على الخط: −2 هو الأبعد شمال، وبعده −1.73، وبعده −1.5. يبقى −2 < −√3 < −3/2. الضرب في −1 بيقلب الخط حوالين الصفر، فالترتيب بيتقلب: 3/2 < √3 < 2. الغلطة المشهورة إنك تقول −2 > −1.5 عشان 2 > 1.5. في السوالب، اللي رقمه أكبر هو الأصغر."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "F03-UEN"
+              ],
+              "text": "−2 < −√3 < −3/2. After multiplying by −1: 3/2 < √3 < 2 (the order reverses).",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03-UAR",
+                "F03-U1"
+              ],
+              "text": "الأول نعرف $√3$ قد إيه: $1.7² = 2.89$ و$1.8² = 3.24$، فـ$√3 ≈ 1.73$، يعني $−√3 ≈ −1.73$. و$−3/2 = −1.5$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03-U2"
+              ],
+              "text": "على الخط: $−2$ هو الأبعد شمال، وبعده $−1.73$، وبعده $−1.5$. يبقى $−2 < −√3 < −3/2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03-U3"
+              ],
+              "text": "الضرب في $−1$ بيقلب الخط حوالين الصفر، فالترتيب بيتقلب: $3/2 < √3 < 2$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F03-U4"
+              ],
+              "text": "الغلطة المشهورة إنك تقول $−2 > −1.5$ عشان $2 > 1.5$. في السوالب، اللي رقمه أكبر هو الأصغر.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "em1-board",
+            "params": {
+              "scene": "S12",
+              "view": "q3",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S13",
+      "title": "الخلاصة",
+      "clipId": "N13",
+      "visual": {
+        "renderer": "em1-board",
+        "params": {
+          "scene": "S13",
+          "view": "recap",
+          "kicker": "الخلاصة",
+          "assetBase": "/lesson-assets/engineering-math-1/em1-prelim-real-sets"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S13-U1"
+          ],
+          "text": "الخلاصة: كل عدد حقيقي نقطة على خط الأعداد، واللي على اليمين أكبر. الجمع والضرب في موجب بيحافظوا على الترتيب، والضرب في سالب والمقلوب بيقلبوه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S13-U2"
+          ],
+          "text": "العائلات جوه بعض: $ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ$. النسبي ينكتب $m/n$ وعشريه منتهي أو دوري، وغير النسبي زي $√2$ و$π$ عشريه لا بيخلص ولا بيتكرر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S13-U3"
+          ],
+          "text": "المجموعة بنكتبها بالقائمة أو بالقاعدة، و$∈$ يعني «عنصر في». الاتحاد $∪$ يعني «أو»، والتقاطع $∩$ يعني «و»، والمجموعة الخالية $∅$ مفيهاش ولا عنصر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S13-U4"
+          ],
+          "text": "الدرس الجاي: الفترات (intervals)، يعني إزاي نكتب حتة كاملة من خط الأعداد في رمز صغير، وبعدها نحل المتباينات.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Real line (ℝ)",
+      "definition": "خط الأعداد الحقيقية: كل نقطة عليه عدد، وكل عدد حقيقي ليه نقطة."
+    },
+    {
+      "term": "Rational number (ℚ)",
+      "definition": "عدد نقدر نكتبه m/n بأعداد صحيحة و n ≠ 0؛ عشريه منتهي أو دوري."
+    },
+    {
+      "term": "Irrational number",
+      "definition": "عدد حقيقي مش نسبي؛ عشريه لا بيخلص ولا بيتكرر، زي √2 و π."
+    },
+    {
+      "term": "Set / element (∈)",
+      "definition": "المجموعة تجميعة حاجات، وكل حاجة فيها عنصر: 3 ∈ A يعني 3 جوه A."
+    },
+    {
+      "term": "Union (∪) / Intersection (∩)",
+      "definition": "الاتحاد: في أي واحدة منهم («أو»). التقاطع: في الاتنين مع بعض («و»)."
+    },
+    {
+      "term": "Empty set (∅)",
+      "definition": "المجموعة اللي مفيهاش ولا عنصر؛ مش هي {0}."
+    }
+  ],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "ترتّب الأعداد الحقيقية على خط الأعداد، وتعرف إمتى علامة المتباينة بتتقلب",
+      "sceneIds": [
+        "S01",
+        "S02",
+        "S03",
+        "S06",
+        "S13"
+      ],
+      "questionIds": [
+        "EM1-RS-Q3"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "تصنّف أي عدد: طبيعي، صحيح، نسبي ولا غير نسبي، وتعرف السبب",
+      "sceneIds": [
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "questionIds": [
+        "EM1-RS-Q1"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تكتب المجموعات بالقائمة وبالقاعدة، وتحسب الاتحاد والتقاطع",
+      "sceneIds": [
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "questionIds": [
+        "EM1-RS-Q2"
+      ]
+    }
+  ]
+}
