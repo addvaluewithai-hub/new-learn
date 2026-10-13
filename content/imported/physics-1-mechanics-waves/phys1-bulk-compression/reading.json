@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "phys1-bulk-compression",
+  "curriculumId": "physics-1-mechanics-waves",
+  "contentRevision": "5825934c91acbcf631d1e4cf44375844c99eacd1db596b5dd1a2ac0b538207ec",
+  "title": "الانضغاط الحجمي ومعامل الحجم",
+  "englishTitle": "Bulk Modulus and Volumetric Strain",
+  "curriculumTitle": "Physics I — Mechanics and Waves | فيزياء 1: الميكانيكا والموجات",
+  "lessonOrder": 804,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "ضغط من كل الاتجاهات",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S01",
+          "view": "intro",
+          "kicker": "نوع تالت من التشوّه",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S01-U1"
+          ],
+          "text": "لحد دلوقتي شفنا تشوّهين: الشد على طول القضيب بيزوّد طوله، والقص بيخلّي شكل البلوك يميل.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U2"
+          ],
+          "text": "دلوقتي خد جسم مرن صغير ونزّله في سائل، وزوّد الضغط اللي حواليه. القوة هنا مش من ناحية واحدة؛ الضغط بيأثّر عليه من كل الاتجاهات.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S01-U3"
+          ],
+          "text": "النتيجة إن حجم الجسم كله بيقل، مش طول ضلع واحد ولا زاوية ميل. النوع ده اسمه Volumetric compression (الانضغاط الحجمي)، والسؤال: بيقل بكام، وإيه خاصية المادة اللي بتقاوم ده؟",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "الضغط وتغيّر الحجم",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S02",
+          "view": "pressure",
+          "kicker": "ΔP وΔV",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S02-U1"
+          ],
+          "text": "الضغط (Pressure) هو قوة عمودية على وحدة المساحة: $P = F/A$، ووحدته $Pa$. كل سهم في الرسم عمودي على السطح اللي بيضغط عليه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U2"
+          ],
+          "text": "اللي يهمّنا هو التغيّر في الضغط: لو كان $P₀$ وبقى $P$، يبقى $ΔP = P − P₀$. ولو الضغط زاد، $ΔP$ موجبة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U3"
+          ],
+          "text": "والحجم كمان: لو كان $V₀$ وبقى $V$، يبقى $ΔV = V − V₀$. في الانضغاط الحجم النهائي أصغر، فـ$ΔV$ سالبة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S02-U4"
+          ],
+          "text": "التغيّر في الحجم بالنسبة للحجم الأصلي، $ΔV/V₀$، اسمه Volumetric strain (الانفعال الحجمي). حجم على حجم، فملوش وحدة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "معامل الحجم وإشارته",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S03",
+          "view": "bulk",
+          "kicker": "Bulk modulus — معامل الحجم",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S03-U1"
+          ],
+          "text": "معامل الحجم (Bulk modulus) ورمزه $B$ بيقيس مقاومة المادة لتغيّر الحجم: $B = −ΔP/(ΔV/V₀)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U2"
+          ],
+          "text": "ليه السالب؟ لأن الضغط لما يزيد ($ΔP$ موجبة) الحجم بيقل ($ΔV$ سالبة)، فالسالب في القانون بيخلّي $B$ موجب للمادة العادية.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U3"
+          ],
+          "text": "ساعات الكتاب أو الامتحان بيستخدم «مقدار النقص» $|ΔV|$ كرقم موجب، فتلاقي القانون من غير السالب: $B = ΔP/(|ΔV|/V₀)$. مفيش تناقض؛ بس لازم تعرف $ΔV$ في السؤال معناها التغيّر بإشارته ولا مقدار النقص.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S03-U4"
+          ],
+          "text": "مثال سريع: جسم حجمه $100 cm³$ بقى $99 cm³$. التغيّر بإشارته $ΔV = 99 − 100 = −1 cm³$، لكن مقدار النقص $1 cm³$ بالموجب.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "إمتى العلاقة دي تصح؟",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S04",
+          "view": "conditions",
+          "kicker": "شروط النموذج",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S04-U1"
+          ],
+          "text": "العلاقة دي بتصح لما يكون التغيّر في الحجم صغير، والضغط حوالين الجسم منتظم تقريبًا، وقيمة $B$ مناسبة للمادة وظروفها.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S04-U2"
+          ],
+          "text": "ومش شرط الجسم يقل في كل اتجاه بنفس النسبة لو خواصه معقّدة؛ إحنا هنا بنتعامل مع التغيّر في الحجم الكلي $ΔV$ بس.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "مثال محلول",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S05",
+          "view": "example",
+          "kicker": "مثال",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S05-U1"
+          ],
+          "text": "جسم حجمه الأصلي $V₀ = 0.005 m³$، والضغط حواليه زاد بانتظام $ΔP = 2 × 10⁶ Pa$، ومعامل الحجم $B = 1 × 10⁹ Pa$. عايزين نعرف الحجم قل بكام.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U2"
+          ],
+          "text": "من القانون، مقدار النقص: $|ΔV| ≈ (ΔP/B) V₀$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U3"
+          ],
+          "text": "نحسب النسبة الأول: $ΔP/B = (2 × 10⁶)/(1 × 10⁹) = 0.002$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U4"
+          ],
+          "text": "ونضرب في الحجم الأصلي: $|ΔV| = 0.002 × 0.005 = 1 × 10⁻⁵ m³$. ولأن $1 m³ = 10⁶ cm³$، ده يساوي $10 cm³$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S05-U5"
+          ],
+          "text": "ولو السؤال طالب التغيّر بإشارته، نكتب $ΔV = −1 × 10⁻⁵ m³$، لأن الحجم قل.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "النتيجة منطقية؟",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S06",
+          "view": "sense",
+          "kicker": "راجع نفسك",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S06-U1"
+          ],
+          "text": "نراجع: الحجم قل بنسبة $0.002$، يعني $0.2%$ بس. ده تغيّر صغير ومتماشي مع الفرض. لو في مسألة طلعلك نقص أكبر من الحجم نفسه، يبقى فيه غلطة في الوحدات أو الأُسس.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S06-U2"
+          ],
+          "text": "وخلّي بالك: $B$ و$ΔP$ الاتنين بالباسكال، لكن مش نفس الحاجة. $ΔP$ هو الضغط اللي اتطبّق، و$B$ هو مقاومة المادة لتغيّر الحجم؛ زي ما $σ$ غير $Y$ في الشد.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "سؤال 1: احسب ΔV",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S07",
+          "view": "q1",
+          "kicker": "جرّب بنفسك",
+          "questionId": "Q01",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S07-UEN"
+          ],
+          "text": "A solid initially occupies 0.006 m³. Its bulk modulus is 3 × 10⁹ Pa. The external pressure rises uniformly by 1.5 × 10⁶ Pa. Assuming a small elastic volume change, estimate ΔV with its sign and the magnitude of the volume reduction in cm³.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S07-UAR"
+          ],
+          "text": "جسم حجمه الأصلي $0.006 m³$، ومعامل الحجم بتاعه $3 × 10⁹ Pa$، والضغط حواليه زاد بانتظام $1.5 × 10⁶ Pa$. احسب $ΔV$ بإشارته، ومقدار النقص بالسنتيمتر المكعب. اكتب القانون وحوّل الوحدات قبل ما تفتح الحل.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "A solid initially occupies 0.006 m³. Its bulk modulus is 3 × 10⁹ Pa. The external pressure rises uniformly by 1.5 × 10⁶ Pa. Assuming a small elastic volume change, estimate ΔV with its sign and the magnitude of the volume reduction in cm³.",
+        "arabic": "جسم حجمه الأصلي $0.006 m³$، ومعامل الحجم بتاعه $3 × 10⁹ Pa$، والضغط حواليه زاد بانتظام $1.5 × 10⁶ Pa$. احسب $ΔV$ بإشارته، ومقدار النقص بالسنتيمتر المكعب. اكتب القانون وحوّل الوحدات قبل ما تفتح الحل.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "ΔV = −(ΔP/B)V₀ = −(1.5 × 10⁶ / 3 × 10⁹) × 0.006 = −3 × 10⁻⁶ m³. Magnitude of the reduction = 3 cm³.",
+          "arabic": "نحسب النسبة: ΔP/B = (1.5 × 10⁶)/(3 × 10⁹) = 5 × 10⁻⁴. التغيّر بإشارته: ΔV = −(ΔP/B) V₀ = −(5 × 10⁻⁴)(0.006) = −3 × 10⁻⁶ m³، سالب لأن الحجم قل. ومقدار النقص: 3 × 10⁻⁶ m³ = 3 cm³. لو كتبت +3 cm³ والسؤال طالب ΔV بإشارته، ده مقدار النقص مش التغيّر الموقّع. اقرا صياغة السؤال كويس."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-UEN"
+              ],
+              "text": "ΔV = −(ΔP/B)V₀ = −(1.5 × 10⁶ / 3 × 10⁹) × 0.006 = −3 × 10⁻⁶ m³. Magnitude of the reduction = 3 cm³.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-UAR",
+                "F01-U1"
+              ],
+              "text": "نحسب النسبة: $ΔP/B = (1.5 × 10⁶)/(3 × 10⁹) = 5 × 10⁻⁴$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U2"
+              ],
+              "text": "التغيّر بإشارته: $ΔV = −(ΔP/B) V₀ = −(5 × 10⁻⁴)(0.006) = −3 × 10⁻⁶ m³$، سالب لأن الحجم قل.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U3"
+              ],
+              "text": "ومقدار النقص: $3 × 10⁻⁶ m³ = 3 cm³$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F01-U4"
+              ],
+              "text": "لو كتبت $+3 cm³$ والسؤال طالب $ΔV$ بإشارته، ده مقدار النقص مش التغيّر الموقّع. اقرا صياغة السؤال كويس.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-board",
+            "params": {
+              "scene": "S07",
+              "view": "q1",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "title": "سؤال 2: أنهي معامل؟",
+      "clipId": "N08",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S08",
+          "view": "q2",
+          "kicker": "جرّب بنفسك",
+          "questionId": "Q02",
+          "hideAnswerUntilAttempt": true,
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S08-UEN"
+          ],
+          "text": "A rod elongates under axial tension. A fixed-bottom block undergoes sideways displacement from a tangential top-face force. A third body shrinks in volume under nearly uniform increased surrounding pressure. Name the suitable elastic modulus and the strain measure for each situation.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S08-UAR"
+          ],
+          "text": "قدامك تلات حالات: قضيب بيتشد على طوله، وبلوك قاعدته مثبّتة ووشّه العلوي بيتزق على جنب، وجسم بيتضغط من كل الاتجاهات. لكل حالة: أنهي معامل مرونة مناسب، وأنهي انفعال؟ واشرح السبب من غير أرقام.",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "A rod elongates under axial tension. A fixed-bottom block undergoes sideways displacement from a tangential top-face force. A third body shrinks in volume under nearly uniform increased surrounding pressure. Name the suitable elastic modulus and the strain measure for each situation.",
+        "arabic": "قدامك تلات حالات: قضيب بيتشد على طوله، وبلوك قاعدته مثبّتة ووشّه العلوي بيتزق على جنب، وجسم بيتضغط من كل الاتجاهات. لكل حالة: أنهي معامل مرونة مناسب، وأنهي انفعال؟ واشرح السبب من غير أرقام.",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "Axial tension: Young's modulus and ΔL/L₀. Simple shear: shear modulus and Δx/h. Volumetric compression: bulk modulus and ΔV/V₀.",
+          "arabic": "القضيب طوله اتغيّر على محوره، فده Young's Modulus والانفعال الطولي ΔL/L₀. البلوك وشّه اتحرك على جنب بالنسبة للوش المثبّت، فده القص: معامل القص S وانفعال القص Δx/h. والجسم اللي اتضغط من كل ناحية حجمه اتغيّر، فده معامل الحجم B والانفعال الحجمي ΔV/V₀. نوع التشوّه هو اللي بيختار القانون."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-UEN"
+              ],
+              "text": "Axial tension: Young's modulus and ΔL/L₀. Simple shear: shear modulus and Δx/h. Volumetric compression: bulk modulus and ΔV/V₀.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-UAR",
+                "F02-U1"
+              ],
+              "text": "القضيب طوله اتغيّر على محوره، فده Young's Modulus والانفعال الطولي $ΔL/L₀$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U2"
+              ],
+              "text": "البلوك وشّه اتحرك على جنب بالنسبة للوش المثبّت، فده القص: معامل القص $S$ وانفعال القص $Δx/h$.",
+              "written": true
+            },
+            {
+              "unitIds": [
+                "F02-U3"
+              ],
+              "text": "والجسم اللي اتضغط من كل ناحية حجمه اتغيّر، فده معامل الحجم $B$ والانفعال الحجمي $ΔV/V₀$. نوع التشوّه هو اللي بيختار القانون.",
+              "written": true
+            }
+          ],
+          "visual": {
+            "renderer": "phys1-board",
+            "params": {
+              "scene": "S08",
+              "view": "q2",
+              "kicker": "جرّب بنفسك",
+              "phase": "feedback",
+              "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "title": "الخلاصة",
+      "clipId": "N09",
+      "visual": {
+        "renderer": "phys1-board",
+        "params": {
+          "scene": "S09",
+          "view": "recap",
+          "kicker": "الخلاصة",
+          "assetBase": "/lesson-assets/physics-1-mechanics-waves/phys1-bulk-compression"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "S09-U1"
+          ],
+          "text": "الخلاصة: الضغط من كل الاتجاهات بيقلّل الحجم، ومعامل الحجم بيقيس مقاومة المادة لده: $B = −ΔP/(ΔV/V₀)$.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U2"
+          ],
+          "text": "في الانضغاط $ΔV$ سالبة، والسالب في القانون بيخلّي $B$ موجب، ومقدار النقص بنكتبه موجب.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U3"
+          ],
+          "text": "وكده عندنا تلات معاملات: يونج للتغيّر في الطول، والقص للميل، والحجم للتغيّر في الحجم.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "S09-U4"
+          ],
+          "text": "وقبل أي مسألة اسأل نفسك: القوة نوعها إيه؟ التشوّه نوعه إيه؟ وإيه الفرض اللي يسمح بالقانون؟",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Volumetric compression",
+      "definition": "انضغاط حجمي: ضغط من كل الاتجاهات بيقلّل حجم الجسم."
+    },
+    {
+      "term": "Pressure (P)",
+      "definition": "الضغط: قوة عمودية على وحدة المساحة، بوحدة Pa."
+    },
+    {
+      "term": "Volumetric strain",
+      "definition": "الانفعال الحجمي: ΔV/V₀، من غير وحدة."
+    },
+    {
+      "term": "Bulk modulus (B)",
+      "definition": "معامل الحجم: B = −ΔP/(ΔV/V₀)، بيقيس مقاومة المادة لتغيّر الحجم، بوحدة Pa."
+    }
+  ],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "تفرّق بين الانضغاط الحجمي والشد والقص، وتختار المعامل المناسب لكل واحد",
+      "sceneIds": [
+        "S01",
+        "S04",
+        "S09"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "تفهم ليه ΔV سالبة في الانضغاط وB موجب",
+      "sceneIds": [
+        "S02",
+        "S03",
+        "S06",
+        "S09"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "تحسب تغيّر الحجم بإشارته ومقدار النقص بالوحدات الصح",
+      "sceneIds": [
+        "S05",
+        "S06"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    }
+  ]
+}

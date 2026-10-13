@@ -23,4 +23,5 @@ export const readingModules = {
   "reading:phys1-solid-structure-stress-strain": () => import('./physics-1-mechanics-waves/phys1-solid-structure-stress-strain/index'),
   "reading:phys1-young-axial-stiffness": () => import('./physics-1-mechanics-waves/phys1-young-axial-stiffness/index'),
   "reading:phys1-shear-deformation": () => import('./physics-1-mechanics-waves/phys1-shear-deformation/index'),
+  "reading:phys1-bulk-compression": () => import('./physics-1-mechanics-waves/phys1-bulk-compression/index'),
 } as const;
