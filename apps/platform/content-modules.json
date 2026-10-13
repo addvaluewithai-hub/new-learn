@@ -165,5 +165,12 @@
     "manifestHash": "497ca8c66de3718652eabd2b7f74c85f865e6098fe00df4cdc4275229afbea28",
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
+  },
+  "reading:phys1-bulk-compression": {
+    "lessonId": "phys1-bulk-compression",
+    "contentRevision": "5825934c91acbcf631d1e4cf44375844c99eacd1db596b5dd1a2ac0b538207ec",
+    "manifestHash": "932020e9b8be23a82a357febe0c904aa2fab404876f77bb82f3134cf1279af81",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
   }
 }

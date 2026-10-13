@@ -183,7 +183,50 @@
       "curriculumId": "physics-1-mechanics-waves",
       "order": 804,
       "title": "الانضغاط الحجمي ومعامل الحجم",
-      "subtitle": "Bulk Modulus and Volumetric Strain"
+      "subtitle": "Bulk Modulus and Volumetric Strain",
+      "moduleId": "reading:phys1-bulk-compression",
+      "contentRevision": "5825934c91acbcf631d1e4cf44375844c99eacd1db596b5dd1a2ac0b538207ec",
+      "manifestHash": "932020e9b8be23a82a357febe0c904aa2fab404876f77bb82f3134cf1279af81",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O1",
+          "text": "تفرّق بين الانضغاط الحجمي والشد والقص، وتختار المعامل المناسب لكل واحد",
+          "sceneIds": [
+            "S01",
+            "S04",
+            "S09"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O2",
+          "text": "تفهم ليه ΔV سالبة في الانضغاط وB موجب",
+          "sceneIds": [
+            "S02",
+            "S03",
+            "S06",
+            "S09"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O3",
+          "text": "تحسب تغيّر الحجم بإشارته ومقدار النقص بالوحدات الصح",
+          "sceneIds": [
+            "S05",
+            "S06"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        }
+      ]
     }
   ]
 }
