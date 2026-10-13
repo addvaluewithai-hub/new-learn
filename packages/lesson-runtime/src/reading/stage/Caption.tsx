@@ -1,9 +1,8 @@
-import { useLayoutEffect, useRef, useState } from 'react';
 import { ReadText, textDirection } from '../ReadText';
 import { pageSteps } from '../model';
 import type { ReadingPage, ReadingQuestion, ReadingScene } from '../types';
 
-/** The one sentence beside the board. Its zone has a fixed height, so nothing moves. */
+/** The one sentence beside the board; its card fits the text (no empty space, no scroll). */
 export function Caption({
   label,
   text,
@@ -12,13 +11,9 @@ export function Caption({
   step,
   steps,
   onThread,
-  fit = [],
 }: {
   label?: string;
   text: string;
-  /** Every line of this clip: the text box keeps the height of the longest, so it never
-   * changes size (or cuts a line short) while the learner steps through the scene. */
-  fit?: string[];
   /** The start of a sentence that began on earlier steps, shown faded before this one. */
   lead?: string;
   answer?: string;
@@ -27,32 +22,8 @@ export function Caption({
   /** Opens the whole lesson conversation. */
   onThread?: () => void;
 }) {
-  const ruler = useRef<HTMLDivElement>(null);
-  const [tallest, setTallest] = useState(0);
-  const key = fit.join('\u0000');
-  useLayoutEffect(() => {
-    const box = ruler.current;
-    if (!box) return;
-    const measure = () =>
-      setTallest(
-        Math.max(0, ...[...box.children].map((line) => (line as HTMLElement).offsetHeight)),
-      );
-    measure();
-    const watch = new ResizeObserver(measure);
-    watch.observe(box);
-    return () => watch.disconnect();
-  }, [key]);
   return (
     <div className="rl-caption" data-label={label ? 'yes' : undefined}>
-      {fit.length ? (
-        <div className="rl-ruler" ref={ruler} aria-hidden="true">
-          {fit.map((line, i) => (
-            <p key={i} dir={textDirection(line)}>
-              <ReadText text={line} />
-            </p>
-          ))}
-        </div>
-      ) : null}
       <div className="rl-caption-meta">
         {label ? <span className="rl-tag">{label}</span> : <span />}
         <span className="rl-caption-step">
@@ -66,13 +37,7 @@ export function Caption({
           </bdi>
         </span>
       </div>
-      <p
-        key={text}
-        className="rl-caption-text"
-        dir={textDirection(text)}
-        aria-live="polite"
-        style={tallest ? { minHeight: tallest } : undefined}
-      >
+      <p key={text} className="rl-caption-text" dir={textDirection(text)} aria-live="polite">
         {lead ? (
           <span className="rl-lead" aria-hidden="true">
             <ReadText text={lead} />{' '}
@@ -174,11 +139,6 @@ export function PageCaption({
       label={page.kind === 'feedback' ? 'الإجابة النموذجية' : attempt ? 'سؤال' : undefined}
       text={attempt ? question!.english : steps[page.step].text}
       lead={attempt ? undefined : sentenceLead(steps, page.step)}
-      fit={
-        attempt
-          ? []
-          : steps.map((s, i) => [sentenceLead(steps, i), s.text].filter(Boolean).join(' '))
-      }
       answer={
         page.kind === 'feedback' && page.step === 0 && question ? answers[question.id] : undefined
       }

@@ -118,6 +118,13 @@
   align-items: center;
   padding: 12px 24px 0;
 }
+/* The learner hid the text: the board takes the room. */
+.rl-caption-zone[hidden] {
+  display: none;
+}
+.rl-text-toggle[aria-pressed='true'] {
+  color: var(--rl-faint);
+}
 .rl-dock {
   display: flex;
   align-items: center;

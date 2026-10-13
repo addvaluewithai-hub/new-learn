@@ -14,6 +14,7 @@ import { useLessonTalk } from '../features/nova/lesson/useLessonTalk';
 import { useSpaceToTalk } from '../features/nova/lesson/useSpaceToTalk';
 import { LessonSettings } from '../features/nova/lesson/LessonSettings';
 import { useLessonFlow, useNarrator } from '../features/nova/lesson/useLessonFlow';
+import { useVoicePrefs } from '../features/nova/voice/voicePrefs';
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 
@@ -45,7 +46,8 @@ export default function ReadingClassroom({
   // Asking Nova pauses a lesson that moves alone, so the answer can be read in peace.
   const talk = useLessonTalk(context, () => moving && flow.setPaused(true));
   useSpaceToTalk(talk.voice, Boolean(module) && !assistantOpen);
-  const { setVolume, teach, stopTeaching } = talk.voice;
+  const { setVolume, teach, stopTeaching, restyle } = talk.voice;
+  const voicePrefs = useVoicePrefs(restyle);
   useEffect(() => setVolume(flow.settings.volume), [flow.settings.volume, setVolume]);
   useNarrator({
     enabled: flow.settings.narration && !assistantOpen,
@@ -118,7 +120,14 @@ export default function ReadingClassroom({
           paused: flow.paused,
           onPausedChange: flow.setPaused,
         }}
-        tools={<LessonSettings settings={flow.settings} onChange={flow.change} />}
+        tools={
+          <LessonSettings
+            settings={flow.settings}
+            onChange={flow.change}
+            voice={voicePrefs.prefs}
+            onVoice={voicePrefs.change}
+          />
+        }
         conversation={{
           tutor: 'Nova',
           notes: talk.notes,

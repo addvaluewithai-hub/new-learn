@@ -1,29 +1,23 @@
-import { api } from '../../../shared/api';
 import { AudioSession } from '../voice/AudioSession';
-import { LiveConnection, type LiveToken } from '../voice/LiveConnection';
+import { LiveConnection } from '../voice/LiveConnection';
 import type { Position } from '../types';
 import { reason } from './voiceError';
 import { readMessage, type TeachEvents, type TeachLine } from './teach';
-import { LOOKAHEAD_S, type ReadJob, type Session, type VoiceEvents } from './voiceTypes';
+import { IDLE_CLOSE_MS, LOOKAHEAD_S, REPLY_WAIT_MS, talkToken } from './voiceTypes';
+import type { ReadJob, Session, VoiceEvents, VoiceState } from './voiceTypes';
 
-export type { VoiceEvents } from './voiceTypes';
-
+export type { VoiceEvents, VoiceState } from './voiceTypes';
 export type { TeachEvents, TeachLine } from './teach';
 
-export type VoiceState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'reading';
-const IDLE_CLOSE_MS = 120_000;
-const REPLY_WAIT_MS = 20_000;
-
 /**
- * One live tutor session per lesson, used two ways: teaching the lesson aloud (a stretch of
- * numbered lines per message, Nova moving the board itself with show_step) and hold-to-talk
- * questions. Talking always wins: a hold cuts the teaching. The
- * microphone opens only on the first hold; the session opens on first use, stays warm, and
- * closes after two quiet minutes. A dropped session is reopened by the next use.
+ * One live tutor session per lesson: teaching the lesson aloud and hold-to-talk questions
+ * (talking always wins). The microphone opens on the first hold; the session opens on first
+ * use, stays warm, closes after two quiet minutes, and a dropped one reopens on next use.
  */
 export class LessonVoice {
   private s: Session | null = null;
   private holding = false;
+  private stale = false;
   private starting = false;
   private turn = false;
   private teaching: ReadJob | null = null;
@@ -106,7 +100,7 @@ export class LessonVoice {
   private async connect(s: Session) {
     const position = this.on().position();
     if (!position) throw new Error('الدرس لسه بيحمّل.');
-    const token = await api<LiveToken>('/nova/live', { ...position, purpose: 'talk' });
+    const token = await talkToken(position);
     if (this.s !== s) throw new Error('المكالمة اتقفلت.');
     await s.live.connect(token);
     s.ready = true;
@@ -131,6 +125,7 @@ export class LessonVoice {
     else if (!this.holding && !this.turn) this.set('idle');
   }
   private armIdle() {
+    if (this.stale && this.s && !this.holding && !this.teaching && !this.turn) return this.close();
     clearTimeout(this.timers.idle);
     this.timers.idle = window.setTimeout(() => {
       if (!this.holding && !this.teaching && !this.turn) this.close();
@@ -205,11 +200,8 @@ export class LessonVoice {
     this.set('idle');
   }
 
-  /**
-   * Read these lines aloud in one session, one line per reply. The next line is requested
-   * while the current one is still playing, so the speech runs on without gaps, and each
-   * page turns exactly when its line starts playing. Stops after the last line (a question).
-   */
+  /** Read these lines aloud, one per reply, the next requested while this one plays (no
+   * gaps); each page turns as its line starts. Stops after the last line (a question). */
   teach(lines: TeachLine[], on: TeachEvents) {
     this.endTeach('cut');
     if (this.holding || this.turn || !lines.length) return;
@@ -283,9 +275,16 @@ export class LessonVoice {
   tell(text: string) {
     if (this.s?.ready) this.s.live.note(text);
   }
+  /** New voice settings apply from Nova's next sentence on: a quiet session reopens now. */
+  restyle() {
+    if (!this.s) return;
+    this.stale = true;
+    this.armIdle();
+  }
   close() {
     const s = this.s;
     this.s = null;
+    this.stale = false;
     this.endTeach('cut');
     this.discard = false;
     this.generating = false;

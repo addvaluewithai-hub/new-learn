@@ -3,6 +3,8 @@ import { SpeakerHighIcon } from '@phosphor-icons/react/dist/csr/SpeakerHigh';
 import { SpeakerSlashIcon } from '@phosphor-icons/react/dist/csr/SpeakerSlash';
 import type { ReadingPace } from '@learn/lesson-runtime';
 import type { FlowSettings } from './useLessonFlow';
+import type { VoicePrefs } from '../voice/voicePrefs';
+import { VoiceStyleSettings } from './VoiceStyleSettings';
 import './lesson-settings.css';
 
 const PACES: Array<{ value: ReadingPace | null; label: string }> = [
@@ -12,13 +14,17 @@ const PACES: Array<{ value: ReadingPace | null; label: string }> = [
   { value: 'faster', label: 'أسرع' },
 ];
 
-/** How the lesson moves: Nova reading aloud (with volume), or a reading pace. */
+/** How the lesson moves (Nova reading aloud, or a reading pace) and how Nova sounds. */
 export function LessonSettings({
   settings,
   onChange,
+  voice,
+  onVoice,
 }: {
   settings: FlowSettings;
   onChange: (next: Partial<FlowSettings>) => void;
+  voice: VoicePrefs;
+  onVoice: (next: Partial<VoicePrefs>) => void;
 }) {
   const [open, setOpen] = useState(false);
   const box = useRef<HTMLDivElement>(null);
@@ -42,14 +48,14 @@ export function LessonSettings({
         type="button"
         className="flow-settings-button"
         aria-expanded={open}
-        aria-label="طريقة مشي الدرس"
+        aria-label="إعدادات الدرس وصوت Nova"
         data-on={settings.narration || settings.pace ? '' : undefined}
         onClick={() => setOpen(!open)}
       >
         <Icon size={19} aria-hidden="true" />
       </button>
       {open ? (
-        <div className="flow-pop" role="dialog" aria-label="طريقة مشي الدرس">
+        <div className="flow-pop" role="dialog" aria-label="إعدادات الدرس وصوت Nova">
           <label className="flow-row">
             <span>
               <strong>Nova تقرا الدرس</strong>
@@ -94,6 +100,7 @@ export function LessonSettings({
               <small>الوقت قبل ما الخطوة الجاية تظهر. «يدوي» يعني بزرار التالي.</small>
             </div>
           )}
+          <VoiceStyleSettings prefs={voice} onChange={onVoice} />
         </div>
       ) : null}
     </div>

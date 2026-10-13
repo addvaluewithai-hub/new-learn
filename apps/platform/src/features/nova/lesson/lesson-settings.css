@@ -113,11 +113,82 @@
   color: #fff;
   font-weight: 600;
 }
+/* Nova's voice: two chip rows and a one-line manner. */
+.flow-voice {
+  display: grid;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #eceee9;
+}
+.flow-chips {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  padding: 4px;
+  border-radius: 14px;
+  background: #f1f2ee;
+}
+.flow-chips button {
+  height: 34px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: #5f6f69;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.flow-chips button[aria-checked='true'] {
+  background: #6a55b8;
+  color: #fff;
+  font-weight: 600;
+}
+.flow-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: #5f6f69;
+}
+.flow-select select {
+  min-width: 150px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #e1e4de;
+  border-radius: 12px;
+  background: #fafbf8;
+  color: #1b2925;
+  font: inherit;
+  font-size: 13.5px;
+}
+.flow-persona {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: #5f6f69;
+}
+.flow-persona input {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #e1e4de;
+  border-radius: 12px;
+  background: #fafbf8;
+  color: #1b2925;
+  font: inherit;
+  font-size: 13.5px;
+}
+.flow-persona input:focus {
+  outline: 2px solid #6a55b8;
+  outline-offset: 1px;
+}
 @media (max-width: 650px) {
   .flow-pop {
     position: fixed;
     top: 64px;
     inset-inline: 12px;
     width: auto;
+    max-height: calc(100dvh - 80px);
+    overflow: auto;
   }
 }
