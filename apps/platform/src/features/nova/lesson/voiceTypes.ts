@@ -1,8 +1,13 @@
 import type { AudioSession } from '../voice/AudioSession';
-import type { LiveConnection } from '../voice/LiveConnection';
+import type { LiveConnection, LiveToken } from '../voice/LiveConnection';
+import { api } from '../../../shared/api';
+import { voiceStyle } from '../voice/voicePrefs';
 import type { Position } from '../types';
 import type { TeachEvents, TeachLine } from './teach';
-import type { VoiceState } from './LessonVoice';
+
+export type VoiceState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'reading';
+export const IDLE_CLOSE_MS = 120_000;
+export const REPLY_WAIT_MS = 20_000;
 
 /** Shapes shared by the lesson voice engine. */
 export type VoiceEvents = {
@@ -38,3 +43,7 @@ export type ReadJob = {
 };
 /** Ask for the next line while this much speech is still queued, so lines join up. */
 export const LOOKAHEAD_S = 6;
+
+/** The live session for lesson talk, opened with the learner's voice settings. */
+export const talkToken = (position: Position) =>
+  api<LiveToken>('/nova/live', { ...position, purpose: 'talk', style: voiceStyle() });

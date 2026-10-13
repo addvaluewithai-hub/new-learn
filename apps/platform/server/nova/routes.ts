@@ -5,6 +5,7 @@ import { generate, gemini } from './provider';
 import { quizSchema, validateQuiz } from './quiz';
 import { limitNova } from './limits';
 import { liveConfig } from './live';
+import { personaInstruction, tutorStyle } from './style';
 export function chatHistory(value: unknown) {
   if (!Array.isArray(value) || !value.length || value.length > 16)
     throw new HttpError(400, 'المحادثة غير صحيحة.');
@@ -26,7 +27,8 @@ export async function novaRoute(request: Request, env: Env, user: AuthUser, acti
   const input = await body(request);
   const context = await assistantContext(env, user, input);
   limitNova(user.id, action);
-  const instruction = teachingInstruction(context);
+  const style = tutorStyle(input.style);
+  const instruction = teachingInstruction(context) + personaInstruction(style);
   if (action === 'chat') {
     const contents = chatHistory(input.messages);
     if (contents.length % 2 === 0) throw new HttpError(400, 'اكتب سؤالًا أولًا.');
@@ -52,7 +54,7 @@ export async function novaRoute(request: Request, env: Env, user: AuthUser, acti
     });
   }
   const model = env.GEMINI_LIVE_MODEL || 'gemini-3.8-live';
-  const config = liveConfig(instruction, input.purpose === 'talk' ? 'talk' : 'practice');
+  const config = liveConfig(instruction, input.purpose === 'talk' ? 'talk' : 'practice', style);
   const token = await gemini(
     env,
     'auth_tokens',

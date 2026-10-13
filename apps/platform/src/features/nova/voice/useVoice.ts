@@ -3,6 +3,7 @@ import { api } from '../../../shared/api';
 import { AudioSession } from './AudioSession';
 import { LiveConnection, type LiveToken } from './LiveConnection';
 import type { Message, Position } from '../types';
+import { voiceStyle } from './voicePrefs';
 export function useVoice(position: Position, answer: (index: number, choice: number) => unknown) {
   const [status, setStatus] = useState<'idle' | 'connecting' | 'listening' | 'speaking' | 'paused'>(
       'idle',
@@ -77,7 +78,11 @@ export function useVoice(position: Position, answer: (index: number, choice: num
       active.current = owned;
       await audio.capture((chunk) => live.audio(chunk));
       if (abort.signal.aborted) return;
-      const token = await api<LiveToken>('/nova/live', position, abort.signal);
+      const token = await api<LiveToken>(
+        '/nova/live',
+        { ...position, style: voiceStyle() },
+        abort.signal,
+      );
       if (abort.signal.aborted) return;
       await live.connect(token);
       if (abort.signal.aborted) return;

@@ -3,6 +3,7 @@ import type { LessonContext, ThreadNote } from '@learn/lesson-runtime';
 import { api } from '../../../shared/api';
 import { positionOf } from '../types';
 import { atOf, chatTurns, earlierText, whereText } from './notes';
+import { voiceStyle } from '../voice/voicePrefs';
 import {
   LessonVoice,
   type TeachEvents,
@@ -51,7 +52,7 @@ export function useLessonTalk(context: LessonContext | null, onEngage?: () => vo
     try {
       const answer = await api<{ text: string }>(
         '/nova/chat',
-        { ...positionOf(c), messages },
+        { ...positionOf(c), messages, style: voiceStyle() },
         controller.signal,
       );
       patch(reply.id, () => ({ text: answer.text, pending: false }));
@@ -123,6 +124,7 @@ export function useLessonTalk(context: LessonContext | null, onEngage?: () => vo
     teach: (lines: TeachLine[], on: TeachEvents) => engine.teach(lines, on),
     stopTeaching: () => engine.endTeach('cut'),
     setVolume: (value: number) => engine.setVolume(value),
+    restyle: () => engine.restyle(),
   }));
   const voice = { state, ...actions };
 

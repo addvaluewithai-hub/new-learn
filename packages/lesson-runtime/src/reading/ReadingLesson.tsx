@@ -19,6 +19,7 @@ import { AnswerDock, Dock } from './stage/Dock';
 import { ScenesList, Sheet } from './stage/Sheets';
 import { Thread } from './stage/Thread';
 import { readingMs, usePageVisible } from './stage/flow';
+import { useCaptionShown } from './stage/captionPref';
 import { GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
 import { threadItems } from './thread';
 import type { ReadingLessonProps, ReadingProgress } from './props';
@@ -149,6 +150,9 @@ function ReadingSession(props: ReadingLessonProps) {
     return () => removeEventListener('keydown', onKey);
   }, [go, index, answering, complete, props.suspended, sheet, threadOpen, setThread]);
 
+  const caption = useCaptionShown();
+  // Hiding the text never hides a question: the learner needs it to answer.
+  const textHidden = !caption.shown && !answering && page.kind !== 'attempt';
   const inScene = pages.filter((p) => p.scene === page.scene);
   const fill = (inScene.indexOf(page) + 1) / inScene.length;
   // The page turns alone only while nothing else needs the learner's attention.
@@ -228,7 +232,7 @@ function ReadingSession(props: ReadingLessonProps) {
               ) : null}
             </div>
           </div>
-          <div className="rl-caption-zone">
+          <div className="rl-caption-zone" hidden={textHidden}>
             <PageCaption
               scene={scene}
               page={page}
@@ -263,6 +267,7 @@ function ReadingSession(props: ReadingLessonProps) {
               onNext={() => go(index + 1)}
               nextLabel={index === pages.length - 1 ? 'خلّص الدرس' : 'التالي'}
               center={talk ? (portrait ? talk.orb : talk.composer) : null}
+              text={{ shown: caption.shown, onToggle: caption.toggle }}
               flow={
                 flow && (flow.pace || flow.narrating)
                   ? {

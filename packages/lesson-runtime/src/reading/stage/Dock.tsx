@@ -35,6 +35,24 @@ const Play = () => (
   </svg>
 );
 
+const TextIcon = ({ off }: { off: boolean }) => (
+  <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+    <path
+      d="M5 7h14M5 12h14M5 17h9"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      opacity={off ? 0.45 : 1}
+    />
+    {off ? (
+      <path d="M4 4l16 16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+    ) : null}
+  </svg>
+);
+
+/** Shows or hides the line under the board. */
+export type DockText = { shown: boolean; onToggle: () => void };
+
 /** Fixed controls: back, the host's tool (e.g. the assistant), next. Never moves. */
 export function Dock({
   canBack,
@@ -43,6 +61,7 @@ export function Dock({
   nextLabel,
   center,
   flow,
+  text,
 }: {
   canBack: boolean;
   onBack: () => void;
@@ -50,6 +69,7 @@ export function Dock({
   nextLabel: string;
   center?: ReactNode;
   flow?: DockFlow;
+  text?: DockText;
 }) {
   return (
     <nav className="rl-dock" aria-label="التنقل في الدرس">
@@ -72,6 +92,18 @@ export function Dock({
           aria-label={flow.paused ? 'كمّل لوحده' : 'وقّف التقليب'}
         >
           {flow.paused ? <Play /> : <Pause />}
+        </button>
+      ) : null}
+      {text ? (
+        <button
+          type="button"
+          className="rl-round rl-text-toggle"
+          onClick={text.onToggle}
+          aria-pressed={!text.shown}
+          aria-label={text.shown ? 'إخفاء النص' : 'إظهار النص'}
+          title={text.shown ? 'إخفاء النص' : 'إظهار النص'}
+        >
+          <TextIcon off={!text.shown} />
         </button>
       ) : null}
       <div className="rl-dock-center">{center}</div>
