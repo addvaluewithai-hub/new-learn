@@ -715,6 +715,77 @@
       ]
     },
     {
+      "id": "engineering-math-1",
+      "title": "رياضة 1 · التفاضل",
+      "description": "من الأعداد الحقيقية والمجموعات لحد النهايات والتفاضل، خطوة بخطوة وبالرسم.",
+      "subject": "Mathematics — رياضيات",
+      "parts": [
+        {
+          "title": "تمهيد: الأعداد والمتباينات",
+          "summary": "خط الأعداد، أنواع الأعداد، المجموعات، وبعدها الفترات والمتباينات.",
+          "lessons": [
+            "em1-prelim-real-sets"
+          ]
+        }
+      ],
+      "lessons": [
+        {
+          "id": "em1-prelim-real-sets",
+          "curriculumId": "engineering-math-1",
+          "order": 1,
+          "title": "الأعداد الحقيقية وخط الأعداد والمجموعات",
+          "subtitle": "Real Numbers, the Real Line and Sets",
+          "moduleId": "reading:em1-prelim-real-sets",
+          "contentRevision": "26803dc2d59f5709d8a1530d6e583605978d0a384f2eeb757fcb6404eb7be6eb",
+          "manifestHash": "ba1f2a9cfa86ed84a1b725651e1d69b200e6175cb421e9335bdcc4080d450065",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "ترتّب الأعداد الحقيقية على خط الأعداد، وتعرف إمتى علامة المتباينة بتتقلب",
+              "sceneIds": [
+                "S01",
+                "S02",
+                "S03",
+                "S06",
+                "S13"
+              ],
+              "questionIds": [
+                "EM1-RS-Q3"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "تصنّف أي عدد: طبيعي، صحيح، نسبي ولا غير نسبي، وتعرف السبب",
+              "sceneIds": [
+                "S04",
+                "S05",
+                "S06",
+                "S07",
+                "S13"
+              ],
+              "questionIds": [
+                "EM1-RS-Q1"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "تكتب المجموعات بالقائمة وبالقاعدة، وتحسب الاتحاد والتقاطع",
+              "sceneIds": [
+                "S09",
+                "S10",
+                "S13"
+              ],
+              "questionIds": [
+                "EM1-RS-Q2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "engineering-mechanics-statics-y1",
       "title": "الميكانيكا الهندسية: بداية الاستاتيكا",
       "description": "ابدأ بفهم الجسم والقوة، واربط القوى بتغيّر الحركة، وبعدها راجع الوحدات والتحويل. شرح مكتوب ورسوم بتتدرج معاك، وأسئلة تحاول فيها قبل ما تشوف الحل.",

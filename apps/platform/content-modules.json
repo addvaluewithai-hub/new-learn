@@ -68,6 +68,13 @@
     "runtimeVersion": "0.3.2",
     "delivery": "reading"
   },
+  "reading:em1-prelim-real-sets": {
+    "lessonId": "em1-prelim-real-sets",
+    "contentRevision": "26803dc2d59f5709d8a1530d6e583605978d0a384f2eeb757fcb6404eb7be6eb",
+    "manifestHash": "ba1f2a9cfa86ed84a1b725651e1d69b200e6175cb421e9335bdcc4080d450065",
+    "runtimeVersion": "0.3.2",
+    "delivery": "reading"
+  },
   "reading:ems-y1-foundations-models": {
     "lessonId": "ems-y1-foundations-models",
     "contentRevision": "07a8ccadbe108437e4d94b6b8823282342f54f3dc841be007ff24b72c424d0cf",
