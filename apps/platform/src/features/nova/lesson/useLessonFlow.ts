@@ -104,6 +104,8 @@ export function useNarrator({
     const lines: TeachLine[] = [];
     for (let n = index; n < pages.length; n++) {
       const page = pages[n];
+      // A question is read once, whole, on its answer page: its lead-in pages are skipped.
+      if (page.kind === 'ask') continue;
       lines.push({
         n,
         text: readingContext(lesson, page, false).line ?? '',
@@ -136,6 +138,9 @@ export function useNarrator({
         );
       },
     };
+    if (!lines.length) return;
+    // Started on a question's lead-in: go straight to its answer page, where it is read.
+    if (lines[0].n !== index) events.show(lines[0].n);
     now.current.teach(lines, events);
     // A new stretch starts only when the learner (not Nova) changes the page.
     // eslint-disable-next-line react-hooks/exhaustive-deps

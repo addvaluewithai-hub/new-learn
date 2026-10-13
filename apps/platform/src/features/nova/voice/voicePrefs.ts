@@ -5,11 +5,38 @@ import { useEffect, useState } from 'react';
  * its manner. They stay on this device and travel with every Nova request as `style`; the
  * server checks them again (server/nova/style.ts).
  */
+/** Every prebuilt voice Gemini Live offers, under Google's own names. */
 export const VOICES = [
-  { id: 'Kore', label: 'هادية' },
-  { id: 'Aoede', label: 'دافية' },
-  { id: 'Charon', label: 'رزين' },
-  { id: 'Puck', label: 'مرح' },
+  'Zephyr',
+  'Puck',
+  'Charon',
+  'Kore',
+  'Fenrir',
+  'Leda',
+  'Orus',
+  'Aoede',
+  'Callirrhoe',
+  'Autonoe',
+  'Enceladus',
+  'Iapetus',
+  'Umbriel',
+  'Algieba',
+  'Despina',
+  'Erinome',
+  'Algenib',
+  'Rasalgethi',
+  'Laomedeia',
+  'Achernar',
+  'Alnilam',
+  'Schedar',
+  'Gacrux',
+  'Pulcherrima',
+  'Achird',
+  'Zubenelgenubi',
+  'Vindemiatrix',
+  'Sadachbia',
+  'Sadaltager',
+  'Sulafat',
 ] as const;
 export const SPEECH_PACES = [
   { id: 'slowest', label: 'بالراحة خالص' },
@@ -19,7 +46,7 @@ export const SPEECH_PACES = [
 export const PERSONA_MAX = 120;
 
 export type VoicePrefs = {
-  voice: (typeof VOICES)[number]['id'];
+  voice: (typeof VOICES)[number];
   pace: (typeof SPEECH_PACES)[number]['id'];
   persona: string;
 };
@@ -30,7 +57,7 @@ export function loadVoicePrefs(): VoicePrefs {
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) ?? 'null');
     return {
-      voice: VOICES.find((v) => v.id === saved?.voice)?.id ?? DEFAULTS.voice,
+      voice: VOICES.find((v) => v === saved?.voice) ?? DEFAULTS.voice,
       pace: SPEECH_PACES.find((p) => p.id === saved?.pace)?.id ?? DEFAULTS.pace,
       persona: typeof saved?.persona === 'string' ? saved.persona.slice(0, PERSONA_MAX) : '',
     };

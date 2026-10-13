@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { useSession } from '../features/auth/session';
 import { useNavigation } from './navigation';
+import { Loading } from '../shared/Loading';
 
 const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
 const ChemistryLesson = lazy(() => import('./ChemistryLesson'));
@@ -11,7 +12,7 @@ const LessonEntry = lazy(() => import('../features/catalog/LessonEntry'));
 function StudentApp() {
   const session = useSession(),
     query = useNavigation();
-  if (session.loading) return <p role="status">بنجهّز مساحة تعلّمك…</p>;
+  if (session.loading) return <Loading text="بنجهّز مساحة تعلّمك…" />;
   if (
     !session.user ||
     query.has('token') ||
@@ -36,7 +37,7 @@ export function App() {
   const preview = new URLSearchParams(location.search).get('preview');
   return (
     <div className="app-shell">
-      <Suspense fallback={<p role="status">بنجهّز مساحة الدرس…</p>}>
+      <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
         {preview === 'probe' ? (
           <DevelopmentLesson />
         ) : preview === 'chemistry' ? (

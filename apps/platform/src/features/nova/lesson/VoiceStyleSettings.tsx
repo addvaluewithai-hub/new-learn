@@ -11,19 +11,21 @@ export function VoiceStyleSettings({
   return (
     <div className="flow-voice">
       <strong>صوت Nova</strong>
-      <div className="flow-chips" role="radiogroup" aria-label="الصوت">
-        {VOICES.map((voice) => (
-          <button
-            key={voice.id}
-            type="button"
-            role="radio"
-            aria-checked={prefs.voice === voice.id}
-            onClick={() => onChange({ voice: voice.id })}
-          >
-            {voice.label}
-          </button>
-        ))}
-      </div>
+      <label className="flow-select">
+        <span aria-hidden="true">الصوت</span>
+        <select
+          aria-label="الصوت"
+          dir="ltr"
+          value={prefs.voice}
+          onChange={(event) => onChange({ voice: event.target.value as VoicePrefs['voice'] })}
+        >
+          {VOICES.map((voice) => (
+            <option key={voice} value={voice}>
+              {voice}
+            </option>
+          ))}
+        </select>
+      </label>
       <div className="flow-chips" role="radiogroup" aria-label="سرعة الكلام">
         {SPEECH_PACES.map((pace) => (
           <button

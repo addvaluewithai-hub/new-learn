@@ -111,7 +111,7 @@ try {
   // Narration: line after line in one session, up to the question, then it waits.
   // Nova's voice settings travel with the live session request.
   await settings.click();
-  await page.getByRole('radio', { name: 'رزين' }).click();
+  await page.getByRole('combobox', { name: 'الصوت' }).selectOption('Charon');
   await page.getByLabel('تحب Nova تكون إزاي؟').fill('هادية وصبورة');
   await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).check();
   await page.keyboard.press('Escape');
@@ -122,6 +122,11 @@ try {
     'lines verbatim',
   );
   assert.match(reads.at(-1), /^READ QUESTION:\n/, 'stops at the question');
+  const asked = reads.at(-1);
+  assert.ok(
+    reads.slice(0, -1).every((r) => !asked.includes(r.slice('READ:\n'.length).trim())),
+    'the question is read once, on its answer page',
+  );
   assert.deepEqual(lives.at(-1).style, {
     voice: 'Charon',
     pace: 'slowest',

@@ -3,7 +3,39 @@
  * line about its manner. Everything is checked here; the line is the learner's data and only
  * ever shapes tone, never the tutor's rules or what it may reveal.
  */
-export const VOICES = ['Kore', 'Aoede', 'Charon', 'Puck'] as const;
+/** Every prebuilt voice Gemini Live offers, under Google's own names. */
+export const VOICES = [
+  'Zephyr',
+  'Puck',
+  'Charon',
+  'Kore',
+  'Fenrir',
+  'Leda',
+  'Orus',
+  'Aoede',
+  'Callirrhoe',
+  'Autonoe',
+  'Enceladus',
+  'Iapetus',
+  'Umbriel',
+  'Algieba',
+  'Despina',
+  'Erinome',
+  'Algenib',
+  'Rasalgethi',
+  'Laomedeia',
+  'Achernar',
+  'Alnilam',
+  'Schedar',
+  'Gacrux',
+  'Pulcherrima',
+  'Achird',
+  'Zubenelgenubi',
+  'Vindemiatrix',
+  'Sadachbia',
+  'Sadaltager',
+  'Sulafat',
+] as const;
 export const PACES = ['slowest', 'slow', 'normal'] as const;
 export const PERSONA_MAX = 120;
 export type TutorStyle = {

@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import pinnedModules from '../../../content-modules.json';
 import { readingModules } from '../../../../../content/imported/modules';
+import { Loading } from '../../shared/Loading';
 const ChemistryLesson = lazy(() => import('../../app/ChemistryLesson'));
 const ReadingClassroom = lazy(() => import('../../app/ReadingClassroom'));
 type Pin = {
@@ -69,7 +70,7 @@ export default function LessonEntry({
         <a href={backHref}>ارجع للمنهج</a>
       </main>
     );
-  if (!edition) return <p role="status">بنجهّز الدرس…</p>;
+  if (!edition) return <Loading text="بنجهّز الدرس…" />;
   // The build allowlist must match the released edition exactly.
   const matches =
     !!pinned &&
@@ -79,7 +80,7 @@ export default function LessonEntry({
     pinned.runtimeVersion === edition.runtimeVersion;
   if (matches && reading)
     return (
-      <Suspense fallback={<p role="status">بنجهّز مساحة الدرس…</p>}>
+      <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
         <ReadingClassroom load={reading} backHref={backHref} studentName={studentName} />
       </Suspense>
     );
@@ -92,7 +93,7 @@ export default function LessonEntry({
     );
   const Lesson = module.component;
   return (
-    <Suspense fallback={<p role="status">بنجهّز مساحة الدرس…</p>}>
+    <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
       <Lesson backHref={backHref} studentName={studentName} />
     </Suspense>
   );

@@ -51,3 +51,33 @@ select:focus-visible {
 .app-shell {
   min-height: 100dvh;
 }
+/* Whole-screen loading state (shared/Loading.tsx). */
+.page-loading {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px;
+  color: #5f6f69;
+  font-size: 15px;
+  text-align: center;
+}
+.page-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #dfe5df;
+  border-top-color: #17463c;
+  border-radius: 50%;
+  animation: page-spin 0.8s linear infinite;
+}
+@keyframes page-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-spinner {
+    animation-duration: 2.4s;
+  }
+}
