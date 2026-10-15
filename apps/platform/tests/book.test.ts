@@ -43,6 +43,7 @@ test('opposite printed pages map to the same PDF spread with distinct crops', ()
   assert.equal(left.pdfPage, 6);
   assert.equal(right.pdfPage, 6);
   assert.equal(left.rotation, 270);
+  assert.deepEqual(sourcePosition(122, 'P122-C', {}).crop, [0, 0, 1, 1]);
   assert.notDeepEqual(left.crop, right.crop);
   assert.equal(sourcePosition(121, 'P121-A', {}).rotation, 0);
   assert.equal(sourcePosition(133, 'P133-Q4', {}).pdfPage, 11);

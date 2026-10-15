@@ -38,8 +38,9 @@ export function sourcePosition(page: number, id: string, sources: BookSources) {
   const kind: SourceKind = closeup ? 'closeup' : 'main';
   const single = page === 121;
   const left = page % 2 === 0;
-  const crop: Focus = single ? [0, 0, 1, 1] : left ? [0, 0, 0.54, 1] : [0.48, 0, 0.52, 1];
-  const y = focus[id];
+  const spread = id === 'P122-C';
+  const crop: Focus = single || spread ? [0, 0, 1, 1] : left ? [0, 0, 0.54, 1] : [0.48, 0, 0.52, 1];
+  const y = spread ? [0.03, 0.94] : focus[id];
   return {
     document: sources[kind],
     pdfPage: closeup ? 1 : single ? 5 : 6 + Math.floor((page - 122) / 2),

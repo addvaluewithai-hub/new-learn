@@ -30,7 +30,8 @@
 .bk-inline-math {
   display: inline-block;
   max-width: 100%;
-  vertical-align: baseline;
+  vertical-align: middle;
+  overflow-x: auto;
   unicode-bidi: isolate;
 }
 .bk-equation {

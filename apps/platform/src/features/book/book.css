@@ -138,6 +138,7 @@
   gap: 10px;
 }
 .bk-progress {
+  min-width: 0;
   flex: 1;
   max-width: 540px;
   margin: auto;
@@ -243,7 +244,9 @@
     gap: 12px;
   }
   .bk-dock button {
-    padding: 9px 13px;
+    padding: 9px 10px;
+    font-size: 14px;
+    gap: 6px;
   }
   .bk-outline {
     position: fixed;

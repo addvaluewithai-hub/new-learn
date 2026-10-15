@@ -16,6 +16,7 @@ export function BookPage({
   const [status, setStatus] = useState('');
   const source = sourcePosition(page, id, sources);
   const doc = source.document;
+  const cropKey = source.crop.join();
   const [x, y, w, h] = source.focus;
   useEffect(() => {
     let active = true;
@@ -62,13 +63,13 @@ export function BookPage({
       active = false;
       task?.cancel();
     };
-  }, [doc, source.pdfPage, source.rotation, page]);
+  }, [doc, source.pdfPage, source.rotation, page, cropKey]);
 
   return (
     <section className="bk-source" aria-label={`صفحة الكتاب ${page}`}>
       <div className="bk-source-tools">
         <span>
-          صفحة <b>{page}</b> من الكتاب
+          صفحة <b>{id === 'P122-C' ? '122–123' : page}</b> من الكتاب
         </span>
         <div>
           <button onClick={() => setMarked(!marked)} aria-pressed={marked}>
