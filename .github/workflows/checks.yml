@@ -36,6 +36,7 @@ jobs:
       - run: npm run test:browser:legacy-gas
       - run: npm run test:browser:statics
       - run: npm run test:browser:talk
+      - run: npm run test:browser:book
       - run: npm run test:browser:flow
       - uses: actions/upload-artifact@v4
         if: always()

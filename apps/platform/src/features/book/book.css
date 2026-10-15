@@ -1,0 +1,255 @@
+.bk {
+  min-height: 100dvh;
+  background: var(--learn-canvas);
+  color: var(--learn-ink);
+  font-family: 'IBM Plex Sans Arabic', var(--learn-font);
+}
+.bk * {
+  box-sizing: border-box;
+}
+.bk button,
+.bk label.bk-primary {
+  font: inherit;
+  cursor: pointer;
+}
+.bk button {
+  min-height: 44px;
+  padding: 8px 15px;
+  border: 1px solid var(--learn-line);
+  border-radius: 10px;
+  background: var(--learn-paper);
+  color: var(--learn-ink);
+}
+.bk button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+.bk button:hover:not(:disabled),
+.bk button[aria-pressed='true'] {
+  background: var(--learn-soft);
+}
+.bk :focus-visible {
+  outline: 3px solid var(--learn-focus);
+  outline-offset: 3px;
+}
+.bk .bk-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--learn-brand);
+  background: var(--learn-brand);
+  color: white;
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 10px 22px;
+}
+.bk .bk-primary:hover:not(:disabled) {
+  background: #315b34;
+}
+.bk-header {
+  min-height: 85px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  padding: 14px 32px;
+  border-bottom: 1px solid var(--learn-line);
+  background: var(--learn-paper);
+}
+.bk-header a {
+  color: inherit;
+  text-decoration: none;
+}
+.bk-header .brand {
+  min-width: 80px;
+}
+.bk-title {
+  flex: 1;
+}
+.bk-title > span {
+  color: var(--learn-muted);
+  font-size: 12px;
+}
+.bk-title h1 {
+  font-size: 22px;
+  margin: 1px 0 0;
+  line-height: 1.5;
+}
+.bk-outline-toggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.bk-file-bar {
+  min-height: 47px;
+  padding: 9px 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--learn-line);
+}
+.bk-file-bar label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.bk-file-bar input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.bk-file-bar label:has(+ input:focus-visible) {
+  outline: 3px solid var(--learn-focus);
+}
+.bk-file-bar > span {
+  margin-inline-start: auto;
+  color: var(--learn-muted);
+}
+.bk-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  height: calc(100dvh - 213px);
+  max-width: 1540px;
+  margin: auto;
+  position: relative;
+}
+.bk-lesson {
+  min-width: 0;
+  padding: 36px clamp(24px, 3vw, 55px);
+  overflow-y: auto;
+  background: var(--learn-paper);
+  border-inline-start: 1px solid var(--learn-line);
+}
+.bk-dock {
+  min-height: 80px;
+  padding: 12px 32px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  border-top: 1px solid var(--learn-line);
+  background: var(--learn-paper);
+}
+.bk-dock button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bk-progress {
+  flex: 1;
+  max-width: 540px;
+  margin: auto;
+  display: grid;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--learn-muted);
+  text-align: center;
+}
+.bk-progress progress {
+  width: 100%;
+  height: 5px;
+  accent-color: var(--learn-brand);
+}
+.bk-complete {
+  padding: 40px 0;
+  text-align: center;
+  line-height: 1.9;
+}
+.bk-outline {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(420px, 100%);
+  z-index: 5;
+  background: var(--learn-paper);
+  padding: 18px;
+  box-shadow: -10px 0 40px #25413a25;
+  overflow: auto;
+}
+.bk-outline > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.bk-outline h2 {
+  font-size: 19px;
+  margin: 0;
+}
+.bk-outline > button {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  text-align: start;
+  margin-bottom: 7px;
+  border-color: transparent;
+  border-radius: 6px;
+}
+.bk-outline > button > span:first-child {
+  font-size: 12px;
+  color: var(--learn-muted);
+  padding-top: 2px;
+}
+.bk-outline > button[aria-current='step'] {
+  background: var(--learn-soft);
+  border-color: var(--learn-brand);
+}
+@media (max-width: 850px) {
+  .bk-header {
+    padding: 12px 16px;
+    gap: 14px;
+    min-height: 76px;
+  }
+  .bk-title h1 {
+    font-size: 18px;
+  }
+  .bk-header .brand {
+    display: none;
+  }
+  .bk-outline-toggle {
+    font-size: 13px !important;
+    padding: 8px !important;
+  }
+  .bk-file-bar {
+    padding: 9px 16px;
+    flex-wrap: wrap;
+  }
+  .bk-file-bar > span {
+    font-size: 11px;
+    margin-inline-start: 0;
+  }
+  .bk-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+  .bk-lesson {
+    padding: 25px 20px 110px;
+    min-height: 40dvh;
+    overflow: visible;
+    border: 0;
+  }
+  .bk-prose {
+    font-size: 18px;
+    line-height: 1.95;
+  }
+  .bk-dock {
+    position: fixed;
+    bottom: 0;
+    inset-inline: 0;
+    z-index: 8;
+    min-height: 76px;
+    padding: 10px 14px max(10px, env(safe-area-inset-bottom));
+    gap: 12px;
+  }
+  .bk-dock button {
+    padding: 9px 13px;
+  }
+  .bk-outline {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-bottom: 95px;
+    z-index: 12;
+  }
+}

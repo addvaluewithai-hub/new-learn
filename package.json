@@ -42,9 +42,11 @@
     "test:browser:talk": "node tests/talk-browser.mjs",
     "test:browser:flow": "node tests/flow-browser.mjs",
     "test:browser:legacy-gas": "node tests/legacy-gas-reading-browser.mjs",
-    "test:browser:statics": "node tests/statics-reading-browser.mjs"
+    "test:browser:statics": "node tests/statics-reading-browser.mjs",
+    "test:browser:book": "node tests/book-browser.mjs"
   },
   "devDependencies": {
+    "@types/katex": "0.16.7",
     "@types/node": "24.13.4",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",

@@ -5,6 +5,7 @@ import { Loading } from '../shared/Loading';
 
 const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
 const ChemistryLesson = lazy(() => import('./ChemistryLesson'));
+const BookStudy = lazy(() => import('../features/book/BookStudy'));
 const AuthPage = lazy(() => import('../features/auth/AuthPage'));
 const CatalogPage = lazy(() => import('../features/catalog/CatalogPage'));
 const LessonEntry = lazy(() => import('../features/catalog/LessonEntry'));
@@ -38,7 +39,9 @@ export function App() {
   return (
     <div className="app-shell">
       <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
-        {preview === 'probe' ? (
+        {preview === 'book-ch08' ? (
+          <BookStudy />
+        ) : preview === 'probe' ? (
           <DevelopmentLesson />
         ) : preview === 'chemistry' ? (
           <ChemistryLesson />
