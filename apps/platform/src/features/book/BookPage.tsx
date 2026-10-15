@@ -51,7 +51,7 @@ export function BookPage({
           canvas.current.height,
         );
         canvas.current.dataset.page = String(page);
-        canvas.current.dataset.document = doc.fingerprints[0];
+        canvas.current.dataset.document = doc.fingerprints[0] ?? '';
         setStatus('');
       })
       .catch((error: Error) => {
