@@ -1,7 +1,9 @@
+// The real shared classroom; controlled auth/chat/live transport, no fake speech claim.
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { readingLesson as lesson } from '../content/book-guided/physics-ch08/reading/package.ts';
 const url = 'http://127.0.0.1:5193';
 const server = spawn(
   process.execPath,
@@ -17,7 +19,8 @@ const server = spawn(
   ],
   { stdio: 'ignore' },
 );
-const next = (page) => page.locator('.bk-dock .bk-primary').click();
+const next = (page) => page.locator('.rl-dock .rl-next').click();
+const pcm = Buffer.alloc(2400).toString('base64');
 let browser;
 try {
   for (let i = 0; ; i++) {
@@ -29,136 +32,168 @@ try {
   }
   browser = await chromium.launch({
     headless: true,
-    executablePath: process.env.CHROMIUM_PATH || undefined,
-    args: process.env.CHROMIUM_PATH
-      ? [
-          '--no-sandbox',
-          '--disable-dev-shm-usage',
-          '--no-zygote',
-          '--single-process',
-          '--in-process-gpu',
-          '--use-gl=angle',
-          '--use-angle=swiftshader',
-          '--enable-unsafe-swiftshader',
-        ]
-      : [],
+    args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'],
   });
   await mkdir('test-results', { recursive: true });
   for (const width of [1280, 390, 320]) {
-    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    const page = await browser.newPage({
+      viewport: { width, height: 900 },
+      permissions: ['microphone'],
+      reducedMotion: 'reduce',
+    });
     const errors = [],
-      api = [];
+      progress = [],
+      lives = [],
+      chats = [],
+      reads = [];
+    let authenticated = true;
     page.on('pageerror', (error) => errors.push(error.message));
-    page.on('request', (r) => {
-      if (r.url().includes('/api/') || r.method() !== 'GET') api.push(`${r.method()} ${r.url()}`);
+    await page.route('**/api/**', async (route) => {
+      const request = route.request(),
+        path = new URL(request.url()).pathname;
+      if (path === '/api/me')
+        return route.fulfill({
+          status: authenticated ? 200 : 401,
+          json: authenticated
+            ? { user: { id: 'u', name: 'طالب', email: 'student@example.com' } }
+            : { error: 'سجّل دخولك' },
+        });
+      if (path.endsWith('/progress')) {
+        progress.push(path);
+        return route.fulfill({ status: 500, json: { error: 'Preview must not call progress' } });
+      }
+      if (path === '/api/nova/chat') {
+        chats.push(request.postDataJSON());
+        return route.fulfill({
+          json: { text: 'القوى الداخلية تقاوم تغيير المسافات بين الجسيمات.' },
+        });
+      }
+      if (path === '/api/nova/live') {
+        lives.push(request.postDataJSON());
+        return route.fulfill({ json: { token: 'test-token', model: 'test-model', config: {} } });
+      }
+      return route.fulfill({ status: 404, json: { error: 'غير موجود' } });
+    });
+    await page.routeWebSocket('wss://generativelanguage.googleapis.com/**', (ws) => {
+      ws.onMessage((raw) => {
+        const message = JSON.parse(raw);
+        if (message.setup) ws.send(JSON.stringify({ setupComplete: {} }));
+        const text = message.clientContent?.turns?.[0]?.parts?.[0]?.text ?? '';
+        if (text.startsWith('READ')) {
+          reads.push(text);
+          setTimeout(() => {
+            ws.send(
+              JSON.stringify({
+                serverContent: {
+                  modelTurn: {
+                    parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data: pcm } }],
+                  },
+                },
+              }),
+            );
+            ws.send(JSON.stringify({ serverContent: { turnComplete: true } }));
+          }, 30);
+        }
+      });
     });
     await page.goto(`${url}/?preview=book-ch08`);
-    await page.locator('.bk-lesson h2').waitFor();
-    await page.evaluate(() => document.fonts.ready);
-    assert.equal(await page.locator('.bk-location span').first().innerText(), 'صفحة 121');
-    await page.screenshot({ path: `test-results/book-${width}.png`, fullPage: true });
-    const total = Number((await page.locator('.bk-progress span').innerText()).split(' من ')[1]);
+    await page.locator('.rl').waitFor();
+    assert.equal(
+      await page.locator('input[type=file],.bk-source,iframe').count(),
+      0,
+      'no book viewer',
+    );
+    await page.getByRole('button', { name: 'إعدادات الدرس وصوت Nova' }).waitFor();
+    assert.equal(lives.length, 0, 'no automatic live session');
+    await page.screenshot({ path: `test-results/book-classroom-${width}.png`, fullPage: true });
+    const seen = new Set();
     let questions = 0,
-      equations = 0;
-    for (let index = 0; index < total; index++) {
-      assert.equal(await page.locator('.bk-progress span').innerText(), `${index + 1} من ${total}`);
-      assert.equal(await page.locator('.katex-error').count(), 0, 'all math parses');
-      equations += await page.locator('.bk-explanation .katex').count();
+      count = 0;
+    while (!(await page.locator('.rl-complete').count()) && count++ < 220) {
+      const id = await page.locator('.ch8-board').getAttribute('data-book-section');
+      seen.add(id);
+      assert.equal(await page.locator('.katex-error').count(), 0);
       assert.ok(
         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
-        `no horizontal overflow at ${width}, step ${index}`,
+        `no body overflow at ${width}, ${id}`,
       );
-      if (await page.locator('.bk-attempt').count()) {
-        questions++;
-        assert.equal(await page.locator('.bk-location', { hasText: 'الحل خطوة خطوة' }).count(), 0);
-        assert.ok(await page.locator('.bk-dock .bk-primary').isDisabled());
-        await page.keyboard.press('ArrowLeft');
-        assert.equal(
-          await page.locator('.bk-attempt').count(),
-          1,
-          'keyboard cannot bypass attempt',
+      const dock = await page.locator('.rl-dock').boundingBox();
+      assert.ok(dock && dock.y + dock.height <= 901, `controls remain visible at ${width}, ${id}`);
+      const clipped = await page
+        .locator('.ch8-equation')
+        .evaluateAll((nodes) =>
+          nodes.some(
+            (n) =>
+              n.querySelector('.katex-html')?.getBoundingClientRect().width >
+              n.getBoundingClientRect().width + 2,
+          ),
         );
+      assert.equal(clipped, false, `typeset math fits at ${width}, ${id}`);
+      assert.ok(
+        !/\\(?:frac|mathrm|Delta)|\$\$/.test(await page.locator('.rl-caption-text').innerText()),
+        'no raw TeX in spoken caption',
+      );
+      if (await page.locator('.rl-question').count()) {
+        questions++;
+        assert.equal(await page.getByText('الحل بعد محاولتك', { exact: true }).count(), 0);
+        assert.ok(await page.getByRole('button', { name: 'ابعت', exact: true }).isDisabled());
         if (questions === 1) {
           await page
-            .getByLabel('اكتب محاولتك أو أول خطوة وصلت لها')
-            .fill('أختار قانون معامل يونج؛ معامل المادة غير مذكور.');
-          await page.getByRole('button', { name: 'شوف الحل بعد محاولتي' }).click();
-        } else await page.getByRole('button', { name: 'معرفتش، ورّيني الحل' }).click();
-        await page.locator('.bk-location', { hasText: 'الحل خطوة خطوة' }).waitFor();
-        assert.equal(await page.locator('.bk-attempt').count(), 0);
+            .getByLabel('إجابتك', { exact: true })
+            .fill('أختار قانون معامل يونج وأحدد البيانات الناقصة.');
+          await page.getByRole('button', { name: 'ابعت', exact: true }).click();
+        } else await page.getByRole('button', { name: 'معرفتش، وريني الحل', exact: true }).click();
+        await page.getByText('الحل بعد محاولتك', { exact: true }).waitFor();
       } else await next(page);
     }
-    await page.locator('.bk-complete').waitFor();
+    await page.locator('.rl-complete').waitFor();
     assert.equal(questions, 4);
-    assert.ok(equations > 80);
-    await page.getByRole('button', { name: 'راجع من الأول' }).click();
-    await page.locator('.bk-outline-toggle').click();
-    assert.equal(await page.locator('.bk-outline > button').count(), 29);
-    await page.locator('.bk-outline > button', { hasText: 'مسألة العمود الصلب' }).click();
-    assert.equal(
-      await page.locator('.bk-attempt').count(),
-      0,
-      'attempt remains available during this session',
-    );
+    assert.equal(seen.size, 29, 'all source sections reached');
+    assert.deepEqual(progress, [], 'preview never loads or saves account progress');
     await page.reload();
-    await page.locator('.bk-outline-toggle').click();
-    await page.locator('.bk-outline > button', { hasText: 'مسألة العمود الصلب' }).click();
-    await page.locator('.bk-attempt').waitFor();
-    await page.locator('#book-file').setInputFiles({
-      name: 'wrong.pdf',
-      mimeType: 'application/pdf',
-      buffer: Buffer.from('%PDF-1.7\nwrong source'),
-    });
-    await page.getByRole('status').filter({ hasText: 'ده ملف مختلف' }).waitFor();
-    assert.equal(await page.locator('canvas').count(), 0);
-    if (process.env.BOOK_SOURCE_MAIN && width === 1280) {
-      await page.locator('#book-file').setInputFiles(process.env.BOOK_SOURCE_MAIN);
-      await page.getByRole('status').filter({ hasText: 'الكتاب مفتوح' }).waitFor();
-      await page.waitForFunction(
-        () =>
-          document.querySelector('canvas')?.width > 0 &&
-          document.querySelector('.bk-render-status')?.textContent === '',
+    await page.locator('.ch8-board[data-book-section="P121-A"]').waitFor();
+    if (width === 1280) {
+      await page.getByLabel('اسأل Nova', { exact: true }).fill('ليه الجسم بيقاوم التشوه؟');
+      await page.getByRole('button', { name: 'ابعت لـ Nova', exact: true }).click();
+      await page.locator('.rl-t-note[data-role="tutor"]', { hasText: 'القوى الداخلية' }).waitFor();
+      assert.equal(chats[0].lessonId, lesson.lessonId);
+      assert.equal(chats[0].contentRevision, lesson.contentRevision);
+      assert.equal(chats[0].sceneId, 'P121-A');
+      await page.locator('.rl-thread').getByRole('button', { name: 'اقفل', exact: true }).click();
+      const settings = page.getByRole('button', { name: 'إعدادات الدرس وصوت Nova' });
+      await settings.click();
+      await page.getByRole('combobox', { name: 'الصوت', exact: true }).selectOption('Charon');
+      await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).check();
+      await page.keyboard.press('Escape');
+      await page.locator('.rl-question').waitFor({ timeout: 60000 });
+      assert.ok(reads.length > 50, 'Nova reads the book-ordered explanation');
+      assert.equal(
+        reads.filter((r) => r.startsWith('READ QUESTION')).length,
+        1,
+        'question read once',
       );
-      const pages = [];
-      // Every printed page, including the two halves of each rotated spread.
-      for (let printed = 121; printed <= 133; printed++) {
-        await page.locator('.bk-outline-toggle').click();
-        await page
-          .locator('.bk-outline > button')
-          .filter({ has: page.locator('span:first-child', { hasText: String(printed) }) })
-          .first()
-          .click();
-        await page.waitForFunction(
-          (printed) =>
-            document.querySelector('canvas')?.dataset.page === String(printed) &&
-            document.querySelector('.bk-render-status')?.textContent === '',
-          printed,
-        );
-        pages.push(await page.locator('canvas').evaluate((canvas) => canvas.toDataURL()));
-      }
-      assert.equal(new Set(pages).size, 13, 'printed pages render distinct source crops');
-      if (process.env.BOOK_SOURCE_CLOSEUP) {
-        await page.locator('#book-file').setInputFiles(process.env.BOOK_SOURCE_CLOSEUP);
-        await page.getByRole('status').filter({ hasText: 'الكتاب مفتوح' }).waitFor();
-        await page.locator('.bk-outline-toggle').click();
-        await page
-          .locator('.bk-outline > button')
-          .filter({ has: page.locator('span:first-child', { hasText: '124' }) })
-          .first()
-          .click();
-        await page.waitForFunction(
-          () =>
-            document.querySelector('canvas')?.width > 0 &&
-            document.querySelector('.bk-render-status')?.textContent === '',
-        );
-      }
+      assert.ok(!reads.some((r) => r.includes('1.5 × 10⁻⁴')), 'no model answer before attempt');
+      assert.ok(
+        reads.every((r) => !/\\(?:frac|mathrm|Delta)|\$\$/.test(r)),
+        'live narration uses readable math',
+      );
+      assert.equal(lives[0].lessonId, lesson.lessonId);
+      assert.equal(lives[0].purpose, 'talk');
+      assert.equal(lives[0].style.voice, 'Charon');
+      await settings.click();
+      await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).uncheck();
+      await page.keyboard.press('Escape');
+      await page.screenshot({ path: 'test-results/book-native-question.png', fullPage: true });
     }
+    authenticated = false;
+    await page.reload();
+    await page.locator('.auth-form').waitFor();
+    assert.equal(await page.locator('.rl').count(), 0, 'normal sign-in gate');
     assert.deepEqual(errors, []);
-    assert.deepEqual(api, [], 'no API, uploads or progress writes');
     await page.close();
   }
   console.log(
-    'Book study: complete chapter, 4 gated exercises, math, responsive layout, local-source validation passed.',
+    'Book classroom: original UI, 4 exercises, math, responsive navigation, auth, Nova chat/live narration and no progress writes passed.',
   );
 } finally {
   await browser?.close();

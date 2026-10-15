@@ -5,6 +5,7 @@ import {
   type LessonPackage,
   type ReadingPackage,
 } from '@learn/lesson-runtime/core';
+import { readingLesson as bookLesson } from '../../../../content/book-guided/physics-ch08/reading/package';
 import { readingPackages } from '../../../../content/imported/packages';
 import manifest from '../../../../content/chemistry/states-of-matter/data/manifest.json';
 import { createStatesPackage } from '../../../../content/chemistry/states-of-matter/statesPackage';
@@ -102,6 +103,17 @@ export const fromReading = (lesson: ReadingPackage): TutorLesson => ({
 export async function assistantContext(env: Env, user: AuthUser, input: Record<string, unknown>) {
   if (typeof input.lessonId !== 'string' || typeof input.contentRevision !== 'string')
     throw new HttpError(400, 'الدرس غير محدد.');
+  // A compiled, server-owned review package: normal authentication/rate limits still apply.
+  // It creates no catalog release or progress edition and accepts no client lesson text.
+  if (input.lessonId === bookLesson.lessonId) {
+    if (input.contentRevision !== bookLesson.contentRevision)
+      throw new HttpError(409, 'نسخة التجربة اتغيّرت. افتح الدرس تاني.');
+    return {
+      lesson: fromReading(bookLesson),
+      position: resolveReadingPosition(bookLesson, input),
+      student: { name: user.name },
+    };
+  }
   const edition = await lessonEdition(env, input.lessonId);
   if (edition.contentRevision !== input.contentRevision)
     throw new HttpError(409, 'نسخة الدرس اتغيّرت. افتح الدرس من المنهج تاني.');

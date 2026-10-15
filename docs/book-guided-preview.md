@@ -1,57 +1,57 @@
-# Book guided Chapter 8 review
+# Chapter 8 in the original classroom
 
-Open `/?preview=book-ch08` to study the separate Chapter 8 draft in the platform.
-It follows printed pages 121–133, with typeset math, a section index, one explanatory
-passage at a time, and the four original exercises. Solutions open after a written
-attempt or an explicit request to see the worked solution. Answers are not auto-graded.
+Open `/?preview=book-ch08`. This experiment uses the existing `ReadingClassroom`,
+`ReadingLesson`, lesson settings, conversation, Nova live narration and voice/chat
+controls. The difference is the teaching content: it follows printed pages 121–133
+and the four original book exercises in order. The learner holds the book; no PDF
+picker, scan, document viewer or separate study interface is present.
 
-This is an ephemeral document-study experiment, separate from the released 801–804
-lessons and from the runtime playback/import contract. It has no account progress,
-database calls, localStorage, recorded audio, or Nova integration. It neither changes
-the student catalog nor publishes a new curriculum edition.
+The teacher draft is pinned to learn-curriculums commit
+`cc2801523844a577f474703883072b124272e252` (PR #33). Page JSON retains its hashes.
+`reading/package.ts` adapts this draft into the existing public reading contract;
+lesson-owned boards illustrate concepts and formulas. Long question guidance is read
+before the question; the bilingual question itself stays concise. The book's diagrams
+are discussed by page reference. New teaching drawings are illustrative, not scans.
 
-## Source display
+## Nova and accounts
 
-The learner selects their original PDF with the local file picker. SHA256 identifies
-the supplied 19-page scan or the clearer one-page spread for printed 124–125. PDF.js
-renders the known page/rotation/crop locally; the selected file is never uploaded.
-Both files may be opened together. The clearer spread is preferred where available.
-An unrelated or altered PDF is rejected, rather than showing the wrong page as evidence.
-The part outline is a broad editorial region, not an OCR or word-level match.
+Normal account sign-in is required, as for the existing lessons. All requests use the
+existing authenticated Nova routes, same-origin checks, rate limits, tutor settings,
+Gemini live transport, narration pacing and question-stop behavior. There is no
+alternate voice engine. No sound or microphone starts on opening the lesson.
 
-No textbook scan or source image is committed or distributed. The app serves only
-the teacher-authored draft, source hash identifiers, and ordinary application assets.
-Reading can begin without the PDF; the interface explains how to open it alongside.
+The server resolves only the exact compiled `phys1-book-guided-ch08` review revision
+before validating the scene, phase and step. It ignores client-supplied lesson text.
+Tutor context excludes model answers, as for other lessons. All other lesson IDs
+still require the existing released database edition.
 
-## Content provenance
+This preview creates no curriculum release or database edition. The shared classroom
+receives `preview`, disables its progress adapter, and labels progress as session-only.
+Existing published lessons retain their normal account saving behavior. The four
+book questions remain gated behind a written attempt or an explicit request for the
+solution. The native end-of-lesson Nova practice is unchanged.
 
-`content/book-guided/physics-ch08/metadata.json` records the source commit, path,
-per-file hashes and content revision. Rebuild the review data from the authoring draft:
+## Source limits
+
+Exercise 1's load exponent remains unresolved; its numerical result is conditional,
+and its failure-load subproblem lacks the limiting compressive stress. Steel/bone
+moduli are disclosed as approximate external values. Exercise 4 keeps the book's
+`4.2e10 Pa`. These limitations are spoken in the relevant explanation and retained
+on the board. The damaged bulk relation is identified as a teacher clarification.
+
+## Reimport and checks
 
 ```bash
 node tools/import-book-draft.mjs ../learn-curriculums/curricula/physics-1-mechanics-waves/experiments/book-guided-ch08
-```
-
-Do not hand-edit the generated page JSON. Changes to the explanation belong in the
-authoring experiment first. This import is only for the review route; student release
-continues to use the existing reviewed bundle importer.
-
-## Source limits retained in the UI
-
-The load exponent in Exercise 1 is unresolved; its numerical shortening is conditional,
-and the maximum-load subproblem lacks the limiting compressive stress. Steel/bone
-moduli are explicitly added approximate values. Exercise 4 uses the book's 4.2e10 Pa
-bulk modulus. The damaged bulk formula is identified as a teacher clarification.
-
-## Verification
-
-Unit tests cover book order, the four question boundaries, answer gating, source-page
-mapping, and the absence of a release pin. The browser check walks all passages,
-equations and questions at desktop/phone widths and tests wrong-PDF rejection.
-With `BOOK_SOURCE_MAIN` and `BOOK_SOURCE_CLOSEUP` pointing to the authorized source
-files locally, it also verifies actual PDF rendering and page changes. No PDF is
-included in the test repository or an uploaded screenshot artifact.
-
-```bash
+npm test
+npm run build
 npm run test:browser:book
 ```
+
+Unit tests check the normal runtime contract, book order, original questions,
+readable live narration math, board equations, context/revision validation and no
+release pin. Browser acceptance walks the chapter at desktop/phone sizes, verifies
+no book viewer or progress writes, and exercises the existing live narration and
+chat through a controlled transport. This checks integration; it does not claim a
+human listening review of live model speech. Production release still follows the
+normal reviewed importer and publication workflow.
