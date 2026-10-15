@@ -15,9 +15,11 @@
 }
 .bk-explanation {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
 }
 .bk-prose {
+  min-width: 0;
   font-size: 19px;
   line-height: 2;
   overflow-wrap: anywhere;

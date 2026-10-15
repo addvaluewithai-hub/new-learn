@@ -99,7 +99,13 @@ export function BookPage({
         </div>
       ) : (
         <div className="bk-page-scroll">
-          <div className="bk-page-image" style={{ width: `${zoom * 100}%` }}>
+          <p role="status" className="bk-render-status">
+            {status}
+          </p>
+          <div
+            className="bk-page-image"
+            style={{ width: `${zoom * 100}%`, visibility: status ? 'hidden' : 'visible' }}
+          >
             <canvas ref={canvas} aria-label={`صورة الصفحة المطبوعة ${page}`} />
             {marked && !status ? (
               <div
@@ -114,9 +120,6 @@ export function BookPage({
               />
             ) : null}
           </div>
-          <p role="status" className="bk-render-status">
-            {status}
-          </p>
         </div>
       )}
     </section>

@@ -1,5 +1,6 @@
 .bk-source {
   min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   background: #e9e8df;
@@ -55,6 +56,7 @@
   color: var(--learn-muted);
 }
 .bk-page-scroll {
+  min-height: 0;
   position: relative;
   flex: 1;
   overflow: auto;
@@ -93,6 +95,7 @@
     padding: 10px 16px;
   }
   .bk-page-scroll {
+    min-height: 0;
     max-height: 47dvh;
     min-height: 200px;
     padding: 12px 20px;
