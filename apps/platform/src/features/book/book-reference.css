@@ -1,7 +1,7 @@
 .book-reference,
 .book-reference-toggle {
   position: fixed;
-  z-index: 65;
+  z-index: 4;
   direction: rtl;
   font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
   color: #24453b;
