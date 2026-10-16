@@ -1,0 +1,27 @@
+{
+  "title": "خواص المواد الصلبة والمرونة",
+  "chapter": 8,
+  "contentRevision": "e578fb284199e449b367283a84800221b755cb6e6ac4439a1af93ec68f0b4ae1",
+  "authoringCommit": "cc2801523844a577f474703883072b124272e252",
+  "authoringPath": "curricula/physics-1-mechanics-waves/experiments/book-guided-ch08",
+  "inputs": [
+    {
+      "file": "01-pages-121-123.md",
+      "sha256": "d941779f274b5bc988083885dd8f327d4d9d4d99dfc8a5bcc9a58c55927e7d9f"
+    },
+    {
+      "file": "02-pages-124-126.md",
+      "sha256": "ea21ae6a03aaf7858f88e45bfd27014c4245d228b695354ccc0f36159070d007"
+    },
+    {
+      "file": "03-pages-127-129.md",
+      "sha256": "5a89fc22fe603930c3a77c6b494c388f7a9137f28fdc51a51916055419489c7a"
+    },
+    {
+      "file": "04-pages-130-133.md",
+      "sha256": "57a9f26d239f4e65398be5f91d51bdbddeb7af14c20a4d74c79d46b78d216f1d"
+    }
+  ],
+  "delivery": "book-guided-review",
+  "publicationApproved": false
+}

@@ -1,0 +1,13 @@
+{
+  "P149-Q7": {
+    "file": "P149-Q7.webp",
+    "width": 1164,
+    "height": 321,
+    "sha256": "c739d7009684393727a9c6749006182cd53a2beef1428180303d06076c4a1bf7",
+    "page": 149,
+    "raster": "pdf-19.png",
+    "pixelCrop": [972, 100, 2136, 421],
+    "focus": [0.015, 0.0404, 0.97, 0.9596],
+    "questionOnly": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "P148-Q6": {
+    "file": "P148-Q6.webp",
+    "width": 1056,
+    "height": 247,
+    "sha256": "339fd9136252f39486d84af8e5325b818e704bcfc15780369aac8ca7e7b17bbd",
+    "page": 148,
+    "raster": "pdf-19.png",
+    "pixelCrop": [87, 109, 1143, 356],
+    "focus": [0.015, 0.05229, 0.97, 0.94771],
+    "questionOnly": true
+  }
+}

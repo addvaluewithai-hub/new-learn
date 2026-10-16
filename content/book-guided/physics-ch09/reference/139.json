@@ -1,0 +1,46 @@
+{
+  "P139-A": {
+    "file": "P139-A.webp",
+    "width": 1164,
+    "height": 496,
+    "sha256": "5ee59a28e13b335e2b2d5c1d6d2636e9761a76a2bd9cecc3b09cea0ab3374d94",
+    "page": 139,
+    "raster": "pdf-14.png",
+    "pixelCrop": [972, 100, 2136, 596],
+    "focus": [0.015, 0.05882, 0.97, 0.88235],
+    "questionOnly": false
+  },
+  "P139-B": {
+    "file": "P139-B.webp",
+    "width": 1164,
+    "height": 301,
+    "sha256": "1f66d6dc175c2b2b54b50d2fbe38c65840fd8b38954e65c8f7faba813db44d7b",
+    "page": 139,
+    "raster": "pdf-14.png",
+    "pixelCrop": [972, 554, 2136, 855],
+    "focus": [0.015, 0.09677, 0.97, 0.80645],
+    "questionOnly": false
+  },
+  "P139-C": {
+    "file": "P139-C.webp",
+    "width": 1164,
+    "height": 188,
+    "sha256": "73ada0565eeec225f28a9520ad5a88ffaf5bc83aeaf2e0309b42925d792115ff",
+    "page": 139,
+    "raster": "pdf-14.png",
+    "pixelCrop": [972, 781, 2136, 969],
+    "focus": [0.015, 0.15517, 0.97, 0.68966],
+    "questionOnly": false
+  },
+  "P139-Q1": {
+    "file": "P139-Q1.webp",
+    "width": 1164,
+    "height": 159,
+    "sha256": "4893aa203f50c7e107f9857ea62fa67b36b425a6f78282bc5937499af20749a2",
+    "page": 139,
+    "raster": "pdf-14.png",
+    "pixelCrop": [972, 935, 2136, 1094],
+    "focus": [0.015, 0.08163, 0.97, 0.91837],
+    "questionOnly": true
+  }
+}

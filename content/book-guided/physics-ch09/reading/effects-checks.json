@@ -1,0 +1,86 @@
+[
+  {
+    "after": "P142-B",
+    "english": "At a stationary boundary where wave speed changes, what stays constant?",
+    "arabic": "لما الموجة تعبر حد فاصل ثابت وتتغير سرعتها، إيه اللي يفضل ثابت؟",
+    "options": ["Wavelength", "Speed", "Frequency", "Propagation direction always"],
+    "correct": 2,
+    "why": "Frequency ثابتة عبر الحد الفاصل الثابت. Wavelength تتغير لأن λ = v/f، والاتجاه ممكن يتغير عند السقوط المائل."
+  },
+  {
+    "after": "P143-B",
+    "english": "Equal-amplitude waves of the same frequency are 180° out of phase. Their resultant amplitude is…",
+    "arabic": "سعتين متساويتين ونفس Frequency وفرق الطور 180 درجة. المحصلة؟",
+    "options": ["Twice either amplitude", "Zero", "The sum of intensities", "Always unchanged"],
+    "correct": 1,
+    "why": "الإزاحتين متعاكستين ومتساويتين، فالمجموع صفر في النموذج المثالي. لو السعتين مختلفتين كان هيتبقى فرقهم."
+  },
+  {
+    "after": "P143-C",
+    "english": "Which condition supports the ideal standing-wave pattern?",
+    "arabic": "أنهي حالة تكوّن الشكل المثالي للـStanding wave؟",
+    "options": [
+      "Different frequencies in one direction",
+      "Any two opposite waves",
+      "A single isolated pulse",
+      "Equal amplitudes and frequency, opposite directions"
+    ],
+    "correct": 3,
+    "why": "نفس التردد وسعتين متساويتين واتجاهين متعاكسين يسمحوا بـNodes ثابتة. شروط الأطراف بتختار ترددات الرنين في النظام المحدود."
+  },
+  {
+    "after": "P144-C",
+    "english": "For a fixed opening, diffraction is generally more pronounced when…",
+    "arabic": "لو الفتحة ثابتة، Diffraction يبقى أوضح عادةً إمتى؟",
+    "options": [
+      "Wavelength increases toward the opening size",
+      "Wavelength tends to zero",
+      "Only amplitude increases",
+      "Frequency increases at fixed speed"
+    ],
+    "correct": 0,
+    "why": "المقارنة بين Wavelength وحجم الفتحة أساسية. لما الطول الموجي يقارب حجمها أو يزيد عليه، الانتشار الجانبي يبقى أوضح."
+  },
+  {
+    "after": "P145-Q5",
+    "english": "Convert 10⁻¹⁶ W/cm² to W/m².",
+    "arabic": "حوّل الـIntensity دي لـSI.",
+    "options": ["10⁻²⁰ W/m²", "10⁻¹⁶ W/m²", "10⁻¹² W/m²", "10⁻⁸ W/m²"],
+    "correct": 2,
+    "why": "كل متر مربع فيه عشرة آلاف cm²؛ نضرب القيمة لكل cm² في 10⁴، فتساوي 10⁻¹² W/m²."
+  },
+  {
+    "after": "P146-C",
+    "english": "Only the observer moves toward a stationary source. In the medium…",
+    "arabic": "المستمع وحده بيقرب من مصدر ثابت. إيه الصحيح؟",
+    "options": [
+      "Wavelength decreases",
+      "Wavelength stays fixed; observed frequency rises",
+      "Wave speed rises with observer speed",
+      "Observed frequency falls"
+    ],
+    "correct": 1,
+    "why": "المصدر ثابت، فالمسافات بين الجبهات في الوسط ما اتغيرتش. المستمع بيقابل جبهات أكتر في الثانية، فيستقبل تردد أعلى."
+  },
+  {
+    "after": "P147-B",
+    "english": "A source approaches a stationary observer. Which denominator is correct?",
+    "arabic": "مصدر بيقرب من مستمع ثابت. نختار أنهي مقام في f′ = f / …؟",
+    "options": ["1 + vsource/vsnd", "1 + vobs/vsnd", "1 − vobs/vsnd", "1 − vsource/vsnd"],
+    "correct": 3,
+    "why": "نطرح سرعة المصدر كنسبة من سرعة الصوت في المقام. المقام يقل عن واحد فيرفع التردد، وده متفق مع الاقتراب."
+  },
+  {
+    "after": "P149-Q7",
+    "english": "Why are two Doppler shifts needed for the moving reflector?",
+    "arabic": "ليه طبقنا Doppler مرتين في مسألة الجسم العاكس؟",
+    "options": [
+      "It receives as a moving observer, then reflects as a moving source",
+      "The original source changes its emitted frequency",
+      "The detector must be moving",
+      "Intensity doubles at every reflection"
+    ],
+    "correct": 0,
+    "why": "الجسم المتحرك يستقبل الموجة أولًا، وبعدين يعيدها للكاشف كمصدر متحرك. سرعة الكاشف صفر، ومع ذلك التأثيرين موجودين."
+  }
+]

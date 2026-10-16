@@ -1,4 +1,4 @@
-import { and, eq, asc } from 'drizzle-orm';
+import { and, eq, asc, inArray, sql } from 'drizzle-orm';
 import { curricula, lessons, releases, editions } from './db/content';
 import { database } from './db/connection';
 import type { AuthUser, Env } from './env';
@@ -6,6 +6,16 @@ import { learnerSummaries, resumeTarget } from './progress/summary';
 import type { ProgressSummary } from './progress/snapshot';
 import { HttpError } from './http';
 import { supportedEdition } from './moduleAvailability';
+import { availableCurricula } from '../../../content/availability';
+export const curriculumVisibility = () =>
+  and(
+    eq(curricula.visibility, 'published'),
+    availableCurricula === null
+      ? undefined
+      : availableCurricula.length
+        ? inArray(curricula.id, availableCurricula)
+        : sql`false`,
+  );
 export async function catalog(env: Env, user?: AuthUser) {
   const summaries = user ? await learnerSummaries(env, user) : new Map<string, ProgressSummary>();
   const rows = await database(env)
@@ -25,7 +35,7 @@ export async function catalog(env: Env, user?: AuthUser) {
         eq(editions.contentRevision, releases.contentRevision),
       ),
     )
-    .where(eq(curricula.visibility, 'published'))
+    .where(curriculumVisibility())
     .orderBy(asc(curricula.id), asc(lessons.position));
   const groups = new Map<
     string,
@@ -85,7 +95,7 @@ export async function lessonEdition(env: Env, id: string) {
     )
     .innerJoin(lessons, eq(lessons.id, releases.lessonId))
     .innerJoin(curricula, eq(curricula.id, lessons.curriculumId))
-    .where(and(eq(releases.lessonId, id), eq(curricula.visibility, 'published')));
+    .where(and(eq(releases.lessonId, id), curriculumVisibility()));
   if (
     !row ||
     !supportedEdition(row) ||

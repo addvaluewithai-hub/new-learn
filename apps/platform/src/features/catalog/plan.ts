@@ -1,4 +1,4 @@
-import registry from '../../../../../content/imported/registry.json';
+import { registry } from '../../../../../content/registry';
 import type { CatalogLesson, Curriculum, Resume } from './types';
 
 type Goal = { id: string; text: string };

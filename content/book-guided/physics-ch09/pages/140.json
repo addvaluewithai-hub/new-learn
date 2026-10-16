@@ -1,0 +1,39 @@
+[
+  {
+    "id": "P140-Q2",
+    "page": 140,
+    "title": "Example 2 · Loudspeaker Response",
+    "quotes": [
+      "Loudspeaker response. high-quality loudspeaker reproduces, at full volume, frequencies with uniform sound level ± 3 dB. By what factor does the intensity change for the maximum change of 3 dB in output sound level?"
+    ],
+    "explanation": [],
+    "crop": [0.06, 0.14],
+    "note": "توضيح: المسألة تحسب فرق 3 dB من المستوى الاسمي؛ من −3 إلى +3 الفرق 6 dB.",
+    "question": {
+      "arabic": "احسب عامل تغيّر Intensity لفرق 3 dB عن المستوى الاسمي، زي الحل المطبوع.",
+      "answer": "A +3 dB change gives I₂/I₁ ≈ 2; −3 dB gives ≈ 0.50.",
+      "solution": [
+        "نطرح مستويين، فيختفي المرجع: $\\Delta\\beta=10\\log(I_2/I_1)$. لزيادة 3 dB النسبة تساوي $10^{0.3}=1.995$، يعني تقريبًا ضعف Intensity.",
+        "ولو المستوى قل 3 dB، النسبة $10^{-0.3}=0.501$، تقريبًا النصف. خلي بالك من ±3: من أقل طرف لأعلى طرف الفرق 6 dB، وساعتها العامل تقريبًا أربعة. الحل المطبوع بيحسب فرق ثلاثة عن القيمة الاسمية."
+      ]
+    }
+  },
+  {
+    "id": "P140-Q3",
+    "page": 140,
+    "title": "Example 3 · Four Trumpeters",
+    "quotes": [
+      "A trumpeter plays at a sound level of 75 dB. Three equally loud trumpet players join in. What is the new sound level?"
+    ],
+    "explanation": [],
+    "crop": [0.57, 0.13],
+    "question": {
+      "arabic": "كان عازف واحد، وانضم له ثلاثة. عند المستمع كل واحد بيساهم بنفس Intensity، والمصادر غير مترابطة في الطور.",
+      "answer": "βnew ≈ 81 dB",
+      "solution": [
+        "عدد العازفين بقى أربعة، فنجمّع متوسط الـIntensities: $I_{new}=4I$. ده بافتراض مصادر مستقلة عند نفس موضع المستمع؛ مش بنجمّع Amplitudes كأنهم في نفس الطور.",
+        "فرق المستوى يساوي $10\\log4=6.02\\ \\mathrm{dB}$. نضيفه إلى 75، فيكون $\\beta_{new}=81.02\\ \\mathrm{dB}$، أو حوالي 81 dB. مش 300 dB؛ الأرقام اللوغاريتمية ما بتتجمعش بالطريقة دي."
+      ]
+    }
+  }
+]

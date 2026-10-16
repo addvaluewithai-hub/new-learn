@@ -1,0 +1,132 @@
+{
+  "P127-A": {
+    "page": 127,
+    "file": "P127-A.webp",
+    "width": 1200,
+    "height": 512,
+    "focus": [0.03, 0.09677, 0.94, 0.74194],
+    "raster": "ch8-pdf-8.png",
+    "pixelCrop": [1102, 0, 2435, 569],
+    "sha256": "b4176c85245664854fee945bfc2a173bf5d27395766a170bd48df5a44b6bfefb"
+  },
+  "P127-B": {
+    "page": 127,
+    "file": "P127-B.webp",
+    "width": 1200,
+    "height": 447,
+    "focus": [0.03, 0.14815, 0.94, 0.66667],
+    "raster": "ch8-pdf-8.png",
+    "pixelCrop": [1102, 404, 2435, 900],
+    "sha256": "ecbdc4b73e50807cb90cb3305eb3a6de2907aeed728658ba0ac7b11778b89e79"
+  },
+  "P127-C": {
+    "page": 127,
+    "file": "P127-C.webp",
+    "width": 1200,
+    "height": 429,
+    "focus": [0.03, 0.15385, 0.94, 0.65385],
+    "raster": "ch8-pdf-8.png",
+    "pixelCrop": [1102, 771, 2435, 1248],
+    "sha256": "b141a7c73e9bfd365cb2424d6eb627de36c90ffd5a5810a0691cab0a269e667e"
+  },
+  "P127-D": {
+    "page": 127,
+    "file": "P127-D.webp",
+    "width": 1200,
+    "height": 678,
+    "focus": [0.03, 0.09756, 0.94, 0.78049],
+    "raster": "ch8-pdf-8.png",
+    "pixelCrop": [1102, 1083, 2435, 1836],
+    "sha256": "a783139f7897c6c0b830d1756d147059299801ec03d41aa2832313d88ae19e93"
+  },
+  "P128-A": {
+    "page": 128,
+    "file": "P128-A.webp",
+    "width": 1200,
+    "height": 990,
+    "focus": [0.03, 0.05263, 0.94, 0.85965],
+    "raster": "ch8-pdf-9.png",
+    "pixelCrop": [40, 0, 1309, 1047],
+    "sha256": "980697ae39da6de5d6f26680d686a6023aa0934249cf42dbbc3b751e326948dd"
+  },
+  "P128-B": {
+    "page": 128,
+    "file": "P128-B.webp",
+    "width": 1200,
+    "height": 625,
+    "focus": [0.03, 0.11111, 0.94, 0.75],
+    "raster": "ch8-pdf-9.png",
+    "pixelCrop": [40, 881, 1309, 1542],
+    "sha256": "4b0ca2985d7a6fc67f141b85020e76c52dfa3f03433c22e46a7e4c2e2c797a6f"
+  },
+  "P128-C": {
+    "page": 128,
+    "file": "P128-C.webp",
+    "width": 1200,
+    "height": 556,
+    "focus": [0.03, 0.125, 0.94, 0.75],
+    "raster": "ch8-pdf-9.png",
+    "pixelCrop": [40, 1248, 1309, 1836],
+    "sha256": "d88ac001c875a7e50e13cf1ba1a7748e1fb4c42b04103a7110cb5e3c8a0cdedc"
+  },
+  "P129-A": {
+    "page": 129,
+    "file": "P129-A.webp",
+    "width": 1200,
+    "height": 496,
+    "focus": [0.03, 0.1, 0.94, 0.73333],
+    "raster": "ch8-pdf-9.png",
+    "pixelCrop": [1102, 0, 2435, 551],
+    "sha256": "f5246d4d593a75218ede05144f87e391233482959bd240cc091fc812b097e3e9"
+  },
+  "P129-B": {
+    "page": 129,
+    "file": "P129-B.webp",
+    "width": 1200,
+    "height": 843,
+    "focus": [0.03, 0.07843, 0.94, 0.82353],
+    "raster": "ch8-pdf-9.png",
+    "pixelCrop": [1102, 386, 2435, 1322],
+    "sha256": "6a525f47f51616167fd2fbae49ca32aa1ff9078c129a1d8a0460bd562dbecc62"
+  },
+  "P130-Q1": {
+    "page": 130,
+    "file": "P130-Q1.webp",
+    "width": 1200,
+    "height": 573,
+    "focus": [0.03, 0.09091, 0.94, 0.75758],
+    "raster": "ch8-pdf-10.png",
+    "pixelCrop": [40, 0, 1309, 606],
+    "sha256": "2ff13c5e0ea9259f76836929018c2251a30c1054255c0306ed57f3f30aee8c05"
+  },
+  "P131-Q2": {
+    "page": 131,
+    "file": "P131-Q2.webp",
+    "width": 1200,
+    "height": 1141,
+    "focus": [0.03, 0.04348, 0.94, 0.88406],
+    "raster": "ch8-pdf-10.png",
+    "pixelCrop": [1102, 0, 2435, 1267],
+    "sha256": "2b66a0a557aa05ee2a8bc7502a24f67b1d423c11d04f303ea516b593b8c2a4ae"
+  },
+  "P132-Q3": {
+    "page": 132,
+    "file": "P132-Q3.webp",
+    "width": 1200,
+    "height": 746,
+    "focus": [0.03, 0.06977, 0.94, 0.81395],
+    "raster": "ch8-pdf-11.png",
+    "pixelCrop": [40, 0, 1309, 789],
+    "sha256": "f7e87402de7e335492a61087bd41d4c2979b5348abbe85bb2dac0c6dacd81370"
+  },
+  "P133-Q4": {
+    "page": 133,
+    "file": "P133-Q4.webp",
+    "width": 1200,
+    "height": 496,
+    "focus": [0.03, 0.1, 0.94, 0.73333],
+    "raster": "ch8-pdf-11.png",
+    "pixelCrop": [1102, 0, 2435, 551],
+    "sha256": "5bd046506f543726fbb263dddcfc6e8878d505edfdae7eee27331856187dee2c"
+  }
+}

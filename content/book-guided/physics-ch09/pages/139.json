@@ -1,0 +1,59 @@
+[
+  {
+    "id": "P139-A",
+    "page": 139,
+    "title": "Why a Logarithmic Scale?",
+    "quotes": [
+      "The human ear can detect sounds with an intensity as low as 10⁻¹² W/m² and as high as 1 W/m².",
+      "Perceived loudness, however, is not proportional to the intensity.",
+      "The decibel (symbol: dB) is a relative logarithmic unit of measurement corresponding to 1/10 of a bel (β)."
+    ],
+    "explanation": [
+      "الأرقام بتغطي مدى واسع جدًا، وإحساسنا بارتفاع الصوت مش بيزيد بنفس النسبة العددية للـIntensity. عشان كده بنستخدم Logarithmic scale.",
+      "القيم دي مرجعية تقريبية؛ مش ضمان إن كل أذن هتسمع نفس الحد، ومش معناها إن الحد الأعلى آمن. β هنا رمز Sound level، ووحدته dB."
+    ],
+    "crop": [0.08, 0.27],
+    "formula": "\\beta=10\\log\\frac{I}{I_0}"
+  },
+  {
+    "id": "P139-B",
+    "page": 139,
+    "title": "The Reference Intensity",
+    "quotes": ["I₀ is taken to be the threshold of hearing:"],
+    "explanation": [
+      "دي قيمة الـReference intensity اللي هنستخدمها في المسائل. لو I تساوي I₀، النسبة بواحد وLog الواحد بصفر، فالمستوى صفر dB.",
+      "صفر dB مش معناه انعدام الصوت؛ معناه إن الـIntensity مساوية للمرجع. وكل زيادة 10 dB معناها ضرب Intensity في عشرة."
+    ],
+    "crop": [0.36, 0.15],
+    "formula": "I_0=1.0\\times10^{-12}\\ \\mathrm{W/m^2}"
+  },
+  {
+    "id": "P139-C",
+    "page": 139,
+    "title": "Logarithm Rules",
+    "quotes": ["log ab = log a + log b", "log(a/b) = log a − log b"],
+    "explanation": [
+      "في مسائل الصوت الـLog أساسه عشرة. ضرب الـIntensity في عامل k يضيف للمستوى 10 Log k.",
+      "ده السبب إننا ما نجمعش أرقام dB مباشرة لما نجمع مصادر صوت. هنجمع الـIntensities الأول، وبعدها نحسب المستوى."
+    ],
+    "crop": [0.5, 0.08]
+  },
+  {
+    "id": "P139-Q1",
+    "page": 139,
+    "title": "Example 1 · Busy Street",
+    "quotes": [
+      "Sound intensity on the street at a busy street corner, the sound level is 75 dB. What is the intensity of sound there?"
+    ],
+    "explanation": [],
+    "crop": [0.6, 0.11],
+    "question": {
+      "arabic": "المستوى 75 dB. المطلوب Intensity بوحدة W/m²؛ ابدأ بعزل نسبة I إلى I₀.",
+      "answer": "I ≈ 3.2 × 10⁻⁵ W/m²",
+      "solution": [
+        "المعطى Sound level والمطلوب Intensity، فنرجع لتعريف المستوى: $75=10\\log(I/I_0)$. نقسم على عشرة، فيبقى Log النسبة 7.5.",
+        "نشيل الـLog برفع عشرة للقوة دي: $I=10^{-12}\\times10^{7.5}$، ومنها $I=3.16\\times10^{-5}\\ \\mathrm{W/m^2}$. بالتقريب زي الكتاب: 3.2 في عشرة أس سالب خمسة. الإشارة السالبة في الأس مهمة؛ الـ75 مش قيمة Intensity."
+      ]
+    }
+  }
+]

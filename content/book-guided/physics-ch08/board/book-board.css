@@ -1,0 +1,260 @@
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/book/ibm-plex-sans-arabic-arabic-400-normal.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/book/ibm-plex-sans-arabic-latin-400-normal.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/book/ibm-plex-sans-arabic-arabic-600-normal.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/book/ibm-plex-sans-arabic-latin-600-normal.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.ch8-board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0d1626;
+  color: #eef3fa;
+  font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+}
+.ch8-board * {
+  box-sizing: border-box;
+}
+.ch8-board header {
+  position: absolute;
+  inset: 22px 34px auto;
+  display: flex;
+  justify-content: space-between;
+  color: #7d8fa9;
+  font-size: 18px;
+}
+.ch8-board h2 {
+  position: absolute;
+  top: 51px;
+  inset-inline: 35px;
+  margin: 0;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.4;
+}
+.ch8-diagram {
+  position: absolute;
+  top: 125px;
+  left: 25px;
+  width: 440px;
+  height: 300px;
+  margin: 0;
+}
+.ch8-diagram svg {
+  width: 100%;
+  height: 100%;
+}
+.ch8-points {
+  position: absolute;
+  top: 130px;
+  right: 35px;
+  width: 420px;
+  height: 290px;
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  min-width: 0;
+}
+.ch8-points p {
+  margin: 0;
+  padding: 12px 16px;
+  border-inline-start: 3px solid #3dd6c6;
+  background: #15233a;
+  border-radius: 5px;
+  font-size: 27px;
+  text-align: center;
+  line-height: 1.5;
+}
+.ch8-equation {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.ch8-equation .katex-display {
+  margin: 0;
+}
+.ch8-board footer {
+  position: absolute;
+  bottom: 20px;
+  inset-inline: 35px;
+  text-align: center;
+}
+.ch8-board footer p {
+  font-size: 25px;
+  line-height: 1.6;
+  color: #3dd6c6;
+  margin: 0;
+}
+.ch8-board footer small {
+  display: block;
+  color: #f6b84b;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 7px;
+}
+.ch8-board[data-layout='portrait'] header {
+  inset: 26px 25px auto;
+  font-size: 20px;
+}
+.ch8-board[data-layout='portrait'] h2 {
+  top: 85px;
+  inset-inline: 25px;
+  font-size: 31px;
+}
+.ch8-board[data-layout='portrait'] .ch8-diagram {
+  top: 200px;
+  left: 20px;
+  width: 500px;
+  height: 330px;
+}
+.ch8-board[data-layout='portrait'] .ch8-points {
+  top: 550px;
+  right: 25px;
+  width: 490px;
+  height: 240px;
+  gap: 16px;
+}
+.ch8-board[data-layout='portrait'] .ch8-points p {
+  font-size: 27px;
+}
+.ch8-board[data-layout='portrait'] footer {
+  bottom: 32px;
+  inset-inline: 25px;
+}
+.ch8-board[data-layout='portrait'] footer p {
+  font-size: 26px;
+}
+.ch8-board[data-layout='portrait'] footer small {
+  font-size: 21px;
+}
+
+.ch8-moduli {
+  display: flex;
+  direction: ltr;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+}
+.ch8-moduli > div {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  color: #3dd6c6;
+  font-size: 34px;
+}
+
+.ch8-equation small {
+  display: block;
+  font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  font-size: 17px;
+  color: #b9c6d8;
+  margin-top: 6px;
+}
+
+.ch8-diagram img {
+  width: 100%;
+  height: calc(100% - 25px);
+  object-fit: contain;
+  border-radius: 8px;
+}
+.ch8-diagram figcaption,
+.ch8-points > small {
+  font-size: 17px;
+  text-align: center;
+  color: #b9c6d8;
+}
+.ch8-points {
+  gap: 14px;
+}
+.ch8-points .ch8-source-quote {
+  font-size: 25px;
+  white-space: pre-line;
+  text-align: left;
+}
+.ch8-points .ch8-source-quote[data-long='true'] {
+  font-size: 21px;
+}
+.ch8-board[data-source-image='no'] .ch8-points {
+  left: 100px;
+  right: 100px;
+  width: auto;
+}
+.ch8-board[data-layout='portrait'] .ch8-points .ch8-source-quote {
+  font-size: 25px;
+}
+.ch8-board[data-layout='portrait'][data-source-image='no'] .ch8-points {
+  top: 240px;
+  left: 35px;
+  right: 35px;
+  width: auto;
+  height: 470px;
+}
+
+.ch8-board[data-layout='portrait'] .ch8-points .ch8-source-quote[data-long='true'] {
+  font-size: 21px;
+}
+.ch8-board[data-source-image='yes'] .ch8-points:has(.ch8-equation) .ch8-source-quote {
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.ch8-source-quote > span {
+  display: block;
+  padding: 3px 0;
+}
+.ch8-source-quote > span[data-active='yes'] {
+  color: #3dd6c6;
+  box-shadow: -3px 0 #3dd6c6;
+  padding-left: 10px;
+}
+.ch8-board .ch8-points .ch8-source-quote[data-dense='true'] {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.ch8-board[data-layout='portrait'][data-source-image='yes']:has(
+    .ch8-source-quote[data-dense='true']
+  )
+  .ch8-diagram {
+  top: 180px;
+  height: 260px;
+}
+.ch8-board[data-layout='portrait'][data-source-image='yes']:has(
+    .ch8-source-quote[data-dense='true']
+  )
+  .ch8-points {
+  top: 460px;
+  height: 350px;
+}

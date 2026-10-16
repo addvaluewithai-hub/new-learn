@@ -5,7 +5,15 @@ name: Content sync
 on:
   push:
     branches: [main]
-    paths: ['content/imported/**', 'apps/platform/content-modules.json']
+    paths:
+      [
+        'content/imported/**',
+        'apps/platform/content-modules.json',
+        'content/book-guided/**',
+        'content/availability.json',
+        'tools/sync-content.mjs',
+        '.github/workflows/content-sync.yml',
+      ]
   workflow_dispatch:
 permissions:
   contents: read
@@ -39,9 +47,11 @@ jobs:
           fi
           npm run content:sync
           node tools/legacy-gas-live-check.mjs
+          node --import tsx tools/book-live-check.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
-          name: legacy-gas-live-acceptance
-          path: test-results/legacy-gas-live.json
+          name: content-live-acceptance
+          path: test-results/*-live.json
           if-no-files-found: ignore

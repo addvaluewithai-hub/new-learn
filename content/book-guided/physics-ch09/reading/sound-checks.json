@@ -1,0 +1,55 @@
+[
+  {
+    "after": "P138-B",
+    "english": "Which pairing is correct?",
+    "arabic": "أنهي ربط بين الإحساس والكمية الفيزيائية صحيح؟",
+    "options": [
+      "Pitch–intensity; loudness–frequency",
+      "Both only depend on wavelength",
+      "Pitch–frequency; loudness–intensity",
+      "Loudness is identical to intensity"
+    ],
+    "correct": 2,
+    "why": "Pitch مرتبطة بالتردد، وLoudness مرتبطة بالـIntensity وباستجابة الأذن؛ مش مساوية لها عدديًا."
+  },
+  {
+    "after": "P138-D",
+    "english": "Which frequency is infrasound?",
+    "arabic": "بعد تصحيح المدى المطبوع، أنهي تردد يعتبر Infrasound؟",
+    "options": ["200 Hz", "2000 Hz", "30 kHz", "10 Hz"],
+    "correct": 3,
+    "why": "Infrasound أقل من حوالي 20 Hz. الـ200 Hz مسموع عادةً، والـ30 kHz يعتبر Ultrasound."
+  },
+  {
+    "after": "P139-B",
+    "english": "An intensity equal to I₀ has what sound level?",
+    "arabic": "لو I = I₀، مستوى الصوت يساوي كام؟",
+    "options": ["−12 dB", "0 dB", "1 dB", "12 dB"],
+    "correct": 1,
+    "why": "النسبة تساوي واحد وLog الواحد بصفر. صفر dB هو مستوى المرجع، مش انعدام Intensity."
+  },
+  {
+    "after": "P139-Q1",
+    "english": "An increase of 20 dB multiplies intensity by…",
+    "arabic": "زيادة 20 dB تضرب Intensity في كام؟",
+    "options": ["2", "20", "100", "200"],
+    "correct": 2,
+    "why": "النسبة = 10^(20/10) = 100. فرق dB لوغاريتمي؛ مش نفس العامل العددي للـIntensity."
+  },
+  {
+    "after": "P140-Q3",
+    "english": "Two independent equal sound sources replace one. The level increases by approximately…",
+    "arabic": "مصدرين مستقلين، كل واحد بنفس Intensity المصدر الأصلي. الزيادة تقريبًا كام؟",
+    "options": ["3 dB", "6 dB", "10 dB", "Twice the original dB value"],
+    "correct": 0,
+    "why": "نجمع Intensity فتبقى الضعف، والزيادة 10 Log 2 ≈ 3 dB. ما نضاعفش رقم المستوى الأصلي."
+  },
+  {
+    "after": "P141-Q4",
+    "english": "For spherical spreading, doubling distance changes intensity by…",
+    "arabic": "في نموذج الانتشار الكروي الحر، مضاعفة المسافة تخلي Intensity إزاي؟",
+    "options": ["×2", "×0.5", "×4", "×0.25"],
+    "correct": 3,
+    "why": "I متناسبة مع 1/r². مضاعفة r تعني توزيع القدرة على أربعة أمثال المساحة، فتقل Intensity للربع."
+  }
+]

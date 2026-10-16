@@ -1,0 +1,21 @@
+[
+  {
+    "id": "P141-Q4",
+    "page": 141,
+    "title": "Example 4 · Airplane Roar",
+    "quotes": [
+      "Airplane roar the sound level measured 30 m from a jet plane is 140 dB. What is the sound level at 300 m? (Ignore reflections from the ground.)"
+    ],
+    "explanation": [],
+    "crop": [0.12, 0.14],
+    "question": {
+      "arabic": "المسافة زادت من 30 إلى 300 متر. استخدم نموذج الانتشار الكروي الحر، وتجاهل الانعكاسات زي السؤال.",
+      "answer": "β₂ = 120 dB",
+      "solution": [
+        "في النموذج ده الطاقة بتتوزّع على مساحة كرة أكبر، فـIntensity بتتناسب عكسيًا مع مربع المسافة: $I_2/I_1=(30/300)^2=0.01$.",
+        "فرق المستوى يساوي $10\\log(0.01)=-20\\ \\mathrm{dB}$. إذن $\\beta_2=140-20=120\\ \\mathrm{dB}$.",
+        "تقدر تراجع بطريقة الكتاب: 140 dB تقابل 100 W/m²، وبعد زيادة المسافة عشرة أضعاف تبقى 1 W/m². نفس النتيجة، تحت افتراض الانتشار اللي استخدمناه."
+      ]
+    }
+  }
+]

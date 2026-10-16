@@ -1,0 +1,139 @@
+{
+  "method": "Exact figure crops, no generated reconstruction. Crop coordinates refer to the upright raster.",
+  "mainSourceSha256": "cd8b27872a259b3d83151189b201ada71202699dc5a3f3eeef05ab02502ac494",
+  "clearerSourceSha256": "e89b1514b08c47e24742f9e1a5aff42e4707477faf5ed7912c53258f194e27df",
+  "assets": [
+    {
+      "file": "states.webp",
+      "printedPage": 121,
+      "pdfPage": 5,
+      "source": "main-19-page-scan",
+      "raster": "title-upright.png",
+      "pixelCrop": [119, 881, 1726, 2179],
+      "sha256": "739915d41a344aa09b5a05fb5daf3c531c509bae72e30f7d75321f981eee4c38",
+      "rasterSize": [1836, 2448],
+      "rasterSha256": "0488fd29ecc1f70cf2e75f1866b6294271964fe3817678a20dd26d93b2f7a0b9"
+    },
+    {
+      "file": "springs.webp",
+      "printedPage": 122,
+      "pdfPage": 6,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-6.png",
+      "pixelCrop": [490, 1157, 1053, 1671],
+      "sha256": "d7ee67ca0e5f28bb5eb728d7958ffc95a7f9b6515dc03ed1949047c612727d59",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "7bbc75ee8722630e7c26c7adb4403485e613f7afe86fadf570091b50d3bbb7c4"
+    },
+    {
+      "file": "structure.webp",
+      "printedPage": 123,
+      "pdfPage": 6,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-6.png",
+      "pixelCrop": [1163, 725, 2154, 1239],
+      "sha256": "2c358a90562e8c2d53db1af572011de2f5e55a8505add435aff79d6ce9f598a4",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "7bbc75ee8722630e7c26c7adb4403485e613f7afe86fadf570091b50d3bbb7c4"
+    },
+    {
+      "file": "crystal.webp",
+      "printedPage": 123,
+      "pdfPage": 6,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-6.png",
+      "pixelCrop": [1163, 734, 1444, 1239],
+      "sha256": "aba44c16325addf48514292cc1732ec29ac5fa86279fab3b0ec7b6dec7bafaed",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "7bbc75ee8722630e7c26c7adb4403485e613f7afe86fadf570091b50d3bbb7c4"
+    },
+    {
+      "file": "amorphous.webp",
+      "printedPage": 123,
+      "pdfPage": 6,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-6.png",
+      "pixelCrop": [1493, 725, 1836, 1230],
+      "sha256": "bdd4afe6c9c5e88581dc7bc7d4498c13a51969b41b4a83acc5eea03970b52c04",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "7bbc75ee8722630e7c26c7adb4403485e613f7afe86fadf570091b50d3bbb7c4"
+    },
+    {
+      "file": "liquid-path.webp",
+      "printedPage": 123,
+      "pdfPage": 6,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-6.png",
+      "pixelCrop": [1897, 725, 2154, 1230],
+      "sha256": "d348b2b3824429a7eb1b5f822d33fed7a32511ca3302582e3c06c394dfad8a9a",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "7bbc75ee8722630e7c26c7adb4403485e613f7afe86fadf570091b50d3bbb7c4"
+    },
+    {
+      "file": "stress-strain.webp",
+      "printedPage": 124,
+      "pdfPage": 1,
+      "source": "clearer-124-125",
+      "raster": "source-0-p1.png",
+      "pixelCrop": [126, 492, 539, 721],
+      "sha256": "093ceaf2fb95ef3ce11ae2178df84ad44421803bba6a6ac2f06d6e8430da82e7",
+      "rasterSize": [1100, 863],
+      "rasterSha256": "5876fab2fef3a3f4310e4f1c5a651cb26101cc7aaf435dfdbcf178807440a7d2"
+    },
+    {
+      "file": "curve.webp",
+      "printedPage": 125,
+      "pdfPage": 1,
+      "source": "clearer-124-125",
+      "raster": "source-0-p1.png",
+      "pixelCrop": [556, 263, 1045, 583],
+      "sha256": "291017e39d37dacd295b1bc53fc8a319700d83817e19bba654e43258bea83285",
+      "rasterSize": [1100, 863],
+      "rasterSha256": "5876fab2fef3a3f4310e4f1c5a651cb26101cc7aaf435dfdbcf178807440a7d2"
+    },
+    {
+      "file": "hooke.webp",
+      "printedPage": 127,
+      "pdfPage": 8,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-8.png",
+      "pixelCrop": [1665, 1340, 2007, 1680],
+      "sha256": "4a5bd5f6ad513fc316575c2ebab248c92ffa170ee1ebce7c1f507e4a49128f8e",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "a6e888ed70bce3ea9008ca967c45cbce22936d1789e727f056f7039f9425e3ee"
+    },
+    {
+      "file": "shear.webp",
+      "printedPage": 128,
+      "pdfPage": 9,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-9.png",
+      "pixelCrop": [441, 376, 1224, 771],
+      "sha256": "ec9d070510e08d7b6505e007daa137e899ceaa997b092d8b25ea4780e9922419",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "6814b4b6e2c0e80e874fcece03d98341c7f8fbbb04a70a0f9025d6abe5c191fe"
+    },
+    {
+      "file": "humerus.webp",
+      "printedPage": 131,
+      "pdfPage": 10,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-10.png",
+      "pixelCrop": [1763, 386, 2326, 1166],
+      "sha256": "76092427b0f2ac4049393c247b61ebe2c904dccb57424bfc1169836bf6655cc4",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "6dfcb35ccc53ed2a2ca49b81fba18843370630a5da3743647a5a0745a032d733"
+    },
+    {
+      "file": "pancakes.webp",
+      "printedPage": 132,
+      "pdfPage": 11,
+      "source": "main-19-page-scan",
+      "raster": "ch8-pdf-11.png",
+      "pixelCrop": [710, 330, 1102, 643],
+      "sha256": "3bf5ec24f864667777c896d7d3748d2bf79efcbe39b177f2c451fa28a70a8dd5",
+      "rasterSize": [2448, 1836],
+      "rasterSha256": "4022fcd90020a0a3653de50711c200d876fe92419ed015e09d7f0e38ba4ff00d"
+    }
+  ]
+}

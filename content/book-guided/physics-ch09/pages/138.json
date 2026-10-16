@@ -1,0 +1,76 @@
+[
+  {
+    "id": "P138-A",
+    "page": 138,
+    "title": "Sound and Its Medium",
+    "quotes": [
+      "Sound can travel through any kind of matter, but not through a vacuum.",
+      "The speed of sound is different in different materials; in general, it is slowest in gases, faster in liquids, and fastest in solids.",
+      "The speed depends somewhat on temperature, especially for gases."
+    ],
+    "explanation": [
+      "الصوت Mechanical wave، فمحتاج جسيمات تتفاعل وتنقل الاضطراب. من غير وسط مادي مفيش انتقال للصوت.",
+      "الترتيب اللي في الكتاب اتجاه عام، مش قانون يقارن أي مادتين في كل الظروف. سرعة الصوت بتعتمد على خواص المادة، وفي الغازات درجة الحرارة بتفرق بوضوح."
+    ],
+    "crop": [0.1, 0.2]
+  },
+  {
+    "id": "P138-B",
+    "page": 138,
+    "title": "Pitch and Loudness",
+    "quotes": [
+      "Loudness is related to Intensity I",
+      "Pitch is related to frequency f",
+      "Pitch: description of how high or low the sound seems to a person",
+      "Loudness: how loud or soft a sound is perceived to be."
+    ],
+    "explanation": [
+      "ممكن نفس النغمة تبقى أوطى أو أعلى في مستوى الصوت من غير ما تتغير حدّتها. دي Loudness، ومرتبطة بالـIntensity وبطريقة استجابة الأذن.",
+      "أما Pitch فمرتبطة بالـFrequency: تردد أكبر عادةً نسمعه كنغمة أحدّ. الاتنين إحساس سمعي، لكن كل واحد مرتبط بكمية مختلفة."
+    ],
+    "crop": [0.3, 0.15]
+  },
+  {
+    "id": "P138-C",
+    "page": 138,
+    "title": "Ultrasound",
+    "quotes": [
+      "Ultrasound: sound waves with frequencies above the normal human range of hearing. Sounds in the range from 20-100kHz"
+    ],
+    "explanation": [
+      "الحد اللي هنفتكره: Ultrasound أعلى من 20 كيلو Hertz تقريبًا. مدى 20 لحد 100 كيلو Hertz المذكور هنا مثال لجزء منه، مش نهاية كل الـUltrasound.",
+      "وده لسه صوت محتاج وسط؛ كلمة Ultra مش معناها إنه اتحول لموجة ضوئية."
+    ],
+    "crop": [0.44, 0.09],
+    "note": "توضيح: Ultrasound أعلى من نحو 20 kHz؛ رقم 100 kHz ليس حدًا أعلى عامًا."
+  },
+  {
+    "id": "P138-D",
+    "page": 138,
+    "title": "Infrasound and Human Hearing",
+    "quotes": [
+      "Infrasound: sounds with frequencies below the normal human range of hearing sounds in the 20-200 Hz range."
+    ],
+    "explanation": [
+      "قف هنا لحظة، المدى المطبوع في الجملة غلط. الـInfrasound أقل من 20 Hertz تقريبًا، مش من 20 لحد 200.",
+      "بص على شريط الإنسان في الرسم: المدى السمعي المعتاد تقريبًا من 20 لحد 20 ألف Hertz. فـ200 جوّه المدى ده، مش تحته. والحدود الفعلية بتختلف حسب الشخص."
+    ],
+    "crop": [0.53, 0.25],
+    "note": "تصحيح: Infrasound أقل من 20 Hz، وليس 20–200 Hz كما طُبع.",
+    "image": "hearing"
+  },
+  {
+    "id": "P138-E",
+    "page": 138,
+    "title": "Energy per Time per Area",
+    "quotes": [
+      "Intensity of Sound: Decibels:",
+      "The intensity of a wave is the energy transported per unit time across a unit area."
+    ],
+    "explanation": [
+      "قبل ما ندخل على Decibel، ثبّت معنى Intensity: قد إيه طاقة بتعبر مساحة معينة في كل ثانية.",
+      "الـDecibel هي طريقة لوغاريتمية للتعبير عن المستوى بالنسبة لمرجع. مش وحدة الطاقة نفسها، ومش بديل عن معنى Intensity."
+    ],
+    "crop": [0.78, 0.12]
+  }
+]

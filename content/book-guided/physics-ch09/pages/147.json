@@ -1,0 +1,30 @@
+[
+  {
+    "id": "P147-A",
+    "page": 147,
+    "title": "Moving Source: Away",
+    "quotes": ["If the source is moving away from the observer:"],
+    "explanation": [
+      "هنا المصدر بيبعد، فالجبهات اللي واصلة للمستمع تبقى أبعد عن بعض. الـWavelength تزيد والتردد يقل.",
+      "المقام واحد زائد نسبة سرعة المصدر لسرعة الصوت. أكبر من واحد، وده يراجع لنا إن الناتج أقل من التردد الأصلي."
+    ],
+    "crop": [0.08, 0.19],
+    "formula": "f'=\\frac{f}{1+v_{source}/v_{snd}}"
+  },
+  {
+    "id": "P147-B",
+    "page": 147,
+    "title": "Choosing Doppler Signs",
+    "quotes": [
+      "All four equations for the Doppler effect can be combined into one; you just have to keep track of the signs!"
+    ],
+    "explanation": [
+      "اختار إشارة المستمع لوحدها: لو بيتحرك ناحية المصدر نضيف في البسط، ولو بيبعد نطرح.",
+      "وبعدين إشارة المصدر لوحدها: لو ناحية المستمع نطرح في المقام، ولو بيبعد نضيف. مش لازم تختار الإشارتين كسطر واحد من علامة ±.",
+      "راجع المعنى قبل الحساب: الاقتراب المفروض يرفع التردد، والابتعاد يقلله في الحالات دي."
+    ],
+    "crop": [0.3, 0.2],
+    "formula": "f'=f\\frac{v_{snd}\\pm v_{obs}}{v_{snd}\\mp v_{source}}",
+    "note": "توضيح: إشارة المستمع وإشارة المصدر تُختاران كل واحدة حسب اتجاه حركته بالنسبة للآخر."
+  }
+]

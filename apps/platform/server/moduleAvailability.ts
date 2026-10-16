@@ -1,4 +1,4 @@
-import modules from '../content-modules.json';
+import { contentPins as modules } from '../contentPins';
 export function supportedEdition(
   edition: {
     moduleId: string;

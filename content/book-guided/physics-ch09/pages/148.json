@@ -1,0 +1,22 @@
+[
+  {
+    "id": "P148-Q6",
+    "page": 148,
+    "title": "Example · Police Siren",
+    "quotes": [
+      "The siren of a police car at rest emits at a predominant frequency of 1600 Hz.",
+      "What frequency will you hear if you are at rest and the police car moves at 25.0 m/s (a) toward you, and (b) away from you?"
+    ],
+    "explanation": [],
+    "crop": [0.06, 0.18],
+    "question": {
+      "arabic": "أنت ثابت، والمصدر سرعته 25.0 m/s. استخدم سرعة الصوت 343 m/s، وهي القيمة المستخدمة في الحل المطبوع.",
+      "answer": "Toward: 1730 Hz; away: 1490 Hz (three significant figures).",
+      "solution": [
+        "المستمع ثابت، إذن هنستخدم علاقة المصدر المتحرك. في الاقتراب: $f_a=1600/(1-25/343)$، فتساوي $1725.79\\ \\mathrm{Hz}$. بالتقريب لثلاثة أرقام معنوية: 1730 Hz.",
+        "في الابتعاد نغيّر إشارة المقام: $f_b=1600/(1+25/343)$، فتساوي $1491.30\\ \\mathrm{Hz}$، أي 1490 Hz بالتقريب.",
+        "لاحظ استخدمنا 343 m/s زي حل الصفحة دي، مش 330 الموجودة في مسألة الضغط. والاتجاهين راجعوا نفسهم: الاقتراب أعلى من 1600 والابتعاد أقل."
+      ]
+    }
+  }
+]

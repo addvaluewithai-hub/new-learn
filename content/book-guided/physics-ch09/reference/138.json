@@ -1,0 +1,57 @@
+{
+  "P138-A": {
+    "file": "P138-A.webp",
+    "width": 1056,
+    "height": 382,
+    "sha256": "146a41ff9a92f85560fa347f1c6d1c32033b7b5b3af564c59888c99dd938236b",
+    "page": 138,
+    "raster": "pdf-14.png",
+    "pixelCrop": [87, 133, 1143, 515],
+    "focus": [0.015, 0.07627, 0.97, 0.84746],
+    "questionOnly": false
+  },
+  "P138-B": {
+    "file": "P138-B.webp",
+    "width": 1056,
+    "height": 301,
+    "sha256": "6e4dbb8be42ea2624a1e88f4e601c9ca5ad076d2b891ec9c5ea083e3a2f7cfe9",
+    "page": 138,
+    "raster": "pdf-14.png",
+    "pixelCrop": [87, 457, 1143, 758],
+    "focus": [0.015, 0.09677, 0.97, 0.80645],
+    "questionOnly": false
+  },
+  "P138-C": {
+    "file": "P138-C.webp",
+    "width": 1056,
+    "height": 204,
+    "sha256": "2a29c7af2d45a074241fcf6487ce89362f64d8dfef2b6b109e254bb2fa56c7b6",
+    "page": 138,
+    "raster": "pdf-14.png",
+    "pixelCrop": [87, 684, 1143, 888],
+    "focus": [0.015, 0.14286, 0.97, 0.71429],
+    "questionOnly": false
+  },
+  "P138-D": {
+    "file": "P138-D.webp",
+    "width": 1056,
+    "height": 464,
+    "sha256": "3b45afffac0831f446e1a4c5deeb0256afa60ca3b8428629bb18e9ea07edb9b6",
+    "page": 138,
+    "raster": "pdf-14.png",
+    "pixelCrop": [87, 829, 1143, 1293],
+    "focus": [0.015, 0.06294, 0.97, 0.87413],
+    "questionOnly": false
+  },
+  "P138-E": {
+    "file": "P138-E.webp",
+    "width": 1056,
+    "height": 253,
+    "sha256": "e3cbbc523257e2673926b35a623866483058023106153af7b889d6cbb9bf10ce",
+    "page": 138,
+    "raster": "pdf-14.png",
+    "pixelCrop": [87, 1234, 1143, 1487],
+    "focus": [0.015, 0.11538, 0.97, 0.76923],
+    "questionOnly": false
+  }
+}

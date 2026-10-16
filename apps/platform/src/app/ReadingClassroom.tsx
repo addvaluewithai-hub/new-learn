@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { ReadingLesson } from '@learn/lesson-runtime';
 import type {
   LessonContext,
@@ -31,10 +31,14 @@ export default function ReadingClassroom({
   load,
   backHref,
   studentName,
+  preview = false,
+  reference,
 }: {
   load: () => Promise<ReadingModule>;
   backHref: string;
   studentName: string;
+  preview?: boolean;
+  reference?: (context: LessonContext | null) => ReactNode;
 }) {
   const [module, setModule] = useState<ReadingModule | null>(null);
   const [error, setError] = useState('');
@@ -63,7 +67,7 @@ export default function ReadingClassroom({
     },
   });
   const onReady = useCallback((value: LessonController | null) => setController(value), []);
-  const saved = useReadingProgress(module?.readingLesson ?? null);
+  const saved = useReadingProgress(module?.readingLesson ?? null, !preview);
   useEffect(() => {
     let live = true;
     load().then(
@@ -93,7 +97,7 @@ export default function ReadingClassroom({
       </div>
     );
   const lesson = module.readingLesson;
-  const next = nextImported(lesson.curriculumId, lesson.lessonId);
+  const next = preview ? null : nextImported(lesson.curriculumId, lesson.lessonId);
   return (
     <div className="reading-classroom">
       <ReadingLesson
@@ -103,11 +107,19 @@ export default function ReadingClassroom({
         suspended={assistantOpen}
         onContext={setContext}
         onReady={onReady}
-        onProgress={saved.record}
-        exit={{ label: 'ارجع للمنهج', href: backHref }}
+        onProgress={preview ? undefined : saved.record}
+        exit={{ label: preview ? 'ارجع للمنصة' : 'ارجع للمنهج', href: backHref }}
         next={next ? { title: next.title, href: lessonHref(lesson.curriculumId, next.id) } : null}
         status={
-          SAVE[saved.status] ? (
+          preview ? (
+            <span
+              className="reading-save"
+              title="التقدم في الجلسة فقط"
+              aria-label="معاينة، التقدم في الجلسة فقط"
+            >
+              معاينة
+            </span>
+          ) : SAVE[saved.status] ? (
             <span className="reading-save" data-state={saved.status}>
               {SAVE[saved.status]}
             </span>
@@ -139,6 +151,7 @@ export default function ReadingClassroom({
           orb: <NovaOrb voice={talk.voice} onTap={() => talk.setOpen(!talk.open)} />,
         }}
       />
+      {reference?.(context)}
       <NovaAssistant
         lesson={{}}
         studentName={studentName}

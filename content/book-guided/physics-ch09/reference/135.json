@@ -1,0 +1,46 @@
+{
+  "P135-A": {
+    "file": "P135-A.webp",
+    "width": 1164,
+    "height": 609,
+    "sha256": "45e7a5ce391a043b015f0d75bc734adb28cb4625088a9d8e8c70eff3f03b373f",
+    "page": 135,
+    "raster": "pdf-12.png",
+    "pixelCrop": [972, 68, 2136, 677],
+    "focus": [0.015, 0.04787, 0.97, 0.90426],
+    "questionOnly": false
+  },
+  "P135-B": {
+    "file": "P135-B.webp",
+    "width": 1164,
+    "height": 447,
+    "sha256": "4ceeca0b8bd9de5bbb8fb1af4c2a3f169215c91ddd8afb0ee425f8ac154628db",
+    "page": 135,
+    "raster": "pdf-12.png",
+    "pixelCrop": [972, 603, 2136, 1050],
+    "focus": [0.015, 0.06522, 0.97, 0.86957],
+    "questionOnly": false
+  },
+  "P135-C": {
+    "file": "P135-C.webp",
+    "width": 1164,
+    "height": 269,
+    "sha256": "f8fce07d9983db9a00d9a4998d459470e81af0b72d1655ff562fc46833d4b441",
+    "page": 135,
+    "raster": "pdf-12.png",
+    "pixelCrop": [972, 1008, 2136, 1277],
+    "focus": [0.015, 0.10843, 0.97, 0.78313],
+    "questionOnly": false
+  },
+  "P135-D": {
+    "file": "P135-D.webp",
+    "width": 1164,
+    "height": 301,
+    "sha256": "1b9779e2f5d0e96748eb21b24a5ebccee2a4f115d7bfe686a0d71f4da341f0df",
+    "page": 135,
+    "raster": "pdf-12.png",
+    "pixelCrop": [972, 1202, 2136, 1503],
+    "focus": [0.015, 0.09677, 0.97, 0.80645],
+    "questionOnly": false
+  }
+}

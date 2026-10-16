@@ -1,0 +1,22 @@
+[
+  {
+    "id": "P145-Q5",
+    "page": 145,
+    "title": "Problem · Pressure Variation",
+    "quotes": [
+      "Calculate the pressure variation corresponding to a sound intensity of 10⁻¹⁶ W/cm².",
+      "(The density of air at 0°C and 1 atm pressure is 1.29 × 10⁻³ g/cm³; for the speed of sound use the value 3.3 × 10⁴ cm/sec.)"
+    ],
+    "explanation": [],
+    "crop": [0.1, 0.15],
+    "question": {
+      "arabic": "المطلوب Peak pressure amplitude. وحّد الوحدات الأول، وبعدها اعزل P₀ من علاقة Intensity.",
+      "answer": "P₀ ≈ 2.92 × 10⁻⁵ Pa = 2.92 × 10⁻⁹ N/cm²",
+      "solution": [
+        "نحوّل لـSI: $I=10^{-12}\\ \\mathrm{W/m^2}$، لأن المتر المربع فيه عشرة آلاف سنتيمتر مربع. والكثافة $\\rho=1.29\\ \\mathrm{kg/m^3}$، والسرعة $v=330\\ \\mathrm{m/s}$.",
+        "من القانون نطلع $P_0=\\sqrt{2I\\rho v}$، ثم $P_0=\\sqrt{8.514\\times10^{-10}}$، فتساوي $2.918\\times10^{-5}\\ \\mathrm{Pa}$.",
+        "عشان نرجع لوحدة إجابة الكتاب، نقسم على عشرة آلاف: $P_0=2.92\\times10^{-9}\\ \\mathrm{N/cm^2}$. دي أكبر زيادة أو نقص عن الضغط المحيط، مش الضغط الكلي ولا RMS."
+      ]
+    }
+  }
+]

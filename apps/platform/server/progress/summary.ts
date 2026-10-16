@@ -1,5 +1,5 @@
 import { eq } from 'drizzle-orm';
-import registry from '../../../../content/imported/registry.json';
+import { registry } from '../../../../content/registry';
 import { database } from '../db/connection';
 import { enrollments, progress } from '../db/learners';
 import type { AuthUser, Env } from '../env';

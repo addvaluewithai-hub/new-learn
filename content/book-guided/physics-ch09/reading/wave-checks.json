@@ -1,0 +1,55 @@
+[
+  {
+    "after": "P134-B",
+    "english": "What is transferred by a wave without requiring net mass transport?",
+    "arabic": "إيه اللي بينتقل مع الموجة من غير ما يلزم انتقال صافٍ للمادة؟",
+    "options": ["Energy", "All particles with the wave", "Only mass", "Nothing"],
+    "correct": 0,
+    "why": "الموجة بتنقل Energy. الجسيمات ممكن تهتز حوالين مواضعها من غير ما تسافر مع الاضطراب."
+  },
+  {
+    "after": "P135-A",
+    "english": "In a longitudinal wave, particle motion is…",
+    "arabic": "حركة الجسيمات في Longitudinal wave بتكون إزاي؟",
+    "options": [
+      "Always vertical",
+      "Parallel to propagation",
+      "Perpendicular to propagation",
+      "Absent"
+    ],
+    "correct": 1,
+    "why": "الاهتزاز موازي لاتجاه الانتشار. Compression وRarefaction بيتنقلوا، وكل جسيم بيهتز حوالين مكانه."
+  },
+  {
+    "after": "P135-D",
+    "english": "At a fixed wave speed, doubling frequency changes wavelength by what factor?",
+    "arabic": "سرعة الانتشار ثابتة والتردد اتضاعف. الـWavelength يحصل لها إيه؟",
+    "options": ["×2", "×4", "×1", "×0.5"],
+    "correct": 3,
+    "why": "من v = fλ، مع ثبات v وزيادة f للضعف، λ تقل للنصف. الـAmplitude مش داخلة في العلاقة دي."
+  },
+  {
+    "after": "P136-B",
+    "english": "One complete cycle takes 0.005 s. What is the frequency?",
+    "arabic": "لو Period يساوي 0.005 ثانية، احسب Frequency.",
+    "options": ["0.005 Hz", "50 Hz", "200 Hz", "5000 Hz"],
+    "correct": 2,
+    "why": "f = 1/T = 1/0.005 = 200 Hz. قلب الزمن، مش ضربه في نفسه."
+  },
+  {
+    "after": "P137-A",
+    "english": "In p = pa + P₀ sin(2πft), P₀ represents…",
+    "arabic": "الرمز P₀ في المعادلة بيمثل إيه؟",
+    "options": ["Ambient pressure", "Maximum pressure change", "Density", "Wave speed"],
+    "correct": 1,
+    "why": "P₀ هي Peak pressure amplitude: أكبر تغير عن Ambient pressure، مش الضغط المحيط نفسه ولا RMS."
+  },
+  {
+    "after": "P137-B",
+    "english": "Pressure amplitude doubles in the same medium. What happens to average intensity?",
+    "arabic": "في نفس الوسط P₀ اتضاعفت. الـIntensity تبقى كام؟",
+    "options": ["×4", "×2", "×0.5", "Unchanged"],
+    "correct": 0,
+    "why": "I متناسبة مع P₀² عند ثبات كثافة الوسط وسرعة الصوت. تربيع العامل اتنين يدينا أربعة."
+  }
+]

@@ -43,14 +43,16 @@ function fromSnapshot(saved: Saved): Partial<ReadingProgress> | undefined {
  * Loads the learner's saved place and saves changes shortly after they happen, and on
  * leaving the page. Conflicts (another tab) are retried against the server's revision.
  */
-export function useReadingProgress(lesson: ReadingPackage | null) {
-  const [initial, setInitial] = useState<Partial<ReadingProgress> | undefined | null>(null);
+export function useReadingProgress(lesson: ReadingPackage | null, enabled = true) {
+  const [initial, setInitial] = useState<Partial<ReadingProgress> | undefined | null>(
+    enabled ? null : undefined,
+  );
   const [status, setStatus] = useState<SaveState>('idle');
   const revision = useRef<number | null>(null);
   const pending = useRef<ReadingProgress | null>(null);
   const generation = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const lessonId = lesson?.lessonId;
+  const lessonId = enabled ? lesson?.lessonId : undefined;
 
   useEffect(() => {
     if (!lessonId) return;
@@ -68,7 +70,7 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
     async (keepalive = false, retried = false): Promise<void> => {
       clearTimeout(timer.current);
       const progress = pending.current;
-      if (!lesson || !progress) return;
+      if (!enabled || !lesson || !progress) return;
       const writing = generation.current;
       pending.current = null;
       setStatus('saving');
@@ -108,11 +110,12 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
         timer.current = setTimeout(() => void flush(), 8000);
       }
     },
-    [lesson],
+    [lesson, enabled],
   );
 
   const record = useCallback(
     (progress: ReadingProgress) => {
+      if (!enabled) return;
       pending.current = progress;
       generation.current++;
       // A previous acknowledgement must never label this queued position as saved.
@@ -120,7 +123,7 @@ export function useReadingProgress(lesson: ReadingPackage | null) {
       clearTimeout(timer.current);
       timer.current = setTimeout(() => void flush(), 900);
     },
-    [flush],
+    [flush, enabled],
   );
 
   useEffect(() => {

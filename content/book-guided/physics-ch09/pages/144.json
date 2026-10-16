@@ -1,0 +1,45 @@
+[
+  {
+    "id": "P144-A",
+    "page": 144,
+    "title": "Diffraction",
+    "quotes": [
+      "Waves has a tendency to spread as they propagate through a medium.",
+      "When waves encounter an obstacle, it spreads into the region behind the obstacle. This is called diffraction."
+    ],
+    "explanation": [
+      "هنا الموجة بتوصل لمنطقة ورا الحافة أو بعد فتحة، بدل ما تفضل ماشية كأنها خط مستقيم بس. ده الـDiffraction.",
+      "افتكر صورة الصوت اللي بيوصلك من ورا ركن. مش محتاج المصدر يبقى ظاهر قدامك عشان جزء من الموجة يوصل."
+    ],
+    "crop": [0.12, 0.22]
+  },
+  {
+    "id": "P144-B",
+    "page": 144,
+    "title": "Wavelength and Obstacle Size",
+    "quotes": [
+      "The amount of diffraction depends on the wavelength. The longer the wavelength, the greater is the spreading of the wave.",
+      "Significant diffraction happens into the region behind the obstacle only if the size of the obstacle is much smaller than the wavelength."
+    ],
+    "explanation": [
+      "لو حجم الفتحة أو العائق ثابت، زيادة Wavelength عمومًا بتخلّي أثر Diffraction أوضح.",
+      "لكن كلمة only في النص أضيق من اللازم: الانتشار الملحوظ بيظهر كمان لما حجم الفتحة أو العائق يبقى مقارب للطول الموجي، مش لازم أصغر منه بكتير. المقارنة بين الاتنين هي المهمة."
+    ],
+    "crop": [0.35, 0.25],
+    "note": "تصحيح: يظهر Diffraction ملحوظ عندما يقارب حجم الفتحة أو العائق Wavelength أو يقل عنها."
+  },
+  {
+    "id": "P144-C",
+    "page": 144,
+    "title": "Hearing Behind a Pillar",
+    "quotes": [
+      "For example: A person standing behind a pillar hears the voice of performance but doesn’t see the view.",
+      "Objects that are smaller than the wavelength do not produce significant reflection. This is due to Diffraction."
+    ],
+    "explanation": [
+      "أطوال موجات الصوت أكبر بكتير من أطوال موجات الضوء المرئي. عشان كده العمود في المثال ممكن يحجب الرؤية، ومع ذلك الصوت ينتشر حواليه ويوصل لك.",
+      "والجملة الأخيرة تقريب في المقارنة دي: جسم صغير بالنسبة للطول الموجي ممكن يبعثر أو يعكس بدرجة أضعف. مش معناها إن مفيش أي تفاعل في كل الظروف."
+    ],
+    "crop": [0.62, 0.22]
+  }
+]

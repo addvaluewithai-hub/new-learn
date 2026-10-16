@@ -1,0 +1,157 @@
+{
+  "sourceDigest": "49f9ddb0b0c4819759cc77a78ff1d947620f13734cf67148e0c77f5bd91bd35b",
+  "fileCount": 181,
+  "curricula": [
+    {
+      "id": "physics-1-book-guided",
+      "title": "الفيزياء · شرح مع الكتاب",
+      "subject": "الفيزياء",
+      "description": "نقرأ نص الكتاب ونشرحه مع Nova، جزءًا جزءًا وبنفس ترتيب الأمثلة والمسائل. شابتر 8: Solids and Elasticity، وشابتر 9: Sound Waves.",
+      "parts": [
+        {
+          "title": "شرح مع الكتاب",
+          "summary": "ابدأ بشابتر 8، وبعده كمّل شابتر 9.",
+          "lessons": ["phys1-textbook-ch08", "phys1-textbook-ch09"]
+        }
+      ],
+      "lessons": [
+        {
+          "id": "phys1-textbook-ch08",
+          "curriculumId": "physics-1-book-guided",
+          "order": 1,
+          "previewRevision": "book-classroom-v4-e578fb284199e449b367283a84800221b755cb6e6ac4439a1af93ec68f0b4ae1",
+          "title": "شابتر 8 · شرح مع الكتاب",
+          "subtitle": "Solids and Elasticity — Chapter 8",
+          "previewLessonId": "phys1-book-guided-ch08",
+          "moduleId": "book-reading:phys1-textbook-ch08",
+          "contentRevision": "720026c1b2ae51fa54ddc653946f938ab0b7b781ba61489b44ae8f3279f0fb60",
+          "manifestHash": "720026c1b2ae51fa54ddc653946f938ab0b7b781ba61489b44ae8f3279f0fb60",
+          "runtimeVersion": "0.3.2",
+          "goals": [
+            {
+              "id": "axial",
+              "text": "تختار قانون التشوّه المحوري وتحدد البيانات الناقصة.",
+              "sceneIds": [
+                "P121-A",
+                "P122-A",
+                "P122-B",
+                "P122-C",
+                "P123-B",
+                "P123-C",
+                "P124-A",
+                "P124-B",
+                "P124-C",
+                "P125-A",
+                "P125-B",
+                "P125-C",
+                "P126-A",
+                "P126-B",
+                "P126-C",
+                "P127-A",
+                "P127-B",
+                "P127-C",
+                "P127-D"
+              ],
+              "questionIds": ["P130-Q1", "P131-Q2"]
+            },
+            {
+              "id": "shear",
+              "text": "تحسب معامل القص من القوة ومساحة الوجه والإزاحة.",
+              "sceneIds": ["P128-A", "P128-B"],
+              "questionIds": ["P132-Q3"]
+            },
+            {
+              "id": "bulk",
+              "text": "تحسب تغيّر الحجم وتفسّر إشارته تحت ضغط من كل الجهات.",
+              "sceneIds": ["P128-C", "P129-A", "P129-B"],
+              "questionIds": ["P133-Q4"]
+            }
+          ]
+        },
+        {
+          "id": "phys1-textbook-ch09",
+          "curriculumId": "physics-1-book-guided",
+          "order": 2,
+          "previewRevision": "book-ch09-v1",
+          "title": "شابتر 9 · شرح مع الكتاب",
+          "subtitle": "Sound Waves — Chapter 9",
+          "previewLessonId": "phys1-book-guided-ch09",
+          "moduleId": "book-reading:phys1-textbook-ch09",
+          "contentRevision": "670d6e925cd1f3c4afffc368d68476ec5f5dcdfbca81b53b68b632a0f618ccc0",
+          "manifestHash": "670d6e925cd1f3c4afffc368d68476ec5f5dcdfbca81b53b68b632a0f618ccc0",
+          "runtimeVersion": "0.3.2",
+          "goals": [
+            {
+              "id": "waves",
+              "text": "تربط خواص الموجة بحركة الجسيمات والضغط وIntensity.",
+              "sceneIds": [
+                "P134-A",
+                "P134-B",
+                "P134-C",
+                "P135-A",
+                "P135-B",
+                "P135-C",
+                "P135-D",
+                "P136-A",
+                "P136-B",
+                "P137-A",
+                "P137-B"
+              ],
+              "questionIds": ["P137-B-check", "P145-Q5"]
+            },
+            {
+              "id": "sound-level",
+              "text": "تحسب Intensity وSound level وتجمع المصادر وتفسّر أثر المسافة.",
+              "sceneIds": [
+                "P138-A",
+                "P138-B",
+                "P138-C",
+                "P138-D",
+                "P138-E",
+                "P139-A",
+                "P139-B",
+                "P139-C",
+                "P139-Q1",
+                "P140-Q2",
+                "P140-Q3",
+                "P141-Q4"
+              ],
+              "questionIds": ["P139-Q1", "P140-Q2", "P140-Q3", "P141-Q4"]
+            },
+            {
+              "id": "wave-properties",
+              "text": "تميّز Reflection وRefraction وInterference وDiffraction.",
+              "sceneIds": [
+                "P142-A",
+                "P142-B",
+                "P142-C",
+                "P143-A",
+                "P143-B",
+                "P143-C",
+                "P144-A",
+                "P144-B",
+                "P144-C"
+              ],
+              "questionIds": ["P142-B-check", "P143-B-check", "P143-C-check", "P144-C-check"]
+            },
+            {
+              "id": "doppler",
+              "text": "تختار إشارات Doppler وتحسب تأثير الجسم العاكس على مرحلتين.",
+              "sceneIds": [
+                "P146-A",
+                "P146-B",
+                "P146-C",
+                "P146-D",
+                "P147-A",
+                "P147-B",
+                "P148-Q6",
+                "P149-Q7"
+              ],
+              "questionIds": ["P148-Q6", "P149-Q7"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
