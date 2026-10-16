@@ -1,0 +1,24 @@
+{
+  "P147-A": {
+    "file": "P147-A.webp",
+    "width": 1164,
+    "height": 367,
+    "sha256": "e14570c960c160091de40838005eb67aed12c1f23047bc503464096b49180904",
+    "page": 147,
+    "raster": "pdf-18.png",
+    "pixelCrop": [972, 100, 2136, 467],
+    "focus": [0.015, 0.07965, 0.97, 0.84071],
+    "questionOnly": false
+  },
+  "P147-B": {
+    "file": "P147-B.webp",
+    "width": 1164,
+    "height": 382,
+    "sha256": "7cf09400a157f8665cadd997774d3ea2fd12f76bd3eac67cf256da78c4b1e109",
+    "page": 147,
+    "raster": "pdf-18.png",
+    "pixelCrop": [972, 457, 2136, 839],
+    "focus": [0.015, 0.07627, 0.97, 0.84746],
+    "questionOnly": false
+  }
+}

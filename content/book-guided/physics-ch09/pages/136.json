@@ -1,0 +1,37 @@
+[
+  {
+    "id": "P136-A",
+    "page": 136,
+    "title": "Pressure, Density and Frequency",
+    "quotes": [
+      "In a gas, the variations in the density of the medium are equivalent to pressure changes.",
+      "For sound waves we define intensity which is the magnitude of the compressions and rarefactions.",
+      "The frequency is defined as how often the compressions and rarefactions take place.",
+      "Hertz is the units for measuring frequency, it is defined as cycles per second."
+    ],
+    "explanation": [
+      "لما جزيئات الهواء تقرّب من بعض يزيد الضغط، ولما تتباعد يقل. نقطة ثابتة قدامك بتعدّي عليها مناطق الضغط الأعلى والأقل بالتتابع.",
+      "فيه تدقيق مهم للجملة التانية: حجم تغيّر الضغط بنوصفه بالـPressure amplitude. أما الـIntensity فتعريفها طاقة بتعدّي في الثانية من وحدة مساحة، وهنكتب قانونها بعد شوية.",
+      "الـFrequency بتعد الدورات الكاملة في الثانية، مش كل Compression وRarefaction كل واحدة دورة مستقلة."
+    ],
+    "crop": [0.12, 0.46],
+    "note": "تصحيح: مقدار تغيّر الضغط هو Pressure amplitude؛ أما Intensity فهي قدرة لكل وحدة مساحة.",
+    "image": "tuning-left"
+  },
+  {
+    "id": "P136-B",
+    "page": 136,
+    "title": "Pure Tone and Wave Speed",
+    "quotes": [
+      "For a tuning fork, the pattern of the sound waves is a simple one called pure tone. Pure tone is in the form of sinusoidal wave.",
+      "The distance between the nearest equal points on the sound wave is called wavelength"
+    ],
+    "explanation": [
+      "الـTuning fork هنا بيمثل Pure tone: اهتزاز جيبي بتردد واحد في النموذج اللي قدامنا. خُد Compression واللي بعدها؛ المسافة بينهم Wavelength.",
+      "القيمة المكتوبة لسرعة الصوت هنا تساوي 330 متر في الثانية. هنستخدم قيمة السرعة اللي كل مسألة بتحددها؛ مش كل صفحات الفصل بتستخدم نفس الرقم."
+    ],
+    "crop": [0.56, 0.32],
+    "formula": "v=\\lambda f,\\quad v=3.3\\times10^4\\ \\mathrm{cm/s}",
+    "image": "tuning-left"
+  }
+]

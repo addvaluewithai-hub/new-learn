@@ -1,0 +1,44 @@
+[
+  {
+    "id": "P143-A",
+    "page": 143,
+    "title": "Constructive Interference",
+    "quotes": ["Constructive interference. In phase waves."],
+    "explanation": [
+      "بص على القمم في الموجتين A وB: بييجوا مع بعض. في نموذج Superposition بنجمع الإزاحات لحظة بلحظة، فالمحصلة R سعتها مجموع السعتين.",
+      "ده مثال لموجتين بنفس التردد وفي نفس الطور. جمع Amplitudes هنا غير جمع متوسط Intensity لمصادر مستقلة زي مسألة العازفين."
+    ],
+    "crop": [0.12, 0.28],
+    "image": "constructive"
+  },
+  {
+    "id": "P143-B",
+    "page": 143,
+    "title": "Destructive Interference",
+    "quotes": [
+      "Destructive interference. Out of phase by 180 degrees. Different Amplitude.",
+      "Destructive interference. Out of phase by 180 degrees. Equal Amplitude."
+    ],
+    "explanation": [
+      "فرق الطور 180 درجة معناه إن القمة تقابل القاع. لو السعتين مختلفين، المحصلة سعتها مقدار الفرق بينهم؛ مش صفر.",
+      "أما لو السعتين متساويين وبنفس التردد، يحصل إلغاء كامل في النموذج المثالي. بص على الخط المستقيم في الحالة دي."
+    ],
+    "crop": [0.41, 0.35],
+    "image": ["destructive-unequal", "destructive-equal"]
+  },
+  {
+    "id": "P143-C",
+    "page": 143,
+    "title": "Standing Waves",
+    "quotes": [
+      "Standing wave: is two waves moving in opposite directions. Resulting wave pattern is stationary in space.",
+      "Standing wave can only happen at specific frequencies called resonant frequencies."
+    ],
+    "explanation": [
+      "عشان نكوّن الشكل المثالي، الموجتين يبقوا بنفس التردد وبسعتين متساويتين وماشيين في اتجاهين متعاكسين. تتكوّن Nodes ثابتة وAntinodes بينيها.",
+      "في حبل أو عمود هواء محدود، شروط الأطراف هي اللي بتختار الـResonant frequencies الممكنة. مجرد موجتين عكس بعض من غير الشروط دي مش كفاية."
+    ],
+    "crop": [0.77, 0.12],
+    "note": "توضيح: النموذج المثالي يحتاج نفس التردد وسعتين متساويتين؛ الأطراف تحدد ترددات الرنين."
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "id": "P142-A",
+    "page": 142,
+    "title": "Reflection: Smooth and Rough Surfaces",
+    "quotes": [
+      "All waves exhibit the phenomena of reflection, refraction, interference and diffraction.",
+      "If the interface is smooth on the scale of the wavelength (irregularities are smaller than wavelength) the reflection is mirror like.",
+      "If irregularities are larger than wavelength, the reflection is diffuse."
+    ],
+    "explanation": [
+      "هنا بنقارن خشونة السطح بالـWavelength، مش بنحكم على السطح بالنظر بس. لو الخشونة صغيرة بالنسبة لها، يبقى الانعكاس منتظم تقريبًا.",
+      "أما الخشونة الكبيرة بالنسبة للطول الموجي فتوزّع الموجة المنعكسة في اتجاهات مختلفة: Diffuse reflection."
+    ],
+    "crop": [0.15, 0.41],
+    "image": "reflection"
+  },
+  {
+    "id": "P142-B",
+    "page": 142,
+    "title": "Angles and Refraction",
+    "quotes": [
+      "Angle of reflection is always equal to angle of incidence.",
+      "If angle of incidence is oblique, refraction happens."
+    ],
+    "explanation": [
+      "في الانعكاس المنتظم، زاوية السقوط وزاوية الانعكاس بنقيسهم من الـNormal، الخط العمودي على السطح؛ مش من السطح نفسه.",
+      "وجملة الانكسار محتاجة شرط: الموجة تدخل وسط سرعتها فيه مختلفة. مع السقوط المائل ممكن يتغيّر الاتجاه. عند السقوط العمودي السرعة والطول الموجي ممكن يتغيروا من غير انحراف.",
+      "التردد بيفضل ثابت عند عبور حد فاصل ثابت، والـWavelength تتغيّر مع سرعة الانتشار."
+    ],
+    "crop": [0.55, 0.2],
+    "note": "توضيح: انحراف الموجة عند الانكسار يحتاج تغيّر سرعتها، وليس الميل وحده.",
+    "image": "reflection"
+  },
+  {
+    "id": "P142-C",
+    "page": 142,
+    "title": "The Air–Water Boundary",
+    "quotes": [
+      "For a sound wave incident on water, 0.1% enters the water, 99.9% is reflected back. Water is a good barrier to sound."
+    ],
+    "explanation": [
+      "الأرقام هنا بتوصف المثال عند الحد الفاصل من الهواء للماء، مش قاعدة لكل زاوية وكل حالة. الفرق الكبير في Acoustic impedance بيخلّي معظم الطاقة تنعكس.",
+      "ده مش معناه إن الصوت ما يمشيش جوّه الماء؛ هو بينتقل فيه بالفعل. لازم نفرّق بين انتقاله داخل وسط، وعبوره من وسط للتاني."
+    ],
+    "crop": [0.79, 0.1],
+    "note": "توضيح: النسب تخص مثال الهواء–الماء؛ الصوت ينتقل داخل الماء."
+  }
+]

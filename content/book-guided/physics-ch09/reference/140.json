@@ -1,0 +1,24 @@
+{
+  "P140-Q2": {
+    "file": "P140-Q2.webp",
+    "width": 1056,
+    "height": 251,
+    "sha256": "e2f39947a393e86c3b05a2715b3889f7265a26376fe916d0cc8ec1f813937174",
+    "page": 140,
+    "raster": "pdf-15.png",
+    "pixelCrop": [87, 109, 1143, 360],
+    "focus": [0.015, 0.05161, 0.97, 0.94839],
+    "questionOnly": true
+  },
+  "P140-Q3": {
+    "file": "P140-Q3.webp",
+    "width": 1056,
+    "height": 192,
+    "sha256": "cc3c88b2933fce949a80bae44c19efb38e3346a7ec6879b293a8fa5f42032c5f",
+    "page": 140,
+    "raster": "pdf-15.png",
+    "pixelCrop": [87, 919, 1143, 1111],
+    "focus": [0.015, 0.06723, 0.97, 0.93277],
+    "questionOnly": true
+  }
+}

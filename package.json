@@ -43,7 +43,7 @@
     "test:browser:flow": "node tests/flow-browser.mjs",
     "test:browser:legacy-gas": "node tests/legacy-gas-reading-browser.mjs",
     "test:browser:statics": "node tests/statics-reading-browser.mjs",
-    "test:browser:book": "node --import tsx tests/book-browser.mjs"
+    "test:browser:book": "node --import tsx tests/book-browser.mjs && BOOK_CHAPTER=9 node --import tsx tests/book-browser.mjs"
   },
   "devDependencies": {
     "@types/katex": "0.16.7",

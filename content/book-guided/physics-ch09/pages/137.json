@@ -1,0 +1,33 @@
+[
+  {
+    "id": "P137-A",
+    "page": 137,
+    "title": "Total Pressure",
+    "quotes": [
+      "The total pressure due to propagating wave is:",
+      "It is dependent on ambient pressure, maximum pressure change and frequency of sound."
+    ],
+    "explanation": [
+      "الضغط الكلي بيتذبذب حوالين Ambient pressure، مش حوالين صفر. هنا ضغط الجو تقريبًا 1.01 في عشرة أس خمسة Pascal.",
+      "الرمز P₀ هو أكبر تغيّر عن الضغط المحيط. عند القمة نضيفه، وعند أقل ضغط نطرحه. وf بتحدد عدد مرات تكرار التغيّر في الثانية."
+    ],
+    "crop": [0.09, 0.35],
+    "formula": "p=p_a+P_0\\sin(2\\pi ft)",
+    "image": "tuning-right"
+  },
+  {
+    "id": "P137-B",
+    "page": 137,
+    "title": "Intensity from Pressure Amplitude",
+    "quotes": [
+      "The amount of energy transmitted by a sinusoidal wave per unit time through each unit area perpendicular to the direction of propagation is called intensity:"
+    ],
+    "explanation": [
+      "كده عندنا التعريف الدقيق للـIntensity: طاقة لكل زمن ولكل مساحة عمودية على الانتشار، ووحدتها Watt لكل متر مربع.",
+      "في العلاقة دي ρ كثافة الوسط، وv سرعة الصوت فيه. وP₀ هي Peak pressure amplitude، مش ضغط الجو ولا قيمة RMS.",
+      "لو P₀ اتضاعفت والوسط ثابت، الـIntensity تزيد أربع مرات لأنها متناسبة مع مربعها."
+    ],
+    "crop": [0.4, 0.22],
+    "formula": "I=\\frac{P_0^2}{2\\rho v}"
+  }
+]

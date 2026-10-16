@@ -1,0 +1,110 @@
+{
+  "wave-motion": {
+    "file": "wave-motion.webp",
+    "width": 886,
+    "height": 291,
+    "sha256": "e74f5577e13c6ca287c37824c5025a92394a2f8aa018af3b33116b708502df06",
+    "page": 134,
+    "raster": "pdf-12.png",
+    "pixelCrop": [152, 470, 1038, 761]
+  },
+  "compression": {
+    "file": "compression.webp",
+    "width": 641,
+    "height": 203,
+    "sha256": "4e5a4de1e726ff9d441e9f4fce909d4365c3d1304b96f07998e861fac14b4fbb",
+    "page": 135,
+    "raster": "pdf-12.png",
+    "pixelCrop": [1115, 89, 1756, 292]
+  },
+  "periodic": {
+    "file": "periodic.webp",
+    "width": 523,
+    "height": 219,
+    "sha256": "8fccffaedbbd27604f615ecb18319f889f5ad747888dda9dc4b96160bce695e8",
+    "page": 135,
+    "raster": "pdf-12.png",
+    "pixelCrop": [1245, 818, 1768, 1037]
+  },
+  "tuning-left": {
+    "file": "tuning-left.webp",
+    "width": 502,
+    "height": 729,
+    "sha256": "12d581faa483be39de5c0b1f73accd956791689b0f8d6424e1ee50b1b7e8f805",
+    "page": 136,
+    "raster": "pdf-13.png",
+    "pixelCrop": [536, 178, 1038, 907]
+  },
+  "tuning-right": {
+    "file": "tuning-right.webp",
+    "width": 558,
+    "height": 421,
+    "sha256": "f59bdc463d24b9e18ec23c01cfc00171b666bdb5207d679e3c1074fea47ce79f",
+    "page": 137,
+    "raster": "pdf-13.png",
+    "pixelCrop": [1269, 178, 1827, 599]
+  },
+  "hearing": {
+    "file": "hearing.webp",
+    "width": 909,
+    "height": 283,
+    "sha256": "9908474e5e75d17764e0cf4989659738212aa7760a9f2f15bd4e7c620ebdfeef",
+    "page": 138,
+    "raster": "pdf-14.png",
+    "pixelCrop": [175, 940, 1084, 1223]
+  },
+  "reflection": {
+    "file": "reflection.webp",
+    "width": 443,
+    "height": 729,
+    "sha256": "a8d1931ca76afff312f438fb875777067d8a07096aedf683cb9ccbf83d93e4ae",
+    "page": 142,
+    "raster": "pdf-16.png",
+    "pixelCrop": [606, 454, 1049, 1183]
+  },
+  "constructive": {
+    "file": "constructive.webp",
+    "width": 439,
+    "height": 429,
+    "sha256": "c357dcf119fe1d2c7c334d2d11214b36cc7579e14940155494d1c29e9ef58cb8",
+    "page": 143,
+    "raster": "pdf-16.png",
+    "pixelCrop": [1115, 227, 1554, 656]
+  },
+  "destructive-unequal": {
+    "file": "destructive-unequal.webp",
+    "width": 452,
+    "height": 300,
+    "sha256": "5eb8fd10b34b5d98edb91da166955f9a2b92611170ab37e56e8ef025ab6346d5",
+    "page": 143,
+    "raster": "pdf-16.png",
+    "pixelCrop": [1126, 688, 1578, 988]
+  },
+  "destructive-equal": {
+    "file": "destructive-equal.webp",
+    "width": 404,
+    "height": 324,
+    "sha256": "58fc95d40e08e969b463b96c84fb866aa3de280e39b97fd275049fa883fd884d",
+    "page": 143,
+    "raster": "pdf-16.png",
+    "pixelCrop": [1518, 859, 1922, 1183]
+  },
+  "firetruck": {
+    "file": "firetruck.webp",
+    "width": 711,
+    "height": 364,
+    "sha256": "9a2382fd115fccaa116c0a53fb8f6962b7aef3713417e5d312bb5913f26c5134",
+    "page": 146,
+    "raster": "pdf-18.png",
+    "pixelCrop": [303, 462, 1014, 826]
+  },
+  "reflector": {
+    "file": "reflector.webp",
+    "width": 369,
+    "height": 146,
+    "sha256": "935d9b57d4a767f06a1a7e8c20ad67ac0b533f7f70c4ba836e51073af068781f",
+    "page": 149,
+    "raster": "pdf-19.png",
+    "pixelCrop": [1625, 437, 1994, 583]
+  }
+}

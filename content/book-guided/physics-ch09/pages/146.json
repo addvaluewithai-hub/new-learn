@@ -1,0 +1,53 @@
+[
+  {
+    "id": "P146-A",
+    "page": 146,
+    "title": "Doppler Effect",
+    "quotes": [
+      "The Doppler effect occurs when a source of sound is moving with respect to an observer.",
+      "A source moving toward an observer appears to have a higher frequency and shorter wavelength; a source moving away from an observer appears to have a lower frequency and longer wavelength."
+    ],
+    "explanation": [
+      "بص على عربية الإطفاء وهي بتقرب: الجبهات قدامها متزاحمة، فالـWavelength أقل والتردد اللي المستمع يستقبله أعلى. وراها الجبهات متباعدة.",
+      "الـDoppler effect يحصل كمان لو المستمع هو اللي بيتحرك. هنقيس سرعات المصدر والمستمع بالنسبة للوسط، وعلى خط الحركة بين الاتنين، في نموذج السرعات الأقل من سرعة الصوت."
+    ],
+    "crop": [0.08, 0.43],
+    "image": "firetruck"
+  },
+  {
+    "id": "P146-B",
+    "page": 146,
+    "title": "Moving Observer: Toward",
+    "quotes": ["For an observer moving toward a stationary source:"],
+    "explanation": [
+      "المصدر ثابت، فالـWavelength في الوسط ثابتة. المستمع اللي بيتحرك ناحية الجبهات بيقابل عدد أكبر منها في الثانية، فيسمع تردد أعلى.",
+      "عشان كده سرعة المستمع بتتزود في البسط. هنا vobs مقدار السرعة في اتجاه المصدر، وvsnd سرعة الصوت في الوسط."
+    ],
+    "crop": [0.5, 0.13],
+    "formula": "f'=\\left(1+\\frac{v_{obs}}{v_{snd}}\\right)f"
+  },
+  {
+    "id": "P146-C",
+    "page": 146,
+    "title": "Moving Observer: Away",
+    "quotes": ["And if the observer is moving away:"],
+    "explanation": [
+      "لو المستمع بيبعد عن المصدر الثابت، جبهات أقل تلحقه في الثانية. فنطرح مقدار سرعته من سرعة وصول الجبهات.",
+      "مهم نفرّق: Frequency المسموعة اتغيرت، لكن Wavelength في الوسط ما اتغيرتش بسبب حركة المستمع وحدها."
+    ],
+    "crop": [0.62, 0.13],
+    "formula": "f'=\\left(1-\\frac{v_{obs}}{v_{snd}}\\right)f"
+  },
+  {
+    "id": "P146-D",
+    "page": 146,
+    "title": "Moving Source: Toward",
+    "quotes": ["If the source is moving toward the observer:"],
+    "explanation": [
+      "دلوقتي المستمع ثابت والمصدر هو اللي بيتحرك. كل قمة بتتولد من مكان أقرب للقمة اللي قبلها، فالـWavelength قدام المصدر تقل.",
+      "تغيّر مكان توليد الجبهات ده هو سبب ظهور سرعة المصدر في المقام. لما يقرّب المقام يقل، فالتردد المستقبَل يزيد."
+    ],
+    "crop": [0.76, 0.13],
+    "formula": "f'=\\frac{f}{1-v_{source}/v_{snd}}"
+  }
+]

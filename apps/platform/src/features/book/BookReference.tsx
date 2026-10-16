@@ -6,7 +6,15 @@ import './book-reference.css';
 
 type Size = 'hidden' | 'small' | 'half' | 'full';
 /** An optional scan reference beside the normal board, always following its lesson position. */
-export function BookReference({ context }: { context: LessonContext | null }) {
+export function BookReference({
+  context,
+  resolve = referencePart,
+  assetBase = '/book-ch08',
+}: {
+  context: LessonContext | null;
+  resolve?: typeof referencePart;
+  assetBase?: string;
+}) {
   const [size, setSize] = useState<Size>(() =>
     matchMedia('(max-width: 650px)').matches ? 'hidden' : 'small',
   );
@@ -29,7 +37,7 @@ export function BookReference({ context }: { context: LessonContext | null }) {
     }
   }, [size]);
   if (!context) return null;
-  const { id, part } = referencePart(context.sceneId);
+  const { id, part } = resolve(context.sceneId);
   const [x, y, w, h] = part.focus;
   const hide = () => {
     setSize('hidden');
@@ -80,7 +88,7 @@ export function BookReference({ context }: { context: LessonContext | null }) {
           aria-label={`الجزء المشروح من صفحة ${pages}`}
         >
           <image
-            href={`/book-ch08/reference/${part.file}`}
+            href={`${assetBase}/reference/${part.file}`}
             width={part.width}
             height={part.height}
           />

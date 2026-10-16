@@ -1,0 +1,66 @@
+[
+  {
+    "id": "P135-A",
+    "page": 135,
+    "title": "Compressions and Rarefactions",
+    "quotes": [
+      "Compressions",
+      "The close together part of the wave",
+      "Rarefactions",
+      "The spread-out parts of a wave"
+    ],
+    "explanation": [
+      "بص على النقط: الجزء المتزاحم اسمه Compression، والجزء الأقل زحمة اسمه Rarefaction. في الأول الكثافة والضغط أعلى، وفي التاني أقل.",
+      "لو هنقيس Wavelength في الرسم ده، ناخد من مركز Compression لمركز اللي بعده، أو من Rarefaction للي بعدها."
+    ],
+    "crop": [0.06, 0.34],
+    "image": "compression"
+  },
+  {
+    "id": "P135-B",
+    "page": 135,
+    "title": "Transverse and Periodic Waves",
+    "quotes": [
+      "Transverse waves",
+      "wave particles vibrate in an up-and-down motion.",
+      "A periodic wave generally follows a sine wave pattern, as shown in the diagram."
+    ],
+    "explanation": [
+      "في الرسم الموجة ماشية أفقي والجسيم بيتحرك لفوق وتحت. القاعدة الأدق للـTransverse إن الاهتزاز عمودي على اتجاه الانتشار؛ مش شرط يكون رأسي بالنسبة للأرض.",
+      "الـSine wave نموذج بسيط مهم، لكن مش كل Periodic wave لازم تبقى Sinusoidal. معنى Periodic إن الشكل بيتكرر على فترات منتظمة."
+    ],
+    "crop": [0.39, 0.24],
+    "note": "توضيح: Transverse تعني اهتزازًا عموديًا على الانتشار؛ ليست كل موجة دورية جيبية.",
+    "image": "periodic"
+  },
+  {
+    "id": "P135-C",
+    "page": 135,
+    "title": "Wavelength and Amplitude",
+    "quotes": [
+      "wavelength - the length of one cycle",
+      "amplitude - the maximum distance a particle gets from its undisturbed position"
+    ],
+    "explanation": [
+      "خلي بالك من نوع المسافة: الـWavelength على امتداد انتشار الموجة، والـAmplitude من موضع الاتزان لأقصى إزاحة للجسيم.",
+      "تكبير Amplitude مش معناه تلقائيًا تكبير Wavelength. كل واحدة بتوصف خاصية مختلفة."
+    ],
+    "crop": [0.64, 0.13]
+  },
+  {
+    "id": "P135-D",
+    "page": 135,
+    "title": "Period, Frequency and Speed",
+    "quotes": [
+      "period (T) - time required for one cycle",
+      "frequency (f = 1/T) - number of cycles in a certain time, usually in 1 second.",
+      "speed - this is given by v = frequency × wavelength"
+    ],
+    "explanation": [
+      "لو الدورة بتاخد ربع ثانية، يبقى عندنا أربع دورات في الثانية: Frequency تساوي أربعة Hertz.",
+      "وفي نفس الوسط وتحت نفس الظروف، لو سرعة الانتشار ثابتة والتردد زاد، الـWavelength تقل. ما نخلطش سرعة الموجة بسرعة اهتزاز جسيم واحد."
+    ],
+    "crop": [0.76, 0.15],
+    "formula": "f=\\frac{1}{T},\\quad v=f\\lambda"
+  }
+]

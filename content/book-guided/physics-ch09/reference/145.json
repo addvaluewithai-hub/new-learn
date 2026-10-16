@@ -1,0 +1,13 @@
+{
+  "P145-Q5": {
+    "file": "P145-Q5.webp",
+    "width": 1164,
+    "height": 188,
+    "sha256": "5951dc32405339c822b7c548f0931dea3844674ceb7f059898847ef628f76274",
+    "page": 145,
+    "raster": "pdf-17.png",
+    "pixelCrop": [972, 173, 2136, 361],
+    "focus": [0.015, 0.06897, 0.97, 0.93103],
+    "questionOnly": true
+  }
+}

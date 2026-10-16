@@ -1,0 +1,24 @@
+{
+  "P136-A": {
+    "file": "P136-A.webp",
+    "width": 1056,
+    "height": 804,
+    "sha256": "c5d58cb2f5e2fe7c052046d361b5c5921788dcce3e7d74926dc921d611d4f198",
+    "page": 136,
+    "raster": "pdf-13.png",
+    "pixelCrop": [87, 165, 1143, 969],
+    "focus": [0.015, 0.03629, 0.97, 0.92742],
+    "questionOnly": false
+  },
+  "P136-B": {
+    "file": "P136-B.webp",
+    "width": 1056,
+    "height": 577,
+    "sha256": "d62b2d1e19e879044d3db666ea04d066d84095b5480fb5ad9f4de94f906f9fd8",
+    "page": 136,
+    "raster": "pdf-13.png",
+    "pixelCrop": [87, 878, 1143, 1455],
+    "focus": [0.015, 0.05056, 0.97, 0.89888],
+    "questionOnly": false
+  }
+}

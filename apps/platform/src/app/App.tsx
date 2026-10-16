@@ -41,6 +41,8 @@ export function App() {
       <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
         {preview === 'book-ch08' ? (
           <BookLesson />
+        ) : preview === 'book-ch09' ? (
+          <BookLesson chapter={9} />
         ) : preview === 'probe' ? (
           <DevelopmentLesson />
         ) : preview === 'chemistry' ? (

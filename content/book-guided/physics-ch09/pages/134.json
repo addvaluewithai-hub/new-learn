@@ -1,0 +1,44 @@
+[
+  {
+    "id": "P134-A",
+    "page": 134,
+    "title": "Characteristics of Wave Motion",
+    "quotes": ["Amplitude, A", "Wavelength, λ", "Frequency, f and period, T"],
+    "explanation": [
+      "بص على الرسم الأول. الـAmplitude هي أكبر إزاحة عن خط الاتزان، مش المسافة من القمة للقاع. المسافة دي تساوي ضعفها.",
+      "الـWavelength بنقيسها بين نقطتين متتاليتين ليهم نفس حالة الاهتزاز، زي قمتين. أما الـPeriod فهو زمن دورة، والـFrequency عدد الدورات في الثانية.",
+      "الموجة بتقطع Wavelength واحدة خلال Period واحد. عشان كده السرعة تساوي الطول الموجي على الزمن الدوري، أو الطول الموجي في التردد."
+    ],
+    "crop": [0.1, 0.45],
+    "formula": "v=\\frac{\\lambda}{T}=\\lambda f",
+    "image": "wave-motion"
+  },
+  {
+    "id": "P134-B",
+    "page": 134,
+    "title": "What Does a Wave Transfer?",
+    "quotes": [
+      "A wave is a disturbance that transfers energy from one place to another without requiring any net flow of mass.",
+      "Types of waves: mechanical waves; electromagnetic waves."
+    ],
+    "explanation": [
+      "لو مسكت طرف حبل وهزّيته، الاضطراب يمشي على الحبل، لكن كل حتة فيه بتهتز حوالين مكانها. اللي بينتقل هو الطاقة؛ مش لازم المادة تسافر مع الموجة.",
+      "الـMechanical waves محتاجة وسط مادي. الصوت مثال هنركّز عليه. الـElectromagnetic waves زي الضوء تقدر تنتقل في الـVacuum."
+    ],
+    "crop": [0.52, 0.2]
+  },
+  {
+    "id": "P134-C",
+    "page": 134,
+    "title": "Longitudinal Waves",
+    "quotes": [
+      "Longitudinal Waves",
+      "wave particles vibrate back and forth along the path that the wave travels. (Compressional Wave)"
+    ],
+    "explanation": [
+      "هنا اتجاه حركة الجسيمات موازي لاتجاه انتشار الموجة. تخيّل سوستة طويلة بتزق طرفها لقدام ولورا؛ اللفة بتهتز، ومنطقة الزحمة هي اللي بتنتقل.",
+      "الصوت في الهواء Longitudinal: جزيئات الهواء تتحرك حوالين مواضع اتزانها على امتداد اتجاه الانتشار."
+    ],
+    "crop": [0.7, 0.15]
+  }
+]

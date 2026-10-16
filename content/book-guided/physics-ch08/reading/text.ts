@@ -8,6 +8,13 @@ const symbols: Record<string, string> = {
   gamma: 'γ',
   mu: 'μ',
   pi: 'π',
+  lambda: 'λ',
+  rho: 'ρ',
+  beta: 'β',
+  pm: ' ± ',
+  mp: ' ∓ ',
+  sin: 'sin',
+  log: 'log',
   times: ' × ',
   approx: ' ≈ ',
   simeq: ' ≃ ',
@@ -48,6 +55,7 @@ export function plainMath(source: string): string {
       index += word.length;
       while (source[index] === ' ') index++;
       if (word === 'frac') result += `(${group()})/(${group()})`;
+      else if (word === 'sqrt') result += `√(${group()})`;
       else if (word === 'mathrm' || word === 'text') result += group();
       else if (word in symbols) result += symbols[word];
       else throw new Error(`Unknown book math command: ${word}`);

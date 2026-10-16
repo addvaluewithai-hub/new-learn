@@ -3,7 +3,12 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
-import { readingLesson as lesson } from '../content/book-guided/physics-ch08/reading/package.ts';
+const ch9 = process.env.BOOK_CHAPTER === '9';
+const { readingLesson: lesson } = await (ch9
+  ? import('../content/book-guided/physics-ch09/reading/package.ts')
+  : import('../content/book-guided/physics-ch08/reading/package.ts'));
+const firstSection = lesson.scenes[0].id;
+const chapter = ch9 ? '09' : '08';
 import { verifyBookReference } from './book-reference.mjs';
 const url = 'http://127.0.0.1:5193';
 const server = spawn(
@@ -97,7 +102,7 @@ try {
         }
       });
     });
-    await page.goto(`${url}/?preview=book-ch08`);
+    await page.goto(`${url}/?preview=book-ch${chapter}`);
     await page.locator('.rl').waitFor();
     assert.equal(
       await page.locator('input[type=file],.bk-source,iframe').count(),
@@ -112,7 +117,10 @@ try {
         .evaluate((img) => img.complete && img.naturalWidth > 0),
     );
     assert.equal(lives.length, 0, 'no automatic live session');
-    await page.screenshot({ path: `test-results/book-classroom-${width}.png`, fullPage: true });
+    await page.screenshot({
+      path: `test-results/book-ch${chapter}-classroom-${width}.png`,
+      fullPage: true,
+    });
     await verifyBookReference(page, width);
     const seen = new Set();
     let questions = 0,
@@ -187,7 +195,7 @@ try {
           if (written === 1) {
             await page
               .getByLabel('إجابتك', { exact: true })
-              .fill('أختار قانون معامل يونج وأحدد البيانات الناقصة.');
+              .fill('أحدد المطلوب وأختار القانون وأوحّد الوحدات.');
             await page.getByRole('button', { name: 'ابعت', exact: true }).click();
           } else
             await page.getByRole('button', { name: 'معرفتش، وريني الحل', exact: true }).click();
@@ -196,20 +204,22 @@ try {
       } else await next(page);
     }
     await page.locator('.rl-complete').waitFor();
-    assert.equal(questions, 20);
-    assert.equal(choices, 16);
-    assert.equal(written, 4);
-    assert.equal(seen.size, 29, 'all source sections reached');
+    assert.equal(questions, ch9 ? 27 : 20);
+    assert.equal(choices, ch9 ? 20 : 16);
+    assert.equal(written, ch9 ? 7 : 4);
+    assert.equal(seen.size, ch9 ? 41 : 29, 'all source sections reached');
     assert.deepEqual(progress, [], 'preview never loads or saves account progress');
     await page.reload();
-    await page.locator('.ch8-board[data-book-section="P121-A"]').waitFor();
+    await page.locator(`.ch8-board[data-book-section="${firstSection}"]`).waitFor();
     if (width === 1280) {
-      await page.getByLabel('اسأل Nova', { exact: true }).fill('ليه الجسم بيقاوم التشوه؟');
+      await page
+        .getByLabel('اسأل Nova', { exact: true })
+        .fill(ch9 ? 'إيه الفرق بين Wavelength وAmplitude؟' : 'ليه الجسم بيقاوم التشوه؟');
       await page.getByRole('button', { name: 'ابعت لـ Nova', exact: true }).click();
       await page.locator('.rl-t-note[data-role="tutor"]', { hasText: 'القوى الداخلية' }).waitFor();
       assert.equal(chats[0].lessonId, lesson.lessonId);
       assert.equal(chats[0].contentRevision, lesson.contentRevision);
-      assert.equal(chats[0].sceneId, 'P121-A');
+      assert.equal(chats[0].sceneId, firstSection);
       await page.locator('.rl-thread').getByRole('button', { name: 'اقفل', exact: true }).click();
       const settings = page.getByRole('button', { name: 'إعدادات الدرس وصوت Nova' });
       await settings.click();
@@ -225,7 +235,10 @@ try {
         1,
         'question read once',
       );
-      assert.ok(!reads.some((r) => r.includes('1.5 × 10⁻⁴')), 'no model answer before attempt');
+      assert.ok(
+        !reads.some((r) => r.includes(ch9 ? '5103' : '1.5 × 10⁻⁴')),
+        'no model answer before attempt',
+      );
       assert.ok(
         reads.every((r) => !/\\(?:frac|mathrm|Delta)|\$\$/.test(r)),
         'live narration uses readable math',
@@ -236,7 +249,10 @@ try {
       await settings.click();
       await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).uncheck();
       await page.keyboard.press('Escape');
-      await page.screenshot({ path: 'test-results/book-native-question.png', fullPage: true });
+      await page.screenshot({
+        path: `test-results/book-ch${chapter}-native-question.png`,
+        fullPage: true,
+      });
     }
     authenticated = false;
     await page.reload();
@@ -246,7 +262,7 @@ try {
     await page.close();
   }
   console.log(
-    'Book classroom: original UI, small/half/full/hidden scan reference, source figures, 16 MCQs, 4 exercises, math, responsive navigation, auth, Nova chat/live narration and no progress writes passed.',
+    `Book chapter ${chapter}: original classroom, source/reference, ${ch9 ? '20 MCQs and 7 exercises' : '16 MCQs and 4 exercises'}, responsive math, auth, Nova chat/live and no progress writes passed.`,
   );
 } finally {
   await browser?.close();

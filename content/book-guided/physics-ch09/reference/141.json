@@ -1,0 +1,13 @@
+{
+  "P141-Q4": {
+    "file": "P141-Q4.webp",
+    "width": 1164,
+    "height": 240,
+    "sha256": "ba346c6770bf1415ee1a65815ba68b68df030e57e1b70f9a0a28368926b00a65",
+    "page": 141,
+    "raster": "pdf-15.png",
+    "pixelCrop": [972, 181, 2136, 421],
+    "focus": [0.015, 0.05405, 0.97, 0.94595],
+    "questionOnly": true
+  }
+}
