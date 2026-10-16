@@ -229,3 +229,17 @@
   font-size: 20px;
   line-height: 1.35;
 }
+
+.ch8-source-quote > span {
+  display: block;
+  padding: 3px 0;
+}
+.ch8-source-quote > span[data-active='yes'] {
+  color: #3dd6c6;
+  box-shadow: -3px 0 #3dd6c6;
+  padding-left: 10px;
+}
+.ch8-board .ch8-points .ch8-source-quote[data-dense='true'] {
+  font-size: 18px;
+  line-height: 1.4;
+}

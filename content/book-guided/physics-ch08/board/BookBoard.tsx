@@ -3,6 +3,7 @@ import type { VisualProps } from '@learn/lesson-runtime';
 import { Formula } from './Formula';
 import { topics } from './topics';
 import { bookSource } from './source';
+import { plainMath } from '../reading/text';
 import './book-board.css';
 
 /** Original source excerpts and cropped figures, inside the existing classroom. */
@@ -27,7 +28,10 @@ export default function BookBoard(props: VisualProps) {
         .filter(Boolean)
         .slice(0, 4)
     : [];
-  const quote = source?.quotes[quoteIndex];
+  const quotes = source?.quotes;
+  const sourceStepCount = Number(props.spec.params.sourceStepCount ?? 0);
+  const readingSource = !checkpoint && !feedback && index < sourceStepCount;
+  const quoteLength = quotes?.join(' ').length ?? 0;
   const warning =
     id === 'P130-Q1'
       ? 'الحساب العددي مشروط بتأكيد الحمل؛ حد إجهاد الفشل غير معطى.'
@@ -41,12 +45,19 @@ export default function BookBoard(props: VisualProps) {
         data-layout={props.layout}
         data-book-section={id}
         data-source-image={!checkpoint && image ? 'yes' : 'no'}
+        data-source-phase={readingSource ? 'reading' : 'explanation'}
         dir="rtl"
       >
         <header>
           <span>شابتر 8 · ص {id === 'P122-C' ? '122–123' : page}</span>
           <span>
-            {feedback ? 'الحل بعد محاولتك' : checkpoint ? 'اختبر فهمك' : 'نقرأ ونشرح من الكتاب'}
+            {feedback
+              ? 'الحل بعد محاولتك'
+              : checkpoint
+                ? 'اختبر فهمك'
+                : readingSource
+                  ? 'قراءة نص الكتاب'
+                  : 'شرح النص'}
           </span>
         </header>
         <h2 lang="en" dir="ltr">
@@ -75,7 +86,7 @@ export default function BookBoard(props: VisualProps) {
           </small>
           {checkpoint ? (
             <p lang="en" dir="ltr">
-              {feedback ? props.answer?.english : 'Choose an answer below'}
+              {feedback ? props.answer?.english : props.question?.english}
             </p>
           ) : maths.length ? (
             maths.map((math, i) => <Formula key={i} source={math} />)
@@ -85,11 +96,31 @@ export default function BookBoard(props: VisualProps) {
                 className="ch8-source-quote"
                 lang="en"
                 dir="ltr"
-                data-long={(quote?.length ?? 0) > 170}
+                data-long={quoteLength > 170}
+                data-dense={quoteLength > 280}
               >
-                {quote ?? topic.words.join(' · ')}
+                {quotes
+                  ? quotes.map((quote, i) => (
+                      <span
+                        key={i}
+                        data-source-line={i}
+                        data-source-spoken={quote}
+                        data-active={readingSource && i === index ? 'yes' : undefined}
+                      >
+                        {quote}
+                      </span>
+                    ))
+                  : topic.words.join(' · ')}
               </p>
-              {source?.formula ? <Formula source={source.formula} /> : null}
+              {source?.formula ? (
+                <div
+                  data-source-line={quotes?.length}
+                  data-source-spoken={plainMath(source.formula)}
+                  data-active={readingSource && index === quotes?.length ? 'yes' : undefined}
+                >
+                  <Formula source={source.formula} />
+                </div>
+              ) : null}
               {source?.teacherFormula ? (
                 <>
                   <small>توضيح المعلّم</small>

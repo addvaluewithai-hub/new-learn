@@ -1,6 +1,6 @@
 import type { ReadingPackage, ReadingScene } from '@learn/lesson-runtime/core';
 import { bookMetadata, bookSections, type BookSection } from '../index';
-import { lessonText, passages } from './text';
+import { lessonText, passages, plainMath } from './text';
 import { questionArabic } from './questions';
 import { bookSource } from '../board/source';
 import { checkpoints, checkpointScene } from './checkpoints';
@@ -8,7 +8,7 @@ import { checkpoints, checkpointScene } from './checkpoints';
 export const BOOK_RENDERER = 'physics-book-ch08-board';
 const visual = (section: BookSection, rawSteps: string[]) => ({
   renderer: BOOK_RENDERER,
-  params: { sectionId: section.id, page: section.page, rawSteps },
+  params: { sectionId: section.id.replace(/-intro$/, ''), page: section.page, rawSteps },
 });
 const steps = (raw: string[], prefix: string) =>
   raw.map((text, i) => ({
@@ -21,32 +21,31 @@ function scene(section: BookSection): ReadingScene {
   let raw = section.question
     ? [bookSource[section.id].quotes.join(' '), questionArabic[section.id]]
     : passages(section.blocks);
-  const quotes = !section.question ? bookSource[section.id]?.quotes : undefined;
-  const sourceIndices: number[] = [];
-  if (quotes) {
-    const combined: string[] = [];
-    let current = -1;
-    raw.forEach((text, i) => {
-      const next = Math.min(quotes.length - 1, Math.floor((i * quotes.length) / raw.length));
-      for (let q = current + 1; q <= next; q++) {
-        combined.push(quotes[q]);
-        sourceIndices.push(q);
-      }
-      current = next;
-      combined.push(text);
-      sourceIndices.push(current);
-    });
-    for (let q = current + 1; q < quotes.length; q++) {
-      combined.push(quotes[q]);
-      sourceIndices.push(q);
-    }
-    raw = combined;
-  }
+  const sourceId = section.id.replace(/-intro$/, '');
+  const source = bookSource[sourceId];
+  const quotes = !section.question ? source?.quotes : undefined;
+  const readings = quotes
+    ? [...quotes, ...(source.formula ? [plainMath(source.formula)] : [])]
+    : [];
+  const sourceStepCount = readings.length;
+  const sourceIndices = quotes
+    ? [
+        ...readings.map((_, i) => Math.min(i, quotes.length - 1)),
+        ...raw.map((_, i) =>
+          Math.min(quotes.length - 1, Math.floor((i * quotes.length) / raw.length)),
+        ),
+      ]
+    : [];
+  // Read the whole short book portion before explaining any of it.
+  if (quotes) raw = [...readings, ...raw];
   const value: ReadingScene = {
     id: section.id,
     title: `ص ${section.id === 'P122-C' ? '122–123' : section.page} · ${section.title.replace(/^وP123-A /, '')}`,
     clipId: `${section.id}-teach`,
-    visual: { ...visual(section, raw), params: { ...visual(section, raw).params, sourceIndices } },
+    visual: {
+      ...visual(section, raw),
+      params: { ...visual(section, raw).params, sourceIndices, sourceStepCount },
+    },
     steps: steps(raw, section.id),
   };
   if (section.question) {
@@ -82,7 +81,7 @@ export const readingLesson: ReadingPackage = {
   delivery: 'reading',
   lessonId: 'phys1-book-guided-ch08',
   curriculumId: 'physics-1-mechanics-waves',
-  contentRevision: `book-classroom-v2-${bookMetadata.contentRevision}`,
+  contentRevision: `book-classroom-v3-${bookMetadata.contentRevision}`,
   title: 'شابتر 8 · شرح مع الكتاب',
   englishTitle: 'Solids and Elasticity — Chapter 8',
   curriculumTitle: 'فيزياء 1 · الميكانيكا والموجات',
@@ -105,7 +104,6 @@ export const readingLesson: ReadingPackage = {
       question: false,
       blocks: raw,
     });
-    intro.visual = visual(section, raw);
     return [intro, scene(section), ...checks];
   }),
   glossary: [

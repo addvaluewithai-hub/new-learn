@@ -1,4 +1,5 @@
 import type { ReadingScene } from '@learn/lesson-runtime/core';
+import { lessonText } from './text';
 export type Checkpoint = {
   after: string;
   english: string;
@@ -203,15 +204,19 @@ export function checkpointScene(check: Checkpoint, renderer: string, page: numbe
     question: {
       id,
       english: check.english,
-      arabic: `سؤال تدريبي من المعلّم: ${check.arabic}`,
+      arabic: lessonText(`سؤال تدريبي من المعلّم: ${check.arabic}`),
       attempt: 'choice',
       options: check.options,
-      answer: { english: answer, arabic: check.why },
+      answer: { english: answer, arabic: lessonText(check.why) },
       feedback: {
         clipId: `${id}-feedback`,
         visual,
         steps: [
-          { unitIds: [`${id}-answer`], text: `الإجابة: ${answer}. ${check.why}`, written: true },
+          {
+            unitIds: [`${id}-answer`],
+            text: lessonText(`الإجابة: ${answer}. ${check.why}`),
+            written: true,
+          },
         ],
       },
     },

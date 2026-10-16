@@ -11,7 +11,10 @@ The teacher draft is pinned to learn-curriculums commit
 `reading/package.ts` adapts this draft into the existing public reading contract;
 lesson-owned boards show verbatim English excerpts and 12 exact figure crops from
 the supplied scans. Nova reads each short source excerpt before our Egyptian Arabic
-explanation; scientific terms remain English. Original source questions are retained.
+explanation; the whole short source portion stays visible on the board and the
+current source line is highlighted while read. All source lines precede the
+explanation of that portion, including exercise introductions. Scientific terms
+(including Solid, Liquid, Gas, Stress and Strain) remain English. Original source questions are retained.
 Sixteen explicitly teacher-authored MCQs use the native choice and feedback flow.
 Figure provenance and hashes are in `board/source-assets.json`; no full pages are served.
 

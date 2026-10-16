@@ -120,6 +120,29 @@ try {
     while (!(await page.locator('.rl-complete').count()) && count++ < 400) {
       const id = await page.locator('.ch8-board').getAttribute('data-book-section');
       seen.add(id);
+      const board = page.locator('.ch8-board');
+      if ((await board.getAttribute('data-source-phase')) === 'reading') {
+        const text = await board
+          .locator('[data-source-line][data-active="yes"]')
+          .getAttribute('data-source-spoken');
+        assert.ok(text);
+        assert.ok(
+          (await page.locator('.rl-caption-text').innerText())
+            .replace(/\s+/g, ' ')
+            .trim()
+            .endsWith(text.replace(/\s+/g, ' ').trim()),
+          'the book words being read are visible on the board',
+        );
+      }
+      const sourceFits = await board.locator('.ch8-source-quote').evaluateAll((nodes) =>
+        nodes.every((node) => {
+          const footer = node.closest('.ch8-board').querySelector('footer').getBoundingClientRect();
+          const box = node.getBoundingClientRect();
+          return box.bottom <= footer.top + 2;
+        }),
+      );
+      assert.ok(sourceFits, `book excerpt fits above footer at ${width}, ${id}`);
+
       assert.equal(await page.locator('.katex-error').count(), 0);
       assert.ok(
         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
@@ -184,6 +207,8 @@ try {
       await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).check();
       await page.keyboard.press('Escape');
       await page.locator('.rl-question').waitFor({ timeout: 60000 });
+      assert.ok(reads[0].endsWith(lesson.scenes[0].steps[0].text));
+      assert.ok(reads[1].endsWith(lesson.scenes[0].steps[1].text));
       assert.ok(reads.length >= 3, 'Nova reads the book-ordered explanation');
       assert.equal(
         reads.filter((r) => r.startsWith('READ QUESTION')).length,

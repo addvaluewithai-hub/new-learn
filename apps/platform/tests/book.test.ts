@@ -12,7 +12,7 @@ import {
   BOOK_RENDERER,
 } from '../../../content/book-guided/physics-ch08/reading/package';
 import { lessonText, plainMath } from '../../../content/book-guided/physics-ch08/reading/text';
-import { assistantContext } from '../server/nova/context';
+import { assistantContext, teachingInstruction } from '../server/nova/context';
 import type { Env } from '../server/env';
 import { parseBookDraft } from '../../../tools/import-book-draft.mjs';
 
@@ -88,6 +88,7 @@ test('Nova resolves this compiled book edition without a release or client-suppl
     lesson: { scenes: [] },
   });
   assert.equal(context.position.line, lesson.scenes[0].steps[0].text);
+  assert.ok(teachingInstruction(context).includes('Solid, Liquid, Gas'));
   assert.equal(context.lesson.scenes.length, lesson.scenes.length);
   assert.ok(!('answer' in context.lesson.scenes.find((s) => s.question)!.question!));
   await assert.rejects(
@@ -139,12 +140,19 @@ test('source excerpts are narrated verbatim before explanation and source figure
   for (const [id, source] of Object.entries(bookSource)) {
     const scene = lesson.scenes.find((s) => s.id === id)!;
     if (scene.question) assert.equal(scene.question.english, source.quotes.join(' '));
-    else
-      for (const quote of source.quotes)
-        assert.ok(
-          scene.steps.some((s) => s.text === quote),
-          id,
-        );
+    else {
+      assert.deepEqual(
+        scene.steps.slice(0, source.quotes.length).map((s) => s.text),
+        source.quotes,
+        id,
+      );
+      assert.equal(
+        scene.visual.params.sourceStepCount,
+        source.quotes.length + (source.formula ? 1 : 0),
+      );
+      if (source.formula)
+        assert.equal(scene.steps[source.quotes.length].text, plainMath(source.formula));
+    }
     for (const formula of [source.formula, source.teacherFormula].filter(Boolean))
       assert.doesNotThrow(() => katex.renderToString(formula!, { throwOnError: true }));
   }
@@ -162,4 +170,32 @@ test('source excerpts are narrated verbatim before explanation and source figure
     assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256);
   }
   assert.ok(lessonText('الإجهاد والانفعال ومعامل يونج').includes('Young’s modulus'));
+});
+
+test('all teaching and question narration uses English names for phases and key scientific terms', () => {
+  const spoken = lesson.scenes
+    .flatMap((scene) => [
+      ...scene.steps.map((s) => s.text),
+      ...(scene.question
+        ? [
+            scene.question.arabic,
+            scene.question.answer.arabic,
+            ...scene.question.feedback.steps.map((s) => s.text),
+          ]
+        : []),
+    ])
+    .join(' ');
+  assert.ok(
+    !/(?<![\p{Script=Arabic}])(?:[وفبكل]?)(?:الصلب|صلب|الصلبة|صلبة|السائل|سائل|الغاز|غاز|الإجهاد|الانفعال|معامل يونج)(?![\p{Script=Arabic}])/u.test(
+      spoken,
+    ),
+  );
+  assert.equal(lessonText('صلب وسائل وغاز'), 'Solid والـLiquid والـGas');
+  for (const section of bookSections.filter((s) => s.question)) {
+    const intro = lesson.scenes.find((s) => s.id === `${section.id}-intro`)!;
+    assert.deepEqual(
+      intro.steps.slice(0, bookSource[section.id].quotes.length).map((s) => s.text),
+      bookSource[section.id].quotes,
+    );
+  }
 });
