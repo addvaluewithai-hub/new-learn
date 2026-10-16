@@ -4,6 +4,7 @@ import { lessonText, passages, plainMath } from './text';
 import { questionArabic } from './questions';
 import { bookSource } from '../board/source';
 import { checkpoints, checkpointScene } from './checkpoints';
+import { spokenSection } from './script';
 
 export const BOOK_RENDERER = 'physics-book-ch08-board';
 const visual = (section: BookSection, rawSteps: string[]) => ({
@@ -49,7 +50,9 @@ function scene(section: BookSection): ReadingScene {
     steps: steps(raw, section.id),
   };
   if (section.question) {
-    const feedback = passages(section.solution);
+    const feedback = passages(
+      section.solution.filter((b) => !b.startsWith('English model answer:')),
+    );
     const english = bookSource[section.id].quotes.join(' ');
     const englishAnswer = section.solution.find((b) => b.startsWith('English model answer:'))!;
     value.question = {
@@ -81,14 +84,14 @@ export const readingLesson: ReadingPackage = {
   delivery: 'reading',
   lessonId: 'phys1-book-guided-ch08',
   curriculumId: 'physics-1-mechanics-waves',
-  contentRevision: `book-classroom-v3-${bookMetadata.contentRevision}`,
+  contentRevision: `book-classroom-v4-${bookMetadata.contentRevision}`,
   title: 'شابتر 8 · شرح مع الكتاب',
   englishTitle: 'Solids and Elasticity — Chapter 8',
   curriculumTitle: 'فيزياء 1 · الميكانيكا والموجات',
   lessonOrder: 8,
   fps: 30,
   dimensions: { landscape: { width: 960, height: 540 }, portrait: { width: 540, height: 960 } },
-  scenes: bookSections.flatMap((section) => {
+  scenes: bookSections.map(spokenSection).flatMap((section) => {
     const check = checkpoints.find((c) => c.after === section.id);
     const checks = check ? [checkpointScene(check, BOOK_RENDERER, section.page)] : [];
     if (!section.question) return [scene(section), ...checks];

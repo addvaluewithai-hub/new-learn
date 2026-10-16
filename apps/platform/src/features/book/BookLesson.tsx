@@ -2,6 +2,9 @@ import { lazy, Suspense } from 'react';
 import { useSession } from '../auth/session';
 import { useNavigation } from '../../app/navigation';
 import { Loading } from '../../shared/Loading';
+import type { LessonContext } from '@learn/lesson-runtime';
+import { BookReference } from './BookReference';
+const reference = (context: LessonContext | null) => <BookReference context={context} />;
 
 const AuthPage = lazy(() => import('../auth/AuthPage'));
 const ReadingClassroom = lazy(() => import('../../app/ReadingClassroom'));
@@ -19,7 +22,13 @@ export default function BookLesson() {
       ['login', 'signup', 'forgot', 'reset'].includes(query.get('auth') ?? '') ? (
         <AuthPage onLogin={session.refresh} error={session.error} />
       ) : (
-        <ReadingClassroom load={load} backHref="/" studentName={session.user.name} preview />
+        <ReadingClassroom
+          load={load}
+          backHref="/"
+          studentName={session.user.name}
+          reference={reference}
+          preview
+        />
       )}
     </Suspense>
   );

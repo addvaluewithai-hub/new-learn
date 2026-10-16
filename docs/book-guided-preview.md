@@ -61,3 +61,19 @@ no book viewer or progress writes, and exercises the existing live narration and
 chat through a controlled transport. This checks integration; it does not claim a
 human listening review of live model speech. Production release still follows the
 normal reviewed importer and publication workflow.
+
+## Small source reference and spoken edition
+
+The optional scan reference follows the same classroom context. It starts small on
+computer screens and as a book button on phones. The learner can show it small,
+half-screen, full-screen, or hide it. Full-screen uses a native modal dialog with
+Escape and focus return. It changes no playback, account or progress behavior.
+Only the relevant chapter portion is loaded, with a highlighted teaching band;
+there is no PDF upload or separate reader. Crop receipts are in `reference/`.
+
+The `reading/script/` editorial layer rewrites the pinned teaching draft as spoken
+Egyptian Arabic while leaving original English book excerpts intact. Scientific
+names remain English; ordinary explanatory language stays natural Arabic. MCQs
+no longer announce editorial labels, bilingual term echoes are removed, and the
+English model answer is retained as reference data without being read again after
+the Arabic explanation. Numeric assumptions and source uncertainties are retained.

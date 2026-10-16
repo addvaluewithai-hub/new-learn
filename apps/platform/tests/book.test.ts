@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { referenceParts, referencePart } from '../../../content/book-guided/physics-ch08/reference';
 import { checkpoints } from '../../../content/book-guided/physics-ch08/reading/checkpoints';
 import { bookSource } from '../../../content/book-guided/physics-ch08/board/source';
 import { validateReadingPackage } from '@learn/lesson-runtime/core';
@@ -197,5 +198,43 @@ test('all teaching and question narration uses English names for phases and key 
       intro.steps.slice(0, bookSource[section.id].quotes.length).map((s) => s.text),
       bookSource[section.id].quotes,
     );
+  }
+});
+
+test('speech has no repeated English glosses or spoken editorial labels', () => {
+  const texts = lesson.scenes.flatMap((s) =>
+    [...s.steps, ...(s.question?.feedback.steps ?? [])].map((p) => p.text),
+  );
+  for (const text of texts) {
+    assert.ok(
+      !/(سؤال تدريبي من المعلّم|إضافة من المعلّم|English model answer|الإجابة النموذجية)/.test(
+        text,
+      ),
+      text,
+    );
+    assert.ok(
+      !/(Solid|Liquid|Gas|Stress|Strain|Shear modulus|Bulk modulus|Young’s modulus)[،,;؛:\s]+(?:الـ)?\1\b/i.test(
+        text,
+      ),
+      text,
+    );
+  }
+  assert.equal(
+    lessonText('Solid، صلب؛ Stress، الإجهاد؛ Shear Modulus، معامل القص.'),
+    'Solid؛ Stress؛ Shear Modulus.',
+  );
+});
+
+test('reference portions follow every scene, remain within the scan and match file receipts', async () => {
+  assert.equal(Object.keys(referenceParts).length, 28);
+  for (const scene of lesson.scenes) assert.ok(referencePart(scene.id).part);
+  assert.equal(referencePart('P124-C-check').part, referenceParts['P124-C']);
+  for (const part of Object.values(referenceParts)) {
+    const [x, y, w, h] = part.focus;
+    assert.ok(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1.0001 && y + h <= 1.0001);
+    const bytes = await readFile(
+      new URL(`../public/book-ch08/reference/${part.file}`, import.meta.url),
+    );
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), part.sha256);
   }
 });

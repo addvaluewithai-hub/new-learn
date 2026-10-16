@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { ReadingLesson } from '@learn/lesson-runtime';
 import type {
   LessonContext,
@@ -32,11 +32,13 @@ export default function ReadingClassroom({
   backHref,
   studentName,
   preview = false,
+  reference,
 }: {
   load: () => Promise<ReadingModule>;
   backHref: string;
   studentName: string;
   preview?: boolean;
+  reference?: (context: LessonContext | null) => ReactNode;
 }) {
   const [module, setModule] = useState<ReadingModule | null>(null);
   const [error, setError] = useState('');
@@ -149,6 +151,7 @@ export default function ReadingClassroom({
           orb: <NovaOrb voice={talk.voice} onTap={() => talk.setOpen(!talk.open)} />,
         }}
       />
+      {reference?.(context)}
       <NovaAssistant
         lesson={{}}
         studentName={studentName}

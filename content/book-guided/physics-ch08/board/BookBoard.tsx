@@ -77,7 +77,7 @@ export default function BookBoard(props: VisualProps) {
             {checkpoint
               ? feedback
                 ? 'الإجابة النموذجية'
-                : 'سؤال تدريبي من المعلّم'
+                : 'جرّب بنفسك'
               : feedback && maths.length
                 ? 'توضيح المعلّم'
                 : source

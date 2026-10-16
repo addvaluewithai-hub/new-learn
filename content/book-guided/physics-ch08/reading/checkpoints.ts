@@ -139,7 +139,7 @@ export const checkpoints: Checkpoint[] = [
   q(
     'P127-B',
     'A rod has original length 0.30 m and extension 0.003 m. What is its strain?',
-    'مثال تدريبي من المعلّم: L₀ = 0.30 m وΔL = 0.003 m. احسب Strain.',
+    'جرّب دي: L₀ = 0.30 m وΔL = 0.003 m. احسب Strain.',
     ['100', '0.001', '0.01', '0.303 m'],
     2,
     'Strain = ΔL/L₀ = 0.003/0.30 = 0.01 بلا وحدة. قلب النسبة يعطي 100، وجمع الطولين لا يعطي Strain.',
@@ -204,7 +204,7 @@ export function checkpointScene(check: Checkpoint, renderer: string, page: numbe
     question: {
       id,
       english: check.english,
-      arabic: lessonText(`سؤال تدريبي من المعلّم: ${check.arabic}`),
+      arabic: lessonText(`${check.arabic}`),
       attempt: 'choice',
       options: check.options,
       answer: { english: answer, arabic: lessonText(check.why) },
@@ -214,7 +214,7 @@ export function checkpointScene(check: Checkpoint, renderer: string, page: numbe
         steps: [
           {
             unitIds: [`${id}-answer`],
-            text: lessonText(`الإجابة: ${answer}. ${check.why}`),
+            text: lessonText(check.why),
             written: true,
           },
         ],

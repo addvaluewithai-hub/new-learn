@@ -4,6 +4,7 @@ import { mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { readingLesson as lesson } from '../content/book-guided/physics-ch08/reading/package.ts';
+import { verifyBookReference } from './book-reference.mjs';
 const url = 'http://127.0.0.1:5193';
 const server = spawn(
   process.execPath,
@@ -101,7 +102,7 @@ try {
     assert.equal(
       await page.locator('input[type=file],.bk-source,iframe').count(),
       0,
-      'no book viewer',
+      'no full PDF reader',
     );
     await page.getByRole('button', { name: 'إعدادات الدرس وصوت Nova' }).waitFor();
     await page.locator('.ch8-diagram img').waitFor();
@@ -112,6 +113,7 @@ try {
     );
     assert.equal(lives.length, 0, 'no automatic live session');
     await page.screenshot({ path: `test-results/book-classroom-${width}.png`, fullPage: true });
+    await verifyBookReference(page, width);
     const seen = new Set();
     let questions = 0,
       choices = 0,
@@ -120,6 +122,10 @@ try {
     while (!(await page.locator('.rl-complete').count()) && count++ < 400) {
       const id = await page.locator('.ch8-board').getAttribute('data-book-section');
       seen.add(id);
+      assert.equal(
+        await page.locator('.book-reference-toggle').getAttribute('data-reference-section'),
+        id,
+      );
       const board = page.locator('.ch8-board');
       if ((await board.getAttribute('data-source-phase')) === 'reading') {
         const text = await board
@@ -236,7 +242,7 @@ try {
     await page.close();
   }
   console.log(
-    'Book classroom: original UI, source figures, 16 MCQs, 4 exercises, math, responsive navigation, auth, Nova chat/live narration and no progress writes passed.',
+    'Book classroom: original UI, small/half/full/hidden scan reference, source figures, 16 MCQs, 4 exercises, math, responsive navigation, auth, Nova chat/live narration and no progress writes passed.',
   );
 } finally {
   await browser?.close();
