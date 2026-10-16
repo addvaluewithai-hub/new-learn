@@ -100,6 +100,7 @@ try {
     await page.goto(url);
     const planHref = `/?curriculum=${course.id}`;
     await page.locator(`a[href="${planHref}"]`).first().click();
+    await page.locator('.plan-lessons > li').first().waitFor();
     assert.equal(await page.locator('.plan-lessons > li').count(), 2);
     const [first, second] = course.lessons;
     await page.getByRole('link', { name: `ابدأ: ${first.title}`, exact: true }).click();
@@ -150,6 +151,7 @@ try {
       ),
     );
     await page.goto(`${url}${planHref}`);
+    await page.locator('.plan-lessons li[data-done="true"]').waitFor();
     assert.equal(await page.locator('.plan-lessons li[data-done="true"]').count(), 1);
     await page.getByRole('link', { name: `كمّل: ${second.title}`, exact: true }).waitFor();
     assert.deepEqual(errors, []);
