@@ -122,10 +122,14 @@ try {
     while (!(await page.locator('.rl-complete').count()) && count++ < 400) {
       const id = await page.locator('.ch8-board').getAttribute('data-book-section');
       seen.add(id);
-      assert.equal(
-        await page.locator('.book-reference-toggle').getAttribute('data-reference-section'),
+      await page.waitForFunction(
+        (section) =>
+          document
+            .querySelector('.book-reference-toggle')
+            ?.getAttribute('data-reference-section') === section,
         id,
       );
+
       const board = page.locator('.ch8-board');
       if ((await board.getAttribute('data-source-phase')) === 'reading') {
         const text = await board
