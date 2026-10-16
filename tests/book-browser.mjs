@@ -104,12 +104,20 @@ try {
       'no book viewer',
     );
     await page.getByRole('button', { name: 'إعدادات الدرس وصوت Nova' }).waitFor();
+    await page.locator('.ch8-diagram img').waitFor();
+    assert.ok(
+      await page
+        .locator('.ch8-diagram img')
+        .evaluate((img) => img.complete && img.naturalWidth > 0),
+    );
     assert.equal(lives.length, 0, 'no automatic live session');
     await page.screenshot({ path: `test-results/book-classroom-${width}.png`, fullPage: true });
     const seen = new Set();
     let questions = 0,
+      choices = 0,
+      written = 0,
       count = 0;
-    while (!(await page.locator('.rl-complete').count()) && count++ < 220) {
+    while (!(await page.locator('.rl-complete').count()) && count++ < 400) {
       const id = await page.locator('.ch8-board').getAttribute('data-book-section');
       seen.add(id);
       assert.equal(await page.locator('.katex-error').count(), 0);
@@ -136,18 +144,28 @@ try {
       if (await page.locator('.rl-question').count()) {
         questions++;
         assert.equal(await page.getByText('الحل بعد محاولتك', { exact: true }).count(), 0);
-        assert.ok(await page.getByRole('button', { name: 'ابعت', exact: true }).isDisabled());
-        if (questions === 1) {
-          await page
-            .getByLabel('إجابتك', { exact: true })
-            .fill('أختار قانون معامل يونج وأحدد البيانات الناقصة.');
-          await page.getByRole('button', { name: 'ابعت', exact: true }).click();
-        } else await page.getByRole('button', { name: 'معرفتش، وريني الحل', exact: true }).click();
+        if (await page.locator('.rl-choices button').count()) {
+          choices++;
+          assert.equal(await page.locator('.rl-choices button').count(), 4);
+          await page.locator('.rl-choices button').first().click();
+        } else {
+          written++;
+          assert.ok(await page.getByRole('button', { name: 'ابعت', exact: true }).isDisabled());
+          if (written === 1) {
+            await page
+              .getByLabel('إجابتك', { exact: true })
+              .fill('أختار قانون معامل يونج وأحدد البيانات الناقصة.');
+            await page.getByRole('button', { name: 'ابعت', exact: true }).click();
+          } else
+            await page.getByRole('button', { name: 'معرفتش، وريني الحل', exact: true }).click();
+        }
         await page.getByText('الحل بعد محاولتك', { exact: true }).waitFor();
       } else await next(page);
     }
     await page.locator('.rl-complete').waitFor();
-    assert.equal(questions, 4);
+    assert.equal(questions, 20);
+    assert.equal(choices, 16);
+    assert.equal(written, 4);
     assert.equal(seen.size, 29, 'all source sections reached');
     assert.deepEqual(progress, [], 'preview never loads or saves account progress');
     await page.reload();
@@ -166,7 +184,7 @@ try {
       await page.getByRole('switch', { name: /Nova تقرا الدرس/ }).check();
       await page.keyboard.press('Escape');
       await page.locator('.rl-question').waitFor({ timeout: 60000 });
-      assert.ok(reads.length > 50, 'Nova reads the book-ordered explanation');
+      assert.ok(reads.length >= 3, 'Nova reads the book-ordered explanation');
       assert.equal(
         reads.filter((r) => r.startsWith('READ QUESTION')).length,
         1,
@@ -193,7 +211,7 @@ try {
     await page.close();
   }
   console.log(
-    'Book classroom: original UI, 4 exercises, math, responsive navigation, auth, Nova chat/live narration and no progress writes passed.',
+    'Book classroom: original UI, source figures, 16 MCQs, 4 exercises, math, responsive navigation, auth, Nova chat/live narration and no progress writes passed.',
   );
 } finally {
   await browser?.close();

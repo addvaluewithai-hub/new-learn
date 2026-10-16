@@ -69,6 +69,7 @@
   left: 25px;
   width: 440px;
   height: 300px;
+  margin: 0;
 }
 .ch8-diagram svg {
   width: 100%;
@@ -180,4 +181,51 @@
   font-size: 17px;
   color: #b9c6d8;
   margin-top: 6px;
+}
+
+.ch8-diagram img {
+  width: 100%;
+  height: calc(100% - 25px);
+  object-fit: contain;
+  border-radius: 8px;
+}
+.ch8-diagram figcaption,
+.ch8-points > small {
+  font-size: 17px;
+  text-align: center;
+  color: #b9c6d8;
+}
+.ch8-points {
+  gap: 14px;
+}
+.ch8-points .ch8-source-quote {
+  font-size: 25px;
+  white-space: pre-line;
+  text-align: left;
+}
+.ch8-points .ch8-source-quote[data-long='true'] {
+  font-size: 21px;
+}
+.ch8-board[data-source-image='no'] .ch8-points {
+  left: 100px;
+  right: 100px;
+  width: auto;
+}
+.ch8-board[data-layout='portrait'] .ch8-points .ch8-source-quote {
+  font-size: 25px;
+}
+.ch8-board[data-layout='portrait'][data-source-image='no'] .ch8-points {
+  top: 240px;
+  left: 35px;
+  right: 35px;
+  width: auto;
+  height: 470px;
+}
+
+.ch8-board[data-layout='portrait'] .ch8-points .ch8-source-quote[data-long='true'] {
+  font-size: 21px;
+}
+.ch8-board[data-source-image='yes'] .ch8-points:has(.ch8-equation) .ch8-source-quote {
+  font-size: 20px;
+  line-height: 1.35;
 }

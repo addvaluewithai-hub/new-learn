@@ -1,3 +1,4 @@
+import { spokenTerms } from './terms';
 const symbols: Record<string, string> = {
   Delta: 'Δ',
   delta: 'δ',
@@ -62,7 +63,7 @@ export function plainMath(source: string): string {
 }
 
 export function lessonText(text: string) {
-  return text
+  return spokenTerms(text)
     .replace(/^English (?:restatement|model answer):\s*/, '')
     .replace(/\*\*/g, '')
     .replace(/\s*\[E1\]/g, '')

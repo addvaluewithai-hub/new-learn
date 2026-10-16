@@ -2,6 +2,8 @@ import type { ReadingPackage, ReadingScene } from '@learn/lesson-runtime/core';
 import { bookMetadata, bookSections, type BookSection } from '../index';
 import { lessonText, passages } from './text';
 import { questionArabic } from './questions';
+import { bookSource } from '../board/source';
+import { checkpoints, checkpointScene } from './checkpoints';
 
 export const BOOK_RENDERER = 'physics-book-ch08-board';
 const visual = (section: BookSection, rawSteps: string[]) => ({
@@ -16,22 +18,40 @@ const steps = (raw: string[], prefix: string) =>
   }));
 
 function scene(section: BookSection): ReadingScene {
-  const raw = section.question
-    ? [
-        section.blocks.find((b) => b.startsWith('English restatement:'))!,
-        questionArabic[section.id],
-      ]
+  let raw = section.question
+    ? [bookSource[section.id].quotes.join(' '), questionArabic[section.id]]
     : passages(section.blocks);
+  const quotes = !section.question ? bookSource[section.id]?.quotes : undefined;
+  const sourceIndices: number[] = [];
+  if (quotes) {
+    const combined: string[] = [];
+    let current = -1;
+    raw.forEach((text, i) => {
+      const next = Math.min(quotes.length - 1, Math.floor((i * quotes.length) / raw.length));
+      for (let q = current + 1; q <= next; q++) {
+        combined.push(quotes[q]);
+        sourceIndices.push(q);
+      }
+      current = next;
+      combined.push(text);
+      sourceIndices.push(current);
+    });
+    for (let q = current + 1; q < quotes.length; q++) {
+      combined.push(quotes[q]);
+      sourceIndices.push(q);
+    }
+    raw = combined;
+  }
   const value: ReadingScene = {
     id: section.id,
     title: `ص ${section.id === 'P122-C' ? '122–123' : section.page} · ${section.title.replace(/^وP123-A /, '')}`,
     clipId: `${section.id}-teach`,
-    visual: visual(section, raw),
+    visual: { ...visual(section, raw), params: { ...visual(section, raw).params, sourceIndices } },
     steps: steps(raw, section.id),
   };
   if (section.question) {
     const feedback = passages(section.solution);
-    const english = section.blocks.find((b) => b.startsWith('English restatement:'))!;
+    const english = bookSource[section.id].quotes.join(' ');
     const englishAnswer = section.solution.find((b) => b.startsWith('English model answer:'))!;
     value.question = {
       id: section.id,
@@ -62,7 +82,7 @@ export const readingLesson: ReadingPackage = {
   delivery: 'reading',
   lessonId: 'phys1-book-guided-ch08',
   curriculumId: 'physics-1-mechanics-waves',
-  contentRevision: `book-classroom-v1-${bookMetadata.contentRevision}`,
+  contentRevision: `book-classroom-v2-${bookMetadata.contentRevision}`,
   title: 'شابتر 8 · شرح مع الكتاب',
   englishTitle: 'Solids and Elasticity — Chapter 8',
   curriculumTitle: 'فيزياء 1 · الميكانيكا والموجات',
@@ -70,7 +90,9 @@ export const readingLesson: ReadingPackage = {
   fps: 30,
   dimensions: { landscape: { width: 960, height: 540 }, portrait: { width: 540, height: 960 } },
   scenes: bookSections.flatMap((section) => {
-    if (!section.question) return [scene(section)];
+    const check = checkpoints.find((c) => c.after === section.id);
+    const checks = check ? [checkpointScene(check, BOOK_RENDERER, section.page)] : [];
+    if (!section.question) return [scene(section), ...checks];
     const raw = passages(
       section.blocks.filter(
         (b) => !b.startsWith('English restatement:') && !b.startsWith('**محاولة قبل الحل:'),
@@ -84,7 +106,7 @@ export const readingLesson: ReadingPackage = {
       blocks: raw,
     });
     intro.visual = visual(section, raw);
-    return [intro, scene(section)];
+    return [intro, scene(section), ...checks];
   }),
   glossary: [
     { term: 'Stress', meaning: 'الإجهاد: القوة على مساحة المقطع المناسبة.' },

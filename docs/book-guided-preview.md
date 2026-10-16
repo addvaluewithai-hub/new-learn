@@ -9,9 +9,11 @@ picker, scan, document viewer or separate study interface is present.
 The teacher draft is pinned to learn-curriculums commit
 `cc2801523844a577f474703883072b124272e252` (PR #33). Page JSON retains its hashes.
 `reading/package.ts` adapts this draft into the existing public reading contract;
-lesson-owned boards illustrate concepts and formulas. Long question guidance is read
-before the question; the bilingual question itself stays concise. The book's diagrams
-are discussed by page reference. New teaching drawings are illustrative, not scans.
+lesson-owned boards show verbatim English excerpts and 12 exact figure crops from
+the supplied scans. Nova reads each short source excerpt before our Egyptian Arabic
+explanation; scientific terms remain English. Original source questions are retained.
+Sixteen explicitly teacher-authored MCQs use the native choice and feedback flow.
+Figure provenance and hashes are in `board/source-assets.json`; no full pages are served.
 
 ## Nova and accounts
 
@@ -29,7 +31,8 @@ This preview creates no curriculum release or database edition. The shared class
 receives `preview`, disables its progress adapter, and labels progress as session-only.
 Existing published lessons retain their normal account saving behavior. The four
 book questions remain gated behind a written attempt or an explicit request for the
-solution. The native end-of-lesson Nova practice is unchanged.
+solution. MCQ feedback appears after choosing an option or requesting the solution;
+it explains the model answer without adding scores or automatic grading. The native end-of-lesson Nova practice is unchanged.
 
 ## Source limits
 
