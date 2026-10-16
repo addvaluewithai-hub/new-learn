@@ -243,3 +243,18 @@
   font-size: 18px;
   line-height: 1.4;
 }
+
+.ch8-board[data-layout='portrait'][data-source-image='yes']:has(
+    .ch8-source-quote[data-dense='true']
+  )
+  .ch8-diagram {
+  top: 180px;
+  height: 260px;
+}
+.ch8-board[data-layout='portrait'][data-source-image='yes']:has(
+    .ch8-source-quote[data-dense='true']
+  )
+  .ch8-points {
+  top: 460px;
+  height: 350px;
+}
