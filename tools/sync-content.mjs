@@ -9,7 +9,14 @@ import { join, resolve } from 'node:path';
 import { neon } from '@neondatabase/serverless';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
-const registry = JSON.parse(await readFile(join(root, 'content/imported/registry.json'), 'utf8'));
+const imported = JSON.parse(await readFile(join(root, 'content/imported/registry.json'), 'utf8'));
+const books = JSON.parse(await readFile(join(root, 'content/book-guided/release.json'), 'utf8'));
+const policy = JSON.parse(await readFile(join(root, 'content/availability.json'), 'utf8'));
+const registry = {
+  curricula: [...imported.curricula, ...books.curricula].filter(
+    (c) => policy.curricula === null || policy.curricula.includes(c.id),
+  ),
+};
 const withheld = JSON.parse(await readFile(join(root, 'content/withheld.json'), 'utf8')).curricula;
 const statements = [];
 const q = (text, params) => statements.push({ text, params });
@@ -62,6 +69,10 @@ for (const course of registry.curricula) {
       [lesson.id, lesson.contentRevision],
     );
   }
+}
+if (process.argv.includes('--json')) {
+  console.log(JSON.stringify(statements));
+  process.exit(0);
 }
 if (process.argv.includes('--print')) {
   for (const { text, params } of statements)

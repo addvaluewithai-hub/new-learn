@@ -2,7 +2,7 @@ import { and, desc, eq } from 'drizzle-orm';
 import type { ReadingPackage } from '@learn/lesson-runtime/core';
 import manifest from '../../../../content/chemistry/states-of-matter/data/manifest.json';
 import { createStatesPackage } from '../../../../content/chemistry/states-of-matter/statesPackage';
-import { readingPackages } from '../../../../content/imported/packages';
+import { readingPackages } from '../../../../content/packages';
 import { lessonEdition } from '../content';
 import { database } from '../db/connection';
 import { enrollments, progress, type ProgressSnapshot } from '../db/learners';

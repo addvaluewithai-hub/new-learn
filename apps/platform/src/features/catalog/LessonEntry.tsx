@@ -1,7 +1,10 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { api } from '../../shared/api';
-import pinnedModules from '../../../content-modules.json';
-import { readingModules } from '../../../../../content/imported/modules';
+import { contentPins as pinnedModules } from '../../../contentPins';
+import { readingModules as importedModules } from '../../../../../content/imported/modules';
+import { bookReadingModules } from '../../../../../content/book-guided/modules';
+import { bookReference } from '../book/references';
+const readingModules = { ...importedModules, ...bookReadingModules };
 import { Loading } from '../../shared/Loading';
 const ChemistryLesson = lazy(() => import('../../app/ChemistryLesson'));
 const ReadingClassroom = lazy(() => import('../../app/ReadingClassroom'));
@@ -81,7 +84,12 @@ export default function LessonEntry({
   if (matches && reading)
     return (
       <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
-        <ReadingClassroom load={reading} backHref={backHref} studentName={studentName} />
+        <ReadingClassroom
+          load={reading}
+          backHref={backHref}
+          studentName={studentName}
+          reference={bookReference(lessonId)}
+        />
       </Suspense>
     );
   if (!matches || !module || module.lessonId !== edition.lessonId)

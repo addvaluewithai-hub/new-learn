@@ -1,0 +1,4 @@
+{
+  "note": "Owner decision 2026-10-16: offer only the new textbook physics course for now. Set curricula to null to restore all previously published courses. Existing releases, editions and learner progress are retained.",
+  "curricula": ["physics-1-book-guided"]
+}

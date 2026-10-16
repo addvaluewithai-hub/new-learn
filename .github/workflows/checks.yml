@@ -28,6 +28,7 @@ jobs:
       - run: git diff --exit-code -- distributions/
       - run: npm run sdk:check
       - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser:book-release
       - run: npm run test:browser:book
       - run: npm run test:browser
       - run: npm run test:browser:chemistry
@@ -39,6 +40,7 @@ jobs:
       - run: npm run test:browser:talk
       - run: npm run test:browser:flow
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
           name: preview-verification

@@ -4,6 +4,8 @@ import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 const origin = 'https://new-learn.pages.dev';
+const policy = JSON.parse(await readFile('content/availability.json', 'utf8'));
+if (policy.curricula !== null && !policy.curricula.includes('chemistry-gas-laws')) process.exit(0);
 const registry = JSON.parse(await readFile('content/imported/registry.json', 'utf8'));
 const course = registry.curricula.find((c) => c.id === 'chemistry-gas-laws');
 const withheld = JSON.parse(await readFile('content/withheld.json', 'utf8')).curricula;
