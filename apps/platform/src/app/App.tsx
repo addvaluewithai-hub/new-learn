@@ -9,6 +9,7 @@ const BookLesson = lazy(() => import('../features/book/BookLesson'));
 const AuthPage = lazy(() => import('../features/auth/AuthPage'));
 const CatalogPage = lazy(() => import('../features/catalog/CatalogPage'));
 const LessonEntry = lazy(() => import('../features/catalog/LessonEntry'));
+const ListenPage = lazy(() => import('../features/listen/ListenPage'));
 
 function StudentApp() {
   const session = useSession(),
@@ -21,7 +22,9 @@ function StudentApp() {
   )
     return <AuthPage onLogin={session.refresh} error={session.error} />;
   const lessonId = query.get('lesson'),
-    curriculumId = query.get('curriculum');
+    curriculumId = query.get('curriculum'),
+    listen = query.get('listen');
+  if (listen) return <ListenPage key={listen} courseId={listen} />;
   return lessonId ? (
     <LessonEntry
       key={lessonId}

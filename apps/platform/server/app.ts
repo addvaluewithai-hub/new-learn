@@ -1,5 +1,6 @@
 import type { Env } from './env';
 import { novaRoute } from './nova/routes';
+import { listenRoute } from './listen/routes';
 import { authProxy, currentUser } from './auth';
 import { catalog, lessonEdition } from './content';
 import { body, checkOrigin, HttpError, json } from './http';
@@ -15,6 +16,8 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     const user = await currentUser(request, env);
     if (path.startsWith('/api/nova/'))
       return await novaRoute(request, env, user, path.slice('/api/nova/'.length));
+    if (path.startsWith('/api/listen/'))
+      return await listenRoute(request, env, user, path.slice('/api/listen/'.length));
     if (request.method === 'GET' && path === '/api/me') return json({ user });
     if (request.method === 'GET' && path === '/api/catalog') return json(await catalog(env, user));
     const progressPath = /^\/api\/lessons\/([^/]+)\/progress$/.exec(path);

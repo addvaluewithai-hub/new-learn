@@ -1,0 +1,20 @@
+{
+  "id": "manhaj-almarifa",
+  "title": "منهج المعرفة",
+  "englishTitle": "How We Know: an introduction to epistemology",
+  "language": "ar-EG",
+  "description": "عشر حلقات صوتية بالعامية المصرية: يعني إيه معرفة، نقدر نعرف ولا لأ، ومنين بنعرف (الحس والعقل والخبر والفطرة والوحي والعلم التجريبي)، وإزاي نبني منهج شخصي نحكم بيه على أي معلومة.",
+  "wakeWord": "يا نوفا",
+  "lessons": [
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10"
+  ]
+}

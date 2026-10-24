@@ -1,0 +1,19 @@
+.platform-ui .listen-entry {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #153d35;
+  color: #fff;
+  text-decoration: none;
+}
+.platform-ui .listen-entry .eyebrow {
+  color: #d7f77b;
+}
+.platform-ui .listen-entry strong {
+  font-size: 1.1rem;
+}
+.platform-ui .listen-entry span:last-child {
+  opacity: 0.85;
+}

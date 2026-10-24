@@ -9,11 +9,11 @@ export class HttpError extends Error {
 export function json(value: unknown, status = 200) {
   return Response.json(value, { status, headers: { 'cache-control': 'no-store' } });
 }
-export async function body(request: Request) {
+export async function body(request: Request, limit = 16384) {
   if (!request.headers.get('content-type')?.startsWith('application/json'))
     throw new HttpError(415, 'الطلب لازم يكون JSON.');
   const raw = await request.text();
-  if (raw.length > 16384) throw new HttpError(413, 'حجم الطلب أكبر من المسموح.');
+  if (raw.length > limit) throw new HttpError(413, 'حجم الطلب أكبر من المسموح.');
   try {
     const value: unknown = JSON.parse(raw);
     if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error();

@@ -18,7 +18,8 @@ export class AudioSession {
   setVolume(value: number) {
     this.gain.gain.value = Math.max(0, Math.min(1, value));
   }
-  async capture(send: (chunk: string) => void) {
+  /** `send` gets each 16 kHz PCM chunk (base64) and its loudness (RMS, 0..1). */
+  async capture(send: (chunk: string, level: number) => void) {
     if (!navigator.mediaDevices?.getUserMedia)
       throw new Error('المتصفح مش بيدعم الميكروفون هنا. استخدم الشات.');
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -39,8 +40,10 @@ export class AudioSession {
     this.source = this.context.createMediaStreamSource(stream);
     this.worklet = new AudioWorkletNode(this.context, 'nova-capture');
     this.worklet.port.onmessage = (event: MessageEvent<Float32Array>) => {
-      if (!this.closed && !this.paused && !this.muted)
-        send(encodePcm(event.data, this.context.sampleRate));
+      if (this.closed || this.paused || this.muted) return;
+      let sum = 0;
+      for (const sample of event.data) sum += sample * sample;
+      send(encodePcm(event.data, this.context.sampleRate), Math.sqrt(sum / event.data.length));
     };
     this.source.connect(this.worklet);
     this.worklet.connect(this.context.destination);

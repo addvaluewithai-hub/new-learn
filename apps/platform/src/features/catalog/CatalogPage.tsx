@@ -12,6 +12,7 @@ import './library-account.css';
 import './catalog-cards.css';
 import './home-pick.css';
 import './study-plan.css';
+import '../listen/listen-entry.css';
 export default function CatalogPage({
   user,
   onSignOut,
@@ -74,6 +75,11 @@ export default function CatalogPage({
         <StudyPlan curriculum={current} resume={resume} />
       ) : (
         <>
+          <a className="listen-entry" href="/?listen=manhaj-almarifa">
+            <span className="eyebrow">تجربة جديدة · من غير شاشة</span>
+            <strong>منهج المعرفة: درس صوتي مع المدرّس</strong>
+            <span>اسمع واتكلم وإنت بتغسل المواعين أو بتتمشى، والشاشة مقفولة.</span>
+          </a>
           <ContinueCard curricula={curricula} resume={resume} />
           <CurriculumCards curricula={curricula} />
         </>
