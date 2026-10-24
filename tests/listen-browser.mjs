@@ -1,7 +1,7 @@
 // Listen mode (audio-only lesson with the live tutor), against a mocked API and Live socket:
-// the tutor teaches a scene, its turn ending gives the learner the floor, silence is reported
-// as SILENCE, scene_done moves to the next scene (a fresh session), the talk button cuts the
-// tutor with a silent "heard up to" note, the lock-screen media session is set, and the page
+// scene_done moves to the next scene (a fresh session), the talk button cuts the tutor with a
+// silent "heard up to" note, the tutor's question waits indefinitely (no SILENCE, no reconnect
+// after a drop), the lock-screen media session is set, and the page
 // fits 390px. The microphone is a silent fake file, so spoken turns are covered by unit tests.
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
@@ -95,64 +95,80 @@ try {
     if (path === '/api/listen/wake') return route.fulfill({ json: { wake: false } });
     return route.fulfill({ status: 404, json: { error: 'missing' } });
   });
+  const sockets = [];
   await page.routeWebSocket('wss://generativelanguage.googleapis.com/**', (ws) => {
     const n = sessions.length;
+    sockets[n] = ws;
+    const send = (value) => ws.send(JSON.stringify(value));
     ws.onMessage((raw) => {
       const message = JSON.parse(raw);
-      if (message.setup) return ws.send(JSON.stringify({ setupComplete: {} }));
+      if (message.setup) return send({ setupComplete: {} });
       const text = message.clientContent?.turns?.[0]?.parts?.[0]?.text ?? '';
       if (message.clientContent)
         sent.push({ n, text, complete: message.clientContent.turnComplete });
       if (message.realtimeInput?.activityStart) sent.push({ n, text: 'activityStart' });
-      if (text === 'START') {
-        ws.send(
-          JSON.stringify({ serverContent: { outputTranscription: { text: 'أهلًا يا أحمد.' } } }),
-        );
-        ws.send(JSON.stringify(audio(n === 2 ? longPcm : pcm)));
-        ws.send(JSON.stringify({ serverContent: { turnComplete: true } }));
-      }
-      if (text === 'SILENCE') {
-        ws.send(
-          JSON.stringify({
-            toolCall: { functionCalls: [{ id: 'c1', name: 'scene_done', args: {} }] },
-          }),
-        );
-        ws.send(JSON.stringify(audio(pcm)));
-        ws.send(JSON.stringify({ serverContent: { turnComplete: true } }));
-      }
+      if (text !== 'START' && text !== 'SILENCE') return;
+      if (text === 'START')
+        send({ serverContent: { outputTranscription: { text: 'أهلًا يا أحمد.' } } });
+      // Session 1 teaches and closes its scene in one turn; session 2 talks for a while.
+      if (n === 1)
+        send({ toolCall: { functionCalls: [{ id: 'c1', name: 'scene_done', args: {} }] } });
+      send(audio(n === 2 && text === 'START' ? longPcm : pcm));
+      send({ serverContent: { turnComplete: true } });
     });
   });
 
   await page.goto(`${url}/?listen=${course.id}`);
   const status = page.locator('.listen-status');
+  const title = () => page.locator('.listen-stage h2').innerText();
   await page.getByRole('button', { name: 'ابدأ الدرس الصوتي' }).click();
   await page.locator('.listen-log .is-tutor', { hasText: 'أهلًا يا أحمد' }).waitFor();
-  await page.locator('.listen-stage.is-floor').waitFor({ timeout: 10000 });
-  assert.equal(await status.innerText(), 'دورك: اتكلم');
   assert.deepEqual(sessions[0], {
     courseId: course.id,
     lessonId: 'lesson-01',
     sceneId: 'why',
     style: sessions[0].style,
   });
-  const title = await page.evaluate(() => navigator.mediaSession.metadata?.title);
-  assert.equal(title, lessons[0].scenes[0].title, 'lock-screen shows the scene');
 
-  // Nobody speaks: the tutor hears SILENCE, closes the scene, and the next session opens.
+  // scene_done: once its words have played, the next scene opens in a fresh session.
   await page.waitForFunction(
     () => document.querySelector('.listen-stage h2')?.textContent?.includes('أنواع'),
     null,
-    { timeout: 20000 },
+    { timeout: 15000 },
   );
-  assert.ok(sent.some((m) => m.n === 1 && m.text === 'SILENCE'));
   assert.equal(sessions[1].sceneId, 'kinds');
+  const lock = await page.evaluate(() => navigator.mediaSession.metadata?.title);
+  assert.equal(lock, lessons[0].scenes[1].title, 'lock-screen shows the scene');
 
-  // Talking over the tutor cuts it and tells it (silently) what was heard.
+  // Cutting in with the talk button stops the tutor and tells it (silently) what was heard;
+  // saying nothing after cutting in means "carry on".
   await page.locator('.listen-stage.is-teaching').waitFor({ timeout: 10000 });
   await page.getByRole('button', { name: 'عايز أتكلم' }).click();
   await page.locator('.listen-stage.is-floor').waitFor();
   const cut = sent.find((m) => m.n === 2 && m.text.startsWith('INTERRUPTED'));
   assert.ok(cut && cut.complete === false, 'interrupt note is silent context');
+  await page.waitForFunction(
+    () => document.querySelector('.listen-stage.is-floor') === null,
+    null,
+    { timeout: 15000 },
+  );
+  assert.ok(
+    sent.some((m) => m.n === 2 && m.text === 'SILENCE'),
+    'carry on after a silent cut-in',
+  );
+
+  // After the tutor asks, it waits for the answer however long it takes: no SILENCE, and a
+  // dropped connection stays closed (no new session) until the learner speaks.
+  await page.locator('.listen-stage.is-floor').waitFor({ timeout: 15000 });
+  await page.waitForTimeout(12000);
+  assert.equal(await status.innerText(), 'دورك: اتكلم');
+  assert.equal(sent.filter((m) => m.n === 2 && m.text === 'SILENCE').length, 1, 'waits silently');
+  const opened = sessions.length;
+  await sockets[2].close();
+  await page.waitForTimeout(2000);
+  assert.equal(sessions.length, opened, 'no reconnect while waiting');
+  assert.equal(await status.innerText(), 'دورك: اتكلم');
+  assert.ok((await title()).includes('أنواع'));
 
   // Skipping and picking a lesson open fresh sessions at the right place.
   await page.getByRole('button', { name: 'المشهد الجاي' }).click();
@@ -174,7 +190,7 @@ try {
   await page.getByRole('button', { name: 'ابدأ الدرس الصوتي' }).waitFor();
   assert.deepEqual(errors, []);
   console.log(
-    'Listen mode: teach, floor, SILENCE, scene_done, interrupt, skip, lessons, 390px passed.',
+    'Listen mode: scene_done, interrupt + carry on, patient wait, quiet drop, skip, lessons, 390px passed.',
   );
 } finally {
   await browser?.close();

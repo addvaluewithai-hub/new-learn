@@ -13,6 +13,7 @@ import './catalog-cards.css';
 import './home-pick.css';
 import './study-plan.css';
 import '../listen/listen-entry.css';
+type AudioCourse = { id: string; title: string; description: string };
 export default function CatalogPage({
   user,
   onSignOut,
@@ -26,7 +27,16 @@ export default function CatalogPage({
     [resume, setResume] = useState<Resume | null>(null),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
-    [retry, setRetry] = useState(0);
+    [retry, setRetry] = useState(0),
+    [audio, setAudio] = useState<AudioCourse[]>([]);
+  useEffect(() => {
+    // Audio-only courses this account may see (some are limited to named accounts).
+    const controller = new AbortController();
+    api<{ courses: AudioCourse[] }>('/listen/', undefined, controller.signal)
+      .then((result) => setAudio(result.courses))
+      .catch(() => setAudio([]));
+    return () => controller.abort();
+  }, []);
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
@@ -75,11 +85,17 @@ export default function CatalogPage({
         <StudyPlan curriculum={current} resume={resume} />
       ) : (
         <>
-          <a className="listen-entry" href="/?listen=manhaj-almarifa">
-            <span className="eyebrow">تجربة جديدة · من غير شاشة</span>
-            <strong>منهج المعرفة: درس صوتي مع المدرّس</strong>
-            <span>اسمع واتكلم وإنت بتغسل المواعين أو بتتمشى، والشاشة مقفولة.</span>
-          </a>
+          {audio.map((course) => (
+            <a
+              key={course.id}
+              className="listen-entry"
+              href={`/?listen=${encodeURIComponent(course.id)}`}
+            >
+              <span className="eyebrow">درس صوتي · من غير شاشة</span>
+              <strong>{course.title}</strong>
+              <span>{course.description}</span>
+            </a>
+          ))}
           <ContinueCard curricula={curricula} resume={resume} />
           <CurriculumCards curricula={curricula} />
         </>

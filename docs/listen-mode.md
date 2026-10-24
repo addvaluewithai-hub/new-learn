@@ -22,6 +22,15 @@ social epistemology and critical thinking. The sequence follows Duncan Pritchard
 Thing Called Knowledge?_ (Routledge, 5th ed. 2023) and the Stanford Encyclopedia of Philosophy;
 the text is authored here and still needs a subject review.
 
+## Terms and visibility
+
+- The tutor says every technical term in Arabic and then its standard English term (and repeats
+  the English later); the notes carry the English terms and names too.
+- `visibleTo` in `course.json` limits a course to named account emails. Other accounts get 404
+  for its outline, sessions and wake checks, and the library lists it only for allowed accounts
+  (`GET /api/listen/`). منهج المعرفة is limited to the owner's account. The check trusts the
+  signed-in account's email from Neon Auth.
+
 ## How a run works
 
 - **One live session per scene.** `POST /api/listen/live` resolves the position against the
@@ -30,8 +39,13 @@ the text is authored here and still needs a subject review.
 - The client sends `START`; the tutor teaches the scene. When its turn ends and the audio has
   played, **the learner has the floor**: the microphone is already open, speech is sent as a
   manual activity turn (`activityStart`/`activityEnd` from a local loudness detector, with a
-  0.5 s pre-roll so the first word is kept). Nine quiet seconds send `SILENCE`; the tutor
-  re-asks once, then answers itself.
+  0.5 s pre-roll so the first word is kept). **After a question the tutor waits silently for as
+  long as it takes** (owner decision 2026-10-25): no timeout and no reminder. Every tutor turn
+  ends with a question or `scene_done`, so the floor never opens on a dead end. `SILENCE` is sent
+  only when the learner cut in and then said nothing (10 s), meaning "carry on".
+- If the session drops while waiting (Live connections last ~10 minutes), it stays closed and
+  costs nothing; the learner's next words reopen it, are held during the reconnect, and reach the
+  tutor with a note of what it last asked.
 - The tutor calls `scene_done` after correcting the answer (or when asked to skip); the app
   opens the next scene's session. The place is remembered per device (localStorage).
 - **Interrupting while it talks:** say the wake word «يا نوفا», press the earbud button once

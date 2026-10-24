@@ -1,4 +1,4 @@
-import { listenCourses, listenOutline } from '../../../../content/listen/courses';
+import { canSee, listenCourses, listenOutline } from '../../../../content/listen/courses';
 import type { AuthUser, Env } from '../env';
 import { body, HttpError, json } from '../http';
 import { limitNova } from '../nova/limits';
@@ -20,20 +20,31 @@ export function listenSpot(input: Record<string, unknown>): ListenSpot {
 
 /**
  * Listen mode (audio-only lessons):
+ *  GET  /api/listen/          the courses this account may see (titles)
  *  GET  /api/listen/<course>  titles only
  *  POST /api/listen/live      single-use live token for one scene, setup locked server-side
  *  POST /api/listen/wake      did this short clip call the tutor by its wake word?
  */
 export async function listenRoute(request: Request, env: Env, user: AuthUser, action: string) {
-  if (request.method === 'GET') {
-    const course = listenCourses[action];
-    if (!course) throw new HttpError(404, 'المنهج الصوتي غير موجود.');
-    return json(listenOutline(course));
-  }
+  const visible = (id: string) => {
+    const course = listenCourses[id];
+    // A course this account may not see answers exactly like one that does not exist.
+    if (!course || !canSee(course, user.email))
+      throw new HttpError(404, 'المنهج الصوتي غير موجود.');
+    return course;
+  };
+  if (request.method === 'GET' && !action)
+    return json({
+      courses: Object.values(listenCourses)
+        .filter((course) => canSee(course, user.email))
+        .map(({ id, title, description }) => ({ id, title, description })),
+    });
+  if (request.method === 'GET') return json(listenOutline(visible(action)));
   if (request.method !== 'POST' || !['live', 'wake'].includes(action))
     throw new HttpError(404, 'الطلب غير موجود.');
   const input = await body(request, action === 'wake' ? 160_000 : 16_384);
   const spot = listenSpot(input);
+  visible(spot.course.id);
   limitNova(user.id, action === 'live' ? 'listen' : 'wake');
   if (action === 'wake') {
     const text = await generate(

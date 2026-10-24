@@ -5,16 +5,15 @@ import { voiceStyle } from '../nova/voice/voicePrefs';
 import { HeardTracker } from './pcmJoin';
 import { SpeechDetector } from './speech';
 import { WakeWord } from './wakeWord';
-import { FLOOR_MS, REPLY_MS } from './listenTypes';
+import { notes, REPLY_MS } from './listenTypes';
 import type { ListenEvents, ListenPosition, ListenState } from './listenTypes';
 
 export type { ListenEvents, ListenPosition, ListenState } from './listenTypes';
 
 /**
- * Runs an audio-only lesson: one live tutor session per scene. The tutor teaches; when its
- * turn ends the learner has the floor (speech is sent, silence is reported). While the tutor
- * talks, the learner interrupts with the wake word, a headset press or the talk button.
- * The microphone stays open for the whole run so the lesson keeps going with the screen off.
+ * Runs an audio-only lesson: one live tutor session per scene. When the tutor's turn ends the
+ * learner has the floor until they speak; while it talks, the wake word, a headset press or the
+ * talk button cut in. The mic stays open for the whole run, so it works with the screen off.
  */
 export class ListenEngine {
   private audio: AudioSession | null = null;
@@ -28,6 +27,8 @@ export class ListenEngine {
   private discard = false;
   private generating = false;
   private retried = false;
+  /** Learner speech held while a dropped session reconnects. */
+  private pending: string[] | null = null;
   private timers: { floor?: number; reply?: number; done?: number; quiet?: number } = {};
   private heardText = new HeardTracker();
   private wake = new WakeWord(
@@ -38,14 +39,15 @@ export class ListenEngine {
   private speech = new SpeechDetector({
     start: (preroll) => this.speechStart(preroll),
     chunk: (chunk) =>
-      this.current === 'listening' ? this.live?.audio(chunk) : this.wake.chunk(chunk),
+      this.current !== 'listening'
+        ? this.wake.chunk(chunk)
+        : this.pending
+          ? this.pending.push(chunk)
+          : this.live?.audio(chunk),
     end: (ms) => this.speechEnd(ms),
   });
   constructor(private on: ListenEvents) {}
 
-  get state() {
-    return this.current;
-  }
   private set(state: ListenState) {
     this.current = state;
     // On a loudspeaker the tutor's own voice leaks into the mic: ask for louder speech then.
@@ -71,7 +73,9 @@ export class ListenEngine {
     await this.open(position);
   }
 
-  private async open(position: ListenPosition, resume = '') {
+  /** Opens a scene's session. With `answering`, the learner is already speaking into a
+   * session that dropped while it waited: no new scene, no START, their speech goes in. */
+  private async open(position: ListenPosition, resume = '', answering = false) {
     const gen = ++this.gen;
     this.live?.close();
     this.live = null;
@@ -79,10 +83,13 @@ export class ListenEngine {
     this.audio?.interrupt();
     Object.assign(this, { position, advance: false, discard: false, generating: false });
     this.heardText.reset();
-    this.speech.reset();
     this.wake.reset();
-    this.on.scene(position);
-    this.set('connecting');
+    if (!answering) {
+      this.pending = null;
+      this.speech.reset();
+      this.on.scene(position);
+      this.set('connecting');
+    }
     const mine = () => gen === this.gen;
     try {
       const token = await api<LiveToken>('/listen/live', { ...position, style: voiceStyle() });
@@ -107,6 +114,7 @@ export class ListenEngine {
       await live.connect(token);
       if (!mine()) return live.close();
       if (resume) live.note(resume);
+      if (answering) return this.flushAnswer(live);
       live.text('START');
       this.set('thinking');
       this.armReply();
@@ -117,24 +125,36 @@ export class ListenEngine {
 
   private sceneDone(mine: () => boolean) {
     this.advance = true;
-    this.clear('done');
-    // If no closing speech follows, move on anyway.
-    this.timers.done = window.setTimeout(() => {
-      if (mine() && !this.audio?.speaking) this.next();
-    }, 8000);
+    this.clear('done'); // no closing speech within 8 s: move on anyway
+    this.timers.done = window.setTimeout(
+      () => mine() && !this.audio?.speaking && this.next(),
+      8000,
+    );
     return { ok: true };
   }
 
-  /** A dropped session reopens once, telling the tutor what was already heard. */
+  /** Learner speech held during a reconnect goes in as one turn. */
+  private flushAnswer(live: LiveConnection) {
+    live.activity(true);
+    for (const chunk of this.pending ?? []) live.audio(chunk);
+    this.pending = null;
+    if (this.current === 'listening') return;
+    live.activity(false);
+    this.armReply();
+  }
+
+  /** A dropped session reopens once, telling the tutor what was already heard. While the
+   * tutor waits for an answer, it stays closed (silent) until the learner starts talking. */
   private dropped(message: string) {
     const position = this.position;
+    if (this.current === 'floor') {
+      this.live?.close();
+      this.live = null;
+      return;
+    }
     if (position && !this.retried && this.current !== 'finished') {
       this.retried = true;
-      const heard = this.heardText.heard();
-      const note = heard
-        ? `RESUME: the connection dropped. The learner already heard you up to: «${heard}». Do not greet again or start over; continue from there.`
-        : '';
-      return void this.open(position, note);
+      return void this.open(position, notes.resume(this.heardText.heard()));
     }
     this.retried = false;
     this.live?.close();
@@ -162,13 +182,17 @@ export class ListenEngine {
   /** Everything the tutor said has finished playing. */
   private drained() {
     if (this.advance) return this.next();
-    if (this.current === 'teaching' || this.current === 'thinking') this.openFloor(FLOOR_MS);
+    if (this.current === 'teaching' || this.current === 'thinking') this.openFloor();
   }
 
-  private openFloor(wait: number) {
+  /** The learner's turn. With no `wait` it lasts until they speak, however long that takes
+   * (the tutor asked something); with one, silence means "carry on" (they cut in, then
+   * said nothing). */
+  private openFloor(wait?: number) {
     this.heardText.reset();
     this.set('floor');
     this.clear('floor');
+    if (wait === undefined) return;
     this.timers.floor = window.setTimeout(() => {
       if (this.current !== 'floor') return;
       this.live?.text('SILENCE');
@@ -180,11 +204,17 @@ export class ListenEngine {
   private armReply() {
     this.clear('reply');
     this.timers.reply = window.setTimeout(() => {
-      if (this.current === 'thinking') this.openFloor(FLOOR_MS);
+      if (this.current === 'thinking') this.openFloor();
     }, REPLY_MS);
   }
 
   private speechStart(preroll: string[]) {
+    if (this.current === 'floor' && !this.live && this.position) {
+      // The session dropped while waiting: reconnect now, holding their words meanwhile.
+      this.pending = [...preroll];
+      this.set('listening');
+      return void this.open(this.position, notes.waiting(this.heardText.last), true);
+    }
     if (this.current === 'floor' || this.current === 'listening') {
       this.clear('floor', 'quiet');
       if (this.current === 'floor') this.live?.activity(true);
@@ -194,8 +224,9 @@ export class ListenEngine {
   }
   private speechEnd(spokenMs: number) {
     if (this.current !== 'listening') return this.wake.end(spokenMs);
-    this.live?.activity(false);
     this.set('thinking');
+    if (this.pending) return; // sent once the session is back
+    this.live?.activity(false);
     this.armReply();
   }
 
@@ -208,12 +239,10 @@ export class ListenEngine {
     if (this.audio?.speaking || this.current === 'teaching') {
       this.audio?.interrupt();
       this.discard = this.generating;
-      this.live?.note(
-        `INTERRUPTED: the learner stopped you to talk. They heard you only up to: «${heard}». Answer them, then continue from exactly that point.`,
-      );
+      this.live?.note(notes.interrupted(heard));
     }
     this.clear('reply');
-    if (!spoken) return this.openFloor(10000);
+    if (!spoken) return this.openFloor(this.current === 'floor' ? undefined : 10000);
     this.live?.activity(true);
     spoken.forEach((chunk) => this.live?.audio(chunk));
     this.set('listening');
@@ -234,7 +263,7 @@ export class ListenEngine {
   resume() {
     if (this.current !== 'paused') return;
     void this.audio?.setPaused(false);
-    if (this.before === 'floor' || this.before === 'listening') this.openFloor(FLOOR_MS);
+    if (this.before === 'floor' || this.before === 'listening') this.openFloor();
     else this.set(this.before);
   }
 

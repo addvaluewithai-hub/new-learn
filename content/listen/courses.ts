@@ -25,6 +25,8 @@ export type ListenCourse = {
   language: string;
   description: string;
   wakeWord: string;
+  /** Account emails that may see and study this course; absent means everyone. */
+  visibleTo?: string[];
   lessons: ListenLesson[];
 };
 
@@ -66,6 +68,11 @@ export function listenProblems(course: ListenCourse) {
   });
   return problems;
 }
+
+/** Whether this signed-in account may see the course at all. */
+export const canSee = (course: ListenCourse, email: string) =>
+  !course.visibleTo ||
+  course.visibleTo.some((allowed) => allowed.toLowerCase() === email.trim().toLowerCase());
 
 /** What the student app may see: titles and which scenes ask something, no notes/answers. */
 export const listenOutline = (course: ListenCourse) => ({

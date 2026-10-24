@@ -1,8 +1,13 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { listenCourses, listenOutline, listenProblems } from '../../../content/listen/courses';
+import {
+  canSee,
+  listenCourses,
+  listenOutline,
+  listenProblems,
+} from '../../../content/listen/courses';
 import { listenConfig, listenInstruction } from '../server/listen/instruction';
-import { listenSpot } from '../server/listen/routes';
+import { listenRoute, listenSpot } from '../server/listen/routes';
 import { wakeVerdict, wakeWav } from '../server/listen/wake';
 import { DEFAULT_STYLE } from '../server/nova/style';
 import { HeardTracker, joinPcm } from '../src/features/listen/pcmJoin';
@@ -104,4 +109,36 @@ test('speech detection ignores clinks, keeps the first word and ends after quiet
   assert.equal(preroll, 12);
   feed(0.001, 40);
   assert.deepEqual(events, ['start', 'end']);
+});
+
+test('a course limited to named accounts is invisible to everyone else', async () => {
+  const env = {} as Parameters<typeof listenRoute>[1];
+  const owner = { id: 'o', name: 'Owner', email: 'AddValueWithAI@gmail.com' };
+  const other = { id: 'x', name: 'Other', email: 'someone@example.com' };
+  const get = (path: string) => new Request(`https://app.test/api/listen/${path}`);
+  assert.ok(canSee(course, owner.email));
+  assert.ok(!canSee(course, other.email));
+  const mine = await (await listenRoute(get(''), env, owner, '')).json();
+  assert.deepEqual(
+    mine.courses.map((c: { id: string }) => c.id),
+    [course.id],
+  );
+  const theirs = await (await listenRoute(get(''), env, other, '')).json();
+  assert.deepEqual(theirs.courses, []);
+  assert.equal((await listenRoute(get(course.id), env, owner, course.id)).status, 200);
+  await assert.rejects(listenRoute(get(course.id), env, other, course.id), { status: 404 });
+  const live = new Request('https://app.test/api/listen/live', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'why' }),
+  });
+  await assert.rejects(listenRoute(live, env, other, 'live'), { status: 404 });
+});
+
+test('the tutor states terms in both languages and waits for answers', () => {
+  const spot = listenSpot({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'jtb' });
+  const instruction = listenInstruction(spot, 'Ahmed', DEFAULT_STYLE);
+  assert.ok(instruction.includes('then its standard English term'));
+  assert.ok(instruction.includes('wait as long as it takes'));
+  assert.ok(!instruction.includes('give the answer simply yourself'));
 });

@@ -28,7 +28,10 @@ export class HeardTracker {
     const length = started.length ? started[started.length - 1].length : 0;
     return this.text.slice(0, length).slice(-220).trim();
   }
+  /** The last thing heard before the most recent reset (e.g. the question just asked). */
+  last = '';
   reset() {
+    this.last = this.heard() || this.last;
     this.text = '';
     this.marks = [];
   }
