@@ -31,7 +31,7 @@ test('the student app gets titles only, never notes or expected answers', () => 
 });
 
 test('positions resolve only against the server course', () => {
-  const spot = listenSpot({ courseId: course.id, lessonId: 'lesson-02', sceneId: 'descartes' });
+  const spot = listenSpot({ courseId: course.id, lessonId: 'lesson-02', sceneId: 'luck' });
   assert.equal(spot.lessonIndex, 1);
   assert.equal(spot.sceneIndex, 1);
   assert.throws(() => listenSpot({ courseId: 'nope', lessonId: 'lesson-01', sceneId: 'why' }));

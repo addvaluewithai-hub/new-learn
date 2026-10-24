@@ -140,12 +140,12 @@ try {
 
   // Nobody speaks: the tutor hears SILENCE, closes the scene, and the next session opens.
   await page.waitForFunction(
-    () => document.querySelector('.listen-stage h2')?.textContent?.includes('الفرق'),
+    () => document.querySelector('.listen-stage h2')?.textContent?.includes('أنواع'),
     null,
     { timeout: 20000 },
   );
   assert.ok(sent.some((m) => m.n === 1 && m.text === 'SILENCE'));
-  assert.equal(sessions[1].sceneId, 'belief-vs-knowledge');
+  assert.equal(sessions[1].sceneId, 'kinds');
 
   // Talking over the tutor cuts it and tells it (silently) what was heard.
   await page.locator('.listen-stage.is-teaching').waitFor({ timeout: 10000 });
@@ -157,13 +157,13 @@ try {
   // Skipping and picking a lesson open fresh sessions at the right place.
   await page.getByRole('button', { name: 'المشهد الجاي' }).click();
   await page.waitForFunction(() =>
-    document.querySelector('.listen-stage h2')?.textContent?.includes('المعلومة'),
+    document.querySelector('.listen-stage h2')?.textContent?.includes('التعريف'),
   );
-  await page.getByRole('button', { name: /درجات الإدراك/ }).click();
+  await page.getByRole('button', { name: /بنية التبرير/ }).click();
   await page.locator('.listen-where', { hasText: 'الدرس 3' }).waitFor();
   assert.deepEqual(
     { lessonId: sessions.at(-1).lessonId, sceneId: sessions.at(-1).sceneId },
-    { lessonId: 'lesson-03', sceneId: 'scale' },
+    { lessonId: 'lesson-03', sceneId: 'regress' },
   );
   const saved = await page.evaluate(() => localStorage.getItem('new-learn:listen:manhaj-almarifa'));
   assert.equal(JSON.parse(saved).lessonId, 'lesson-03');

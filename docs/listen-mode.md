@@ -14,11 +14,13 @@ and the idea the tutor looks for (`answer`), judged by meaning, not wording.
 `content/listen/courses.ts` loads and structurally checks them; it is not editorial approval.
 The student app receives titles only (`GET /api/listen/<course>`), never notes or answers.
 
-First course: **منهج المعرفة** (10 lessons, Egyptian Arabic): what knowledge is, skepticism and
-certainty, degrees of certainty (يقين/ظن/شك/وهم), then the sources (senses, reason, report/الخبر,
-fitra and intuition, revelation in Islamic epistemology, the scientific method) and a personal
-"three questions" method with common fallacies. Structure follows typical university outlines
-(e.g. Umm Al-Qura «مصادر المعرفة ومنهج الاستدلال», KSU «نظرية المعرفة»); the text is authored here.
+First course: **منهج المعرفة**, an introduction to epistemology as taught in philosophy
+departments, in 10 Egyptian Arabic lessons: what knowledge is (JTB), the Gettier problem, the
+structure of justification, perception, reason and the a priori, testimony and memory,
+scientific knowledge (Hume, Popper, Kuhn), skepticism, theories of truth and relativism,
+social epistemology and critical thinking. The sequence follows Duncan Pritchard, _What Is This
+Thing Called Knowledge?_ (Routledge, 5th ed. 2023) and the Stanford Encyclopedia of Philosophy;
+the text is authored here and still needs a subject review.
 
 ## How a run works
 
