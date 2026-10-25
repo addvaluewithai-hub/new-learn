@@ -17,8 +17,12 @@ import { SpeechDetector } from '../src/features/listen/speech';
 
 const course = listenCourses['manhaj-almarifa'];
 
-test('the audio course has ten structurally complete lessons', () => {
-  assert.deepEqual(listenProblems(course), []);
+test('the audio courses are structurally complete', () => {
+  for (const each of Object.values(listenCourses))
+    assert.deepEqual(listenProblems(each), [], each.id);
+  const ai = listenCourses['how-ai-works'];
+  assert.ok(ai.lessons.length >= 1 && ai.lessons.every(Boolean));
+  assert.ok(canSee(ai, 'addvaluewithai@gmail.com') && !canSee(ai, 'x@example.com'));
   assert.equal(course.lessons.length, 10);
   for (const lesson of course.lessons) {
     assert.ok(lesson.scenes.length >= 3, lesson.id);
@@ -65,7 +69,7 @@ test('the tutor reads the script exactly, keeps the answer private and has the l
 });
 
 test('every question has scripted feedback, and the scene script hides the answer', () => {
-  for (const lesson of course.lessons)
+  for (const lesson of Object.values(listenCourses).flatMap((c) => c.lessons))
     for (const scene of lesson.scenes)
       if (scene.check) assert.ok(scene.check.feedback, `${lesson.id}/${scene.id}`);
   const scene = course.lessons[0].scenes[1];
@@ -145,7 +149,7 @@ test('a course limited to named accounts is invisible to everyone else', async (
   const mine = await (await listenRoute(get(''), env, owner, '')).json();
   assert.deepEqual(
     mine.courses.map((c: { id: string }) => c.id),
-    [course.id],
+    [course.id, 'how-ai-works'],
   );
   const theirs = await (await listenRoute(get(''), env, other, '')).json();
   assert.deepEqual(theirs.courses, []);

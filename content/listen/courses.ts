@@ -6,7 +6,7 @@
  * These files are server-owned; the student app receives titles plus one scene's script when
  * that scene starts, never the expected answers.
  */
-import course from './manhaj-almarifa/course.json';
+import epistemology from './manhaj-almarifa/course.json';
 import l01 from './manhaj-almarifa/lesson-01.json';
 import l02 from './manhaj-almarifa/lesson-02.json';
 import l03 from './manhaj-almarifa/lesson-03.json';
@@ -17,6 +17,8 @@ import l07 from './manhaj-almarifa/lesson-07.json';
 import l08 from './manhaj-almarifa/lesson-08.json';
 import l09 from './manhaj-almarifa/lesson-09.json';
 import l10 from './manhaj-almarifa/lesson-10.json';
+import howAi from './how-ai-works/course.json';
+import ai01 from './how-ai-works/lesson-01.json';
 
 export type ListenCheck = {
   /** Read word for word, then the tutor waits silently for as long as it takes. */
@@ -48,13 +50,19 @@ export type ListenCourse = {
   lessons: ListenLesson[];
 };
 
-const lessons: Record<string, ListenLesson> = Object.fromEntries(
-  [l01, l02, l03, l04, l05, l06, l07, l08, l09, l10].map((lesson) => [lesson.id, lesson]),
-);
+type CourseFile = Omit<ListenCourse, 'lessons'> & { lessons: string[] };
+/** A course header plus its lesson files, in the order the header lists them. */
+function course(header: CourseFile, files: ListenLesson[]): ListenCourse {
+  const byId = new Map(files.map((lesson) => [lesson.id, lesson]));
+  return { ...header, lessons: header.lessons.map((id) => byId.get(id)!) };
+}
 
-export const listenCourses: Record<string, ListenCourse> = {
-  [course.id]: { ...course, lessons: course.lessons.map((id) => lessons[id]) },
-};
+export const listenCourses: Record<string, ListenCourse> = Object.fromEntries(
+  [
+    course(epistemology, [l01, l02, l03, l04, l05, l06, l07, l08, l09, l10]),
+    course(howAi, [ai01]),
+  ].map((c) => [c.id, c]),
+);
 
 const text = (value: unknown, max: number) =>
   typeof value === 'string' && value.trim().length > 0 && value.length <= max;

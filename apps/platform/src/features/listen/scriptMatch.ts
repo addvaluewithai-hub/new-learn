@@ -22,9 +22,11 @@ export function normalize(text: string) {
 export type ScriptMatch = { ok: boolean; recall: number; ratio: number };
 
 export function matchScript(said: string, line: string): ScriptMatch {
-  const heard = normalize(said),
+  // Numbers are skipped: a year may come back as digits or as words.
+  const spoken = (text: string) => normalize(text).filter((word) => !/^\d+$/.test(word));
+  const heard = spoken(said),
     latin = (word: string) => /^[a-z0-9]+$/.test(word);
-  const all = normalize(line);
+  const all = spoken(line);
   let expected = all;
   // Some transcripts write English terms in Arabic letters: then judge the Arabic words only.
   const arabicOnly = expected.filter((word) => !latin(word));
