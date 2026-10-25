@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import {
   canSee,
+  lessonScript,
   listenCourses,
   listenOutline,
   listenProblems,
+  sceneScript,
 } from '../../../content/listen/courses';
 import { listenConfig, listenInstruction } from '../server/listen/instruction';
 import { listenRoute, listenSpot } from '../server/listen/routes';
@@ -44,18 +46,40 @@ test('positions resolve only against the server course', () => {
   assert.throws(() => listenSpot({ courseId: course.id, lessonId: 'lesson-99', sceneId: 'why' }));
 });
 
-test('one session teaches one scene, keeps the answer private and can move on', () => {
-  const spot = listenSpot({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'why' });
+test('the tutor reads the script exactly, keeps the answer private and has the lesson', () => {
+  const spot = listenSpot({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'kinds' });
   const instruction = listenInstruction(spot, 'Ahmed', DEFAULT_STYLE);
-  assert.ok(instruction.includes(spot.scene.lines[0]));
-  assert.ok(instruction.includes(spot.scene.check!.ask));
+  assert.ok(instruction.includes('EXACTLY as written'));
   assert.ok(instruction.includes('never say it before the learner has tried'));
-  assert.ok(instruction.includes('greet the learner'));
+  assert.ok(instruction.includes(spot.scene.check!.answer));
+  // The whole current lesson is in context, not just this scene, but no other answers.
+  for (const scene of spot.lesson.scenes) assert.ok(instruction.includes(scene.lines[0]));
+  assert.ok(!instruction.includes(spot.lesson.scenes[0].check!.answer));
+  assert.ok(instruction.includes('← CURRENT SCENE'));
   const config = listenConfig(instruction, DEFAULT_STYLE);
   assert.deepEqual(config.realtimeInputConfig, { automaticActivityDetection: { disabled: true } });
-  assert.equal(config.tools[0].functionDeclarations[0].name, 'scene_done');
-  const later = listenSpot({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'recap' });
-  assert.ok(listenInstruction(later, 'Ahmed', DEFAULT_STYLE).includes('has no check'));
+  assert.deepEqual(
+    config.tools[0].functionDeclarations.map((t) => t.name),
+    ['check_done', 'resume_lesson', 'get_lesson'],
+  );
+});
+
+test('every question has scripted feedback, and the scene script hides the answer', () => {
+  for (const lesson of course.lessons)
+    for (const scene of lesson.scenes)
+      if (scene.check) assert.ok(scene.check.feedback, `${lesson.id}/${scene.id}`);
+  const scene = course.lessons[0].scenes[1];
+  const script = sceneScript(scene);
+  assert.deepEqual(script.lines, scene.lines);
+  assert.equal(script.ask, scene.check!.ask);
+  assert.ok(!JSON.stringify(script).includes(scene.check!.answer));
+  const lesson = lessonScript(course.lessons[1]);
+  assert.ok(!JSON.stringify(lesson).includes(course.lessons[1].scenes[0].check!.answer));
+  const spoken = {
+    ...course,
+    lessons: [{ ...course.lessons[0], scenes: [{ ...scene, lines: ['قول نوفا'] }] }],
+  };
+  assert.ok(listenProblems(spoken).some((p) => p.includes('wake word')));
 });
 
 test('wake clips become a 16 kHz mono WAV; bad clips and verdicts are refused', () => {
@@ -133,12 +157,25 @@ test('a course limited to named accounts is invisible to everyone else', async (
     body: JSON.stringify({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'why' }),
   });
   await assert.rejects(listenRoute(live, env, other, 'live'), { status: 404 });
+  const lesson = await listenRoute(
+    get(`${course.id}/lessons/2`),
+    env,
+    owner,
+    `${course.id}/lessons/2`,
+  );
+  assert.equal((await lesson.json()).title, course.lessons[1].title);
+  await assert.rejects(listenRoute(get('x'), env, other, `${course.id}/lessons/2`), {
+    status: 404,
+  });
+  await assert.rejects(listenRoute(get('x'), env, owner, `${course.id}/lessons/99`), {
+    status: 404,
+  });
 });
 
 test('the tutor states terms in both languages and waits for answers', () => {
   const spot = listenSpot({ courseId: course.id, lessonId: 'lesson-01', sceneId: 'jtb' });
   const instruction = listenInstruction(spot, 'Ahmed', DEFAULT_STYLE);
-  assert.ok(instruction.includes('then its standard English term'));
-  assert.ok(instruction.includes('wait as long as it takes'));
+  assert.ok(instruction.includes('followed by its standard English term'));
+  assert.ok(instruction.includes('wait for the learner, however long it takes'));
   assert.ok(!instruction.includes('give the answer simply yourself'));
 });

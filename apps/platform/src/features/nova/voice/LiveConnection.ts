@@ -6,7 +6,8 @@ export type LiveCallbacks = {
   transcript: (role: 'user' | 'assistant', text: string) => void;
   error: (message: string) => void;
   answer: (index: number, choice: number) => unknown;
-  /** Other client tools (e.g. moving the lesson board); the result goes back as-is. */
+  /** Other client tools (e.g. moving the lesson board); the result goes back as-is and may
+   * be a promise (e.g. fetching a lesson script). */
   tool?: (name: string, args: Record<string, unknown>) => unknown;
 };
 export class LiveConnection {
@@ -69,7 +70,7 @@ export class LiveConnection {
               const result =
                 call.name === 'answer_question'
                   ? this.callbacks.answer(call.args?.questionIndex, call.args?.choice)
-                  : (this.callbacks.tool?.(call.name, call.args ?? {}) ?? {
+                  : ((await this.callbacks.tool?.(call.name, call.args ?? {})) ?? {
                       error: 'Unknown tool',
                     });
               this.send({

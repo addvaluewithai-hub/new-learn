@@ -1,4 +1,10 @@
-import { canSee, listenCourses, listenOutline } from '../../../../content/listen/courses';
+import {
+  canSee,
+  lessonScript,
+  listenCourses,
+  listenOutline,
+  sceneScript,
+} from '../../../../content/listen/courses';
 import type { AuthUser, Env } from '../env';
 import { body, HttpError, json } from '../http';
 import { limitNova } from '../nova/limits';
@@ -22,6 +28,7 @@ export function listenSpot(input: Record<string, unknown>): ListenSpot {
  * Listen mode (audio-only lessons):
  *  GET  /api/listen/          the courses this account may see (titles)
  *  GET  /api/listen/<course>  titles only
+ *  GET  /api/listen/<course>/lessons/<n>  one lesson's script, no answers (tutor's get_lesson)
  *  POST /api/listen/live      single-use live token for one scene, setup locked server-side
  *  POST /api/listen/wake      did this short clip call the tutor by its wake word?
  */
@@ -39,6 +46,12 @@ export async function listenRoute(request: Request, env: Env, user: AuthUser, ac
         .filter((course) => canSee(course, user.email))
         .map(({ id, title, description }) => ({ id, title, description })),
     });
+  const lessonPath = /^([^/]+)\/lessons\/(\d+)$/.exec(action);
+  if (request.method === 'GET' && lessonPath) {
+    const lesson = visible(lessonPath[1]).lessons[Number(lessonPath[2]) - 1];
+    if (!lesson) throw new HttpError(404, 'الدرس غير موجود.');
+    return json(lessonScript(lesson));
+  }
   if (request.method === 'GET') return json(listenOutline(visible(action)));
   if (request.method !== 'POST' || !['live', 'wake'].includes(action))
     throw new HttpError(404, 'الطلب غير موجود.');
@@ -76,5 +89,5 @@ export async function listenRoute(request: Request, env: Env, user: AuthUser, ac
     request.signal,
   );
   if (typeof token.name !== 'string') throw new HttpError(502, 'تعذّر تجهيز الدرس الصوتي.');
-  return json({ token: token.name, model, config });
+  return json({ token: token.name, model, config, script: sceneScript(spot.scene) });
 }

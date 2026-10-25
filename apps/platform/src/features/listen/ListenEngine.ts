@@ -1,57 +1,66 @@
 import { api } from '../../shared/api';
 import { AudioSession } from '../nova/voice/AudioSession';
-import { LiveConnection, type LiveToken } from '../nova/voice/LiveConnection';
+import { LiveConnection, type LiveCallbacks } from '../nova/voice/LiveConnection';
 import { voiceStyle } from '../nova/voice/voicePrefs';
 import { HeardTracker } from './pcmJoin';
-import { SpeechDetector } from './speech';
-import { WakeWord } from './wakeWord';
-import { notes, REPLY_MS } from './listenTypes';
-import type { ListenEvents, ListenPosition, ListenState } from './listenTypes';
+import { lessonFor, ScriptReader, scriptItems, type ScriptItem } from './ScriptReader';
+import { LearnerMic } from './LearnerMic';
+import { CUT_IN_WAIT_MS, notes, REPLY_MS } from './listenTypes';
+import type { ListenEvents, ListenPosition, ListenState, ListenToken } from './listenTypes';
+import type { ReadJob, SceneScript } from './listenTypes';
 
 export type { ListenEvents, ListenPosition, ListenState } from './listenTypes';
 
 /**
- * Runs an audio-only lesson: one live tutor session per scene. When the tutor's turn ends the
- * learner has the floor until they speak; while it talks, the wake word, a headset press or the
- * talk button cut in. The mic stays open for the whole run, so it works with the screen off.
+ * Runs a scripted audio-only lesson: one live tutor session per scene. The app reads the
+ * script through the tutor line by line (checked against the text), then its question, and
+ * waits for the answer as long as it takes. The tutor's own words are only its verdict and
+ * replies when the learner cuts in (wake word, headset press or talk button). The mic stays
+ * open for the whole run, so it works with the screen off.
  */
 export class ListenEngine {
   private audio: AudioSession | null = null;
   private live: LiveConnection | null = null;
   private position: ListenPosition | null = null;
+  private script: SceneScript = { lines: [] };
+  private job: ReadJob = { kind: 'scene', from: 0 };
   private current: ListenState = 'idle';
   private before: ListenState = 'idle';
   private gen = 0;
-  private advance = false;
-  /** Audio of a reply the learner cut off is dropped until that reply ends. */
-  private discard = false;
+  private flags = { checked: false, resume: false };
+  /** A reply is being generated; if the learner cuts in, the rest of it is dropped. */
   private generating = false;
+  private discard = false;
   private retried = false;
-  /** Learner speech held while a dropped session reconnects. */
-  private pending: string[] | null = null;
-  private timers: { floor?: number; reply?: number; done?: number; quiet?: number } = {};
+  private timers: { floor?: number; reply?: number } = {};
   private heardText = new HeardTracker();
-  private wake = new WakeWord(
-    () => this.position,
-    () => this.current === 'teaching',
-    (chunks) => this.takeFloor(chunks),
-  );
-  private speech = new SpeechDetector({
-    start: (preroll) => this.speechStart(preroll),
-    chunk: (chunk) =>
-      this.current !== 'listening'
-        ? this.wake.chunk(chunk)
-        : this.pending
-          ? this.pending.push(chunk)
-          : this.live?.audio(chunk),
-    end: (ms) => this.speechEnd(ms),
+  private reader = new ScriptReader({
+    send: (text) => {
+      this.generating = true;
+      this.live?.text(text);
+    },
+    play: (chunks, item, last) => this.playScript(chunks, item, last),
+    queued: () => this.audio?.endsIn ?? 0,
+    failed: () => this.dropped('تعذّر قراءة الدرس.'),
+  });
+  private mic = new LearnerMic({
+    state: () => this.current,
+    set: (state) => this.set(state),
+    live: () => this.live,
+    position: () => this.position,
+    speaking: () => this.clear('floor'),
+    reconnect: () => this.position && void this.open(this.position, { answering: true }),
+    called: (chunks) => this.takeFloor(chunks),
+    sent: () => {
+      this.generating = true;
+      this.armReply();
+    },
   });
   constructor(private on: ListenEvents) {}
 
   private set(state: ListenState) {
     this.current = state;
-    // On a loudspeaker the tutor's own voice leaks into the mic: ask for louder speech then.
-    this.speech.threshold = state === 'teaching' ? 0.05 : 0.02;
+    this.mic.strict(state === 'teaching');
     this.on.state(state);
   }
   private clear(...names: Array<keyof ListenEngine['timers']>) {
@@ -61,10 +70,9 @@ export class ListenEngine {
   /** From a tap: opens the microphone once for the whole run, then starts this scene. */
   async start(position: ListenPosition) {
     if (!this.audio) {
-      const audio = new AudioSession(() => this.drained());
-      this.audio = audio;
+      this.audio = new AudioSession(() => this.drained());
       try {
-        await audio.capture((chunk, level) => this.speech.feed(chunk, level));
+        await this.audio.capture((chunk, level) => this.mic.feed(chunk, level));
       } catch (error) {
         this.stop();
         throw error;
@@ -73,78 +81,164 @@ export class ListenEngine {
     await this.open(position);
   }
 
-  /** Opens a scene's session. With `answering`, the learner is already speaking into a
-   * session that dropped while it waited: no new scene, no START, their speech goes in. */
-  private async open(position: ListenPosition, resume = '', answering = false) {
-    const gen = ++this.gen;
+  /** Opens a scene's session. `job` continues a reading on the same scene; `answering`
+   * means the learner is already speaking into a session that dropped while it waited. */
+  private async open(position: ListenPosition, opts: { job?: ReadJob; answering?: boolean } = {}) {
+    const gen = ++this.gen,
+      mine = () => gen === this.gen;
     this.live?.close();
     this.live = null;
-    this.clear('floor', 'reply', 'done', 'quiet');
+    this.clear('floor', 'reply');
     this.audio?.interrupt();
-    Object.assign(this, { position, advance: false, discard: false, generating: false });
+    this.reader.stop();
+    Object.assign(this, { position, discard: false, generating: false });
+    this.flags = { checked: false, resume: false };
     this.heardText.reset();
-    this.wake.reset();
-    if (!answering) {
-      this.pending = null;
-      this.speech.reset();
-      this.on.scene(position);
+    this.mic.reset(opts.answering);
+    if (!opts.answering) {
+      if (!opts.job) this.on.scene(position);
       this.set('connecting');
     }
-    const mine = () => gen === this.gen;
     try {
-      const token = await api<LiveToken>('/listen/live', { ...position, style: voiceStyle() });
+      const token = await api<ListenToken>('/listen/live', { ...position, style: voiceStyle() });
       if (!mine()) return;
-      const live = new LiveConnection({
-        audio: (data, rate) => mine() && this.tutorAudio(data, rate),
-        interrupted: () => {
-          if (mine()) this.discard = this.generating = false;
-        },
-        complete: () => mine() && this.turnOver(),
-        transcript: (role, text) => {
-          if (!mine()) return;
-          if (role === 'user') return this.on.heard(text);
-          this.heardText.said(text);
-          if (!this.discard) this.on.said(text);
-        },
-        error: (message) => mine() && this.dropped(message),
-        answer: () => ({ error: 'Not available here.' }),
-        tool: (name) => (name === 'scene_done' ? this.sceneDone(mine) : { error: 'Unknown tool' }),
-      });
+      this.script = token.script;
+      const live = new LiveConnection(this.callbacks(mine));
       this.live = live;
       await live.connect(token);
       if (!mine()) return live.close();
-      if (resume) live.note(resume);
-      if (answering) return this.flushAnswer(live);
-      live.text('START');
-      this.set('thinking');
-      this.armReply();
+      if (!opts.answering) return this.startJob(opts.job ?? { kind: 'scene', from: 0 });
+      live.note(notes.waiting(this.script.ask ?? ''));
+      this.mic.flush(live);
     } catch (error) {
       if (mine()) this.dropped(error instanceof Error ? error.message : 'تعذّر الاتصال.');
     }
   }
 
-  private sceneDone(mine: () => boolean) {
-    this.advance = true;
-    this.clear('done'); // no closing speech within 8 s: move on anyway
-    this.timers.done = window.setTimeout(
-      () => mine() && !this.audio?.speaking && this.next(),
-      8000,
-    );
-    return { ok: true };
+  private callbacks(mine: () => boolean): LiveCallbacks {
+    return {
+      audio: (data, rate) => {
+        if (!mine() || this.discard) return;
+        if (this.reader.waiting) return this.reader.audio(data, rate);
+        this.clear('reply');
+        if (this.current !== 'paused') this.set('teaching');
+        this.heardText.queued(this.audio?.enqueue(data, rate) ?? 0);
+      },
+      interrupted: () => {
+        if (mine()) this.discard = this.generating = false;
+      },
+      complete: () => {
+        if (!mine()) return;
+        this.generating = false;
+        if (this.discard) return void (this.discard = false);
+        if (this.reader.waiting) return this.reader.complete();
+        this.clear('reply');
+        this.retried = false;
+        this.audio?.finish();
+      },
+      transcript: (role, text) => {
+        if (!mine()) return;
+        if (role === 'user') return this.on.heard(text);
+        if (this.discard) return;
+        if (this.reader.waiting) return this.reader.said(text);
+        this.heardText.said(text);
+        this.on.said(text);
+      },
+      error: (message) => mine() && this.dropped(message),
+      answer: () => ({ error: 'Not available here.' }),
+      tool: (name, args) => this.tool(name, args),
+    };
   }
 
-  /** Learner speech held during a reconnect goes in as one turn. */
-  private flushAnswer(live: LiveConnection) {
-    live.activity(true);
-    for (const chunk of this.pending ?? []) live.audio(chunk);
-    this.pending = null;
-    if (this.current === 'listening') return;
-    live.activity(false);
-    this.armReply();
+  private tool(name: string, args: Record<string, unknown>) {
+    if (name === 'check_done' || name === 'resume_lesson') {
+      this.flags[name === 'check_done' ? 'checked' : 'resume'] = true;
+      return { ok: true };
+    }
+    if (name === 'get_lesson' && this.position) return lessonFor(this.position, args);
+    return { error: 'Unknown tool.' };
+  }
+  private startJob(job: ReadJob) {
+    this.job = job;
+    if (!this.live && this.position) return void this.open(this.position, { job });
+    this.set('teaching');
+    this.reader.start(scriptItems(this.script, job.kind), job.from);
+  }
+  private playScript(chunks: Array<[string, number]>, item: ScriptItem, last: boolean) {
+    let first = 0;
+    chunks.forEach(([data, rate], i) => {
+      const at = this.audio?.enqueue(data, rate) ?? 0;
+      if (i === 0) first = at;
+    });
+    this.retried = false;
+    this.on.said(`${item.text} `);
+    if (last) this.audio?.finish();
+    return first;
   }
 
-  /** A dropped session reopens once, telling the tutor what was already heard. While the
-   * tutor waits for an answer, it stays closed (silent) until the learner starts talking. */
+  /** Everything queued has finished playing. */
+  private drained() {
+    if (this.reader.active) {
+      if (!this.reader.done) return;
+      this.reader.stop();
+      // Feedback or a scene with no question: move on. Otherwise wait for the answer.
+      if (this.job.kind === 'feedback' || !this.script.ask) return this.next();
+      this.job = { kind: 'scene', from: this.script.lines.length };
+      return this.openFloor();
+    }
+    if (this.flags.checked || this.flags.resume) return this.carryOn();
+    if (this.current === 'teaching' || this.current === 'thinking') this.openFloor();
+  }
+  /** After the tutor's own words: the scripted feedback, or back to the script. */
+  private carryOn() {
+    const checked = this.flags.checked;
+    this.flags = { checked: false, resume: false };
+    if (!checked) return this.startJob(this.job);
+    if (this.script.feedback) return this.startJob({ kind: 'feedback', from: 0 });
+    this.next();
+  }
+
+  /** The learner's turn: with no `wait` it lasts until they speak, however long that takes;
+   * with one (they cut in, then said nothing) silence means "carry on". */
+  private openFloor(wait?: number) {
+    this.heardText.reset();
+    this.set('floor');
+    this.clear('floor');
+    if (wait !== undefined)
+      this.timers.floor = window.setTimeout(() => this.current === 'floor' && this.carryOn(), wait);
+  }
+  private armReply() {
+    this.clear('reply');
+    this.timers.reply = window.setTimeout(() => {
+      if (this.current === 'thinking') this.openFloor();
+    }, REPLY_MS);
+  }
+
+  /** The learner wants to talk (talk button, headset press). */
+  talk() {
+    if (['teaching', 'thinking', 'floor'].includes(this.current)) this.takeFloor();
+  }
+  private takeFloor(spoken?: string[]) {
+    if (this.reader.active) {
+      // Cut into the reading: remember the line being heard, to re-read it afterwards.
+      const at = this.reader.playing();
+      this.job = { ...this.job, from: at.index };
+      this.reader.stop();
+      this.audio?.interrupt();
+      this.discard = this.generating;
+      this.live?.note(notes.interruptedReading(at.text));
+    } else if (this.audio?.speaking || this.current === 'teaching') {
+      this.audio?.interrupt();
+      this.discard = this.generating;
+      this.live?.note(notes.interrupted(this.heardText.heard()));
+    }
+    this.clear('reply');
+    if (spoken) return this.mic.speak(spoken);
+    this.openFloor(this.current === 'floor' ? undefined : CUT_IN_WAIT_MS);
+  }
+
+  /** A dropped session reopens once, continuing the reading where it was. While the tutor
+   * waits for the learner, it stays closed (silent) until the learner starts talking. */
   private dropped(message: string) {
     const position = this.position;
     if (this.current === 'floor') {
@@ -154,103 +248,14 @@ export class ListenEngine {
     }
     if (position && !this.retried && this.current !== 'finished') {
       this.retried = true;
-      return void this.open(position, notes.resume(this.heardText.heard()));
+      if (this.reader.active) this.job = { ...this.job, from: this.reader.playing().index };
+      return void this.open(position, { job: this.job });
     }
     this.retried = false;
     this.live?.close();
     this.live = null;
     this.set('idle');
     this.on.error(message);
-  }
-
-  private tutorAudio(data: string, rate: number) {
-    this.generating = true;
-    if (this.discard || !this.audio || ['floor', 'listening'].includes(this.current)) return;
-    this.clear('reply');
-    if (this.current !== 'paused') this.set('teaching');
-    this.heardText.queued(this.audio.enqueue(data, rate));
-  }
-
-  private turnOver() {
-    this.clear('reply');
-    this.generating = false;
-    if (this.discard) return void (this.discard = false);
-    this.retried = false;
-    this.audio?.finish();
-  }
-
-  /** Everything the tutor said has finished playing. */
-  private drained() {
-    if (this.advance) return this.next();
-    if (this.current === 'teaching' || this.current === 'thinking') this.openFloor();
-  }
-
-  /** The learner's turn. With no `wait` it lasts until they speak, however long that takes
-   * (the tutor asked something); with one, silence means "carry on" (they cut in, then
-   * said nothing). */
-  private openFloor(wait?: number) {
-    this.heardText.reset();
-    this.set('floor');
-    this.clear('floor');
-    if (wait === undefined) return;
-    this.timers.floor = window.setTimeout(() => {
-      if (this.current !== 'floor') return;
-      this.live?.text('SILENCE');
-      this.set('thinking');
-      this.armReply();
-    }, wait);
-  }
-
-  private armReply() {
-    this.clear('reply');
-    this.timers.reply = window.setTimeout(() => {
-      if (this.current === 'thinking') this.openFloor();
-    }, REPLY_MS);
-  }
-
-  private speechStart(preroll: string[]) {
-    if (this.current === 'floor' && !this.live && this.position) {
-      // The session dropped while waiting: reconnect now, holding their words meanwhile.
-      this.pending = [...preroll];
-      this.set('listening');
-      return void this.open(this.position, notes.waiting(this.heardText.last), true);
-    }
-    if (this.current === 'floor' || this.current === 'listening') {
-      this.clear('floor', 'quiet');
-      if (this.current === 'floor') this.live?.activity(true);
-      preroll.forEach((chunk) => this.live?.audio(chunk));
-      this.set('listening');
-    } else if (this.current === 'teaching') this.wake.start(preroll);
-  }
-  private speechEnd(spokenMs: number) {
-    if (this.current !== 'listening') return this.wake.end(spokenMs);
-    this.set('thinking');
-    if (this.pending) return; // sent once the session is back
-    this.live?.activity(false);
-    this.armReply();
-  }
-
-  /** The learner wants to talk (talk button, headset press). */
-  talk() {
-    if (['teaching', 'thinking', 'floor'].includes(this.current)) this.takeFloor();
-  }
-  private takeFloor(spoken?: string[]) {
-    const heard = this.heardText.heard();
-    if (this.audio?.speaking || this.current === 'teaching') {
-      this.audio?.interrupt();
-      this.discard = this.generating;
-      this.live?.note(notes.interrupted(heard));
-    }
-    this.clear('reply');
-    if (!spoken) return this.openFloor(this.current === 'floor' ? undefined : 10000);
-    this.live?.activity(true);
-    spoken.forEach((chunk) => this.live?.audio(chunk));
-    this.set('listening');
-    if (!this.speech.active)
-      // They said only the wake word so far: give them a moment to ask.
-      this.timers.quiet = window.setTimeout(() => {
-        if (this.current === 'listening' && !this.speech.active) this.speechEnd(0);
-      }, 3500);
   }
 
   pause() {
@@ -267,33 +272,24 @@ export class ListenEngine {
     else this.set(this.before);
   }
 
-  next() {
-    this.step(1);
-  }
-  previous() {
-    this.step(-1);
-  }
-  restart() {
-    if (this.position) void this.open(this.position);
-  }
+  next = () => this.step(1);
+  previous = () => this.step(-1);
+  restart = () => this.position && void this.open(this.position);
   private step(direction: 1 | -1) {
-    if (!this.position) return;
-    const target = this.on.move(this.position, direction);
+    const target = this.position && this.on.move(this.position, direction);
     if (target) return void this.open(target);
     if (direction === -1) return this.restart();
-    this.gen++;
-    this.live?.close();
-    this.live = null;
-    this.set('finished');
+    this.end('finished');
   }
-
-  stop() {
+  stop = () => this.end('idle');
+  private end(state: 'idle' | 'finished') {
     this.gen++;
     for (const timer of Object.values(this.timers)) clearTimeout(timer);
+    this.reader.stop();
     this.live?.close();
-    this.audio?.close();
     this.live = null;
-    this.audio = null;
-    this.set('idle');
+    if (state === 'idle') this.audio?.close();
+    if (state === 'idle') this.audio = null;
+    this.set(state);
   }
 }

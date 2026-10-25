@@ -5,14 +5,21 @@ Branch `audio-mode`. A second way to study: no board and no multiple choice. The
 moves on, so the learner can study while washing dishes, walking, or with the screen off.
 Open it from the library card or `/?listen=manhaj-almarifa` (signed in).
 
-## Content
+## Content: reviewed scripts, read word for word
 
-`content/listen/<course>/`: `course.json` (title, description, wake word, lesson order) and one
-`lesson-NN.json` per lesson. Each scene has **teaching notes** (`lines`), not a script: the
-tutor explains them in its own words. An optional `check` holds the spoken question (`ask`)
-and the idea the tutor looks for (`answer`), judged by meaning, not wording.
-`content/listen/courses.ts` loads and structurally checks them; it is not editorial approval.
-The student app receives titles only (`GET /api/listen/<course>`), never notes or answers.
+Owner decision (2026-10-25): lessons are **scripts**, not teaching notes, so every learner hears
+the same reviewed words. `content/listen/<course>/` holds `course.json` (title, description,
+wake word, `visibleTo`, lesson order) and one `lesson-NN.json` per lesson. Per scene:
+
+- `lines`: the script, read word for word, one line per tutor turn.
+- `check.ask`: the question, read word for word; then the tutor waits as long as it takes.
+- `check.answer`: private; only for the tutor's verdict, never sent to the student app.
+- `check.feedback`: read word for word after the verdict; the scripted explanation.
+- `avoid` (optional): misconceptions the tutor must never state in its own words.
+
+The tutor's own words are limited to a one-or-two-sentence verdict on the learner's answer and
+short replies when the learner cuts in. `content/listen/courses.ts` checks structure (and that
+no script says the wake word); that is not editorial approval.
 
 First course: **منهج المعرفة**, an introduction to epistemology as taught in philosophy
 departments, in 10 Egyptian Arabic lessons: what knowledge is (JTB), the Gettier problem, the
@@ -36,13 +43,23 @@ the text is authored here and still needs a subject review.
 - **One live session per scene.** `POST /api/listen/live` resolves the position against the
   server-owned course and returns a single-use token whose setup (instruction, voice, tools) is
   locked server-side. Short sessions stay well inside Live's ~10-minute connection limit.
-- The client sends `START`; the tutor teaches the scene. When its turn ends and the audio has
-  played, **the learner has the floor**: the microphone is already open, speech is sent as a
-  manual activity turn (`activityStart`/`activityEnd` from a local loudness detector, with a
-  0.5 s pre-roll so the first word is kept). **After a question the tutor waits silently for as
-  long as it takes** (owner decision 2026-10-25): no timeout and no reminder. Every tutor turn
-  ends with a question or `scene_done`, so the floor never opens on a dead end. `SILENCE` is sent
-  only when the learner cut in and then said nothing (10 s), meaning "carry on".
+- **Scripted reading (drift guard).** The client sends each item as `READ:` / `READ QUESTION:` /
+  `READ FEEDBACK:` with the exact text. Each reading's audio is held until its turn completes
+  and its transcript matches the line (lenient: spelling, diacritics, English terms written in
+  Arabic letters; strict on rewording, cuts and added sentences). A drifted reading is thrown
+  away unheard and asked for once more with `READ AGAIN:`. The next line is requested while the
+  current one plays, so there are no gaps.
+- After the question, **the learner has the floor** for as long as it takes (owner decision
+  2026-10-25): the microphone is already open, speech goes in as a manual activity turn
+  (local loudness detector, 0.5 s pre-roll). The tutor gives its verdict and calls `check_done`;
+  the app reads the scripted feedback, then opens the next scene.
+- **Cutting in** (wake word, earbud press, talk button) stops the audio and tells the tutor
+  which line was playing. It answers from the lesson and calls `resume_lesson`; the app re-reads
+  from that line. Ten silent seconds after cutting in also resume the reading.
+- **What the tutor knows:** the whole current lesson's script is in its instruction (the
+  current scene marked, only this scene's answer), plus the course outline. For questions about
+  other lessons it calls `get_lesson(n)`, which the client answers from
+  `GET /api/listen/<course>/lessons/<n>` (script and questions, never answers).
 - If the session drops while waiting (Live connections last ~10 minutes), it stays closed and
   costs nothing; the learner's next words reopen it, are held during the reconnect, and reach the
   tutor with a note of what it last asked.
@@ -75,8 +92,11 @@ the text is authored here and still needs a subject review.
 
 ## Checks
 
-`apps/platform/tests/listen.test.ts` (course structure, titles-only outline, positions, the
-instruction and live setup, WAV wrapping, PCM joining, heard tracking, speech detection) and
-`npm run test:browser:listen` (mocked API and Live socket, silent fake mic: teach → floor →
-SILENCE → scene_done → next session, interrupt note, skip, lesson jump, 390px, Media Session).
-Real provider and real phone tests are still to do.
+`apps/platform/tests/listen.test.ts` (course structure, every question has feedback, scripts
+hide answers, positions, visibility, the instruction and tools, WAV wrapping, PCM joining, heard
+tracking, speech detection), `listen-script.test.ts` (transcript matching, reader order,
+drift re-read, failure, cut-in position) and `npm run test:browser:listen` (mocked API and Live
+socket, silent fake mic: scripted reading with one drifted line, patient wait, `get_lesson`,
+verdict → feedback → next scene, cut-in re-read, quiet drop, skip, lesson jump, 390px).
+Not yet tested: the real Gemini Live model reading Arabic scripts (how often it drifts, how its
+transcripts compare), and real phones.

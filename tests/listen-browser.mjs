@@ -1,8 +1,10 @@
-// Listen mode (audio-only lesson with the live tutor), against a mocked API and Live socket:
-// scene_done moves to the next scene (a fresh session), the talk button cuts the tutor with a
-// silent "heard up to" note, the tutor's question waits indefinitely (no SILENCE, no reconnect
-// after a drop), the lock-screen media session is set, and the page
-// fits 390px. The microphone is a silent fake file, so spoken turns are covered by unit tests.
+// Scripted listen mode against a mocked API and Live socket: the app reads each script line
+// through the tutor and plays only readings whose transcript matches (a drifted line is read
+// again and the drift is never heard), then the question, then waits as long as it takes.
+// The tutor's tools work (get_lesson fetches another lesson; check_done leads to the scripted
+// feedback and the next scene). Cutting in records the line being heard and re-reads it after
+// silence; a drop while waiting stays closed. The mic is a silent fake file, so spoken turns
+// are covered by unit tests.
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -28,8 +30,12 @@ const outline = {
     scenes: l.scenes.map((s) => ({ id: s.id, title: s.title, asks: Boolean(s.check) })),
   })),
 };
-const pcm = Buffer.alloc(24000 * 2 * 0.3).toString('base64');
-const longPcm = Buffer.alloc(24000 * 2 * 4).toString('base64');
+const pcm = (seconds) => Buffer.alloc(Math.round(24000 * 2 * seconds)).toString('base64');
+const scriptOf = ({ lessonId, sceneId }) => {
+  const scene = lessons.find((l) => l.id === lessonId).scenes.find((s) => s.id === sceneId);
+  return { lines: scene.lines, ask: scene.check?.ask, feedback: scene.check?.feedback };
+};
+const DRIFT = 'كلام مختلف خالص عن اللي مكتوب في السكريبت ده';
 const audio = (data) => ({
   serverContent: {
     modelTurn: { parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data } }] },
@@ -82,87 +88,138 @@ try {
   await page.route('https://fonts.googleapis.com/**', (route) =>
     route.fulfill({ contentType: 'text/css', body: '' }),
   );
+  const tools = [];
   await page.route('**/api/**', async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
     if (path === '/api/me')
       return route.fulfill({ json: { user: { id: 'u', name: 'أحمد', email: 's@e.com' } } });
     if (path === `/api/listen/${course.id}`) return route.fulfill({ json: outline });
+    if (path === `/api/listen/${course.id}/lessons/2`)
+      return route.fulfill({ json: { title: lessons[1].title, scenes: [] } });
     if (path === '/api/listen/live') {
-      sessions.push(request.postDataJSON());
-      return route.fulfill({ json: { token: 't', model: 'm', config: {} } });
+      const position = request.postDataJSON();
+      sessions.push(position);
+      return route.fulfill({
+        json: { token: 't', model: 'm', config: {}, script: scriptOf(position) },
+      });
     }
     if (path === '/api/listen/wake') return route.fulfill({ json: { wake: false } });
     return route.fulfill({ status: 404, json: { error: 'missing' } });
   });
   const sockets = [];
+  const say = (ws, value) => ws.send(JSON.stringify(value));
+  const speak = (ws, text, seconds) => {
+    say(ws, { serverContent: { outputTranscription: { text } } });
+    say(ws, {
+      serverContent: {
+        modelTurn: {
+          parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data: pcm(seconds) } }],
+        },
+      },
+    });
+  };
   await page.routeWebSocket('wss://generativelanguage.googleapis.com/**', (ws) => {
     const n = sessions.length;
     sockets[n] = ws;
-    const send = (value) => ws.send(JSON.stringify(value));
+    let drifted = false;
     ws.onMessage((raw) => {
       const message = JSON.parse(raw);
-      if (message.setup) return send({ setupComplete: {} });
+      if (message.setup) return say(ws, { setupComplete: {} });
+      if (message.toolResponse) tools.push(...message.toolResponse.functionResponses);
       const text = message.clientContent?.turns?.[0]?.parts?.[0]?.text ?? '';
       if (message.clientContent)
         sent.push({ n, text, complete: message.clientContent.turnComplete });
-      if (message.realtimeInput?.activityStart) sent.push({ n, text: 'activityStart' });
-      if (text !== 'START' && text !== 'SILENCE') return;
-      if (text === 'START')
-        send({ serverContent: { outputTranscription: { text: 'أهلًا يا أحمد.' } } });
-      // Session 1 teaches and closes its scene in one turn; session 2 talks for a while.
-      if (n === 1)
-        send({ toolCall: { functionCalls: [{ id: 'c1', name: 'scene_done', args: {} }] } });
-      send(audio(n === 2 && text === 'START' ? longPcm : pcm));
-      send({ serverContent: { turnComplete: true } });
+      const read = /^READ(?: QUESTION| FEEDBACK| AGAIN)?:\n([\s\S]*)$/.exec(text);
+      if (!read) return;
+      // Session 1 drifts once on its second line; session 2 reads slowly (to cut into it).
+      const second = n === 1 && read[1] === lessons[0].scenes[0].lines[1] && !drifted;
+      if (second) drifted = true;
+      speak(ws, second ? DRIFT : read[1], n === 2 ? 2 : 0.3);
+      say(ws, { serverContent: { turnComplete: true } });
     });
   });
+  const reads = (n) => sent.filter((m) => m.n === n && m.text.startsWith('READ'));
+  const why = lessons[0].scenes[0];
 
   await page.goto(`${url}/?listen=${course.id}`);
   const status = page.locator('.listen-status');
   const title = () => page.locator('.listen-stage h2').innerText();
   await page.getByRole('button', { name: 'ابدأ الدرس الصوتي' }).click();
-  await page.locator('.listen-log .is-tutor', { hasText: 'أهلًا يا أحمد' }).waitFor();
+
+  // The script is read line by line, then the question; then the learner has the floor.
+  await page.locator('.listen-stage.is-floor').waitFor({ timeout: 20000 });
   assert.deepEqual(sessions[0], {
     courseId: course.id,
     lessonId: 'lesson-01',
     sceneId: 'why',
     style: sessions[0].style,
   });
+  assert.deepEqual(
+    reads(1).map((m) => m.text),
+    [
+      `READ:\n${why.lines[0]}`,
+      `READ:\n${why.lines[1]}`,
+      `READ AGAIN:\n${why.lines[1]}`,
+      ...why.lines.slice(2).map((line) => `READ:\n${line}`),
+      `READ QUESTION:\n${why.check.ask}`,
+    ],
+  );
+  const log = await page.locator('.listen-log').innerText();
+  assert.ok(
+    log.includes(why.lines[1]) && !log.includes(DRIFT),
+    'only the checked reading is heard',
+  );
+  assert.ok(reads(1).every((m) => m.complete === true));
 
-  // scene_done: once its words have played, the next scene opens in a fresh session.
+  // It waits: nothing more is read while the learner hasn't answered.
+  await page.waitForTimeout(3000);
+  assert.equal(reads(1).length, why.lines.length + 2);
+  assert.equal(await status.innerText(), 'دورك: اتكلم');
+
+  // The tutor can pull another lesson's script to answer a question about it.
+  say(sockets[1], {
+    toolCall: { functionCalls: [{ id: 'g1', name: 'get_lesson', args: { lessonNumber: 2 } }] },
+  });
+  for (let i = 0; i < 50 && !tools.length; i++) await page.waitForTimeout(100);
+  assert.deepEqual(tools[0], {
+    id: 'g1',
+    name: 'get_lesson',
+    response: { title: lessons[1].title, scenes: [] },
+  });
+
+  // Verdict in its own words, then check_done: the scripted feedback is read, then the next scene.
+  speak(sockets[1], 'برافو، بالظبط.', 0.5);
+  say(sockets[1], { toolCall: { functionCalls: [{ id: 'c1', name: 'check_done', args: {} }] } });
+  say(sockets[1], { serverContent: { turnComplete: true } });
   await page.waitForFunction(
     () => document.querySelector('.listen-stage h2')?.textContent?.includes('أنواع'),
     null,
     { timeout: 15000 },
   );
+  assert.equal(reads(1).at(-1).text, `READ FEEDBACK:\n${why.check.feedback}`);
   assert.equal(sessions[1].sceneId, 'kinds');
   const lock = await page.evaluate(() => navigator.mediaSession.metadata?.title);
   assert.equal(lock, lessons[0].scenes[1].title, 'lock-screen shows the scene');
 
-  // Cutting in with the talk button stops the tutor and tells it (silently) what was heard;
-  // saying nothing after cutting in means "carry on".
+  // Cutting into the reading notes the line being heard; silence afterwards re-reads it.
   await page.locator('.listen-stage.is-teaching').waitFor({ timeout: 10000 });
+  await page.waitForTimeout(2800);
   await page.getByRole('button', { name: 'عايز أتكلم' }).click();
   await page.locator('.listen-stage.is-floor').waitFor();
   const cut = sent.find((m) => m.n === 2 && m.text.startsWith('INTERRUPTED'));
   assert.ok(cut && cut.complete === false, 'interrupt note is silent context');
-  await page.waitForFunction(
-    () => document.querySelector('.listen-stage.is-floor') === null,
-    null,
-    { timeout: 15000 },
-  );
-  assert.ok(
-    sent.some((m) => m.n === 2 && m.text === 'SILENCE'),
-    'carry on after a silent cut-in',
+  const line = lessons[0].scenes[1].lines.find((l) => cut.text.includes(l));
+  assert.ok(line, 'the note names the line being heard');
+  await page.locator('.listen-stage.is-teaching').waitFor({ timeout: 15000 });
+  assert.equal(
+    reads(2).filter((m) => m.text === `READ:\n${line}`).length,
+    2,
+    're-read from that line',
   );
 
-  // After the tutor asks, it waits for the answer however long it takes: no SILENCE, and a
-  // dropped connection stays closed (no new session) until the learner speaks.
-  await page.locator('.listen-stage.is-floor').waitFor({ timeout: 15000 });
-  await page.waitForTimeout(12000);
-  assert.equal(await status.innerText(), 'دورك: اتكلم');
-  assert.equal(sent.filter((m) => m.n === 2 && m.text === 'SILENCE').length, 1, 'waits silently');
+  // After the question it waits; a dropped connection stays closed until the learner speaks.
+  await page.locator('.listen-stage.is-floor').waitFor({ timeout: 30000 });
   const opened = sessions.length;
   await sockets[2].close();
   await page.waitForTimeout(2000);
@@ -190,7 +247,7 @@ try {
   await page.getByRole('button', { name: 'ابدأ الدرس الصوتي' }).waitFor();
   assert.deepEqual(errors, []);
   console.log(
-    'Listen mode: scene_done, interrupt + carry on, patient wait, quiet drop, skip, lessons, 390px passed.',
+    'Listen mode: scripted reading + drift guard, patient wait, get_lesson, verdict + feedback, cut-in re-read, quiet drop, skip, lessons, 390px passed.',
   );
 } finally {
   await browser?.close();
