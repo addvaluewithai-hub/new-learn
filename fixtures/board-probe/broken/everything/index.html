@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Broken probe</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <style>
+      body {
+        background: #0d1626;
+        color: #fff;
+      }
+      #far {
+        position: absolute;
+        left: 1400px;
+        top: 100px;
+      }
+      #tiny {
+        position: absolute;
+        left: 100px;
+        top: 200px;
+        font-size: 14px;
+      }
+      #system {
+        position: absolute;
+        left: 100px;
+        top: 300px;
+        font-family: Arial, sans-serif;
+      }
+      #edge {
+        position: absolute;
+        left: 100px;
+        top: 0;
+        margin: 0;
+      }
+      #button {
+        position: absolute;
+        left: 100px;
+        top: 500px;
+        width: 30px;
+        height: 30px;
+      }
+      #spin {
+        position: absolute;
+        left: 600px;
+        top: 400px;
+        width: 40px;
+        height: 40px;
+        background: #e0a526;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="far">Outside the canvas</p>
+    <p id="tiny">Too small to read on a phone</p>
+    <p id="system">A system font</p>
+    <p id="edge">Touching the edge</p>
+    <button id="button"></button>
+    <div id="spin"></div>
+    <script>
+      // Breaks the rules on purpose: network, console errors, endless motion, unknown names.
+      fetch('https://example.com/').catch(() => {});
+      console.error('broken probe error');
+      const spin = document.getElementById('spin');
+      const turn = (t) => {
+        spin.style.transform = `rotate(${(t / 4) % 360}deg)`;
+        requestAnimationFrame(turn);
+      };
+      requestAnimationFrame(turn);
+      NewLearnBoard.start({
+        onState() {
+          NewLearnBoard.setVariables({ mass: 3 });
+        },
+      });
+    </script>
+  </body>
+</html>

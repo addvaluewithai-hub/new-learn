@@ -40,7 +40,8 @@ Do not execute unreviewed uploaded JSX or arbitrary module URLs in the student a
 Teacher-made board code (docs/boards.md) is the one exception, and only on the board origin:
 sandboxed iframe without allow-same-origin, server CSP with no network, content-addressed
 immutable files, allowed libraries only. It never runs on the app origin, and our code, not
-the board, grades answers. Board changes need `npm run test:browser:board`.
+the board, grades answers. Every board passes `npm run board:check` before it is used; board
+and board-tool changes also need `npm run test:browser:board` and `npm run test:board-check`.
 Production import must retain immutable files and bind review to the exact content/runtime edition.
 No resets or schema renames merely to match new code folder names.
 Test later DB changes on a separate branch before connecting the new app to production.

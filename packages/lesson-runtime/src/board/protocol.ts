@@ -1,5 +1,5 @@
 import { BOARD_API_VERSION } from './types';
-import type { BoardObservation, BoardView } from './types';
+import type { BoardLayout, BoardObservation, BoardView } from './types';
 
 // postMessage protocol v1 between the lesson (host) and a sandboxed board. Every message is
 // { nl: 1, type, ... }. Unknown types are ignored so later versions can add messages.
@@ -11,6 +11,8 @@ export type BoardEnvironment = {
   dir: 'rtl' | 'ltr';
   theme: 'light' | 'dark';
   reducedMotion: boolean;
+  /** Which fixed canvas the board draws on; sent again when the lesson's layout changes. */
+  layout: BoardLayout;
 };
 export type HostMessage =
   | ({ nl: 1; type: 'init' } & BoardEnvironment)

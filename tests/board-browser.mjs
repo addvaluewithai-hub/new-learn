@@ -45,6 +45,26 @@ const inert = (page) =>
     .locator('body')
     .evaluate((body) => body.inert);
 
+/** The fixed canvas has the lesson's layout and sits entirely inside the board frame. */
+async function canvasFits(page, layout) {
+  let last = {};
+  const fits = async () => {
+    const frame = await page.locator('.html-board iframe').boundingBox();
+    const canvas = await board(page).locator('body').boundingBox();
+    const shown = await board(page).locator('html').getAttribute('data-layout');
+    last = { shown, frame, canvas };
+    const inside =
+      canvas.x >= frame.x - 1 &&
+      canvas.y >= frame.y - 1 &&
+      canvas.x + canvas.width <= frame.x + frame.width + 1 &&
+      canvas.y + canvas.height <= frame.y + frame.height + 1;
+    const fills = canvas.width >= frame.width - 2 || canvas.height >= frame.height - 2;
+    return shown === layout && inside && fills;
+  };
+  // The frame eases in when a scene opens; measure once it has settled.
+  await poll(fits, `canvas fits (${layout}): ${JSON.stringify(last)}`, 5000);
+}
+
 async function run(width, height, answer) {
   const page = await browser.newPage({ viewport: { width, height } });
   const errors = [];
@@ -54,6 +74,16 @@ async function run(width, height, answer) {
   const src = await page.locator('.html-board iframe').getAttribute('src');
   assert.match(src, /^http:\/\/127\.0\.0\.1:5174\/e\/[0-9a-f]{64}\/index\.html$/);
   assert.equal(await page.locator('.html-board iframe').getAttribute('sandbox'), 'allow-scripts');
+  await canvasFits(page, width > 650 ? 'landscape' : 'portrait');
+  // The one board font (served from the board origin) loads inside the sandbox.
+  const fonts = await board(page)
+    .locator('body')
+    .evaluate(() =>
+      [...document.fonts]
+        .map((f) => `${f.family}:${f.status}`)
+        .filter((f) => f.includes('NL Sans')),
+    );
+  assert.ok(fonts.includes('"NL Sans":loaded') || fonts.includes('NL Sans:loaded'), fonts.join());
 
   // Step 1: the lesson sets the board; it is locked and highlights the wire.
   await until(page, '0 N');
@@ -67,6 +97,18 @@ async function run(width, height, answer) {
   // Step 3 is open: the learner's value reaches the lesson and the tutor's context.
   await next(page);
   await poll(async () => !(await inert(page)), 'open input');
+  // Dragging the weight is measured in canvas pixels, so it is right at the phone's scale.
+  const scale = await board(page)
+    .locator('body')
+    .evaluate(() => NewLearnBoard.canvas.scale);
+  const weight = await board(page).locator('#weight').boundingBox();
+  await page.mouse.move(weight.x + weight.width / 2, weight.y + weight.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(weight.x + weight.width / 2, weight.y + weight.height / 2 + 40, {
+    steps: 8,
+  });
+  await page.mouse.up();
+  await until(page, `${Math.min(500, Math.round((200 + 80 / scale) / 10) * 10)} N`);
   await slide(page, 350);
   await poll(
     async () => (await page.locator('.html-board-said').textContent()).includes('350 N'),

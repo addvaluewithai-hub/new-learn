@@ -1,0 +1,11 @@
+{
+  "apiVersion": 1,
+  "id": "probe-broken",
+  "title": "Broken probe",
+  "description": "Synthetic board for board:check's own test: it breaks every rule on purpose.",
+  "libraries": [],
+  "variables": {
+    "load": { "type": "number", "min": 0, "max": 10, "default": 0 }
+  },
+  "targets": ["#far"]
+}

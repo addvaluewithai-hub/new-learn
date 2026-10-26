@@ -28,7 +28,6 @@ const manifest = validateBoardManifest({
     material: { type: 'choice', options: ['steel', 'copper'], default: 'steel' },
   },
   targets: ['#wire', '#ruler'],
-  aspect: '16:9',
 }) as BoardManifest;
 
 test('board manifests reject what the contract does not allow', () => {
@@ -36,7 +35,6 @@ test('board manifests reject what the contract does not allow', () => {
     assert.throws(() => validateBoardManifest({ ...manifest, ...change }, allowed));
   bad({ apiVersion: 2 });
   bad({ id: 'Bad Id' });
-  bad({ aspect: '21:9' });
   bad({ targets: ['.wire'] });
   bad({ targets: ['#a, body'] });
   bad({ libraries: ['three@latest'] });

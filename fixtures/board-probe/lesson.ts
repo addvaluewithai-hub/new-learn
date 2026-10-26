@@ -36,7 +36,7 @@ export const boardProbeLesson: ReadingPackage = {
           board: {
             state: { load: 200 },
             highlight: ['#ruler'],
-            notes: [{ target: '#stretch', text: 'ΔL = F·L / (A·E)' }],
+            notes: [{ target: '#stretch', text: 'الاستطالة = F × L ÷ (A × E)' }],
           },
         },
         {

@@ -2,57 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Stretch a wire</title>
     <script src="/lib/newlearn-board@1/board.js"></script>
     <style>
-      html,
+      /* Drawn on the fixed canvas: 1280×720 landscape, 720×1280 portrait (docs/boards.md). */
       body {
-        margin: 0;
-        height: 100%;
         background: #0d1626;
         color: #e8eef5;
-        font:
-          16px/1.4 system-ui,
-          sans-serif;
       }
       main {
         display: grid;
-        grid-template-columns: 1fr minmax(180px, 34%);
-        gap: 16px;
+        grid-template-columns: 760px 1fr;
+        width: 100%;
         height: 100%;
-        padding: 16px;
+        padding: 32px;
+        gap: 32px;
         box-sizing: border-box;
+      }
+      [data-layout='portrait'] main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 640px 1fr;
       }
       svg {
         width: 100%;
         height: 100%;
       }
+      #weight {
+        cursor: grab;
+        touch-action: none;
+      }
       .panel {
         display: flex;
         flex-direction: column;
-        gap: 14px;
         justify-content: center;
+        gap: 24px;
       }
       label {
         display: grid;
-        gap: 6px;
+        gap: 8px;
       }
       input,
       select {
         width: 100%;
+        min-height: 96px;
         font: inherit;
       }
       output {
-        font-size: 22px;
+        font-size: 44px;
         font-weight: 600;
         color: #c4eb67;
-      }
-      @media (max-aspect-ratio: 1/1) {
-        main {
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr auto;
-        }
       }
     </style>
   </head>
@@ -61,15 +59,15 @@
       <svg viewBox="0 0 300 260" role="img" aria-label="A wire hanging from a support">
         <rect x="60" y="10" width="180" height="14" fill="#5f6f69" />
         <line id="wire" x1="150" y1="24" x2="150" y2="150" stroke="#cfd8dc" stroke-width="4" />
-        <rect id="weight" x="120" y="150" width="60" height="40" rx="6" fill="#e0a526" />
-        <g id="ruler" stroke="#97a39d">
+        <rect id="weight" x="115" y="150" width="70" height="48" rx="6" fill="#e0a526" />
+        <g id="ruler" stroke="#97a39d" stroke-width="2">
           <line x1="230" y1="24" x2="230" y2="250" />
-          <line x1="222" y1="150" x2="238" y2="150" />
+          <line x1="220" y1="150" x2="240" y2="150" />
         </g>
       </svg>
       <div class="panel">
         <label id="load-control"
-          >Load <span id="load-text"></span>
+          ><span>Load: <span id="load-text"></span></span>
           <input id="load" type="range" min="0" max="500" step="10" />
         </label>
         <label
@@ -83,7 +81,7 @@
       </div>
     </main>
     <script>
-      // ΔL = F·L / (A·E) for a 2 m wire with a 1 mm² cross-section.
+      // Stretch = F·L / (A·E) for a 2 m wire with a 1 mm² cross-section.
       const E = { steel: 200e9, copper: 117e9 };
       const stretchMm = (load, material) => ((load * 2) / (1e-6 * E[material])) * 1000;
       const $ = (id) => document.getElementById(id);
@@ -109,6 +107,20 @@
       }
       $('load').addEventListener('input', (e) => change({ load: Number(e.target.value) }));
       $('material').addEventListener('change', (e) => change({ material: e.target.value }));
+      // Dragging the weight down adds 2 N per canvas pixel, measured in canvas pixels so the
+      // drag is right at any scale.
+      let drag = null;
+      $('weight').addEventListener('pointerdown', (e) => {
+        $('weight').setPointerCapture(e.pointerId);
+        drag = { y: NewLearnBoard.point(e).y, load: values.load };
+      });
+      $('weight').addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        const raw = drag.load + (NewLearnBoard.point(e).y - drag.y) * 2;
+        const load = Math.min(500, Math.max(0, Math.round(raw / 10) * 10));
+        if (load !== values.load) change({ load });
+      });
+      $('weight').addEventListener('pointerup', () => (drag = null));
       NewLearnBoard.start({
         onState(view) {
           values = { ...values, ...view.variables };

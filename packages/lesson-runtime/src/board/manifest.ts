@@ -1,7 +1,6 @@
 import { BOARD_API_VERSION } from './types';
-import type { BoardAspect, BoardManifest, BoardValue, BoardValues, BoardVariable } from './types';
+import type { BoardManifest, BoardValue, BoardValues, BoardVariable } from './types';
 
-const ASPECTS: BoardAspect[] = ['16:9', '4:3', '1:1', '3:4', '9:16'];
 const ID = /^[a-z0-9][a-z0-9-]{0,62}$/;
 const NAME = /^[A-Za-z][A-Za-z0-9_]{0,39}$/;
 /** Element ids the lesson may point at: `#` and a plain id, nothing a selector could abuse. */
@@ -39,7 +38,6 @@ export function validateBoardManifest(value: unknown, allowed?: ReadonlySet<stri
   if (!m || typeof m !== 'object' || m.apiVersion !== BOARD_API_VERSION) fail('apiVersion');
   if (typeof m.id !== 'string' || !ID.test(m.id)) fail('id');
   if (!text(m.title, 120) || !text(m.description, 600)) fail('title/description');
-  if (!ASPECTS.includes(m.aspect)) fail('aspect');
   if (!Array.isArray(m.libraries) || !m.libraries.every((l) => LIBRARY.test(l))) fail('libraries');
   for (const library of m.libraries)
     if (allowed && !allowed.has(library)) fail(`library ${library} is not allowed`);

@@ -16,7 +16,7 @@ const READY_MS = 5000;
  * lesson sends the whole state on every change; the board may report the learner's values
  * (clamped here) and one line about what it shows. It never grades or reads answers.
  */
-export function HtmlBoard({ spec, board, reducedMotion }: VisualProps) {
+export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
   const id = typeof spec.params.board === 'string' ? spec.params.board : '';
   const edition = boardEdition(id);
   const src = boardUrl(id);
@@ -59,6 +59,11 @@ export function HtmlBoard({ spec, board, reducedMotion }: VisualProps) {
     };
   }, [edition, id]);
 
+  // A new layout (the phone turned) is a new init: the board switches canvas and redraws.
+  useEffect(() => {
+    if (ready) init();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layout, reducedMotion]);
   const view = board?.view;
   const key = JSON.stringify(view ?? null);
   useEffect(() => {
@@ -76,6 +81,7 @@ export function HtmlBoard({ spec, board, reducedMotion }: VisualProps) {
       dir: 'rtl',
       theme: 'dark',
       reducedMotion,
+      layout,
     });
   return (
     <div

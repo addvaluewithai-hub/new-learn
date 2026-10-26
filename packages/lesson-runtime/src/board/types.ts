@@ -14,7 +14,15 @@ export type BoardVariable =
     }
   | { type: 'choice'; options: string[]; label?: string; default: string };
 
-export type BoardAspect = '16:9' | '4:3' | '1:1' | '3:4' | '9:16';
+export type BoardLayout = 'landscape' | 'portrait';
+/**
+ * The fixed canvases every board draws on, in canvas pixels. The board helper scales the
+ * whole canvas uniformly to fit the frame; every board supports both layouts.
+ */
+export const BOARD_CANVAS: Readonly<Record<BoardLayout, { width: number; height: number }>> = {
+  landscape: { width: 1280, height: 720 },
+  portrait: { width: 720, height: 1280 },
+};
 
 /** `board.json`: what a board declares about itself. */
 export type BoardManifest = {
@@ -25,7 +33,6 @@ export type BoardManifest = {
   libraries: string[];
   variables: Record<string, BoardVariable>;
   targets: string[];
-  aspect: BoardAspect;
 };
 
 export type BoardValue = number | string;

@@ -1,9 +1,9 @@
-export { BOARD_API_VERSION } from './types';
+export { BOARD_API_VERSION, BOARD_CANVAS } from './types';
 export type {
   BoardAnswer,
-  BoardAspect,
   BoardCheck,
   BoardInput,
+  BoardLayout,
   BoardLink,
   BoardManifest,
   BoardNote,

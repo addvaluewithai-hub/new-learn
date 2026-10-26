@@ -5,6 +5,5 @@
   "description": "Synthetic hostile board for tests: it tries to leave the sandbox and reports which attempts were blocked.",
   "libraries": [],
   "variables": {},
-  "targets": ["#report"],
-  "aspect": "16:9"
+  "targets": ["#report"]
 }

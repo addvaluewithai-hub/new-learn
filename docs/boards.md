@@ -21,13 +21,10 @@ versioned (`apiVersion: 1`) rather than frozen: v1 boards keep working when v2 a
 
 ## Non-goals for v1
 
-- Recorded (audio) lessons. v1 is for reading lessons, which already hold the board at the
-  state after each step. Recorded lessons map time to steps through cues later.
-- Server-side rendering or video export.
-- Replacing today's React boards (`MathBoard`, `TextBoard`, ...). They stay as reviewed code
-  in the renderer registry. HTML boards are a new renderer beside them.
+- Recorded (audio) lessons: v1 is for reading lessons; recorded ones map cues to steps later.
+- Server-side rendering, video export, or network access from boards of any kind.
+- Replacing today's React boards (`MathBoard`, `TextBoard`, ...): HTML boards sit beside them.
 - Nova changing the board freely during conversation (see "Later").
-- Network access from boards, of any kind.
 
 ## What a board is
 
@@ -48,13 +45,12 @@ board/<boardId>/
   "id": "youngs-modulus-wire",
   "title": "Stretch a wire",
   "description": "A wire hangs from a support. A slider sets the load; the wire stretches.",
-  "libraries": ["katex@0.16.22"],
+  "libraries": ["katex@0.16.25"],
   "variables": {
     "load": { "type": "number", "min": 0, "max": 500, "step": 10, "unit": "N", "default": 0 },
     "material": { "type": "choice", "options": ["steel", "copper"], "default": "steel" }
   },
-  "targets": ["#wire", "#ruler", "#load-slider"],
-  "aspect": "16:9"
+  "targets": ["#wire", "#ruler", "#load-slider"]
 }
 ```
 
@@ -63,6 +59,20 @@ board/<boardId>/
 - `targets` are element ids the lesson may highlight, reveal or annotate.
 - `libraries` must come from the allow-list below, with exact versions.
 - Size limits: 2 MB per board including assets; 256 KB for `index.html`.
+
+## The canvas
+
+A board draws on a fixed canvas, the document `body`: 1280×720 in landscape and 720×1280 in
+portrait, chosen by the lesson's layout (`init.layout`, `html[data-layout]`). The helper
+scales the whole canvas uniformly to fit the frame and centres it, so what fits once fits on
+every screen of that shape. Every board supports both layouts.
+
+- One font from the board origin: `NL Sans` (IBM Plex Sans Arabic, OFL); KaTeX for maths.
+- Minimum sizes in canvas pixels: text 24 in landscape and 32 in portrait (about 14px on a
+  phone); controls 88 on their short side. Text keeps 8px from the canvas edge.
+- The canvas never scrolls; only an element marked `data-scroll` may scroll inside it.
+- `NewLearnBoard.point(event)` gives pointer positions in canvas pixels, right at any scale;
+  `NewLearnBoard.canvas` gives the layout and scale (e.g. for sharp `<canvas>` drawing).
 
 ## Where it appears in a lesson
 
@@ -206,21 +216,29 @@ Adding a library is a reviewed change to the allow-list with its licence and siz
 
 ## Automatic board check
 
-`npm run board:check -- <board folder>` runs before import, and later on every connector
-upload. A board that fails is not published. In headless Chromium it verifies:
+`npm run board:check -- <board folder> [--lesson <module>]` opens the board as students get
+it (its own origin, production headers, a sandboxed iframe) in a laptop landscape frame
+(1100×619) and a 390px phone's portrait frame (316×562), in Arabic and English. It draws every
+lesson page that shows the board plus a sweep (defaults, each variable at its extremes, every
+target marked, input open) and fails on:
 
-1. `board.json` matches the schema, libraries are allowed, sizes are within limits.
-2. The board sends `ready` within 5 seconds, with no uncaught errors or console errors.
-3. Every step state used by the lesson renders: a screenshot per step at 1280×720 and
-   360×640, with no content outside the frame and no horizontal scroll.
-4. Arabic (`dir="rtl"`) and English both render; `reducedMotion` stops continuous animation.
-5. No network attempt of any kind (CSP violation reports count as failures).
-6. `variables` and `observation` messages are well formed and within limits; the same state
-   twice gives the same screenshot.
-7. A simple interaction smoke test: with input open, keyboard focus reaches a control.
+| Rule                          | Fails when                                                |
+| ----------------------------- | --------------------------------------------------------- |
+| files                         | the manifest, a file type or a size limit is wrong        |
+| ready                         | no `ready` within 5 seconds                               |
+| inside-canvas                 | an element leaves the canvas                              |
+| text-overflow, text-edge      | text is cut off or spills, or is within 8px of the edge   |
+| text-size, control-size, font | below the minimum sizes, or not NL Sans or KaTeX          |
+| network, console, error       | any network attempt, console error or uncaught error      |
+| board-error, variables        | the board reports an error or undeclared variable names   |
+| observation, keyboard         | it never calls `observe`, or Tab reaches no open control  |
+| deterministic                 | the same state draws a different picture (reduced motion) |
 
-The report (hash of the board, checker version, results, screenshots) is stored with the
-edition. Passing the check is structural, not an editorial or teaching approval.
+It writes `report.json` (board id, content hash, checker version, each problem with where it
+appeared) and screenshots, and exits 1 on any problem, so the author's AI can fix and rerun.
+`npm run test:board-check` proves every rule against `fixtures/board-probe/broken/everything`.
+Dragging at scale is covered per board by its own browser test (`test:browser:board` for the
+probe). Passing is structural, not an editorial or teaching approval.
 
 ## Editions and versions
 
@@ -232,11 +250,9 @@ edition. Passing the check is structural, not an editorial or teaching approval.
 
 ## Accessibility
 
-- `description` in `board.json` and each `observation.summary` are exposed to screen readers
-  by the host in a polite live region, outside the iframe.
-- Boards must be usable by keyboard when input is open; the check enforces focus reachability.
-- Every step's text already explains what the board shows, so a student who cannot see the
-  board can still follow the lesson.
+The host reads `description` and each `observation.summary` to screen readers in a polite
+live region outside the iframe; open boards must work by keyboard (checked); and every step's
+text already explains the board, so a student who cannot see it can still follow.
 
 ## Where the code goes
 
@@ -250,7 +266,8 @@ edition. Passing the check is structural, not an editorial or teaching approval.
   `dist-boards/` with `_headers`, and writes the app's editions map.
   `tools/serve-boards.mjs` serves it locally on port 5174 with the same headers.
 - `fixtures/board-probe/`: the synthetic wire board, a hostile sandbox probe and a lesson.
-- Next: `tools/check-board.mjs`, and `content:import` support for `board/<id>/` folders.
+- `tools/check-board.mjs` with `tools/boards/` (origin, serving, states, in-board inspection).
+- Next: `content:import` support for `board/<id>/` folders.
 
 Deploying the board origin: a second Cloudflare Pages project named `new-learn-boards` on
 this repository, build command `npm run prepare:boards`, output directory `dist-boards`,
@@ -264,7 +281,7 @@ new app origin in `FRAME_ANCESTORS` (tools/build-boards.mjs).
 2. Done: board origin with CSP, served locally and in CI; `test:browser:board` shows every
    escape attempt blocked (cookies, storage, parent, top navigation, popups, network,
    same-origin fetch, external images) at 1280px and 390px.
-3. `board:check`.
+3. Done: fixed canvases with automatic scaling, one board font, and `board:check`.
 4. Physics chapter 8, Young's modulus: one real `html-board` with a board question.
 5. Connector tools that write boards (roadmap item 1), validated by the same check.
 

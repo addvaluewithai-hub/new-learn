@@ -1,10 +1,21 @@
 {
-  "note": "Libraries boards may use, served from the board origin at /lib/<name>@<version>/. Adding one is a reviewed change with its licence. Not GSAP: see docs/boards.md.",
+  "note": "Libraries boards may use, served from the board origin at /lib/<name>@<version>/. Adding one is a reviewed change with its licence. Not GSAP: see docs/boards.md. The font is always served and needs no declaration.",
   "libraries": {
     "katex@0.16.25": {
       "license": "MIT",
       "from": "node_modules/katex/dist",
       "files": ["katex.min.js", "katex.min.css", "fonts"]
+    },
+    "ibm-plex-sans-arabic@1.0.0": {
+      "license": "OFL-1.1",
+      "from": "apps/platform/public/fonts/book",
+      "files": [
+        "ibm-plex-sans-arabic-arabic-400-normal.woff2",
+        "ibm-plex-sans-arabic-arabic-600-normal.woff2",
+        "ibm-plex-sans-arabic-latin-400-normal.woff2",
+        "ibm-plex-sans-arabic-latin-600-normal.woff2",
+        "LICENSE-IBM-Plex-Sans-Arabic-OFL.txt"
+      ]
     }
   }
 }

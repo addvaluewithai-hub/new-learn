@@ -21,6 +21,5 @@
       "default": "steel"
     }
   },
-  "targets": ["#wire", "#ruler", "#load-control", "#stretch"],
-  "aspect": "16:9"
+  "targets": ["#wire", "#ruler", "#load-control", "#stretch"]
 }
