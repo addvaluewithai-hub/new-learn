@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-03",
+  "order": 3,
+  "title": "بنية التبرير: الأساس والتماسك",
+  "englishTitle": "Epistemology: an introduction — Lesson 3",
+  "subtitle": "Epistemology: an introduction — Lesson 3",
+  "delivery": "reading",
+  "contentRevision": "28cde7d91aa8f3c06e20128f536eb8f3a3ced625bc1b03c6ba17ed3553be3bbd",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-03",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "1bd863ec230f753b120e395757baee35ed9049bde9229a2da479e410e3cb1208",
+      "bytes": 13659
+    }
+  ],
+  "manifestHash": "d09b568d3701944e7cf752c8062991f8d5a222d34df843e3e49630fed402ab51"
+}

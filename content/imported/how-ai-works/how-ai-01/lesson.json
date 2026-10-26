@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-01",
+  "order": 1,
+  "title": "الصورة الكبيرة: يعني إيه ذكاء اصطناعي؟",
+  "englishTitle": "How AI Actually Works — Lesson 1",
+  "subtitle": "How AI Actually Works — Lesson 1",
+  "delivery": "reading",
+  "contentRevision": "9fe4de317fc64212ff9c99f56d9110d2555a5160c3d454aefaaf5a21c2c1a174",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-01",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "754caa13022068fe6c84ed0566fd8c03fc1d7c235bd51cc3cbe60181f1b731f2",
+      "bytes": 35734
+    }
+  ],
+  "manifestHash": "2fd6878f076bb02c7bdbcc1a7e749ad8758cea58a1dc7f50ccc6dd2435144608"
+}

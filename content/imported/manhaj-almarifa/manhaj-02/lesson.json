@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-02",
+  "order": 2,
+  "title": "مشكلة جيتييه",
+  "englishTitle": "Epistemology: an introduction — Lesson 2",
+  "subtitle": "Epistemology: an introduction — Lesson 2",
+  "delivery": "reading",
+  "contentRevision": "a8f7f812cce6034b0d68d43075597b19751e5adb212aca3d0ba4e18a9d332bd0",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-02",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "c266826cf33bdd973acdf58cab7ebb952c5c059ba9c1e9a47727a8d7f5951472",
+      "bytes": 13802
+    }
+  ],
+  "manifestHash": "12c971097d7d767ffbd4eff9bed8bd09538df4b133fca30379fc63a83fd1949e"
+}

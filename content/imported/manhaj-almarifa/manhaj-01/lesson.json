@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-01",
+  "order": 1,
+  "title": "يعني إيه معرفة؟",
+  "englishTitle": "Epistemology: an introduction — Lesson 1",
+  "subtitle": "Epistemology: an introduction — Lesson 1",
+  "delivery": "reading",
+  "contentRevision": "5a7daefc75218ec87e68b6f59cc099cef604bd1795e827bf3409c4bdd4d7a8c9",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "83bf6e04fea89f0dbf142c9ed530f8ac362f60151bcd01e81c512616b66fc1cb",
+      "bytes": 13359
+    }
+  ],
+  "manifestHash": "a9777f94c5128ee0924f181dd50b8fe491c67d8273288352f3205aa7582ab489"
+}

@@ -999,6 +999,580 @@
       ]
     },
     {
+      "id": "how-ai-works",
+      "title": "إزاي الذكاء الاصطناعي بيشتغل",
+      "description": "الذكاء الاصطناعي من جوه: الرياضيات من الصفر، والشبكات العصبية، والترانسفورمر، وإزاي الموديلات بتتبني وبتشتغل.",
+      "subject": "Computer Science — ذكاء اصطناعي",
+      "parts": [
+        {
+          "title": "إزاي الذكاء الاصطناعي بيشتغل",
+          "summary": "",
+          "lessons": [
+            "how-ai-01"
+          ]
+        }
+      ],
+      "lessons": [
+        {
+          "id": "how-ai-01",
+          "curriculumId": "how-ai-works",
+          "order": 1,
+          "title": "الصورة الكبيرة: يعني إيه ذكاء اصطناعي؟",
+          "subtitle": "How AI Actually Works — Lesson 1",
+          "moduleId": "reading:how-ai-01",
+          "contentRevision": "9fe4de317fc64212ff9c99f56d9110d2555a5160c3d454aefaaf5a21c2c1a174",
+          "manifestHash": "2fd6878f076bb02c7bdbcc1a7e749ad8758cea58a1dc7f50ccc6dd2435144608",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "برمجة بالقواعد ولا تعلّم من الأمثلة؟",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "من 1956 لـ 2012: حماس وشتا وصحوة",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "من الترانسفورمر لـ ChatGPT والموديلات اللي بتفكر",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "الدرس المرّ وخريطة الكورس",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manhaj-almarifa",
+      "title": "منهج المعرفة (نظرية المعرفة)",
+      "description": "مقدمة في نظرية المعرفة زي ما بتتدرّس في أقسام الفلسفة: يعني إيه نعرف، ومنين المعرفة بتيجي، وإمتى نثق فيها.",
+      "subject": "Philosophy — فلسفة",
+      "parts": [
+        {
+          "title": "منهج المعرفة",
+          "summary": "",
+          "lessons": [
+            "manhaj-01",
+            "manhaj-02",
+            "manhaj-03",
+            "manhaj-04",
+            "manhaj-05",
+            "manhaj-06",
+            "manhaj-07",
+            "manhaj-08",
+            "manhaj-09",
+            "manhaj-10"
+          ]
+        }
+      ],
+      "lessons": [
+        {
+          "id": "manhaj-01",
+          "curriculumId": "manhaj-almarifa",
+          "order": 1,
+          "title": "يعني إيه معرفة؟",
+          "subtitle": "Epistemology: an introduction — Lesson 1",
+          "moduleId": "reading:manhaj-01",
+          "contentRevision": "5a7daefc75218ec87e68b6f59cc099cef604bd1795e827bf3409c4bdd4d7a8c9",
+          "manifestHash": "a9777f94c5128ee0924f181dd50b8fe491c67d8273288352f3205aa7582ab489",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "العلم اللي بيسأل إزاي إحنا عارفين",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "أنواع المعرفة",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "التعريف الكلاسيكي: اعتقاد صادق مبرَّر",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-02",
+          "curriculumId": "manhaj-almarifa",
+          "order": 2,
+          "title": "مشكلة جيتييه",
+          "subtitle": "Epistemology: an introduction — Lesson 2",
+          "moduleId": "reading:manhaj-02",
+          "contentRevision": "a8f7f812cce6034b0d68d43075597b19751e5adb212aca3d0ba4e18a9d332bd0",
+          "manifestHash": "12c971097d7d767ffbd4eff9bed8bd09538df4b133fca30379fc63a83fd1949e",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "تلات صفحات هزّت الفلسفة",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "المشكلة هي الحظ",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "طب ليه المعرفة أحسن من التخمين الصح؟",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-03",
+          "curriculumId": "manhaj-almarifa",
+          "order": 3,
+          "title": "بنية التبرير: الأساس والتماسك",
+          "subtitle": "Epistemology: an introduction — Lesson 3",
+          "moduleId": "reading:manhaj-03",
+          "contentRevision": "28cde7d91aa8f3c06e20128f536eb8f3a3ced625bc1b03c6ba17ed3553be3bbd",
+          "manifestHash": "d09b568d3701944e7cf752c8062991f8d5a222d34df843e3e49630fed402ab51",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "مشكلة التسلسل اللانهائي",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "مذهب الأسس",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "مذهب التماسك",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-04",
+          "curriculumId": "manhaj-almarifa",
+          "order": 4,
+          "title": "المصدر الأول: الإدراك الحسي",
+          "subtitle": "Epistemology: an introduction — Lesson 4",
+          "moduleId": "reading:manhaj-04",
+          "contentRevision": "d65ae21e99d5a4258dc9ecf841ec0cc71be2537b8cc0776d5643309e662f299a",
+          "manifestHash": "f6473a3c0840c753067e6c06b33e4d44bd077ab02fd032c743ec9b9726a279e5",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "الحواس باب المعرفة الأول",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "حجة الخداع الحسي",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "إحنا بنشوف العالم ولا صورة منه؟",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-05",
+          "curriculumId": "manhaj-almarifa",
+          "order": 5,
+          "title": "المصدر التاني: العقل والمعرفة القَبْلية",
+          "subtitle": "Epistemology: an introduction — Lesson 5",
+          "moduleId": "reading:manhaj-05",
+          "contentRevision": "a5ba4439e921a70c41032a06ef26b8d8ec85a527d15081c9ae22fb6f554e519f",
+          "manifestHash": "087be2e3b95f55687cc2dd3a8f7584eecd423492b2dee2d8405a58647b70e83d",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "معرفة قبل التجربة",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "قوانين المنطق",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "الاستنباط والاستقراء",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-06",
+          "curriculumId": "manhaj-almarifa",
+          "order": 6,
+          "title": "المصدر التالت: الشهادة والذاكرة",
+          "subtitle": "Epistemology: an introduction — Lesson 6",
+          "moduleId": "reading:manhaj-06",
+          "contentRevision": "de952d5f0384e58ccea5b4a27768eedea973747ef247712d2bb172b86a335d0a",
+          "manifestHash": "652db7fa80fa9652307bd3733df82306c04f418a148a378230bdf15e8d8c07ff",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "أغلب اللي تعرفه سمعته",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "هيوم ضد ريد",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "إزاي تقيّم مصدر",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "الذاكرة",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-07",
+          "curriculumId": "manhaj-almarifa",
+          "order": 7,
+          "title": "المعرفة العلمية: هيوم وبوبر وكون",
+          "subtitle": "Epistemology: an introduction — Lesson 7",
+          "moduleId": "reading:manhaj-07",
+          "contentRevision": "e697d488b8dbb27deb73edb8b95361e6daac9980328a276001d8c96c3bb6b235",
+          "manifestHash": "4ba3359a9e04080ec162c1a805e7f43a13b249daad758a6f0319b93d01f27f07",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "إزاي العلم بيشتغل",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "مشكلة الاستقراء",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "بوبر: العلم بيكذّب مش بيثبت",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "كون: الثورات العلمية",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-08",
+          "curriculumId": "manhaj-almarifa",
+          "order": 8,
+          "title": "الشكوكية: هل نقدر نعرف أي حاجة؟",
+          "subtitle": "Epistemology: an introduction — Lesson 8",
+          "moduleId": "reading:manhaj-08",
+          "contentRevision": "a3ab56631025f7412948cf73ec17a4c591468a5a84893ffc0f0dfea53ca508cd",
+          "manifestHash": "1be347bb3419cfa61f0e643a51ee4bfda162aa2abba4bf74aec7852a25cd3e24",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "ديكارت: الحلم والشيطان الماكر",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "مخ في وعاء",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "الردود على الشكّاك",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-09",
+          "curriculumId": "manhaj-almarifa",
+          "order": 9,
+          "title": "الصدق: يعني إيه حاجة تبقى صح؟",
+          "subtitle": "Epistemology: an introduction — Lesson 9",
+          "moduleId": "reading:manhaj-09",
+          "contentRevision": "9110cf72a76b85dd859ef081533032df1c73d49691733d8cdfc3ad3d5e01c205",
+          "manifestHash": "b0f2e6543f1d73f5743ac6d8a223f82d5dd23c973ac53d4295841c5ad26616f2",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "نظرية التطابق",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "نظريات تانية",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "هل الحقيقة نسبية؟",
+              "sceneIds": [
+                "S05",
+                "S07"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manhaj-10",
+          "curriculumId": "manhaj-almarifa",
+          "order": 10,
+          "title": "المعرفة في المجتمع والتفكير النقدي",
+          "subtitle": "Epistemology: an introduction — Lesson 10",
+          "moduleId": "reading:manhaj-10",
+          "contentRevision": "2144236d24978c3d07385c1192e41df24ecb69f3b246646b8982ce417ec18537",
+          "manifestHash": "0cfcbd54ff5c2f9140e90f259bd97af13cf0401adce1ccd7c5bc8c1992c35247",
+          "runtimeVersion": "0.3.2",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "الخبراء والاعتماد على الآخرين",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "انحيازات العقل",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "مغالطات منطقية",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "ميزانك والختام",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "mathematics-i-algebra",
       "title": "رياضة 1 · الجبر",
       "description": "من جمع الكسور العادية لحد تفكيك الكسور الجزئية، خطوة بخطوة وبالأمثلة.",
