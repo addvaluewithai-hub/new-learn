@@ -271,7 +271,7 @@ text already explains the board, so a student who cannot see it can still follow
 
 Deploying the board origin: a second Cloudflare Pages project, `new-learn-boards`, on this
 same repository with root directory `boards` (so it never picks up the app's `wrangler.jsonc`
-or its `functions/` API), build command `cd .. && npm ci && npm run prepare:boards`, output
+or its `functions/` API; `boards/wrangler.jsonc` holds its own settings), build command `cd .. && npm ci && npm run prepare:boards`, output
 directory `dist` (that is, `boards/dist`) and `NODE_VERSION=24`. A custom domain later only needs `VITE_BOARD_ORIGIN` on the app's build and the
 new app origin in `FRAME_ANCESTORS` (tools/build-boards.mjs).
 

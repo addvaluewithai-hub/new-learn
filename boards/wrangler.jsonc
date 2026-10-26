@@ -1,0 +1,9 @@
+// The board site's own Cloudflare Pages settings (docs/boards.md). It sits in the project's
+// root directory (`boards`), so Pages reads it instead of the app's wrangler.jsonc: static
+// files only, no app variables and no functions.
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "new-learn-boards",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-09",
+}
