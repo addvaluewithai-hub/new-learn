@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { useMediaQuery } from '../useMediaQuery';
 import { goalProgress } from './goals';
@@ -12,7 +12,10 @@ import {
   readingPositionOf,
   type ReadingPosition,
 } from './model';
+import { validateLessonBoards } from './board';
 import { ReadingBoard } from './ReadingBoard';
+import { useReadingBoard } from './useBoard';
+import { useReadingKeys } from './stage/keys';
 import { PageCaption } from './stage/Caption';
 import { Complete } from './stage/Complete';
 import { AnswerDock, Dock } from './stage/Dock';
@@ -20,7 +23,7 @@ import { ScenesList, Sheet } from './stage/Sheets';
 import { Thread } from './stage/Thread';
 import { readingMs, usePageVisible } from './stage/flow';
 import { useCaptionShown } from './stage/captionPref';
-import { GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
+import { ExitLink, GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
 import { threadItems } from './thread';
 import type { ReadingLessonProps, ReadingProgress } from './props';
 import { validateReadingPackage } from './validate';
@@ -33,8 +36,12 @@ import './stage/flow.css';
 // A content change remounts the session, like recorded lessons.
 export function ReadingLesson(props: ReadingLessonProps) {
   const lesson = useMemo(
-    () => validateReadingPackage(props.lesson, new Set(Object.keys(props.registry))),
-    [props.lesson, props.registry],
+    () =>
+      validateLessonBoards(
+        validateReadingPackage(props.lesson, new Set(Object.keys(props.registry))),
+        props.boards,
+      ),
+    [props.lesson, props.registry, props.boards],
   );
   return (
     <ReadingSession
@@ -113,7 +120,8 @@ function ReadingSession(props: ReadingLessonProps) {
     setIndex(index + 1);
   };
 
-  const context = readingContext(lesson, page, complete);
+  const live = useReadingBoard(lesson, pages, index, answers, props.boards);
+  const context = { ...readingContext(lesson, page, complete), board: live.context };
   // Host-driven navigation (e.g. narration): never past an unanswered question.
   useHostBridge(
     context,
@@ -123,9 +131,10 @@ function ReadingSession(props: ReadingLessonProps) {
         const target = readingPageIndex(lesson, pages, at as ReadingPosition);
         if (target >= 0 && (target <= index || !answering)) go(target);
       },
-      answer: (value) => void (answering && value.trim() && answer(value.trim())),
+      answer: (value) =>
+        void (answering && question?.attempt !== 'board' && value.trim() && answer(value.trim())),
     },
-    `${index}:${complete}`,
+    `${index}:${complete}:${live.observed}`,
     onReady,
     onContext,
   );
@@ -139,17 +148,12 @@ function ReadingSession(props: ReadingLessonProps) {
     [index, reached, answers, complete, done],
     onProgress,
   );
-  useEffect(() => {
-    if (props.suspended || sheet) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && threadOpen) setThread(false);
-      if ((event.target as HTMLElement | null)?.closest('textarea, input, select')) return;
-      if (event.key === 'ArrowLeft' && !answering && !complete) go(index + 1);
-      if (event.key === 'ArrowRight') go(index - 1);
-    };
-    addEventListener('keydown', onKey);
-    return () => removeEventListener('keydown', onKey);
-  }, [go, index, answering, complete, props.suspended, sheet, threadOpen, setThread]);
+  useReadingKeys(!props.suspended && !sheet, {
+    threadOpen,
+    closeThread: () => setThread(false),
+    forward: answering || complete ? null : () => go(index + 1),
+    back: () => go(index - 1),
+  });
 
   const caption = useCaptionShown();
   // Hiding the text never hides a question: the learner needs it to answer.
@@ -161,7 +165,8 @@ function ReadingSession(props: ReadingLessonProps) {
   const visible = usePageVisible();
   const held = !visible || Boolean(props.suspended || sheet) || (threadOpen && !flow?.narrating);
   const items = threadOpen ? threadItems(lesson, pages, index, answers, talk?.notes) : [];
-  const board = readingBoardProps(scene, page, layout, lesson.fps, reducedMotion);
+  const shown = readingBoardProps(scene, page, layout, lesson.fps, reducedMotion);
+  const board = shown && { ...shown, board: live.link ?? undefined };
   const Board = board ? registry[board.spec.renderer] : undefined;
   const size = lesson.dimensions[layout];
   const shape = { '--rl-ar': `${size.width / size.height}` } as CSSProperties;
@@ -175,17 +180,7 @@ function ReadingSession(props: ReadingLessonProps) {
       data-answering={answering || undefined}
     >
       <TopBar
-        start={
-          props.exit ? (
-            <a
-              className="rl-round rl-round-sm"
-              href={props.exit.href}
-              aria-label={props.exit.label}
-            >
-              ×
-            </a>
-          ) : null
-        }
+        start={<ExitLink exit={props.exit} />}
         title={lesson.title}
         sceneTitle={complete ? 'خلّصت الدرس' : scene.title}
         track={
@@ -260,6 +255,7 @@ function ReadingSession(props: ReadingLessonProps) {
               onBack={() => go(index - 1)}
               onSubmit={answer}
               written={question!.attempt !== 'choice'}
+              board={question!.board ? () => answer(live.answer()) : undefined}
             />
           ) : (
             <Dock

@@ -39,6 +39,9 @@ jobs:
       - run: npm run test:browser:statics
       - run: npm run test:browser:talk
       - run: npm run test:browser:flow
+      - run: npm run test:browser:handsfree
+      - run: npm run test:browser:board
+      - run: npm run test:board-check
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()

@@ -1,0 +1,9 @@
+{
+  "apiVersion": 1,
+  "id": "probe-escape",
+  "title": "Sandbox probe",
+  "description": "Synthetic hostile board for tests: it tries to leave the sandbox and reports which attempts were blocked.",
+  "libraries": [],
+  "variables": {},
+  "targets": ["#report"]
+}

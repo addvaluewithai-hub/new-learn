@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sandbox probe</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+  </head>
+  <body>
+    <pre id="report">probing…</pre>
+    <script>
+      // Every attempt must fail inside the board sandbox; "open" means the sandbox leaked.
+      const results = {};
+      const attempt = (name, fn) => {
+        try {
+          results[name] = fn() ? 'open' : 'blocked';
+        } catch {
+          results[name] = 'blocked';
+        }
+      };
+      attempt('cookie', () => {
+        document.cookie = 'probe=1';
+        return document.cookie.includes('probe=1');
+      });
+      attempt('localStorage', () => {
+        localStorage.setItem('probe', '1');
+        return localStorage.getItem('probe') === '1';
+      });
+      attempt('parentDocument', () => Boolean(parent.document.body));
+      attempt('topLocation', () => Boolean(top.location.href));
+      attempt('popup', () => Boolean(window.open('https://example.com')));
+      const load = (url) =>
+        fetch(url).then(
+          () => 'open',
+          () => 'blocked',
+        );
+      const image = (url) =>
+        new Promise((done) => {
+          const img = new Image();
+          img.onload = () => done('open');
+          img.onerror = () => done('blocked');
+          img.src = url;
+        });
+      Promise.all([
+        load('https://example.com/'),
+        load('/lib/newlearn-board@1/board.js'),
+        image('https://example.com/pixel.png'),
+      ]).then(([network, sameOrigin, externalImage]) => {
+        Object.assign(results, { network, sameOrigin, externalImage });
+        document.getElementById('report').textContent = JSON.stringify(results, null, 2);
+        NewLearnBoard.observe('escape report', results);
+      });
+      NewLearnBoard.start({ onState() {} });
+    </script>
+  </body>
+</html>

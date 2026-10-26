@@ -1,3 +1,4 @@
+import { decodeBoardAnswer, gradeBoard } from '../../board/state';
 import { ReadText, textDirection } from '../ReadText';
 import { pageSteps } from '../model';
 import type { ReadingPage, ReadingQuestion, ReadingScene } from '../types';
@@ -8,6 +9,7 @@ export function Caption({
   text,
   lead,
   answer,
+  verdict,
   step,
   steps,
   onThread,
@@ -17,6 +19,8 @@ export function Caption({
   /** The start of a sentence that began on earlier steps, shown faded before this one. */
   lead?: string;
   answer?: string;
+  /** A board answer our code graded. */
+  verdict?: boolean;
   step: number;
   steps: number;
   /** Opens the whole lesson conversation. */
@@ -48,6 +52,11 @@ export function Caption({
       {answer !== undefined ? (
         <p className="rl-yours">
           إجابتك: <bdi dir="auto">{answer || 'معرفتش'}</bdi>
+          {verdict === undefined ? null : (
+            <span className="rl-verdict" data-correct={verdict}>
+              {verdict ? ' ✓ مظبوطة' : ' ✗ لسه مش مظبوطة'}
+            </span>
+          )}
         </p>
       ) : null}
     </div>
@@ -67,7 +76,8 @@ export function QuestionCaption({
   /** Ask the tutor for a hint (never the answer). */
   onHint?: () => void;
 }) {
-  const choices = question.attempt !== 'written' ? question.options : [];
+  const chooses = question.attempt === 'choice' || question.attempt === 'choice-and-written';
+  const choices = chooses ? question.options : [];
   return (
     <div className="rl-caption rl-question">
       <div className="rl-caption-meta">
@@ -99,6 +109,9 @@ export function QuestionCaption({
             </button>
           ))}
         </div>
+      ) : null}
+      {question.attempt === 'board' ? (
+        <p className="rl-board-ask">غيّر البورد لحد ما توصل لإجابتك، وبعدين اضغط «ابعت».</p>
       ) : null}
     </div>
   );
@@ -134,13 +147,17 @@ export function PageCaption({
     );
   const steps = pageSteps(scene, page);
   const attempt = page.kind === 'attempt';
+  const raw =
+    page.kind === 'feedback' && page.step === 0 && question ? answers[question.id] : undefined;
+  const onBoard = question?.board ? decodeBoardAnswer(raw) : null;
   return (
     <Caption
       label={page.kind === 'feedback' ? 'الإجابة النموذجية' : attempt ? 'سؤال' : undefined}
       text={attempt ? question!.english : steps[page.step].text}
       lead={attempt ? undefined : sentenceLead(steps, page.step)}
-      answer={
-        page.kind === 'feedback' && page.step === 0 && question ? answers[question.id] : undefined
+      answer={onBoard ? onBoard.text : raw}
+      verdict={
+        onBoard && question?.board ? gradeBoard(question.board.check, onBoard.values) : undefined
       }
       step={attempt ? 0 : page.step}
       steps={attempt ? 1 : steps.length}

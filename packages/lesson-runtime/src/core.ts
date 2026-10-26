@@ -28,3 +28,4 @@ export type {
   ReadingScene,
   ReadingStep,
 } from './reading/types';
+export * from './board';

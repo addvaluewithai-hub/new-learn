@@ -1,0 +1,30 @@
+.html-board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.html-board iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #0d1626;
+}
+.html-board-fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 16px;
+  color: #cfd8dc;
+  text-align: center;
+}
+/* What the board says about itself, for screen readers only. */
+.html-board-said {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

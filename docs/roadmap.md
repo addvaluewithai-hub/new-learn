@@ -65,6 +65,8 @@ Curricula now enter only as reviewed, immutable bundles via `content:import`
 
 The board (`VisualSpec`: renderer + params) can run HTML, canvas, React or code-made
 video. User code never runs in the app origin (AGENTS.md forbids unreviewed code there).
+Design: docs/boards.md. Research on OpenMAIC, MCP Apps, HyperFrames and Remotion:
+docs/research/openmaic.md.
 
 - Board runs in an iframe on a separate domain, with no access to logins or user data.
 - A small message bridge: step started, question answered, show feedback.

@@ -1,5 +1,6 @@
 import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import type { ComponentType } from 'react';
+import type { BoardLink } from './board/types';
 import type {
   LessonLayout,
   LessonQuestion,
@@ -29,6 +30,8 @@ export type VisualProps = {
    * clock (the board is held at the settled time of the learner's current line).
    */
   reading?: { steps: Array<{ text: string; atMs: number }> };
+  /** Live (`html-board`) boards only: the state to show and the way back to the lesson. */
+  board?: BoardLink;
 };
 export type RendererRegistry = Readonly<Record<string, ComponentType<VisualProps>>>;
 export type CompositionProps = {

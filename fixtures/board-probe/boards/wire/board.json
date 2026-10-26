@@ -1,0 +1,25 @@
+{
+  "apiVersion": 1,
+  "id": "probe-wire",
+  "title": "Stretch a wire",
+  "description": "Synthetic probe board: a wire hangs from a support; a slider sets the load and the wire stretches by F·L/(A·E).",
+  "libraries": [],
+  "variables": {
+    "load": {
+      "type": "number",
+      "min": 0,
+      "max": 500,
+      "step": 10,
+      "unit": "N",
+      "label": "Load",
+      "default": 0
+    },
+    "material": {
+      "type": "choice",
+      "options": ["steel", "copper"],
+      "label": "Material",
+      "default": "steel"
+    }
+  },
+  "targets": ["#wire", "#ruler", "#load-control", "#stretch"]
+}

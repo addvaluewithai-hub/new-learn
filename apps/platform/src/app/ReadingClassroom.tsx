@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { ReadingLesson } from '@learn/lesson-runtime';
 import type {
+  BoardManifest,
   LessonContext,
   LessonController,
   ReadingPackage,
@@ -19,7 +20,12 @@ import { useHandsFree, useVoiceHooks } from '../features/nova/handsfree/useHands
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 
-export type ReadingModule = { readingLesson: ReadingPackage; readingRenderers: RendererRegistry };
+export type ReadingModule = {
+  readingLesson: ReadingPackage;
+  readingRenderers: RendererRegistry;
+  /** Manifests of the live boards the lesson uses (docs/boards.md). */
+  readingBoards?: Readonly<Record<string, BoardManifest>>;
+};
 const SAVE: Record<SaveState, string> = {
   idle: '',
   saving: 'بنحفظ…',
@@ -127,6 +133,7 @@ export default function ReadingClassroom({
       <ReadingLesson
         lesson={lesson}
         registry={module.readingRenderers}
+        boards={module.readingBoards}
         initial={saved.initial}
         suspended={assistantOpen}
         onContext={setContext}

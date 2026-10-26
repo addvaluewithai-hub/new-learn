@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { LessonContext, LessonController } from '../context';
 import type { RendererRegistry } from '../renderers';
 import type { LessonLayout } from '../types';
+import type { BoardManifests } from './board';
 import type { ReadingPosition } from './model';
 import type { ThreadNote } from './thread';
 import type { ReadingPackage } from './types';
@@ -15,6 +16,8 @@ export type ReadingProgress = {
 export type ReadingLessonProps = {
   lesson: ReadingPackage;
   registry: RendererRegistry;
+  /** Manifests of the live boards this lesson may use, by board id (docs/boards.md). */
+  boards?: BoardManifests;
   layout?: LessonLayout;
   /** Saved progress to resume from (positions that no longer exist start at the top). */
   initial?: Partial<ReadingProgress>;

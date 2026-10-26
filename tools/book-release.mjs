@@ -30,9 +30,16 @@ for (const path of [
   files.push({ path, sha256: sha(await readFile(resolve(root, path))) });
 files.sort((a, b) => a.path.localeCompare(b.path, 'en'));
 const sourceDigest = sha(JSON.stringify(files));
-const runtime = JSON.parse(
-  await readFile(resolve(root, 'packages/lesson-runtime/package.json'), 'utf8'),
-).version;
+const target = resolve(root, 'content/book-guided/release.json');
+// A runtime upgrade alone never rewrites released editions (AGENTS.md): keep the runtime the
+// book was released on; a new release opts in to the current one with --runtime.
+const pinned = JSON.parse(await readFile(target, 'utf8').catch(() => 'null'))?.curricula?.[0]
+  ?.lessons?.[0]?.runtimeVersion;
+const runtime =
+  pinned && !process.argv.includes('--runtime')
+    ? pinned
+    : JSON.parse(await readFile(resolve(root, 'packages/lesson-runtime/package.json'), 'utf8'))
+        .version;
 const lessons = [ch8, ch9].map((source, index) => {
   const chapter = index + 8;
   const id = `phys1-textbook-ch0${chapter}`;
@@ -76,7 +83,6 @@ const release = {
     },
   ],
 };
-const target = resolve(root, 'content/book-guided/release.json');
 if (process.argv.includes('--check')) {
   const current = JSON.parse(await readFile(target, 'utf8'));
   if (JSON.stringify(current) !== JSON.stringify(release))

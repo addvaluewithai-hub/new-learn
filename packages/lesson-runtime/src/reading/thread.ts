@@ -1,3 +1,4 @@
+import { decodeBoardAnswer } from '../board/state';
 import { pageSteps, readingPageIndex, type ReadingPosition } from './model';
 import type { ReadingPackage, ReadingPage } from './types';
 
@@ -53,7 +54,10 @@ export function threadItems(
         arabic: q.arabic,
         current: p === index,
       });
-      if (q.id in answers) items.push({ kind: 'answer', key: `a${p}`, text: answers[q.id] });
+      if (q.id in answers) {
+        const text = decodeBoardAnswer(answers[q.id])?.text ?? answers[q.id];
+        items.push({ kind: 'answer', key: `a${p}`, text });
+      }
     } else {
       items.push({
         kind: 'line',
