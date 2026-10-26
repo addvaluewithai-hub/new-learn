@@ -11,6 +11,7 @@ Last full review: 2026-10-26.
 | [launch.md](launch.md)     | Connector go-live, brand and domain, website, YC and demo, legal, operations                            |
 | [learning.md](learning.md) | Student pages and states, questions and exams, streaks and rewards, Nova, content, parents and children |
 | [teaching.md](teaching.md) | Course studio, teacher pages, publishing and accounts, boards, marketplace and payments, admin          |
+| [rounds.md](rounds.md)     | The same tasks grouped into working sessions (one PR each), in waves                                    |
 
 ## How to read the tables
 
