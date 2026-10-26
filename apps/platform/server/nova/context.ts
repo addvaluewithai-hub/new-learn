@@ -12,6 +12,8 @@ import { readingPackages } from '../../../../content/packages';
 import manifest from '../../../../content/chemistry/states-of-matter/data/manifest.json';
 import { createStatesPackage } from '../../../../content/chemistry/states-of-matter/statesPackage';
 import { lessonEdition } from '../content';
+import { getLesson } from '../authoring/store';
+import { database } from '../db/connection';
 import { HttpError } from '../http';
 import type { Env, AuthUser } from '../env';
 const modules: Record<string, () => LessonPackage> = {
@@ -111,6 +113,18 @@ export async function assistantContext(env: Env, user: AuthUser, input: Record<s
     throw new HttpError(400, 'الدرس غير محدد.');
   // A compiled, server-owned review package: normal authentication/rate limits still apply.
   // It creates no catalog release or progress edition and accepts no client lesson text.
+  // A teacher's own draft: read from the drafts store, only by its owner.
+  if (input.lessonId.startsWith('draft:')) {
+    const draft = await getLesson(database(env), user.id, input.lessonId.slice('draft:'.length));
+    if (input.contentRevision !== draft.package.contentRevision)
+      throw new HttpError(409, 'المسودة اتغيّرت. افتح المعاينة تاني.');
+    return {
+      lesson: fromReading(draft.package),
+      position: resolveReadingPosition(draft.package, input),
+      student: { name: user.name },
+      board: boardReport(input),
+    };
+  }
   const book = bookLessons.find((candidate) => candidate.lessonId === input.lessonId);
   if (book) {
     if (input.contentRevision !== book.contentRevision)
