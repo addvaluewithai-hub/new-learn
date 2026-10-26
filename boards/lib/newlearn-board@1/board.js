@@ -116,8 +116,30 @@
     } else if (message.type === 'state' && message.view) {
       view = message.view;
       draw();
+    } else if (message.type === 'check') {
+      check(message.rules);
     }
   });
+  /** The teacher's preview asks: does this drawing keep the canvas rules (board:check)? */
+  const check = (rules) => {
+    const run = () =>
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          let problems;
+          try {
+            problems = window.NewLearnBoardCheck(rules);
+          } catch (error) {
+            problems = [{ check: 'error', detail: String(error && error.message) }];
+          }
+          post({ type: 'report', layout: canvas.layout, width: innerWidth, problems });
+        }),
+      );
+    if (window.NewLearnBoardCheck) return run();
+    const script = document.createElement('script');
+    script.src = '/lib/newlearn-board@1/check.js';
+    script.onload = run;
+    document.head.append(script);
+  };
   addEventListener('resize', () => {
     const before = canvas.layout;
     fit();

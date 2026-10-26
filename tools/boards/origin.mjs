@@ -4,6 +4,9 @@ import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promi
 import { createHash } from 'node:crypto';
 import { join, relative, resolve, sep } from 'node:path';
 import { validateBoardManifest } from '../../packages/lesson-runtime/src/board/manifest.ts';
+import { BOARD_HEADERS } from '../../boards/headers.mjs';
+
+export { CSP, FRAME_ANCESTORS } from '../../boards/headers.mjs';
 
 export const root = resolve(new URL('../..', import.meta.url).pathname);
 const FILE = /\.(?:html|js|css|json|svg|png|jpe?g|webp|woff2?|mp3|ogg)$/;
@@ -14,28 +17,9 @@ export const { libraries } = JSON.parse(
   await readFile(join(root, 'boards/libraries.json'), 'utf8'),
 );
 
-/** Origins allowed to frame boards: the app, its preview deployments and local hosts. */
-export const FRAME_ANCESTORS =
-  'https://new-learn.pages.dev https://*.new-learn.pages.dev http://127.0.0.1:* http://localhost:*';
-export const CSP = [
-  "default-src 'none'",
-  "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self' data:",
-  "media-src 'self'",
-  "connect-src 'none'",
-  "frame-src 'none'",
-  "form-action 'none'",
-  "base-uri 'none'",
-  `frame-ancestors ${FRAME_ANCESTORS}`,
-].join('; ');
 const HEADERS = [
   '/*',
-  `  Content-Security-Policy: ${CSP}`,
-  '  X-Content-Type-Options: nosniff',
-  '  Referrer-Policy: no-referrer',
-  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  ...Object.entries(BOARD_HEADERS).map(([key, value]) => `  ${key}: ${value}`),
   // Fonts are fetched with CORS, and a sandboxed board has an opaque origin.
   '/lib/*',
   '  Access-Control-Allow-Origin: *',
@@ -86,6 +70,12 @@ export async function buildOrigin(out, boards) {
   for (const board of boards)
     await cp(board.folder, join(out, 'e', board.hash), { recursive: true });
   await cp(join(root, 'boards/lib'), join(out, 'lib'), { recursive: true });
+  // The drawing check the teacher's preview asks a board to run on itself (check.js).
+  const inspect = await readFile(join(root, 'tools/boards/inspect.mjs'), 'utf8');
+  await writeFile(
+    join(out, 'lib/newlearn-board@1/check.js'),
+    `${inspect.replace('export function inspectCanvas', 'function inspectCanvas')}\nwindow.NewLearnBoardCheck = inspectCanvas;\n`,
+  );
   for (const [id, library] of Object.entries(libraries))
     for (const file of library.files) {
       const from = join(root, library.from, file);

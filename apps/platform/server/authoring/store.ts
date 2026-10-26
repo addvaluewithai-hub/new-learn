@@ -11,6 +11,30 @@ import { buildPackage, type AuthorLesson, type BoardRef } from './format';
 
 export const LIMITS = { courses: 50, lessons: 300, boards: 300 };
 const notFound = () => new HttpError(404, 'not found');
+const FIELDS = { title: 120, subject: 80, description: 600, language: 10 } as const;
+
+/** Course fields within their limits; parts list lessons under short titles. */
+function courseInput(input: Record<string, unknown>) {
+  for (const [key, max] of Object.entries(FIELDS)) {
+    const v = input[key];
+    if (v !== undefined && (typeof v !== 'string' || v.length > max))
+      throw new HttpError(400, `${key}: text up to ${max} characters`);
+  }
+  const parts = input.parts as CoursePart[] | undefined;
+  if (
+    parts !== undefined &&
+    (!Array.isArray(parts) ||
+      parts.length > 50 ||
+      !parts.every(
+        (p) =>
+          typeof p?.title === 'string' &&
+          p.title.length <= 120 &&
+          Array.isArray(p.lessonIds) &&
+          p.lessonIds.every((id) => typeof id === 'string'),
+      ))
+  )
+    throw new HttpError(400, 'parts: up to 50 of {title, lessonIds}');
+}
 
 export async function listCourses(db: Db, owner: string) {
   const courses = await db
@@ -61,6 +85,7 @@ export async function createCourse(
   owner: string,
   input: { title: string; subject?: string; description?: string; language?: string },
 ) {
+  courseInput(input);
   if ((await count(db, authorCourses, owner)) >= LIMITS.courses)
     throw new HttpError(429, `at most ${LIMITS.courses} courses`);
   const [row] = await db
@@ -83,6 +108,7 @@ export async function updateCourse(
   id: string,
   input: { title?: string; subject?: string; description?: string; parts?: CoursePart[] },
 ) {
+  courseInput(input);
   await course(db, owner, id);
   if (input.parts) {
     const ids = (await courseLessons(db, owner, id)).map((l) => l.id).sort();

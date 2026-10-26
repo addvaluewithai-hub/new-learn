@@ -6,7 +6,7 @@ import {
   type HostMessage,
   type VisualProps,
 } from '@learn/lesson-runtime';
-import { boardEdition, boardUrl } from './editions';
+import { checkRules, readReport, useBoardSources, type BoardReport } from './sources';
 import './html-board.css';
 
 const READY_MS = 5000;
@@ -18,23 +18,31 @@ const READY_MS = 5000;
  */
 export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
   const id = typeof spec.params.board === 'string' ? spec.params.board : '';
-  const edition = boardEdition(id);
-  const src = boardUrl(id);
+  const sources = useBoardSources();
+  const edition = sources.get(id);
+  const src = edition?.url;
   const frame = useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(!edition);
   const [said, setSaid] = useState('');
   const link = useRef(board);
   link.current = board;
+  // Sources build a fresh object per render; the board is identified by its address.
+  const source = useRef(edition);
+  source.current = edition;
+  const report_ = useRef<((r: BoardReport) => void) | null>(null);
+  report_.current = edition && sources.onReport ? (r) => sources.onReport!(edition, r) : null;
   const send = (message: HostMessage) => frame.current?.contentWindow?.postMessage(message, '*');
 
   useEffect(() => {
-    if (!edition) return;
+    if (!source.current) return;
     const readyRef = { current: false };
     const timer = setTimeout(() => setFailed((f) => f || !readyRef.current), READY_MS);
     const onMessage = (event: MessageEvent) => {
       // A sandboxed board has an opaque origin, so its window identity is the check.
       if (!frame.current || event.source !== frame.current.contentWindow) return;
+      const report = readReport(event.data);
+      if (report) return void report_.current?.(report);
       const message = readBoardMessage(event.data);
       if (!message) return;
       if (message.type === 'ready') {
@@ -45,7 +53,7 @@ export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
         console.warn(`Board ${id}: ${message.message}`);
         setFailed(true);
       } else if (message.type === 'variables') {
-        const values = clampValues(edition.manifest, message.values);
+        const values = clampValues(source.current!.manifest, message.values);
         if (Object.keys(values).length) link.current?.onValues(values);
       } else {
         setSaid(message.observation.summary);
@@ -57,7 +65,7 @@ export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
       clearTimeout(timer);
       removeEventListener('message', onMessage);
     };
-  }, [edition, id]);
+  }, [src, id]);
 
   // A new layout (the phone turned) is a new init: the board switches canvas and redraws.
   useEffect(() => {
@@ -67,7 +75,14 @@ export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
   const view = board?.view;
   const key = JSON.stringify(view ?? null);
   useEffect(() => {
-    if (ready && view) send({ nl: 1, type: 'state', view });
+    if (!ready || !view) return;
+    send({ nl: 1, type: 'state', view });
+    // In a draft preview the board checks its own drawing after every state.
+    if (report_.current)
+      frame.current?.contentWindow?.postMessage(
+        { nl: 1, type: 'check', rules: checkRules(layout) },
+        '*',
+      );
     // `key` is the view's content; the object itself is rebuilt on every lesson render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, key]);

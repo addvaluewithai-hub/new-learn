@@ -140,6 +140,12 @@ test('a connected AI creates a course, a board and a lesson, then handles a teac
     body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }),
   });
   assert.equal(ack.status, 202);
+  const huge = await call('/mcp', {
+    method: 'POST',
+    headers: { authorization: `Bearer ${tokens.access_token}`, 'content-type': 'application/json' },
+    body: 'x'.repeat(3 * 1024 * 1024 + 1),
+  });
+  assert.equal(huge.status, 413);
   const { tools } = (await rpc('tools/list')).result;
   assert.equal(tools.length, 11);
   for (const t of tools)

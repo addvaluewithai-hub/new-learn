@@ -1,0 +1,5 @@
+# The app is never shown inside another site's frame; above all, the connector's consent
+# screen must not be (clickjacking).
+/*
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'

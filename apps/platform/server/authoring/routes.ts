@@ -51,7 +51,7 @@ export async function authoringRoute(request: Request, env: Env, user: AuthUser,
   if (m && method === 'POST')
     return json(await addFeedback(db(), user.id, m[1], (await body(request)) as never), 201);
   m = new RegExp(`^/api/authoring/feedback/${UUID}$`).exec(path);
-  if (m && method === 'PATCH') {
+  if (m && method === 'POST') {
     const input = await body(request);
     // The teacher confirms a fix or opens the note again; the AI sets "review".
     if (input.status !== 'done' && input.status !== 'open')
@@ -64,7 +64,7 @@ export async function authoringRoute(request: Request, env: Env, user: AuthUser,
   if (path === '/api/oauth/consent' && method === 'POST')
     return json(await consentInfo(db(), await body(request)));
   if (path === '/api/oauth/approve' && method === 'POST')
-    return json(await approve(db(), user, await body(request), env.APP_ORIGIN));
+    return json(await approve(db(), user, await body(request), new URL(request.url).origin));
   if (path === '/api/oauth/deny' && method === 'POST')
     return json(await deny(db(), await body(request)));
   throw new HttpError(404, 'الصفحة غير موجودة.');

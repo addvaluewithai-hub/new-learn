@@ -7,6 +7,7 @@ import { TOOLS, type ToolContext } from './tools';
 // message and gets one JSON answer. No sessions and no server-sent events are needed for
 // tools that answer at once.
 
+const MAX_BODY = 3 * 1024 * 1024;
 export const PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
 const INSTRUCTIONS =
   'New Learn turns lessons into interactive, voice-tutored reading lessons. Call ' +
@@ -86,7 +87,11 @@ export async function handleMcp(request: Request, context: ToolContext): Promise
     return new Response('Use POST', { status: 405, headers: { allow: 'POST' } });
   let body: Message | Message[];
   try {
-    body = (await request.json()) as Message | Message[];
+    // A 2 MB board escaped into JSON fits; anything larger is not a request we serve.
+    const raw = await request.text();
+    if (raw.length > MAX_BODY)
+      return Response.json(failure(null, -32600, 'Request too large'), { status: 413 });
+    body = JSON.parse(raw) as Message | Message[];
   } catch {
     return Response.json(failure(null, -32700, 'Parse error'), { status: 400 });
   }

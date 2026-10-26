@@ -1,0 +1,33 @@
+.consent-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  background: #f6f5f0;
+  direction: rtl;
+}
+.consent-card {
+  width: min(480px, 100%);
+  padding: 28px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgb(16 32 28 / 12%);
+}
+.consent-card h1 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+.consent-host {
+  color: #5f6f69;
+  font-size: 14px;
+}
+.consent-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.consent-actions .button:first-child {
+  background: #17463c;
+  color: #fff;
+}

@@ -6,6 +6,7 @@ import { LibraryShell } from './LibraryShell';
 import { CurriculumCards } from './CurriculumCards';
 import { ContinueCard } from './ContinueCard';
 import { StudyPlan } from './StudyPlan';
+import { MyDrafts } from '../authoring/MyDrafts';
 import '../../shared/platform.css';
 import './library-shell.css';
 import './library-account.css';
@@ -76,6 +77,7 @@ export default function CatalogPage({
         <>
           <ContinueCard curricula={curricula} resume={resume} />
           <CurriculumCards curricula={curricula} />
+          <MyDrafts />
         </>
       )}
     </LibraryShell>

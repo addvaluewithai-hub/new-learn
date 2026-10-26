@@ -23,7 +23,8 @@ export async function handleConnector(
   deps: { db?: Db } = {},
 ): Promise<Response> {
   const path = new URL(request.url).pathname;
-  const origin = env.APP_ORIGIN;
+  // The address the client used: production, or a preview deployment being tested.
+  const origin = new URL(request.url).origin;
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
   try {
     if (path.startsWith('/.well-known/oauth-protected-resource'))

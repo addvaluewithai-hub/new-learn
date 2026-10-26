@@ -47,6 +47,7 @@
     "test:browser:flow": "node tests/flow-browser.mjs",
     "test:browser:board": "node tests/board-browser.mjs",
     "test:board-check": "node tests/board-check.mjs",
+    "test:browser:draft": "node --import tsx tests/draft-browser.mjs",
     "test:browser:legacy-gas": "node tests/legacy-gas-reading-browser.mjs",
     "test:browser:statics": "node tests/statics-reading-browser.mjs",
     "test:browser:book": "node --import tsx tests/book-browser.mjs && BOOK_CHAPTER=9 node --import tsx tests/book-browser.mjs",

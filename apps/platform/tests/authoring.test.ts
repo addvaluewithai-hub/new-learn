@@ -100,6 +100,11 @@ test('a rejected lesson explains every problem and leaves nothing behind', async
     return true;
   });
   await assert.rejects(addLesson(db, 'teacher-a', course.id, boardLesson), /put_board/);
+  await assert.rejects(createCourse(db, 'teacher-a', { title: 'x'.repeat(121) }), /title/);
+  await assert.rejects(
+    updateCourse(db, 'teacher-a', course.id, { parts: 'all' as never }),
+    /parts/,
+  );
   assert.equal((await listCourses(db, 'teacher-a'))[0].lessons.length, 0);
 });
 
