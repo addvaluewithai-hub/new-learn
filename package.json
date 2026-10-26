@@ -55,6 +55,7 @@
     "test:browser:book-release": "node --import tsx tests/book-release-browser.mjs"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.9",
     "@types/katex": "0.16.7",
     "@types/node": "24.13.4",
     "@types/react": "19.3.0",

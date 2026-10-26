@@ -29,3 +29,5 @@ export type {
   ReadingStep,
 } from './reading/types';
 export * from './board';
+export { HTML_BOARD, boardManifest, readingBoardView, validateLessonBoards } from './reading/board';
+export type { BoardManifests, LearnerValues } from './reading/board';
