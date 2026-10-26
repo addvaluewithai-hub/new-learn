@@ -123,6 +123,7 @@ function ReadingSession(props: ReadingLessonProps) {
         const target = readingPageIndex(lesson, pages, at as ReadingPosition);
         if (target >= 0 && (target <= index || !answering)) go(target);
       },
+      answer: (value) => void (answering && value.trim() && answer(value.trim())),
     },
     `${index}:${complete}`,
     onReady,

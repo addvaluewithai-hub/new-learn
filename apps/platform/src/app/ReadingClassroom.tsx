@@ -15,6 +15,7 @@ import { useSpaceToTalk } from '../features/nova/lesson/useSpaceToTalk';
 import { LessonSettings } from '../features/nova/lesson/LessonSettings';
 import { useLessonFlow, useNarrator } from '../features/nova/lesson/useLessonFlow';
 import { useVoicePrefs } from '../features/nova/voice/voicePrefs';
+import { useHandsFree, useVoiceHooks } from '../features/nova/handsfree/useHandsFree';
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 
@@ -48,7 +49,8 @@ export default function ReadingClassroom({
   const flow = useLessonFlow();
   const moving = flow.settings.narration || flow.settings.pace !== null;
   // Asking Nova pauses a lesson that moves alone, so the answer can be read in peace.
-  const talk = useLessonTalk(context, () => moving && flow.setPaused(true));
+  const hooks = useVoiceHooks();
+  const talk = useLessonTalk(context, () => moving && flow.setPaused(true), hooks);
   useSpaceToTalk(talk.voice, Boolean(module) && !assistantOpen);
   const { setVolume, teach, stopTeaching, restyle } = talk.voice;
   const voicePrefs = useVoicePrefs(restyle);
@@ -64,6 +66,28 @@ export default function ReadingClassroom({
     onFail: () => {
       flow.change({ narration: false });
       talk.notify('مقدرتش أقرا الدرس بصوتي دلوقتي، فقفلت القراية. جرّب تشغّلها تاني بعد شوية.');
+    },
+  });
+  // Audio mode: the same lesson, answered by voice, the screen may be off.
+  useHandsFree({
+    hooks,
+    settings: flow.settings,
+    change: flow.adjust,
+    voice: talk.voice,
+    controller,
+    context,
+    resume: () => flow.setPaused(false),
+    title: {
+      lesson: module?.readingLesson.title ?? '',
+      course: module?.readingLesson.curriculumTitle ?? '',
+    },
+    onNotice: (text) => {
+      talk.notify(text);
+      talk.voice.teach([{ n: -1, text, question: false }], {
+        show: () => undefined,
+        done: () => undefined,
+        failed: () => undefined,
+      });
     },
   });
   const onReady = useCallback((value: LessonController | null) => setController(value), []);

@@ -60,6 +60,28 @@ wherever the learner then is. A dropped session is retried once, then narration 
 off with a note in the conversation. Each new reply starts with a short audio cushion so a
 slow network does not make the voice stutter.
 
+### Hands-free (audio) mode
+
+A lesson setting, «وضع الاستماع (من غير شاشة)», for studying the same lesson with the screen
+off (`features/nova/handsfree/`). Turning it on also turns on "Nova reads the lesson". The
+microphone and the session stay open the whole lesson (no idle close; a dropped session
+reopens). Silero VAD (onnxruntime-web, loaded lazily; loudness if it fails) finds utterances:
+
+- On an unanswered question, speech is a turn without any button. Nova waits as long as it
+  takes. Nova's reply is held until the learner's transcript shows real words (`AnswerGate`),
+  so noise («¿Qué?», fillers) gets no reply; twice in a row switches on "noisy place", where
+  the floor opens only after the wake word or an earbud press.
+- A spoken answer goes through the lesson's own answer flow: the hands-free session
+  (`/nova/live` with `handsFree: true` and the learner's `wakeWord`) gets a `submit_answer`
+  tool, and the client calls `LessonController.answer` (runtime 0.3.3). Nova then reads the
+  feedback as usual.
+- While Nova reads, speech is only a wake-word candidate: `/nova/wake` asks the chat model
+  whether the clip contains the learner's wake word (default «يا نوفا», editable in the
+  settings). The wake word or an earbud/lock-screen press (Media Session) cuts in; after the
+  reply, eight quiet seconds mean "carry on".
+
+Off, the lesson behaves exactly as before.
+
 ## Server boundary
 
 POST /api/nova/chat, /live, /quiz require same-origin requests and a valid account.

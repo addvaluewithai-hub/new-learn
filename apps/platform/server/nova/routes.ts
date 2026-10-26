@@ -6,6 +6,7 @@ import { quizSchema, validateQuiz } from './quiz';
 import { limitNova } from './limits';
 import { liveConfig } from './live';
 import { personaInstruction, tutorStyle } from './style';
+import { wakePrompt, wakeSchema, wakeVerdict, wakeWav, wakeWordOf } from './wake';
 export function chatHistory(value: unknown) {
   if (!Array.isArray(value) || !value.length || value.length > 16)
     throw new HttpError(400, 'المحادثة غير صحيحة.');
@@ -22,9 +23,23 @@ export function chatHistory(value: unknown) {
   });
 }
 export async function novaRoute(request: Request, env: Env, user: AuthUser, action: string) {
-  if (!['chat', 'live', 'quiz'].includes(action) || request.method !== 'POST')
+  if (!['chat', 'live', 'quiz', 'wake'].includes(action) || request.method !== 'POST')
     throw new HttpError(404, 'الطلب غير موجود.');
-  const input = await body(request);
+  const input = await body(request, action === 'wake' ? 160_000 : 16_384);
+  if (action === 'wake') {
+    // Hands-free mode: did this short clip call the tutor by the learner's wake word?
+    const word = wakeWordOf(input.word);
+    limitNova(user.id, action);
+    const audio = { inlineData: { mimeType: 'audio/wav', data: wakeWav(input.audio) } };
+    const text = await generate(
+      env,
+      wakePrompt(word),
+      [{ role: 'user', parts: [audio] }],
+      wakeSchema,
+      request.signal,
+    );
+    return json({ wake: wakeVerdict(text) });
+  }
   const context = await assistantContext(env, user, input);
   limitNova(user.id, action);
   const style = tutorStyle(input.style);
@@ -54,7 +69,11 @@ export async function novaRoute(request: Request, env: Env, user: AuthUser, acti
     });
   }
   const model = env.GEMINI_LIVE_MODEL || 'gemini-3.8-live';
-  const config = liveConfig(instruction, input.purpose === 'talk' ? 'talk' : 'practice', style);
+  const handsFree = input.purpose === 'talk' && input.handsFree === true;
+  const config = liveConfig(instruction, input.purpose === 'talk' ? 'talk' : 'practice', style, {
+    handsFree,
+    wakeWord: handsFree ? wakeWordOf(input.wakeWord) : '',
+  });
   const token = await gemini(
     env,
     'auth_tokens',
