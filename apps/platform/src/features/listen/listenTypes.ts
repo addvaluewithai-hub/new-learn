@@ -16,6 +16,10 @@ export type ListenEvents = {
   said: (text: string) => void;
   heard: (text: string) => void;
   error: (message: string) => void;
+  /** A short note for the diagnostics panel. */
+  diag?: (note: string) => void;
+  /** Noisy-place mode changed (by the learner or after noise). */
+  noisy?: (on: boolean) => void;
   /** The scene before/after this one, or null at either end of the course. */
   move: (from: ListenPosition, step: 1 | -1) => ListenPosition | null;
 };
@@ -31,6 +35,10 @@ export type ReadJob = { kind: 'scene' | 'feedback'; from: number };
 export const REPLY_MS = 20000;
 /** After cutting in, this much silence means "carry on reading". */
 export const CUT_IN_WAIT_MS = 10000;
+
+/** Said once when noise keeps being taken for answers. It must not contain the wake word. */
+export const NOISY_NOTICE =
+  'شكل المكان عندك فيه دوشة. فهستنى لحد ما تدوس زرار السماعة مرة، أو تنادي عليّا باسمي، وبعدين رد براحتك.';
 
 /** Silent notes to the tutor (context, never a request for a reply on their own). */
 export const notes = {

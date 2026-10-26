@@ -48,3 +48,21 @@ export function matchScript(said: string, line: string): ScriptMatch {
   const need = expected.length < 5 ? 0.5 : 0.65;
   return { ok: recall >= need && ratio <= 1.6, recall, ratio };
 }
+
+/** Words heard so far that are not in the line (a running sign of drift while it streams).
+ * English terms in the line may come back in Arabic letters, so each one allows a stray. */
+export function strays(said: string, line: string) {
+  const words = (text: string) => normalize(text).filter((word) => !/^\d+$/.test(word));
+  const pool = new Map<string, number>();
+  const expected = words(line);
+  for (const word of expected) pool.set(word, (pool.get(word) ?? 0) + 1);
+  let extra = 0;
+  const heard = words(said);
+  for (const word of heard) {
+    const left = pool.get(word) ?? 0;
+    if (left > 0) pool.set(word, left - 1);
+    else extra++;
+  }
+  const english = expected.filter((word) => /^[a-z]+$/.test(word)).length;
+  return { heard: heard.length, extra: Math.max(0, extra - english), size: expected.length };
+}

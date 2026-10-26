@@ -35,6 +35,23 @@ function save(position: ListenPosition) {
   }
 }
 
+/** Noisy-place mode is a per-device preference. */
+const NOISY_KEY = 'new-learn:listen:noisy';
+function savedNoisy() {
+  try {
+    return localStorage.getItem(NOISY_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+function saveNoisy(on: boolean) {
+  try {
+    localStorage.setItem(NOISY_KEY, on ? '1' : '0');
+  } catch {
+    // Storage can be unavailable; the setting then lasts for this visit.
+  }
+}
+
 /** Every scene of the course in order, as positions. */
 const flatten = (outline: ListenOutline) =>
   outline.lessons.flatMap((lesson) =>
@@ -52,6 +69,8 @@ export function useListen(courseId: string) {
   const [state, setState] = useState<ListenState>('idle');
   const [lines, setLines] = useState<SpokenLine[]>([]);
   const [error, setError] = useState('');
+  const [noisy, setNoisy] = useState(savedNoisy);
+  const [notes, setNotes] = useState<string[]>([]);
   const keys = useRef(new MediaKeys());
   const order = useMemo(() => (outline ? flatten(outline) : []), [outline]);
   const now = useRef({ order, outline });
@@ -105,12 +124,18 @@ export function useListen(courseId: string) {
     said: (text) => add('tutor', text),
     heard: (text) => add('learner', text),
     error: setError,
+    diag: (note) => setNotes((all) => [...all, note].slice(-8)),
+    noisy: (on) => {
+      setNoisy(on);
+      saveNoisy(on);
+    },
     move: (from, step) => {
       const list = now.current.order;
       const at = list.findIndex((p) => p.lessonId === from.lessonId && p.sceneId === from.sceneId);
       return list[at + step] ?? null;
     },
   });
+  useEffect(() => engine.current!.noisy(savedNoisy()), []);
   useEffect(
     () => () => {
       engine.current?.stop();
@@ -157,5 +182,8 @@ export function useListen(courseId: string) {
     engine: engine.current!,
     start,
     stop,
+    noisy,
+    setNoisy: (on: boolean) => engine.current!.noisy(on),
+    notes,
   };
 }

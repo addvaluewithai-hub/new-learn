@@ -1,13 +1,20 @@
 import { api } from '../../shared/api';
 import type { ListenPosition, ReadJob, SceneScript } from './listenTypes';
-import { matchScript } from './scriptMatch';
+import { matchScript, strays } from './scriptMatch';
 
 export type ScriptItem = { kind: 'line' | 'question' | 'feedback'; text: string };
 export type ReaderHost = {
   /** Sends a message that asks for a reply (one script item per turn). */
   send: (text: string) => void;
-  /** Queues verified audio; returns seconds until it starts. `last` = nothing follows. */
-  play: (chunks: Array<[string, number]>, item: ScriptItem, last: boolean) => number;
+  /** Queues audio; returns seconds until it starts playing. */
+  enqueue: (data: string, rate: number) => number;
+  /** The audio clock, and cutting the audio that starts at or after a time on it. */
+  now: () => number;
+  cutFrom: (at: number) => void;
+  /** An item started being heard (for the transcript on screen). */
+  shown: (item: ScriptItem) => void;
+  /** The last item is fully queued: nothing more follows. */
+  finished: () => void;
   /** Seconds of audio already queued. */
   queued: () => number;
   /** The tutor produced no speech for an item, twice. */
@@ -31,24 +38,32 @@ export function lessonFor(position: ListenPosition, args: Record<string, unknown
 }
 
 const LABEL = { line: 'READ', question: 'READ QUESTION', feedback: 'READ FEEDBACK' } as const;
-/** Ask for the next item while this much speech is still queued, so items join up. */
-const LOOKAHEAD_S = 5;
+/** Don't run further ahead than this much queued speech. */
+const AHEAD_S = 15;
+
+type Turn = {
+  index: number;
+  held: Array<[string, number]>;
+  said: string;
+  retried: boolean;
+  /** Its audio goes straight to the speaker (its first words matched the line). */
+  streaming: boolean;
+  /** Audio-clock time its first sound plays, once it streams. */
+  startAt: number | null;
+  drifted: boolean;
+};
 
 /**
- * Reads script items through the live tutor, one per turn. Each item's audio is held until
- * its turn completes and its transcript matches the script; a drifted reading is discarded
- * and asked for once more, so the learner only hears the checked version. The next item is
- * requested while the current one plays, so the reading has no gaps.
+ * Reads script items through the live tutor, one per turn. A reading starts playing as soon
+ * as its first words match the line, so sentences follow each other without gaps, and keeps
+ * being checked while it streams: words that are not in the line cut it off at once, and a
+ * reading that drifted (or ends without matching) is read again, held this time until it is
+ * checked in full. The next item is requested the moment the current one is generated.
  */
 export class ScriptReader {
   private items: ScriptItem[] = [];
   private next = 0;
-  private turn: {
-    index: number;
-    chunks: Array<[string, number]>;
-    said: string;
-    retried: boolean;
-  } | null = null;
+  private turn: Turn | null = null;
   private starts: Array<{ index: number; at: number }> = [];
   private timers: { next?: number; grace?: number } = {};
   active = false;
@@ -60,7 +75,7 @@ export class ScriptReader {
   get waiting() {
     return Boolean(this.turn);
   }
-  /** Every item was requested and played out to the audio queue. */
+  /** Every item was requested and queued. */
   get done() {
     return this.active && !this.turn && this.next >= this.items.length;
   }
@@ -76,45 +91,101 @@ export class ScriptReader {
   private request() {
     clearTimeout(this.timers.next);
     if (!this.active || this.turn || this.next >= this.items.length) return;
-    const index = this.next++,
-      item = this.items[index];
-    this.turn = { index, chunks: [], said: '', retried: false };
-    this.host.send(`${LABEL[item.kind]}:\n${item.text}`);
+    if (this.host.queued() > AHEAD_S) {
+      this.timers.next = window.setTimeout(() => this.request(), 1000);
+      return;
+    }
+    const index = this.next++;
+    this.turn = {
+      index,
+      held: [],
+      said: '',
+      retried: false,
+      streaming: false,
+      startAt: null,
+      drifted: false,
+    };
+    this.host.send(`${LABEL[this.items[index].kind]}:\n${this.items[index].text}`);
   }
 
   audio(data: string, rate: number) {
-    this.turn?.chunks.push([data, rate]);
+    const turn = this.turn;
+    if (!turn || turn.drifted) return;
+    if (turn.streaming) return this.play(turn, data, rate);
+    turn.held.push([data, rate]);
+    this.check(turn);
   }
   said(text: string) {
-    if (this.turn) this.turn.said += text;
+    const turn = this.turn;
+    if (!turn || turn.drifted) return;
+    turn.said += text;
+    this.check(turn);
   }
+
+  /** Start streaming once the first words match; cut off as soon as words stray. */
+  private check(turn: Turn) {
+    const line = this.items[turn.index].text,
+      seen = strays(turn.said, line);
+    const allowed = Math.max(3, Math.round(seen.size * 0.3));
+    if (turn.streaming) {
+      if (seen.extra <= allowed) return;
+      turn.drifted = true;
+      if (turn.startAt !== null) this.host.cutFrom(turn.startAt);
+      this.starts = this.starts.filter((s) => s.index !== turn.index);
+      return;
+    }
+    if (turn.retried || !turn.held.length) return; // a re-read is held until checked in full
+    // Seconds of held audio (base64 16-bit PCM): a lagging transcript must not hold it forever.
+    const held = turn.held.reduce((sum, [data, rate]) => sum + (data.length * 0.375) / rate, 0);
+    const matched = seen.heard >= Math.min(4, seen.size);
+    if (seen.extra > 1 || (!matched && held < 2.5)) return;
+    turn.streaming = true;
+    for (const [data, rate] of turn.held.splice(0)) this.play(turn, data, rate);
+  }
+
+  private play(turn: Turn, data: string, rate: number) {
+    const startsIn = this.host.enqueue(data, rate);
+    if (turn.startAt !== null) return;
+    turn.startAt = this.host.now() + startsIn;
+    this.starts.push({ index: turn.index, at: performance.now() + startsIn * 1000 });
+    this.host.shown(this.items[turn.index]);
+  }
+
   /** The tutor's turn ended; transcripts can trail the audio a little, so check shortly. */
   complete() {
     clearTimeout(this.timers.grace);
-    this.timers.grace = window.setTimeout(() => this.verify(), 300);
+    this.timers.grace = window.setTimeout(() => this.verify(), 200);
   }
 
   private verify() {
     const turn = this.turn;
     if (!turn) return;
     const item = this.items[turn.index];
-    const drifted = turn.chunks.length > 0 && !matchScript(turn.said, item.text).ok;
-    if ((drifted || !turn.chunks.length) && !turn.retried) {
-      if (drifted) this.drifts++;
-      Object.assign(turn, { chunks: [], said: '', retried: true });
+    const spoke = turn.streaming || turn.held.length > 0;
+    const ok = spoke && !turn.drifted && matchScript(turn.said, item.text).ok;
+    if (!ok && !turn.retried) {
+      if (spoke) this.drifts++;
+      if (turn.startAt !== null && !turn.drifted) this.host.cutFrom(turn.startAt);
+      this.starts = this.starts.filter((s) => s.index !== turn.index);
+      Object.assign(turn, {
+        held: [],
+        said: '',
+        retried: true,
+        streaming: false,
+        startAt: null,
+        drifted: false,
+      });
       return this.host.send(`READ AGAIN:\n${item.text}`);
     }
     this.turn = null;
-    if (!turn.chunks.length) {
+    if (!spoke) {
       this.active = false;
       return this.host.failed();
     }
-    const last = this.next >= this.items.length;
-    const startsIn = this.host.play(turn.chunks, item, last);
-    this.starts.push({ index: turn.index, at: performance.now() + startsIn * 1000 });
-    if (last) return;
-    const wait = Math.max(0, this.host.queued() - LOOKAHEAD_S) * 1000;
-    this.timers.next = window.setTimeout(() => this.request(), wait);
+    // A second reading is played even if it still drifted: better than stopping the lesson.
+    if (!turn.streaming) for (const [data, rate] of turn.held) this.play(turn, data, rate);
+    if (this.next >= this.items.length) return this.host.finished();
+    this.request();
   }
 
   /** The item the learner is hearing now (or the next to be heard). */

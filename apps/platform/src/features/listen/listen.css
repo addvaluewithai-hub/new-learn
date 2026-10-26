@@ -193,3 +193,32 @@ main > .listen-error {
   border-color: var(--green);
   box-shadow: inset 0 0 0 1px var(--green);
 }
+.listen-settings {
+  display: grid;
+  gap: 8px;
+}
+.listen-settings label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+.listen-settings input {
+  margin-top: 5px;
+  flex: none;
+}
+.listen-diag {
+  background: var(--white);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.listen-diag p {
+  margin: 4px 0;
+}
+.listen-diag ul {
+  margin: 6px 0 0;
+  padding-inline-start: 18px;
+}

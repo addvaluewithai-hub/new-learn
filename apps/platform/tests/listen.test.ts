@@ -114,7 +114,7 @@ test('heard text follows the audio that has started, not what has arrived', () =
   assert.equal(heard.heard(), 'أول جملة.');
 });
 
-test('speech detection ignores clinks, keeps the first word and ends after quiet', () => {
+test('speech needs half a second of voice; noise the detector rejects never starts a turn', () => {
   const events: string[] = [];
   let preroll = 0;
   const speech = new SpeechDetector({
@@ -125,18 +125,30 @@ test('speech detection ignores clinks, keeps the first word and ends after quiet
     chunk: () => {},
     end: () => events.push('end'),
   });
-  const feed = (level: number, count: number) => {
-    for (let i = 0; i < count; i++) speech.feed('AAAA', level);
+  const feed = (level: number, voice: number | null, count: number) => {
+    for (let i = 0; i < count; i++) speech.feed('AAAA', level, voice);
   };
-  feed(0.001, 20);
-  feed(0.3, 1); // a single clink
-  feed(0.001, 5);
-  assert.deepEqual(events, []);
-  feed(0.2, 10);
+  feed(0.001, 0.01, 30);
+  feed(0.3, 0.05, 40); // loud running water: loud, but not a voice
+  assert.deepEqual(events, [], 'noise is not speech');
+  feed(0.2, 0.95, 6); // a short "hm": 240 ms of voice
+  feed(0.001, 0.02, 20);
+  assert.deepEqual(events, [], 'too short to be an answer');
+  feed(0.2, 0.95, 12); // half a second of real speech
   assert.deepEqual(events, ['start']);
-  assert.equal(preroll, 12);
-  feed(0.001, 40);
+  assert.equal(preroll, 25, 'one second before the start is kept');
+  feed(0.001, 0.02, 40);
   assert.deepEqual(events, ['start', 'end']);
+  // Without the voice detector, loudness decides (with the same minimum length).
+  const loud: string[] = [];
+  const fallback = new SpeechDetector({
+    start: () => loud.push('start'),
+    chunk: () => {},
+    end: () => {},
+  });
+  for (let i = 0; i < 20; i++) fallback.feed('AAAA', 0.001, null);
+  for (let i = 0; i < 12; i++) fallback.feed('AAAA', 0.3, null);
+  assert.deepEqual(loud, ['start']);
 });
 
 test('a course limited to named accounts is invisible to everyone else', async () => {
@@ -182,4 +194,5 @@ test('the tutor states terms in both languages and waits for answers', () => {
   assert.ok(instruction.includes('followed by its standard English term'));
   assert.ok(instruction.includes('wait for the learner, however long it takes'));
   assert.ok(!instruction.includes('give the answer simply yourself'));
+  assert.ok(instruction.includes('never more than once in a row'));
 });

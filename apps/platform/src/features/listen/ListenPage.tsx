@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Loading } from '../../shared/Loading';
 import type { ListenState } from './ListenEngine';
 import { useListen } from './useListen';
+import { ListenDiagnostics } from './ListenDiagnostics';
 import '../../shared/platform.css';
 import './listen.css';
 
@@ -23,6 +24,7 @@ const STATUS: Record<ListenState, string> = {
 export default function ListenPage({ courseId }: { courseId: string }) {
   const run = useListen(courseId);
   const log = useRef<HTMLDivElement>(null);
+  const [diag, setDiag] = useState(false);
   useEffect(() => {
     log.current?.scrollTo({ top: log.current.scrollHeight });
   }, [run.lines]);
@@ -88,6 +90,26 @@ export default function ListenPage({ courseId }: { courseId: string }) {
         )}
         {run.error && <p className="listen-error">{run.error}</p>}
       </section>
+
+      <section className="listen-settings">
+        <label>
+          <input
+            type="checkbox"
+            checked={run.noisy}
+            onChange={(event) => run.setNoisy(event.target.checked)}
+          />
+          مكان فيه دوشة: ماردّش إلا بعد زرار السماعة أو «{outline.wakeWord}»
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={diag}
+            onChange={(event) => setDiag(event.target.checked)}
+          />
+          تفاصيل الميكروفون (للتجربة)
+        </label>
+      </section>
+      {diag && <ListenDiagnostics engine={engine} notes={run.notes} />}
 
       <section className="listen-help">
         <h3>إزاي تستخدمه من غير شاشة</h3>

@@ -3,8 +3,9 @@
 // again and the drift is never heard), then the question, then waits as long as it takes.
 // The tutor's tools work (get_lesson fetches another lesson; check_done leads to the scripted
 // feedback and the next scene). Cutting in records the line being heard and re-reads it after
-// silence; a drop while waiting stays closed. The mic is a silent fake file, so spoken turns
-// are covered by unit tests.
+// silence; a drop while waiting stays closed. The fake microphone plays loud white noise (a
+// fan, running water): the Silero voice detector must load and never take it for an answer.
+// Spoken turns themselves are covered by unit tests.
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -42,9 +43,11 @@ const audio = (data) => ({
   },
 });
 
-// A silent 16 kHz WAV as the fake microphone, so nothing is mistaken for speech.
+// Loud white noise as the fake microphone (16 kHz, 3 s, looped by Chrome).
 const folder = await mkdtemp(join(tmpdir(), 'listen-'));
 const silence = Buffer.alloc(44 + 32000 * 3);
+for (let i = 44; i < silence.length; i += 2)
+  silence.writeInt16LE(Math.round((Math.random() * 2 - 1) * 0.25 * 32767), i);
 silence.write('RIFF', 0);
 silence.writeUInt32LE(36 + 32000 * 3, 4);
 silence.write('WAVEfmt ', 8);
@@ -130,6 +133,7 @@ try {
       const text = message.clientContent?.turns?.[0]?.parts?.[0]?.text ?? '';
       if (message.clientContent)
         sent.push({ n, text, complete: message.clientContent.turnComplete });
+      if (message.realtimeInput?.activityStart) sent.push({ n, text: 'activityStart' });
       const read = /^READ(?: QUESTION| FEEDBACK| AGAIN)?:\n([\s\S]*)$/.exec(text);
       if (!read) return;
       // Session 1 drifts once on its second line; session 2 reads slowly (to cut into it).
@@ -140,6 +144,7 @@ try {
     });
   });
   const reads = (n) => sent.filter((m) => m.n === n && m.text.startsWith('READ'));
+  const turns = () => sent.filter((m) => m.text === 'activityStart').length;
   const why = lessons[0].scenes[0];
 
   await page.goto(`${url}/?listen=${course.id}`);
@@ -172,8 +177,12 @@ try {
   );
   assert.ok(reads(1).every((m) => m.complete === true));
 
-  // It waits: nothing more is read while the learner hasn't answered.
+  // It waits: nothing more is read while the learner hasn't answered, and the noise in the
+  // microphone is not taken for an answer (the voice detector is running).
+  await page.getByLabel('تفاصيل الميكروفون (للتجربة)').check();
+  await page.locator('.listen-diag', { hasText: 'Silero VAD' }).waitFor({ timeout: 15000 });
   await page.waitForTimeout(3000);
+  assert.equal(turns(), 0, 'noise never opened a learner turn');
   assert.equal(reads(1).length, why.lines.length + 2);
   assert.equal(await status.innerText(), 'دورك: اتكلم');
 
@@ -241,13 +250,16 @@ try {
   const saved = await page.evaluate(() => localStorage.getItem('new-learn:listen:manhaj-almarifa'));
   assert.equal(JSON.parse(saved).lessonId, 'lesson-03');
 
+  assert.equal(turns(), 0, 'no learner turns from noise in the whole run');
+  await page.getByLabel(/مكان فيه دوشة/).check();
+  assert.equal(await page.evaluate(() => localStorage.getItem('new-learn:listen:noisy')), '1');
   const width = await page.evaluate(() => document.documentElement.scrollWidth);
   assert.ok(width <= 390, `no sideways scroll (${width})`);
   await page.getByRole('button', { name: 'إنهاء' }).click();
   await page.getByRole('button', { name: 'ابدأ الدرس الصوتي' }).waitFor();
   assert.deepEqual(errors, []);
   console.log(
-    'Listen mode: scripted reading + drift guard, patient wait, get_lesson, verdict + feedback, cut-in re-read, quiet drop, skip, lessons, 390px passed.',
+    'Listen mode: streamed scripted reading + drift guard, voice detector ignores noise, noisy-place setting, patient wait, get_lesson, verdict + feedback, cut-in re-read, quiet drop, skip, lessons, 390px passed.',
   );
 } finally {
   await browser?.close();

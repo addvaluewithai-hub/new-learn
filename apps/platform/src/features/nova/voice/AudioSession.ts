@@ -1,11 +1,12 @@
-import { encodePcm, decodePcm } from './pcm';
+import { decodePcm, downsample16k, pcm16 } from './pcm';
 export class AudioSession {
   private context = new AudioContext({ latencyHint: 'interactive' });
   private gain = this.context.createGain();
   private stream: MediaStream | null = null;
   private source: MediaStreamAudioSourceNode | null = null;
   private worklet: AudioWorkletNode | null = null;
-  private active = new Set<AudioBufferSourceNode>();
+  /** Playing or queued sources, with the audio-clock time each one starts. */
+  private active = new Map<AudioBufferSourceNode, number>();
   private next = 0;
   private closed = false;
   private muted = false;
@@ -18,8 +19,8 @@ export class AudioSession {
   setVolume(value: number) {
     this.gain.gain.value = Math.max(0, Math.min(1, value));
   }
-  /** `send` gets each 16 kHz PCM chunk (base64) and its loudness (RMS, 0..1). */
-  async capture(send: (chunk: string, level: number) => void) {
+  /** `send` gets each 16 kHz PCM chunk (base64), its loudness (RMS, 0..1) and its samples. */
+  async capture(send: (chunk: string, level: number, samples: Float32Array) => void) {
     if (!navigator.mediaDevices?.getUserMedia)
       throw new Error('المتصفح مش بيدعم الميكروفون هنا. استخدم الشات.');
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -43,7 +44,8 @@ export class AudioSession {
       if (this.closed || this.paused || this.muted) return;
       let sum = 0;
       for (const sample of event.data) sum += sample * sample;
-      send(encodePcm(event.data, this.context.sampleRate), Math.sqrt(sum / event.data.length));
+      const samples = downsample16k(event.data, this.context.sampleRate);
+      send(pcm16(samples), Math.sqrt(sum / event.data.length), samples);
     };
     this.source.connect(this.worklet);
     this.worklet.connect(this.context.destination);
@@ -57,13 +59,14 @@ export class AudioSession {
     const source = this.context.createBufferSource();
     source.buffer = buffer;
     source.connect(this.gain);
-    this.active.add(source);
+    this.active.set(source, 0);
     this.complete = false;
     // A new reply (or a stall) starts with a short cushion, so a slow network doesn't make
     // the voice stutter: the next chunks usually arrive while this one plays.
     const starting = this.next <= this.context.currentTime;
     const at = Math.max(this.context.currentTime + (starting ? 0.25 : 0.02), this.next);
     this.next = at + buffer.duration;
+    this.active.set(source, at);
     source.onended = () => {
       this.active.delete(source);
       if (!this.active.size && this.complete) {
@@ -73,6 +76,23 @@ export class AudioSession {
     };
     source.start(at);
     return at - this.context.currentTime;
+  }
+  /** The audio clock (seconds), for `cutFrom`. */
+  get now() {
+    return this.context.currentTime;
+  }
+  /** Stops only the audio that starts at or after `at` (one sentence), keeping what is before. */
+  cutFrom(at: number) {
+    let end = 0;
+    for (const [source, start] of this.active) {
+      if (start >= at - 0.001) {
+        source.onended = null;
+        source.stop();
+        source.disconnect();
+        this.active.delete(source);
+      } else end = Math.max(end, start + (source.buffer?.duration ?? 0));
+    }
+    this.next = end;
   }
   /** Seconds until the audio received so far has finished playing. */
   get endsIn() {
@@ -86,7 +106,7 @@ export class AudioSession {
     if (!this.active.size) this.onIdle();
   }
   interrupt() {
-    for (const source of this.active) {
+    for (const source of this.active.keys()) {
       source.onended = null;
       source.stop();
       source.disconnect();
