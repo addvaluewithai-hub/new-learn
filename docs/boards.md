@@ -263,15 +263,16 @@ text already explains the board, so a student who cannot see it can still follow
   bridge, live region) and the board origin setting. `?preview=board` opens the probe.
 - `boards/`: the helper (`lib/newlearn-board@1/board.js`) and `libraries.json`.
 - `tools/build-boards.mjs` (`npm run prepare:boards`): validates and hashes every board into
-  `dist-boards/` with `_headers`, and writes the app's editions map.
+  `boards/dist/` with `_headers`, and writes the app's editions map.
   `tools/serve-boards.mjs` serves it locally on port 5174 with the same headers.
 - `fixtures/board-probe/`: the synthetic wire board, a hostile sandbox probe and a lesson.
 - `tools/check-board.mjs` with `tools/boards/` (origin, serving, states, in-board inspection).
 - Next: `content:import` support for `board/<id>/` folders.
 
-Deploying the board origin: a second Cloudflare Pages project named `new-learn-boards` on
-this repository, build command `npm run prepare:boards`, output directory `dist-boards`,
-Node 24. A custom domain later only needs `VITE_BOARD_ORIGIN` on the app's build and the
+Deploying the board origin: a second Cloudflare Pages project, `new-learn-boards`, on this
+same repository with root directory `boards` (so it never picks up the app's `wrangler.jsonc`
+or its `functions/` API), build command `cd .. && npm ci && npm run prepare:boards`, output
+directory `dist` (that is, `boards/dist`) and `NODE_VERSION=24`. A custom domain later only needs `VITE_BOARD_ORIGIN` on the app's build and the
 new app origin in `FRAME_ANCESTORS` (tools/build-boards.mjs).
 
 ## Build order

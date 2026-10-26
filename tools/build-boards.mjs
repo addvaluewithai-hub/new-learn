@@ -1,11 +1,13 @@
-// Build the board origin into dist-boards/ (docs/boards.md) from every board folder, and
+// Build the board origin into boards/dist/ (docs/boards.md) from every board folder, and
 // write the app's board editions (id -> content hash and manifest). Runs before dev, test
 // and build.
 import { mkdir, readdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { buildOrigin, libraries, readBoard, root } from './boards/origin.mjs';
 
-const out = join(root, 'dist-boards');
+// Inside boards/, so the board site's Cloudflare project (root directory `boards`) never
+// sees the app's wrangler.jsonc or its functions/ API.
+const out = join(root, 'boards/dist');
 const editionsFile = join(root, 'apps/platform/src/features/boards/editions.generated.json');
 const sources = [join(root, 'fixtures/board-probe/boards')];
 
@@ -24,5 +26,5 @@ await buildOrigin(out, boards);
 await mkdir(dirname(editionsFile), { recursive: true });
 await writeFile(editionsFile, `${JSON.stringify(editions, null, 2)}\n`);
 console.log(
-  `Built ${boards.length} boards and ${Object.keys(libraries).length} libraries in dist-boards.`,
+  `Built ${boards.length} boards and ${Object.keys(libraries).length} libraries in boards/dist.`,
 );
