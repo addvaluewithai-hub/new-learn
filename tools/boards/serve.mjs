@@ -3,6 +3,7 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize, sep } from 'node:path';
+import { BOARD_HEADERS, TYPES } from '../../boards/headers.mjs';
 
 const types = {
   '.html': 'text/html; charset=utf-8',
@@ -38,13 +39,26 @@ async function rulesOf(dir) {
   return rules;
 }
 
-/** Start serving `dir` on 127.0.0.1:`port` (0 picks a free port); resolves with the URL. */
-export async function serveOrigin(dir, port) {
+/**
+ * Start serving `dir` on 127.0.0.1:`port` (0 picks a free port); resolves with the URL.
+ * `teacher(hash, path)` serves uploaded boards at /u/<hash>/<path>, as the board site's
+ * function does (boards/functions/u).
+ */
+export async function serveOrigin(dir, port, { teacher } = {}) {
   const rules = await rulesOf(dir);
   const headersFor = (path) =>
     Object.assign({}, ...rules.filter((r) => r.pattern.test(path)).map((r) => r.headers));
   const server = createServer(async (request, response) => {
     const path = decodeURIComponent(new URL(request.url ?? '/', 'http://x').pathname);
+    const upload = /^\/u\/([a-f0-9]{64})\/([A-Za-z0-9_./-]{1,200})$/.exec(path);
+    if (upload && teacher && !upload[2].includes('..')) {
+      const body = await teacher(upload[1], upload[2]);
+      const type = TYPES[upload[2].split('.').pop()];
+      if (typeof body === 'string' && type)
+        response.writeHead(200, { ...BOARD_HEADERS, 'Content-Type': type }).end(body);
+      else response.writeHead(404, BOARD_HEADERS).end('Not found');
+      return;
+    }
     const file = normalize(join(dir, path.endsWith('/') ? `${path}index.html` : path));
     if (!file.startsWith(dir + sep)) {
       response.writeHead(400).end();

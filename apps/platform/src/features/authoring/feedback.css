@@ -1,0 +1,106 @@
+.draft-notes-toggle {
+  position: fixed;
+  inset: auto auto 112px 16px;
+  z-index: 40;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #17463c;
+  color: #fff;
+  font:
+    600 15px/1.2 'IBM Plex Sans Arabic',
+    system-ui,
+    sans-serif;
+  box-shadow: 0 6px 20px rgb(16 32 28 / 25%);
+  cursor: pointer;
+}
+.draft-notes {
+  position: fixed;
+  inset: auto auto 164px 16px;
+  z-index: 40;
+  width: min(380px, calc(100vw - 32px));
+  max-height: min(70vh, 560px);
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  color: #1b2925;
+  font:
+    15px/1.5 'IBM Plex Sans Arabic',
+    system-ui,
+    sans-serif;
+  box-shadow: 0 16px 40px rgb(16 32 28 / 25%);
+  direction: rtl;
+}
+.draft-notes header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #5f6f69;
+}
+.draft-notes ul {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.draft-notes li {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f6f5f0;
+}
+.draft-notes li[data-status='review'] {
+  background: #fff6db;
+}
+.draft-notes li[data-status='done'],
+.draft-notes li[data-status='dismissed'] {
+  opacity: 0.6;
+}
+.draft-notes li p {
+  margin: 0 0 4px;
+}
+.draft-notes-fix,
+.draft-notes-status,
+.draft-notes-hint {
+  color: #5f6f69;
+  font-size: 13px;
+}
+.draft-notes-actions {
+  display: inline-flex;
+  gap: 6px;
+  margin-inline-start: 8px;
+}
+.draft-notes form {
+  display: grid;
+  gap: 8px;
+}
+.draft-notes textarea,
+.draft-notes select {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #d5dbd8;
+  border-radius: 10px;
+}
+.draft-notes button {
+  font: inherit;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #17463c;
+  color: #fff;
+  cursor: pointer;
+}
+.draft-notes button:disabled {
+  opacity: 0.5;
+}
+@media (max-width: 650px) {
+  .draft-notes-toggle {
+    inset: 76px auto auto 12px;
+  }
+  .draft-notes {
+    inset: 124px 12px auto;
+    width: auto;
+  }
+}

@@ -47,6 +47,7 @@
     "test:browser:flow": "node tests/flow-browser.mjs",
     "test:browser:board": "node tests/board-browser.mjs",
     "test:board-check": "node tests/board-check.mjs",
+    "test:browser:draft": "node --import tsx tests/draft-browser.mjs",
     "test:browser:legacy-gas": "node tests/legacy-gas-reading-browser.mjs",
     "test:browser:statics": "node tests/statics-reading-browser.mjs",
     "test:browser:book": "node --import tsx tests/book-browser.mjs && BOOK_CHAPTER=9 node --import tsx tests/book-browser.mjs",
@@ -55,6 +56,7 @@
     "test:browser:book-release": "node --import tsx tests/book-release-browser.mjs"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.9",
     "@types/katex": "0.16.7",
     "@types/node": "24.13.4",
     "@types/react": "19.3.0",

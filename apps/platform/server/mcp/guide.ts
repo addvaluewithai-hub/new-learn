@@ -1,0 +1,72 @@
+// What a teacher's AI reads before writing for New Learn (get_authoring_guide). Kept in step
+// with docs/boards.md and the checks in server/authoring.
+export const GUIDE = `# Writing New Learn lessons
+
+New Learn shows reading lessons: a board above, one short step of text below, the learner
+presses Next. Nova, a voice tutor, explains and answers questions on any step. You write the
+lesson and its boards; the teacher previews them, writes notes, and you fix the notes.
+
+## Workflow
+1. list_my_courses, or create_course.
+2. If a scene needs an interactive board, write it and put_board first (see below).
+3. add_lesson with the whole lesson. Fix every problem it returns and send again.
+4. Give the teacher the previewUrl. The preview checks every board's drawing on their screen.
+5. Later: get_feedback -> fix with update_lesson / put_board -> resolve_feedback("review").
+
+## Lesson format (add_lesson / update_lesson take the whole lesson)
+- title, optional englishTitle, glossary [{term, meaning}], goals [{text, sceneIds}].
+- scenes: 1-40, each {id, title, steps, board?, question?}.
+  - id: lowercase a-z 0-9 -, unique in the lesson (notes point at it, keep ids stable).
+  - steps: 1-20 short steps, one idea each, at most 800 characters. Write in the lesson's
+    language (the teacher's). Math inline as $...$, e.g. $F = kx$.
+  - board: id of a board uploaded with put_board. Without one, the scene shows its title and
+    steps on a plain text board.
+  - step.board: how that board looks once the step is reached (only with scene.board).
+- question (optional, after the steps): {kind, arabic and/or english, options?, answer,
+  board?, feedback}.
+  - kind "choice" (2-6 options), "written", "choice-and-written", or "board".
+  - answer: the model answer, shown after the learner tries. feedback: steps explaining it.
+  - kind "board": the learner sets the board and presses Send; our code grades it with
+    board.check. Never put the answer in the board.
+
+## Interactive boards (put_board)
+A board is a small web page in a sandbox: no network, no storage, no access to the lesson.
+Files (text only): board.json, index.html, optional .js/.css/.json/.svg. Up to 2 MB.
+
+board.json:
+{"apiVersion":1,"id":"spring","title":"...","description":"one sentence a student can read",
+ "libraries":[],"variables":{"k":{"type":"number","min":10,"max":100,"step":10,"unit":"N/m",
+ "label":"k","default":50},"mode":{"type":"choice","options":["a","b"],"default":"a"}},
+ "targets":["#spring","#readout"]}
+- variables: the board's public state; the lesson sets them per step, the learner changes
+  them when a step opens the board, and board questions check them.
+- targets: element ids the lesson may highlight, reveal ([data-reveal] elements) or annotate.
+- libraries: only "katex@0.16.25" for now, from /lib/katex@0.16.25/ (katex.min.js, .css).
+
+index.html must load the helper and start it:
+<script src="/lib/newlearn-board@1/board.js"></script>
+<script>
+  NewLearnBoard.start({ onState(view, env) { /* draw view.variables; same view = same picture */ } });
+  // learner changed something: NewLearnBoard.setVariables({ k: 60 })
+  // after every change: NewLearnBoard.observe('k = 60 N/m, the spring stretches 0.2 m.')
+</script>
+- view: {variables, highlight, reveal, notes, input: "locked"|"open", phase, step}. The
+  helper already applies highlight, reveal, notes and locks the board when input is locked.
+- env: {lang, dir, layout: "landscape"|"portrait", reducedMotion}.
+- Draw only from view.variables. Do not animate forever; respect reduced motion.
+
+### Canvas (the most common problems)
+- The page body is a fixed canvas: 1280x720 in landscape, 720x1280 in portrait
+  (html[data-layout]). The helper scales it to the screen, so lay out in these pixels and
+  support both layouts with CSS on html[data-layout='portrait'].
+- Nothing may leave the canvas; text keeps 8px from its edge; no element may cut its text.
+- Text at least 24px (landscape) and 32px (portrait); buttons/sliders at least 88px on their
+  short side. Use the board font (it is the default); do not set other font families.
+- Pointer positions: NewLearnBoard.point(event) gives canvas pixels (correct at any scale).
+- Formulas and sliders read left to right even in Arabic: give them direction: ltr.
+
+## Teacher notes
+get_feedback returns open notes: position {sceneId, phase, step}, the current text there,
+kind (text, board, question, translation) and the note, plus boardChecks (drawing problems
+found in the preview, by board). Fix them, then resolve_feedback with a one-line summary.
+`;

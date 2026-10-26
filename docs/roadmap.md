@@ -21,6 +21,8 @@ ones above it. This is direction, not approval: the rules in AGENTS.md still app
 
 ## 1. Claude & ChatGPT connector
 
+Status: built with drafts (item 2) and notes (item 3); see docs/connector.md.
+
 One remote MCP server serves both Claude and ChatGPT. The user's AI writes; our server
 only validates and stores.
 

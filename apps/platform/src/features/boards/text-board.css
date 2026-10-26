@@ -1,0 +1,34 @@
+/* Drawn on the lesson's composition (1280×720 or 720×1280), scaled with the frame. */
+.text-board {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: #0d1626;
+  color: #e8eef5;
+  font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+}
+.text-board[data-layout='portrait'] {
+  padding: 72px 48px;
+}
+.text-board h2 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1.3;
+  color: #c4eb67;
+}
+.text-board ol {
+  margin: 0;
+  padding-inline-start: 1.2em;
+  display: grid;
+  gap: 20px;
+  font-size: 36px;
+  line-height: 1.5;
+  color: #97a39d;
+}
+.text-board li[data-current] {
+  color: #e8eef5;
+}

@@ -10,6 +10,8 @@ const BookLesson = lazy(() => import('../features/book/BookLesson'));
 const AuthPage = lazy(() => import('../features/auth/AuthPage'));
 const CatalogPage = lazy(() => import('../features/catalog/CatalogPage'));
 const LessonEntry = lazy(() => import('../features/catalog/LessonEntry'));
+const DraftLesson = lazy(() => import('../features/authoring/DraftLesson'));
+const Consent = lazy(() => import('../features/authoring/Consent'));
 
 function StudentApp() {
   const session = useSession(),
@@ -21,6 +23,11 @@ function StudentApp() {
     ['login', 'signup', 'forgot', 'reset'].includes(query.get('auth') ?? '')
   )
     return <AuthPage onLogin={session.refresh} error={session.error} />;
+  if (query.get('oauth') === 'consent')
+    return <Consent query={query} userName={session.user.name} />;
+  const draftId = query.get('draft');
+  if (draftId)
+    return <DraftLesson key={draftId} lessonId={draftId} studentName={session.user.name} />;
   const lessonId = query.get('lesson'),
     curriculumId = query.get('curriculum');
   return lessonId ? (
