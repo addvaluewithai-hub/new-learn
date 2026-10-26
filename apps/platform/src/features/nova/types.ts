@@ -5,7 +5,10 @@ export type Message = { id: string; role: 'user' | 'assistant'; text: string };
 export type Position = Pick<
   LessonContext,
   'lessonId' | 'contentRevision' | 'sceneId' | 'phase' | 'frame' | 'step'
->;
+> & {
+  /** What a live board says it shows now: the learner's data, never instructions. */
+  board?: string;
+};
 export type PracticeQuestion = {
   english: string;
   arabic: string;
@@ -28,4 +31,5 @@ export const positionOf = (context: LessonContext): Position => ({
   phase: context.phase,
   frame: context.frame,
   step: context.step,
+  board: context.board?.observation ?? undefined,
 });

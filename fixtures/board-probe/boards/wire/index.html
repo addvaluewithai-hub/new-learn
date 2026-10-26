@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stretch a wire</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #0d1626;
+        color: #e8eef5;
+        font:
+          16px/1.4 system-ui,
+          sans-serif;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr minmax(180px, 34%);
+        gap: 16px;
+        height: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      .panel {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        justify-content: center;
+      }
+      label {
+        display: grid;
+        gap: 6px;
+      }
+      input,
+      select {
+        width: 100%;
+        font: inherit;
+      }
+      output {
+        font-size: 22px;
+        font-weight: 600;
+        color: #c4eb67;
+      }
+      @media (max-aspect-ratio: 1/1) {
+        main {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg viewBox="0 0 300 260" role="img" aria-label="A wire hanging from a support">
+        <rect x="60" y="10" width="180" height="14" fill="#5f6f69" />
+        <line id="wire" x1="150" y1="24" x2="150" y2="150" stroke="#cfd8dc" stroke-width="4" />
+        <rect id="weight" x="120" y="150" width="60" height="40" rx="6" fill="#e0a526" />
+        <g id="ruler" stroke="#97a39d">
+          <line x1="230" y1="24" x2="230" y2="250" />
+          <line x1="222" y1="150" x2="238" y2="150" />
+        </g>
+      </svg>
+      <div class="panel">
+        <label id="load-control"
+          >Load <span id="load-text"></span>
+          <input id="load" type="range" min="0" max="500" step="10" />
+        </label>
+        <label
+          >Material
+          <select id="material">
+            <option value="steel">steel</option>
+            <option value="copper">copper</option>
+          </select>
+        </label>
+        <div id="stretch">Stretch: <output id="dl"></output></div>
+      </div>
+    </main>
+    <script>
+      // ΔL = F·L / (A·E) for a 2 m wire with a 1 mm² cross-section.
+      const E = { steel: 200e9, copper: 117e9 };
+      const stretchMm = (load, material) => ((load * 2) / (1e-6 * E[material])) * 1000;
+      const $ = (id) => document.getElementById(id);
+      let values = { load: 0, material: 'steel' };
+      function render() {
+        const dl = stretchMm(values.load, values.material);
+        const end = 150 + dl * 25;
+        $('wire').setAttribute('y2', end);
+        $('weight').setAttribute('y', end);
+        $('load').value = values.load;
+        $('material').value = values.material;
+        $('load-text').textContent = `${values.load} N`;
+        $('dl').textContent = `${dl.toFixed(2)} mm`;
+        NewLearnBoard.observe(
+          `A ${values.load} N load on the ${values.material} wire stretches it by ${dl.toFixed(2)} mm.`,
+          { load: values.load, material: values.material, stretchMm: Number(dl.toFixed(3)) },
+        );
+      }
+      function change(next) {
+        values = { ...values, ...next };
+        render();
+        NewLearnBoard.setVariables(next);
+      }
+      $('load').addEventListener('input', (e) => change({ load: Number(e.target.value) }));
+      $('material').addEventListener('change', (e) => change({ material: e.target.value }));
+      NewLearnBoard.start({
+        onState(view) {
+          values = { ...values, ...view.variables };
+          render();
+        },
+      });
+    </script>
+  </body>
+</html>

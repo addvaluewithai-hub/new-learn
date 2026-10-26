@@ -121,3 +121,12 @@ export function TopBar({
     </header>
   );
 }
+
+/** Leaving the lesson, at the start of the top bar. */
+export function ExitLink({ exit }: { exit?: { label: string; href: string } }) {
+  return exit ? (
+    <a className="rl-round rl-round-sm" href={exit.href} aria-label={exit.label}>
+      ×
+    </a>
+  ) : null;
+}

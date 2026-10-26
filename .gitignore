@@ -1,5 +1,7 @@
 node_modules/
 dist/
+dist-boards/
+apps/platform/src/features/boards/editions.generated.json
 test-results/
 .env
 .env.*

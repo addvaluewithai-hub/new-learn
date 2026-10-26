@@ -1,0 +1,10 @@
+{
+  "note": "Libraries boards may use, served from the board origin at /lib/<name>@<version>/. Adding one is a reviewed change with its licence. Not GSAP: see docs/boards.md.",
+  "libraries": {
+    "katex@0.16.25": {
+      "license": "MIT",
+      "from": "node_modules/katex/dist",
+      "files": ["katex.min.js", "katex.min.css", "fonts"]
+    }
+  }
+}

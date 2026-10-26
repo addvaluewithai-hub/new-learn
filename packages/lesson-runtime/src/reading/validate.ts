@@ -1,3 +1,4 @@
+import { validBoardCheck, validStepBoard } from '../board/state';
 import type { VisualSpec } from '../types';
 import type { ReadingPackage, ReadingStep } from './types';
 
@@ -30,7 +31,8 @@ export function validateReadingPackage(
         !text(step.text) ||
         !Array.isArray(step.unitIds) ||
         !step.unitIds.length ||
-        !step.unitIds.every(text)
+        !step.unitIds.every(text) ||
+        !validStepBoard(step.board)
       )
         fail(`${label} step`);
   };
@@ -70,9 +72,15 @@ export function validateReadingPackage(
     if (!text(q.id) || questions.has(q.id)) fail(`${scene.id} question ID`);
     questions.add(q.id);
     if (!text(q.english) && !text(q.arabic)) fail(`${q.id} wording`);
-    if (!['written', 'choice', 'choice-and-written'].includes(q.attempt)) fail(`${q.id} attempt`);
-    if (!Array.isArray(q.options) || (q.attempt !== 'written' && q.options.length < 2))
-      fail(`${q.id} options`);
+    if (!['written', 'choice', 'choice-and-written', 'board'].includes(q.attempt))
+      fail(`${q.id} attempt`);
+    const chooses = q.attempt === 'choice' || q.attempt === 'choice-and-written';
+    if (!Array.isArray(q.options) || (chooses && q.options.length < 2)) fail(`${q.id} options`);
+    if (
+      (q.attempt === 'board') !== Boolean(q.board) ||
+      (q.board && (!validBoardCheck(q.board.check) || !validStepBoard({ state: q.board.state })))
+    )
+      fail(`${q.id} board`);
     if (!q.answer || !(text(q.answer.english) || text(q.answer.arabic))) fail(`${q.id} answer`);
     if (!q.feedback || !text(q.feedback.clipId)) fail(`${q.id} feedback`);
     steps(q.feedback.steps, `${q.id} feedback`);

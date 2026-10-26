@@ -67,6 +67,19 @@
   color: var(--rl-soft);
   font-size: 14px;
 }
+.rl-verdict[data-correct='true'] {
+  color: #1f7a4d;
+  font-weight: 600;
+}
+.rl-verdict[data-correct='false'] {
+  color: #a4462f;
+  font-weight: 600;
+}
+.rl-board-ask {
+  margin: 8px 0 0;
+  color: var(--rl-soft);
+  font-size: 14px;
+}
 .rl-choices {
   display: flex;
   flex-wrap: wrap;

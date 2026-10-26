@@ -1,6 +1,7 @@
 import { spawn } from 'node:child_process';
 const children = [
   spawn(process.execPath, ['--import', 'tsx', 'tools/serve-api.mjs'], { stdio: 'inherit' }),
+  spawn(process.execPath, ['tools/serve-boards.mjs'], { stdio: 'inherit' }),
   spawn(
     process.execPath,
     ['node_modules/vite/bin/vite.js', '--config', 'apps/platform/vite.config.ts'],

@@ -8,6 +8,7 @@ const excluded = new Set([
   '.git',
   'node_modules',
   'dist',
+  'dist-boards',
   'test-results',
   '.functions-check',
   '.wrangler',

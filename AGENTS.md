@@ -10,7 +10,8 @@ The old addvaluewithai-hub/learn is a reference, not a workspace dependency.
 
 - apps/platform owns navigation, authentication, catalog and persistence adapters.
 - packages/lesson-runtime owns frame-based playback, questions and composition interfaces.
-- fixtures/runtime-probe contains synthetic development content only.
+- fixtures/runtime-probe and fixtures/board-probe contain synthetic development content only.
+- boards/ is the board origin (helper, allowed libraries); it is a separate site from the app.
 - Runtime source imports only itself, React/React DOM, Remotion and @remotion/player.
 - Curriculum custom components and parameters belong to content packages, not engine switches.
 - Add directories when used; do not pre-create a folder for every future feature.
@@ -36,6 +37,10 @@ Structural runtime validation is not an editorial/audio/publication approval.
 The contentAudit field preserves legacy shape; it is not trusted publication authorization.
 Authoring sources are not executable LessonPackage artifacts. Curricula arrive as reviewed platform bundles through `npm run content:import` (docs/content-import.md); lessons may be published text-first as reading lessons and gain audio later. Generated files under content/imported/ are never hand-edited. To launch a curriculum end to end, follow docs/launch-curriculum.md.
 Do not execute unreviewed uploaded JSX or arbitrary module URLs in the student application.
+Teacher-made board code (docs/boards.md) is the one exception, and only on the board origin:
+sandboxed iframe without allow-same-origin, server CSP with no network, content-addressed
+immutable files, allowed libraries only. It never runs on the app origin, and our code, not
+the board, grades answers. Board changes need `npm run test:browser:board`.
 Production import must retain immutable files and bind review to the exact content/runtime edition.
 No resets or schema renames merely to match new code folder names.
 Test later DB changes on a separate branch before connecting the new app to production.

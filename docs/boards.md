@@ -1,8 +1,8 @@
 # Boards v1: teacher-made interactive boards
 
-Status: design for review, 2026-10-26. Nothing here is built yet. Research behind it:
-docs/research/openmaic.md. Rules in AGENTS.md still apply. Where this design needs an
-AGENTS.md change, it says so and waits for the owner.
+Status (2026-10-26): build steps 1 and 2 are done (runtime 0.4.0); see "Build order".
+Research behind it: docs/research/openmaic.md. The owner approved the AGENTS.md rule for
+teacher code on the board origin.
 
 ## Goal
 
@@ -120,7 +120,7 @@ A reading question may take its answer from the board:
 
 ## Sandbox
 
-Board files are served from a **separate origin** (e.g. `boards.<our-domain>`, its own
+Board files are served from a **separate origin** (`new-learn-boards.pages.dev`, its own
 Cloudflare Pages project), never from the app origin. Paths are content-addressed:
 `/e/<boardHash>/index.html`, so a published board can never change under students.
 
@@ -185,20 +185,17 @@ and debouncing, so a board author writes only `onState(state)` and `setVariables
 
 ## Nova and the board
 
-`LessonContext` gains `board: { id, variables, observation }` for the current scene. Nova's
-existing context path carries it, so Nova can say "you set 300 N and the wire stretched
-1.2 mm" without new server tools. Hands-free mode reads the same context.
+`LessonContext` gains `board: { id, variables, observation }` for the current scene. Nova
+requests carry the observation as `board`; the server quotes it in a separate
+`BOARD REPORT` line marked as learner data, and the live tutor's silent position updates
+include it. Nova can say "you set 300 N and the wire stretched 3 mm" without new tools.
 
 ## Allowed libraries (v1)
 
-Pinned versions, served from the board origin, licences recorded with each:
-
-- KaTeX (MIT): maths typesetting.
-- Three.js (MIT): 3D.
-- D3 (ISC): charts and diagrams.
-- Matter.js (MIT): 2D physics.
-- anime.js (MIT): animation. Plain CSS and the Web Animations API need no library.
-- lottie-web (MIT): designer animations.
+Pinned versions, served from the board origin, listed with their licence in
+`boards/libraries.json`. Served now: KaTeX 0.16.25 (MIT). Approved candidates, added with
+a pinned version the first time a board needs them: Three.js (MIT), D3 (ISC), Matter.js
+(MIT), anime.js (MIT), lottie-web (MIT). Plain CSS and the Web Animations API need none.
 
 **Not in v1: GSAP.** Its free licence forbids use in tools that let users build visual
 animations without code in competition with Webflow, unless Webflow consents in writing.
@@ -243,19 +240,30 @@ edition. Passing the check is structural, not an editorial or teaching approval.
 
 ## Where the code goes
 
-- `packages/lesson-runtime`: protocol types, `board.json` and step-state validation, state
-  merging per step, and grading of `check`. No iframe code; still React and Remotion only.
-- `apps/platform`: the `html-board` renderer (iframe host, message bridge, live region), the
-  board origin setting, and Nova context.
-- Board origin: a second Cloudflare Pages project that serves board editions, libraries and
-  the CSP header.
-- `tools/check-board.mjs`, and `content:import` support for `board/<id>/` folders.
+- `packages/lesson-runtime/src/board/`: contract types, `board.json` validation, clamping,
+  per-step state, grading and message parsing. `src/reading/board.ts` and `useBoard.ts`
+  join it to reading lessons. No iframe code; still React and Remotion only.
+- `apps/platform/src/features/boards/`: the `html-board` renderer (iframe host, message
+  bridge, live region) and the board origin setting. `?preview=board` opens the probe.
+- `boards/`: the helper (`lib/newlearn-board@1/board.js`) and `libraries.json`.
+- `tools/build-boards.mjs` (`npm run prepare:boards`): validates and hashes every board into
+  `dist-boards/` with `_headers`, and writes the app's editions map.
+  `tools/serve-boards.mjs` serves it locally on port 5174 with the same headers.
+- `fixtures/board-probe/`: the synthetic wire board, a hostile sandbox probe and a lesson.
+- Next: `tools/check-board.mjs`, and `content:import` support for `board/<id>/` folders.
+
+Deploying the board origin: a second Cloudflare Pages project named `new-learn-boards` on
+this repository, build command `npm run prepare:boards`, output directory `dist-boards`,
+Node 24. A custom domain later only needs `VITE_BOARD_ORIGIN` on the app's build and the
+new app origin in `FRAME_ANCESTORS` (tools/build-boards.mjs).
 
 ## Build order
 
-1. Protocol and host with one reviewed sample board in the runtime-probe fixture.
-2. Board origin with CSP, served locally and in CI; browser tests for sandbox escape attempts
-   (cookies, storage, network, top navigation) all failing.
+1. Done: protocol and host with a sample board (`fixtures/board-probe`), board questions
+   graded by our code, and Nova context.
+2. Done: board origin with CSP, served locally and in CI; `test:browser:board` shows every
+   escape attempt blocked (cookies, storage, parent, top navigation, popups, network,
+   same-origin fetch, external images) at 1280px and 390px.
 3. `board:check`.
 4. Physics chapter 8, Young's modulus: one real `html-board` with a board question.
 5. Connector tools that write boards (roadmap item 1), validated by the same check.
@@ -263,12 +271,12 @@ edition. Passing the check is structural, not an editorial or teaching approval.
 ## Later
 
 - Nova sets declared variables live during conversation, clamped to their ranges.
+- Hands-free (audio) mode: board questions still need the screen; a spoken answer could set
+  the checked variables once Nova can set them.
 - Recorded lessons: map cues to steps.
 - A board template gallery (number line, graph, molecule, timeline) teachers' AIs fill in.
 - Boards in Claude or ChatGPT chat through MCP Apps, reusing the same files.
 
 ## Open questions for the owner
 
-1. The board origin's domain name.
-2. Approval of the AGENTS.md change for teacher code on the board origin.
-3. Whether paid courses need extra review before boards go live, beyond the automatic check.
+1. Whether paid courses need extra review before boards go live, beyond the automatic check.

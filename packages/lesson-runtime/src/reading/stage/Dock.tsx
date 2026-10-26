@@ -133,11 +133,14 @@ export function AnswerDock({
   onBack,
   onSubmit,
   written,
+  board,
 }: {
   canBack: boolean;
   onBack: () => void;
   onSubmit: (answer: string) => void;
   written: boolean;
+  /** The answer is what the board shows now: sending reads it from the board. */
+  board?: () => void;
 }) {
   const [draft, setDraft] = useState('');
   const field = useRef<HTMLTextAreaElement>(null);
@@ -156,7 +159,11 @@ export function AnswerDock({
       >
         <Arrow back />
       </button>
-      {written ? (
+      {board ? (
+        <button type="button" className="rl-next" onClick={board}>
+          <span>ابعت إجابتي</span>
+        </button>
+      ) : written ? (
         <form
           className="rl-answer"
           onSubmit={(event) => {

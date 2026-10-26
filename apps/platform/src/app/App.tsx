@@ -5,6 +5,7 @@ import { Loading } from '../shared/Loading';
 
 const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
 const ChemistryLesson = lazy(() => import('./ChemistryLesson'));
+const BoardPreview = lazy(() => import('./BoardPreview'));
 const BookLesson = lazy(() => import('../features/book/BookLesson'));
 const AuthPage = lazy(() => import('../features/auth/AuthPage'));
 const CatalogPage = lazy(() => import('../features/catalog/CatalogPage'));
@@ -47,6 +48,8 @@ export function App() {
           <DevelopmentLesson />
         ) : preview === 'chemistry' ? (
           <ChemistryLesson />
+        ) : preview === 'board' ? (
+          <BoardPreview />
         ) : (
           <StudentApp />
         )}
