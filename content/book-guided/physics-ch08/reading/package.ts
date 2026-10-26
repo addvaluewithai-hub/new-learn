@@ -5,6 +5,7 @@ import { questionArabic } from './questions';
 import { bookSource } from '../board/source';
 import { checkpoints, checkpointScene } from './checkpoints';
 import { spokenSection } from './script';
+import { youngsLab } from './lab';
 
 export const BOOK_RENDERER = 'physics-book-ch08-board';
 const visual = (section: BookSection, rawSteps: string[]) => ({
@@ -94,6 +95,8 @@ export const readingLesson: ReadingPackage = {
   scenes: bookSections.map(spokenSection).flatMap((section) => {
     const check = checkpoints.find((c) => c.after === section.id);
     const checks = check ? [checkpointScene(check, BOOK_RENDERER, section.page)] : [];
+    // The live board right after the book derives ΔL = F·L₀/(A·Y).
+    if (section.id === 'P127-C') return [scene(section), youngsLab, ...checks];
     if (!section.question) return [scene(section), ...checks];
     const raw = passages(
       section.blocks.filter(
@@ -127,7 +130,7 @@ export const readingLesson: ReadingPackage = {
       id: 'axial',
       text: 'تختار قانون التشوّه المحوري وتحدد البيانات الناقصة.',
       sceneIds: bookSections.filter((s) => s.page <= 127).map((s) => s.id),
-      questionIds: ['P130-Q1', 'P131-Q2'],
+      questionIds: [youngsLab.id, 'P130-Q1', 'P131-Q2'],
     },
     {
       id: 'shear',

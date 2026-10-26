@@ -3,7 +3,7 @@
 // Usage: npm run board:check -- <board folder> [--lesson <lesson module>] [--out <dir>]
 // Writes <out>/report.json and screenshots; exits 1 when a problem was found.
 import { createServer } from 'node:http';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { basename, join, resolve } from 'node:path';
 import { chromium } from 'playwright';
 import { buildOrigin, readBoard, root } from './boards/origin.mjs';
@@ -64,6 +64,31 @@ const settle = (frame) =>
   frame
     .evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))))
     .then(() => new Promise((done) => setTimeout(done, 150)));
+
+/**
+ * Two screenshots differ when more than 0.1% of their pixels change visibly. Re-drawing the
+ * same picture can move anti-aliased edges by a pixel; that is not a different picture.
+ */
+async function differs(page, a, b) {
+  if (a.equals(b)) return false;
+  return page.evaluate(
+    async ([x, y]) => {
+      const load = async (data) => {
+        const image = await createImageBitmap(await (await fetch(data)).blob());
+        const canvas = new OffscreenCanvas(image.width, image.height);
+        canvas.getContext('2d').drawImage(image, 0, 0);
+        return canvas.getContext('2d').getImageData(0, 0, image.width, image.height).data;
+      };
+      const [p, q] = await Promise.all([load(x), load(y)]);
+      if (p.length !== q.length) return true;
+      let changed = 0;
+      for (let i = 0; i < p.length; i += 4)
+        if (Math.max(...[0, 1, 2].map((c) => Math.abs(p[i + c] - q[i + c]))) > 24) changed++;
+      return changed > p.length / 4 / 1000;
+    },
+    [a, b].map((png) => `data:image/png;base64,${png.toString('base64')}`),
+  );
+}
 
 async function run(board, states, originUrl) {
   const src = `${originUrl}/e/${board.hash}/index.html`;
@@ -149,8 +174,17 @@ window.send = (m) => b.contentWindow.postMessage(m, '*');</script>`,
         await page.waitForTimeout(400);
         await page.evaluate((m) => send(m), first);
         await settle(frame);
-        if (!a.equals(await element.screenshot()))
-          fail('deterministic', 'the same state drew a different picture', at);
+        const b = await element.screenshot();
+        if (await differs(page, a, b)) {
+          const name = `deterministic-${f.layout}-${lang}`;
+          await writeFile(join(out, `${name}-a.png`), a);
+          await writeFile(join(out, `${name}-b.png`), b);
+          fail(
+            'deterministic',
+            `the same state drew a different picture (see ${name}-a/b.png)`,
+            at,
+          );
+        }
         if (declared.size) {
           // An open board can be reached from the keyboard.
           await page.evaluate((view) => send({ nl: 1, type: 'state', view }), {
@@ -182,6 +216,8 @@ window.send = (m) => b.contentWindow.postMessage(m, '*');</script>`,
   }
 }
 
+// A fresh report every run: no screenshots left over from an earlier one.
+await rm(out, { recursive: true, force: true });
 let board = null;
 try {
   board = await readBoard(resolve(folder));

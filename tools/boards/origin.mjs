@@ -94,4 +94,6 @@ export async function buildOrigin(out, boards) {
     }
   await writeFile(join(out, '_headers'), HEADERS);
   await writeFile(join(out, 'index.html'), '<!doctype html><title>New Learn boards</title>\n');
+  // With a 404 page, Pages answers unknown paths with 404 instead of the index page.
+  await writeFile(join(out, '404.html'), '<!doctype html><title>Not found</title>\n');
 }

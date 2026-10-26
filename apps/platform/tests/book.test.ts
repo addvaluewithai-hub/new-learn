@@ -18,11 +18,9 @@ import type { Env } from '../server/env';
 import { parseBookDraft } from '../../../tools/import-book-draft.mjs';
 
 test('book chapter uses the existing reading contract, in source order with four original exercises', () => {
-  assert.equal(validateReadingPackage(lesson, new Set([BOOK_RENDERER])), lesson);
+  assert.equal(validateReadingPackage(lesson, new Set([BOOK_RENDERER, 'html-board'])), lesson);
   assert.deepEqual(
-    lesson.scenes
-      .filter((s) => !s.id.endsWith('-intro') && !s.id.endsWith('-check'))
-      .map((s) => s.id),
+    lesson.scenes.filter((s) => !/-(?:intro|check|lab)$/.test(s.id)).map((s) => s.id),
     bookSections.map((s) => s.id),
   );
   assert.deepEqual(
@@ -44,7 +42,9 @@ test('book chapter uses the existing reading contract, in source order with four
 });
 
 test('question visual data contains the prompt without the worked solution', () => {
-  for (const scene of lesson.scenes.filter((s) => s.question)) {
+  for (const scene of lesson.scenes.filter(
+    (s) => s.question && s.visual.renderer === BOOK_RENDERER,
+  )) {
     const raw = scene.visual.params.rawSteps as string[];
     assert.equal(raw.length, scene.question!.attempt === 'written' ? 2 : 0);
     assert.ok(!('answer' in scene.visual.params));

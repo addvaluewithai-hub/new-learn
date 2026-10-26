@@ -12,6 +12,6 @@ export type ReferencePart = {
 };
 export const referenceParts: Record<string, ReferencePart> = { ...early, ...late };
 export function referencePart(sceneId: string) {
-  const id = sceneId.replace(/-(?:intro|check)$/, '');
+  const id = sceneId.replace(/-(?:intro|check|lab)$/, '');
   return { id, part: referenceParts[id] ?? referenceParts['P133-Q4'] };
 }

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { ReadingLesson } from '@learn/lesson-runtime';
 import type {
   BoardManifest,
@@ -19,6 +19,8 @@ import { useVoicePrefs } from '../features/nova/voice/voicePrefs';
 import { useHandsFree, useVoiceHooks } from '../features/nova/handsfree/useHandsFree';
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
+import { HtmlBoard } from '../features/boards/HtmlBoard';
+import { boardManifests } from '../features/boards/editions';
 
 export type ReadingModule = {
   readingLesson: ReadingPackage;
@@ -98,6 +100,11 @@ export default function ReadingClassroom({
   });
   const onReady = useCallback((value: LessonController | null) => setController(value), []);
   const saved = useReadingProgress(module?.readingLesson ?? null, !preview);
+  // Every reading lesson may use live teacher-made boards (docs/boards.md).
+  const registry = useMemo(
+    () => ({ 'html-board': HtmlBoard, ...module?.readingRenderers }),
+    [module],
+  );
   useEffect(() => {
     let live = true;
     load().then(
@@ -132,8 +139,8 @@ export default function ReadingClassroom({
     <div className="reading-classroom">
       <ReadingLesson
         lesson={lesson}
-        registry={module.readingRenderers}
-        boards={module.readingBoards}
+        registry={registry}
+        boards={module.readingBoards ?? boardManifests}
         initial={saved.initial}
         suspended={assistantOpen}
         onContext={setContext}

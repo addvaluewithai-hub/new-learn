@@ -9,7 +9,10 @@ import { buildOrigin, libraries, readBoard, root } from './boards/origin.mjs';
 // sees the app's wrangler.jsonc or its functions/ API.
 const out = join(root, 'boards/dist');
 const editionsFile = join(root, 'apps/platform/src/features/boards/editions.generated.json');
-const sources = [join(root, 'fixtures/board-probe/boards')];
+const sources = [
+  join(root, 'fixtures/board-probe/boards'),
+  join(root, 'content/book-guided/physics-ch08/boards'),
+];
 
 const boards = [];
 for (const source of sources) {
