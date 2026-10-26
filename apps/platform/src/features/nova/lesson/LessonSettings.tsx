@@ -5,6 +5,7 @@ import type { ReadingPace } from '@learn/lesson-runtime';
 import type { FlowSettings } from './useLessonFlow';
 import type { VoicePrefs } from '../voice/voicePrefs';
 import { VoiceStyleSettings } from './VoiceStyleSettings';
+import { HandsFreeSettings } from '../handsfree/HandsFreeSettings';
 import './lesson-settings.css';
 
 const PACES: Array<{ value: ReadingPace | null; label: string }> = [
@@ -100,6 +101,7 @@ export function LessonSettings({
               <small>الوقت قبل ما الخطوة الجاية تظهر. «يدوي» يعني بزرار التالي.</small>
             </div>
           )}
+          <HandsFreeSettings settings={settings} onChange={onChange} />
           <VoiceStyleSettings prefs={voice} onChange={onVoice} />
         </div>
       ) : null}

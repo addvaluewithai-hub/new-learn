@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-08",
+  "order": 8,
+  "title": "الشكوكية: هل نقدر نعرف أي حاجة؟",
+  "englishTitle": "Epistemology: an introduction — Lesson 8",
+  "subtitle": "Epistemology: an introduction — Lesson 8",
+  "delivery": "reading",
+  "contentRevision": "a3ab56631025f7412948cf73ec17a4c591468a5a84893ffc0f0dfea53ca508cd",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-08",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "1de1292a684f1e201e5de1fa4afca2bb865c1671c3247b2eba6053c8ae205196",
+      "bytes": 14060
+    }
+  ],
+  "manifestHash": "1be347bb3419cfa61f0e643a51ee4bfda162aa2abba4bf74aec7852a25cd3e24"
+}

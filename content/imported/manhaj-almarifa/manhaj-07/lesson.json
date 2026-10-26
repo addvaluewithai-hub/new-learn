@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-07",
+  "order": 7,
+  "title": "المعرفة العلمية: هيوم وبوبر وكون",
+  "englishTitle": "Epistemology: an introduction — Lesson 7",
+  "subtitle": "Epistemology: an introduction — Lesson 7",
+  "delivery": "reading",
+  "contentRevision": "e697d488b8dbb27deb73edb8b95361e6daac9980328a276001d8c96c3bb6b235",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-07",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "3332cffc818edcff8669d7a0634242475492d870ef5c1c0d0ecc73e1b5bc3ad5",
+      "bytes": 16309
+    }
+  ],
+  "manifestHash": "4ba3359a9e04080ec162c1a805e7f43a13b249daad758a6f0319b93d01f27f07"
+}

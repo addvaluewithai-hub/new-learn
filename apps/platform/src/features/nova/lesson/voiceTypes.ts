@@ -20,6 +20,21 @@ export type VoiceEvents = {
   said: (text: string) => void;
   done: () => void;
   failed: (message: string) => void;
+  /** Hands-free mode: every microphone chunk (16 kHz PCM, loudness, samples). */
+  capture?: (chunk: string, level: number, samples: Float32Array) => void;
+  /** Hands-free mode: holds a reply until the learner's words are known to be real. */
+  reply?: ReplyGate;
+  /** Extra setup for the next session (hands-free mode). */
+  setup?: () => TalkSetup;
+  /** Client tools the tutor may call (e.g. submit_answer); the result goes back as-is. */
+  tool?: (name: string, args: Record<string, unknown>) => unknown;
+};
+export type ReplyGate = {
+  holding: boolean;
+  hold: (data: string, rate: number) => void;
+  learner: (text: string) => void;
+  /** Reply over: false means it was dropped (noise, not words). */
+  decide: () => boolean;
 };
 export type Session = {
   audio: AudioSession;
@@ -45,5 +60,7 @@ export type ReadJob = {
 export const LOOKAHEAD_S = 6;
 
 /** The live session for lesson talk, opened with the learner's voice settings. */
-export const talkToken = (position: Position) =>
-  api<LiveToken>('/nova/live', { ...position, purpose: 'talk', style: voiceStyle() });
+export const talkToken = (position: Position, setup: TalkSetup = {}) =>
+  api<LiveToken>('/nova/live', { ...position, purpose: 'talk', style: voiceStyle(), ...setup });
+/** Extra session setup, e.g. hands-free mode and its wake word. */
+export type TalkSetup = { handsFree?: boolean; wakeWord?: string };

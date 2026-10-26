@@ -40,6 +40,9 @@ try {
     page.on('pageerror', (e) => errors.push(e.message));
     const chats = [];
     const socket = [];
+    await page.route('https://fonts.googleapis.com/**', (r) =>
+      r.fulfill({ contentType: 'text/css', body: '' }),
+    );
     await page.route('**/api/**', async (route) => {
       const request = route.request();
       const path = new URL(request.url()).pathname;

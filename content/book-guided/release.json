@@ -24,9 +24,9 @@
           "subtitle": "Solids and Elasticity — Chapter 8",
           "previewLessonId": "phys1-book-guided-ch08",
           "moduleId": "book-reading:phys1-textbook-ch08",
-          "contentRevision": "720026c1b2ae51fa54ddc653946f938ab0b7b781ba61489b44ae8f3279f0fb60",
-          "manifestHash": "720026c1b2ae51fa54ddc653946f938ab0b7b781ba61489b44ae8f3279f0fb60",
-          "runtimeVersion": "0.3.2",
+          "contentRevision": "8fa1048f4b694f2694e610f948d9c36c3f480ec9e3c4922f9da553103d8bde38",
+          "manifestHash": "8fa1048f4b694f2694e610f948d9c36c3f480ec9e3c4922f9da553103d8bde38",
+          "runtimeVersion": "0.3.3",
           "goals": [
             {
               "id": "axial",
@@ -77,9 +77,9 @@
           "subtitle": "Sound Waves — Chapter 9",
           "previewLessonId": "phys1-book-guided-ch09",
           "moduleId": "book-reading:phys1-textbook-ch09",
-          "contentRevision": "670d6e925cd1f3c4afffc368d68476ec5f5dcdfbca81b53b68b632a0f618ccc0",
-          "manifestHash": "670d6e925cd1f3c4afffc368d68476ec5f5dcdfbca81b53b68b632a0f618ccc0",
-          "runtimeVersion": "0.3.2",
+          "contentRevision": "e258290ce605770e1521128d41c81996b87a930d7a18f8a881e4061eb1ffb9d0",
+          "manifestHash": "e258290ce605770e1521128d41c81996b87a930d7a18f8a881e4061eb1ffb9d0",
+          "runtimeVersion": "0.3.3",
           "goals": [
             {
               "id": "waves",

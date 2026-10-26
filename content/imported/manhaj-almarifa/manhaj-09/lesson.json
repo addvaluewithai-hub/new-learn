@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-09",
+  "order": 9,
+  "title": "الصدق: يعني إيه حاجة تبقى صح؟",
+  "englishTitle": "Epistemology: an introduction — Lesson 9",
+  "subtitle": "Epistemology: an introduction — Lesson 9",
+  "delivery": "reading",
+  "contentRevision": "9110cf72a76b85dd859ef081533032df1c73d49691733d8cdfc3ad3d5e01c205",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-09",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "fb4a85669d78a8ddd31d0bc7b159d9079960d24e51dbc80e78a8ea5a1971e1f6",
+      "bytes": 14039
+    }
+  ],
+  "manifestHash": "b0f2e6543f1d73f5743ac6d8a223f82d5dd23c973ac53d4295841c5ad26616f2"
+}

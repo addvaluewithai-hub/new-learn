@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-04",
+  "order": 4,
+  "title": "المصدر الأول: الإدراك الحسي",
+  "englishTitle": "Epistemology: an introduction — Lesson 4",
+  "subtitle": "Epistemology: an introduction — Lesson 4",
+  "delivery": "reading",
+  "contentRevision": "d65ae21e99d5a4258dc9ecf841ec0cc71be2537b8cc0776d5643309e662f299a",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-04",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "6b139c67b330816ce0c5a2e1e7403147935fcf789536ac635a6ab850a08105cc",
+      "bytes": 13775
+    }
+  ],
+  "manifestHash": "f6473a3c0840c753067e6c06b33e4d44bd077ab02fd032c743ec9b9726a279e5"
+}

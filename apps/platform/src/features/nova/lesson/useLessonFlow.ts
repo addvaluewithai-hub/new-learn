@@ -12,9 +12,27 @@ import {
 } from '@learn/lesson-runtime';
 import type { TeachEvents, TeachLine } from './LessonVoice';
 
-export type FlowSettings = { narration: boolean; volume: number; pace: ReadingPace | null };
+export type FlowSettings = {
+  narration: boolean;
+  volume: number;
+  pace: ReadingPace | null;
+  /** Audio mode: Nova reads, and the learner answers by voice without touching the screen. */
+  handsFree: boolean;
+  /** Answers only after the wake word or an earbud press (a noisy place). */
+  noisy: boolean;
+  /** The learner's word for calling Nova while it reads. */
+  wakeWord: string;
+};
 const KEY = 'learn.lesson.flow';
-const DEFAULTS: FlowSettings = { narration: false, volume: 0.9, pace: null };
+export const WAKE_WORD = 'يا نوفا';
+const DEFAULTS: FlowSettings = {
+  narration: false,
+  volume: 0.9,
+  pace: null,
+  handsFree: false,
+  noisy: false,
+  wakeWord: WAKE_WORD,
+};
 
 function load(): FlowSettings {
   try {
@@ -23,6 +41,12 @@ function load(): FlowSettings {
       narration: saved?.narration === true,
       volume: typeof saved?.volume === 'number' ? Math.min(1, Math.max(0, saved.volume)) : 0.9,
       pace: ['slower', 'normal', 'faster'].includes(saved?.pace) ? saved.pace : null,
+      handsFree: saved?.handsFree === true,
+      noisy: saved?.noisy === true,
+      wakeWord:
+        typeof saved?.wakeWord === 'string' && saved.wakeWord.trim()
+          ? saved.wakeWord.slice(0, 30)
+          : WAKE_WORD,
     };
   } catch {
     return DEFAULTS;
@@ -48,7 +72,9 @@ export function useLessonFlow() {
     setSettings((now) => ({ ...now, ...next }));
     setPaused(false);
   };
-  return { settings, change, paused, setPaused };
+  /** Changes a setting without restarting a paused lesson (e.g. switched on by the app). */
+  const adjust = (next: Partial<FlowSettings>) => setSettings((now) => ({ ...now, ...next }));
+  return { settings, change, adjust, paused, setPaused };
 }
 
 /**

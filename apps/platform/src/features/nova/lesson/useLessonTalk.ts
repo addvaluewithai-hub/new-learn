@@ -19,7 +19,12 @@ const id = () => crypto.randomUUID();
  * speech goes to the live tutor. Both land in the same thread, pinned to the step they
  * were asked on, so the lesson and the talk read as one conversation.
  */
-export function useLessonTalk(context: LessonContext | null, onEngage?: () => void) {
+export function useLessonTalk(
+  context: LessonContext | null,
+  onEngage?: () => void,
+  /** Hands-free mode's hooks into the voice (microphone, reply gate, tools, setup). */
+  hooks?: { current: Partial<Pick<VoiceEvents, 'capture' | 'reply' | 'tool' | 'setup'>> },
+) {
   const [notes, setNotes] = useState<ThreadNote[]>([]);
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -106,6 +111,12 @@ export function useLessonTalk(context: LessonContext | null, onEngage?: () => vo
       }
       patch(turn.tutor, (n) => ({ text: n.text + text }));
     },
+    capture: (chunk, level, samples) => hooks?.current.capture?.(chunk, level, samples),
+    get reply() {
+      return hooks?.current.reply;
+    },
+    tool: (name, args) => hooks?.current.tool?.(name, args),
+    setup: () => hooks?.current.setup?.() ?? {},
     done: () => settle(),
     failed: (message) => {
       const at = now.current.context && atOf(now.current.context);
@@ -125,6 +136,9 @@ export function useLessonTalk(context: LessonContext | null, onEngage?: () => vo
     stopTeaching: () => engine.endTeach('cut'),
     setVolume: (value: number) => engine.setVolume(value),
     restyle: () => engine.restyle(),
+    play: (data: string, rate: number) => engine.play(data, rate),
+    pushTurn: (chunks: string[]) => engine.pushTurn(chunks),
+    listen: (on: boolean) => engine.listen(on),
   }));
   const voice = { state, ...actions };
 

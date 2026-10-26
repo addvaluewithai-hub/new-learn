@@ -1,0 +1,26 @@
+{
+  "id": "manhaj-10",
+  "order": 10,
+  "title": "المعرفة في المجتمع والتفكير النقدي",
+  "englishTitle": "Epistemology: an introduction — Lesson 10",
+  "subtitle": "Epistemology: an introduction — Lesson 10",
+  "delivery": "reading",
+  "contentRevision": "2144236d24978c3d07385c1192e41df24ecb69f3b246646b8982ce417ec18537",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-10",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "05438e925fb6b49c78b3f18095297e63bbc6fe14af5a28a072d2ab687a48f126",
+      "bytes": 15919
+    }
+  ],
+  "manifestHash": "0cfcbd54ff5c2f9140e90f259bd97af13cf0401adce1ccd7c5bc8c1992c35247"
+}

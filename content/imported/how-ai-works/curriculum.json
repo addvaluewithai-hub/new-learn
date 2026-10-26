@@ -1,0 +1,71 @@
+{
+  "id": "how-ai-works",
+  "title": "إزاي الذكاء الاصطناعي بيشتغل",
+  "description": "الذكاء الاصطناعي من جوه: الرياضيات من الصفر، والشبكات العصبية، والترانسفورمر، وإزاي الموديلات بتتبني وبتشتغل.",
+  "subject": "Computer Science — ذكاء اصطناعي",
+  "parts": [
+    {
+      "title": "إزاي الذكاء الاصطناعي بيشتغل",
+      "summary": "",
+      "lessons": [
+        "how-ai-01"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "how-ai-01",
+      "curriculumId": "how-ai-works",
+      "order": 1,
+      "title": "الصورة الكبيرة: يعني إيه ذكاء اصطناعي؟",
+      "subtitle": "How AI Actually Works — Lesson 1",
+      "moduleId": "reading:how-ai-01",
+      "contentRevision": "9fe4de317fc64212ff9c99f56d9110d2555a5160c3d454aefaaf5a21c2c1a174",
+      "manifestHash": "2fd6878f076bb02c7bdbcc1a7e749ad8758cea58a1dc7f50ccc6dd2435144608",
+      "runtimeVersion": "0.3.2",
+      "delivery": "reading",
+      "goals": [
+        {
+          "id": "O1",
+          "text": "برمجة بالقواعد ولا تعلّم من الأمثلة؟",
+          "sceneIds": [
+            "S01"
+          ],
+          "questionIds": [
+            "Q01"
+          ]
+        },
+        {
+          "id": "O2",
+          "text": "من 1956 لـ 2012: حماس وشتا وصحوة",
+          "sceneIds": [
+            "S03"
+          ],
+          "questionIds": [
+            "Q02"
+          ]
+        },
+        {
+          "id": "O3",
+          "text": "من الترانسفورمر لـ ChatGPT والموديلات اللي بتفكر",
+          "sceneIds": [
+            "S05"
+          ],
+          "questionIds": [
+            "Q03"
+          ]
+        },
+        {
+          "id": "O4",
+          "text": "الدرس المرّ وخريطة الكورس",
+          "sceneIds": [
+            "S07"
+          ],
+          "questionIds": [
+            "Q04"
+          ]
+        }
+      ]
+    }
+  ]
+}

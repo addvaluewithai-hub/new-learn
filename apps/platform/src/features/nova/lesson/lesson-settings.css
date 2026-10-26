@@ -192,3 +192,19 @@
     overflow: auto;
   }
 }
+.flow-handsfree {
+  display: grid;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgb(0 0 0 / 0.08);
+}
+.flow-field {
+  display: grid;
+  gap: 4px;
+}
+.flow-field input {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(0 0 0 / 0.2);
+}

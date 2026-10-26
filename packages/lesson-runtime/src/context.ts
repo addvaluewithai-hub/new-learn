@@ -30,6 +30,9 @@ export type LessonController = {
   next?: () => void;
   /** Reading lessons: show this step (not past a question the learner has not answered). */
   goTo?: (position: { sceneId: string; phase: LessonContext['phase']; step: number }) => void;
+  /** Reading lessons: submit this answer to the question on its attempt page, as the answer
+   * form would (e.g. an answer the learner spoke in audio mode). Ignored on any other page. */
+  answer?: (value: string) => void;
 };
 // The host observes the same Remotion frame as the board. No second clock.
 export function lessonContext(

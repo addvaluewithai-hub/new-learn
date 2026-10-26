@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import type { LessonContext, LessonController } from '../context';
 
-type Nav = Required<Pick<LessonController, 'next' | 'goTo'>>;
+type Nav = Required<Pick<LessonController, 'next' | 'goTo' | 'answer'>>;
 
 /**
  * What the host sees and may do: the current context on every page change, and a stable
@@ -22,6 +22,7 @@ export function useHostBridge(
       getContext: () => live.current.context,
       next: () => live.current.nav.next(),
       goTo: (at) => live.current.nav.goTo(at),
+      answer: (value) => live.current.nav.answer(value),
     });
     return () => onReady?.(null);
   }, [onReady]);

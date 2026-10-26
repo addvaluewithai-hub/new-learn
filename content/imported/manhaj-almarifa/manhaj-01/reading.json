@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "delivery": "reading",
+  "lessonId": "manhaj-01",
+  "curriculumId": "manhaj-almarifa",
+  "contentRevision": "5a7daefc75218ec87e68b6f59cc099cef604bd1795e827bf3409c4bdd4d7a8c9",
+  "title": "يعني إيه معرفة؟",
+  "englishTitle": "Epistemology: an introduction — Lesson 1",
+  "curriculumTitle": "منهج المعرفة",
+  "lessonOrder": 1,
+  "fps": 30,
+  "dimensions": {
+    "landscape": {
+      "width": 960,
+      "height": 540
+    },
+    "portrait": {
+      "width": 540,
+      "height": 960
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "العلم اللي بيسأل إزاي إحنا عارفين",
+      "clipId": "N01",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "العلم اللي بيسأل إزاي إحنا عارفين",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N01-U01"
+          ],
+          "text": "أهلًا بيك في أول حلقة. الكورس ده عن فرع من الفلسفة اسمه نظرية المعرفة، بالإنجليزي Epistemology.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N01-U02"
+          ],
+          "text": "سؤال بسيط: إنت عارف إن الشمس هتطلع بكرة؟ وعارف إن فيه بلد اسمها اليابان مع إنك غالبًا ما رحتهاش؟ وعارف إن اتنين زائد اتنين بأربعة؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N01-U03"
+          ],
+          "text": "التلات حاجات دول إنت متأكد منهم، بس كل واحدة وصلتلك من طريق مختلف: الأولى من التجربة والتكرار، والتانية من كلام ناس تانية، والتالتة من عقلك لوحده.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N01-U04"
+          ],
+          "text": "نظرية المعرفة بتسأل تلات أسئلة كبار: يعني إيه أصلًا أعرف حاجة؟ ومنين المعرفة بتيجي؟ وهل نقدر نعرف أي حاجة بيقين؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N01-U05"
+          ],
+          "text": "الكورس متبني على الطريقة اللي بيتدرّس بيها الموضوع ده في أقسام الفلسفة في العالم، ومن أشهر مراجعه كتاب What Is This Thing Called Knowledge للفيلسوف Duncan Pritchard.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "سؤال: العلم اللي بيسأل إزاي إحنا عارفين",
+      "clipId": "N02",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "العلم اللي بيسأل إزاي إحنا عارفين",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N02-U01"
+          ],
+          "text": "قولّي بكلامك: نظرية المعرفة بتسأل عن إيه؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q01",
+        "english": "",
+        "arabic": "قولّي بكلامك: نظرية المعرفة بتسأل عن إيه؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "",
+          "arabic": "بتسأل يعني إيه نعرف حاجة، ومنين المعرفة بتيجي، وهل نقدر نعرف بيقين. مش بتسأل عن معلومة معينة، بتسأل عن المعرفة نفسها."
+        },
+        "feedback": {
+          "clipId": "F01",
+          "steps": [
+            {
+              "unitIds": [
+                "F01-U01"
+              ],
+              "text": "الإجابة: نظرية المعرفة، Epistemology، مش بتسأل عن معلومة معينة. هي بتسأل عن المعرفة نفسها: يعني إيه أصلًا نعرف حاجة، ومنين المعرفة بتيجي، وهل نقدر نعرف أي حاجة بيقين.",
+              "written": true
+            }
+          ],
+          "visual": null
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "title": "أنواع المعرفة",
+      "clipId": "N03",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "أنواع المعرفة",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N03-U01"
+          ],
+          "text": "الفلاسفة بيفرّقوا بين تلات أنواع من المعرفة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N03-U02"
+          ],
+          "text": "الأول: معرفة إن حاجة كذا، بالإنجليزي Knowing that أو Propositional knowledge. زي إنك تعرف إن القاهرة عاصمة مصر. ده النوع اللي الكورس هيركز عليه.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N03-U03"
+          ],
+          "text": "التاني: معرفة إزاي تعمل حاجة، Knowing how. زي إنك تعرف تعوم أو تسوق عجلة. ممكن تعرف تعوم ومش قادر تشرح بالكلام إزاي.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N03-U04"
+          ],
+          "text": "التالت: معرفة بالمعايشة، Knowledge by acquaintance. زي إنك تعرف شخص، أو تعرف طعم المانجة. دي معرفة جاية من الاحتكاك المباشر.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "سؤال: أنواع المعرفة",
+      "clipId": "N04",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "أنواع المعرفة",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N04-U01"
+          ],
+          "text": "لو قلت: أنا عارف أعمل كشري. ده أنهي نوع من التلاتة؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q02",
+        "english": "",
+        "arabic": "لو قلت: أنا عارف أعمل كشري. ده أنهي نوع من التلاتة؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "",
+          "arabic": "معرفة إزاي، Knowing how، لأنها مهارة عملية مش مجرد معلومة إن حاجة كذا."
+        },
+        "feedback": {
+          "clipId": "F02",
+          "steps": [
+            {
+              "unitIds": [
+                "F02-U01"
+              ],
+              "text": "الإجابة: إنك تعرف تعمل كشري ده معرفة إزاي، Knowing how. ده مهارة عملية بتعملها بإيدك، مش مجرد معلومة إن حاجة كذا، زي معرفة إن القاهرة عاصمة مصر.",
+              "written": true
+            }
+          ],
+          "visual": null
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "title": "التعريف الكلاسيكي: اعتقاد صادق مبرَّر",
+      "clipId": "N05",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "التعريف الكلاسيكي: اعتقاد صادق مبرَّر",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N05-U01"
+          ],
+          "text": "تخيّل صاحبك قال لك: أنا حاسس إن الماتش بكرة هيخلص تعادل. وفعلًا خلص تعادل. هل كان عارف؟",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N05-U02"
+          ],
+          "text": "أغلب الناس هتقول لأ، ده خمّن وصادف إن تخمينه صح. يبقى مش كفاية إن كلامك يطلع صح عشان نسميه معرفة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N05-U03"
+          ],
+          "text": "من أيام أفلاطون، في محاورة اسمها ثياتيتوس، Theaetetus، اتطرح إن المعرفة محتاجة تلات شروط مع بعض.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N05-U04"
+          ],
+          "text": "أولًا تكون مصدّق الحاجة، يعني اعتقاد، Belief. ثانيًا تكون الحاجة صح فعلًا، يعني صدق، Truth. ثالثًا يكون عندك مبرر أو دليل كويس لتصديقك، يعني تبرير، Justification.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N05-U05"
+          ],
+          "text": "وده اللي بيتسمى التعريف الثلاثي، أو Justified True Belief، واختصاره JTB.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N05-U06"
+          ],
+          "text": "صاحبنا بتاع الماتش كان عنده اعتقاد، والاعتقاد طلع صادق، بس ما كانش عنده مبرر. فده مش معرفة.",
+          "written": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "سؤال: التعريف الكلاسيكي: اعتقاد صادق مبرَّر",
+      "clipId": "N06",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "التعريف الكلاسيكي: اعتقاد صادق مبرَّر",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N06-U01"
+          ],
+          "text": "إيه التلات شروط بتوع التعريف الكلاسيكي للمعرفة؟",
+          "written": true
+        }
+      ],
+      "question": {
+        "id": "Q03",
+        "english": "",
+        "arabic": "إيه التلات شروط بتوع التعريف الكلاسيكي للمعرفة؟",
+        "attempt": "written",
+        "options": [],
+        "answer": {
+          "english": "",
+          "arabic": "اعتقاد، وصدق، وتبرير: تكون مصدّق الحاجة، وتكون صح فعلًا، ويكون عندك مبرر كويس لتصديقها. Justified True Belief."
+        },
+        "feedback": {
+          "clipId": "F03",
+          "steps": [
+            {
+              "unitIds": [
+                "F03-U01"
+              ],
+              "text": "الإجابة: التلات شروط هم: اعتقاد، Belief، يعني تكون مصدّق الحاجة. وصدق، Truth، يعني تكون صح فعلًا. وتبرير، Justification، يعني يكون عندك سبب كويس لتصديقها. ومع بعض اسمهم الاعتقاد الصادق المبرَّر، Justified True Belief.",
+              "written": true
+            }
+          ],
+          "visual": null
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "title": "الخلاصة",
+      "clipId": "N07",
+      "visual": {
+        "renderer": "text-board",
+        "params": {
+          "title": "الخلاصة",
+          "assetBase": "/lesson-assets/manhaj-almarifa/manhaj-01"
+        }
+      },
+      "steps": [
+        {
+          "unitIds": [
+            "N07-U01"
+          ],
+          "text": "نظرية المعرفة بتسأل: يعني إيه نعرف، ومنين، وهل نقدر نعرف بيقين.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N07-U02"
+          ],
+          "text": "فيه معرفة إن، ومعرفة إزاي، ومعرفة بالمعايشة.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N07-U03"
+          ],
+          "text": "والتعريف الكلاسيكي للمعرفة: اعتقاد صادق مبرَّر.",
+          "written": true
+        },
+        {
+          "unitIds": [
+            "N07-U04"
+          ],
+          "text": "الحلقة الجاية هنشوف إزاي فيلسوف واحد، في مقالة من تلات صفحات بس، هزّ التعريف ده اللي فضل مستقر أكتر من ألفين سنة.",
+          "written": true
+        }
+      ]
+    }
+  ],
+  "glossary": [],
+  "goals": [
+    {
+      "id": "O1",
+      "text": "العلم اللي بيسأل إزاي إحنا عارفين",
+      "sceneIds": [
+        "S01"
+      ],
+      "questionIds": [
+        "Q01"
+      ]
+    },
+    {
+      "id": "O2",
+      "text": "أنواع المعرفة",
+      "sceneIds": [
+        "S03"
+      ],
+      "questionIds": [
+        "Q02"
+      ]
+    },
+    {
+      "id": "O3",
+      "text": "التعريف الكلاسيكي: اعتقاد صادق مبرَّر",
+      "sceneIds": [
+        "S05",
+        "S07"
+      ],
+      "questionIds": [
+        "Q03"
+      ]
+    }
+  ]
+}

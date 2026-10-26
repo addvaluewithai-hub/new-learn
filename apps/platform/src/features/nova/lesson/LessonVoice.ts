@@ -2,9 +2,10 @@ import { AudioSession } from '../voice/AudioSession';
 import { LiveConnection } from '../voice/LiveConnection';
 import type { Position } from '../types';
 import { reason } from './voiceError';
-import { readMessage, type TeachEvents, type TeachLine } from './teach';
-import { IDLE_CLOSE_MS, LOOKAHEAD_S, REPLY_WAIT_MS, talkToken } from './voiceTypes';
-import type { ReadJob, Session, VoiceEvents, VoiceState } from './voiceTypes';
+import { LessonTeach } from './LessonTeach';
+import type { TeachEvents, TeachLine } from './teach';
+import { IDLE_CLOSE_MS, REPLY_WAIT_MS, talkToken } from './voiceTypes';
+import type { Session, VoiceEvents, VoiceState } from './voiceTypes';
 
 export type { VoiceEvents, VoiceState } from './voiceTypes';
 export type { TeachEvents, TeachLine } from './teach';
@@ -20,14 +21,26 @@ export class LessonVoice {
   private stale = false;
   private starting = false;
   private turn = false;
-  private teaching: ReadJob | null = null;
-  /** The model is producing a response (until turnComplete or interrupted). */
-  private generating = false;
-  /** Audio still arriving from teaching that was cut; dropped until that response ends. */
-  private discard = false;
+  /** generating: the model is producing a response (until turnComplete or interrupted).
+   * discard: audio still arriving from a reply that was cut; dropped until that reply ends. */
+  private flags = { generating: false, discard: false };
   private volume = 0.9;
-  private timers: { idle?: number; reply?: number; read?: number } = {};
+  /** Hands-free mode: the microphone stays open (and the session with it) the whole time. */
+  private listening = false;
+  private timers: { idle?: number; reply?: number } = {};
+  private teacher = new LessonTeach({
+    session: () => this.session(),
+    current: () => this.s,
+    busy: () => this.holding || this.turn,
+    reading: () => this.set('reading'),
+    idle: () => !this.holding && !this.turn && this.set('idle'),
+    armIdle: () => this.armIdle(),
+    flags: this.flags,
+  });
   constructor(private on: () => VoiceEvents) {}
+  private get teaching() {
+    return this.teacher.job;
+  }
 
   private set(state: VoiceState) {
     this.on().state(state);
@@ -39,60 +52,54 @@ export class LessonVoice {
     s.audio.setVolume(this.volume);
     s.live = new LiveConnection({
       audio: (data, rate) => {
-        if (this.holding || this.discard) return;
+        if (this.holding || this.flags.discard) return;
         clearTimeout(this.timers.reply);
-        clearTimeout(this.timers.read);
-        this.set(this.teaching ? 'reading' : 'speaking');
-        const startsIn = s.audio.enqueue(data, rate);
-        const job = this.teaching;
-        // The first sound of a line is when its page turns (the first line is already shown).
-        if (job && !job.heard) {
-          job.heard = true;
-          const n = job.lines[job.line].n;
-          if (job.line > 0)
-            job.timers.push(
-              window.setTimeout(() => this.teaching === job && job.on.show(n), startsIn * 1000),
-            );
-        }
+        // A reply to a hands-free turn waits until the learner's words are known to be real.
+        const gate = this.on().reply;
+        if (!this.teaching && gate?.holding) return gate.hold(data, rate);
+        this.play(data, rate);
       },
       interrupted: () => {
-        this.generating = false;
-        this.discard = false;
+        this.flags.generating = this.flags.discard = false;
         if (!this.teaching) s.audio.interrupt();
       },
       complete: () => {
-        this.generating = false;
-        if (this.discard) {
-          this.discard = false;
-          return;
-        }
-        const job = this.teaching;
-        if (job && job.line >= 0) this.lineDone(s, job);
-        else {
+        this.flags.generating = false;
+        if (this.flags.discard) return void (this.flags.discard = false);
+        if (!this.teacher.complete(s)) {
+          const gate = this.on().reply;
+          if (gate?.holding && !gate.decide()) {
+            this.finish(); // noise: say nothing, and wait again
+            if (!this.holding) this.set('idle');
+            return this.armIdle();
+          }
           s.audio.finish();
           this.finish();
         }
         this.armIdle();
       },
       transcript: (role, text) => {
-        if (this.teaching || this.discard) return;
+        if (role === 'user') this.on().reply?.learner(text);
+        if (this.teaching || this.flags.discard) return;
         if (role === 'user') this.on().heard(text);
-        else this.on().said(text);
+        else if (!this.on().reply?.holding) this.on().said(text);
       },
       error: (message) => {
         if (this.s !== s) return;
         const mid = this.turn;
-        this.endTeach('failed');
+        this.teacher.end('failed');
         this.close();
         if (mid) this.finish(message);
       },
       answer: () => ({ error: 'Not available in lesson talk.' }),
+      tool: (name, args) => this.on().tool?.(name, args) ?? { error: 'Unknown tool.' },
     });
     this.s = s;
+    if (this.listening) void this.mic(s).catch(() => undefined);
     s.connected = this.connect(s);
     s.connected.catch(() => {
       if (this.s !== s) return;
-      this.endTeach('failed');
+      this.teacher.end('failed');
       this.close();
     });
     return s;
@@ -100,7 +107,7 @@ export class LessonVoice {
   private async connect(s: Session) {
     const position = this.on().position();
     if (!position) throw new Error('الدرس لسه بيحمّل.');
-    const token = await talkToken(position);
+    const token = await talkToken(position, this.on().setup?.());
     if (this.s !== s) throw new Error('المكالمة اتقفلت.');
     await s.live.connect(token);
     s.ready = true;
@@ -108,7 +115,8 @@ export class LessonVoice {
   }
   private mic(s: Session) {
     s.mic ??= s.audio
-      .capture((chunk) => {
+      .capture((chunk, level, samples) => {
+        this.on().capture?.(chunk, level, samples);
         if (!this.holding) return;
         if (s.talking) s.live.audio(chunk);
         else s.buffer.push(chunk);
@@ -121,12 +129,12 @@ export class LessonVoice {
   }
   private drained(s: Session) {
     if (this.s !== s) return;
-    if (this.teaching?.complete) this.endTeach('done');
-    else if (!this.holding && !this.turn) this.set('idle');
+    if (!this.teacher.drained() && !this.holding && !this.turn) this.set('idle');
   }
   private armIdle() {
     if (this.stale && this.s && !this.holding && !this.teaching && !this.turn) return this.close();
     clearTimeout(this.timers.idle);
+    if (this.listening) return; // waiting for the learner, however long it takes
     this.timers.idle = window.setTimeout(() => {
       if (!this.holding && !this.teaching && !this.turn) this.close();
     }, IDLE_CLOSE_MS);
@@ -143,7 +151,7 @@ export class LessonVoice {
     if (this.holding) return;
     this.holding = true;
     clearTimeout(this.timers.idle);
-    this.endTeach('cut');
+    this.teacher.end('cut');
     const s = this.session();
     s.audio.interrupt();
     this.set(s.ready ? 'listening' : 'connecting');
@@ -176,14 +184,14 @@ export class LessonVoice {
     if (!this.holding) return;
     this.holding = false;
     const s = this.s;
-    s?.audio.setMuted(true);
+    if (!this.listening) s?.audio.setMuted(true); // hands-free keeps hearing (nothing is sent)
     if (s?.talking) this.answer(s);
   }
   private answer(s: Session) {
     s.talking = false;
     s.buffer = [];
     s.live.activity(false);
-    this.generating = true;
+    this.flags.generating = true;
     this.set('thinking');
     clearTimeout(this.timers.reply);
     this.timers.reply = window.setTimeout(() => {
@@ -194,78 +202,37 @@ export class LessonVoice {
   }
   /** Stop Nova talking (a tap while it answers). */
   stop() {
-    this.endTeach('cut');
+    this.teacher.end('cut');
     this.s?.audio.interrupt();
     this.finish();
     this.set('idle');
   }
 
-  /** Read these lines aloud, one per reply, the next requested while this one plays (no
-   * gaps); each page turns as its line starts. Stops after the last line (a question). */
+  /** Read these lines aloud (see LessonTeach). */
   teach(lines: TeachLine[], on: TeachEvents) {
-    this.endTeach('cut');
-    if (this.holding || this.turn || !lines.length) return;
-    clearTimeout(this.timers.idle);
-    const s = this.session();
-    const job: ReadJob = {
-      lines,
-      on,
-      line: -1,
-      heard: false,
-      askedAt: 0,
-      complete: false,
-      timers: [],
-    };
-    this.teaching = job;
-    this.set('reading');
-    s.connected.then(
-      () => this.teaching === job && this.readLine(s, job, 0),
-      () => this.teaching === job && this.endTeach('failed'),
-    );
-  }
-  private readLine(s: Session, job: ReadJob, line: number) {
-    // A reply still running (e.g. a cut reading) is replaced: drop what is left of it.
-    if (this.generating) this.discard = true;
-    if (line === 0) s.audio.interrupt();
-    job.line = line;
-    job.heard = false;
-    job.askedAt = performance.now();
-    s.live.text(readMessage(job.lines[line]));
-    this.generating = true;
-    clearTimeout(this.timers.read);
-    this.timers.read = window.setTimeout(() => this.endTeach('failed'), REPLY_WAIT_MS);
-  }
-  private lineDone(s: Session, job: ReadJob) {
-    // An end right after asking belongs to the reply this line replaced; ignore it. A line
-    // that really produced no speech is a failure, never a silent skip ahead.
-    if (!job.heard && performance.now() - job.askedAt < 1500) return;
-    if (!job.heard) return this.endTeach('failed');
-    const next = job.line + 1;
-    if (next >= job.lines.length) {
-      job.complete = true;
-      s.audio.finish();
-      if (!s.audio.speaking) this.endTeach('done');
-      return;
-    }
-    const wait = Math.max(0, s.audio.endsIn - LOOKAHEAD_S) * 1000;
-    job.timers.push(
-      window.setTimeout(() => this.teaching === job && this.readLine(s, job, next), wait),
-    );
+    this.teacher.start(lines, on);
   }
   endTeach(result: 'done' | 'cut' | 'failed') {
-    const job = this.teaching;
-    if (!job) return;
-    this.teaching = null;
-    clearTimeout(this.timers.read);
-    job.timers.forEach(clearTimeout);
-    if (result !== 'done') {
-      this.s?.audio.interrupt();
-      if (this.generating) this.discard = true;
-    }
-    if (!this.holding && !this.turn) this.set('idle');
-    this.armIdle();
-    if (result === 'done') job.on.done();
-    if (result === 'failed') job.on.failed();
+    this.teacher.end(result);
+  }
+  /** Plays a chunk of the tutor's own words (also used by a reply gate once it opens). */
+  play(data: string, rate: number) {
+    const s = this.s;
+    if (!s) return;
+    this.set(this.teaching ? 'reading' : 'speaking');
+    this.teacher.heard(s.audio.enqueue(data, rate));
+  }
+  /** Hands-free mode: open the session and the microphone now, not on the first hold. */
+  listen(on: boolean) {
+    this.listening = on;
+    if (on) return this.mic(this.session());
+  }
+  /** Hands-free mode: audio from just before a turn started (so its first word is kept). */
+  pushTurn(chunks: string[]) {
+    const s = this.s;
+    if (!s || !this.holding) return;
+    if (s.talking) chunks.forEach((chunk) => s.live.audio(chunk));
+    else s.buffer.push(...chunks);
   }
   setVolume(value: number) {
     this.volume = value;
@@ -285,14 +252,19 @@ export class LessonVoice {
     const s = this.s;
     this.s = null;
     this.stale = false;
-    this.endTeach('cut');
-    this.discard = false;
-    this.generating = false;
+    this.teacher.end('cut');
+    this.flags.generating = this.flags.discard = false;
     s?.live.close();
     s?.audio.close();
     for (const timer of Object.values(this.timers)) clearTimeout(timer);
     this.holding = false;
     this.starting = false;
     this.set('idle');
+    // Hands-free: a closed or dropped session comes straight back, with its microphone.
+    if (this.listening)
+      window.setTimeout(
+        () => this.listening && !this.s && void this.listen(true)?.catch(() => undefined),
+        500,
+      );
   }
 }
