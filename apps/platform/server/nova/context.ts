@@ -119,6 +119,7 @@ export async function assistantContext(env: Env, user: AuthUser, input: Record<s
       lesson: fromReading(book),
       position: resolveReadingPosition(book, input),
       student: { name: user.name },
+      board: boardReport(input),
     };
   }
   const edition = await lessonEdition(env, input.lessonId);

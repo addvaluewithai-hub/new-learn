@@ -1,8 +1,6 @@
 # Boards v1: teacher-made interactive boards
 
-Status (2026-10-26): build steps 1 and 2 are done (runtime 0.4.0); see "Build order".
-Research behind it: docs/research/openmaic.md. The owner approved the AGENTS.md rule for
-teacher code on the board origin.
+Status (2026-10-26): build steps 1 to 4 done (runtime 0.4.0). Research: docs/research/openmaic.md.
 
 ## Goal
 
@@ -266,6 +264,7 @@ text already explains the board, so a student who cannot see it can still follow
   `boards/dist/` with `_headers`, and writes the app's editions map.
   `tools/serve-boards.mjs` serves it locally on port 5174 with the same headers.
 - `fixtures/board-probe/`: the synthetic wire board, a hostile sandbox probe and a lesson.
+- Course boards live beside their lesson, e.g. `content/book-guided/physics-ch08/boards/`.
 - `tools/check-board.mjs` with `tools/boards/` (origin, serving, states, in-board inspection).
 - Next: `content:import` support for `board/<id>/` folders.
 
@@ -283,7 +282,7 @@ new app origin in `FRAME_ANCESTORS` (tools/build-boards.mjs).
    escape attempt blocked (cookies, storage, parent, top navigation, popups, network,
    same-origin fetch, external images) at 1280px and 390px.
 3. Done: fixed canvases with automatic scaling, one board font, and `board:check`.
-4. Physics chapter 8, Young's modulus: one real `html-board` with a board question.
+4. Done: chapter 8 scene `P127-C-lab`, board `phys1-ch08-youngs-rod` with a board question.
 5. Connector tools that write boards (roadmap item 1), validated by the same check.
 
 ## Later

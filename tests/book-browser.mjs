@@ -25,6 +25,8 @@ const server = spawn(
   ],
   { stdio: 'ignore' },
 );
+// The board origin, for the live board after page 127 (docs/boards.md).
+const boards = spawn(process.execPath, ['tools/serve-boards.mjs'], { stdio: 'ignore' });
 const next = (page) => page.locator('.rl-dock .rl-next').click();
 const pcm = Buffer.alloc(2400).toString('base64');
 let browser;
@@ -128,6 +130,24 @@ try {
       written = 0,
       count = 0;
     while (!(await page.locator('.rl-complete').count()) && count++ < 400) {
+      if (await page.locator('.html-board').count()) {
+        // The live board after page 127 (docs/boards.md): answer on it, graded by our code.
+        await page.locator('.html-board[data-ready]').waitFor();
+        seen.add('P127-C-lab');
+        if (await page.locator('.rl-board-ask').count()) {
+          questions++;
+          await page
+            .frameLocator('.html-board iframe')
+            .locator('#force')
+            .evaluate((node) => {
+              node.value = '120000';
+              node.dispatchEvent(new Event('input', { bubbles: true }));
+            });
+          await page.getByRole('button', { name: 'ابعت إجابتي', exact: true }).click();
+          await page.locator('.rl-verdict[data-correct="true"]').waitFor();
+        } else await next(page);
+        continue;
+      }
       const id = await page.locator('.ch8-board').getAttribute('data-book-section');
       seen.add(id);
       await page.waitForFunction(
@@ -204,10 +224,10 @@ try {
       } else await next(page);
     }
     await page.locator('.rl-complete').waitFor();
-    assert.equal(questions, ch9 ? 27 : 20);
+    assert.equal(questions, ch9 ? 27 : 21);
     assert.equal(choices, ch9 ? 20 : 16);
     assert.equal(written, ch9 ? 7 : 4);
-    assert.equal(seen.size, ch9 ? 41 : 29, 'all source sections reached');
+    assert.equal(seen.size, ch9 ? 41 : 30, 'all source sections and the live board reached');
     assert.deepEqual(progress, [], 'preview never loads or saves account progress');
     await page.reload();
     await page.locator(`.ch8-board[data-book-section="${firstSection}"]`).waitFor();
@@ -262,9 +282,10 @@ try {
     await page.close();
   }
   console.log(
-    `Book chapter ${chapter}: original classroom, source/reference, ${ch9 ? '20 MCQs and 7 exercises' : '16 MCQs and 4 exercises'}, responsive math, auth, Nova chat/live and no progress writes passed.`,
+    `Book chapter ${chapter}: original classroom, source/reference, ${ch9 ? '20 MCQs and 7 exercises' : '16 MCQs, 4 exercises and a live board question'}, responsive math, auth, Nova chat/live and no progress writes passed.`,
   );
 } finally {
   await browser?.close();
   server.kill('SIGTERM');
+  boards.kill('SIGTERM');
 }

@@ -25,7 +25,11 @@ const editions = JSON.parse(
 ) as Record<string, { hash: string; manifest: unknown }>;
 
 test('every built board edition is content-addressed and has a valid manifest', () => {
-  assert.deepEqual(Object.keys(editions).sort(), ['probe-escape', 'probe-wire']);
+  assert.deepEqual(Object.keys(editions).sort(), [
+    'phys1-ch08-youngs-rod',
+    'probe-escape',
+    'probe-wire',
+  ]);
   for (const [id, edition] of Object.entries(editions)) {
     assert.match(edition.hash, /^[0-9a-f]{64}$/);
     assert.equal(validateBoardManifest(edition.manifest).id, id);

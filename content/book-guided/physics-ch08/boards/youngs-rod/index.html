@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>قضيب تحت الشد</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <style>
+      /* Fixed canvas: 1280×720 landscape, 720×1280 portrait (docs/boards.md). */
+      body {
+        background: #0d1626;
+        color: #e8eef5;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 560px;
+        gap: 24px;
+        width: 100%;
+        height: 100%;
+        padding: 24px 32px;
+        box-sizing: border-box;
+      }
+      [data-layout='portrait'] main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 720px;
+      }
+      /* Landscape has 656px of height for four controls and the readout. */
+      [data-layout='landscape'] .panel {
+        font-size: 26px;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      .panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+      }
+      label {
+        display: grid;
+      }
+      .name {
+        display: flex;
+        justify-content: space-between;
+      }
+      /* Quantities grow left to right and formulas read left to right, in Arabic too. */
+      input,
+      .math {
+        direction: ltr;
+      }
+      input {
+        width: 100%;
+        min-height: 88px;
+        margin: 0;
+      }
+      bdi {
+        unicode-bidi: isolate;
+      }
+      .small.math {
+        text-align: right;
+      }
+      #readout {
+        padding: 12px 20px;
+        border-radius: 16px;
+        background: rgb(196 235 103 / 10%);
+      }
+      #dl {
+        color: #c4eb67;
+        font-weight: 600;
+      }
+      .small {
+        color: #97a39d;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg viewBox="0 0 400 720" role="img" aria-label="قضيب معلّق تشدّه قوة محورية">
+        <rect x="80" y="20" width="240" height="24" fill="#5f6f69" />
+        <rect id="rod" x="180" y="44" width="40" height="300" fill="#90a4ae" />
+        <rect id="stretch-bar" x="180" y="344" width="40" height="0" fill="#c4eb67" />
+        <g id="force-arrow" stroke="#e0a526" fill="#e0a526">
+          <line id="arrow-line" x1="200" y1="344" x2="200" y2="424" stroke-width="8" />
+          <polygon id="arrow-head" points="184,424 216,424 200,452" />
+        </g>
+      </svg>
+      <div class="panel">
+        <label id="f-control">
+          <span class="name"><span>القوة F</span><bdi id="f-text"></bdi></span>
+          <input id="force" type="range" min="0" max="200000" step="10000" />
+        </label>
+        <label id="l-control">
+          <span class="name"><span>الطول الأصلي L₀</span><bdi id="l-text"></bdi></span>
+          <input id="length" type="range" min="1" max="5" step="0.5" />
+        </label>
+        <label id="a-control">
+          <span class="name"><span>مساحة المقطع A</span><bdi id="a-text"></bdi></span>
+          <input id="area" type="range" min="2" max="20" step="1" />
+        </label>
+        <label id="y-control">
+          <span class="name"><span>معامل يونج Y</span><bdi id="y-text"></bdi></span>
+          <input id="youngs" type="range" min="0.5" max="2.5" step="0.5" />
+        </label>
+        <div id="readout">
+          <div>
+            الاستطالة <bdi class="math">ΔL = <span id="dl"></span></bdi> · مكبّرة في الرسم
+          </div>
+          <div class="small math">σ = F/A = <span id="stress"></span></div>
+          <div class="small math">ε = σ/Y = <span id="strain"></span></div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // ΔL = F·L₀/(A·Y): uniform rod, axial load, linear range (book page 127).
+      const $ = (id) => document.getElementById(id);
+      const SUP = {
+        '-': '⁻',
+        0: '⁰',
+        1: '¹',
+        2: '²',
+        3: '³',
+        4: '⁴',
+        5: '⁵',
+        6: '⁶',
+        7: '⁷',
+        8: '⁸',
+        9: '⁹',
+      };
+      const sci = (x, digits = 2) => {
+        if (!x) return '0';
+        const [m, e] = x.toExponential(digits).split('e');
+        return `${m}×10${String(Number(e)).replace(/./g, (c) => SUP[c])}`;
+      };
+      let v = { force: 0, length: 4, area: 0.008, youngs: 2e11 };
+      function render() {
+        const stress = v.force / v.area;
+        const strain = stress / v.youngs;
+        const dl = strain * v.length * 1000;
+        const rod = 60 + v.length * 48;
+        const width = 16 + v.area * 2400;
+        const stretch = Math.min(280, dl * 120);
+        const end = 44 + rod + stretch;
+        $('rod').setAttribute('height', rod);
+        for (const id of ['rod', 'stretch-bar']) {
+          $(id).setAttribute('width', width);
+          $(id).setAttribute('x', 200 - width / 2);
+        }
+        $('stretch-bar').setAttribute('y', 44 + rod);
+        $('stretch-bar').setAttribute('height', stretch);
+        const arrow = v.force ? 30 + v.force / 2000 : 0;
+        $('force-arrow').style.display = v.force ? '' : 'none';
+        $('arrow-line').setAttribute('y1', end);
+        $('arrow-line').setAttribute('y2', end + arrow);
+        $('arrow-head').setAttribute(
+          'points',
+          `184,${end + arrow} 216,${end + arrow} 200,${end + arrow + 28}`,
+        );
+        for (const id of ['force', 'length']) $(id).value = v[id];
+        $('area').value = Math.round(v.area * 1000);
+        $('youngs').value = v.youngs / 1e11;
+        $('f-text').textContent = `${v.force / 1000} kN`;
+        $('l-text').textContent = `${v.length} m`;
+        $('a-text').textContent = `${Math.round(v.area * 1000)}×10⁻³ m²`;
+        $('y-text').textContent = `${(v.youngs / 1e11).toFixed(1)}×10¹¹ Pa`;
+        $('dl').textContent = `${dl.toFixed(dl < 1 ? 3 : 2)} mm`;
+        $('stress').textContent = `${sci(stress)} Pa`;
+        $('strain').textContent = sci(strain);
+        NewLearnBoard.observe(
+          `F = ${v.force / 1000} kN, L0 = ${v.length} m, A = ${Math.round(v.area * 1000)}×10⁻³ m², ` +
+            `Y = ${(v.youngs / 1e11).toFixed(1)}×10¹¹ Pa: stress ${sci(stress)} Pa, strain ${sci(strain)}, ` +
+            `elongation ΔL = ${dl.toFixed(3)} mm (drawn magnified).`,
+          { ...v, stressPa: stress, strain, elongationMm: Number(dl.toFixed(4)) },
+        );
+      }
+      function change(next) {
+        v = { ...v, ...next };
+        render();
+        NewLearnBoard.setVariables(next);
+      }
+      $('force').addEventListener('input', (e) => change({ force: Number(e.target.value) }));
+      $('length').addEventListener('input', (e) => change({ length: Number(e.target.value) }));
+      $('area').addEventListener('input', (e) => change({ area: Number(e.target.value) / 1000 }));
+      $('youngs').addEventListener('input', (e) =>
+        change({ youngs: Number(e.target.value) * 1e11 }),
+      );
+      NewLearnBoard.start({
+        onState(view) {
+          v = { ...v, ...view.variables };
+          render();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 {
-  "sourceDigest": "49f9ddb0b0c4819759cc77a78ff1d947620f13734cf67148e0c77f5bd91bd35b",
-  "fileCount": 181,
+  "sourceDigest": "90bce5c1fee240e3e328c78bca65111b0f2582900edc56b364f069030ef1436b",
+  "fileCount": 184,
   "curricula": [
     {
       "id": "physics-1-book-guided",
@@ -24,9 +24,9 @@
           "subtitle": "Solids and Elasticity — Chapter 8",
           "previewLessonId": "phys1-book-guided-ch08",
           "moduleId": "book-reading:phys1-textbook-ch08",
-          "contentRevision": "8fa1048f4b694f2694e610f948d9c36c3f480ec9e3c4922f9da553103d8bde38",
-          "manifestHash": "8fa1048f4b694f2694e610f948d9c36c3f480ec9e3c4922f9da553103d8bde38",
-          "runtimeVersion": "0.3.3",
+          "contentRevision": "5bf3074315213290fb76d3b676f29163534ef0bbc642d4839375929061a5d326",
+          "manifestHash": "5bf3074315213290fb76d3b676f29163534ef0bbc642d4839375929061a5d326",
+          "runtimeVersion": "0.4.0",
           "goals": [
             {
               "id": "axial",
@@ -52,7 +52,7 @@
                 "P127-C",
                 "P127-D"
               ],
-              "questionIds": ["P130-Q1", "P131-Q2"]
+              "questionIds": ["P127-C-lab", "P130-Q1", "P131-Q2"]
             },
             {
               "id": "shear",
@@ -77,9 +77,9 @@
           "subtitle": "Sound Waves — Chapter 9",
           "previewLessonId": "phys1-book-guided-ch09",
           "moduleId": "book-reading:phys1-textbook-ch09",
-          "contentRevision": "e258290ce605770e1521128d41c81996b87a930d7a18f8a881e4061eb1ffb9d0",
-          "manifestHash": "e258290ce605770e1521128d41c81996b87a930d7a18f8a881e4061eb1ffb9d0",
-          "runtimeVersion": "0.3.3",
+          "contentRevision": "ff745127cfb20a82b578936d8265f9c18d6d1435fc38572c4812dcc9f01d3407",
+          "manifestHash": "ff745127cfb20a82b578936d8265f9c18d6d1435fc38572c4812dcc9f01d3407",
+          "runtimeVersion": "0.4.0",
           "goals": [
             {
               "id": "waves",
