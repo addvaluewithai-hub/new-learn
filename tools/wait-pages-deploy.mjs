@@ -12,7 +12,10 @@ for (let attempt = 0; attempt < 100; attempt++) {
   const { check_runs: checks } = await response.json();
   const pages = checks.find(
     (check) =>
-      check.name === 'Cloudflare Pages' && check.details_url?.includes('/pages/view/new-learn/'),
+      // One Cloudflare project names its check "Cloudflare Pages"; with two (app and boards)
+      // each is "Cloudflare Pages: <project>". The URL picks the app project either way.
+      check.name.startsWith('Cloudflare Pages') &&
+      check.details_url?.includes('/pages/view/new-learn/'),
   );
   if (pages?.status === 'completed') {
     if (pages.conclusion !== 'success')

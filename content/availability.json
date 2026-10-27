@@ -1,4 +1,4 @@
 {
-  "note": "Owner decision 2026-10-16: offer only the new textbook physics course for now. Set curricula to null to restore all previously published courses. Existing releases, editions and learner progress are retained.",
-  "curricula": ["physics-1-book-guided"]
+  "note": "Owner decision 2026-10-16: offer only the new textbook physics course for now; 2026-10-27: also How AI works, to test hands-free mode. Set curricula to null to restore all previously published courses. Existing releases, editions and learner progress are retained.",
+  "curricula": ["physics-1-book-guided", "how-ai-works"]
 }
