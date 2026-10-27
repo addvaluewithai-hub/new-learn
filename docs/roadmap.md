@@ -4,6 +4,7 @@ Owner plan, 2026-10-21. New Learn becomes a platform where anyone builds interac
 voice-tutored lessons with their own Claude or ChatGPT, in any language, at near-zero AI
 cost to us. Items are ordered by importance: each depends on, or gains most from, the
 ones above it. This is direction, not approval: the rules in AGENTS.md still apply.
+Who does what, with status and dependencies: docs/tasks/README.md.
 
 | Rank  | Idea                               | Why it matters                                        | Needs first |
 | ----- | ---------------------------------- | ----------------------------------------------------- | ----------- |

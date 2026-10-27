@@ -1,7 +1,8 @@
 # Working on New Learn
 
 Read README.md and docs/architecture.md before changing boundaries.
-Read docs/roadmap.md for the ordered plan of what to build next.
+Read docs/roadmap.md for the ordered plan of what to build next, and docs/tasks/README.md for who
+does each task, its status and its dependencies.
 This repository owns the student application and the shared lesson runtime.
 Curriculum authoring lives in addvaluewithai-hub/learn-curriculums.
 The old addvaluewithai-hub/learn is a reference, not a workspace dependency.

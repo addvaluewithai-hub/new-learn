@@ -13,18 +13,20 @@ import { nextImported, goalsOf } from '../src/features/catalog/plan';
 import { readingOutline, validateSnapshot } from '../server/progress/snapshot';
 import { fromReading, resolveReadingPosition, teachingInstruction } from '../server/nova/context';
 
-test('only the new physics course is enabled, including server-side direct lesson access', () => {
+test('only the physics book and How AI works are enabled, also for direct lesson access', () => {
   assert.equal(curriculumAvailable(bookCourse.id), true);
+  assert.equal(curriculumAvailable('how-ai-works'), true);
   for (const id of [
     'chemistry-gas-laws',
     'engineering-math-1',
     'engineering-mechanics-statics-y1',
+    'manhaj-almarifa',
     'mathematics-i-algebra',
     'physics-1-mechanics-waves',
   ])
     assert.equal(curriculumAvailable(id), false);
   const query = new PgDialect().sqlToQuery(curriculumVisibility()!);
-  assert.deepEqual(query.params, ['published', bookCourse.id]);
+  assert.deepEqual(query.params, ['published', bookCourse.id, 'how-ai-works']);
   assert.match(query.sql, /curricula.*visibility/);
   assert.match(query.sql, /curricula.*id/);
 });
@@ -79,16 +81,16 @@ test('release pins still bind the exact source, renderer and served image/font b
   ]);
 });
 
-test('publication sync is non-destructive and only writes the enabled book course', async () => {
+test('publication sync is non-destructive and only writes the enabled courses', async () => {
   const result = await promisify(execFile)(process.execPath, ['tools/sync-content.mjs', '--json']);
   const statements = JSON.parse(result.stdout) as Array<{ text: string; params: unknown[] }>;
   assert.equal(
     statements.filter((s) => s.text.startsWith('INSERT INTO learn_app.curricula')).length,
-    1,
+    2,
   );
   assert.equal(
     statements.filter((s) => s.text.startsWith('INSERT INTO learn_app.lesson_releases')).length,
-    2,
+    3,
   );
   assert.ok(
     statements.every(
