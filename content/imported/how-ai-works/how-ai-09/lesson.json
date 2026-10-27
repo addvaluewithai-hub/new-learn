@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-09",
+  "order": 9,
+  "title": "التوكنز: إزاي الكلام بيتقطّع",
+  "englishTitle": "How AI Actually Works — Lesson 9",
+  "subtitle": "How AI Actually Works — Lesson 9",
+  "delivery": "reading",
+  "contentRevision": "205b15722912e0a6f79b1ccc8e2294020d276c768eaa96f9a4d147e622bcc70f",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-09",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "63844cdeae92c56f28b433dbdb4a921d0332f0f227534fd2c337e3ac4ac9d72d",
+      "bytes": 23787
+    }
+  ],
+  "manifestHash": "cf87d2b9d443b2fdf4fd5ff7a3e8905d5dfe37699a5464e67b6738209aa40412"
+}

@@ -20,6 +20,7 @@ const generated = new Set([
   'database/migrations/meta/0000_snapshot.json',
   // Imported catalog data grows with curricula; its generated JSON is not authored code.
   'content/imported/registry.json',
+  'apps/platform/content-modules.json',
 ]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];

@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-03",
+  "order": 3,
+  "title": "البيانات وأول موديل",
+  "englishTitle": "How AI Actually Works — Lesson 3",
+  "subtitle": "How AI Actually Works — Lesson 3",
+  "delivery": "reading",
+  "contentRevision": "1ec6eadccc43fa93df562462ae047a8316a4021f73a182956dae814018998165",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-03",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "5708b5deccbf7be51566ad1db6128e99a5696152aafbed1c27f05b289b5341d7",
+      "bytes": 23264
+    }
+  ],
+  "manifestHash": "a906ef57c4b0651abfb2882dc104b8856d1e53cd59a28b68fdcf19668c4f5f53"
+}

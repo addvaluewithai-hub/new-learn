@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-02",
+  "order": 2,
+  "title": "النمو واللوغاريتمات",
+  "englishTitle": "How AI Actually Works — Lesson 2",
+  "subtitle": "How AI Actually Works — Lesson 2",
+  "delivery": "reading",
+  "contentRevision": "b859e4ae17a732e25ad3722fc32c9d7624eaa66eefac4965dad86cfdf3fc5431",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-02",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "b95d337abf8b02073c18c0737c3e133661f9a4ac07a159338c913e8bb84e8615",
+      "bytes": 25230
+    }
+  ],
+  "manifestHash": "bee57edbf186db61f0f8cae3a0a63fbe10ca026d17ea10ab22feb100fe2932e8"
+}

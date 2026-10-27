@@ -98,9 +98,79 @@
   },
   "reading:how-ai-01": {
     "lessonId": "how-ai-01",
-    "contentRevision": "9fe4de317fc64212ff9c99f56d9110d2555a5160c3d454aefaaf5a21c2c1a174",
-    "manifestHash": "2fd6878f076bb02c7bdbcc1a7e749ad8758cea58a1dc7f50ccc6dd2435144608",
-    "runtimeVersion": "0.3.2",
+    "contentRevision": "c75e518191dc640588ca0d55722f0df5d7f7225b4dcab6fa9a44a2305caf2f76",
+    "manifestHash": "b50c50c3566e0dcda4be8693676d2fabbb23d5559f405fdd8272ebbf9f6f65b7",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-02": {
+    "lessonId": "how-ai-02",
+    "contentRevision": "b859e4ae17a732e25ad3722fc32c9d7624eaa66eefac4965dad86cfdf3fc5431",
+    "manifestHash": "bee57edbf186db61f0f8cae3a0a63fbe10ca026d17ea10ab22feb100fe2932e8",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-03": {
+    "lessonId": "how-ai-03",
+    "contentRevision": "1ec6eadccc43fa93df562462ae047a8316a4021f73a182956dae814018998165",
+    "manifestHash": "a906ef57c4b0651abfb2882dc104b8856d1e53cd59a28b68fdcf19668c4f5f53",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-04": {
+    "lessonId": "how-ai-04",
+    "contentRevision": "a018c93db3b99b6c53b9e4653bf657977c455572751a2f5e7c557483045885ef",
+    "manifestHash": "8a95a72a2dfd2d1e5a3dfd9002f69926cb0ad9674e864c9c5181f7e2b360e039",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-05": {
+    "lessonId": "how-ai-05",
+    "contentRevision": "c48150180d0b92921b754a53a316f1a2ab61089c2cccd6d74edecda10d64acd4",
+    "manifestHash": "71b531d684f3137b2b101a644b4ccd0f488545f4e816726bd28059cd2bdb6582",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-06": {
+    "lessonId": "how-ai-06",
+    "contentRevision": "212532eecd8d8097a86cdf5752c18b0c3b83c3ab55badc339d28e03bf5302a80",
+    "manifestHash": "b9edc3d81026d2c8316f9b51550365b1bee28330faca659bea65f398b2823110",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-07": {
+    "lessonId": "how-ai-07",
+    "contentRevision": "16c96275d36463aef06b863f294d6cc3ef0f7a063afbc9541e0004e262020c34",
+    "manifestHash": "dcb487ef85bd52c8aab584eb5933a9efc443dd08be8ccf3ce5b8ba26cc2a2685",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-08": {
+    "lessonId": "how-ai-08",
+    "contentRevision": "44bc772826c9e712a987f8c83ac29e25d063e9ddd8f5ffb0eff52f4bd584008b",
+    "manifestHash": "4023d1e3fa343f7f31b739bf55bf464f7ed95d1f71eb94f1b6c6fcd61a7a798a",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-09": {
+    "lessonId": "how-ai-09",
+    "contentRevision": "205b15722912e0a6f79b1ccc8e2294020d276c768eaa96f9a4d147e622bcc70f",
+    "manifestHash": "cf87d2b9d443b2fdf4fd5ff7a3e8905d5dfe37699a5464e67b6738209aa40412",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-10": {
+    "lessonId": "how-ai-10",
+    "contentRevision": "0c24f404c3734199b5b0db257fee746c756d38863c4754883eef9cee4f0b5419",
+    "manifestHash": "998432793abac2dd925cc564d01f58724603d38956d86fc421e3563cdf7d424c",
+    "runtimeVersion": "0.4.1",
+    "delivery": "reading"
+  },
+  "reading:how-ai-11": {
+    "lessonId": "how-ai-11",
+    "contentRevision": "350a04acad3c61601c1a72f5501b599ffdf3d76985448c697bda10066654213f",
+    "manifestHash": "a143817d6a5e734a81c8d5f4645c619bd3bd9c2e627dd1ef0604bbdc12097df3",
+    "runtimeVersion": "0.4.1",
     "delivery": "reading"
   },
   "reading:manhaj-01": {

@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-11",
+  "order": 11,
+  "title": "الترانسفورمر ١: الانتباه",
+  "englishTitle": "How AI Actually Works — Lesson 11",
+  "subtitle": "How AI Actually Works — Lesson 11",
+  "delivery": "reading",
+  "contentRevision": "350a04acad3c61601c1a72f5501b599ffdf3d76985448c697bda10066654213f",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-11",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "2aa02c3ecf92f70a49cf2a044ab53ee8e8a4ae600bf7123cef66f4c46b796c7b",
+      "bytes": 26791
+    }
+  ],
+  "manifestHash": "a143817d6a5e734a81c8d5f4645c619bd3bd9c2e627dd1ef0604bbdc12097df3"
+}

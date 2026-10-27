@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-10",
+  "order": 10,
+  "title": "الكمبيوتر والذكاء الاصطناعي: الدقة والذاكرة والسرعة",
+  "englishTitle": "How AI Actually Works — Lesson 10",
+  "subtitle": "How AI Actually Works — Lesson 10",
+  "delivery": "reading",
+  "contentRevision": "0c24f404c3734199b5b0db257fee746c756d38863c4754883eef9cee4f0b5419",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-10",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "e031e901e02c6737c742d1604f2acb9dea47e697568e27bb6b0a50e45a071eda",
+      "bytes": 23607
+    }
+  ],
+  "manifestHash": "998432793abac2dd925cc564d01f58724603d38956d86fc421e3563cdf7d424c"
+}
