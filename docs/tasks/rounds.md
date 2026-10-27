@@ -2,7 +2,7 @@
 
 A round is one Claude Code session ending in one PR. It groups tasks that touch the same
 pages or code and have the same dependencies, so they are built, tested and reviewed together.
-Every task in launch.md, learning.md and teaching.md is in exactly one round, or in the
+Every task in launch.md, learning.md, teaching.md and voice.md is in exactly one round, or in the
 manual list at the end.
 
 - **OR:** Owner rounds, with technical decisions.
@@ -46,20 +46,25 @@ At the end of a round, mark its tasks Done in their files.
 | ER6   | Apply the brand         | B3, E15, E11, N6, E20          | ER3, D5           | E20 (dark mode) is an Idea                                                 |
 | ER7   | Designs for next rounds | R9, P2, P4                     | ER3               | Also screens for OR4, OR6, OR7 and OR13 before they start                  |
 | ER9   | Phones and people       | E17, V6, V10                   | OR1               | Field work, not code: real phones, first users, interviews                 |
+| OR19  | Nova in the lesson      | Y1, Y2, Y3                     | —                 | Skip, reveal, repeat, back; question style; long sessions                  |
+| OR20  | Builder worker          | Y6, Y7, Y9, Y13                | A5, D11           | Port wp-slack-agent's Codex runner (docs/voice-agent.md)                   |
+| OR21  | Start button            | Y4                             | OR19              | Nova home mode; Ess designs the home first                                 |
+| OR22  | Paid plans              | Y10, Y11, Y12                  | D6, L6            | Paid from the start; Ess designs the pricing page                          |
 
 ## Wave 2: public launch
 
-| Round | Name                   | Tasks                                  | Needs    | Notes                                                       |
-| ----- | ---------------------- | -------------------------------------- | -------- | ----------------------------------------------------------- |
-| OR6   | Question types         | Q1, Q2, Q3, Q4                         | ER7      | Runtime change: full browser checks                         |
-| OR7   | Exams and certificates | Q5, Q6, Q7, Q8, Q9, Q11, Q12, Q13, R10 | OR6, D4  | Question bank, exams by goal, results, daily review         |
-| OR9   | Nova and boards        | G1, N1, N2, G2, G3, F8                 | —        | N1 and G1 are one feature; N2 is an Idea                    |
-| OR10  | Course studio          | S2, S10, S6, F7, S7, S11, K4           | D2, OR3  | S11 and K4 are Ideas                                        |
-| OR11  | Classes                | T3, T4, Q10, R8, M9                    | OR4, OR7 | R8 and M9 are Ideas                                         |
-| OR12  | Reach                  | E18, R6, R7, E16                       | OR5, D7  | Installable app, reminders, weekly email, English interface |
-| OR13  | Marketplace and admin  | M1, M2, E19, M3, X1, X2, X3, X4, T5    | OR4      | Public catalog, discovery, reviews, admin and reports       |
-| OR17  | Recorded lessons       | K3, E12, F12                           | —        | Audio import, progress and resume                           |
-| ER8   | Website growth         | W6, W7, W8, W10                        | ER4      | W7 and W10 are Ideas                                        |
+| Round | Name                   | Tasks                                  | Needs            | Notes                                                       |
+| ----- | ---------------------- | -------------------------------------- | ---------------- | ----------------------------------------------------------- |
+| OR6   | Question types         | Q1, Q2, Q3, Q4                         | ER7              | Runtime change: full browser checks                         |
+| OR7   | Exams and certificates | Q5, Q6, Q7, Q8, Q9, Q11, Q12, Q13, R10 | OR6, D4          | Question bank, exams by goal, results, daily review         |
+| OR9   | Nova and boards        | G1, N1, N2, G2, G3, F8                 | —                | N1 and G1 are one feature; N2 is an Idea                    |
+| OR10  | Course studio          | S2, S10, S6, F7, S7, S11, K4           | OR3, OR20        | S11 and K4 are Ideas                                        |
+| OR11  | Classes                | T3, T4, Q10, R8, M9                    | OR4, OR7         | R8 and M9 are Ideas                                         |
+| OR12  | Reach                  | E18, R6, R7, E16                       | OR5, D7          | Installable app, reminders, weekly email, English interface |
+| OR13  | Marketplace and admin  | M1, M2, E19, M3, X1, X2, X3, X4, T5    | OR4              | Public catalog, discovery, reviews, admin and reports       |
+| OR17  | Recorded lessons       | K3, E12, F12                           | —                | Audio import, progress and resume                           |
+| ER8   | Website growth         | W6, W7, W8, W10                        | ER4              | W7 and W10 are Ideas                                        |
+| OR23  | Build by voice         | Y8, Y5                                 | OR20, OR21, OR10 | Nova starts build jobs; more questions on request           |
 
 ## Wave 3: later
 

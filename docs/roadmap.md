@@ -6,6 +6,14 @@ cost to us. Items are ordered by importance: each depends on, or gains most from
 ones above it. This is direction, not approval: the rules in AGENTS.md still apply.
 Who does what, with status and dependencies: docs/tasks/README.md.
 
+Update 2026-10-27 (docs/voice-agent.md):
+
+- The platform is paid from the start; a free tier comes later.
+- Nova becomes the way in: one Start button, then talk. It continues courses, runs lessons the
+  way the learner wants, and builds courses.
+- Nova only talks and calls tools. Heavy writing runs as jobs on our builder worker (Codex CLI
+  or Claude Code, ported from wp-slack-agent) through the same `/mcp` tools.
+
 | Rank  | Idea                               | Why it matters                                        | Needs first |
 | ----- | ---------------------------------- | ----------------------------------------------------- | ----------- |
 | 1     | Claude & ChatGPT connector         | Users' own AI writes lessons; our AI cost stays ~zero | —           |

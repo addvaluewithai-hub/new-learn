@@ -67,7 +67,7 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 | L3  | Copyright complaints and takedown process                                   | Owner | P2  | Todo   | L2    |
 | L4  | Children's data rules (consent, ages, countries)                            | Owner | P2  | Todo   | D8    |
 | L5  | Label AI-made content and AI practice clearly in the app                    | Both  | P1  | Todo   | —     |
-| L6  | Company and bank account for payments and payouts                           | Owner | P2  | Todo   | D6    |
+| L6  | Company and bank account for payments and payouts                           | Owner | P1  | Todo   | D6    |
 
 ## O. Operations (Owner)
 
