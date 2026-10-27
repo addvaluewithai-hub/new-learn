@@ -6,12 +6,12 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 Today a teacher writes with Claude or ChatGPT in their own app, and previews drafts in ours.
 The studio brings the same MCP tools into a page on our platform, with buttons and a live
-preview. Who runs the AI there is decision D2.
+preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 
 | ID  | Task                                                                                              | Who   | Pri | Status | Needs |
 | --- | ------------------------------------------------------------------------------------------------- | ----- | --- | ------ | ----- |
 | S1  | Guide for Claude Code CLI and Claude Desktop (`claude mcp add --transport http …/mcp`), tested    | Owner | P1  | Todo   | A5    |
-| S2  | Studio page: chat with the AI beside the live draft; shows what it is doing ("writing lesson 2…") | Both  | P2  | Todo   | D2    |
+| S2  | Studio page: chat with the AI beside the live draft; shows what it is doing ("writing lesson 2…") | Both  | P2  | Todo   | Y7    |
 | S3  | Course outline editor without AI: rename, reorder lessons and parts by dragging                   | Both  | P1  | Todo   | A5    |
 | S4  | Edit a step's text by hand in the preview (saved as a new revision)                               | Both  | P2  | Todo   | A5    |
 | S5  | Revision history: see versions, compare, restore                                                  | Both  | P2  | Todo   | A5    |
