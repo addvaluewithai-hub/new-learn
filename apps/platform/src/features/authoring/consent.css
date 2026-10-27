@@ -4,22 +4,26 @@
   place-items: center;
   padding: 16px;
   box-sizing: border-box;
-  background: #f6f5f0;
+  background: var(--nl-bg);
+  font-family: var(--nl-font-body);
+  color: var(--nl-ink);
   direction: rtl;
 }
 .consent-card {
   width: min(480px, 100%);
   padding: 28px;
-  border-radius: 24px;
-  background: #fff;
-  box-shadow: 0 16px 40px rgb(16 32 28 / 12%);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-lift);
 }
 .consent-card h1 {
   margin: 0 0 12px;
+  font-family: var(--nl-font-display);
   font-size: 24px;
 }
 .consent-host {
-  color: #5f6f69;
+  color: var(--nl-ink-muted);
   font-size: 14px;
 }
 .consent-actions {
@@ -28,6 +32,6 @@
   margin-top: 20px;
 }
 .consent-actions .button:first-child {
-  background: #17463c;
-  color: #fff;
+  background: var(--nl-brand);
+  color: var(--nl-on-brand);
 }

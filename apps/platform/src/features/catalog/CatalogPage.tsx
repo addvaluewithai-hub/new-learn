@@ -55,8 +55,12 @@ export default function CatalogPage({
         )}
         {current ? <span className="eyebrow">{current.subject}</span> : null}
         <h1>
-          {current?.title ??
-            `${new Date().getHours() < 12 ? 'صباح الخير' : 'مساء الخير'}، ${user.name.split(' ')[0]}`}
+          {current?.title ?? (
+            <>
+              {new Date().getHours() < 12 ? 'صباح الخير' : 'مساء الخير'}،{' '}
+              <span className="hl">{user.name.split(' ')[0]}</span>
+            </>
+          )}
         </h1>
         {current ? <p>{current.description}</p> : null}
       </div>

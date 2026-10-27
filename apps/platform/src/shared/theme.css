@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap');
+/* New Learn design system (proposal for B2): light grounds, an emerald brand, one marker-yellow
+   spark for "now", and a colour per subject. The classroom keeps design-tokens.css until D5. */
+:root {
+  --nl-font-display: 'Readex Pro', 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  --nl-font-body: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
+  --nl-bg: #f7faf8;
+  --nl-surface: #ffffff;
+  --nl-surface-sunk: #eef3f0;
+  --nl-line: #dfe7e2;
+  --nl-line-strong: #8a9c95;
+  --nl-ink: #0f2420;
+  --nl-ink-muted: #4b605a;
+  --nl-brand: #067a5b;
+  --nl-brand-strong: #045c45;
+  --nl-on-brand: #ffffff;
+  --nl-brand-tint: #e2f5ec;
+  --nl-board: #eaf6f0;
+  --nl-board-line: #b7dccb;
+  --nl-spark: #ffc83d;
+  --nl-on-spark: #0f2420;
+  --nl-spark-tint: #fff4d1;
+  --nl-highlight: #ffe07a;
+  --nl-success: #0b7a4b;
+  --nl-success-tint: #ddf3e6;
+  --nl-danger: #b3261e;
+  --nl-danger-tint: #fce3df;
+  --nl-focus: #1f5bd8;
+  --nl-physics: #5b45d6;
+  --nl-physics-tint: #ece8fd;
+  --nl-chemistry: #0a7ea0;
+  --nl-chemistry-tint: #ddf1f7;
+  --nl-math: #c2410c;
+  --nl-math-tint: #fde8dc;
+  --nl-language: #be185d;
+  --nl-language-tint: #fbe3ec;
+  --nl-radius-sm: 8px;
+  --nl-radius-md: 14px;
+  --nl-radius-lg: 22px;
+  --nl-shadow-card: 0 1px 2px #0f24200f, 0 6px 18px #0f24200d;
+  --nl-shadow-lift: 0 10px 30px #0b2b271f;
+}
+/* The student's highlighter mark behind one or two key words. */
+.hl {
+  padding-inline: 2px;
+  background: linear-gradient(
+    transparent 58%,
+    var(--nl-highlight) 58%,
+    var(--nl-highlight) 92%,
+    transparent 92%
+  );
+}

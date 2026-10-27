@@ -9,13 +9,13 @@
 .goal-marks i {
   width: 9px;
   height: 9px;
-  border: 1.5px solid #b3bfb8;
+  border: 1.5px solid var(--nl-line-strong);
   border-radius: 2px;
   transform: rotate(45deg);
 }
 .goal-marks i[data-met] {
-  border-color: #79ad3f;
-  background: #c4eb67;
+  border-color: var(--nl-brand);
+  background: var(--nl-brand);
 }
 .goal-marks bdi {
   margin-inline-start: 4px;
@@ -26,18 +26,41 @@
   flex: 1;
   overflow: hidden;
   border-radius: 99px;
-  background: #ebede7;
+  background: var(--nl-surface-sunk);
 }
 .pick-bar i {
   height: 100%;
   display: block;
   border-radius: inherit;
-  background: #8fcf4a;
+  background: var(--nl-brand);
 }
 .pick {
+  position: relative;
+  overflow: hidden;
   padding: 22px;
-  border-radius: 26px;
-  background: radial-gradient(120% 140% at 100% 0%, #eef3e4 0%, transparent 60%), #f4f2ec;
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-board);
+}
+/* Waves drawn on the board behind the card: the same touch as the physics cover. */
+.pick-waves {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: min(420px, 70%);
+  height: 100%;
+  color: var(--nl-brand);
+  pointer-events: none;
+}
+.pick-waves path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  opacity: 0.16;
+}
+.pick-head,
+.pick-card {
+  position: relative;
 }
 .pick-head {
   display: flex;
@@ -57,15 +80,16 @@
   align-items: center;
   gap: 16px 24px;
   padding: 22px 24px;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow:
-    0 1px 2px rgb(16 32 28 / 5%),
-    0 12px 30px rgb(16 32 28 / 7%);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-card);
+}
+.pick-head .eyebrow {
+  color: var(--nl-brand-strong);
 }
 .pick-main h2 {
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-size: 1.55rem;
+  font-weight: 700;
   line-height: 1.4;
 }
 .pick-progress {
@@ -81,11 +105,11 @@
   align-items: center;
   gap: 10px;
   padding: 0 24px;
-  border-radius: 99px;
-  background: #17463c;
-  color: #fff !important;
-  font-weight: 600;
-  box-shadow: 0 10px 22px -10px rgb(23 70 60 / 70%);
+  border-radius: var(--nl-radius-md);
+  background: var(--nl-spark);
+  color: var(--nl-on-spark) !important;
+  font-weight: 700;
+  box-shadow: var(--nl-shadow-lift);
 }
 @media (max-width: 700px) {
   .pick {

@@ -9,9 +9,8 @@
   max-width: 400px;
 }
 .auth-form h2 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 2.25rem;
-  letter-spacing: -0.6px;
   margin: 15px 0 12px;
   line-height: 1.5;
 }
@@ -30,15 +29,15 @@
   display: block;
   width: 100%;
   height: 52px;
-  border: 1px solid #d8e0d9;
-  border-radius: 10px;
+  border: 1.5px solid var(--nl-line-strong);
+  border-radius: var(--nl-radius-sm);
   padding: 12px 15px;
   margin-top: 8px;
-  background: #fff;
+  background: var(--nl-surface);
   color: var(--ink);
 }
 .auth-form input::placeholder {
-  color: #8b958e;
+  color: var(--muted);
   font-size: 0.85rem;
 }
 .auth-form > .button {
@@ -96,7 +95,7 @@
   margin-top: 22px;
 }
 .success-message {
-  color: #205b37;
+  color: var(--nl-success);
   line-height: 1.8;
   margin-top: 18px;
 }

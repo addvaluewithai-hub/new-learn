@@ -1,0 +1,47 @@
+/* Subject covers (CourseArt.tsx): the subject tint as the field, its colour for the shape. */
+.course-art {
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  background: var(--art-tint);
+  color: var(--art-ink);
+}
+.course-art[data-subject='physics'] {
+  --art-tint: var(--nl-physics-tint);
+  --art-ink: var(--nl-physics);
+}
+.course-art[data-subject='chemistry'] {
+  --art-tint: var(--nl-chemistry-tint);
+  --art-ink: var(--nl-chemistry);
+}
+.course-art[data-subject='math'] {
+  --art-tint: var(--nl-math-tint);
+  --art-ink: var(--nl-math);
+}
+.course-art[data-subject='language'] {
+  --art-tint: var(--nl-language-tint);
+  --art-ink: var(--nl-language);
+}
+.course-art svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.art-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+.art-stroke.thin {
+  stroke-width: 3;
+}
+.art-dot {
+  fill: currentColor;
+  opacity: 0.7;
+}
+.course-art .soft {
+  opacity: 0.32;
+}

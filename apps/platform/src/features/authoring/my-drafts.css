@@ -7,11 +7,10 @@
 .my-drafts-course {
   margin-bottom: 16px;
   padding: 16px 20px;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow:
-    0 1px 2px rgb(16 32 28 / 6%),
-    0 8px 24px rgb(16 32 28 / 7%);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-card);
 }
 .my-drafts-course h3 {
   margin: 0 0 8px;
@@ -30,6 +29,6 @@
   gap: 12px;
 }
 .my-drafts li span {
-  color: #5f6f69;
+  color: var(--nl-ink-muted);
   font-size: 13px;
 }

@@ -1,8 +1,8 @@
-import { CourseArt } from '../../shared/CourseArt';
+import { CourseArt, subjectOf } from '../../shared/CourseArt';
 import { stats } from './plan';
 import type { Curriculum } from './types';
 
-/** Courses as calm rows: what it is, how far you are, one way in. */
+/** Courses as cards: a subject cover, what it is, how far you are. The whole card opens it. */
 export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
   return (
     <section className="courses" aria-labelledby="courses-title">
@@ -16,12 +16,12 @@ export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
           const percent = s.lessons ? Math.round((100 * s.completed) / s.lessons) : 0;
           const href = `/?curriculum=${encodeURIComponent(group.id)}`;
           return (
-            <li className="course-row" key={group.id}>
-              <span className="course-badge" aria-hidden="true">
-                <CourseArt badge subject={group.subject} math={/math|رياض/i.test(group.subject)} />
-              </span>
+            <li className="course-card" key={group.id}>
+              <CourseArt subject={group.subject} />
               <div className="course-copy">
-                <span className="eyebrow">{group.subject}</span>
+                <span className="course-subject" data-subject={subjectOf(group.subject)}>
+                  {group.subject}
+                </span>
                 <h3>
                   <a href={href}>{group.title}</a>
                 </h3>
@@ -36,9 +36,6 @@ export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
                   </span>
                 </div>
               </div>
-              <a className="button secondary course-open" href={href}>
-                افتح المنهج
-              </a>
             </li>
           );
         })}

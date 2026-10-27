@@ -7,7 +7,7 @@
   gap: 10px 26px;
   margin: 0;
   padding: 16px 0 0;
-  border-top: 1px solid #eef0ec;
+  border-top: 1px solid var(--nl-line);
   color: var(--ink);
   font-size: 0.92rem;
   line-height: 1.6;
@@ -25,7 +25,7 @@
   height: 9px;
   flex: none;
   margin-top: 8px;
-  border: 1.5px solid #b3bfb8;
+  border: 1.5px solid var(--nl-line-strong);
   border-radius: 2px;
   transform: rotate(45deg);
 }
@@ -36,15 +36,18 @@
   gap: 12px 16px;
   margin-bottom: 30px;
   padding: 20px 22px;
-  border-radius: 20px;
-  background: #f6f5f0;
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-card);
 }
 .plan-summary strong {
+  font-family: var(--nl-font-display);
   font-size: 1.9rem;
   font-weight: 600;
 }
 .plan-summary strong span {
-  color: #a3ada7;
+  color: var(--muted);
   font-weight: 400;
 }
 .plan-summary > div > span {
@@ -54,7 +57,7 @@
   font-size: 0.85rem;
 }
 .plan-percent {
-  color: #4d8a2a;
+  color: var(--nl-brand);
   font-weight: 700;
 }
 .plan-bar {
@@ -62,13 +65,13 @@
   height: 8px;
   overflow: hidden;
   border-radius: 99px;
-  background: #e7e9e3;
+  background: var(--nl-surface-sunk);
 }
 .plan-bar i {
   height: 100%;
   display: block;
   border-radius: inherit;
-  background: #8fcf4a;
+  background: var(--nl-brand);
 }
 .plan,
 .plan-lessons {
@@ -106,14 +109,18 @@
   font-weight: 600;
 }
 .plan-part-node {
-  background: #17463c;
-  color: #fff;
+  border-radius: 10px;
+  background: var(--nl-brand-tint);
+  color: var(--nl-brand-strong);
+  font-family: var(--nl-font-display);
+  font-weight: 700;
 }
 .plan-node {
   position: relative;
   z-index: 1;
-  border: 1.5px solid #dfe3dd;
-  background: #fff;
+  border: 1.5px solid var(--nl-line-strong);
+  background: var(--nl-surface);
+  color: var(--muted);
 }
 .plan-lessons {
   position: relative;
@@ -123,7 +130,7 @@
   position: absolute;
   inset-block: 18px;
   inset-inline-start: 31px;
-  border-inline-start: 2px dotted #d6dbd4;
+  border-inline-start: 2px solid var(--nl-line);
 }
 .plan-lessons > li {
   display: grid;
@@ -138,24 +145,23 @@
   z-index: 1;
   margin: 6px 0;
   padding: 20px 16px;
-  background: #fff;
-  box-shadow:
-    0 1px 2px rgb(16 32 28 / 5%),
-    0 12px 30px rgb(16 32 28 / 8%);
-  outline: 1.5px solid #17463c;
+  background: var(--nl-spark-tint);
+  outline: 2px solid var(--nl-spark);
 }
 .plan-lessons > li[data-done] .plan-node {
-  border-color: #9fcf72;
-  background: #e4f2d6;
-  color: #3f7a1f;
+  border-color: var(--nl-brand);
+  background: var(--nl-brand);
+  color: var(--nl-on-brand);
 }
 .plan-lessons > li[data-current] .plan-node {
-  border-color: #17463c;
-  background: #17463c;
-  color: #fff;
+  border-color: var(--nl-spark);
+  background: var(--nl-spark);
+  color: var(--nl-on-spark);
 }
 .plan-lessons > li[data-soon] {
-  color: #94a199;
+  color: var(--muted);
+  background: var(--nl-surface-sunk);
+  opacity: 0.8;
 }
 .plan-lesson-copy h3 {
   font-size: 1.02rem;
@@ -180,7 +186,7 @@
   transition: background 0.15s ease;
 }
 .plan-lessons > li:not([data-current]):not([data-soon]):hover {
-  background: #f6f5f0;
+  background: var(--nl-surface-sunk);
 }
 .plan-go {
   display: inline-flex;
@@ -199,7 +205,6 @@
 .plan-go.button {
   min-height: 44px;
   padding: 8px 18px 8px 22px;
-  border-radius: 99px;
 }
 .plan-go-quiet {
   color: var(--muted);

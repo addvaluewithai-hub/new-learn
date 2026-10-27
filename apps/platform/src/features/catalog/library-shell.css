@@ -1,6 +1,6 @@
-/* Library frame: a quiet paper sidebar and one white sheet for the page. No filler chrome. */
+/* Library frame: a light sidebar and one white sheet for the page. No filler chrome. */
 .library-shell {
-  --paper: #f1efe8;
+  --paper: var(--nl-bg);
   display: grid;
   grid-template-columns: 248px minmax(0, 1fr);
   min-height: 100dvh;
@@ -33,13 +33,16 @@
   align-items: center;
   gap: 12px;
   padding: 11px 14px;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow:
-    0 1px 2px rgb(16 32 28 / 5%),
-    0 4px 14px rgb(16 32 28 / 5%);
-  color: var(--ink);
+  border-radius: var(--nl-radius-md);
+  color: var(--muted);
   font-weight: 600;
+}
+.sidebar nav a:hover {
+  background: var(--nl-surface-sunk);
+}
+.sidebar nav a[aria-current] {
+  background: var(--nl-brand-tint);
+  color: var(--nl-brand-strong);
 }
 .sidebar-account {
   margin-top: auto;
@@ -50,11 +53,10 @@
 }
 .library-sheet {
   min-height: calc(100dvh - 24px);
-  border-radius: 22px;
-  background: #fff;
-  box-shadow:
-    0 1px 2px rgb(16 32 28 / 4%),
-    0 10px 40px rgb(16 32 28 / 5%);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-card);
 }
 .library-content {
   padding: 44px clamp(22px, 5vw, 64px) 64px;
@@ -71,9 +73,9 @@
 }
 .page-heading h1 {
   margin: 10px 0 8px;
-  font-size: 2.1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 .page-heading p {
   max-width: 640px;
@@ -106,7 +108,7 @@
     width: 260px;
     transform: translateX(100%);
     transition: transform 0.25s ease;
-    box-shadow: 0 0 40px rgb(16 32 28 / 18%);
+    box-shadow: var(--nl-shadow-lift);
   }
   .sidebar.open {
     transform: translateX(0);
@@ -126,7 +128,7 @@
     inset: 0;
     z-index: 20;
     border: 0;
-    background: rgb(21 61 53 / 30%);
+    background: rgb(15 36 32 / 30%);
   }
   .topbar {
     position: sticky;

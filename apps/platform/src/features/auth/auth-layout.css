@@ -2,86 +2,69 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
-  background: #fff;
+  background: var(--nl-surface);
 }
 .auth-story {
-  background: var(--green);
-  color: #fff;
+  overflow: hidden;
+  background: var(--nl-board);
+  color: var(--ink);
   padding: 44px 11%;
   display: flex;
   flex-direction: column;
   position: relative;
 }
-.auth-story .brand-mark {
-  background: var(--accent);
-  color: var(--green);
-}
-.auth-story .brand-mark span {
-  background: var(--green);
-}
+
 .story-copy {
   margin: auto 0;
   padding: 48px 0 35px;
 }
 .story-copy > .eyebrow {
-  color: #c5d4c8;
+  color: var(--nl-brand-strong);
 }
 .story-copy h1 {
   font-size: clamp(3rem, 5.8vw, 5.6rem);
-  line-height: 1.22;
-  font-weight: 500;
-  letter-spacing: -2px;
+  line-height: 1.3;
+  font-weight: 700;
   margin: 24px 0;
 }
 .story-copy > p {
-  color: #d4e0d9;
+  color: var(--muted);
   line-height: 1.9;
   font-size: 1.1rem;
 }
 .story-bottom {
   font-size: 0.8rem;
-  color: #c5d4c8;
+  color: var(--muted);
 }
 .story-board {
   margin-top: 38px;
-  border: 1px solid #688578;
-  padding: 20px 22px 0;
-  border-radius: 18px;
+  overflow: hidden;
+  border-radius: var(--nl-radius-lg);
   max-width: 390px;
-  background: #214c40;
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-lift);
   transform: rotate(-2deg);
 }
 .story-board > span {
+  display: block;
+  padding: 16px 22px 0;
   font-size: 0.78rem;
-  color: #d6e2d5;
+  color: var(--muted);
 }
 .story-board .course-art {
-  height: 160px;
-  background: transparent;
-}
-.story-board .art-equation {
-  color: var(--accent);
-  font-size: 4rem;
-}
-.story-board .art-note {
-  display: none;
-}
-.story-board .ratio-dots i {
-  background: var(--accent);
-}
-.story-board .ratio-dots b {
-  background: #e6f0e6;
+  height: 140px;
+  margin-top: 12px;
 }
 .story-note {
-  border-top: 1px solid #547365;
   display: flex;
+  margin: 0 22px;
   align-items: center;
   gap: 12px;
   padding: 16px 0;
   font-size: 0.9rem;
 }
 .story-note svg {
-  color: var(--accent);
+  color: var(--nl-brand);
 }
 
 @media (max-width: 900px) {

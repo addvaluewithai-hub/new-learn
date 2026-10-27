@@ -37,6 +37,15 @@ export function ContinueCard({
   const course_ = stats(course);
   return (
     <section className="pick" aria-labelledby="pick-title">
+      <svg
+        className="pick-waves"
+        viewBox="0 0 420 220"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M-10 70 Q 25 20 60 70 T 130 70 T 200 70 T 270 70 T 340 70 T 410 70 T 480 70" />
+        <path d="M-10 170 Q 40 130 90 170 T 190 170 T 290 170 T 390 170 T 490 170" />
+      </svg>
       <header className="pick-head">
         <span className="eyebrow">
           {started ? 'كمّل من مكانك' : resume ? 'الدرس الجاي' : 'ابدأ من هنا'}

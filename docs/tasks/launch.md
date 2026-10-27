@@ -21,7 +21,7 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 | ID  | Task                                                                                            | Who   | Pri | Status  | Needs |
 | --- | ----------------------------------------------------------------------------------------------- | ----- | --- | ------- | ----- |
 | B1  | Brand name: shortlist, check domain and social handles, choose (D1)                             | Both  | P0  | Todo    | —     |
-| B2  | Visual identity: logo, colours, type, icon; written as tokens in `apps/platform/src/shared/`    | Ess   | P0  | Todo    | B1    |
+| B2  | Visual identity: logo, colours, type, icon; written as tokens in `apps/platform/src/shared/`    | Ess   | P0  | Doing   | B1    |
 | B3  | Apply the identity to account, library and teacher pages; the classroom only after D5           | Ess   | P1  | Todo    | B2    |
 | B4  | Buy the domain                                                                                  | Owner | P1  | Todo    | B1    |
 | B5  | Domain on Cloudflare: app, `boards.` subdomain, auth callbacks, `VITE_BOARD_ORIGIN`, frame list | Owner | P1  | Blocked | B4    |

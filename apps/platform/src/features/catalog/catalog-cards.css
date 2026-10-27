@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin: 40px 0 14px;
+  margin: 40px 0 16px;
 }
 .section-heading h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 .section-heading > span {
   color: var(--muted);
@@ -14,124 +14,98 @@
 }
 .course-list {
   display: grid;
-  gap: 4px;
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.course-row {
-  display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 18px;
-  padding: 16px 14px;
-  border-radius: 18px;
-  transition: background 0.15s ease;
-}
-.course-row {
+.course-card {
   position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-card);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
-/* The title link covers the row, so the whole row opens the curriculum. */
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--nl-shadow-lift);
+}
+.course-card:focus-within {
+  outline: 2px solid var(--nl-focus);
+  outline-offset: 2px;
+}
+/* The title link covers the card, so the whole card opens the curriculum. */
 .course-copy h3 a::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
 }
-.course-row:hover {
-  background: #f6f5f0;
+.course-copy h3 a:focus-visible {
+  outline: none;
+}
+.course-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 18px;
+}
+.course-subject {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: var(--nl-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--nl-surface-sunk);
+  color: var(--muted);
+}
+.course-subject[data-subject='physics'] {
+  background: var(--nl-physics-tint);
+  color: var(--nl-physics);
+}
+.course-subject[data-subject='chemistry'] {
+  background: var(--nl-chemistry-tint);
+  color: var(--nl-chemistry);
+}
+.course-subject[data-subject='math'] {
+  background: var(--nl-math-tint);
+  color: var(--nl-math);
+}
+.course-subject[data-subject='language'] {
+  background: var(--nl-language-tint);
+  color: var(--nl-language);
 }
 .course-copy h3 {
-  margin: 2px 0 4px;
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   font-weight: 600;
+  line-height: 1.5;
 }
 .course-copy p {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.7;
 }
 .course-progress {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 8px;
   color: var(--muted);
   font-size: 0.8rem;
-}
-.course-progress .pick-bar {
-  flex: 0 1 220px;
 }
 .course-progress > span:last-child {
   white-space: nowrap;
 }
-.course-badge .course-art {
-  width: 64px;
-  height: 64px;
-  gap: 0;
-  border-radius: 18px;
-}
-.course-badge .earth-art svg {
-  width: 40px;
-  height: 40px;
-  stroke-width: 2;
-}
-.course-badge .art-equation {
-  font-size: 1.6rem;
-}
-.art-equation sup {
-  font-size: 0.55em;
-}
-.course-badge .ratio-dots,
-.course-badge .art-note {
-  display: none;
-}
-.course-art {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.math-art {
-  background: #efeafb;
-  color: #554570;
-}
-.earth-art {
-  background: #dfece7;
-  color: #254f40;
-}
-.earth-art svg {
-  fill: none;
-  stroke: currentColor;
-}
-.art-equation {
-  direction: ltr;
-  font-family: Georgia, serif;
-  font-weight: 500;
-  line-height: 1;
-}
-@media (max-width: 700px) {
-  .course-row {
-    grid-template-columns: 52px minmax(0, 1fr);
-    gap: 14px;
-    padding: 14px 4px;
+@media (prefers-reduced-motion: reduce) {
+  .course-card {
+    transition: none;
   }
-  .course-badge .course-art {
-    width: 52px;
-    height: 52px;
-    border-radius: 15px;
-  }
-  .course-open {
-    display: none;
-  }
-  .course-progress .pick-bar {
-    flex: 1;
-  }
-  .course-available {
-    display: none;
-  }
-}
-.course-open {
-  position: relative;
-  z-index: 1;
 }

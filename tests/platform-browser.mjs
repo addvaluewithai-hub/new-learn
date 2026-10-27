@@ -152,7 +152,7 @@ try {
   failCatalog = false;
   await page.getByRole('button', { name: 'حاول تاني' }).click();
   await page.getByRole('heading', { name: 'مناهجي', exact: true }).waitFor();
-  await page.getByRole('link', { name: 'افتح المنهج', exact: true }).click();
+  await page.getByRole('link', { name: curriculum.title, exact: true }).click();
   await page.getByRole('heading', { name: curriculum.title, exact: true }).waitFor();
   assert.equal(
     await page.locator('.plan-lessons li[data-soon] a').count(),

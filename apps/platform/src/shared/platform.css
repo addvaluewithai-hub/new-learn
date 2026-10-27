@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+@import './theme.css';
+@import './course-art.css';
 .platform-ui {
-  font-family: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
-  color: #21382f;
-  background: #f5f7f4;
-  --ink: #21382f;
-  --muted: #66766c;
-  --green: #153d35;
-  --accent: #d7f77b;
-  --soft: #eaf0e7;
-  --line: #dde5dd;
-  --white: #fff;
+  font-family: var(--nl-font-body);
+  color: var(--nl-ink);
+  background: var(--nl-bg);
+  --ink: var(--nl-ink);
+  --muted: var(--nl-ink-muted);
+  --green: var(--nl-brand);
+  --accent: var(--nl-spark);
+  --soft: var(--nl-brand-tint);
+  --line: var(--nl-line);
+  --white: var(--nl-surface);
+}
+.platform-ui h1,
+.platform-ui h2,
+.platform-ui h3 {
+  font-family: var(--nl-font-display);
+  text-wrap: balance;
 }
 .platform-ui h1,
 .platform-ui h2,
@@ -24,6 +31,10 @@
 .platform-ui button {
   color: inherit;
 }
+.platform-ui :focus-visible {
+  outline: 2px solid var(--nl-focus);
+  outline-offset: 2px;
+}
 .platform-ui .muted {
   color: var(--muted);
 }
@@ -36,135 +47,86 @@
 .platform-ui .button {
   min-height: 48px;
   padding: 12px 22px;
-  border: 0;
-  border-radius: 12px;
+  border: 1.5px solid transparent;
+  border-radius: var(--nl-radius-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   font-weight: 600;
   font-size: 1rem;
+  transition: background-color 0.12s ease;
 }
 .platform-ui .primary {
-  background: var(--green);
-  color: white;
+  background: var(--nl-brand);
+  color: var(--nl-on-brand);
 }
 .platform-ui .primary:hover:not(:disabled) {
-  background: #236150;
+  background: var(--nl-brand-strong);
 }
 .platform-ui .secondary {
-  background: white;
-  border: 1px solid var(--line);
+  background: var(--nl-surface);
+  border-color: var(--nl-line-strong);
+}
+.platform-ui .secondary:hover:not(:disabled) {
+  background: var(--nl-surface-sunk);
 }
 .platform-ui .text-button {
   background: none;
   border: 0;
   padding: 0;
-  color: var(--green);
+  color: var(--nl-brand);
   font-weight: 600;
 }
 .platform-ui .error-message {
-  color: #9c332d;
-  background: #fff0ec;
-  border: 1px solid #f2c3b9;
+  color: var(--nl-danger);
+  background: var(--nl-danger-tint);
   padding: 12px 15px;
-  border-radius: 10px;
+  border-radius: var(--nl-radius-sm);
   font-size: 0.9rem;
   line-height: 1.8;
 }
 .platform-ui .brand {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   direction: ltr;
   width: max-content;
 }
 .platform-ui .brand-mark {
-  height: 43px;
-  width: 43px;
-  background: var(--green);
-  color: var(--accent);
+  height: 40px;
+  width: 40px;
+  background: var(--nl-brand);
+  color: var(--nl-on-brand);
   border-radius: 12px;
-  font-family: Arial, sans-serif;
+  font-family: var(--nl-font-display);
   display: grid;
   place-items: center;
-  font-size: 31px;
+  font-size: 24px;
   font-weight: 700;
   position: relative;
 }
 .platform-ui .brand-mark span {
   position: absolute;
-  width: 7px;
-  height: 7px;
-  background: var(--accent);
+  width: 8px;
+  height: 8px;
+  background: var(--nl-spark);
   border-radius: 50%;
-  top: 9px;
-  right: 8px;
+  top: 7px;
+  right: 7px;
 }
 .platform-ui .brand strong {
-  font-family: Arial, sans-serif;
-  font-size: 29px;
-  letter-spacing: -1.2px;
+  font-family: var(--nl-font-display);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 .platform-ui .brand strong > span {
-  font:
-    400 11px 'IBM Plex Sans Arabic',
-    sans-serif;
+  font: 400 11px var(--nl-font-body);
+  color: var(--muted);
   letter-spacing: 0;
   display: block;
   margin-top: 2px;
-}
-.platform-ui .course-art {
-  height: 185px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 14px;
-}
-.platform-ui .math-art {
-  background: #efeafb;
-  color: #554570;
-}
-.platform-ui .earth-art {
-  background: #dfece7;
-  color: #254f40;
-}
-.platform-ui .earth-art svg {
-  width: 128px;
-  height: 128px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.1;
-}
-.platform-ui .art-equation {
-  font-family: Georgia, serif;
-  font-size: 3.5rem;
-  font-weight: 500;
-  direction: ltr;
-  line-height: 1;
-}
-.platform-ui .ratio-dots {
-  display: flex;
-  gap: 7px;
-  direction: ltr;
-}
-.platform-ui .ratio-dots i,
-.platform-ui .ratio-dots b {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #8b78ad;
-}
-.platform-ui .ratio-dots b {
-  background: #c0afd9;
-}
-.platform-ui .ratio-dots i:nth-child(2) {
-  margin-right: 14px;
-}
-.platform-ui .art-note {
-  font-size: 0.72rem;
-  opacity: 0.8;
 }
 @media (prefers-reduced-motion: reduce) {
   .platform-ui * {
