@@ -50,6 +50,8 @@ export type GateHost = {
  */
 export class AnswerGate {
   private judging = false;
+  /** Rejected before the reply ended: the rest of it is dropped too, until it ends. */
+  private dropping = false;
   private held: Array<[string, number]> = [];
   private heard = '';
   private timer?: number;
@@ -58,7 +60,7 @@ export class AnswerGate {
   constructor(private host: GateHost) {}
 
   get holding() {
-    return this.judging;
+    return this.judging || this.dropping;
   }
   arm() {
     this.cancel();
@@ -68,12 +70,17 @@ export class AnswerGate {
     if (this.judging) this.heard += text;
   }
   hold(data: string, rate: number) {
+    if (this.dropping) return;
     this.held.push([data, rate]);
     // The learner's transcript usually arrives first; give it a moment if it hasn't.
-    this.timer ??= window.setTimeout(() => this.decide(), 600);
+    this.timer ??= window.setTimeout(() => (this.dropping = !this.decide()), 600);
   }
-  /** Returns whether the reply may be heard. */
+  /** Returns whether the reply may be heard (the reply ended, or it is time to judge). */
   decide() {
+    if (this.dropping) {
+      this.dropping = false;
+      return false;
+    }
     if (!this.judging) return true;
     const heard = this.heard,
       held = this.held;
@@ -90,7 +97,7 @@ export class AnswerGate {
   cancel() {
     clearTimeout(this.timer);
     this.timer = undefined;
-    this.judging = false;
+    this.judging = this.dropping = false;
     this.held = [];
     this.heard = '';
   }

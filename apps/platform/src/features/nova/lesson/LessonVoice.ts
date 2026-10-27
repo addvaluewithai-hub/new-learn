@@ -53,10 +53,11 @@ export class LessonVoice {
     s.live = new LiveConnection({
       audio: (data, rate) => {
         if (this.holding || this.flags.discard) return;
-        clearTimeout(this.timers.reply);
-        // A reply to a hands-free turn waits until the learner's words are known to be real.
+        // A reply to a hands-free turn waits until the learner's words are known to be real
+        // (the reply timer keeps running, so a dropped reply that never ends can't hang).
         const gate = this.on().reply;
         if (!this.teaching && gate?.holding) return gate.hold(data, rate);
+        clearTimeout(this.timers.reply);
         this.play(data, rate);
       },
       interrupted: () => {
@@ -73,8 +74,10 @@ export class LessonVoice {
             if (!this.holding) this.set('idle');
             return this.armIdle();
           }
-          s.audio.finish();
+          // The turn ends first: on a slow network the reply may have played out already,
+          // and finishing the audio then goes idle at once.
           this.finish();
+          s.audio.finish();
         }
         this.armIdle();
       },
@@ -128,8 +131,15 @@ export class LessonVoice {
     return s.mic;
   }
   private drained(s: Session) {
-    if (this.s !== s) return;
-    if (!this.teacher.drained() && !this.holding && !this.turn) this.set('idle');
+    if (this.s !== s || this.teacher.drained() || this.holding) return;
+    if (!this.turn) return this.set('idle');
+    // The reply ran out of audio before it ended (a stall, or a lost turnComplete): more
+    // audio clears this; otherwise the turn ends, so Nova never stays "speaking" in silence.
+    clearTimeout(this.timers.reply);
+    this.timers.reply = window.setTimeout(() => {
+      this.finish();
+      if (!this.holding) this.set('idle');
+    }, REPLY_WAIT_MS);
   }
   private armIdle() {
     if (this.stale && this.s && !this.holding && !this.teaching && !this.turn) return this.close();

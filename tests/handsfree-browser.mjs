@@ -3,7 +3,9 @@
 // the lesson settings starts Nova reading; the session is opened in hands-free mode with the
 // learner's own wake word. While Nova reads, speech is only checked against that wake word.
 // On the question, speech opens a turn without any button: a transcript that is not real
-// words ("¿Qué?") gets the reply dropped unheard; a real spoken answer is submitted through
+// words ("¿Qué?") gets the reply dropped unheard, even the part that arrives after it was
+// judged; a question back whose turnComplete arrives after its audio has played still ends
+// Nova's turn, so the next answer is heard; a real spoken answer is submitted through
 // the lesson's own answer flow (submit_answer → the model answer page), and Nova goes on to
 // read the feedback. The Silero voice detector and the microphone pipeline are real.
 import assert from 'node:assert/strict';
@@ -86,18 +88,21 @@ try {
   let turns = 0;
   await page.routeWebSocket('wss://generativelanguage.googleapis.com/**', (ws) => {
     const say = (value) => ws.send(JSON.stringify(value));
+    const audio = (seconds) =>
+      say({
+        serverContent: {
+          modelTurn: {
+            parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data: pcm(seconds) } }],
+          },
+        },
+      });
+    const late = [];
     const speak = (text, seconds, extra = []) => {
       if (text) say({ serverContent: { outputTranscription: { text } } });
-      if (seconds)
-        say({
-          serverContent: {
-            modelTurn: {
-              parts: [{ inlineData: { mimeType: 'audio/pcm;rate=24000', data: pcm(seconds) } }],
-            },
-          },
-        });
+      if (seconds) audio(seconds);
       for (const value of extra) say(value);
-      say({ serverContent: { turnComplete: true } });
+      if (extra === late) setTimeout(() => say({ serverContent: { turnComplete: true } }), 2500);
+      else say({ serverContent: { turnComplete: true } });
     };
     ws.onMessage((raw) => {
       const message = JSON.parse(raw);
@@ -112,8 +117,17 @@ try {
       turns++;
       if (turns === 1) {
         // Noise transcribed as Spanish; the tutor asks again (this reply must never be heard).
+        // Its first audio is judged (and dropped) before the rest of the reply arrives.
         say({ serverContent: { inputTranscription: { text: '¿Qué?' } } });
-        return speak(`${UNHEARD}، ممكن تعيد؟`, 0.5);
+        audio(0.3);
+        return setTimeout(() => speak(`${UNHEARD}، ممكن تعيد؟`, 0.5), 1200);
+      }
+      if (turns === 2) {
+        // A question back to Nova on a slow network: the reply has played out before its
+        // turnComplete arrives. Nova must still end its turn and hear the next answer.
+        say({ serverContent: { inputTranscription: { text: 'I forgot, can you remind me' } } });
+        speak('', 0.4, late);
+        return;
       }
       say({ serverContent: { inputTranscription: { text: 'it asks how we know things' } } });
       const call = { id: 'a1', name: 'submit_answer', args: { answer: 'بتسأل إزاي بنعرف' } };
@@ -146,8 +160,9 @@ try {
   const lock = await page.evaluate(() => navigator.mediaSession.metadata?.title);
   assert.equal(lock, pkg.title, 'lock-screen shows the lesson');
 
-  // On the question: speech is a turn. Noise gets no reply; a real answer is submitted.
-  await until(() => turns >= 2, 'two spoken turns on the question');
+  // On the question: speech is a turn. Noise gets no reply; a question back gets a reply
+  // whose end arrives late; then a real answer is submitted.
+  await until(() => turns >= 3, 'three spoken turns on the question');
   await until(() => tools.some((t) => t.name === 'submit_answer'), 'submit_answer result');
   assert.deepEqual(tools.find((t) => t.name === 'submit_answer').response, { ok: true });
   await until(() => sent.some((t) => t.includes(feedbackLine)), 'Nova reads the model answer');
