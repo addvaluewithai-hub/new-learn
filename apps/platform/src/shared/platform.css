@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
 .platform-ui {
-  font-family: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
-  color: #21382f;
-  background: #f5f7f4;
-  --ink: #21382f;
-  --muted: #66766c;
-  --green: #153d35;
-  --accent: #d7f77b;
-  --soft: #eaf0e7;
-  --line: #dde5dd;
-  --white: #fff;
+  font-family: var(--nl-font);
+  color: var(--nl-ink);
+  background: var(--nl-bg);
+  /* Older names, kept as aliases of the tokens (tokens.css). */
+  --ink: var(--nl-ink);
+  --muted: var(--nl-muted);
+  --green: var(--nl-primary);
+  --accent: var(--nl-accent);
+  --soft: var(--nl-surface-soft);
+  --line: var(--nl-line);
+  --white: var(--nl-surface);
 }
 .platform-ui h1,
 .platform-ui h2,

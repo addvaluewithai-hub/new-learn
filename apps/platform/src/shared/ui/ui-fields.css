@@ -1,0 +1,106 @@
+/* Shared fields (shared/ui): text inputs, compact menus and switches. */
+/* Fields */
+.nl-field {
+  display: grid;
+  gap: 6px;
+}
+.nl-field > label {
+  font-weight: 600;
+  font-size: var(--nl-text-sm);
+}
+.nl-input {
+  width: 100%;
+  min-height: var(--nl-control-md);
+  padding: 10px 14px;
+  border: 1px solid var(--nl-line-strong);
+  border-radius: var(--nl-radius-md);
+  background: var(--nl-surface);
+  color: var(--nl-ink);
+  line-height: 1.6;
+}
+textarea.nl-input {
+  min-height: 110px;
+  resize: vertical;
+}
+.nl-input:hover {
+  border-color: var(--nl-faint);
+}
+.nl-field[data-invalid] .nl-input {
+  border-color: var(--nl-danger);
+}
+.nl-field-hint {
+  color: var(--nl-muted);
+}
+.nl-field-error {
+  color: var(--nl-danger-ink);
+}
+.nl-pill-select {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nl-space-1);
+  padding: 0 var(--nl-space-1) 0 14px;
+  border-radius: var(--nl-radius-pill);
+  background: var(--nl-surface-soft);
+  color: var(--nl-muted);
+}
+.nl-pill-select select {
+  field-sizing: content;
+  min-height: 42px;
+  padding: 0 var(--nl-space-2);
+  border: 0;
+  background: none;
+  color: var(--nl-ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+.nl-pill-select select:focus-visible {
+  outline: none;
+}
+
+/* Switch */
+.nl-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-3);
+  min-height: var(--nl-control-md);
+  cursor: pointer;
+}
+.nl-switch input {
+  appearance: none;
+  flex: none;
+  width: 46px;
+  height: 28px;
+  margin: 0;
+  border-radius: var(--nl-radius-pill);
+  background: var(--nl-line-strong);
+  position: relative;
+  cursor: pointer;
+  transition: background-color var(--nl-normal) var(--nl-ease);
+}
+.nl-switch input::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-sm);
+  transition: inset-inline-start var(--nl-normal) var(--nl-ease);
+}
+.nl-switch input:checked {
+  background: var(--nl-primary);
+}
+.nl-switch input:checked::after {
+  inset-inline-start: 21px;
+}
+.nl-switch input:focus-visible {
+  outline: none;
+}
+.nl-switch-text {
+  display: grid;
+}
+.nl-switch-text small {
+  color: var(--nl-muted);
+}

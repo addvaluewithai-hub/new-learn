@@ -1,4 +1,43 @@
-# Preserve the existing classroom design
+# Design system
+
+One set of tokens and one set of shared parts for every screen. Change a token or a part and
+every screen built from it changes; see them all at `?preview=ui` (no login).
+
+## Tokens: apps/platform/src/shared/tokens.css
+
+- Names start with `--nl-`: brand (`--nl-green-*`, `--nl-lime-*`, `--nl-violet-*`), roles
+  (`--nl-primary`, `--nl-accent`, `--nl-tutor` for Nova, `--nl-success`, `--nl-danger`,
+  `--nl-warning`, `--nl-focus`), surfaces and text (`--nl-bg`, `--nl-paper`, `--nl-surface*`,
+  `--nl-ink`, `--nl-muted`, `--nl-line*`), type (`--nl-font`, `--nl-text-*`), space
+  (`--nl-space-*`, 4px steps), shape (`--nl-radius-*`, `--nl-control-*`), depth
+  (`--nl-shadow-*`, `--nl-scrim`) and motion (`--nl-fast`, `--nl-normal`, zero under reduced
+  motion).
+- Screens use role tokens, not brand ones, and never a raw colour. Older names (`--ink`,
+  `--green`, `--accent`, `--soft`, `--line`, `--leaf`, `--lime`) are aliases of the tokens.
+- The lesson runtime cannot import app files, so its `--rl-*` variables read the same `--nl-*`
+  names with their own fallbacks; a host theme is just these tokens.
+- `apps/platform/tests/tokens.test.ts` keeps every text-on-background pair at WCAG AA (4.5:1).
+
+## Shared parts: apps/platform/src/shared/ui
+
+| Part                                              | Use                                                                                |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `Button`, `ButtonLink`                            | primary (main action), secondary, accent (hero on dark), ghost, danger; sm, md, lg |
+| `IconButton`                                      | round, icon only, `label` is required                                              |
+| `Chip`                                            | a toggle in a row; several can be on                                               |
+| `Segmented`                                       | one of a few short options                                                         |
+| `ChoiceCard`                                      | one of a group, with a title and a line                                            |
+| `Field`, `TextInput`, `TextArea`                  | a labelled control with hint or error                                              |
+| `PillSelect`                                      | a menu that reads as part of a sentence                                            |
+| `Switch`                                          | on/off; a real checkbox announced as a switch                                      |
+| `Card`, `Badge`, `Alert`, `Spinner`, `EmptyState` | surfaces and states                                                                |
+| `Dialog`                                          | native `<dialog>`: focus trap, Escape and backdrop close                           |
+
+Buttons are pills; fields have the medium radius; cards and dialogs the large. Touch targets are
+at least 44px except the small size on dense desktop rows. `npm run test:browser:ui` checks the
+page by mouse and keyboard at 1280px and 390px.
+
+## The older classroom (`?preview=probe`, `?preview=chemistry`)
 
 This is a clean implementation of the established Learn classroom, not a visual reset.
 Reference: old Learn states-lesson.css, LessonPlayer/LessonGuide and reviewed classroom screenshots.

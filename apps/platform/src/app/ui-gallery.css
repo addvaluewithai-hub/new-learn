@@ -1,0 +1,97 @@
+/* ?preview=ui: the design system's own page. */
+.ui-gallery {
+  display: grid;
+  gap: var(--nl-space-10);
+  max-width: 1040px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: var(--nl-space-10) var(--nl-space-4) 80px;
+}
+.ui-head h1 {
+  margin: var(--nl-space-2) 0;
+  font-size: var(--nl-text-3xl);
+}
+.ui-head p {
+  max-width: 60ch;
+  color: var(--nl-muted);
+  line-height: var(--nl-leading);
+}
+.ui-section {
+  display: grid;
+  gap: var(--nl-space-4);
+}
+.ui-section h2 {
+  padding-bottom: var(--nl-space-2);
+  border-bottom: 1px solid var(--nl-line);
+  font-size: var(--nl-text-xl);
+}
+.ui-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-3);
+}
+.ui-dark {
+  padding: var(--nl-space-5);
+  border-radius: var(--nl-radius-xl);
+  background: var(--nl-primary);
+}
+.ui-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--nl-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-swatches li {
+  display: grid;
+  gap: 2px;
+  font-size: var(--nl-text-sm);
+}
+.ui-swatch {
+  height: 64px;
+  margin-bottom: var(--nl-space-1);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-md);
+}
+.ui-gallery code {
+  direction: ltr;
+  color: var(--nl-muted);
+  font-size: var(--nl-text-xs);
+}
+.ui-type {
+  display: grid;
+  gap: var(--nl-space-2);
+}
+.ui-type code {
+  margin-inline-start: var(--nl-space-2);
+}
+.ui-shapes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nl-space-4);
+}
+.ui-shapes div {
+  display: grid;
+  place-content: center;
+  width: 140px;
+  height: 90px;
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-md);
+  text-align: center;
+}
+.ui-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--nl-space-4);
+}
+.ui-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--nl-space-3);
+}
+.ui-cards p {
+  margin-top: var(--nl-space-1);
+  color: var(--nl-muted);
+}
