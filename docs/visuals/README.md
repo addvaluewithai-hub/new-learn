@@ -123,7 +123,7 @@ Tasks G6–G12 (docs/tasks/teaching.md), round OR25:
 The page is three steps: the idea (text, files, web search, or one of six examples), the look,
 then the details (level, language, size, questions, boards, up to three teaching styles).
 
-- Each look is a card with a picture of its demo board (`npm run style:previews` makes them
+- Each look is a small card in a sliding row, with a picture of its demo board (`npm run style:previews` makes them
   from `board:check` shots into `apps/platform/public/styles/`). «اتفرّج» opens the demo board
   live in a dialog, so the teacher tries it before choosing. Topic words mark up to three
   cards «مناسب لموضوعك»; «سيبها عليّ» lets the builder choose.
