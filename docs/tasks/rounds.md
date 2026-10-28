@@ -24,14 +24,14 @@ At the end of a round, mark its tasks Done in their files.
 
 ## Wave 0: before YC (2 November)
 
-| Round | Name                  | Tasks                           | Needs       | Notes                                                                                    |
-| ----- | --------------------- | ------------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
-| OR1   | Connector live        | A1, A2, A3, A4, A5, A7, S1, O4  | —           | Mostly settings. Claude can run the migration and the tests if `DEV_DATABASE_URL` is set |
-| ER1   | Student pages cleanup | E3, E4, E5, E6, E7, E8, E9, E10 | —           | Can start today; the ux-audit list                                                       |
-| ER2   | Teacher pages polish  | E1, T6                          | —           | Also sketch the OR3 screens (dashboard, notes inbox, outline editor)                     |
-| ER3   | Brand                 | B1, B2, B7, K2                  | D1          | Name, logo, colours, tokens, social handles, subject art                                 |
-| ER4   | Website               | W1, W2, W4, W5, W9, W3          | ER3, L1, L2 | Owner makes the Cloudflare project; W2 needs OR1 for real screenshots                    |
-| ER5   | Demo and video        | V1, V2, V3, V5, V8, V9          | OR1         | Ess is the first teacher; Owner makes the reviewer account (V5)                          |
+| Round | Name                  | Tasks                           | Needs       | Notes                                                                   |
+| ----- | --------------------- | ------------------------------- | ----------- | ----------------------------------------------------------------------- |
+| OR1   | Connector live        | A1, A2, A3, A4, A5, A7, S1, O4  | —           | Migrations apply on merge; one Cloudflare variable; then test in Claude |
+| ER1   | Student pages cleanup | E3, E4, E5, E6, E7, E8, E9, E10 | —           | Can start today; the ux-audit list                                      |
+| ER2   | Teacher pages polish  | E1, T6                          | —           | Also sketch the OR3 screens (dashboard, notes inbox, outline editor)    |
+| ER3   | Brand                 | B1, B2, B7, K2                  | D1          | Name, logo, colours, tokens, social handles, subject art                |
+| ER4   | Website               | W1, W2, W4, W5, W9, W3          | ER3, L1, L2 | Owner makes the Cloudflare project; W2 needs OR1 for real screenshots   |
+| ER5   | Demo and video        | V1, V2, V3, V5, V8, V9          | OR1         | Ess is the first teacher; Owner makes the reviewer account (V5)         |
 
 ## Wave 1: first real teachers and students
 
@@ -53,18 +53,19 @@ At the end of a round, mark its tasks Done in their files.
 
 ## Wave 2: public launch
 
-| Round | Name                   | Tasks                                  | Needs            | Notes                                                       |
-| ----- | ---------------------- | -------------------------------------- | ---------------- | ----------------------------------------------------------- |
-| OR6   | Question types         | Q1, Q2, Q3, Q4                         | ER7              | Runtime change: full browser checks                         |
-| OR7   | Exams and certificates | Q5, Q6, Q7, Q8, Q9, Q11, Q12, Q13, R10 | OR6, D4          | Question bank, exams by goal, results, daily review         |
-| OR9   | Nova and boards        | G1, N1, N2, G2, G3, F8                 | —                | N1 and G1 are one feature; N2 is an Idea                    |
-| OR10  | Course studio          | S2, S10, S6, F7, S7, S11, K4           | OR3, OR20        | S11 and K4 are Ideas                                        |
-| OR11  | Classes                | T3, T4, Q10, R8, M9                    | OR4, OR7         | R8 and M9 are Ideas                                         |
-| OR12  | Reach                  | E18, R6, R7, E16                       | OR5, D7          | Installable app, reminders, weekly email, English interface |
-| OR13  | Marketplace and admin  | M1, M2, E19, M3, X1, X2, X3, X4, T5    | OR4              | Public catalog, discovery, reviews, admin and reports       |
-| OR17  | Recorded lessons       | K3, E12, F12                           | —                | Audio import, progress and resume                           |
-| ER8   | Website growth         | W6, W7, W8, W10                        | ER4              | W7 and W10 are Ideas                                        |
-| OR23  | Build by voice         | Y8, Y5                                 | OR20, OR21, OR10 | Nova starts build jobs; more questions on request           |
+| Round | Name                    | Tasks                                  | Needs            | Notes                                                                |
+| ----- | ----------------------- | -------------------------------------- | ---------------- | -------------------------------------------------------------------- |
+| OR6   | Question types          | Q1, Q2, Q3, Q4                         | ER7              | Runtime change: full browser checks                                  |
+| OR7   | Exams and certificates  | Q5, Q6, Q7, Q8, Q9, Q11, Q12, Q13, R10 | OR6, D4          | Question bank, exams by goal, results, daily review                  |
+| OR9   | Nova and boards         | G1, N1, N2, G2, G3, F8                 | —                | N1 and G1 are one feature; N2 is an Idea                             |
+| OR10  | Course studio           | S2, S10, S6, S7, S11, K4               | OR3, OR20, OR24  | S11 and K4 are Ideas                                                 |
+| OR11  | Classes                 | T3, T4, Q10, R8, M9                    | OR4, OR7         | R8 and M9 are Ideas                                                  |
+| OR12  | Reach                   | E18, R6, R7, E16                       | OR5, D7          | Installable app, reminders, weekly email, English interface          |
+| OR13  | Marketplace and admin   | M1, M2, E19, M3, X1, X2, X3, X4, T5    | OR4              | Public catalog, discovery, reviews, admin and reports                |
+| OR17  | Recorded lessons        | K3, E12, F12                           | —                | Audio import, progress and resume                                    |
+| ER8   | Website growth          | W6, W7, W8, W10                        | ER4              | W7 and W10 are Ideas                                                 |
+| OR23  | Build by voice          | Y8, Y5                                 | OR20, OR21, OR10 | Nova starts build jobs; more questions on request                    |
+| OR24  | Lessons with real audio | F7, Y14, Y15, Y16, Y17                 | —                | Audio made once per lesson; Live only for talk (docs/voice-agent.md) |
 
 ## Wave 3: later
 

@@ -110,6 +110,24 @@ already runs on a VPS; Cloudflare Containers or Fly.io are the alternatives (dec
 - **Every paid plan includes a number of builds and voice minutes:** usage is metered per user
   (tasks Y10, Y11).
 
+## Lessons with real audio (OR24)
+
+Today Nova reads a lesson through the Live session, which is paid per learner per minute.
+Instead, each step gets its audio once, from Gemini TTS in Nova's own voice, at export time.
+The file is stored by hash on R2 (F7), and every learner after that plays the same file.
+
+- **When Live speaks:** only when the learner talks, to ask, answer or give a command. An open
+  Live session costs almost nothing while it is silent.
+- **Rough cost (estimate of 2026-10-28; check Google's own price page before relying on it):**
+  - TTS: about $10–20 per million audio tokens. At 25 tokens per second, a 15-minute lesson
+    costs about $0.25–0.45 once, whatever the number of learners.
+  - Live reading: about $0.27 or more per learner for the same lesson, and the cost grows with
+    the conversation context.
+- **Risks to test first (Y15):**
+  - Egyptian Arabic mixed with English, and maths read aloud; the text is made speakable
+    before TTS, as the Live instruction does today.
+  - The hand-over between a step's audio file and a Live reply in the same voice.
+
 ## Live session limits to handle
 
 Gemini Live sessions have a maximum length and send `goAway` before closing; today a dropped
@@ -126,3 +144,4 @@ limits when building Y3.
 | OR21  | Home "Start" button and Nova home mode                                  | "open the app and talk"         |
 | OR22  | Paid plans, metering, pricing page                                      | paid from the start             |
 | OR23  | Build by voice, more questions on request                               | needs OR20, OR21 and Q5         |
+| OR24  | Lessons with real audio (TTS once per lesson); Live only for talk       | cost per learner falls to ~zero |

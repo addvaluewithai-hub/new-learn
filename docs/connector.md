@@ -63,27 +63,26 @@ Migration `0005_authoring_and_oauth.sql` adds `author_courses`, `author_lessons`
 
 ## Turning it on (owner)
 
-1. Neon: create a branch of the database for testing. Apply the migration there with its
-   owner/admin URL: `DATABASE_URL=<branch admin url> npm run db:migrate`.
-2. On that branch, a role for the board site that can read boards and nothing else:
+Once, for everyone: after this, any teacher's Claude or ChatGPT (and our own builder) just
+connects to `https://new-learn.pages.dev/mcp`.
 
-   ```sql
-   CREATE ROLE learn_board_reader WITH LOGIN PASSWORD '<a new strong password>';
-   GRANT USAGE ON SCHEMA learn_app TO learn_board_reader;
-   GRANT SELECT (hash, files) ON learn_app.author_boards TO learn_board_reader;
-   ```
+1. Merge to main. The **Database migrate** workflow applies new migrations to the app's
+   database by itself (secret `CONTENT_DATABASE_URL`, the one Content sync already uses).
+2. Cloudflare, project `new-learn-boards`, Settings → Variables: `DATABASE_URL` = the same
+   value as the `new-learn` project's `DATABASE_URL` (Production and Preview), then redeploy
+   it. The board site only reads `author_boards`.
+3. In Claude: Settings → Connectors → Add custom connector, URL
+   `https://new-learn.pages.dev/mcp`. Sign in, allow, then ask Claude to make a lesson and open
+   its preview link.
 
-   If the app connects as `learn_app_reader`, run the migration's final `DO` block again
-   after creating roles, or grant as it does.
+Later hardening (task A2): give the board site its own role that can read boards and nothing
+else, then use its URL in step 2:
 
-3. Cloudflare, project `new-learn`: Preview environment `DATABASE_URL` = the branch (the
-   app's usual role). Project `new-learn-boards`: `DATABASE_URL` = the `learn_board_reader`
-   connection string of the same database, for Preview (branch) and later Production.
-4. Test on a preview deployment: in Claude, Settings → Connectors → Add custom connector,
-   URL `https://<preview>.new-learn.pages.dev/mcp`. Sign in, allow, then ask Claude to make a
-   lesson and open its preview link.
-5. Production: apply the migration to the production database, set the production
-   variables, and add the connector with `https://new-learn.pages.dev/mcp`.
+```sql
+CREATE ROLE learn_board_reader WITH LOGIN PASSWORD '<a new strong password>';
+GRANT USAGE ON SCHEMA learn_app TO learn_board_reader;
+GRANT SELECT (hash, files) ON learn_app.author_boards TO learn_board_reader;
+```
 
 ## Checks
 
