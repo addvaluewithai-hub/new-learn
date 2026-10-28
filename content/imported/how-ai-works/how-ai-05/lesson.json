@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-05",
+  "order": 5,
+  "title": "الشبكات العصبية والانتشار العكسي",
+  "englishTitle": "How AI Actually Works — Lesson 5",
+  "subtitle": "How AI Actually Works — Lesson 5",
+  "delivery": "reading",
+  "contentRevision": "c48150180d0b92921b754a53a316f1a2ab61089c2cccd6d74edecda10d64acd4",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-05",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "a8b29dbd55a2f393e36aa30142885cc53b918ef430e2db4354e7f1c0e00508c6",
+      "bytes": 23822
+    }
+  ],
+  "manifestHash": "71b531d684f3137b2b101a644b4ccd0f488545f4e816726bd28059cd2bdb6582"
+}

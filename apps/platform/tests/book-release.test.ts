@@ -10,6 +10,7 @@ import { curriculumAvailable } from '../../../content/availability';
 import { curriculumVisibility } from '../server/content';
 import { supportedEdition } from '../server/moduleAvailability';
 import { nextImported, goalsOf } from '../src/features/catalog/plan';
+import registry from '../../../content/imported/registry.json';
 import { readingOutline, validateSnapshot } from '../server/progress/snapshot';
 import { fromReading, resolveReadingPosition, teachingInstruction } from '../server/nova/context';
 
@@ -88,9 +89,16 @@ test('publication sync is non-destructive and only writes the enabled courses', 
     statements.filter((s) => s.text.startsWith('INSERT INTO learn_app.curricula')).length,
     2,
   );
+  // One release per published lesson of the enabled courses: the book's pinned lessons plus
+  // every ready lesson of the other enabled imported courses (counted, so new lessons don't break this).
+  const imported = (
+    registry.curricula as Array<{ id: string; lessons: Array<{ contentRevision?: string }> }>
+  )
+    .filter((c) => c.id !== bookCourse.id && curriculumAvailable(c.id))
+    .reduce((sum, c) => sum + c.lessons.filter((l) => l.contentRevision).length, 0);
   assert.equal(
     statements.filter((s) => s.text.startsWith('INSERT INTO learn_app.lesson_releases')).length,
-    3,
+    Object.keys(bookPins).length + imported,
   );
   assert.ok(
     statements.every(

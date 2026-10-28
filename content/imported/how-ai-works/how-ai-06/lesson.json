@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-06",
+  "order": 6,
+  "title": "الاحتمالات و softmax و cross-entropy",
+  "englishTitle": "How AI Actually Works — Lesson 6",
+  "subtitle": "How AI Actually Works — Lesson 6",
+  "delivery": "reading",
+  "contentRevision": "212532eecd8d8097a86cdf5752c18b0c3b83c3ab55badc339d28e03bf5302a80",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-06",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "5a0b4d4c68994d747bb532196bd496744fd8617acb308cddff15b51c5cbf5d01",
+      "bytes": 24964
+    }
+  ],
+  "manifestHash": "b9edc3d81026d2c8316f9b51550365b1bee28330faca659bea65f398b2823110"
+}
