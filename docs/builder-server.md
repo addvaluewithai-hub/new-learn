@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 1 stopped at command 3: SSH connection timed out. The worker code is not ready yet.**
+**Status: STEP 1, command 5 awaiting owner approval for ChatGPT device sign-in.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -64,15 +64,17 @@ server), add a `new-learn-builder` systemd service, and run a test job.
 | ---- | ------------------------------------- |
 | 1    | تمام |
 | 2    | تمام |
-| 3    | ssh_dispatch_run_fatal: Connection to [redacted] port 22: Connection timed out |
-| 4    | Not run: stopped at step 3. |
-| 5    | Not run: stopped at step 3. |
-| 6    | Not run: stopped at step 3. |
-| 7    | Not run: stopped at step 3. |
-| 8    | Not run: stopped at step 3. |
-| 9    | Not run: stopped at step 3. |
+| 3    | تمام |
+| 4    | تمام |
+| 5    | Pending: owner approval for ChatGPT device sign-in. |
+| 6    | Not run: awaiting command 5. |
+| 7    | Not run: awaiting command 5. |
+| 8    | Not run: awaiting command 5. |
+| 9    | Not run: awaiting command 5. |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-28:** Resumed with owner authorization. Commands 3 and 4 completed. The global npm installation needed a symlink on the standard executable path; the CLI version check now passes. Command 5 is waiting for the owner to approve ChatGPT device sign-in for the isolated builder user. The approval link and code were sent privately, not committed. Commands 6–9 await sign-in. wp-slack-agent and its user-specific Codex executable and login were not changed.
 
 - **Codex, 2026-10-28:** Commands 1 and 2 completed. Command 3 ended with an SSH connection timeout; a read-only check did not find the builder user. Stopped as instructed, without retrying the command. Commands 4–9 were not run. No changes were made to wp-slack-agent, its user, or its Codex login. No builder code or service was installed. The connection error was redacted to omit the server address.
 
