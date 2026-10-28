@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>الموديل بيخمّن الكلمة الجاية</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="model.js"></script>
+    <style>
+      /* An old green-phosphor terminal: a dark bezel, a curved glowing screen, scanlines. */
+      html {
+        --nl-backdrop: #11120f;
+        --ph: #8dffa6;
+        --dim: #3f8f55;
+      }
+      body {
+        background: #11120f;
+        color: var(--ph);
+      }
+      .bezel {
+        position: absolute;
+        inset: 14px;
+        border-radius: 34px;
+        padding: 22px;
+        background: linear-gradient(160deg, #2b2a24, #171713);
+        box-shadow: inset 0 2px 0 #3a3930;
+      }
+      .screen {
+        position: relative;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 26px;
+        overflow: hidden;
+        padding: 30px 40px;
+        display: grid;
+        grid-template-columns: 1fr 330px;
+        gap: 36px;
+        background: radial-gradient(ellipse at 50% 45%, #0f2a18 0%, #07150c 70%, #040b06 100%);
+        box-shadow:
+          inset 0 0 70px rgb(0 0 0 / 70%),
+          inset 0 0 18px rgb(141 255 166 / 18%);
+      }
+      .screen::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgb(0 0 0 / 22%) 0 2px, transparent 2px 5px);
+      }
+      .glow,
+      .glow * {
+        text-shadow:
+          0 0 6px rgb(141 255 166 / 65%),
+          0 0 18px rgb(141 255 166 / 25%);
+      }
+      .cmd {
+        margin: 0 0 14px;
+        font-size: 26px;
+        color: var(--dim);
+        direction: ltr;
+        text-align: left;
+      }
+      #sentence {
+        margin: 0 0 22px;
+        font-size: 44px;
+        font-weight: 600;
+        line-height: 1.35;
+        min-height: 120px;
+      }
+      #sentence .new {
+        color: #e8ffb0;
+      }
+      .cursor {
+        display: inline-block;
+        width: 22px;
+        height: 40px;
+        margin-inline-start: 8px;
+        vertical-align: -6px;
+        background: var(--ph);
+        animation: blink 1s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      #bars {
+        display: grid;
+        gap: 12px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 150px 1fr 90px;
+        align-items: center;
+        gap: 14px;
+        font-size: 32px;
+      }
+      .row .bar {
+        height: 30px;
+        direction: ltr;
+        border: 2px solid var(--dim);
+        padding: 3px;
+        box-sizing: border-box;
+      }
+      .row .fill {
+        height: 100%;
+        background: repeating-linear-gradient(90deg, var(--ph) 0 14px, transparent 14px 18px);
+      }
+      .row .pct {
+        direction: ltr;
+        text-align: left;
+        font-size: 28px;
+        color: #c9ffd5;
+      }
+      .row.picked .word::before {
+        content: '▶ ';
+      }
+      .row.picked {
+        color: #e8ffb0;
+      }
+      .side {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        justify-content: center;
+      }
+      .side label {
+        display: grid;
+        gap: 4px;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 88px;
+        margin: 0;
+        direction: ltr;
+        accent-color: var(--ph);
+      }
+      button {
+        min-height: 88px;
+        border: 3px solid var(--ph);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--ph);
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #pick {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.4;
+        color: #c9ffd5;
+      }
+      [data-layout='portrait'] .screen {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        padding: 30px 32px;
+      }
+      [data-layout='portrait'] .row {
+        grid-template-columns: 170px 1fr 100px;
+        font-size: 34px;
+      }
+      [data-layout='portrait'] .row .pct,
+      [data-layout='portrait'] .side label,
+      [data-layout='portrait'] #pick,
+      [data-layout='portrait'] .cmd {
+        font-size: 32px;
+      }
+      [data-layout='portrait'] #sentence {
+        font-size: 50px;
+        min-height: 140px;
+      }
+      [data-layout='portrait'] .side {
+        justify-content: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bezel">
+      <div class="screen glow">
+        <section>
+          <p class="cmd" id="cmd"></p>
+          <p id="sentence"></p>
+          <div id="bars"></div>
+        </section>
+        <section class="side">
+          <label id="temp-control"
+            ><span id="temp-label"></span
+            ><input id="temp" type="range" min="0.2" max="2" step="0.1"
+          /></label>
+          <button id="next" type="button"></button>
+          <button id="again" type="button"></button>
+          <p id="pick"></p>
+        </section>
+      </div>
+    </div>
+    <script>
+      const TEXT = {
+        ar: {
+          temp: (t) => `الحرارة: ${t}`,
+          next: 'الكلمة الجاية ◀',
+          again: 'من الأول ↺',
+          pick: (w, top) =>
+            top
+              ? `هيختار «${w}»: الأعلى احتمالًا.`
+              : `هيختار «${w}»: مش الأعلى، الحرارة عالية فبيغامر.`,
+          done: 'الجملة خلصت.',
+          observe: (s, t) => `الجملة: «${s}». الحرارة ${t}.`,
+        },
+        en: {
+          temp: (t) => `Temperature: ${t}`,
+          next: 'Next word ▶',
+          again: 'Start over ↺',
+          pick: (w, top) =>
+            top
+              ? `It picks “${w}”: the likeliest.`
+              : `It picks “${w}”: not the likeliest, the temperature is high.`,
+          done: 'The sentence is done.',
+          observe: (s, t) => `The sentence: “${s}”. Temperature ${t}.`,
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      let current = { words: 0, temperature: 1 };
+      $('temp').oninput = (e) =>
+        NewLearnBoard.setVariables({ temperature: Number(e.target.value) });
+      $('next').onclick = () =>
+        NewLearnBoard.setVariables({ words: Math.min(5, current.words + 1) });
+      $('again').onclick = () => NewLearnBoard.setVariables({ words: 0 });
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const words = Math.max(0, Math.min(5, Math.round(Number(view.variables.words) || 0)));
+          const temperature = Math.round((Number(view.variables.temperature) || 1) * 10) / 10;
+          current = { words, temperature };
+          document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+          const g = generate(lang, words, temperature);
+          const tf = temperature.toFixed(1);
+          $('cmd').textContent = `> next_word --temperature ${tf}`;
+          const sentence = $('sentence');
+          sentence.replaceChildren(document.createTextNode(`${g.prompt} `));
+          g.written.forEach((w, i) => {
+            const span = document.createElement('span');
+            if (i === g.written.length - 1) span.className = 'new';
+            span.textContent = `${w} `;
+            sentence.append(span);
+          });
+          const cursor = document.createElement('span');
+          cursor.className = 'cursor';
+          sentence.append(cursor);
+          $('bars').replaceChildren(
+            ...(g.next ?? []).map((c, i) => {
+              const row = document.createElement('div');
+              row.className = `row${i === g.pick ? ' picked' : ''}`;
+              row.innerHTML =
+                '<span class="word"></span><div class="bar"><div class="fill"></div></div><span class="pct"></span>';
+              row.querySelector('.word').textContent = c.word;
+              row.querySelector('.fill').style.width = `${Math.round(c.p * 100)}%`;
+              row.querySelector('.pct').textContent = `${Math.round(c.p * 100)}%`;
+              return row;
+            }),
+          );
+          $('temp').value = temperature;
+          $('temp-label').textContent = t.temp(tf);
+          $('next').textContent = t.next;
+          $('again').textContent = t.again;
+          $('pick').textContent = g.next ? t.pick(g.next[g.pick].word, g.pick === 0) : t.done;
+          const text = [g.prompt, ...g.written].join(' ');
+          NewLearnBoard.observe(t.observe(text, tf), { words, temperature, written: g.written });
+        },
+      });
+    </script>
+  </body>
+</html>
