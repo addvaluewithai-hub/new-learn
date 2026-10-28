@@ -1,0 +1,41 @@
+{
+  "apiVersion": 1,
+  "id": "demo-circuit-blueprint",
+  "title": "ليه اللمبة بتنور؟",
+  "description": "Demo course board (docs/visuals/demos.md): a circuit drawn as a blueprint. Battery, switch, a resistor and a 6-ohm bulb in series; closing the switch lets current flow, I = V / R, and the bulb glows with the power it gets.",
+  "libraries": [],
+  "variables": {
+    "switch": {
+      "type": "choice",
+      "options": ["open", "closed"],
+      "label": "Switch",
+      "default": "open"
+    },
+    "volts": {
+      "type": "number",
+      "min": 1.5,
+      "max": 9,
+      "step": 1.5,
+      "unit": "V",
+      "label": "Battery",
+      "default": 3
+    },
+    "resistor": {
+      "type": "number",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "Ω",
+      "label": "Resistor",
+      "default": 0
+    }
+  },
+  "targets": [
+    "#drawing",
+    "#bulb",
+    "#meters",
+    "#switch-control",
+    "#volts-control",
+    "#resistor-control"
+  ]
+}

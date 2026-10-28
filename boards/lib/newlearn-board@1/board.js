@@ -12,6 +12,10 @@
     `@font-face { font-family: 'NL Sans'; font-weight: ${weight}; font-display: block;
       src: url('${FONT}/ibm-plex-sans-arabic-${subset}-${weight}-normal.woff2') format('woff2');
       ${range ? `unicode-range: ${range};` : ''} }`;
+  // The second board font, for Arabic display text (grammar, poetry): Amiri, as 'NL Naskh'.
+  const naskh = (weight) =>
+    `@font-face { font-family: 'NL Naskh'; font-weight: ${weight}; font-display: block;
+      src: url('/lib/amiri@5.3.0/files/amiri-arabic-${weight}-normal.woff2') format('woff2'); }`;
   const post = (message) => parent.postMessage({ nl: 1, ...message }, '*');
   let env = null;
   let handlers = null;
@@ -23,6 +27,7 @@
   style.textContent = `
     ${face(400, 'arabic', ARABIC)} ${face(600, 'arabic', ARABIC)}
     ${face(400, 'latin')} ${face(600, 'latin')}
+    ${naskh(400)} ${naskh(700)}
     html { height: 100%; overflow: hidden; background: var(--nl-backdrop, #0d1626); }
     body { position: absolute; inset: 0 auto auto 0; margin: 0; overflow: hidden;
       box-sizing: border-box; transform-origin: 0 0;

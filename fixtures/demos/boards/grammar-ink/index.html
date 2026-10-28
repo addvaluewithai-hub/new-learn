@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>الفاعل والمفعول</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="ink.js"></script>
+    <style>
+      /* Ink and naskh on warm paper. Landscape 1280×720: the sentence and its picture, a panel.
+         Portrait: the sentence and picture on top. */
+      html {
+        --nl-backdrop: #ece2cf;
+      }
+      body {
+        color: #1e1a16;
+        background:
+          radial-gradient(circle at 20% 30%, rgb(30 26 22 / 6%), transparent 30%),
+          radial-gradient(circle at 70% 75%, rgb(30 26 22 / 7%), transparent 35%), #f6efe2;
+      }
+      .page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 860px;
+        height: 720px;
+      }
+      #sentence {
+        position: absolute;
+        top: 56px;
+        left: 40px;
+        right: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+      }
+      .word {
+        display: grid;
+        justify-items: center;
+        gap: 4px;
+      }
+      .word b {
+        font-family: 'NL Naskh', serif;
+        font-weight: 700;
+        font-size: 104px;
+        line-height: 1.5;
+      }
+      .word .end.doer {
+        color: #b23a2a;
+      }
+      .word .end.done {
+        color: #2a5ab2;
+      }
+      .tag {
+        padding: 2px 16px;
+        border: 3px solid currentColor;
+        border-radius: 999px;
+        font-size: 26px;
+        font-weight: 600;
+      }
+      .tag.doer {
+        color: #b23a2a;
+      }
+      .tag.done {
+        color: #2a5ab2;
+      }
+      .tag.verb {
+        color: #6b5a48;
+      }
+      #meaning {
+        position: absolute;
+        top: 330px;
+        left: 40px;
+        right: 40px;
+        margin: 0;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 600;
+      }
+      #picture {
+        position: absolute;
+        left: 50px;
+        top: 400px;
+        width: 760px;
+        height: 300px;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 420px;
+        height: 720px;
+        padding: 36px 34px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        border-inline-end: 3px solid #1e1a16;
+      }
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        font-weight: 600;
+      }
+      #key {
+        display: grid;
+        gap: 8px;
+      }
+      #key p {
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.45;
+      }
+      #key .doer {
+        color: #b23a2a;
+      }
+      #key .done {
+        color: #2a5ab2;
+      }
+      .choices {
+        display: flex;
+        gap: 10px;
+      }
+      .choices button {
+        flex: 1;
+        min-height: 96px;
+        padding: 0 8px;
+        border: 3px solid #1e1a16;
+        border-radius: 10px;
+        background: #fbf6ea;
+        color: #1e1a16;
+        font-weight: 600;
+        font-size: 26px;
+        cursor: pointer;
+      }
+      .choices button[aria-pressed='true'] {
+        background: #1e1a16;
+        color: #f6efe2;
+      }
+      [data-layout='portrait'] .page {
+        width: 720px;
+        height: 660px;
+      }
+      [data-layout='portrait'] #sentence {
+        top: 30px;
+        left: 16px;
+        right: 16px;
+        gap: 18px;
+      }
+      [data-layout='portrait'] .word b {
+        font-size: 88px;
+      }
+      [data-layout='portrait'] .tag,
+      [data-layout='portrait'] #key p,
+      [data-layout='portrait'] .choices button {
+        font-size: 32px;
+      }
+      [data-layout='portrait'] #meaning {
+        top: 280px;
+        font-size: 34px;
+      }
+      [data-layout='portrait'] #picture {
+        left: 0;
+        top: 360px;
+        width: 720px;
+        height: 284px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 660px;
+        width: 720px;
+        height: 620px;
+        padding: 16px 40px 30px;
+        border: 0;
+        border-top: 3px solid #1e1a16;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div id="sentence"></div>
+      <p id="meaning"></p>
+      <svg id="picture" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img"></svg>
+    </div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <div id="key">
+        <p class="doer" id="key-doer"></p>
+        <p class="done" id="key-done"></p>
+      </div>
+      <div class="choices" id="doer-choice"></div>
+      <div class="choices" id="order-choice"></div>
+    </section>
+    <script>
+      const WORDS = {
+        verb: ['كَتَبَ', ''],
+        student: ['الطال', { doer: 'بُ', done: 'بَ' }],
+        lesson: ['الدر', { doer: 'سُ', done: 'سَ' }],
+      };
+      const TEXT = {
+        ar: {
+          title: 'الفاعل والمفعول',
+          tags: { verb: 'فعل', doer: 'فاعل', done: 'مفعول به' },
+          keyDoer: 'الضمة ( ـُ ): الفاعل، اللي عمل الفعل',
+          keyDone: 'الفتحة ( ـَ ): المفعول به، اللي الفعل وقع عليه',
+          doer: { student: 'الطالب هو الفاعل', lesson: 'الدرس هو الفاعل' },
+          order: { vso: 'الفاعل الأول', vos: 'المفعول الأول' },
+          meaning: {
+            student: 'المعنى: الطالب هو اللي كتب الدرس.',
+            lesson: 'المعنى: الدرس هو اللي كتب الطالب!',
+          },
+        },
+        en: {
+          title: 'Subject and object',
+          tags: { verb: 'verb', doer: 'subject', done: 'object' },
+          keyDoer: 'Damma ( ـُ ): the subject, who did it',
+          keyDone: 'Fatha ( ـَ ): the object, who it was done to',
+          doer: { student: 'The student does it', lesson: 'The lesson does it' },
+          order: { vso: 'Subject first', vos: 'Object first' },
+          meaning: {
+            student: 'Meaning: the student wrote the lesson.',
+            lesson: 'Meaning: the lesson wrote the student!',
+          },
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      const choices = (id, values, current, label, name) =>
+        $(id).replaceChildren(
+          ...values.map((v) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = label[v];
+            b.setAttribute('aria-pressed', String(v === current));
+            b.onclick = () => NewLearnBoard.setVariables({ [name]: v });
+            return b;
+          }),
+        );
+      const word = (key, role, tag) => {
+        const col = document.createElement('div');
+        col.className = 'word';
+        const b = document.createElement('b');
+        const [stem, ends] = WORDS[key];
+        b.append(stem);
+        if (ends) {
+          const end = document.createElement('span');
+          end.className = `end ${role}`;
+          end.textContent = ends[role];
+          b.append(end);
+        }
+        const t = document.createElement('span');
+        t.className = `tag ${role}`;
+        t.textContent = tag;
+        col.append(b, t);
+        return col;
+      };
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const doer = view.variables.doer === 'lesson' ? 'lesson' : 'student';
+          const order = view.variables.order === 'vos' ? 'vos' : 'vso';
+          const other = doer === 'student' ? 'lesson' : 'student';
+          const nouns =
+            order === 'vso'
+              ? [
+                  [doer, 'doer'],
+                  [other, 'done'],
+                ]
+              : [
+                  [other, 'done'],
+                  [doer, 'doer'],
+                ];
+          $('sentence').replaceChildren(
+            word('verb', 'verb', t.tags.verb),
+            ...nouns.map(([k, r]) => word(k, r, t.tags[r])),
+          );
+          $('meaning').textContent = t.meaning[doer];
+          $('picture').innerHTML = pictureSvg(doer);
+          $('title').textContent = t.title;
+          $('key-doer').textContent = t.keyDoer;
+          $('key-done').textContent = t.keyDone;
+          choices('doer-choice', ['student', 'lesson'], doer, t.doer, 'doer');
+          choices('order-choice', ['vso', 'vos'], order, t.order, 'order');
+          const text = $('sentence').innerText.replace(/\s+/g, ' ');
+          NewLearnBoard.observe(`${t.meaning[doer]}`, { doer, order, sentence: text });
+        },
+      });
+    </script>
+  </body>
+</html>

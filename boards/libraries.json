@@ -31,6 +31,15 @@
       "license": "MIT",
       "from": "node_modules/three",
       "files": ["build/three.module.js", "build/three.core.js", "LICENSE"]
+    },
+    "amiri@5.3.0": {
+      "license": "OFL-1.1",
+      "from": "node_modules/@fontsource/amiri",
+      "files": [
+        "files/amiri-arabic-400-normal.woff2",
+        "files/amiri-arabic-700-normal.woff2",
+        "LICENSE"
+      ]
     }
   }
 }

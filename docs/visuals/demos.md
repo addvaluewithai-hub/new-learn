@@ -19,11 +19,11 @@ page. Code: `fixtures/demos/` (boards in `boards/`, lessons in `courses/`, the l
 | plants    | نسقي ولا نستنى؟          | Watercolour, by hand  | Checks the soil: moist, dry, watered               | Done   |
 | seasons   | ليه فيه صيف وشتا؟        | 3D (three.js)         | Tilts the Earth and moves it round the Sun         | Done   |
 | suez      | قناة السويس ليه مهمة؟    | Old nautical map      | Picks Suez or the Cape: days and fuel              | Done   |
-| pyramid   | الهرم اتبنى إزاي؟        | Shadow puppets        | Sets the ramp's slope: length against workers      | Todo   |
-| circuit   | ليه اللمبة بتنور؟        | Blueprint             | Closes the switch, adds resistance: Ohm's law      | Todo   |
-| fractions | الكسور بالبيتزا          | Crayon picture book   | Cuts and shades slices: compares fractions         | Todo   |
-| grammar   | الفاعل والمفعول          | Arabic calligraphy    | Swaps the case endings: the meaning flips          | Todo   |
-| robot     | حرّك الروبوت             | Pixel game            | Orders moves and a loop to reach the goal          | Todo   |
+| pyramid   | الهرم اتبنى إزاي؟        | Shadow puppets        | Sets the ramp's slope: length against workers      | Done   |
+| circuit   | ليه اللمبة بتنور؟        | Blueprint             | Closes the switch, adds resistance: Ohm's law      | Done   |
+| fractions | الكسور بالبيتزا          | Crayon picture book   | Cuts and shades slices: compares fractions         | Done   |
+| grammar   | الفاعل والمفعول          | Arabic calligraphy    | Swaps the case endings: the meaning flips          | Done   |
+| robot     | حرّك الروبوت             | Pixel game            | Orders moves and a loop to reach the goal          | Done   |
 
 ## Adding one
 

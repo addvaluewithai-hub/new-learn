@@ -52,8 +52,8 @@ export function inspectCanvas({ minText, minControl, edge }) {
     if (size < minText - 0.5)
       add('text-size', el, `${Math.round(size)}px text, needs at least ${minText}px`);
     const family = s.fontFamily.split(',')[0].replace(/["']/g, '').trim().toLowerCase();
-    if (family !== 'nl sans' && !family.startsWith('katex'))
-      add('font', el, `uses "${family}", boards use the board font (NL Sans) or KaTeX`);
+    if (family !== 'nl sans' && family !== 'nl naskh' && !family.startsWith('katex'))
+      add('font', el, `uses "${family}", boards use the board fonts (NL Sans, NL Naskh) or KaTeX`);
     for (const node of texts) {
       const range = document.createRange();
       range.selectNodeContents(node);

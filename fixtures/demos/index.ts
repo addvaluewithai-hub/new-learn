@@ -58,6 +58,7 @@ export const DEMOS: Demo[] = [
     style: 'خيال الظل',
     audience: 'تاريخ',
     colors: ['#f2a65a', '#2b1b10'],
+    load: () => import('./courses/pyramid').then((m) => m.pyramidCourse),
   },
   {
     id: 'circuit',
@@ -65,6 +66,7 @@ export const DEMOS: Demo[] = [
     style: 'رسم هندسي',
     audience: 'فيزيا ثانوي',
     colors: ['#123a6b', '#e8f1ff'],
+    load: () => import('./courses/circuit').then((m) => m.circuitCourse),
   },
   {
     id: 'fractions',
@@ -72,6 +74,7 @@ export const DEMOS: Demo[] = [
     style: 'ألوان شمع',
     audience: 'الأطفال',
     colors: ['#fff8e6', '#e0533d'],
+    load: () => import('./courses/fractions').then((m) => m.fractionsCourse),
   },
   {
     id: 'grammar',
@@ -79,6 +82,7 @@ export const DEMOS: Demo[] = [
     style: 'خط عربي وحبر',
     audience: 'لغة عربية',
     colors: ['#f6efe2', '#1e1a16'],
+    load: () => import('./courses/grammar').then((m) => m.grammarCourse),
   },
   {
     id: 'robot',
@@ -86,5 +90,6 @@ export const DEMOS: Demo[] = [
     style: 'لعبة بكسل',
     audience: 'برمجة للأطفال',
     colors: ['#2a1f4a', '#7cf2ff'],
+    load: () => import('./courses/robot').then((m) => m.robotCourse),
   },
 ];

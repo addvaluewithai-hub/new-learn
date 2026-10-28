@@ -21,6 +21,8 @@ const generated = new Set([
   // Imported catalog data grows with curricula; its generated JSON is not authored code.
   'content/imported/registry.json',
   'apps/platform/content-modules.json',
+  // Board editions (tools/build-boards.mjs): one entry per built board, not authored code.
+  'apps/platform/src/features/boards/editions.generated.json',
 ]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];

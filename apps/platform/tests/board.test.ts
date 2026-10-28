@@ -27,8 +27,13 @@ const editions = JSON.parse(
 test('every built board edition is content-addressed and has a valid manifest', () => {
   assert.deepEqual(Object.keys(editions).sort(), [
     'demo-ai-crt',
+    'demo-circuit-blueprint',
+    'demo-fractions-crayon',
+    'demo-grammar-ink',
     'demo-interest-chalk',
     'demo-plants-painted',
+    'demo-pyramid-shadow',
+    'demo-robot-pixel',
     'demo-seasons-3d',
     'demo-suez-map',
     'phys1-ch08-youngs-rod',

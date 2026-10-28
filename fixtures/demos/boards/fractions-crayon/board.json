@@ -1,0 +1,19 @@
+{
+  "apiVersion": 1,
+  "id": "demo-fractions-crayon",
+  "title": "الكسور بالبيتزا",
+  "description": "Demo course board (docs/visuals/demos.md): a crayon picture book. A pizza cut into equal slices, some taken; the fraction taken is compared with a half pizza beside it.",
+  "libraries": [],
+  "variables": {
+    "slices": { "type": "number", "min": 2, "max": 12, "step": 1, "label": "Slices", "default": 4 },
+    "taken": {
+      "type": "number",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "label": "Slices taken",
+      "default": 1
+    }
+  },
+  "targets": ["#pizza", "#half", "#fraction", "#compare", "#slices-control", "#taken-control"]
+}

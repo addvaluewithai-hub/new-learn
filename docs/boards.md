@@ -65,7 +65,7 @@ portrait, chosen by the lesson's layout (`init.layout`, `html[data-layout]`). Th
 scales the whole canvas uniformly to fit the frame and centres it, so what fits once fits on
 every screen of that shape. Every board supports both layouts.
 
-- One font from the board origin: `NL Sans` (IBM Plex Sans Arabic, OFL); KaTeX for maths.
+- Fonts: `NL Sans` (IBM Plex Sans Arabic); `NL Naskh` (Amiri) for Arabic display; KaTeX.
 - Minimum sizes in canvas pixels: text 24 in landscape and 32 in portrait (about 14px on a
   phone); controls 88 on their short side. Text keeps 8px from the canvas edge.
 - The canvas never scrolls; only an element marked `data-scroll` may scroll inside it.
@@ -221,17 +221,17 @@ it (its own origin, production headers, a sandboxed iframe) in a laptop landscap
 lesson page that shows the board plus a sweep (defaults, each variable at its extremes, every
 target marked, input open) and fails on:
 
-| Rule                          | Fails when                                                |
-| ----------------------------- | --------------------------------------------------------- |
-| files                         | the manifest, a file type or a size limit is wrong        |
-| ready                         | no `ready` within 5 seconds                               |
-| inside-canvas                 | an element leaves the canvas                              |
-| text-overflow, text-edge      | text is cut off or spills, or is within 8px of the edge   |
-| text-size, control-size, font | below the minimum sizes, or not NL Sans or KaTeX          |
-| network, console, error       | any network attempt, console error or uncaught error      |
-| board-error, variables        | the board reports an error or undeclared variable names   |
-| observation, keyboard         | it never calls `observe`, or Tab reaches no open control  |
-| deterministic                 | the same state draws a different picture (reduced motion) |
+| Rule                          | Fails when                                                 |
+| ----------------------------- | ---------------------------------------------------------- |
+| files                         | the manifest, a file type or a size limit is wrong         |
+| ready                         | no `ready` within 5 seconds                                |
+| inside-canvas                 | an element leaves the canvas                               |
+| text-overflow, text-edge      | text is cut off or spills, or is within 8px of the edge    |
+| text-size, control-size, font | below the minimum sizes, or not NL Sans, NL Naskh or KaTeX |
+| network, console, error       | any network attempt, console error or uncaught error       |
+| board-error, variables        | the board reports an error or undeclared variable names    |
+| observation, keyboard         | it never calls `observe`, or Tab reaches no open control   |
+| deterministic                 | the same state draws a different picture (reduced motion)  |
 
 It writes `report.json` (board id, content hash, checker version, each problem with where it
 appeared) and screenshots, and exits 1 on any problem, so the author's AI can fix and rerun.

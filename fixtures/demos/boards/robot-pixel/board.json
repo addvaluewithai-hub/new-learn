@@ -1,0 +1,47 @@
+{
+  "apiVersion": 1,
+  "id": "demo-robot-pixel",
+  "title": "حرّك الروبوت",
+  "description": "Demo course board (docs/visuals/demos.md): a pixel-art maze. A program of up to six moves, repeated one to three times, walks the robot to the battery; a wall stops it.",
+  "libraries": [],
+  "variables": {
+    "c1": {
+      "type": "choice",
+      "options": ["none", "up", "down", "left", "right"],
+      "label": "Move 1",
+      "default": "none"
+    },
+    "c2": {
+      "type": "choice",
+      "options": ["none", "up", "down", "left", "right"],
+      "label": "Move 2",
+      "default": "none"
+    },
+    "c3": {
+      "type": "choice",
+      "options": ["none", "up", "down", "left", "right"],
+      "label": "Move 3",
+      "default": "none"
+    },
+    "c4": {
+      "type": "choice",
+      "options": ["none", "up", "down", "left", "right"],
+      "label": "Move 4",
+      "default": "none"
+    },
+    "c5": {
+      "type": "choice",
+      "options": ["none", "up", "down", "left", "right"],
+      "label": "Move 5",
+      "default": "none"
+    },
+    "c6": {
+      "type": "choice",
+      "options": ["none", "up", "down", "left", "right"],
+      "label": "Move 6",
+      "default": "none"
+    },
+    "repeat": { "type": "number", "min": 1, "max": 3, "step": 1, "label": "Repeat", "default": 1 }
+  },
+  "targets": ["#maze", "#program", "#repeat-choice", "#status"]
+}

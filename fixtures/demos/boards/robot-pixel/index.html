@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>حرّك الروبوت</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="game.js"></script>
+    <style>
+      /* A pixel game. Landscape 1280×720: the maze and the program panel. Portrait: maze on top. */
+      html {
+        --nl-backdrop: #1b1035;
+      }
+      body {
+        background: #1b1035;
+        color: #e9f9ff;
+      }
+      #maze {
+        position: absolute;
+        left: 30px;
+        top: 48px;
+        width: 832px;
+        height: 624px;
+        image-rendering: pixelated;
+        border: 6px solid #7cf2ff;
+        box-sizing: content-box;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 376px;
+        height: 720px;
+        padding: 30px 28px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 38px;
+        font-weight: 600;
+        color: #ffd166;
+      }
+      .hint {
+        margin: 0;
+        font-size: 26px;
+        color: #b9a8ff;
+      }
+      #program {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        direction: ltr;
+      }
+      #program button,
+      #repeat-choice button {
+        min-height: 96px;
+        border: 4px solid #7cf2ff;
+        border-radius: 0;
+        background: #2a1f4a;
+        color: #7cf2ff;
+        font-size: 44px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #program button.none {
+        color: #5b4f86;
+        border-color: #5b4f86;
+      }
+      #repeat-choice {
+        display: flex;
+        gap: 10px;
+      }
+      #repeat-choice button {
+        flex: 1;
+        font-size: 32px;
+        border-color: #ffd166;
+        color: #ffd166;
+      }
+      #repeat-choice button[aria-pressed='true'] {
+        background: #ffd166;
+        color: #1b1035;
+      }
+      #status {
+        margin: 0;
+        padding: 10px 14px;
+        border: 4px solid currentColor;
+        font-size: 28px;
+        font-weight: 600;
+      }
+      #status.goal {
+        color: #06d6a0;
+      }
+      #status.wall {
+        color: #ff5d8f;
+      }
+      #status.short,
+      #status.empty {
+        color: #b9a8ff;
+      }
+      [data-layout='portrait'] #maze {
+        left: 24px;
+        top: 24px;
+        width: 660px;
+        height: 495px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 560px;
+        width: 720px;
+        height: 720px;
+        padding: 10px 36px 30px;
+      }
+      [data-layout='portrait'] .hint,
+      [data-layout='portrait'] #status {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="maze" width="128" height="96"></canvas>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <p class="hint" id="hint"></p>
+      <div id="program"></div>
+      <div id="repeat-choice"></div>
+      <p id="status"></p>
+    </section>
+    <script>
+      const ARROWS = { none: '·', up: '↑', down: '↓', left: '←', right: '→' };
+      const NEXT = { none: 'up', up: 'right', right: 'down', down: 'left', left: 'none' };
+      const TEXT = {
+        ar: {
+          title: 'حرّك الروبوت',
+          hint: 'دوس على أي خانة عشان تغيّر الأمر.',
+          repeat: (n) => `كرر ×${n}`,
+          status: {
+            goal: (n) => `وصل للبطارية في ${n} خطوات!`,
+            wall: () => 'خبط في حيطة ووقف.',
+            short: () => 'لسه ما وصلش.',
+            empty: () => 'البرنامج فاضي.',
+          },
+          names: { none: 'فاضي', up: 'فوق', down: 'تحت', left: 'شمال', right: 'يمين' },
+        },
+        en: {
+          title: 'Move the robot',
+          hint: 'Tap a slot to change its move.',
+          repeat: (n) => `Repeat ×${n}`,
+          status: {
+            goal: (n) => `Reached the battery in ${n} moves!`,
+            wall: () => 'Hit a wall and stopped.',
+            short: () => 'Not there yet.',
+            empty: () => 'The program is empty.',
+          },
+          names: { none: 'empty', up: 'up', down: 'down', left: 'left', right: 'right' },
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      const g = $('maze').getContext('2d');
+      const SLOTS = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'];
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const program = SLOTS.map((k) =>
+            ARROWS[view.variables[k]] ? view.variables[k] : 'none',
+          );
+          const repeat = Math.max(1, Math.min(3, Math.round(Number(view.variables.repeat) || 1)));
+          const result = run(program, repeat);
+          drawMaze(g, result);
+          $('title').textContent = t.title;
+          $('hint').textContent = t.hint;
+          $('program').replaceChildren(
+            ...program.map((m, i) => {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.className = m;
+              b.textContent = ARROWS[m];
+              b.setAttribute('aria-label', `${i + 1}: ${t.names[m]}`);
+              b.onclick = () => NewLearnBoard.setVariables({ [SLOTS[i]]: NEXT[m] });
+              return b;
+            }),
+          );
+          $('repeat-choice').replaceChildren(
+            ...[1, 2, 3].map((n) => {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.textContent = t.repeat(n);
+              b.setAttribute('aria-pressed', String(n === repeat));
+              b.onclick = () => NewLearnBoard.setVariables({ repeat: n });
+              return b;
+            }),
+          );
+          const status = $('status');
+          status.className = result.end;
+          status.textContent = t.status[result.end](result.path.length - 1);
+          const words = program
+            .filter((m) => m !== 'none')
+            .map((m) => t.names[m])
+            .join(', ');
+          NewLearnBoard.observe(`${words || t.status.empty()} ×${repeat}: ${status.textContent}`, {
+            program,
+            repeat,
+            end: result.end,
+          });
+        },
+      });
+    </script>
+  </body>
+</html>
