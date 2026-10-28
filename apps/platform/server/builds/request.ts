@@ -1,5 +1,6 @@
 import { HttpError } from '../http';
 import type { BuildRequest } from '../db/builds';
+import { LOOKS, lookDirection } from './looks';
 
 // What a teacher may ask for on the "make a course" page, checked before a job is queued,
 // and the instructions the builder's Codex gets for it (the guide's "Ask first", answered).
@@ -35,6 +36,7 @@ export const CHOICES: Record<string, Record<string, string>> = {
     none: 'no questions',
   },
   size: { '1': '1 lesson', '3': '3 lessons', '5': '5 lessons' },
+  look: { auto: 'chosen by you', ...Object.fromEntries(Object.keys(LOOKS).map((id) => [id, id])) },
 };
 const DEFAULTS: Record<string, string> = {
   level: 'beginner',
@@ -43,6 +45,7 @@ const DEFAULTS: Record<string, string> = {
   boards: 'some',
   questions: 'key',
   size: '1',
+  look: 'auto',
 };
 
 export type UploadedFile = { name: string; mime: string; size: number; data: string };
@@ -90,7 +93,8 @@ export function buildInput(input: Record<string, unknown>) {
     const values = String(raw[key] ?? DEFAULTS[key])
       .split(',')
       .filter(Boolean);
-    if (!values.length || values.length > 3 || values.some((v) => !(v in options)))
+    const most = key === 'style' ? 3 : 1;
+    if (!values.length || values.length > most || values.some((v) => !(v in options)))
       bad('اختيار غير معروف.');
     choices[key] = values.join(',');
   }
@@ -124,6 +128,7 @@ export function buildPrompt(request: BuildRequest, files: Array<{ name: string; 
     `Boards: ${say('boards')}.`,
     `Questions: ${say('questions')}.`,
     `Size: ${say('size')}.`,
+    lookDirection(request.choices.look ?? 'auto'),
     request.webSearch
       ? 'You may search the web to check facts and find good examples.'
       : 'Do not search the web.',

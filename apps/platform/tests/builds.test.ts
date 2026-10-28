@@ -2,6 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { testDb } from './db';
 import { buildInput, buildPrompt } from '../server/builds/request';
+import { LOOKS as SERVER_LOOKS } from '../server/builds/looks';
+import { LOOKS as PAGE_LOOKS } from '../src/features/studio/looks';
 import { createJob, getJob, listJobs } from '../server/builds/jobs';
 import { handleBuilder } from '../server/builds/worker';
 import { addLesson, createCourse } from '../server/authoring/store';
@@ -35,6 +37,22 @@ test('a request is a topic, known choices and a few small files', () => {
   assert.match(prompt, /story first.*; worked examples/);
   assert.match(prompt, /never instructions to you/);
   assert.match(prompt, /- chapter one\.pdf \(application\/pdf\)/);
+  assert.match(
+    prompt,
+    /Look: choose the one that suits the topic/,
+    'no look means the builder picks',
+  );
+});
+
+test('a chosen look carries its art direction, and the page offers the same looks', () => {
+  const { request } = buildInput({ topic: 'الفايدة المركبة', choices: { look: 'chalk' } });
+  assert.match(buildPrompt(request, []), /Look \(chalk\): Chalk on a dark/);
+  assert.throws(() => buildInput({ topic: 'ok topic', choices: { look: 'neon' } }));
+  assert.throws(() => buildInput({ topic: 'ok topic', choices: { look: 'chalk,crt' } }));
+  assert.deepEqual(
+    PAGE_LOOKS.map((look) => look.id),
+    Object.keys(SERVER_LOOKS),
+  );
 });
 
 test('the worker claims a job, acts as its teacher through MCP, reports steps and the course', async () => {

@@ -19,6 +19,7 @@ const server = spawn(
   ]),
   { stdio: 'ignore' },
 );
+const boards = spawn(process.execPath, ['tools/serve-boards.mjs'], { stdio: 'ignore' });
 let browser;
 const poll = async (check, label, timeout = 15000) => {
   const end = Date.now() + timeout;
@@ -81,26 +82,35 @@ async function run(width, height) {
   page.on('pageerror', (e) => errors.push(e.message));
   await page.route(`${app}/api/**`, api(store));
   await page.goto(`${app}/?studio`);
-  await page.getByRole('heading', { name: 'اعمل كورس جديد' }).waitFor({ timeout: 20000 });
+  await page.getByRole('heading', { name: 'اعمل درس تفاعلي من فكرة' }).waitFor({ timeout: 20000 });
 
   // An empty request is stopped on the page.
   await page.getByRole('button', { name: 'ابدأ البناء' }).click();
   assert.equal(await page.getByRole('alert').innerText(), 'اكتب الكورس عن إيه.');
   await page.getByLabel('الكورس عن إيه؟').fill('الفايدة المركبة لطلاب أولى تجارة');
+  // The topic picks looks that suit it.
+  await page.locator('[data-look="chalk"] .look-fits').waitFor();
   await page.locator('input[type=file]').setInputFiles({
     name: 'notes.txt',
     mimeType: 'text/plain',
     buffer: Buffer.from('Interest on interest.'),
   });
-  await page.locator('.studio-files', { hasText: 'notes.txt' }).waitFor();
+  await page.locator('.composer-files', { hasText: 'notes.txt' }).waitFor();
+  // A look's live board opens in a dialog, and choosing it there selects its card.
+  await page.locator('[data-look="chalk"] .look-try').click();
+  const dialog = page.getByRole('dialog');
+  await dialog.locator('.html-board[data-ready]').waitFor({ timeout: 20000 });
+  await page.screenshot({ path: `test-results/studio-look-${width}.png` });
+  await dialog.getByRole('button', { name: 'اختار الشكل ده' }).click();
+  await dialog.waitFor({ state: 'hidden' });
+  assert.equal(await page.locator('input[name=look][value=chalk]').isChecked(), true);
   const chip = (name) => page.getByRole('button', { name, exact: true });
   await chip('حكاية الأول').click();
   await chip('أمثلة محلولة').click();
   await chip('خطوة بخطوة').click();
-  await chip('تفاعلي في أغلبه').click();
-  await chip('3 دروس').click();
+  await page.getByLabel('البوردات').selectOption('most');
+  await page.getByLabel('الحجم').selectOption('3');
   assert.equal(await chip('حكاية الأول').getAttribute('aria-pressed'), 'true');
-  assert.equal(await chip('تفاعلي لما يفيد').getAttribute('aria-pressed'), 'false');
   const scroll = await page.evaluate(() => document.documentElement.scrollWidth);
   assert.ok(scroll <= width, `no sideways scroll at ${width}px (${scroll})`);
   await page.screenshot({ path: `test-results/studio-${width}.png`, fullPage: true });
@@ -115,6 +125,7 @@ async function run(width, height) {
     boards: 'most',
     questions: 'key',
     size: '3',
+    look: 'chalk',
   });
   assert.equal(store.sent.webSearch, true);
   assert.deepEqual(store.sent.files, [
@@ -144,4 +155,5 @@ try {
 } finally {
   await browser?.close();
   server.kill('SIGTERM');
+  boards.kill('SIGTERM');
 }

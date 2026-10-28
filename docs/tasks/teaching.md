@@ -62,7 +62,7 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 | G5  | Human review of boards in paid courses, if D9 says so                               | Owner | P3  | Blocked | D9    |
 | G6  | Visual skills: try the catalogue one at a time, two test scenes each (docs/visuals) | Both  | P1  | Doing   | —     |
 | G7  | Lesson styles: STYLE.md, helper, example boards and preview for each kept skill     | Owner | P1  | Todo    | G6    |
-| G8  | Style cards with real previews on the «اعمل كورس» page (Ess designs)                | Both  | P1  | Todo    | G7    |
+| G8  | Style cards with real previews and a live board on the «اعمل كورس» page             | Owner | P1  | Done    | —     |
 | G9  | The builder screenshots its boards and fixes them against STYLE.md before finishing | Owner | P1  | Todo    | Y6    |
 | G10 | Serve three.js, D3, p5.js (+ p5.brush) and lottie-web from the board origin, pinned | Owner | P1  | Todo    | —     |
 | G11 | A picture in every scene by default; text alone only when the teacher chooses       | Owner | P1  | Todo    | G7    |

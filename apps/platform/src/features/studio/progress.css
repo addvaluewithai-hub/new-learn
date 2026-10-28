@@ -1,0 +1,52 @@
+/* The builder's progress: its steps as they arrive, then the draft. */
+.build-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.build-steps li {
+  position: relative;
+  padding-inline-start: 26px;
+  color: var(--muted);
+}
+.build-steps li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--green);
+}
+.build-steps li.now {
+  color: var(--ink);
+  font-weight: 600;
+}
+.build-steps li.now::before {
+  content: '';
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: build-pulse 1.2s ease-in-out infinite;
+}
+.build-done {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.build-done p {
+  flex-basis: 100%;
+  line-height: 1.8;
+}
+@keyframes build-pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .build-steps li.now::before {
+    animation: none;
+  }
+}

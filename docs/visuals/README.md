@@ -115,5 +115,19 @@ Tasks G6–G12 (docs/tasks/teaching.md), round OR25:
 
 - the builder looks at screenshots of its boards and fixes them before it finishes;
 - every scene gets a picture by default, and text alone only when the teacher asks;
-- the studio page shows each style as a card with a real preview;
+- the studio page shows each style as a card with a real preview (done, below);
 - three.js, D3, p5.js and lottie-web are served from the board origin, pinned.
+
+## The «اعمل كورس» page
+
+The page is three steps: the idea (text, files, web search, or one of six examples), the look,
+then the details (level, language, size, questions, boards, up to three teaching styles).
+
+- Each look is a card with a picture of its demo board (`npm run style:previews` makes them
+  from `board:check` shots into `apps/platform/public/styles/`). «اتفرّج» opens the demo board
+  live in a dialog, so the teacher tries it before choosing. Topic words mark up to three
+  cards «مناسب لموضوعك»; «سيبها عليّ» lets the builder choose.
+- The chosen look reaches the builder as art direction (`server/builds/looks.ts`); the page's
+  list (`src/features/studio/looks.ts`) must keep the same ids, and a test checks it.
+- Next: a `STYLE.md` per look that the builder reads through MCP (G7), a short plan the
+  teacher edits before the build, and a progress screen that shows boards as they are made.
