@@ -139,5 +139,7 @@ for, and the look.
   with the `get_style` MCP tool, together with that board's files to start from; the chosen
   look's prompt line says to call it before the first board. `npm run styles:build` bundles
   them for the server, and a test fails when the bundle is older than a guide or a board.
-- Next: a short plan to edit before the build, and a progress screen that shows boards as they
-  are made.
+- While a course is built, the progress screen shows each board as soon as the builder uploads
+  it, live in a small card, with a place for the next one (`getJob` returns the teacher's boards
+  uploaded while the job ran, newest version of each).
+- Next: a short plan to edit before the build.

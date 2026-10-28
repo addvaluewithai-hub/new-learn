@@ -2,9 +2,10 @@
 // the request it sends, the builder's steps as they arrive, and the draft link when done.
 // At 1280px and 390px, against a mocked API.
 import assert from 'node:assert/strict';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { serveOrigin } from '../tools/boards/serve.mjs';
 
 const app = 'http://127.0.0.1:5189';
 const jobId = '99999999-8888-7777-6666-555555555555';
@@ -19,7 +20,21 @@ const server = spawn(
   ]),
   { stdio: 'ignore' },
 );
-const boards = spawn(process.execPath, ['tools/serve-boards.mjs'], { stdio: 'ignore' });
+// The board origin, with one board the builder "uploaded" (served by its hash, like a draft's).
+const wire = 'fixtures/board-probe/boards/wire/';
+const files = {
+  'board.json': await readFile(`${wire}board.json`, 'utf8'),
+  'index.html': await readFile(`${wire}index.html`, 'utf8'),
+};
+const made = {
+  boardId: 'probe-wire',
+  hash: 'a'.repeat(64),
+  title: 'السلك',
+  manifest: JSON.parse(files['board.json']),
+};
+const boards = await serveOrigin(new URL('../boards/dist', import.meta.url).pathname, 5174, {
+  teacher: async (h, path) => (h === made.hash ? (files[path] ?? null) : null),
+});
 let browser;
 const poll = async (check, label, timeout = 15000) => {
   const end = Date.now() + timeout;
@@ -36,7 +51,7 @@ const poll = async (check, label, timeout = 15000) => {
 };
 
 function api(store) {
-  const job = (status, steps, result = {}) => ({
+  const job = (status, steps, result = {}, made = []) => ({
     id: jobId,
     status,
     topic: store.sent?.topic ?? '',
@@ -46,6 +61,7 @@ function api(store) {
     error: '',
     createdAt: '2026-10-28T10:00:00Z',
     finishedAt: status === 'done' ? '2026-10-28T10:09:00Z' : null,
+    boards: made,
   });
   return async (route) => {
     const request = route.request();
@@ -62,13 +78,19 @@ function api(store) {
     if (path === `/api/studio/jobs/${jobId}`) {
       store.polls += 1;
       if (store.polls === 1) return send(job('queued', []));
-      if (store.polls === 2) return send(job('running', ['بجهّز ملفاتك', 'بقرا دليل الكتابة']));
+      if (store.polls === 2)
+        return send(job('running', ['بجهّز ملفاتك', 'بقرا دليل الكتابة'], {}, [made]));
       return send(
-        job('done', ['بجهّز ملفاتك', 'بقرا دليل الكتابة', 'بكتب درس: الفلوس بتكبر'], {
-          courseId: 'c1',
-          lessonId: 'l1',
-          message: 'عملت درس واحد عن الفايدة المركبة.',
-        }),
+        job(
+          'done',
+          ['بجهّز ملفاتك', 'بقرا دليل الكتابة', 'بكتب درس: الفلوس بتكبر'],
+          {
+            courseId: 'c1',
+            lessonId: 'l1',
+            message: 'عملت درس واحد عن الفايدة المركبة.',
+          },
+          [made],
+        ),
       );
     }
     return send({ error: 'not here' }, 404);
@@ -140,12 +162,17 @@ async function run(width, height) {
     { name: 'notes.txt', mime: 'text/plain', data: btoa('Interest on interest.') },
   ]);
   await page.locator('.build-steps li.now', { hasText: 'بقرا دليل الكتابة' }).waitFor();
+  // The storyboard shows the board the builder made, live, and a place for the next one.
+  await page.locator('.build-board .html-board[data-ready]').waitFor({ timeout: 15000 });
+  assert.equal(await page.locator('.build-board strong').innerText(), 'السلك');
+  assert.equal(await page.locator('.build-board-next').count(), 1);
   await page.screenshot({ path: `test-results/studio-progress-${width}.png` });
   const open = page.getByRole('link', { name: 'افتح أول درس' });
   await open.waitFor({ timeout: 10000 });
   assert.equal(await open.getAttribute('href'), '/?draft=l1');
   assert.match(await page.locator('.build-done').innerText(), /عملت درس واحد/);
   assert.equal(await page.locator('.build-steps li.now').count(), 0, 'no step is pending');
+  assert.equal(await page.locator('.build-board-next').count(), 0, 'nothing more is coming');
   const polls = store.polls;
   await page.waitForTimeout(3500);
   assert.equal(store.polls, polls, 'a finished job is not polled');
@@ -163,5 +190,5 @@ try {
 } finally {
   await browser?.close();
   server.kill('SIGTERM');
-  boards.kill('SIGTERM');
+  boards.server.close();
 }

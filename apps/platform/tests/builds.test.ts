@@ -7,6 +7,8 @@ import { LOOKS as PAGE_LOOKS } from '../src/features/studio/looks';
 import { createJob, getJob, listJobs } from '../server/builds/jobs';
 import { handleBuilder } from '../server/builds/worker';
 import { addLesson, createCourse } from '../server/authoring/store';
+import { putBoard } from '../server/authoring/boardStore';
+import { readFile } from 'node:fs/promises';
 import { bearerUser } from '../server/oauth/tokens';
 import type { Env } from '../server/env';
 
@@ -93,6 +95,25 @@ test('the worker claims a job, acts as its teacher through MCP, reports steps an
     call(`/builder/jobs/${job.id}/steps`, { method: 'POST', body: JSON.stringify({ title }) });
   await step('Reading the guide');
   await step('Writing lesson 1');
+  // Boards the builder uploads while it runs show on the progress screen, newest version each.
+  const wire = new URL('../../../fixtures/board-probe/boards/wire/', import.meta.url);
+  const board = async (id: string, title: string) => {
+    const manifest = JSON.parse(await readFile(new URL('board.json', wire), 'utf8'));
+    return putBoard(db, teacher.id, {
+      'board.json': JSON.stringify({ ...manifest, id, title }),
+      'index.html': await readFile(new URL('index.html', wire), 'utf8'),
+    });
+  };
+  await board('growth', 'Growth v1');
+  await board('ladder', 'Ladder');
+  await board('growth', 'Growth v2');
+  assert.deepEqual(
+    (await getJob(db, teacher.id, job.id)).boards.map((b) => [b.boardId, b.title]),
+    [
+      ['growth', 'Growth v2'],
+      ['ladder', 'Ladder'],
+    ],
+  );
   const { id: courseId } = await createCourse(db, teacher.id, { title: 'Compound interest' });
   const lesson = await addLesson(db, teacher.id, courseId, {
     title: 'Time helps',
@@ -114,6 +135,13 @@ test('the worker claims a job, acts as its teacher through MCP, reports steps an
     ['Reading the guide', 'Writing lesson 1'],
   );
   assert.equal((await listJobs(db, teacher.id)).length, 1);
+  await board('later', 'After the job');
+  assert.equal(seen.boards.length, 2);
+  assert.equal(
+    (await getJob(db, teacher.id, job.id)).boards.length,
+    2,
+    'later boards are not this job’s',
+  );
   await assert.rejects(getJob(db, 'someone-else', job.id), /مش موجودة/);
   assert.equal((await step('late')).status, 409, 'a finished job takes no more steps');
 });

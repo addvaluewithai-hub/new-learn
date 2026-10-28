@@ -3,6 +3,7 @@ import { api } from '../../shared/api';
 import type { BuildJob } from './types';
 import './progress.css';
 import { Alert, ButtonLink, Spinner } from '../../shared/ui';
+import { BuildBoards } from './BuildBoards';
 
 const POLL_MS = 3000;
 
@@ -66,6 +67,7 @@ export function BuildProgress({ jobId }: { jobId: string }) {
           </li>
         ))}
       </ol>
+      <BuildBoards boards={job.boards ?? []} working={working} />
       {error && working && <p className="muted">{error} بنحاول تاني…</p>}
       {job.status === 'done' && (
         <div className="build-done">
