@@ -80,8 +80,8 @@ avatars (8) and music videos (15). They are not lesson pictures; see the source 
 
 ## Trials so far
 
-Both scenes play in one lesson at **`?preview=visuals`** (no account needed; on a pull request,
-its preview address), each with a board question. Boards: `fixtures/visual-trials/boards/`.
+Both became demo courses (docs/visuals/demos.md): **`?preview=demos`**, no account needed.
+Boards: `fixtures/demos/boards/`.
 
 **1. Hand-painted watercolour** (p5.js + p5.brush; the method of ClaudeAnimationBase), on the
 plant scene: a window, a pot of basil, a magnified slice of the top 2 cm of soil, in three

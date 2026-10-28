@@ -42,10 +42,10 @@ jobs:
       - run: npm run test:browser:handsfree
       - run: npm run test:browser:board
       - run: npm run test:board-check
-      - run: npm run board:check -- fixtures/visual-trials/boards/plant-painted
-      - run: npm run board:check -- fixtures/visual-trials/boards/interest-chalk
+      - run: for b in fixtures/demos/boards/*/; do npm run board:check -- "$b" || exit 1; done
       - run: npm run test:browser:draft
       - run: npm run test:browser:studio
+      - run: npm run test:browser:demos
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()

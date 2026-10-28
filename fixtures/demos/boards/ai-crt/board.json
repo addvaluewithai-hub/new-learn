@@ -1,0 +1,26 @@
+{
+  "apiVersion": 1,
+  "id": "demo-ai-crt",
+  "title": "الموديل بيخمّن الكلمة الجاية",
+  "description": "Demo course board (docs/visuals/demos.md): an old green-phosphor terminal. A language model's five likeliest next words with their probabilities; temperature flattens or sharpens them, and the next word is drawn by a fixed lottery number so the same state shows the same sentence.",
+  "libraries": [],
+  "variables": {
+    "words": {
+      "type": "number",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "label": "Words written",
+      "default": 0
+    },
+    "temperature": {
+      "type": "number",
+      "min": 0.2,
+      "max": 2,
+      "step": 0.1,
+      "label": "Temperature",
+      "default": 1
+    }
+  },
+  "targets": ["#sentence", "#bars", "#temp-control", "#next", "#pick"]
+}
