@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 1, command 5 awaiting owner approval for ChatGPT device sign-in.**
+**Status: READY — STEP 1 complete. Awaiting Step 2 instructions; no worker installed.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -66,13 +66,15 @@ server), add a `new-learn-builder` systemd service, and run a test job.
 | 2    | تمام |
 | 3    | تمام |
 | 4    | تمام |
-| 5    | Pending: owner approval for ChatGPT device sign-in. |
-| 6    | Not run: awaiting command 5. |
-| 7    | Not run: awaiting command 5. |
-| 8    | Not run: awaiting command 5. |
-| 9    | Not run: awaiting command 5. |
+| 5    | تمام |
+| 6    | تمام |
+| 7    | تمام |
+| 8    | تمام |
+| 9    | OK |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-28:** READY. All nine preparation commands completed successfully after the owner approved device sign-in. The builder has its own system user, home directory, ChatGPT login, and owned application folder. Node 22 and Codex CLI are available; PDF and Word tools are installed. Reachability checks returned the expected 200 and 401. The Codex test response was `OK`. No changes were made to wp-slack-agent, its user, its private Codex installation, or its login; no services were restarted. No builder worker, service, or token was created. Step 1 only is complete; waiting for Step 2 instructions. This branch has not been merged.
 
 - **Codex, 2026-10-28:** Resumed with owner authorization. Commands 3 and 4 completed. The global npm installation needed a symlink on the standard executable path; the CLI version check now passes. Command 5 is waiting for the owner to approve ChatGPT device sign-in for the isolated builder user. The approval link and code were sent privately, not committed. Commands 6–9 await sign-in. wp-slack-agent and its user-specific Codex executable and login were not changed.
 
