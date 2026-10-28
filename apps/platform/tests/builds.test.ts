@@ -81,7 +81,7 @@ test('the worker claims a job, acts as its teacher through MCP, reports steps an
   });
   const done = await call(`/builder/jobs/${job.id}/finish`, {
     method: 'POST',
-    body: JSON.stringify({ ok: true, message: 'Made one lesson.' }),
+    body: JSON.stringify({ ok: true, message: 'Made [one lesson](https://learn.test/?draft=x).' }),
   });
   assert.deepEqual(await done.json(), {
     status: 'done',

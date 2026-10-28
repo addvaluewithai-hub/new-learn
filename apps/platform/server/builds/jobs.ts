@@ -147,7 +147,11 @@ export async function finishJob(db: Db, jobId: string, input: { ok: boolean; mes
         .orderBy(asc(authorLessons.createdAt))
         .limit(1)
     : [];
-  const message = input.message.trim().slice(0, 600);
+  // The page shows the message as plain text: a markdown link keeps only its words.
+  const message = input.message
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .trim()
+    .slice(0, 600);
   const made = Boolean(course && lessons.length);
   const result: BuildResult = { courseId: course?.id, lessonId: lessons[0]?.id, message };
   await db
