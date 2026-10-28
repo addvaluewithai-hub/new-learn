@@ -45,5 +45,4 @@ the board, grades answers. Every board passes `npm run board:check` before it is
 and board-tool changes also need `npm run test:browser:board` and `npm run test:board-check`.
 Production import must retain immutable files and bind review to the exact content/runtime edition.
 No resets or schema renames merely to match new code folder names.
-Test later DB changes on a separate branch before connecting the new app to production.
 Do not change the deployed old platform while implementing this foundation.

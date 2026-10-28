@@ -61,7 +61,7 @@ Curricula now enter only as reviewed, immutable bundles via `content:import`
    validate. Recorded lessons need real audio and timings; book-guided is "Later".
 3. Boards limited to renderers we already have, chosen from a fixed list.
 4. A screen to see, play and study drafts; a version on every change.
-5. Test schema changes on a separate Neon branch first; no renames of existing tables.
+5. No renames of existing tables.
 
 ## 3. Feedback notes and "fix all"
 
