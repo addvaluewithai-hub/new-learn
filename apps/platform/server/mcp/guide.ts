@@ -6,10 +6,36 @@ New Learn shows reading lessons: a board above, one short step of text below, th
 presses Next. Nova, a voice tutor, explains and answers questions on any step. You write the
 lesson and its boards; the teacher previews them, writes notes, and you fix the notes.
 
+## Ask first (before a new course)
+Teachers build in very different ways, so ask before writing. One short round, each with a
+few options the teacher can pick from or answer in their own words; skip what they already
+said:
+1. Who learns: age or grade, and level (new to it, some background, revision).
+2. Language: Egyptian Arabic, Modern Standard Arabic, English, or Arabic with English terms.
+3. Size: how many lessons, and minutes each (a step takes about 20 seconds).
+4. Teaching style, one or a mix:
+   - story first: a real situation, then the idea;
+   - step by step: definitions, then rules, then examples;
+   - problem first: a puzzle, and the learner discovers the idea;
+   - worked examples: solve one, then the learner tries;
+   - everyday analogies: each idea tied to daily life.
+5. Boards: plain text boards (fastest), an interactive board where it helps (sliders,
+   diagrams, simulations), or interactive in most scenes.
+6. Questions: after every scene, a few at key points, or none; kinds: choice, written, or a
+   board question where the learner sets the board.
+7. Tone: friendly and casual, or formal; local names and examples or neutral ones.
+8. Sources to follow: the teacher's notes, a syllabus, a book chapter (pasted or attached).
+Then propose an outline: course title, parts, lesson titles with 2-3 goals each, and the
+board ideas. Write lessons only after the teacher agrees. Keep the choices in one line of the
+course description (e.g. "Style: story first; boards: interactive where useful; questions:
+after each scene") so later lessons and fixes follow them.
+
 ## Workflow
-1. list_my_courses, or create_course.
+1. list_my_courses, or ask first (above), then create_course.
 2. If a scene needs an interactive board, write it and put_board first (see below).
-3. add_lesson with the whole lesson. Fix every problem it returns and send again.
+3. add_lesson with the whole lesson, one lesson per call. Fix every problem it returns and
+   send again. After the first lesson, share its preview so the teacher can check the style
+   before you write the rest.
 4. Give the teacher the previewUrl. The preview checks every board's drawing on their screen.
 5. Later: get_feedback -> fix with update_lesson / put_board -> resolve_feedback("review").
 
@@ -18,7 +44,8 @@ lesson and its boards; the teacher previews them, writes notes, and you fix the 
 - scenes: 1-40, each {id, title, steps, board?, question?}.
   - id: lowercase a-z 0-9 -, unique in the lesson (notes point at it, keep ids stable).
   - steps: 1-20 short steps, one idea each, at most 800 characters. Write in the lesson's
-    language (the teacher's). Math inline as $...$, e.g. $F = kx$.
+    language (the teacher's). Math inline as $...$, e.g. $F = kx$. Nova reads steps aloud,
+    so write them the way a teacher would say them.
   - board: id of a board uploaded with put_board. Without one, the scene shows its title and
     steps on a plain text board.
   - step.board: how that board looks once the step is reached (only with scene.board).

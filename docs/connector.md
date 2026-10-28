@@ -32,6 +32,13 @@ Code: `apps/platform/server/mcp` (protocol, tools, guide), `server/oauth`, `serv
 `update_course` (rename, regroup lessons into parts), `add_lesson`, `get_lesson`,
 `update_lesson`, `put_board`, `get_board`, `get_feedback`, `resolve_feedback`. Every tool has
 a title and read-only or destructive hints. The user always comes from the OAuth token.
+Structured results are always objects (`list_my_courses` returns `{courses}`); strict clients
+such as Claude Code reject a list.
+
+Before a new course the AI asks the teacher one short round of choices: learners, language,
+size, teaching style, boards, questions, tone and sources. It then agrees an outline, and
+keeps the choices in the course description (the guide's "Ask first", and the server's
+`initialize` instructions).
 
 - Lessons use a plain format (scenes, steps, questions); `server/authoring/format.ts` turns it
   into a reading package and the runtime validator checks it. Problems come back as a list the
