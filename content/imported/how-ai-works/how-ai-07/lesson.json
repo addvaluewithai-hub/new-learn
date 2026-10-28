@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-07",
+  "order": 7,
+  "title": "المتجهات والتمثيلات: الكلمة كأرقام",
+  "englishTitle": "How AI Actually Works — Lesson 7",
+  "subtitle": "How AI Actually Works — Lesson 7",
+  "delivery": "reading",
+  "contentRevision": "16c96275d36463aef06b863f294d6cc3ef0f7a063afbc9541e0004e262020c34",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-07",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "fd8f3a9e6281507f7836fee4a5fea4642a6fdb166a2b35bdf89a8b2270313c9b",
+      "bytes": 23287
+    }
+  ],
+  "manifestHash": "dcb487ef85bd52c8aab584eb5933a9efc443dd08be8ccf3ce5b8ba26cc2a2685"
+}

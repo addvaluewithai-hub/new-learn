@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-08",
+  "order": 8,
+  "title": "المصفوفات وكروت الشاشة",
+  "englishTitle": "How AI Actually Works — Lesson 8",
+  "subtitle": "How AI Actually Works — Lesson 8",
+  "delivery": "reading",
+  "contentRevision": "44bc772826c9e712a987f8c83ac29e25d063e9ddd8f5ffb0eff52f4bd584008b",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-08",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "facf0122878ca6da52ce63375bb5b78311c2712f959ba87dc6062b4b8f630b5c",
+      "bytes": 24331
+    }
+  ],
+  "manifestHash": "4023d1e3fa343f7f31b739bf55bf464f7ed95d1f71eb94f1b6c6fcd61a7a798a"
+}

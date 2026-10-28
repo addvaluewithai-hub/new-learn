@@ -1,0 +1,26 @@
+{
+  "id": "how-ai-04",
+  "order": 4,
+  "title": "نزول الجبل: إزاي الموديل بيتعلم",
+  "englishTitle": "How AI Actually Works — Lesson 4",
+  "subtitle": "How AI Actually Works — Lesson 4",
+  "delivery": "reading",
+  "contentRevision": "a018c93db3b99b6c53b9e4653bf657977c455572751a2f5e7c557483045885ef",
+  "renderers": {
+    "text-board": "board/TextBoard.tsx"
+  },
+  "assetBase": "/lesson-assets/how-ai-works/how-ai-04",
+  "files": [
+    {
+      "path": "board/TextBoard.tsx",
+      "sha256": "f62d10d0b7fcfb32ad13bb48d3610fcac0896dc6cb3431201d8a95d7628924bc",
+      "bytes": 1246
+    },
+    {
+      "path": "reading.json",
+      "sha256": "48e945fb5bb72b3ddca5c1e976f6c3f7f524b59c6e2e22c9d5a74f2686e51b16",
+      "bytes": 24690
+    }
+  ],
+  "manifestHash": "8a95a72a2dfd2d1e5a3dfd9002f69926cb0ad9674e864c9c5181f7e2b360e039"
+}

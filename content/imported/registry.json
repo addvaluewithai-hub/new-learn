@@ -1005,10 +1005,26 @@
       "subject": "Computer Science — ذكاء اصطناعي",
       "parts": [
         {
-          "title": "إزاي الذكاء الاصطناعي بيشتغل",
-          "summary": "",
+          "title": "الجزء الأول: الأساس وأول موديل",
+          "summary": "الصورة الكبيرة، والرياضة اللي محتاجينها من الصفر، وإزاي الشبكة العصبية بتتعلم.",
           "lessons": [
-            "how-ai-01"
+            "how-ai-01",
+            "how-ai-02",
+            "how-ai-03",
+            "how-ai-04",
+            "how-ai-05",
+            "how-ai-06"
+          ]
+        },
+        {
+          "title": "الجزء التاني: من الكلام للترانسفورمر",
+          "summary": "إزاي الكلام بيتحول لأرقام، والمصفوفات وكروت الشاشة، والانتباه جوه الترانسفورمر.",
+          "lessons": [
+            "how-ai-07",
+            "how-ai-08",
+            "how-ai-09",
+            "how-ai-10",
+            "how-ai-11"
           ]
         }
       ],
@@ -1020,9 +1036,9 @@
           "title": "الصورة الكبيرة: يعني إيه ذكاء اصطناعي؟",
           "subtitle": "How AI Actually Works — Lesson 1",
           "moduleId": "reading:how-ai-01",
-          "contentRevision": "9fe4de317fc64212ff9c99f56d9110d2555a5160c3d454aefaaf5a21c2c1a174",
-          "manifestHash": "2fd6878f076bb02c7bdbcc1a7e749ad8758cea58a1dc7f50ccc6dd2435144608",
-          "runtimeVersion": "0.3.2",
+          "contentRevision": "c75e518191dc640588ca0d55722f0df5d7f7225b4dcab6fa9a44a2305caf2f76",
+          "manifestHash": "b50c50c3566e0dcda4be8693676d2fabbb23d5559f405fdd8272ebbf9f6f65b7",
+          "runtimeVersion": "0.4.1",
           "delivery": "reading",
           "goals": [
             {
@@ -1058,6 +1074,546 @@
             {
               "id": "O4",
               "text": "الدرس المرّ وخريطة الكورس",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-02",
+          "curriculumId": "how-ai-works",
+          "order": 2,
+          "title": "النمو واللوغاريتمات",
+          "subtitle": "How AI Actually Works — Lesson 2",
+          "moduleId": "reading:how-ai-02",
+          "contentRevision": "b859e4ae17a732e25ad3722fc32c9d7624eaa66eefac4965dad86cfdf3fc5431",
+          "manifestHash": "bee57edbf186db61f0f8cae3a0a63fbe10ca026d17ea10ab22feb100fe2932e8",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "الدالة: حاجة بتدخل وحاجة بتطلع",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "النمو الأُسّي: الضرب كل خطوة",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "اللوغاريتم: كام مرة ضربنا؟",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "المقياس اللوغاريتمي: إزاي بنرسم الأرقام الضخمة",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-03",
+          "curriculumId": "how-ai-works",
+          "order": 3,
+          "title": "البيانات وأول موديل",
+          "subtitle": "How AI Actually Works — Lesson 3",
+          "moduleId": "reading:how-ai-03",
+          "contentRevision": "1ec6eadccc43fa93df562462ae047a8316a4021f73a182956dae814018998165",
+          "manifestHash": "a906ef57c4b0651abfb2882dc104b8856d1e53cd59a28b68fdcf19668c4f5f53",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "التعلّم من الأمثلة: شكل البيانات",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "أول موديل: خط مستقيم بزرارين",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "الخسارة: بنقيس الغلط إزاي؟",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "مذاكرة ولا حفظ؟ وأنواع التعلّم التلاتة",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-04",
+          "curriculumId": "how-ai-works",
+          "order": 4,
+          "title": "نزول الجبل: إزاي الموديل بيتعلم",
+          "subtitle": "How AI Actually Works — Lesson 4",
+          "moduleId": "reading:how-ai-04",
+          "contentRevision": "a018c93db3b99b6c53b9e4653bf657977c455572751a2f5e7c557483045885ef",
+          "manifestHash": "8a95a72a2dfd2d1e5a3dfd9002f69926cb0ad9674e864c9c5181f7e2b360e039",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "المشتقة: لو حرّكت الزرار سنة، إيه اللي هيحصل؟",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "التدرّج: الاتجاه لتحت مع زراير كتير",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "النزول بالتدرّج: خطوة، وخطوة، وخطوة",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "قاعدة السلسلة والدفعات الصغيرة",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-05",
+          "curriculumId": "how-ai-works",
+          "order": 5,
+          "title": "الشبكات العصبية والانتشار العكسي",
+          "subtitle": "How AI Actually Works — Lesson 5",
+          "moduleId": "reading:how-ai-05",
+          "contentRevision": "c48150180d0b92921b754a53a316f1a2ab61089c2cccd6d74edecda10d64acd4",
+          "manifestHash": "71b531d684f3137b2b101a644b4ccd0f488545f4e816726bd28059cd2bdb6582",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "الخلية العصبية الصناعية و ReLU",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "الطبقات: خلايا جنب بعض وطبقات فوق بعض",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "حلقة التدريب: لقدّام، ولورا، وتحديث",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "حكاية micrograd: كل رقم فاكر جه منين",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-06",
+          "curriculumId": "how-ai-works",
+          "order": 6,
+          "title": "الاحتمالات و softmax و cross-entropy",
+          "subtitle": "How AI Actually Works — Lesson 6",
+          "moduleId": "reading:how-ai-06",
+          "contentRevision": "212532eecd8d8097a86cdf5752c18b0c3b83c3ab55badc339d28e03bf5302a80",
+          "manifestHash": "b9edc3d81026d2c8316f9b51550365b1bee28330faca659bea65f398b2823110",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "الاحتمال والتوزيع والمتوسط",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "softmax: من درجات لاحتمالات",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "المفاجأة: إزاي بنقيس غلط الاحتمالات",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "cross-entropy: متوسط المفاجأة، والجسر لنماذج اللغة",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-07",
+          "curriculumId": "how-ai-works",
+          "order": 7,
+          "title": "المتجهات والتمثيلات: الكلمة كأرقام",
+          "subtitle": "How AI Actually Works — Lesson 7",
+          "moduleId": "reading:how-ai-07",
+          "contentRevision": "16c96275d36463aef06b863f294d6cc3ef0f7a063afbc9541e0004e262020c34",
+          "manifestHash": "dcb487ef85bd52c8aab584eb5933a9efc443dd08be8ccf3ce5b8ba26cc2a2685",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "المتجه: ليستة أرقام ليها معنى",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "الضرب النقطي وتشابه جيب التمام",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "التمثيلات: كل توكن ليه متجه اتعلمه الموديل",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "word2vec، والمعنى اللي بيتبني من السياق",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-08",
+          "curriculumId": "how-ai-works",
+          "order": 8,
+          "title": "المصفوفات وكروت الشاشة",
+          "subtitle": "How AI Actually Works — Lesson 8",
+          "moduleId": "reading:how-ai-08",
+          "contentRevision": "44bc772826c9e712a987f8c83ac29e25d063e9ddd8f5ffb0eff52f4bd584008b",
+          "manifestHash": "4023d1e3fa343f7f31b739bf55bf464f7ed95d1f71eb94f1b6c6fcd61a7a798a",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "المصفوفة: كل مخرج خلطة مختلفة من نفس المكونات",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "طبقة الشبكة العصبية = ضرب مصفوفة",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "ليه كروت الشاشة؟",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "الحسابات المتوازية وشكل الموديلات",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-09",
+          "curriculumId": "how-ai-works",
+          "order": 9,
+          "title": "التوكنز: إزاي الكلام بيتقطّع",
+          "subtitle": "How AI Actually Works — Lesson 9",
+          "moduleId": "reading:how-ai-09",
+          "contentRevision": "205b15722912e0a6f79b1ccc8e2294020d276c768eaa96f9a4d147e622bcc70f",
+          "manifestHash": "cf87d2b9d443b2fdf4fd5ff7a3e8905d5dfe37699a5464e67b6738209aa40412",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "حروف ولا كلمات ولا حاجة في النص؟",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "BPE: إزاي المقطّع بيتعلم الحتت",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "حجم القاموس: كام توكن الموديل يعرفهم؟",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "نتايج التوكنز: الحروف والأرقام والفلوس",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-10",
+          "curriculumId": "how-ai-works",
+          "order": 10,
+          "title": "الكمبيوتر والذكاء الاصطناعي: الدقة والذاكرة والسرعة",
+          "subtitle": "How AI Actually Works — Lesson 10",
+          "moduleId": "reading:how-ai-10",
+          "contentRevision": "0c24f404c3734199b5b0db257fee746c756d38863c4754883eef9cee4f0b5419",
+          "manifestHash": "998432793abac2dd925cc564d01f58724603d38956d86fc421e3563cdf7d424c",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "الدقة: الرقم بياخد كام بايت؟",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "حجم الموديل: المعاملات في البايتات",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "ذاكرة التدريب أكبر بكتير من ذاكرة التشغيل",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "Big-O وسرعة الذاكرة: ليه الرد بيتكتب بالسرعة دي",
+              "sceneIds": [
+                "S07"
+              ],
+              "questionIds": [
+                "Q04"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-ai-11",
+          "curriculumId": "how-ai-works",
+          "order": 11,
+          "title": "الترانسفورمر ١: الانتباه",
+          "subtitle": "How AI Actually Works — Lesson 11",
+          "moduleId": "reading:how-ai-11",
+          "contentRevision": "350a04acad3c61601c1a72f5501b599ffdf3d76985448c697bda10066654213f",
+          "manifestHash": "a143817d6a5e734a81c8d5f4645c619bd3bd9c2e627dd1ef0604bbdc12097df3",
+          "runtimeVersion": "0.4.1",
+          "delivery": "reading",
+          "goals": [
+            {
+              "id": "O1",
+              "text": "قبل الترانسفورمر: القراءة كلمة كلمة",
+              "sceneIds": [
+                "S01"
+              ],
+              "questionIds": [
+                "Q01"
+              ]
+            },
+            {
+              "id": "O2",
+              "text": "سؤال ومفتاح وقيمة: كلمة هو بتدوّر على مين؟",
+              "sceneIds": [
+                "S03"
+              ],
+              "questionIds": [
+                "Q02"
+              ]
+            },
+            {
+              "id": "O3",
+              "text": "رؤوس كتير، وماسك يمنع البص على المستقبل",
+              "sceneIds": [
+                "S05"
+              ],
+              "questionIds": [
+                "Q03"
+              ]
+            },
+            {
+              "id": "O4",
+              "text": "تمن الانتباه: الكلام الطويل غالي",
               "sceneIds": [
                 "S07"
               ],
