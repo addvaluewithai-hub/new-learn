@@ -8,6 +8,15 @@ export type BuildJob = {
   error: string;
   createdAt: string;
   finishedAt: string | null;
+  /** The boards made so far, newest version of each (server/builds/jobs.ts). */
+  boards?: BuildBoard[];
+};
+
+export type BuildBoard = {
+  boardId: string;
+  hash: string;
+  title: string;
+  manifest: { variables?: Record<string, { default: unknown }> } & Record<string, unknown>;
 };
 
 /** Moves within the app without a reload; App reads the address on popstate. */

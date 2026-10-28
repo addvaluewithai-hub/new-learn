@@ -40,13 +40,85 @@
   flex-basis: 100%;
   line-height: 1.8;
 }
+.build-boards {
+  display: grid;
+  gap: var(--nl-space-3);
+}
+.build-boards h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-2);
+  font-size: var(--nl-text-xl);
+}
+.build-boards ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--nl-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.build-board {
+  display: grid;
+  gap: var(--nl-space-2);
+  padding: var(--nl-space-2) var(--nl-space-2) var(--nl-space-3);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-md);
+  animation: build-arrive var(--nl-normal) var(--nl-ease);
+}
+.build-board strong,
+.build-board span {
+  padding: 0 var(--nl-space-2);
+}
+.build-board-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--nl-radius-md);
+  background: var(--nl-surface-sunk);
+}
+.build-board-frame .html-board {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.build-board-next {
+  border: 1.5px dashed var(--nl-line-strong);
+  background: transparent;
+  box-shadow: none;
+  color: var(--nl-muted);
+}
+.build-board-next .build-board-frame {
+  background: linear-gradient(
+    100deg,
+    var(--nl-surface-sunk) 40%,
+    var(--nl-surface) 50%,
+    var(--nl-surface-sunk) 60%
+  );
+  background-size: 300% 100%;
+  animation: build-shimmer 1.6s linear infinite;
+}
+@keyframes build-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@keyframes build-shimmer {
+  to {
+    background-position: -150% 0;
+  }
+}
 @keyframes build-pulse {
   50% {
     opacity: 0.3;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .build-steps li.now::before {
+  .build-steps li.now::before,
+  .build-board,
+  .build-board-next .build-board-frame {
     animation: none;
   }
 }

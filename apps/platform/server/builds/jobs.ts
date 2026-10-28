@@ -1,7 +1,7 @@
-import { and, asc, desc, eq, gte, inArray, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, gte, inArray, lte, sql } from 'drizzle-orm';
 import type { Db } from '../db/connection';
 import { buildFiles, buildJobs, type BuildRequest, type BuildResult } from '../db/builds';
-import { authorCourses, authorLessons } from '../db/authoring';
+import { authorBoards, authorCourses, authorLessons } from '../db/authoring';
 import { HttpError } from '../http';
 import type { AuthUser } from '../env';
 import type { UploadedFile } from './request';
@@ -62,7 +62,33 @@ export async function getJob(db: Db, ownerId: string, id: string) {
     .from(buildJobs)
     .where(and(eq(buildJobs.id, id), eq(buildJobs.ownerId, ownerId)));
   if (!row) throw new HttpError(404, 'المهمة دي مش موجودة.');
-  return view(row);
+  return { ...view(row), boards: await jobBoards(db, row) };
+}
+
+/**
+ * The boards the builder has made for this job so far, the newest version of each, in the
+ * order they first appeared: the teacher's boards uploaded while the job ran.
+ */
+async function jobBoards(db: Db, job: typeof buildJobs.$inferSelect) {
+  if (!job.startedAt) return [];
+  const rows = await db
+    .select({
+      boardId: authorBoards.boardId,
+      hash: authorBoards.hash,
+      manifest: authorBoards.manifest,
+    })
+    .from(authorBoards)
+    .where(
+      and(
+        eq(authorBoards.ownerId, job.ownerId),
+        gte(authorBoards.createdAt, job.startedAt),
+        ...(job.finishedAt ? [lte(authorBoards.createdAt, job.finishedAt)] : []),
+      ),
+    )
+    .orderBy(asc(authorBoards.createdAt));
+  const latest = new Map<string, (typeof rows)[number]>();
+  for (const row of rows) latest.set(row.boardId, row);
+  return [...latest.values()].map((b) => ({ ...b, title: b.manifest.title }));
 }
 
 /**
