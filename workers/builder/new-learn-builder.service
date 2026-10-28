@@ -8,7 +8,9 @@ Wants=network-online.target
 User=nlbuilder
 WorkingDirectory=/srv/new-learn-builder/app
 EnvironmentFile=/etc/new-learn-builder.env
-ExecStart=/usr/bin/node workers/builder/index.mjs
+# node and codex may live in /usr/local/bin (npm or NodeSource) or /usr/bin.
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/env node workers/builder/index.mjs
 Restart=always
 RestartSec=10
 TimeoutStopSec=60
