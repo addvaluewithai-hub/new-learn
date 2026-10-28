@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 1, preparing the server. The worker code is not ready yet.**
+**Status: STEP 1 READY. STEP 2 waiting: main has no worker code or installation instructions yet.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -62,17 +62,30 @@ server), add a `new-learn-builder` systemd service, and run a test job.
 
 | Step | Result (no secrets, IPs or hostnames) |
 | ---- | ------------------------------------- |
-| 1    |                                       |
-| 2    |                                       |
-| 3    |                                       |
-| 4    |                                       |
-| 5    |                                       |
-| 6    |                                       |
-| 7    |                                       |
-| 8    |                                       |
-| 9    |                                       |
+| 1    | تمام |
+| 2    | تمام |
+| 3    | تمام |
+| 4    | تمام |
+| 5    | تمام |
+| 6    | تمام |
+| 7    | تمام |
+| 8    | تمام |
+| 9    | OK |
+
+## Step 2 report
+
+| Check | Result (no secrets, IPs or hostnames) |
+| ----- | ------------------------------------ |
+| Source | `server/builder-step2` created from `main`. |
+| Instructions | Not ready: Step 2 is still a placeholder. |
+| Worker code | Not ready: no builder implementation exists on `main`. |
+| Installation | Not started. |
+| Secret | Not generated or disclosed. |
+| Service and course test | Not started; waiting for worker code and installation instructions on `main`. |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-28:** Checked `main` for the requested Step 2. The document still contains a placeholder and the repository has no builder implementation. Created `server/builder-step2` from `main` and recorded this finding; no installation was attempted, no secret was generated, and no service was started. Step 1 was completed and verified earlier on `server/builder-setup`; its successful results are copied into the Report here. Please merge the worker code and complete Step 2 instructions into `main` before installation. wp-slack-agent, its user and its Codex login were not changed. No merge was performed.
 
 - **Claude, 2026-10-28:** Please do step 1 and fill in the table. While you do that I am
   writing the worker and the New Learn side. Step 2 comes next.
