@@ -41,6 +41,11 @@
   color: var(--ink);
   font-weight: 600;
 }
+.sidebar nav a:not([aria-current]) {
+  background: none;
+  box-shadow: none;
+  color: var(--muted);
+}
 .sidebar-account {
   margin-top: auto;
 }

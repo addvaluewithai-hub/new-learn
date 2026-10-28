@@ -1,0 +1,46 @@
+// Codex's JSON events, turned into the short lines a teacher sees while the course is made.
+const TOOLS = {
+  get_authoring_guide: 'بقرا دليل الكتابة',
+  list_my_courses: 'براجع كورساتك',
+  create_course: 'بعمل الكورس',
+  update_course: 'بنظّم أجزاء الكورس',
+  add_lesson: 'بكتب درس',
+  update_lesson: 'بصلّح الدرس',
+  get_lesson: 'براجع الدرس',
+  put_board: 'بعمل بورد تفاعلي',
+  get_board: 'براجع البورد',
+  get_feedback: 'بقرا الملاحظات',
+  resolve_feedback: 'بقفل ملاحظة',
+};
+
+/** The line for a tool call as it starts, or null for events the teacher need not see. */
+export function stepFor(item) {
+  if (!item) return null;
+  if (item.type === 'mcp_tool_call') {
+    const base = TOOLS[item.tool] ?? 'بشتغل على الكورس';
+    const title = item.arguments?.lesson?.title;
+    return item.tool === 'add_lesson' && typeof title === 'string' ? `${base}: ${title}` : base;
+  }
+  if (item.type === 'web_search') return 'بدوّر على النت';
+  if (item.type === 'command_execution') return 'بقرا ملفاتك';
+  return null;
+}
+
+/** Reads one JSON event into the run's state, calling onStep for each new visible line. */
+export function consume(event, state, onStep) {
+  if (event.type === 'thread.started' && event.thread_id) state.threadId = event.thread_id;
+  const item = event.item;
+  if (event.type === 'item.started') {
+    const line = stepFor(item);
+    if (line && line !== state.lastStep) {
+      state.lastStep = line;
+      onStep(line);
+    }
+  }
+  if (event.type === 'item.completed' && item?.type === 'mcp_tool_call' && item.status === 'failed')
+    onStep(item.tool === 'add_lesson' ? 'بصلّح مشاكل في الدرس' : 'بعيد المحاولة');
+  if (event.type === 'item.completed' && item?.type === 'agent_message' && item.text)
+    state.finalText = item.text;
+  if (event.type === 'turn.failed' || event.type === 'error')
+    state.failure = event.error?.message || event.message || 'Codex run failed';
+}
