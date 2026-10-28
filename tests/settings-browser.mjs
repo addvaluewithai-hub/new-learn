@@ -64,7 +64,7 @@ async function run(width, height) {
   await page.getByRole('status').filter({ hasText: 'كلمة السر اتغيّرت' }).waitFor();
   // Lesson and Nova settings land in the keys the lesson and Nova read.
   await page.getByRole('radio', { name: 'وريني الإجابة' }).click();
-  await page.getByRole('radio', { name: 'لوحده بهدوء' }).click();
+  await page.getByLabel('الدرس بيمشي').selectOption('slower');
   await page.getByRole('switch', { name: /الشرح بالصوت/ }).click();
   await page.getByLabel('صوت Nova').selectOption('Puck');
   const stored = await page.evaluate(() => ({
