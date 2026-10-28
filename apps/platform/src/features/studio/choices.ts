@@ -9,6 +9,33 @@ export type Choice = {
 
 export const CHOICES: Choice[] = [
   {
+    key: 'audience',
+    title: 'الكورس لمين',
+    options: [
+      ['me', 'ليّا أنا'],
+      ['students', 'لطلابي'],
+      ['kids', 'لطفل'],
+    ],
+  },
+  {
+    key: 'goal',
+    title: 'الهدف',
+    options: [
+      ['understand', 'أفهم الفكرة'],
+      ['practice', 'أتمرن على مسائل'],
+      ['review', 'أراجع بسرعة'],
+    ],
+  },
+  {
+    key: 'age',
+    title: 'السن',
+    options: [
+      ['4-6', 'من ٤ لـ٦ سنين'],
+      ['7-9', 'من ٧ لـ٩ سنين'],
+      ['10-12', 'من ١٠ لـ١٢ سنة'],
+    ],
+  },
+  {
     key: 'level',
     title: 'مستوى الطلاب',
     options: [
@@ -68,7 +95,66 @@ export const CHOICES: Choice[] = [
   },
 ];
 
+/** Who the course is for decides which few questions the page asks, in that person's words.
+ *  The rest wait under «تفاصيل أكتر». */
+export type Audience = {
+  id: string;
+  name: string;
+  line: string;
+  asks: Array<{ key: string; lead: string; labels?: Record<string, string> }>;
+};
+
+export const AUDIENCES: Audience[] = [
+  {
+    id: 'me',
+    name: 'ليّا أنا',
+    line: 'بذاكر أو عايز أتعلم حاجة جديدة',
+    asks: [
+      {
+        key: 'level',
+        lead: 'أنا',
+        labels: { beginner: 'أول مرة أسمع عنه', some: 'عارف شوية', revision: 'بذاكر لامتحان' },
+      },
+      { key: 'goal', lead: 'عايز' },
+      {
+        key: 'size',
+        lead: 'وقتي',
+        labels: { '1': 'ربع ساعة', '3': 'حوالي ساعة', '5': 'أكتر من ساعة' },
+      },
+      { key: 'language', lead: 'بالـ' },
+    ],
+  },
+  {
+    id: 'students',
+    name: 'لطلابي',
+    line: 'كورس أشرحه لفصل أو مجموعة',
+    asks: [
+      { key: 'level', lead: 'الطلاب' },
+      { key: 'size', lead: '' },
+      { key: 'questions', lead: 'أسئلة' },
+      { key: 'language', lead: 'بالـ' },
+    ],
+  },
+  {
+    id: 'kids',
+    name: 'لطفل',
+    line: 'لابني أو بنتي أو تلاميذ صغيرين',
+    asks: [
+      { key: 'age', lead: 'السن' },
+      {
+        key: 'size',
+        lead: '',
+        labels: { '1': 'درس قصير', '3': '3 دروس قصيرة', '5': '5 دروس قصيرة' },
+      },
+      { key: 'language', lead: 'بالـ' },
+    ],
+  },
+];
+
 export const DEFAULT_CHOICES: Record<string, string> = {
+  audience: 'me',
+  goal: 'understand',
+  age: '7-9',
   level: 'beginner',
   language: 'egyptian',
   style: 'steps',

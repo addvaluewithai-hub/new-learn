@@ -172,64 +172,6 @@
   border-radius: 999px;
   object-fit: cover;
 }
-.details-line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0;
-}
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0 4px 0 14px;
-  border-radius: 999px;
-  background: var(--soft);
-  color: var(--muted);
-}
-.pill select {
-  field-sizing: content;
-  min-height: 42px;
-  padding: 0 8px;
-  border: 0;
-  background: none;
-  color: var(--ink);
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-.details-style {
-  margin: 18px 0 0;
-  padding: 0;
-  border: 0;
-}
-.details-style legend {
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-.details-style small {
-  color: var(--muted);
-  font-weight: 400;
-}
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.chip {
-  min-height: 42px;
-  padding: 6px 16px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fff;
-  font: inherit;
-  cursor: pointer;
-}
-.chip[aria-pressed='true'] {
-  border-color: var(--leaf);
-  background: var(--leaf);
-  color: #fff;
-}
 .studio-cta {
   position: sticky;
   bottom: 12px;

@@ -33,7 +33,7 @@ export function Composer({
         onChange={(e) => onTopic(e.target.value)}
         maxLength={4000}
         rows={4}
-        placeholder="اكتب الموضوع ولمين، وأي حاجة مهمة: «الفايدة المركبة لطلاب أولى تجارة، بأمثلة من البنوك المصرية»"
+        placeholder="عايز تتعلم أو تشرح إيه؟ اكتب الموضوع وأي حاجة مهمة: «الفايدة المركبة، بأمثلة من البنوك المصرية»"
       />
       {files.length > 0 && (
         <ul className="composer-files" aria-label="ملفاتك">

@@ -120,14 +120,19 @@ Tasks G6–G12 (docs/tasks/teaching.md), round OR25:
 
 ## The «اعمل كورس» page
 
-The page is three steps: the idea (text, files, web search, or one of six examples), the look,
-then the details (level, language, size, questions, boards, up to three teaching styles).
+The page is three steps: the idea (text, files, web search, or one of six examples), who it is
+for, and the look.
 
-- Each look is a small card in a sliding row, with a picture of its demo board (`npm run style:previews` makes them
-  from `board:check` shots into `apps/platform/public/styles/`). «اتفرّج» opens the demo board
-  live in a dialog, so the teacher tries it before choosing. Topic words mark up to three
+- **Who it is for** picks the few questions the page asks, in that person's words: «ليّا أنا»
+  (where they are, what they want, how much time), «لطلابي» (level, size, questions) or «لطفل»
+  (age). Boards, questions and teaching style wait under «تفاصيل أكتر». A course for a child
+  suggests the crayon and pixel looks first.
+- Each look is a small card in a sliding row, with a picture of its demo board
+  (`npm run style:previews` makes them from `board:check` shots into
+  `apps/platform/public/styles/`). «اتفرّج» opens the demo board live in a dialog, to try
+  before choosing. Topic words mark up to three
   cards «مناسب لموضوعك»; «سيبها عليّ» lets the builder choose.
 - The chosen look reaches the builder as art direction (`server/builds/looks.ts`); the page's
   list (`src/features/studio/looks.ts`) must keep the same ids, and a test checks it.
-- Next: a `STYLE.md` per look that the builder reads through MCP (G7), a short plan the
-  teacher edits before the build, and a progress screen that shows boards as they are made.
+- Next: a `STYLE.md` per look that the builder reads through MCP (G7), a short plan to edit
+  before the build, and a progress screen that shows boards as they are made.

@@ -1,0 +1,137 @@
+/* «لمين؟»: who the course is for, its few questions as pills, and «تفاصيل أكتر». */
+.audiences {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.audience {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+}
+.audience input {
+  position: absolute;
+  opacity: 0;
+}
+.audience span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.audience.on {
+  border-color: var(--leaf);
+  box-shadow: 0 0 0 2px var(--leaf);
+  background: #f4f8f1;
+}
+.audience:has(input:focus-visible) {
+  outline: 3px solid var(--leaf);
+  outline-offset: 3px;
+}
+.details-more {
+  margin-top: 14px;
+}
+.details-more summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  list-style: none;
+  color: var(--leaf);
+  font-weight: 600;
+  cursor: pointer;
+}
+.details-more summary::-webkit-details-marker {
+  display: none;
+}
+.details-more summary::after {
+  content: '+';
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-inline-start: 8px;
+  border-radius: 50%;
+  background: var(--soft);
+  font-size: 1rem;
+}
+.details-more[open] summary::after {
+  content: '−';
+}
+.details-more[open] summary {
+  margin-bottom: 8px;
+}
+@media (max-width: 640px) {
+  .audiences {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .audience {
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+}
+.details-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px 0 14px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--muted);
+}
+.pill select {
+  field-sizing: content;
+  min-height: 42px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.details-style {
+  margin: 18px 0 0;
+  padding: 0;
+  border: 0;
+}
+.details-style legend {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.details-style small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  min-height: 42px;
+  padding: 6px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.chip[aria-pressed='true'] {
+  border-color: var(--leaf);
+  background: var(--leaf);
+  color: #fff;
+}

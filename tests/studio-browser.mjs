@@ -104,6 +104,11 @@ async function run(width, height) {
   await dialog.getByRole('button', { name: 'اختار الشكل ده' }).click();
   await dialog.waitFor({ state: 'hidden' });
   assert.equal(await page.locator('input[name=look][value=chalk]').isChecked(), true);
+  // Who it is for changes the questions: a learner is asked about themselves, a teacher about the class.
+  await page.getByText('أول مرة أسمع عنه').first().waitFor({ state: 'attached' });
+  await page.getByRole('radio', { name: /لطلابي/ }).check();
+  await page.getByLabel('مستوى الطلاب').waitFor();
+  await page.getByText('تفاصيل أكتر').click();
   const chip = (name) => page.getByRole('button', { name, exact: true });
   await chip('حكاية الأول').click();
   await chip('أمثلة محلولة').click();
@@ -126,6 +131,9 @@ async function run(width, height) {
     questions: 'key',
     size: '3',
     look: 'chalk',
+    audience: 'students',
+    goal: 'understand',
+    age: '7-9',
   });
   assert.equal(store.sent.webSearch, true);
   assert.deepEqual(store.sent.files, [

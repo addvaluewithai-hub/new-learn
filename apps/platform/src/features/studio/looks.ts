@@ -106,10 +106,13 @@ export const AUTO: Look = {
 
 const FALLBACK = ['chalk', 'watercolour', 'space3d'];
 
-/** Up to three looks that suit the topic, best first; a calm default when nothing matches. */
-export function suggestLooks(topic: string): string[] {
+/** Up to three looks that suit the topic, best first; a calm default when nothing matches.
+ *  A course for a child starts from the playful looks; no topic yet suggests nothing. */
+export function suggestLooks(topic: string, audience = 'me'): string[] {
+  const kids = audience === 'kids' ? ['crayon', 'pixel'] : [];
+  if (!topic) return kids;
   const hits = LOOKS.filter((look) => look.words.test(topic)).map((look) => look.id);
-  return [...new Set([...hits, ...FALLBACK])].slice(0, 3);
+  return [...new Set([...kids, ...hits, ...FALLBACK])].slice(0, 3);
 }
 
 /** Ideas to start from, each with the look that shows it best. */

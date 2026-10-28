@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { api } from '../../shared/api';
-import { DEFAULT_CHOICES, FILE_LIMITS, readUpload } from './choices';
+import { AUDIENCES, DEFAULT_CHOICES, FILE_LIMITS, readUpload } from './choices';
 import { EXAMPLES, lookOf, suggestLooks, type Look } from './looks';
 import { go, type BuildJob } from './types';
 import { Composer } from './Composer';
@@ -8,8 +8,9 @@ import { LookGallery } from './LookGallery';
 import { LookPreview } from './LookPreview';
 import { Details } from './Details';
 import './looks.css';
+import './details.css';
 
-/** «اعمل كورس»: the idea, the look, the details, then one button (docs/visuals/demos.md). */
+/** «اعمل كورس»: the idea, who it is for, the look, then one button (docs/visuals/README.md). */
 export function StudioForm() {
   const [topic, setTopic] = useState(''),
     [files, setFiles] = useState<File[]>([]),
@@ -21,7 +22,10 @@ export function StudioForm() {
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [active, setActive] = useState<BuildJob | null>(null);
-  const suggested = useMemo(() => (topic.trim().length > 2 ? suggestLooks(topic) : []), [topic]);
+  const suggested = useMemo(
+    () => suggestLooks(topic.trim().length > 2 ? topic : '', choices.audience),
+    [topic, choices.audience],
+  );
 
   useEffect(() => {
     api<{ jobs: BuildJob[] }>('/studio/jobs').then(
@@ -99,8 +103,8 @@ export function StudioForm() {
         <span className="eyebrow">استوديو الكورسات</span>
         <h1>اعمل درس تفاعلي من فكرة</h1>
         <p>
-          اكتب عايز تعلّم إيه، واختار شكل الدرس. هنبني لك مسودة بوردات تفاعلية وأسئلة، تراجعها قبل
-          ما الطلاب يشوفوها.
+          اكتب عايز تتعلم أو تشرح إيه، وقول لمين، واختار شكله. هنبني لك درس فيه بوردات تلعب فيها
+          وأسئلة، وتقدر تراجعه قبل ما حد تاني يشوفه.
         </p>
       </header>
       {active && (
@@ -142,9 +146,15 @@ export function StudioForm() {
           ))}
         </div>
       </section>
+      <section className="studio-step" aria-labelledby="step-details">
+        <h2 id="step-details">
+          <span>٢</span> لمين؟
+        </h2>
+        <Details choices={choices} onPick={pick} />
+      </section>
       <section className="studio-step" aria-labelledby="step-look">
         <h2 id="step-look">
-          <span>٢</span> الشكل
+          <span>٣</span> الشكل
         </h2>
         <LookGallery
           selected={look}
@@ -153,16 +163,13 @@ export function StudioForm() {
           onPreview={setPreview}
         />
       </section>
-      <section className="studio-step" aria-labelledby="step-details">
-        <h2 id="step-details">
-          <span>٣</span> التفاصيل
-        </h2>
-        <Details choices={choices} onPick={pick} />
-      </section>
       <div className="studio-cta">
         <div>
           <strong>{topic.trim() ? topic.trim().slice(0, 60) : 'درس جديد'}</strong>
-          <span>{lookOf(look).name} · بياخد من ٥ لـ٢٠ دقيقة، وتقدر تقفل الصفحة</span>
+          <span>
+            {AUDIENCES.find((a) => a.id === choices.audience)?.name} · {lookOf(look).name} · بياخد
+            من ٥ لـ٢٠ دقيقة، وتقدر تقفل الصفحة
+          </span>
         </div>
         {error && (
           <p className="error-message" role="alert">
