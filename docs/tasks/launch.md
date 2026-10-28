@@ -6,12 +6,12 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 | ID  | Task                                                                                        | Who   | Pri | Status | Needs  |
 | --- | ------------------------------------------------------------------------------------------- | ----- | --- | ------ | ------ |
-| A1  | Neon test branch; apply migration 0005 there (docs/connector.md step 1)                     | Owner | P0  | Todo   | —      |
-| A2  | Create the `learn_board_reader` role on that branch                                         | Owner | P0  | Todo   | A1     |
-| A3  | Cloudflare: Preview `DATABASE_URL` for `new-learn` and `new-learn-boards`                   | Owner | P0  | Todo   | A1, A2 |
-| A4  | End-to-end test in Claude on a preview: connect, make a course with a board, note, fix      | Owner | P0  | Todo   | A3     |
-| A5  | Production: migration, variables, connector at `https://new-learn.pages.dev/mcp`            | Owner | P0  | Todo   | A4     |
-| A6  | GitHub secret `CONTENT_DATABASE_URL` so Content sync writes to the database                 | Owner | P1  | Todo   | —      |
+| A1  | Migrations apply on merge (Database migrate workflow, `CONTENT_DATABASE_URL`)               | Owner | P0  | Doing  | —      |
+| A2  | Board site's own read-only role `learn_board_reader` (hardening, docs/connector.md)         | Owner | P2  | Todo   | A1     |
+| A3  | Cloudflare `new-learn-boards`: `DATABASE_URL` = the app's value (Production and Preview)    | Owner | P0  | Doing  | —      |
+| A4  | End-to-end test in Claude at `https://new-learn.pages.dev/mcp`: course, board, note, fix    | Owner | P0  | Todo   | A1, A3 |
+| A5  | Live check: «مسوداتي» lists the course; its preview plays, board and notes included         | Owner | P0  | Todo   | A4     |
+| A6  | GitHub secret `CONTENT_DATABASE_URL` so Content sync writes to the database                 | Owner | P1  | Done   | —      |
 | A7  | Test the same flow from ChatGPT (developer mode connector) and Claude Code CLI              | Owner | P1  | Todo   | A5     |
 | A8  | Rate limits: OAuth client registration, `/mcp` calls, Nova (shared quotas, not per isolate) | Owner | P1  | Todo   | A5     |
 | A9  | "Connected apps" page: see and revoke Claude/ChatGPT access (Owner API, Ess design)         | Both  | P2  | Todo   | A5     |

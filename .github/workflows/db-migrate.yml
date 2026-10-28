@@ -1,0 +1,35 @@
+name: Database migrate
+# Applies new Drizzle migrations (database/migrations) to the app's database when they reach
+# main, so nobody runs them by hand (owner decision 2026-10-28). Uses the repository secret
+# CONTENT_DATABASE_URL: the admin URL of the database the app and Content sync use.
+on:
+  push:
+    branches: [main]
+    paths: ['database/migrations/**', '.github/workflows/db-migrate.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  # The same writer group as Content sync, so the two never touch the database at once.
+  group: content-sync
+  cancel-in-progress: false
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Apply migrations
+        env:
+          DATABASE_URL: ${{ secrets.CONTENT_DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "CONTENT_DATABASE_URL is not set; no migration was applied."
+            exit 1
+          fi
+          npm run db:migrate

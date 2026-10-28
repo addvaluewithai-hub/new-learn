@@ -24,14 +24,14 @@ At the end of a round, mark its tasks Done in their files.
 
 ## Wave 0: before YC (2 November)
 
-| Round | Name                  | Tasks                           | Needs       | Notes                                                                                    |
-| ----- | --------------------- | ------------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
-| OR1   | Connector live        | A1, A2, A3, A4, A5, A7, S1, O4  | —           | Mostly settings. Claude can run the migration and the tests if `DEV_DATABASE_URL` is set |
-| ER1   | Student pages cleanup | E3, E4, E5, E6, E7, E8, E9, E10 | —           | Can start today; the ux-audit list                                                       |
-| ER2   | Teacher pages polish  | E1, T6                          | —           | Also sketch the OR3 screens (dashboard, notes inbox, outline editor)                     |
-| ER3   | Brand                 | B1, B2, B7, K2                  | D1          | Name, logo, colours, tokens, social handles, subject art                                 |
-| ER4   | Website               | W1, W2, W4, W5, W9, W3          | ER3, L1, L2 | Owner makes the Cloudflare project; W2 needs OR1 for real screenshots                    |
-| ER5   | Demo and video        | V1, V2, V3, V5, V8, V9          | OR1         | Ess is the first teacher; Owner makes the reviewer account (V5)                          |
+| Round | Name                  | Tasks                           | Needs       | Notes                                                                   |
+| ----- | --------------------- | ------------------------------- | ----------- | ----------------------------------------------------------------------- |
+| OR1   | Connector live        | A1, A2, A3, A4, A5, A7, S1, O4  | —           | Migrations apply on merge; one Cloudflare variable; then test in Claude |
+| ER1   | Student pages cleanup | E3, E4, E5, E6, E7, E8, E9, E10 | —           | Can start today; the ux-audit list                                      |
+| ER2   | Teacher pages polish  | E1, T6                          | —           | Also sketch the OR3 screens (dashboard, notes inbox, outline editor)    |
+| ER3   | Brand                 | B1, B2, B7, K2                  | D1          | Name, logo, colours, tokens, social handles, subject art                |
+| ER4   | Website               | W1, W2, W4, W5, W9, W3          | ER3, L1, L2 | Owner makes the Cloudflare project; W2 needs OR1 for real screenshots   |
+| ER5   | Demo and video        | V1, V2, V3, V5, V8, V9          | OR1         | Ess is the first teacher; Owner makes the reviewer account (V5)         |
 
 ## Wave 1: first real teachers and students
 
