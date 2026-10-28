@@ -30,7 +30,8 @@ export function useSession() {
     await api('/auth/sign-out', {});
     setUser(null);
     setError('');
-    history.replaceState(null, '', '/');
+    // Back to sign-in, not the visitors' front page: they were here a moment ago.
+    history.replaceState(null, '', '/?auth=login');
     window.dispatchEvent(new PopStateEvent('popstate'));
   };
   return { user, loading, error, refresh, signOut };

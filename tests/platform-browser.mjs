@@ -108,7 +108,17 @@ try {
     }
     await route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
   });
+  // A visitor at the bare address sees the front page, and its button leads to sign-up.
   await page.goto(url);
+  await page.getByRole('heading', { name: 'أي فكرة، تبقى درس تلعب فيه بإيدك.' }).waitFor();
+  assert.equal(await page.locator('.landing-looks li').count(), 10);
+  await safe(page);
+  await page.screenshot({ path: 'test-results/landing-desktop.png', fullPage: true });
+  await page.setViewportSize({ width: 390, height: 850 });
+  await safe(page);
+  await page.screenshot({ path: 'test-results/landing-390.png', fullPage: true });
+  await page.setViewportSize({ width: 1280, height: 1000 });
+  await page.getByRole('link', { name: 'ابدأ مجانًا' }).click();
   await page.getByRole('heading', { name: 'رحلتك تبدأ من هنا.' }).waitFor();
   assert.equal(
     await page
@@ -182,7 +192,7 @@ try {
   );
   failLogout = false;
   await page.getByRole('button', { name: 'تسجيل الخروج', exact: true }).click();
-  await page.getByRole('heading', { name: 'رحلتك تبدأ من هنا.' }).waitFor();
+  await page.getByRole('heading', { name: 'نكمّل من مكاننا؟' }).waitFor();
   await page.setViewportSize({ width: 1280, height: 1000 });
   signedIn = true;
   await page.goto(url);
