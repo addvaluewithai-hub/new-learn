@@ -29,6 +29,8 @@ test('every built board edition is content-addressed and has a valid manifest', 
     'phys1-ch08-youngs-rod',
     'probe-escape',
     'probe-wire',
+    'trial-interest-chalk',
+    'trial-plant-painted',
   ]);
   for (const [id, edition] of Object.entries(editions)) {
     assert.match(edition.hash, /^[0-9a-f]{64}$/);

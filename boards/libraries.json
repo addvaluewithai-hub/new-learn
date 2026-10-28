@@ -16,6 +16,16 @@
         "ibm-plex-sans-arabic-latin-600-normal.woff2",
         "LICENSE-IBM-Plex-Sans-Arabic-OFL.txt"
       ]
+    },
+    "p5@2.3.3": {
+      "license": "LGPL-2.1 (served unmodified)",
+      "from": "node_modules/p5",
+      "files": ["lib/p5.min.js", "license.txt"]
+    },
+    "p5.brush@2.2.3": {
+      "license": "MIT",
+      "from": "node_modules/p5.brush",
+      "files": ["dist/p5.brush.js", "LICENSE.md"]
     }
   }
 }

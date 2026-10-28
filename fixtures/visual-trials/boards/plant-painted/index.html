@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>نسقي ولا نستنى؟</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script>
+      // p5 listens for device motion, which the board sandbox does not allow; skip those.
+      const listen = EventTarget.prototype.addEventListener;
+      EventTarget.prototype.addEventListener = function (type, ...rest) {
+        if (type === 'devicemotion' || type === 'deviceorientation') return;
+        return listen.call(this, type, ...rest);
+      };
+    </script>
+    <script src="/lib/p5@2.3.3/lib/p5.min.js"></script>
+    <script src="/lib/p5.brush@2.2.3/dist/p5.brush.js"></script>
+    <script src="paint.js"></script>
+    <script src="scene.js"></script>
+    <style>
+      /* Landscape 1280×720: the painting on one side, the panel on the other.
+         Portrait 720×1280: the painting on top. */
+      html {
+        --nl-backdrop: #f3ebdc;
+      }
+      body {
+        background: #f3ebdc;
+        color: #2b2233;
+      }
+      #scene {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 760px;
+        height: 720px;
+      }
+      #scene canvas {
+        position: absolute;
+        inset: 0;
+      }
+      #grain {
+        z-index: 1;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+      #probe {
+        position: absolute;
+        z-index: 3;
+        border-radius: 50%;
+      }
+      #probe-label {
+        position: absolute;
+        z-index: 3;
+        font-size: 26px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 520px;
+        height: 720px;
+        padding: 56px 48px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      [data-layout='portrait'] #choices button {
+        font-size: 32px;
+      }
+      /* One painting size for both layouts: p5.brush keeps its buffers at the first size. */
+      [data-layout='portrait'] #scene {
+        transform: translate(0, 19px) scale(0.9474);
+        transform-origin: 0 0;
+      }
+      [data-layout='portrait'] #probe-label {
+        font-size: 34px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 720px;
+        width: 720px;
+        height: 560px;
+        padding: 24px 48px 40px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 46px;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .hint {
+        margin: 0;
+        color: #5b4b44;
+      }
+      #choices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      #choices button {
+        font: inherit;
+        font-weight: 600;
+        min-height: 96px;
+        min-width: 120px;
+        padding: 0 10px;
+        font-size: 28px;
+        flex: 1;
+        border: 3px solid #a85a42;
+        border-radius: 22px 14px 24px 12px;
+        background: #fff7ea;
+        color: #2b2233;
+        cursor: pointer;
+      }
+      #choices button[aria-pressed='true'] {
+        background: #d97757;
+        color: #fff;
+        border-color: #a85a42;
+      }
+      #verdict {
+        margin: 0;
+        padding: 18px 22px;
+        border-radius: 16px;
+        background: #fff7ea;
+        border-inline-start: 8px solid #5e9a4e;
+        line-height: 1.5;
+      }
+      [data-soil='dry'] #verdict {
+        border-inline-start-color: #d97757;
+      }
+      [data-soil='watered'] #verdict {
+        border-inline-start-color: #3a9c98;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene">
+      <div id="probe"></div>
+      <span id="probe-label"></span>
+    </div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <p class="hint" id="hint"></p>
+      <div id="choices"></div>
+      <p id="verdict"></p>
+    </section>
+    <script>
+      const TEXT = {
+        ar: {
+          title: 'نسقي ولا نستنى؟',
+          hint: 'جسّ أول ٢ سم من الخلطة بصباعك.',
+          probe: 'أول ٢ سم',
+          moist: 'رطبة',
+          dry: 'ناشفة',
+          watered: 'سقيتها',
+          verdict: {
+            moist: 'لسه رطبة: استنى، وافحص تاني بعد يوم أو اتنين.',
+            dry: 'ناشفة على عمق ٢ سم: وقت الري.',
+            watered: 'اسقِ ببطء لحد ما المية تنزل من الفتحات، وبعدين فضّي الطبق.',
+          },
+        },
+        en: {
+          title: 'Water now, or wait?',
+          hint: 'Feel the top 2 cm of the mix with a finger.',
+          probe: 'Top 2 cm',
+          moist: 'Moist',
+          dry: 'Dry',
+          watered: 'Watered',
+          verdict: {
+            moist: 'Still moist: wait, and check again in a day or two.',
+            dry: 'Dry 2 cm down: time to water.',
+            watered: 'Water slowly until it drains from the holes, then empty the saucer.',
+          },
+        },
+      };
+      const OPTIONS = ['moist', 'dry', 'watered'];
+      const scene = document.getElementById('scene');
+      let current = null;
+
+      new p5((p) => {
+        const P = Paint(p);
+        brush.instance(p);
+        let grain = null;
+        /** Paper grain and a soft vignette, multiplied over the painting (made once per size). */
+        const makeGrain = (w, h) => {
+          grain?.remove();
+          grain = document.createElement('canvas');
+          grain.id = 'grain';
+          grain.width = w;
+          grain.height = h;
+          grain.style.width = `${w}px`;
+          grain.style.height = `${h}px`;
+          const c = grain.getContext('2d'),
+            img = c.createImageData(w, h),
+            d = img.data;
+          let s = 5;
+          const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+          for (let i = 0; i < d.length; i += 4) {
+            const v = 255 - (rnd() < 0.55 ? rnd() * rnd() * 30 : 0);
+            d[i] = v;
+            d[i + 1] = v - 1;
+            d[i + 2] = v - 3;
+            d[i + 3] = 255;
+          }
+          c.putImageData(img, 0, 0);
+          const g = c.createRadialGradient(w / 2, h / 2, h * 0.45, w / 2, h / 2, h * 1.05);
+          g.addColorStop(0, 'rgba(255,255,255,0)');
+          g.addColorStop(1, 'rgba(120,95,70,.28)');
+          c.fillStyle = g;
+          c.fillRect(0, 0, w, h);
+          scene.append(grain);
+        };
+        p.setup = () => {
+          const c = p.createCanvas(760, 720, p.WEBGL);
+          c.parent(scene);
+          p.pixelDensity(1);
+          p.noLoop();
+          P.setup();
+          makeGrain(760, 720);
+          start();
+        };
+        p.draw = () => {
+          if (!current) return;
+          p.background('#F3EBDC');
+          p.push();
+          p.translate(-BOX.w / 2, -BOX.h / 2);
+          paintScene(p, P, current);
+          p.pop();
+        };
+        /** Paint the soil state, and place the magnifier's highlight box and label. */
+        window.repaint = (soil) => {
+          current = soil;
+          p.redraw();
+          const probe = document.getElementById('probe');
+          Object.assign(probe.style, {
+            left: `${PROBE.x - PROBE.r}px`,
+            top: `${PROBE.y - PROBE.r}px`,
+            width: `${2 * PROBE.r}px`,
+            height: `${2 * PROBE.r}px`,
+          });
+          const label = document.getElementById('probe-label');
+          label.style.left = `${PROBE.x - PROBE.r}px`;
+          label.style.top = `${PROBE.y + PROBE.r + 8}px`;
+        };
+      });
+
+      function start() {
+        NewLearnBoard.start({
+          onState(view, env) {
+            const lang = env?.lang === 'en' ? 'en' : 'ar';
+            const t = TEXT[lang];
+            const soil = OPTIONS.includes(view.variables.soil) ? view.variables.soil : 'moist';
+            document.documentElement.dataset.soil = soil;
+            document.getElementById('title').textContent = t.title;
+            document.getElementById('hint').textContent = t.hint;
+            document.getElementById('probe-label').textContent = t.probe;
+            document.getElementById('verdict').textContent = t.verdict[soil];
+            const choices = document.getElementById('choices');
+            choices.replaceChildren(
+              ...OPTIONS.map((value) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.textContent = t[value];
+                b.setAttribute('aria-pressed', String(value === soil));
+                b.onclick = () => NewLearnBoard.setVariables({ soil: value });
+                return b;
+              }),
+            );
+            window.repaint(soil);
+            NewLearnBoard.observe(`${t.hint} ${t[soil]}: ${t.verdict[soil]}`, { soil });
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

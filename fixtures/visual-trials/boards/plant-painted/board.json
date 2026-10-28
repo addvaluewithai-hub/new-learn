@@ -1,0 +1,16 @@
+{
+  "apiVersion": 1,
+  "id": "trial-plant-painted",
+  "title": "نسقي ولا نستنى؟",
+  "description": "Visual trial 1 (docs/visuals): a hand-painted watercolour scene with p5.brush. Check the top 2 cm of the soil; moist means wait, dry means water slowly until it drains.",
+  "libraries": ["p5@2.3.3", "p5.brush@2.2.3"],
+  "variables": {
+    "soil": {
+      "type": "choice",
+      "options": ["moist", "dry", "watered"],
+      "label": "Soil",
+      "default": "moist"
+    }
+  },
+  "targets": ["#scene", "#probe", "#choices", "#verdict"]
+}

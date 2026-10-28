@@ -1,12 +1,20 @@
 import ReadingClassroom, { type ReadingModule } from './ReadingClassroom';
 
-// `?preview=board`: the synthetic live-board probe, with no account and no saved progress.
-const load = (): Promise<ReadingModule> =>
-  import('../../../../fixtures/board-probe/lesson').then((m) => ({
-    readingLesson: m.boardProbeLesson,
-    readingRenderers: {},
-  }));
+// `?preview=board`: the synthetic live-board probe; `?preview=visuals`: the visual style trials
+// (docs/visuals). No account and no saved progress.
+const loaders: Record<'probe' | 'visuals', () => Promise<ReadingModule>> = {
+  probe: () =>
+    import('../../../../fixtures/board-probe/lesson').then((m) => ({
+      readingLesson: m.boardProbeLesson,
+      readingRenderers: {},
+    })),
+  visuals: () =>
+    import('../../../../fixtures/visual-trials/lesson').then((m) => ({
+      readingLesson: m.visualTrialsLesson,
+      readingRenderers: {},
+    })),
+};
 
-export default function BoardPreview() {
-  return <ReadingClassroom load={load} backHref="/" studentName="طالب" preview />;
+export default function BoardPreview({ lesson = 'probe' }: { lesson?: 'probe' | 'visuals' }) {
+  return <ReadingClassroom load={loaders[lesson]} backHref="/" studentName="طالب" preview />;
 }

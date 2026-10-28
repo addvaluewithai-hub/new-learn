@@ -47,9 +47,9 @@ avatars (8) and music videos (15). They are not lesson pictures; see the source 
 ## How we try one
 
 1. Read it and write three lines below: what it teaches, its engine, its licence.
-2. Make the two test scenes with it as boards: **watering a plant** (science: soil, water,
-   roots, a moist or dry choice) and **compound interest** (maths: a growing curve, a rate
-   the learner sets).
+2. Make one test scene with it as a board: **watering a plant** (science: soil, water, a
+   moist or dry choice) or **compound interest** (maths: a growing curve, a rate the learner
+   sets), whichever suits the style. The owner's call: one scene per style is enough.
 3. Both pass `npm run board:check`; save a landscape and a portrait screenshot.
 4. Owner and Ess judge: does it look good, does it explain better, how long did it take,
    does Codex manage it too.
@@ -61,9 +61,9 @@ avatars (8) and music videos (15). They are not lesson pictures; see the source 
 
 | #   | Repo                                                                                            | Why first                                                     | Way  | Status |
 | --- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---- | ------ |
-| 1   | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)             | Hand-painted look with p5.js + p5.brush, which run live       | Live | Todo   |
+| 1   | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)             | Hand-painted look with p5.js + p5.brush, which run live       | Live | Tried  |
 | 2   | [hacimertgokhan/geomotion](https://github.com/hacimertgokhan/geomotion)                         | Zero-dependency line-morphing engine, small enough for boards | Live | Todo   |
-| 3   | [haiderfarooq3/khan-explainer](https://github.com/haiderfarooq3/khan-explainer)                 | A pen draws while a voice explains: Nova reading a board      | Live | Todo   |
+| 3   | [haiderfarooq3/khan-explainer](https://github.com/haiderfarooq3/khan-explainer)                 | A pen draws while a voice explains: Nova reading a board      | Live | Tried  |
 | 4   | [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle)                               | Illustration and interactive web art written as code          | Live | Todo   |
 | 5   | [diffusionstudio/lottie](https://github.com/diffusionstudio/lottie)                             | Lottie animations; lottie-web is already an approved library  | Live | Todo   |
 | 6   | [lazypay/Archscribe](https://github.com/lazypay/Archscribe)                                     | Hand-drawn process diagrams                                   | Live | Todo   |
@@ -77,6 +77,37 @@ avatars (8) and music videos (15). They are not lesson pictures; see the source 
 | 14  | [vincentsch/explainroo](https://github.com/vincentsch/explainroo)                               | Fastest narrated explainer in the list's own test             | Clip | Todo   |
 | 15  | [adithya-s-k/manim_skill](https://github.com/adithya-s-k/manim_skill)                           | 3Blue1Brown-style maths                                       | Clip | Todo   |
 | 16  | [remotion-dev/skills](https://github.com/remotion-dev/skills)                                   | Remotion's own rules; the lesson player already uses Remotion | Clip | Todo   |
+
+## Trials so far
+
+Both scenes play in one lesson at **`?preview=visuals`** (no account needed; on a pull request,
+its preview address), each with a board question. Boards: `fixtures/visual-trials/boards/`.
+
+**1. Hand-painted watercolour** (p5.js + p5.brush; the method of ClaudeAnimationBase), on the
+plant scene: a window, a pot of basil, a magnified slice of the top 2 cm of soil, in three
+states (moist, dry with drooping leaves, watered and draining).
+
+- Passes `board:check`: 6 states, both layouts, Arabic and English.
+- Cost: p5 and p5.brush are about 310 KB gzipped, from the board origin. A repaint takes about
+  3 s on a server with no GPU (software WebGL); phones have GPUs, but measure on a cheap Android
+  before adopting it.
+- Learned: paint once per state (no "boiling" lines), so the same state gives the same picture;
+  keep one canvas size for both layouts (p5.brush keeps its buffers at the first size); skip
+  p5's device-motion listeners, which the sandbox forbids; labels stay in HTML, the picture
+  carries no text.
+
+**2. Blackboard chalk, drawn stroke by stroke** (Canvas 2D, no library; the method of
+khan-explainer), on compound interest: simple interest as a straight line, compound as a curve,
+the gap at the chosen year, rate and years sliders.
+
+- Passes `board:check`: 7 states, both layouts, Arabic and English.
+- Cost: no library, draws at once. The pen animates when the lesson moves on; the learner's own
+  changes are instant, and reduced motion draws the end picture straight away.
+- Learned: wobble from `sin()`, never random, keeps pictures stable; the chalk texture is a fixed
+  noise mask on a separate layer; sliders stay left to right in Arabic to match the graph.
+
+Next: Owner and Ess judge both on a phone. A kept style gets its `STYLE.md` (G7), then the real
+test: can Codex make a new scene in that style from the guide alone?
 
 ## What changes in New Learn as styles arrive
 

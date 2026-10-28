@@ -11,6 +11,7 @@ const out = join(root, 'boards/dist');
 const editionsFile = join(root, 'apps/platform/src/features/boards/editions.generated.json');
 const sources = [
   join(root, 'fixtures/board-probe/boards'),
+  join(root, 'fixtures/visual-trials/boards'),
   join(root, 'content/book-guided/physics-ch08/boards'),
 ];
 

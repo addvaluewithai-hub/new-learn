@@ -60,6 +60,8 @@ export function App() {
           <ChemistryLesson />
         ) : preview === 'board' ? (
           <BoardPreview />
+        ) : preview === 'visuals' ? (
+          <BoardPreview lesson="visuals" />
         ) : (
           <StudentApp />
         )}

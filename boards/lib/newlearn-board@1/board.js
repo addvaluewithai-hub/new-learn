@@ -27,6 +27,7 @@
     body { position: absolute; inset: 0 auto auto 0; margin: 0; overflow: hidden;
       box-sizing: border-box; transform-origin: 0 0;
       font: 32px/1.4 'NL Sans', sans-serif; }
+    button, input, select, textarea { font: inherit; }
     [data-scroll] { overflow: auto; }
     .nl-highlight { outline: 4px solid #e0a526; outline-offset: 6px; border-radius: 8px; }
     [data-reveal]:not(.nl-revealed) { visibility: hidden; }
