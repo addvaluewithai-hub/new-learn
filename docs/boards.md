@@ -201,9 +201,10 @@ include it. Nova can say "you set 300 N and the wire stretched 3 mm" without new
 ## Allowed libraries (v1)
 
 Pinned versions, served from the board origin, listed with their licence in
-`boards/libraries.json`. Served now: KaTeX 0.16.25 (MIT). Approved candidates, added with
-a pinned version the first time a board needs them: Three.js (MIT), D3 (ISC), Matter.js
-(MIT), anime.js (MIT), lottie-web (MIT). Plain CSS and the Web Animations API need none.
+`boards/libraries.json`. Served now: KaTeX 0.16.25 (MIT), and for painted boards p5.js 2.3.3
+(LGPL-2.1, unmodified, its own file) with p5.brush 2.2.3 (MIT); see docs/visuals. Approved
+candidates, added with a pinned version the first time a board needs them: Three.js (MIT), D3
+(ISC), Matter.js (MIT), anime.js (MIT), lottie-web (MIT). Plain CSS and Web Animations need none.
 
 **Not in v1: GSAP.** Its free licence forbids use in tools that let users build visual
 animations without code in competition with Webflow, unless Webflow consents in writing.

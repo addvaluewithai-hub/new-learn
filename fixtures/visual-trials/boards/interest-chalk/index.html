@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>الفايدة المركبة</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="chalk.js"></script>
+    <script src="graph.js"></script>
+    <style>
+      /* Landscape 1280×720: the graph on the board, the numbers and controls beside it.
+         Portrait 720×1280: the graph on top. */
+      html {
+        --nl-backdrop: #1f2b27;
+      }
+      body {
+        background: #1f2b27;
+        color: #f4f1e8;
+      }
+      #graph {
+        position: absolute;
+        inset: 0;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 400px;
+        height: 720px;
+        padding: 44px 36px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 740px;
+        width: 720px;
+        height: 540px;
+        padding: 12px 48px 36px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 44px;
+        font-weight: 600;
+      }
+      .value {
+        margin: 0;
+        font-size: 34px;
+        font-weight: 600;
+      }
+      .value span {
+        font-weight: 400;
+        color: #93a39c;
+      }
+      #simple {
+        color: #cfe8ff;
+      }
+      #compound {
+        color: #ffe066;
+      }
+      .formula {
+        margin: 0;
+        font-size: 26px;
+        color: #93a39c;
+        direction: ltr;
+        text-align: right;
+      }
+      label {
+        display: grid;
+        gap: 2px;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 96px;
+        direction: ltr;
+        margin: 0;
+        accent-color: #ffe066;
+      }
+      [data-layout='portrait'] .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      [data-layout='portrait'] label,
+      [data-layout='portrait'] .formula {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="graph" width="1280" height="720"></canvas>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <div class="row">
+        <p class="value" id="simple"></p>
+        <p class="value" id="compound"></p>
+      </div>
+      <p class="formula" id="formula"></p>
+      <label id="rate-control"
+        ><span id="rate-label"></span><input id="rate" type="range" min="1" max="15" step="1"
+      /></label>
+      <label id="years-control"
+        ><span id="years-label"></span><input id="years" type="range" min="0" max="30" step="1"
+      /></label>
+    </section>
+    <script>
+      const TEXT = {
+        ar: {
+          title: 'الفايدة المركبة',
+          simple: 'بسيطة',
+          compound: 'مركبة',
+          rate: (r) => `المعدل: ${r}٪ في السنة`,
+          years: (n) => `المدة: ${n} ${n === 1 ? 'سنة' : 'سنين'}`,
+          observe: (r, n, s, c) =>
+            `بمعدل ${r}٪ لمدة ${n} سنين: الفايدة البسيطة توصل ${s} والمركبة ${c}.`,
+        },
+        en: {
+          title: 'Compound interest',
+          simple: 'Simple',
+          compound: 'Compound',
+          rate: (r) => `Rate: ${r}% a year`,
+          years: (n) => `Time: ${n} ${n === 1 ? 'year' : 'years'}`,
+          observe: (r, n, s, c) =>
+            `At ${r}% for ${n} years: simple interest reaches ${s}, compound ${c}.`,
+        },
+      };
+      const canvas = document.getElementById('graph');
+      const ch = Chalk(canvas);
+      let frame = 0;
+      let last = null;
+      const $ = (id) => document.getElementById(id);
+      $('rate').oninput = (e) => NewLearnBoard.setVariables({ rate: Number(e.target.value) });
+      $('years').oninput = (e) => NewLearnBoard.setVariables({ years: Number(e.target.value) });
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const layout = env?.layout === 'portrait' ? 'portrait' : 'landscape';
+          const t = TEXT[lang];
+          const rate = Number(view.variables.rate) || 7;
+          const years = Math.max(0, Math.min(30, Number(view.variables.years) || 0));
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG', {
+            maximumFractionDigits: 0,
+          });
+          const num = (v) => fmt.format(v);
+          const s = num(simpleAt(rate, years)),
+            c = num(compoundAt(rate, years));
+          $('title').textContent = t.title;
+          $('simple').innerHTML = `${t.simple}: ${s}`;
+          $('compound').innerHTML = `${t.compound}: ${c}`;
+          $('formula').textContent = `${num(1000)} × (1 + ${num(rate)}%)^${num(years)}`;
+          $('rate-label').textContent = t.rate(num(rate));
+          $('years-label').textContent = t.years(num(years));
+          $('rate').value = rate;
+          $('years').value = years;
+          const [w, h] = layout === 'portrait' ? [720, 1280] : [1280, 720];
+          if (ch.size[0] !== w) {
+            ch.resize(w, h);
+            canvas.style.width = `${w}px`;
+            canvas.style.height = `${h}px`;
+          }
+          NewLearnBoard.observe(t.observe(num(rate), num(years), s, c), { rate, years });
+          // The pen draws the lines when the lesson moves on; the learner's own changes are instant.
+          const key = `${rate}|${years}|${layout}|${lang}`;
+          const animate = env?.reducedMotion !== true && view.input !== 'open' && key !== last;
+          last = key;
+          cancelAnimationFrame(frame);
+          const draw = (p) => drawGraph(ch, { rate, years, layout, lang, p });
+          if (!animate) return draw(1);
+          const start = performance.now();
+          const tick = (now) => {
+            const k = Math.min(1, (now - start) / 1100);
+            draw(k * k * (3 - 2 * k));
+            if (k < 1) frame = requestAnimationFrame(tick);
+          };
+          frame = requestAnimationFrame(tick);
+        },
+      });
+    </script>
+  </body>
+</html>

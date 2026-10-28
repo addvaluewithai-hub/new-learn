@@ -1,0 +1,28 @@
+{
+  "apiVersion": 1,
+  "id": "trial-interest-chalk",
+  "title": "الفايدة المركبة",
+  "description": "Visual trial 2 (docs/visuals): a blackboard drawn in chalk, stroke by stroke. 1000 at a yearly rate: simple interest grows in a straight line, compound interest curves upward.",
+  "libraries": [],
+  "variables": {
+    "rate": {
+      "type": "number",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "%",
+      "label": "Rate",
+      "default": 7
+    },
+    "years": {
+      "type": "number",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "years",
+      "label": "Years",
+      "default": 10
+    }
+  },
+  "targets": ["#graph", "#simple", "#compound", "#rate-control", "#years-control"]
+}
