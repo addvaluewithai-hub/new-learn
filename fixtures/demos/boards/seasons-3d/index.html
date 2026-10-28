@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>ليه فيه صيف وشتا؟</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="sky.js"></script>
+    <script src="space.js"></script>
+    <style>
+      /* Landscape 1280×720: space on one side, the numbers and controls on the other.
+         Portrait 720×1280: space on top. */
+      html {
+        --nl-backdrop: #050816;
+      }
+      body {
+        background: #050816;
+        color: #eef2ff;
+      }
+      #space {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 820px;
+        height: 720px;
+      }
+      #space canvas {
+        display: block;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 460px;
+        height: 720px;
+        padding: 30px 36px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: linear-gradient(270deg, rgb(10 16 48 / 92%), rgb(10 16 48 / 0%));
+      }
+      h1 {
+        margin: 0;
+        font-size: 38px;
+        font-weight: 600;
+      }
+      #season {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 600;
+        color: #ffd36e;
+      }
+      #info {
+        display: grid;
+        gap: 8px;
+        padding: 16px 20px;
+        border-radius: 16px;
+        background: rgb(255 255 255 / 7%);
+      }
+      #info p {
+        margin: 0;
+        font-size: 28px;
+      }
+      #info b {
+        color: #ffd36e;
+      }
+      label {
+        display: grid;
+        gap: 2px;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 96px;
+        margin: 0;
+        direction: ltr;
+        accent-color: #ffd36e;
+      }
+      [data-layout='portrait'] #space {
+        width: 720px;
+        height: 680px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 680px;
+        width: 720px;
+        height: 600px;
+        padding: 20px 44px 36px;
+        gap: 12px;
+        background: none;
+      }
+      [data-layout='portrait'] #season,
+      [data-layout='portrait'] #info p,
+      [data-layout='portrait'] label {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="space"></div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <p id="season"></p>
+      <div id="info">
+        <p id="day"></p>
+        <p id="noon"></p>
+      </div>
+      <label id="month-control"
+        ><span id="month-label"></span><input id="month" type="range" min="1" max="12" step="1"
+      /></label>
+      <label id="tilt-control"
+        ><span id="tilt-label"></span><input id="tilt" type="range" min="0" max="45" step="0.5"
+      /></label>
+    </section>
+    <script type="module">
+      import * as THREE from '/lib/three@0.186.1/build/three.module.js';
+
+      const TEXT = {
+        ar: {
+          title: 'ليه فيه صيف وشتا؟',
+          months: [
+            'يناير',
+            'فبراير',
+            'مارس',
+            'أبريل',
+            'مايو',
+            'يونيو',
+            'يوليو',
+            'أغسطس',
+            'سبتمبر',
+            'أكتوبر',
+            'نوفمبر',
+            'ديسمبر',
+          ],
+          season: {
+            winter: 'الشتا في مصر',
+            spring: 'الربيع في مصر',
+            summer: 'الصيف في مصر',
+            autumn: 'الخريف في مصر',
+            none: 'مفيش فصول: كل الشهور شبه بعض',
+          },
+          day: (h) => `طول النهار في القاهرة: <b>${h}</b> ساعة`,
+          noon: (a) => `ارتفاع الشمس الضهر: <b>${a}°</b>`,
+          month: (m) => `الشهر: ${m}`,
+          tilt: (t) => `ميل المحور: ${t}°`,
+        },
+        en: {
+          title: 'Why are there seasons?',
+          months: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+          ],
+          season: {
+            winter: 'Winter in Egypt',
+            spring: 'Spring in Egypt',
+            summer: 'Summer in Egypt',
+            autumn: 'Autumn in Egypt',
+            none: 'No seasons: every month alike',
+          },
+          day: (h) => `Day length in Cairo: <b>${h}</b> hours`,
+          noon: (a) => `Sun height at noon: <b>${a}°</b>`,
+          month: (m) => `Month: ${m}`,
+          tilt: (t) => `Axis tilt: ${t}°`,
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      const space = buildSpace(THREE, $('space'));
+      $('month').oninput = (e) => NewLearnBoard.setVariables({ month: Number(e.target.value) });
+      $('tilt').oninput = (e) => NewLearnBoard.setVariables({ tilt: Number(e.target.value) });
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const layout = env?.layout === 'portrait' ? 'portrait' : 'landscape';
+          const month = Math.max(1, Math.min(12, Math.round(Number(view.variables.month) || 1)));
+          const tilt = Math.max(0, Math.min(45, Number(view.variables.tilt) || 0));
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG', {
+            maximumFractionDigits: 1,
+          });
+          const sky = cairoSky(month, tilt);
+          const season = seasonOf(month, tilt);
+          $('title').textContent = t.title;
+          $('season').textContent = t.season[season];
+          $('day').innerHTML = t.day(fmt.format(Math.round(sky.dayHours * 10) / 10));
+          $('noon').innerHTML = t.noon(fmt.format(Math.round(sky.noon)));
+          $('month-label').textContent = t.month(t.months[month - 1]);
+          $('tilt-label').textContent = t.tilt(fmt.format(tilt));
+          $('month').value = month;
+          $('tilt').value = tilt;
+          const animate = env?.reducedMotion !== true && view.input !== 'open';
+          space.show({ month, tilt, layout, animate, labels: t.months });
+          NewLearnBoard.observe(
+            `${t.months[month - 1]}, ${t.tilt(fmt.format(tilt))}: ${t.season[season]}. ${t.day(fmt.format(Math.round(sky.dayHours * 10) / 10)).replace(/<\/?b>/g, '')}.`,
+            { month, tilt, dayHours: sky.dayHours, noon: sky.noon },
+          );
+        },
+      });
+    </script>
+  </body>
+</html>

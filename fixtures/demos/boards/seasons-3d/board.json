@@ -1,0 +1,20 @@
+{
+  "apiVersion": 1,
+  "id": "demo-seasons-3d",
+  "title": "ليه فيه صيف وشتا؟",
+  "description": "Demo course board (docs/visuals/demos.md): the Earth goes round the Sun in 3D (three.js) with its axis tilted. Cairo's day length and noon Sun height follow the month; with no tilt, the seasons disappear.",
+  "libraries": ["three@0.186.1"],
+  "variables": {
+    "month": { "type": "number", "min": 1, "max": 12, "step": 1, "label": "Month", "default": 1 },
+    "tilt": {
+      "type": "number",
+      "min": 0,
+      "max": 45,
+      "step": 0.5,
+      "unit": "°",
+      "label": "Axis tilt",
+      "default": 23.5
+    }
+  },
+  "targets": ["#space", "#info", "#month-control", "#tilt-control", "#season"]
+}

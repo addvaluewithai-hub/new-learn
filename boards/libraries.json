@@ -26,6 +26,11 @@
       "license": "MIT",
       "from": "node_modules/p5.brush",
       "files": ["dist/p5.brush.js", "LICENSE.md"]
+    },
+    "three@0.186.1": {
+      "license": "MIT",
+      "from": "node_modules/three",
+      "files": ["build/three.module.js", "build/three.core.js", "LICENSE"]
     }
   }
 }

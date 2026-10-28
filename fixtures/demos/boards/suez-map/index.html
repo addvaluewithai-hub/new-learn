@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>قناة السويس ليه مهمة؟</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="coasts.js"></script>
+    <script src="chart.js"></script>
+    <style>
+      /* Landscape 1280×720: the chart, and a paper panel beside it. Portrait: the chart on top. */
+      html {
+        --nl-backdrop: #d9c59a;
+      }
+      body {
+        background: #e9d8b0;
+        color: #3b2614;
+      }
+      #chart-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 860px;
+        height: 720px;
+      }
+      #chart {
+        position: absolute;
+        inset: 0;
+      }
+      .place {
+        position: absolute;
+        padding: 2px 10px;
+        border-radius: 8px;
+        background: rgb(240 226 192 / 85%);
+        font-size: 24px;
+        font-weight: 600;
+        white-space: nowrap;
+        transform: translate(-50%, 0);
+      }
+      .cartouche {
+        position: absolute;
+        top: 14px;
+        left: 24px;
+        margin: 0;
+        font-size: 26px;
+        color: #5a3b22;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 420px;
+        height: 720px;
+        padding: 36px 34px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        background: #efe1bf;
+        border-inline-end: 3px double #5a3b22;
+      }
+      h1 {
+        margin: 0;
+        font-size: 38px;
+        font-weight: 600;
+      }
+      #route-choice {
+        display: flex;
+        gap: 12px;
+      }
+      #route-choice button {
+        flex: 1;
+        min-height: 96px;
+        border: 3px solid #5a3b22;
+        border-radius: 12px;
+        background: #f6ecd2;
+        color: #3b2614;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #route-choice button[aria-pressed='true'] {
+        background: #8e2a1a;
+        color: #fff6e6;
+        border-color: #8e2a1a;
+      }
+      label {
+        display: grid;
+        gap: 2px;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 96px;
+        margin: 0;
+        direction: ltr;
+        accent-color: #8e2a1a;
+      }
+      #trip {
+        display: grid;
+        gap: 4px;
+        padding: 14px 18px;
+        border: 2px solid #5a3b22;
+        border-radius: 10px;
+      }
+      #trip p,
+      #saving {
+        margin: 0;
+        font-size: 28px;
+      }
+      #trip b {
+        color: #8e2a1a;
+      }
+      #saving {
+        font-weight: 600;
+        color: #2f5a3a;
+      }
+      [data-layout='portrait'] #chart-wrap {
+        width: 720px;
+        height: 560px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 560px;
+        width: 720px;
+        height: 720px;
+        padding: 24px 44px 36px;
+        border: 0;
+        border-top: 3px double #5a3b22;
+      }
+      [data-layout='portrait'] .place,
+      [data-layout='portrait'] .cartouche {
+        font-size: 32px;
+      }
+      [data-layout='portrait'] label,
+      [data-layout='portrait'] #trip p,
+      [data-layout='portrait'] #saving {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart-wrap">
+      <canvas id="chart"></canvas>
+      <p class="cartouche" id="cartouche"></p>
+      <span class="place" id="p-singapore"></span>
+      <span class="place" id="p-rotterdam"></span>
+      <span class="place" id="p-suez"></span>
+      <span class="place" id="p-cape"></span>
+    </div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <div id="route-choice"></div>
+      <label id="speed-control"
+        ><span id="speed-label"></span><input id="speed" type="range" min="10" max="22" step="1"
+      /></label>
+      <div id="trip">
+        <p id="distance"></p>
+        <p id="days"></p>
+      </div>
+      <p id="saving"></p>
+    </section>
+    <script>
+      const TEXT = {
+        ar: {
+          title: 'قناة السويس ليه مهمة؟',
+          cartouche: 'من آسيا لأوروبا بالبحر',
+          places: {
+            singapore: 'سنغافورة',
+            rotterdam: 'روتردام',
+            suez: 'قناة السويس',
+            cape: 'رأس الرجاء الصالح',
+          },
+          routes: { suez: 'من القناة', cape: 'حوالين أفريقيا' },
+          speed: (s) => `سرعة المركب: ${s} عقدة`,
+          distance: (km) => `المسافة: <b>${km}</b> كم`,
+          days: (d) => `المدة: <b>${d}</b> يوم في البحر`,
+          saving: (d, km) => `القناة بتوفّر حوالي ${d} يوم و${km} كم`,
+        },
+        en: {
+          title: 'Why does the Suez Canal matter?',
+          cartouche: 'Asia to Europe by sea',
+          places: {
+            singapore: 'Singapore',
+            rotterdam: 'Rotterdam',
+            suez: 'Suez Canal',
+            cape: 'Cape of Good Hope',
+          },
+          routes: { suez: 'Through Suez', cape: 'Round Africa' },
+          speed: (s) => `Ship speed: ${s} knots`,
+          distance: (km) => `Distance: <b>${km}</b> km`,
+          days: (d) => `Time: <b>${d}</b> days at sea`,
+          saving: (d, km) => `The canal saves about ${d} days and ${km} km`,
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      const canvas = $('chart');
+      const g = canvas.getContext('2d');
+      let frame = 0,
+        last = null;
+      $('speed').oninput = (e) => NewLearnBoard.setVariables({ speed: Number(e.target.value) });
+      const daysAt = (miles, knots) => miles / (knots * 24);
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const layout = env?.layout === 'portrait' ? 'portrait' : 'landscape';
+          const route = view.variables.route === 'cape' ? 'cape' : 'suez';
+          const speed = Math.max(10, Math.min(22, Number(view.variables.speed) || 14));
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG', {
+            maximumFractionDigits: 0,
+          });
+          const km = (m) => fmt.format(Math.round((m * 1.852) / 10) * 10);
+          $('title').textContent = t.title;
+          $('cartouche').textContent = t.cartouche;
+          $('route-choice').replaceChildren(
+            ...['suez', 'cape'].map((r) => {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.textContent = t.routes[r];
+              b.setAttribute('aria-pressed', String(r === route));
+              b.onclick = () => NewLearnBoard.setVariables({ route: r });
+              return b;
+            }),
+          );
+          $('speed').value = speed;
+          $('speed-label').textContent = t.speed(fmt.format(speed));
+          const miles = ROUTES[route].miles;
+          $('distance').innerHTML = t.distance(km(miles));
+          $('days').innerHTML = t.days(fmt.format(daysAt(miles, speed)));
+          const extra = daysAt(ROUTES.cape.miles, speed) - daysAt(ROUTES.suez.miles, speed);
+          $('saving').textContent = t.saving(
+            fmt.format(extra),
+            km(ROUTES.cape.miles - ROUTES.suez.miles),
+          );
+          const size = layout === 'portrait' ? [720, 560] : [860, 720];
+          const box =
+            layout === 'portrait'
+              ? { x: 16, y: 64, w: 688, h: 474 }
+              : { x: 24, y: 76, w: 812, h: 560 };
+          canvas.width = size[0];
+          canvas.height = size[1];
+          const draw = (p) => {
+            const P = drawChart(g, box, size, { route, p });
+            const offsets = {
+              singapore: [0, 14],
+              rotterdam: [0, -48],
+              suez: [-70, -54],
+              cape: [70, -46],
+            };
+            for (const [name, at] of Object.entries(PLACES)) {
+              const [x, y] = P(at),
+                el = $(`p-${name}`);
+              el.textContent = t.places[name];
+              el.style.left = `${Math.max(90, Math.min(size[0] - 90, x + offsets[name][0]))}px`;
+              el.style.top = `${y + offsets[name][1]}px`;
+            }
+          };
+          NewLearnBoard.observe(
+            `${t.routes[route]}: ${km(miles)} km, ${fmt.format(daysAt(miles, speed))} days at ${speed} knots.`,
+            { route, speed },
+          );
+          const key = `${route}|${layout}|${lang}`;
+          const animate = env?.reducedMotion !== true && view.input !== 'open' && key !== last;
+          last = key;
+          cancelAnimationFrame(frame);
+          if (!animate) return draw(1);
+          const start = performance.now();
+          const tick = (now) => {
+            const k = Math.min(1, (now - start) / 1600);
+            draw(k * k * (3 - 2 * k));
+            if (k < 1) frame = requestAnimationFrame(tick);
+          };
+          frame = requestAnimationFrame(tick);
+        },
+      });
+    </script>
+  </body>
+</html>

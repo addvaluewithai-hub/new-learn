@@ -1,0 +1,20 @@
+{
+  "apiVersion": 1,
+  "id": "demo-suez-map",
+  "title": "قناة السويس ليه مهمة؟",
+  "description": "Demo course board (docs/visuals/demos.md): an old sea chart on parchment. A ship from Singapore to Rotterdam through the Suez Canal or round the Cape of Good Hope; the speed sets the days at sea.",
+  "libraries": [],
+  "variables": {
+    "route": { "type": "choice", "options": ["suez", "cape"], "label": "Route", "default": "suez" },
+    "speed": {
+      "type": "number",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "knots",
+      "label": "Speed",
+      "default": 14
+    }
+  },
+  "targets": ["#chart", "#route-choice", "#speed-control", "#trip", "#saving"]
+}

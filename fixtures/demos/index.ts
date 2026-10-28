@@ -42,6 +42,7 @@ export const DEMOS: Demo[] = [
     style: '3D',
     audience: 'المدارس',
     colors: ['#0a1030', '#ffd36e'],
+    load: () => import('./courses/seasons').then((m) => m.seasonsCourse),
   },
   {
     id: 'suez',
@@ -49,6 +50,7 @@ export const DEMOS: Demo[] = [
     style: 'خريطة بحرية قديمة',
     audience: 'جغرافيا واقتصاد',
     colors: ['#e9dcc0', '#7a4b2a'],
+    load: () => import('./courses/suez').then((m) => m.suezCourse),
   },
   {
     id: 'pyramid',
