@@ -1,18 +1,32 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { api } from '../../shared/api';
-import { CHOICES, DEFAULT_CHOICES, FILE_LIMITS, FILE_TYPES, readUpload } from './choices';
+import { AUDIENCES, DEFAULT_CHOICES, FILE_LIMITS, readUpload } from './choices';
+import { EXAMPLES, lookOf, suggestLooks, type Look } from './looks';
 import { go, type BuildJob } from './types';
+import { Composer } from './Composer';
+import { LookGallery } from './LookGallery';
+import { LookPreview } from './LookPreview';
+import { Details } from './Details';
+import './looks.css';
+import './details.css';
 
-const megabytes = (bytes: number) => `${(bytes / 1024 / 1024).toFixed(1)} ميجا`;
-
+/** «اعمل كورس»: the idea, who it is for, the look, then one button (docs/visuals/README.md). */
 export function StudioForm() {
   const [topic, setTopic] = useState(''),
-    [choices, setChoices] = useState(DEFAULT_CHOICES),
     [files, setFiles] = useState<File[]>([]),
     [webSearch, setWebSearch] = useState(true),
+    [look, setLook] = useState('auto'),
+    [choices, setChoices] = useState(DEFAULT_CHOICES),
+    [preview, setPreview] = useState<Look | null>(null),
+    [dragging, setDragging] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [active, setActive] = useState<BuildJob | null>(null);
+  const suggested = useMemo(
+    () => suggestLooks(topic.trim().length > 2 ? topic : '', choices.audience),
+    [topic, choices.audience],
+  );
+
   useEffect(() => {
     api<{ jobs: BuildJob[] }>('/studio/jobs').then(
       ({ jobs }) =>
@@ -20,16 +34,6 @@ export function StudioForm() {
       () => setActive(null),
     );
   }, []);
-
-  function pick(key: string, value: string, multi?: boolean) {
-    setChoices((current) => {
-      if (!multi) return { ...current, [key]: value };
-      const now = current[key].split(',').filter(Boolean);
-      const next = now.includes(value) ? now.filter((v) => v !== value) : [...now, value];
-      return next.length && next.length <= 3 ? { ...current, [key]: next.join(',') } : current;
-    });
-  }
-
   function addFiles(list: FileList | null) {
     setError('');
     const next = [...files, ...Array.from(list ?? [])];
@@ -40,17 +44,49 @@ export function StudioForm() {
       return setError('الملفات مع بعض لازم تكون أقل من 10 ميجا.');
     setFiles(next);
   }
-
+  // Files can be dropped anywhere on the page.
+  useEffect(() => {
+    const over = (e: DragEvent) => {
+      if (!e.dataTransfer?.types.includes('Files')) return;
+      e.preventDefault();
+      setDragging(true);
+    };
+    const leave = (e: DragEvent) => !e.relatedTarget && setDragging(false);
+    const drop = (e: DragEvent) => {
+      e.preventDefault();
+      setDragging(false);
+      addFiles(e.dataTransfer?.files ?? null);
+    };
+    addEventListener('dragover', over);
+    addEventListener('dragleave', leave);
+    addEventListener('drop', drop);
+    return () => {
+      removeEventListener('dragover', over);
+      removeEventListener('dragleave', leave);
+      removeEventListener('drop', drop);
+    };
+  });
+  function pick(key: string, value: string, multi?: boolean) {
+    setChoices((current) => {
+      if (!multi) return { ...current, [key]: value };
+      const now = current[key].split(',').filter(Boolean);
+      const next = now.includes(value) ? now.filter((v) => v !== value) : [...now, value];
+      return next.length && next.length <= 3 ? { ...current, [key]: next.join(',') } : current;
+    });
+  }
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (topic.trim().length < 3) return setError('اكتب الكورس عن إيه.');
+    if (topic.trim().length < 3) {
+      document.getElementById('studio-topic')?.focus();
+      return setError('اكتب الكورس عن إيه.');
+    }
     setBusy(true);
     setError('');
     try {
       const uploads = await Promise.all(files.map(readUpload));
       const job = await api<BuildJob>('/studio/jobs', {
         topic,
-        choices,
+        choices: { ...choices, look },
         webSearch,
         files: uploads,
       });
@@ -63,14 +99,14 @@ export function StudioForm() {
 
   return (
     <form className="studio" onSubmit={submit}>
-      <div className="page-heading">
+      <header className="studio-head">
         <span className="eyebrow">استوديو الكورسات</span>
-        <h1>اعمل كورس جديد</h1>
+        <h1>اعمل درس تفاعلي من فكرة</h1>
         <p>
-          اكتب عايز تشرح إيه، ارفع ملفاتك لو عندك، واختار طريقة الشرح. هنبني لك مسودة تراجعها قبل ما
-          الطلاب يشوفوها.
+          اكتب عايز تتعلم أو تشرح إيه، وقول لمين، واختار شكله. هنبني لك درس فيه بوردات تلعب فيها
+          وأسئلة، وتقدر تراجعه قبل ما حد تاني يشوفه.
         </p>
-      </div>
+      </header>
       {active && (
         <p className="studio-active" role="status">
           فيه كورس بيتبني دلوقتي: <strong>{active.topic}</strong>{' '}
@@ -79,86 +115,79 @@ export function StudioForm() {
           </a>
         </p>
       )}
-      <label className="studio-field">
-        <span>الكورس عن إيه؟</span>
-        <textarea
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-          maxLength={4000}
-          rows={4}
-          placeholder="مثلًا: الفايدة المركبة لطلاب أولى تجارة، مع أمثلة من البنوك المصرية"
+      <section className="studio-step" aria-labelledby="step-idea">
+        <h2 id="step-idea">
+          <span>١</span> الفكرة
+        </h2>
+        <Composer
+          topic={topic}
+          onTopic={setTopic}
+          files={files}
+          onFiles={addFiles}
+          onRemove={(i) => setFiles(files.filter((_, j) => j !== i))}
+          webSearch={webSearch}
+          onWebSearch={setWebSearch}
         />
-      </label>
-      <div className="studio-field">
-        <span>ملفاتك (اختياري)</span>
-        <label className="studio-drop">
-          <input
-            type="file"
-            multiple
-            accept={FILE_TYPES}
-            onChange={(e) => addFiles(e.target.files)}
-          />
-          ارفع PDF أو Word أو صور أو نص. لحد 5 ملفات، 4 ميجا للملف.
-        </label>
-        {files.length > 0 && (
-          <ul className="studio-files">
-            {files.map((file, i) => (
-              <li key={`${file.name}-${i}`}>
-                <span>{file.name}</span>
-                <small>{megabytes(file.size)}</small>
-                <button
-                  type="button"
-                  className="text-button"
-                  aria-label={`شيل ${file.name}`}
-                  onClick={() => setFiles(files.filter((_, j) => j !== i))}
-                >
-                  شيل
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div className="examples" aria-label="أمثلة">
+          <span>أو ابدأ من مثال:</span>
+          {EXAMPLES.map((example) => (
+            <button
+              key={example.topic}
+              type="button"
+              className="example"
+              onClick={() => {
+                setTopic(example.topic);
+                setLook(example.look);
+              }}
+            >
+              <img src={`/styles/${example.look}.webp`} alt="" />
+              {example.topic}
+            </button>
+          ))}
+        </div>
+      </section>
+      <section className="studio-step" aria-labelledby="step-details">
+        <h2 id="step-details">
+          <span>٢</span> لمين؟
+        </h2>
+        <Details choices={choices} onPick={pick} />
+      </section>
+      <section className="studio-step" aria-labelledby="step-look">
+        <h2 id="step-look">
+          <span>٣</span> الشكل
+        </h2>
+        <LookGallery
+          selected={look}
+          suggested={suggested}
+          onSelect={setLook}
+          onPreview={setPreview}
+        />
+      </section>
+      <div className="studio-cta">
+        <div>
+          <strong>{topic.trim() ? topic.trim().slice(0, 60) : 'درس جديد'}</strong>
+          <span>
+            {AUDIENCES.find((a) => a.id === choices.audience)?.name} · {lookOf(look).name} · بياخد
+            من ٥ لـ٢٠ دقيقة، وتقدر تقفل الصفحة
+          </span>
+        </div>
+        {error && (
+          <p className="error-message" role="alert">
+            {error}
+          </p>
         )}
+        <button className="button primary" disabled={busy || Boolean(active)}>
+          {busy ? 'بنبعت طلبك…' : 'ابدأ البناء'}
+        </button>
       </div>
-      {CHOICES.map((choice) => (
-        <fieldset key={choice.key} className="studio-choice">
-          <legend>
-            {choice.title}
-            {choice.multi && <small> (لحد 3)</small>}
-          </legend>
-          <div className="studio-chips">
-            {choice.options.map(([value, label]) => {
-              const on = choices[choice.key].split(',').includes(value);
-              return (
-                <button
-                  key={value}
-                  type="button"
-                  className="studio-chip"
-                  aria-pressed={on}
-                  onClick={() => pick(choice.key, value, choice.multi)}
-                >
-                  {label}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-      ))}
-      <label className="studio-toggle">
-        <input
-          type="checkbox"
-          checked={webSearch}
-          onChange={(e) => setWebSearch(e.target.checked)}
+      {dragging && <div className="studio-drop-overlay">سيب الملفات هنا</div>}
+      {preview && (
+        <LookPreview
+          look={preview}
+          onClose={() => setPreview(null)}
+          onChoose={(id) => setLook(id)}
         />
-        يدوّر على النت عشان يتأكد من المعلومات ويجيب أمثلة
-      </label>
-      {error && (
-        <p className="error-message" role="alert">
-          {error}
-        </p>
       )}
-      <button className="button primary" disabled={busy || Boolean(active)}>
-        {busy ? 'بنبعت طلبك…' : 'ابدأ البناء'}
-      </button>
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { BuildJob } from './types';
+import './progress.css';
 
 const POLL_MS = 3000;
 

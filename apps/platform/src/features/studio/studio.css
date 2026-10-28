@@ -1,157 +1,228 @@
-/* "Make a course": one calm form, then the builder's steps. Ess restyles this later. */
+/* «اعمل كورس»: a studio, not a form. Three numbered moments and one sticky button. */
 .studio {
+  --ink: #17332a;
+  --leaf: #153d35;
+  --lime: #d7f77b;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 22px;
+  gap: 34px;
+  padding-bottom: 120px;
 }
-.studio .page-heading {
-  margin-bottom: 4px;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
-.studio-field {
-  display: grid;
-  gap: 8px;
-}
-.studio-field > span,
-.studio-choice legend {
+.studio-head h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
-.studio textarea {
-  font: inherit;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  resize: vertical;
-  line-height: 1.8;
-}
-.studio-drop {
-  display: block;
-  padding: 18px;
-  border: 1.5px dashed var(--line);
-  border-radius: 14px;
+.studio-head p {
+  max-width: 620px;
   color: var(--muted);
-  cursor: pointer;
+  line-height: 1.9;
 }
-.studio-drop input {
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-}
-.studio-files {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 6px;
-}
-.studio-files li {
+.studio-step h2 {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin: 0 0 14px;
+  font-size: 1.25rem;
 }
-.studio-files span {
-  flex: 1;
-  min-width: 0;
-  overflow-wrap: anywhere;
+.studio-step h2 span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--leaf);
+  color: var(--lime);
+  font-size: 1rem;
 }
-.studio-files small,
-.studio-choice small {
-  color: var(--muted);
-  font-weight: 400;
+.composer {
+  border: 1.5px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(16 32 28 / 7%);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
-.studio-choice {
-  margin: 0;
-  padding: 0;
+.composer:focus-within {
+  border-color: var(--leaf);
+  box-shadow:
+    0 0 0 4px rgb(21 61 53 / 10%),
+    0 10px 30px rgb(16 32 28 / 7%);
+}
+.composer textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 22px 8px;
   border: 0;
+  border-radius: 22px 22px 0 0;
+  background: none;
+  font: inherit;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  resize: vertical;
+  outline: none;
 }
-.studio-choice legend {
-  margin-bottom: 10px;
-  padding: 0;
-}
-.studio-chips {
+.composer-files {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin: 0;
+  padding: 0 18px;
+  list-style: none;
 }
-.studio-chip {
-  min-height: 42px;
-  padding: 8px 16px;
+.composer-files li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 6px 8px 6px 12px;
+  border-radius: 999px;
+  background: var(--soft);
+  font-size: 0.9rem;
+}
+.file-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.composer-files small {
+  color: var(--muted);
+}
+.composer-files button {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.composer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 10px 14px 14px;
+}
+.composer-attach {
+  min-height: 40px;
+  padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: #fff;
   font: inherit;
+  font-weight: 600;
   cursor: pointer;
 }
-.studio-chip[aria-pressed='true'] {
-  border-color: var(--green);
-  background: var(--green);
-  color: #fff;
-}
-.studio-toggle {
+.composer-switch {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  cursor: pointer;
 }
-.studio-toggle input {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--green);
+.composer-switch input {
+  width: 38px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--leaf);
 }
-.studio > .button {
-  justify-self: start;
+.composer-hint {
+  margin-inline-start: auto;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.examples > span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.example {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.example img {
+  width: 44px;
+  height: 30px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+.studio-cta {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 14px 16px 14px 14px;
+  border-radius: 20px;
+  background: var(--leaf);
+  color: #fff;
+  box-shadow: 0 16px 40px rgb(16 32 28 / 28%);
+}
+.studio-cta > div {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+.studio-cta strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.studio-cta span {
+  color: rgb(255 255 255 / 72%);
+  font-size: 0.85rem;
+}
+.studio-cta .button.primary {
+  background: var(--lime);
+  color: var(--leaf);
+}
+.studio-cta .error-message {
+  flex-basis: 100%;
+  order: 3;
 }
 .studio-active {
   padding: 12px 15px;
   border-radius: 12px;
   background: var(--soft);
 }
-.build-steps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.studio-drop-overlay {
+  position: fixed;
+  inset: 12px;
+  z-index: 20;
   display: grid;
-  gap: 10px;
-}
-.build-steps li {
-  position: relative;
-  padding-inline-start: 26px;
-  color: var(--muted);
-}
-.build-steps li::before {
-  content: '✓';
-  position: absolute;
-  inset-inline-start: 0;
-  color: var(--green);
-}
-.build-steps li.now {
-  color: var(--ink);
+  place-items: center;
+  border: 3px dashed var(--leaf);
+  border-radius: 24px;
+  background: rgb(215 247 123 / 35%);
+  font-size: 1.6rem;
   font-weight: 600;
-}
-.build-steps li.now::before {
-  content: '';
-  top: 0.55em;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: build-pulse 1.2s ease-in-out infinite;
-}
-.build-done {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-}
-.build-done p {
-  flex-basis: 100%;
-  line-height: 1.8;
-}
-@keyframes build-pulse {
-  50% {
-    opacity: 0.3;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .build-steps li.now::before {
-    animation: none;
-  }
+  pointer-events: none;
 }

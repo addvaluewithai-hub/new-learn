@@ -1,0 +1,200 @@
+/* The look gallery: one card per look with its real picture, and the live preview dialog. */
+.looks-slider {
+  position: relative;
+}
+.looks {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 196px;
+  gap: 12px;
+  margin: 0 -6px;
+  padding: 6px 6px 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 6px;
+  scrollbar-width: thin;
+}
+.look {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(16 32 28 / 8%),
+    0 6px 16px rgb(16 32 28 / 8%);
+}
+.look.on {
+  box-shadow:
+    0 0 0 3px var(--leaf),
+    0 10px 24px rgb(16 32 28 / 14%);
+}
+.look-pick {
+  display: grid;
+  flex: 1;
+  align-content: start;
+  gap: 2px;
+  padding: 6px 6px 12px;
+  cursor: pointer;
+}
+.look-pick input {
+  position: absolute;
+  opacity: 0;
+}
+.look-pick:has(input:focus-visible) {
+  outline: 3px solid var(--leaf);
+  outline-offset: 3px;
+  border-radius: 16px;
+}
+.look-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 6px;
+  border-radius: 11px;
+  object-fit: cover;
+  background: var(--soft);
+}
+.look-auto {
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  color: var(--leaf);
+  background: linear-gradient(135deg, #eaf0e7, #d7f77b);
+}
+.look-name {
+  padding: 0 6px;
+  font-weight: 600;
+}
+.look-line {
+  display: -webkit-box;
+  padding: 0 6px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.look-fits {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--leaf);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.look-try {
+  position: absolute;
+  top: calc((196px - 12px) * 9 / 16 - 30px);
+  inset-inline-end: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  color: var(--leaf);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.look-try::before {
+  content: '▶';
+  font-size: 0.7em;
+}
+.looks-arrow {
+  position: absolute;
+  top: 50px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgb(16 32 28 / 22%);
+  color: var(--leaf);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.looks-arrow[hidden] {
+  display: none;
+}
+.looks-arrow.prev {
+  inset-inline-start: -18px;
+}
+.looks-arrow.next {
+  inset-inline-end: -18px;
+}
+@media (max-width: 640px), (hover: none) {
+  .looks-arrow {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .looks {
+    grid-auto-columns: 158px;
+    gap: 10px;
+  }
+  .look-try {
+    top: calc((158px - 12px) * 9 / 16 - 30px);
+  }
+}
+.look-preview {
+  width: min(960px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  overflow: auto;
+}
+.look-preview::backdrop {
+  background: rgb(10 20 16 / 60%);
+}
+.look-preview header,
+.look-preview footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 20px;
+}
+.look-preview header > div {
+  flex: 1;
+}
+.look-preview h2 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+}
+.look-preview header p {
+  margin: 0;
+  color: var(--muted);
+}
+.look-preview-close {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--soft);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.look-preview-board {
+  aspect-ratio: 16 / 9;
+  background: #0d1626;
+}
+.look-preview-board.portrait {
+  aspect-ratio: 9 / 16;
+  max-height: 62dvh;
+  margin: 0 auto;
+}
