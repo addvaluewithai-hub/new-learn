@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>ليه اللمبة بتنور؟</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="drawing.js"></script>
+    <style>
+      /* Landscape 1280×720: the drawing and a panel. Portrait: the drawing on top. */
+      html {
+        --nl-backdrop: #0b2546;
+      }
+      body {
+        background: #0e2d55;
+        color: #e8f1ff;
+      }
+      #drawing {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 860px;
+        height: 720px;
+      }
+      #drawing .g {
+        stroke: rgb(255 255 255 / 7%);
+        stroke-width: 1;
+      }
+      #drawing .G {
+        stroke: rgb(255 255 255 / 15%);
+        stroke-width: 1.5;
+      }
+      #drawing .w {
+        stroke: #f2f7ff;
+        stroke-width: 4;
+        stroke-linecap: round;
+        fill: none;
+      }
+      #drawing .w.thick {
+        stroke-width: 9;
+      }
+      #drawing .frame {
+        stroke-width: 3;
+        stroke-dasharray: 0;
+      }
+      #drawing .dot {
+        fill: #f2f7ff;
+      }
+      #drawing .flow {
+        fill: none;
+        stroke: #ffe066;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 2 26;
+        animation: flow linear infinite;
+      }
+      @keyframes flow {
+        to {
+          stroke-dashoffset: -28;
+        }
+      }
+      #drawing .t {
+        fill: #f2f7ff;
+        font-size: 28px;
+        text-anchor: middle;
+      }
+      #drawing .dim line {
+        stroke: #f2f7ff;
+        stroke-width: 1.5;
+      }
+      #bulb {
+        position: absolute;
+        left: 670px;
+        top: 270px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 420px;
+        height: 720px;
+        padding: 32px 34px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        font-weight: 600;
+      }
+      #meters {
+        display: grid;
+        gap: 4px;
+        padding: 12px 18px;
+        border: 2px solid #f2f7ff;
+      }
+      #meters p {
+        margin: 0;
+        font-size: 28px;
+      }
+      #meters b {
+        color: #ffe066;
+      }
+      .law {
+        margin: 0;
+        font-size: 28px;
+        direction: ltr;
+        text-align: right;
+        color: #a9c4ea;
+      }
+      #switch-control {
+        min-height: 96px;
+        border: 3px solid #ffe066;
+        border-radius: 12px;
+        background: transparent;
+        color: #ffe066;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      label {
+        display: grid;
+        gap: 0;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 96px;
+        margin: 0;
+        direction: ltr;
+        accent-color: #ffe066;
+      }
+      [data-layout='portrait'] #drawing {
+        width: 720px;
+        height: 603px;
+      }
+      [data-layout='portrait'] #drawing .t {
+        font-size: 40px;
+      }
+      #drawing .t.b {
+        font-size: 26px;
+      }
+      [data-layout='portrait'] #drawing .t.b {
+        font-size: 34px;
+      }
+      [data-layout='portrait'] #bulb {
+        left: 561px;
+        top: 226px;
+        width: 100px;
+        height: 100px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 603px;
+        width: 720px;
+        height: 677px;
+        padding: 16px 44px 28px;
+        gap: 10px;
+      }
+      [data-layout='portrait'] #meters p,
+      [data-layout='portrait'] .law,
+      [data-layout='portrait'] label {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="drawing" viewBox="0 0 860 720" xmlns="http://www.w3.org/2000/svg" role="img"></svg>
+    <div id="bulb"></div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <div id="meters">
+        <p id="amps"></p>
+        <p id="ohms"></p>
+      </div>
+      <p class="law">I = V ÷ R</p>
+      <button id="switch-control" type="button"></button>
+      <label id="volts-control"
+        ><span id="volts-label"></span><input id="volts" type="range" min="1.5" max="9" step="1.5"
+      /></label>
+      <label id="resistor-control"
+        ><span id="resistor-label"></span
+        ><input id="resistor" type="range" min="0" max="24" step="2"
+      /></label>
+    </section>
+    <script>
+      const TEXT = {
+        ar: {
+          title: 'ليه اللمبة بتنور؟',
+          labels: {
+            battery: 'بطارية',
+            switch: 'مفتاح',
+            resistor: 'مقاومة',
+            bulb: 'لمبة ٦Ω',
+            title: 'لوحة رقم ٧ · قانون أوم',
+          },
+          amps: (a) => `التيار: <b>${a}</b> أمبير`,
+          ohms: (r) => `المقاومة الكلية: <b>${r}</b> أوم`,
+          close: 'اقفل الدايرة',
+          open: 'افتح الدايرة',
+          volts: (v) => `البطارية: ${v} فولت`,
+          resistor: (r) => `المقاومة الزيادة: ${r} أوم`,
+          observe: (on, v, r, a) =>
+            `الدايرة ${on ? 'مقفولة' : 'مفتوحة'}، ${v} فولت، ${r} أوم: التيار ${a} أمبير.`,
+        },
+        en: {
+          title: 'Why does the bulb light up?',
+          labels: {
+            battery: 'Battery',
+            switch: 'Switch',
+            resistor: 'Resistor',
+            bulb: 'Bulb 6Ω',
+            title: 'Sheet 7 · Ohm’s law',
+          },
+          amps: (a) => `Current: <b>${a}</b> A`,
+          ohms: (r) => `Total resistance: <b>${r}</b> Ω`,
+          close: 'Close the circuit',
+          open: 'Open the circuit',
+          volts: (v) => `Battery: ${v} V`,
+          resistor: (r) => `Extra resistor: ${r} Ω`,
+          observe: (on, v, r, a) =>
+            `The circuit is ${on ? 'closed' : 'open'}, ${v} V, ${r} Ω: the current is ${a} A.`,
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      let closed = false;
+      $('volts').oninput = (e) => NewLearnBoard.setVariables({ volts: Number(e.target.value) });
+      $('resistor').oninput = (e) =>
+        NewLearnBoard.setVariables({ resistor: Number(e.target.value) });
+      $('switch-control').onclick = () =>
+        NewLearnBoard.setVariables({ switch: closed ? 'open' : 'closed' });
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          closed = view.variables.switch === 'closed';
+          const volts = Math.max(
+            1.5,
+            Math.min(9, Math.round((Number(view.variables.volts) || 3) / 1.5) * 1.5),
+          );
+          const resistor = Math.max(
+            0,
+            Math.min(24, Math.round((Number(view.variables.resistor) || 0) / 2) * 2),
+          );
+          const c = circuit(volts, resistor, closed);
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG', {
+            maximumFractionDigits: 2,
+          });
+          $('drawing').innerHTML = drawingSvg({
+            volts,
+            resistor,
+            closed,
+            glow: c.glow,
+            labels: t.labels,
+          });
+          $('title').textContent = t.title;
+          $('amps').innerHTML = t.amps(fmt.format(Math.round(c.current * 100) / 100));
+          $('ohms').innerHTML = t.ohms(fmt.format(resistor + BULB_OHMS));
+          $('switch-control').textContent = closed ? t.open : t.close;
+          $('volts').value = volts;
+          $('resistor').value = resistor;
+          $('volts-label').textContent = t.volts(fmt.format(volts));
+          $('resistor-label').textContent = t.resistor(fmt.format(resistor));
+          NewLearnBoard.observe(
+            t.observe(closed, volts, resistor, fmt.format(Math.round(c.current * 100) / 100)),
+            { closed, volts, resistor, current: c.current },
+          );
+        },
+      });
+    </script>
+  </body>
+</html>

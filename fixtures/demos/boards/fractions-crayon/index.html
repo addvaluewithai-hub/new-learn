@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>الكسور بالبيتزا</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="pizza.js"></script>
+    <style>
+      /* A crayon picture book. Landscape 1280×720: pizzas and a panel. Portrait: pizzas on top. */
+      html {
+        --nl-backdrop: #fff1d0;
+      }
+      body {
+        background: #fff8e6;
+        color: #3a2a1a;
+      }
+      #art {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 860px;
+        height: 720px;
+      }
+      #art svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      #pizza {
+        position: absolute;
+        left: 76px;
+        top: 126px;
+        width: 468px;
+        height: 468px;
+        border-radius: 50%;
+      }
+      #half {
+        position: absolute;
+        left: 581px;
+        top: 131px;
+        width: 238px;
+        height: 238px;
+        border-radius: 50%;
+      }
+      .tag {
+        position: absolute;
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+        color: #c0392b;
+        transform: translateX(50%);
+      }
+      #half-tag {
+        right: 160px;
+        top: 380px;
+      }
+      #sign {
+        position: absolute;
+        right: 290px;
+        top: 450px;
+        margin: 0;
+        font-size: 96px;
+        font-weight: 600;
+        color: #3d7be0;
+        direction: ltr;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 420px;
+        height: 720px;
+        padding: 34px 34px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: #fff1d0;
+        border-inline-end: 6px dashed #f4c430;
+      }
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        font-weight: 600;
+        color: #c0392b;
+      }
+      #fraction {
+        display: grid;
+        justify-items: center;
+        align-self: center;
+        margin: 4px 0;
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 1;
+        color: #e0533d;
+      }
+      #fraction i {
+        display: block;
+        width: 110px;
+        height: 7px;
+        margin: 8px 0;
+        border-radius: 4px;
+        background: #3a2a1a;
+      }
+      #compare {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+        color: #3d7be0;
+      }
+      label {
+        display: grid;
+        gap: 0;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 96px;
+        margin: 0;
+        direction: ltr;
+        accent-color: #e0533d;
+      }
+      [data-layout='portrait'] #art {
+        transform: scale(0.8372);
+        transform-origin: 0 0;
+      }
+      [data-layout='portrait'] .panel {
+        top: 603px;
+        width: 720px;
+        height: 677px;
+        padding: 16px 44px 30px;
+        border: 0;
+        border-top: 6px dashed #f4c430;
+        gap: 8px;
+      }
+      [data-layout='portrait'] .tag {
+        font-size: 38px;
+      }
+      [data-layout='portrait'] #compare,
+      [data-layout='portrait'] label {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="art">
+      <div id="svg"></div>
+      <div id="pizza"></div>
+      <div id="half"></div>
+      <p class="tag" id="half-tag"></p>
+      <p id="sign"></p>
+    </div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <div id="fraction"><span id="top"></span><i></i><span id="bottom"></span></div>
+      <p id="compare"></p>
+      <label id="slices-control"
+        ><span id="slices-label"></span><input id="slices" type="range" min="2" max="12" step="1"
+      /></label>
+      <label id="taken-control"
+        ><span id="taken-label"></span><input id="taken" type="range" min="0" max="12" step="1"
+      /></label>
+    </section>
+    <script>
+      const TEXT = {
+        ar: {
+          title: 'الكسور بالبيتزا',
+          half: 'نص بيتزا',
+          compare: { less: 'أقل من النص', equal: 'بيساوي النص بالظبط!', more: 'أكتر من النص' },
+          slices: (n) => `البيتزا متقطعة: ${n} حتت`,
+          taken: (n) => `أخدنا: ${n} حتت`,
+          observe: (a, b, c) => `أخدنا ${a} من ${b} حتت: ${c}.`,
+        },
+        en: {
+          title: 'Fractions with pizza',
+          half: 'Half a pizza',
+          compare: { less: 'Less than a half', equal: 'Exactly a half!', more: 'More than a half' },
+          slices: (n) => `Cut into: ${n} slices`,
+          taken: (n) => `Taken: ${n} slices`,
+          observe: (a, b, c) => `${a} of ${b} slices taken: ${c}.`,
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      $('slices').oninput = (e) => NewLearnBoard.setVariables({ slices: Number(e.target.value) });
+      $('taken').oninput = (e) => NewLearnBoard.setVariables({ taken: Number(e.target.value) });
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const slices = Math.max(2, Math.min(12, Math.round(Number(view.variables.slices) || 4)));
+          const taken = Math.max(
+            0,
+            Math.min(slices, Math.round(Number(view.variables.taken) || 0)),
+          );
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG');
+          const cmp = taken * 2 < slices ? 'less' : taken * 2 === slices ? 'equal' : 'more';
+          $('svg').innerHTML =
+            `<svg viewBox="0 0 860 720" xmlns="http://www.w3.org/2000/svg" role="img">${boardSvg({ slices, taken })}</svg>`;
+          $('title').textContent = t.title;
+          $('half-tag').textContent = t.half;
+          $('sign').textContent = { less: '<', equal: '=', more: '>' }[cmp];
+          $('top').textContent = fmt.format(taken);
+          $('bottom').textContent = fmt.format(slices);
+          $('compare').textContent = t.compare[cmp];
+          $('slices').value = slices;
+          $('taken').max = slices;
+          $('taken').value = taken;
+          $('slices-label').textContent = t.slices(fmt.format(slices));
+          $('taken-label').textContent = t.taken(fmt.format(taken));
+          NewLearnBoard.observe(t.observe(taken, slices, t.compare[cmp]), { slices, taken });
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>الهرم اتبنى إزاي؟</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="physics.js"></script>
+    <script src="scene.js"></script>
+    <style>
+      /* Landscape 1280×720: the shadow scene, and a paper panel. Portrait: the scene on top. */
+      html {
+        --nl-backdrop: #2b1b10;
+      }
+      body {
+        background: #f6e3c4;
+        color: #2b1b10;
+      }
+      #scene {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 860px;
+        height: 720px;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 420px;
+        height: 720px;
+        padding: 36px 34px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        background: #f6e3c4;
+      }
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        font-weight: 600;
+      }
+      .numbers {
+        display: grid;
+        gap: 6px;
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: #2b1b10;
+        color: #ffe7b3;
+      }
+      .numbers p {
+        margin: 0;
+        font-size: 30px;
+      }
+      .numbers b {
+        color: #ffb366;
+      }
+      #note {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.45;
+      }
+      label {
+        display: grid;
+        gap: 2px;
+        font-size: 28px;
+      }
+      input[type='range'] {
+        width: 100%;
+        height: 96px;
+        margin: 0;
+        direction: ltr;
+        accent-color: #9a5226;
+      }
+      #sand-choice {
+        display: flex;
+        gap: 12px;
+      }
+      #sand-choice button {
+        flex: 1;
+        min-height: 96px;
+        border: 3px solid #2b1b10;
+        border-radius: 14px;
+        background: #fff3df;
+        color: #2b1b10;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #sand-choice button[aria-pressed='true'] {
+        background: #2b1b10;
+        color: #ffe7b3;
+      }
+      [data-layout='portrait'] #scene {
+        width: 720px;
+        height: 603px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 603px;
+        width: 720px;
+        height: 677px;
+        padding: 20px 44px 32px;
+        gap: 12px;
+      }
+      [data-layout='portrait'] .numbers p,
+      [data-layout='portrait'] #note,
+      [data-layout='portrait'] label {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="scene" viewBox="0 0 860 720" xmlns="http://www.w3.org/2000/svg" role="img"></svg>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <div class="numbers">
+        <p id="ramp"></p>
+        <p id="workers"></p>
+      </div>
+      <p id="note"></p>
+      <label id="slope-control"
+        ><span id="slope-label"></span><input id="slope" type="range" min="4" max="20" step="1"
+      /></label>
+      <div id="sand-choice"></div>
+    </section>
+    <script>
+      const TEXT = {
+        ar: {
+          title: 'الهرم اتبنى إزاي؟',
+          ramp: (km) => `طول الرامب لقمة الهرم: <b>${km}</b> كم`,
+          workers: (n) => `عمال لكل حجر: <b>${n}</b>`,
+          slope: (s) => `ميل الرامب: ${s}°`,
+          sand: { dry: 'رمل ناشف', wet: 'رمل مبلول' },
+          note: {
+            low: 'رامب واطي: عمال أقل، بس طويل جدًا ومحتاج طوب كتير.',
+            mid: 'توازن معقول بين طول الرامب وعدد العمال.',
+            high: 'رامب حاد: قصير، بس كل حجر محتاج عمال أكتر بكتير.',
+          },
+          wet: ' والمية بتقلل الاحتكاك للنص تقريبًا.',
+          observe: (s, sand, n, km) => `ميل ${s}°، ${sand}: ${n} عامل لكل حجر، والرامب ${km} كم.`,
+        },
+        en: {
+          title: 'How was the pyramid built?',
+          ramp: (km) => `Ramp to the top: <b>${km}</b> km`,
+          workers: (n) => `Workers per block: <b>${n}</b>`,
+          slope: (s) => `Ramp slope: ${s}°`,
+          sand: { dry: 'Dry sand', wet: 'Wet sand' },
+          note: {
+            low: 'A gentle ramp: fewer workers, but very long.',
+            mid: 'A fair balance of length and workers.',
+            high: 'A steep ramp: short, but every block needs many more workers.',
+          },
+          wet: ' Water roughly halves the friction.',
+          observe: (s, sand, n, km) =>
+            `Slope ${s}°, ${sand}: ${n} workers per block, a ${km} km ramp.`,
+        },
+      };
+      const $ = (id) => document.getElementById(id);
+      $('slope').oninput = (e) => NewLearnBoard.setVariables({ slope: Number(e.target.value) });
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const slope = Math.max(4, Math.min(20, Math.round(Number(view.variables.slope) || 8)));
+          const sand = view.variables.sand === 'wet' ? 'wet' : 'dry';
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG', {
+            maximumFractionDigits: 2,
+          });
+          const h = haul(slope, sand);
+          const km = fmt.format(Math.round(h.rampKm * 100) / 100);
+          $('scene').innerHTML = sceneSvg({ slope, sand, workers: h.workers });
+          $('title').textContent = t.title;
+          $('ramp').innerHTML = t.ramp(km);
+          $('workers').innerHTML = t.workers(fmt.format(h.workers));
+          $('note').textContent =
+            t.note[slope < 7 ? 'low' : slope > 13 ? 'high' : 'mid'] + (sand === 'wet' ? t.wet : '');
+          $('slope').value = slope;
+          $('slope-label').textContent = t.slope(fmt.format(slope));
+          $('sand-choice').replaceChildren(
+            ...['dry', 'wet'].map((s) => {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.textContent = t.sand[s];
+              b.setAttribute('aria-pressed', String(s === sand));
+              b.onclick = () => NewLearnBoard.setVariables({ sand: s });
+              return b;
+            }),
+          );
+          NewLearnBoard.observe(t.observe(slope, t.sand[sand], h.workers, km), {
+            slope,
+            sand,
+            workers: h.workers,
+            rampKm: h.rampKm,
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

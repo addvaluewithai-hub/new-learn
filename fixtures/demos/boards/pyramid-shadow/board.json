@@ -1,0 +1,20 @@
+{
+  "apiVersion": 1,
+  "id": "demo-pyramid-shadow",
+  "title": "الهرم اتبنى إزاي؟",
+  "description": "Demo course board (docs/visuals/demos.md): shadow puppets on layered paper at sunset. A 2.5-tonne block dragged up a ramp on a sledge: the slope sets the ramp's length and the workers needed; wetting the sand cuts the friction.",
+  "libraries": [],
+  "variables": {
+    "slope": {
+      "type": "number",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "°",
+      "label": "Ramp slope",
+      "default": 8
+    },
+    "sand": { "type": "choice", "options": ["dry", "wet"], "label": "Sand", "default": "dry" }
+  },
+  "targets": ["#scene", "#slope-control", "#sand-choice", "#ramp", "#workers"]
+}

@@ -88,7 +88,8 @@ index.html must load the helper and start it:
   support both layouts with CSS on html[data-layout='portrait'].
 - Nothing may leave the canvas; text keeps 8px from its edge; no element may cut its text.
 - Text at least 24px (landscape) and 32px (portrait); buttons/sliders at least 88px on their
-  short side. Use the board font (it is the default); do not set other font families.
+  short side. Use the board font (it is the default); 'NL Naskh' (Amiri) for Arabic display
+  text such as grammar or poetry; no other font families.
 - Pointer positions: NewLearnBoard.point(event) gives canvas pixels (correct at any scale).
 - Formulas and sliders read left to right even in Arabic: give them direction: ltr.
 
