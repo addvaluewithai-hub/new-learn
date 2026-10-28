@@ -1,15 +1,6 @@
 /* Reading lesson stage: a full-height study room. Every region has a fixed place, so moving
    between steps never shifts the layout; the board is the hero and everything else is quiet. */
 .rl {
-  --rl-paper: #f6f5f0;
-  --rl-card: #fff;
-  --rl-ink: #1b2925;
-  --rl-soft: #5f6f69;
-  --rl-faint: #97a39d;
-  --rl-wash: rgb(27 41 37 / 6%);
-  --rl-accent: #17463c;
-  --rl-lime: #c4eb67;
-  --rl-shadow: 0 1px 2px rgb(16 32 28 / 6%), 0 8px 24px rgb(16 32 28 / 7%);
   --rl-caption-h: 136px;
   position: relative;
   height: 100%;
@@ -24,7 +15,7 @@
   -webkit-font-smoothing: antialiased;
 }
 .rl :focus-visible {
-  outline: 3px solid #9ccf73;
+  outline: 3px solid var(--rl-focus);
   outline-offset: 2px;
 }
 .rl-top {

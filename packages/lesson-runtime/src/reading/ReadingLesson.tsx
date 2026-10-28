@@ -28,6 +28,7 @@ import { ExitLink, GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
 import { threadItems } from './thread';
 import type { ReadingLessonProps, ReadingProgress } from './props';
 import { validateReadingPackage } from './validate';
+import './stage/tokens.css';
 import './stage/stage.css';
 import './stage/stage-parts.css';
 import './stage/stage-sheets.css';
