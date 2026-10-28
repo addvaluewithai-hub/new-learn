@@ -9,6 +9,7 @@ export type {
   ReadingLessonProps,
   ReadingPace,
   ReadingProgress,
+  QuestionMode,
 } from './reading/props';
 export * from './core';
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { SpeakerHighIcon } from '@phosphor-icons/react/dist/csr/SpeakerHigh';
 import { SpeakerSlashIcon } from '@phosphor-icons/react/dist/csr/SpeakerSlash';
-import type { ReadingPace } from '@learn/lesson-runtime';
+import type { QuestionMode, ReadingPace } from '@learn/lesson-runtime';
 import type { FlowSettings } from './useLessonFlow';
 import type { VoicePrefs } from '../voice/voicePrefs';
 import { VoiceStyleSettings } from './VoiceStyleSettings';
@@ -13,6 +13,11 @@ const PACES: Array<{ value: ReadingPace | null; label: string }> = [
   { value: 'slower', label: 'أبطأ' },
   { value: 'normal', label: 'عادي' },
   { value: 'faster', label: 'أسرع' },
+];
+
+const QUESTIONS: Array<{ value: QuestionMode; label: string }> = [
+  { value: 'ask', label: 'اسألني' },
+  { value: 'show', label: 'اعرض الحلول' },
 ];
 
 /** How the lesson moves (Nova reading aloud, or a reading pace) and how Nova sounds. */
@@ -101,6 +106,26 @@ export function LessonSettings({
               <small>الوقت قبل ما الخطوة الجاية تظهر. «يدوي» يعني بزرار التالي.</small>
             </div>
           )}
+          <div className="flow-pace">
+            <strong id="flow-questions-title">الأسئلة</strong>
+            <div role="radiogroup" aria-labelledby="flow-questions-title">
+              {QUESTIONS.map((mode) => (
+                <button
+                  key={mode.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={settings.questions === mode.value}
+                  onClick={() => onChange({ questions: mode.value })}
+                >
+                  {mode.label}
+                </button>
+              ))}
+            </div>
+            <small>
+              «اعرض الحلول» بيكمّل الدرس من غير ما يستناك تجاوب. اللي اتعرض من غير إجابة مش بيتحسب
+              في الأهداف.
+            </small>
+          </div>
           <HandsFreeSettings settings={settings} onChange={onChange} />
           <VoiceStyleSettings prefs={voice} onChange={onVoice} />
         </div>

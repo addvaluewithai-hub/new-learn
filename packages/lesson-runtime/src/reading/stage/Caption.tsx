@@ -63,16 +63,20 @@ export function Caption({
   );
 }
 
-/** The question while the learner answers: wording, choices, and a way out. */
+/** The question while the learner answers: wording, choices, and ways out. */
 export function QuestionCaption({
   question,
   onChoose,
   onSkip,
+  onReveal,
   onHint,
 }: {
   question: ReadingQuestion;
   onChoose: (option: string) => void;
+  /** Leave it unanswered and go on. */
   onSkip: () => void;
+  /** "I don't know": show the model answer. */
+  onReveal: () => void;
   /** Ask the tutor for a hint (never the answer). */
   onHint?: () => void;
 }) {
@@ -88,8 +92,11 @@ export function QuestionCaption({
               تلميح
             </button>
           ) : null}
-          <button type="button" className="rl-link" onClick={onSkip}>
+          <button type="button" className="rl-link" onClick={onReveal}>
             معرفتش، وريني الحل
+          </button>
+          <button type="button" className="rl-link" onClick={onSkip}>
+            فوّت
           </button>
         </span>
       </div>
@@ -124,6 +131,8 @@ export function PageCaption({
   answers,
   answering,
   onAnswer,
+  onSkip,
+  onReveal,
   onThread,
   onHint,
 }: {
@@ -132,6 +141,8 @@ export function PageCaption({
   answers: Record<string, string>;
   answering: boolean;
   onAnswer: (value: string) => void;
+  onSkip: () => void;
+  onReveal: () => void;
   onThread: () => void;
   onHint?: () => void;
 }) {
@@ -141,7 +152,8 @@ export function PageCaption({
       <QuestionCaption
         question={question}
         onChoose={onAnswer}
-        onSkip={() => onAnswer('')}
+        onSkip={onSkip}
+        onReveal={onReveal}
         onHint={onHint}
       />
     );

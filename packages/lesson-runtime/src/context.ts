@@ -36,6 +36,14 @@ export type LessonController = {
   /** Reading lessons: submit this answer to the question on its attempt page, as the answer
    * form would (e.g. an answer the learner spoke in audio mode). Ignored on any other page. */
   answer?: (value: string) => void;
+  /** Reading lessons: leave the open question unanswered and go on to the next scene.
+   * False when the learner is not on an open question. */
+  skip?: () => boolean;
+  /** Reading lessons: show the open question's model answer (recorded as "I don't know" when
+   * questions are asked). False when the learner is not on an open question. */
+  reveal?: () => boolean;
+  /** Reading lessons: one step back, as the Back button would. */
+  back?: () => void;
 };
 // The host observes the same Remotion frame as the board. No second clock.
 export function lessonContext(

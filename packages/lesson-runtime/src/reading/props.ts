@@ -7,6 +7,9 @@ import type { ReadingPosition } from './model';
 import type { ThreadNote } from './thread';
 import type { ReadingPackage } from './types';
 
+/** How a lesson's questions are met: asked and answered (default), or shown with their answers. */
+export type QuestionMode = 'ask' | 'show';
+
 export type ReadingProgress = {
   position: ReadingPosition;
   reachedSceneIds: string[];
@@ -21,6 +24,8 @@ export type ReadingLessonProps = {
   layout?: LessonLayout;
   /** Saved progress to resume from (positions that no longer exist start at the top). */
   initial?: Partial<ReadingProgress>;
+  /** Questions are asked and answered (default), or shown with their model answers. */
+  questions?: QuestionMode;
   /** Host overlay (e.g. the assistant) is open: keyboard navigation pauses. */
   suspended?: boolean;
   onContext?: (context: LessonContext) => void;

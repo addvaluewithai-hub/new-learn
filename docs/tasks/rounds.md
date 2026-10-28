@@ -46,7 +46,7 @@ At the end of a round, mark its tasks Done in their files.
 | ER6   | Apply the brand         | B3, E15, E11, N6, E20          | ER3, D5           | E20 (dark mode) is an Idea                                                 |
 | ER7   | Designs for next rounds | R9, P2, P4                     | ER3               | Also screens for OR4, OR6, OR7 and OR13 before they start                  |
 | ER9   | Phones and people       | E17, V6, V10                   | OR1               | Field work, not code: real phones, first users, interviews                 |
-| OR19  | Nova in the lesson      | Y1, Y2, Y3                     | —                 | Skip, reveal, repeat, back; question style; long sessions                  |
+| OR19  | Nova in the lesson      | Y1, Y2, Y3                     | —                 | Done 2026-10-28 (Y3: logging only); see docs/nova.md                       |
 | OR20  | Builder worker          | Y6, Y7, Y9, Y13                | A5, D11           | Port wp-slack-agent's Codex runner (docs/voice-agent.md)                   |
 | OR21  | Start button            | Y4                             | OR19              | Nova home mode; Ess designs the home first                                 |
 | OR22  | Paid plans              | Y10, Y11, Y12                  | D6, L6            | Paid from the start; Ess designs the pricing page                          |

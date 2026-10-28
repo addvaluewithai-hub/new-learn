@@ -62,18 +62,22 @@ test('merging keeps every attempt and reached scene; the cursor follows the newe
   assert.deepEqual(merged.attempts, [answer]);
   assert.equal(merged.reachedSceneIds.length, 5);
 });
-test('goals count as met once their questions were attempted', () => {
+test('goals count as met once their questions had a real attempt, not "I don\'t know"', () => {
   const goals = [
     { id: 'G1', text: 'a', sceneIds: [], questionIds: [asked.question!.id] },
     { id: 'G2', text: 'b', sceneIds: [], questionIds: ['other'] },
   ];
-  const state = validateSnapshot(
-    outline,
-    snap({
-      attempts: [{ id: 'q1', sceneId: asked.id, questionId: asked.question!.id, written: '' }],
-    }),
-  );
-  const summary = summarize(goals, state, false, new Date('2026-10-12T10:00:00Z'));
+  const at = new Date('2026-10-12T10:00:00Z');
+  const attempt = (id: string, written: string) => ({
+    id,
+    sceneId: asked.id,
+    questionId: asked.question!.id,
+    written,
+  });
+  const unknown = validateSnapshot(outline, snap({ attempts: [attempt('q1', ' ')] }));
+  assert.equal(summarize(goals, unknown, false, at).goalsDone, 0);
+  const real = validateSnapshot(outline, snap({ attempts: [attempt('q1', 'اعتقاد صادق')] }));
+  const summary = summarize(goals, real, false, at);
   assert.deepEqual([summary.goalsDone, summary.goalsTotal, summary.status], [1, 2, 'started']);
 });
 test('continue points at the latest unfinished lesson, else the next available one', () => {

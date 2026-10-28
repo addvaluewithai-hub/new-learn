@@ -114,6 +114,7 @@ export class LessonVoice {
     if (this.s !== s) throw new Error('المكالمة اتقفلت.');
     await s.live.connect(token);
     s.ready = true;
+    s.since = performance.now();
     for (const text of this.on().primer()) if (text) s.live.note(text);
   }
   private mic(s: Session) {
@@ -146,7 +147,7 @@ export class LessonVoice {
     clearTimeout(this.timers.idle);
     if (this.listening) return; // waiting for the learner, however long it takes
     this.timers.idle = window.setTimeout(() => {
-      if (!this.holding && !this.teaching && !this.turn) this.close();
+      if (!this.holding && !this.teaching && !this.turn) this.close('idle');
     }, IDLE_CLOSE_MS);
   }
   private finish(message?: string) {
@@ -258,9 +259,11 @@ export class LessonVoice {
     this.stale = true;
     this.armIdle();
   }
-  close() {
+  close(reason = 'closed') {
     const s = this.s;
     this.s = null;
+    if (s?.ready)
+      this.on().ended?.(Math.round((performance.now() - s.since) / 1000), s.live.ended || reason);
     this.stale = false;
     this.teacher.end('cut');
     this.flags.generating = this.flags.discard = false;

@@ -4,7 +4,7 @@ import { assistantContext, teachingInstruction } from './context';
 import { generate, gemini } from './provider';
 import { quizSchema, validateQuiz } from './quiz';
 import { limitNova } from './limits';
-import { liveConfig } from './live';
+import { liveConfig, sessionEnd } from './live';
 import { personaInstruction, tutorStyle } from './style';
 import { wakePrompt, wakeSchema, wakeVerdict, wakeWav, wakeWordOf } from './wake';
 export function chatHistory(value: unknown) {
@@ -23,7 +23,7 @@ export function chatHistory(value: unknown) {
   });
 }
 export async function novaRoute(request: Request, env: Env, user: AuthUser, action: string) {
-  if (!['chat', 'live', 'quiz', 'wake'].includes(action) || request.method !== 'POST')
+  if (!['chat', 'live', 'quiz', 'wake', 'ended'].includes(action) || request.method !== 'POST')
     throw new HttpError(404, 'الطلب غير موجود.');
   const input = await body(request, action === 'wake' ? 160_000 : 16_384);
   if (action === 'wake') {
@@ -39,6 +39,12 @@ export async function novaRoute(request: Request, env: Env, user: AuthUser, acti
       request.signal,
     );
     return json({ wake: wakeVerdict(text) });
+  }
+  if (action === 'ended') {
+    // How long live sessions last and why they end: one log line, nothing stored.
+    limitNova(user.id, action);
+    console.log(JSON.stringify(sessionEnd(input)));
+    return json({ ok: true });
   }
   const context = await assistantContext(env, user, input);
   limitNova(user.id, action);

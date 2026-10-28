@@ -1,7 +1,8 @@
 // How a reading lesson moves on its own: a reading pace fills the Next button and turns the
 // page; pause holds it; Nova narration reads line after line in one session (each line asked
 // for ahead of time, its page turned when its audio starts), stops at the question, never
-// starts by itself when a lesson opens, and the lesson pauses when the learner talks.
+// starts by itself when a lesson opens, and the lesson pauses when the learner talks. With
+// "show the answers", Nova reads the question as a plain line and goes on to its answer.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
@@ -15,6 +16,10 @@ const pins = JSON.parse(await readFile('apps/platform/content-modules.json', 'ut
 const { curricula } = JSON.parse(await readFile('content/imported/registry.json', 'utf8'));
 const course = curricula[0];
 const lesson = course.lessons.find((l) => l.moduleId);
+const pkg = JSON.parse(
+  await readFile(`content/imported/${course.id}/${lesson.id}/reading.json`, 'utf8'),
+);
+const quiz = pkg.scenes.find((s) => s.question).question;
 const pcm = Buffer.alloc(24000 * 2 * 0.2).toString('base64');
 const say = (ws, content) => ws.send(JSON.stringify({ serverContent: content }));
 
@@ -155,9 +160,25 @@ try {
   await page.keyboard.up('Space');
   await page.locator('.rl-t-note[data-role="tutor"]', { hasText: 'رد قصير' }).waitFor();
   assert.ok(log.includes('start'));
+
+  // "Show the answers": the question is a plain line, then its model answer, no stop.
+  const from = reads.length;
+  await settings.click();
+  await page.getByRole('radio', { name: 'اعرض الحلول' }).click();
+  await page.keyboard.press('Escape');
+  const answerLine = quiz.feedback.steps[0].text.trim();
+  for (let i = 0; i < 300 && !reads.slice(from).some((r) => r.includes(answerLine)); i++)
+    await page.waitForTimeout(200);
+  const after = reads.slice(from);
+  assert.ok(
+    after.some((r) => r.includes(answerLine)),
+    'reads on to the model answer',
+  );
+  assert.ok(after.some((r) => r.startsWith('READ:\n') && r.includes(quiz.arabic.trim())));
+  assert.ok(!after.some((r) => r.startsWith('READ QUESTION')), 'never waits for an answer');
   assert.deepEqual(errors, []);
   console.log(
-    'Flow: manual default, reading pace, pause, narration, question stop, talk pause passed.',
+    'Flow: manual default, reading pace, pause, narration, question stop, talk pause, show-the-answers passed.',
   );
 } finally {
   await browser?.close();

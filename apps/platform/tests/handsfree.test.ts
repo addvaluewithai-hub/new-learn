@@ -66,6 +66,7 @@ function harness(state: VoiceState = 'idle', answering = true) {
     voice: () => voice,
     answering: () => flags.answering,
     answer: (text) => log.push(`answer:${text}`),
+    act: (args) => (log.push(`act:${args.action}`), { ok: true }),
     resume: () => log.push('resume'),
     wakeWord: () => 'يا نوفا',
     noisy: () => flags.noisy,
@@ -119,6 +120,20 @@ test('while Nova reads, speech is not a turn; an earbud press stops it and opens
   assert.ok(log.includes('press') && log.includes('release'), 'the floor is open after a press');
 });
 
+test('a spoken lesson_control waits for real words: noise never skips a question', () => {
+  const { free, log, speak } = harness();
+  speak(20);
+  free.reply.learner('¿Qué?');
+  assert.deepEqual(free.tool('lesson_control', { action: 'skip_question' }), { ok: true });
+  free.reply.hold('z', 24000);
+  assert.equal(free.reply.decide(), false);
+  assert.ok(!log.includes('act:skip_question'), 'held, then dropped with the reply');
+  speak(20);
+  free.reply.learner('فوّت السؤال ده');
+  free.tool('lesson_control', { action: 'skip_question' });
+  assert.ok(log.includes('act:skip_question'), 'real words: applied at once');
+});
+
 test('server: wake words are plain and short; hands-free talk gets submit_answer', () => {
   assert.equal(wakeWordOf('  يا   نوفا! '), 'يا نوفا');
   assert.throws(() => wakeWordOf(''));
@@ -129,13 +144,15 @@ test('server: wake words are plain and short; hands-free talk gets submit_answer
   );
   assert.equal(wakeVerdict('{"wake":true}'), true);
   assert.equal(wakeVerdict('nope'), false);
-  const plain = liveConfig('x', 'talk') as { tools?: unknown };
-  assert.equal(plain.tools, undefined, 'normal talk is unchanged');
+
   const free = liveConfig('x', 'talk', undefined, { handsFree: true, wakeWord: 'يا أستاذ' }) as {
     tools: Array<{ functionDeclarations: Array<{ name: string }> }>;
     systemInstruction: { parts: Array<{ text: string }> };
   };
-  assert.equal(free.tools[0].functionDeclarations[0].name, 'submit_answer');
+  assert.deepEqual(
+    free.tools[0].functionDeclarations.map((f) => f.name),
+    ['lesson_control', 'submit_answer'],
+  );
   const text = free.systemInstruction.parts[0].text;
   assert.ok(text.includes('HANDS-FREE') && text.includes('يا أستاذ'));
 });

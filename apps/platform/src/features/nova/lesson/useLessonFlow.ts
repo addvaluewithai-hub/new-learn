@@ -9,6 +9,7 @@ import {
   type ReadingPackage,
   type ReadingPace,
   type ReadingPosition,
+  type QuestionMode,
 } from '@learn/lesson-runtime';
 import type { TeachEvents, TeachLine } from './LessonVoice';
 
@@ -22,6 +23,8 @@ export type FlowSettings = {
   noisy: boolean;
   /** The learner's word for calling Nova while it reads. */
   wakeWord: string;
+  /** Questions are asked (default), or shown with their model answers. */
+  questions: QuestionMode;
 };
 const KEY = 'learn.lesson.flow';
 export const WAKE_WORD = 'يا نوفا';
@@ -32,6 +35,7 @@ const DEFAULTS: FlowSettings = {
   handsFree: false,
   noisy: false,
   wakeWord: WAKE_WORD,
+  questions: 'ask',
 };
 
 function load(): FlowSettings {
@@ -47,6 +51,7 @@ function load(): FlowSettings {
         typeof saved?.wakeWord === 'string' && saved.wakeWord.trim()
           ? saved.wakeWord.slice(0, 30)
           : WAKE_WORD,
+      questions: saved?.questions === 'show' ? 'show' : 'ask',
     };
   } catch {
     return DEFAULTS;
@@ -87,6 +92,7 @@ export function useLessonFlow() {
 export function useNarrator({
   enabled,
   paused,
+  asking,
   lesson,
   context,
   controller,
@@ -96,6 +102,9 @@ export function useNarrator({
 }: {
   enabled: boolean;
   paused: boolean;
+  /** Questions are asked: Nova reads one and waits for the answer. Otherwise it reads the
+   * question and its model answer and goes on. */
+  asking: boolean;
   lesson: ReadingPackage | null;
   context: LessonContext | null;
   controller: LessonController | null;
@@ -132,12 +141,9 @@ export function useNarrator({
       const page = pages[n];
       // A question is read once, whole, on its answer page: its lead-in pages are skipped.
       if (page.kind === 'ask') continue;
-      lines.push({
-        n,
-        text: readingContext(lesson, page, false).line ?? '',
-        question: page.kind === 'attempt',
-      });
-      if (page.kind === 'attempt') break;
+      const question = asking && page.kind === 'attempt';
+      lines.push({ n, text: readingContext(lesson, page, false).line ?? '', question });
+      if (question) break;
     }
     const at = (n: number) => readingPositionOf(lesson, pages[n], false);
     const last = lines[lines.length - 1];
@@ -170,5 +176,5 @@ export function useNarrator({
     now.current.teach(lines, events);
     // A new stretch starts only when the learner (not Nova) changes the page.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [enabled, paused, lesson, index]);
+  }, [enabled, paused, asking, lesson, index]);
 }

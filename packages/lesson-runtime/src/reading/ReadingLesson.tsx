@@ -1,7 +1,7 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { useMediaQuery } from '../useMediaQuery';
-import { goalProgress } from './goals';
+import { attempted, goalProgress } from './goals';
 import { useHostBridge, useReport } from './host';
 import {
   boardTimeMs,
@@ -12,6 +12,7 @@ import {
   readingPositionOf,
   type ReadingPosition,
 } from './model';
+import { useReadingNav } from './useReadingNav';
 import { validateLessonBoards } from './board';
 import { ReadingBoard } from './ReadingBoard';
 import { useReadingBoard } from './useBoard';
@@ -56,20 +57,8 @@ function ReadingSession(props: ReadingLessonProps) {
   const { lesson, registry, onContext, onReady, onProgress, initial } = props;
   const pages = useMemo(() => readingPages(lesson), [lesson]);
   const sceneIds = lesson.scenes.map((s) => s.id);
-  const [index, setIndex] = useState(() =>
-    !initial?.position || initial.complete
-      ? 0
-      : Math.max(0, readingPageIndex(lesson, pages, initial.position)),
-  );
-  const [reached, setReached] = useState(() => {
-    if (initial?.complete) return sceneIds.length - 1;
-    const saved = (initial?.reachedSceneIds ?? []).map((id) => sceneIds.indexOf(id));
-    return Math.max(pages[index].scene, ...saved);
-  });
-  const [answers, setAnswers] = useState<Record<string, string>>(() => initial?.answers ?? {});
-  const [complete, setComplete] = useState(false);
-  const [done, setDone] = useState(Boolean(initial?.complete));
-  const [fromMs, setFromMs] = useState<number | null>(null);
+  const nav = useReadingNav(lesson, pages, initial, props.questions ?? 'ask');
+  const { index, page, reached, answers, complete, done, fromMs, answering } = nav;
   const [sheet, setSheet] = useState<'scenes' | null>(null);
   const talk = props.conversation;
   const [ownOpen, setOwnOpen] = useState(false);
@@ -78,47 +67,16 @@ function ReadingSession(props: ReadingLessonProps) {
   const portrait = useMediaQuery('(max-width: 650px)');
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const layout = props.layout ?? (portrait ? 'portrait' : 'landscape');
-  const page = pages[index];
   const scene = lesson.scenes[page.scene];
   const question = scene.question;
-  const answering = page.kind === 'attempt' && question && !(question.id in answers);
   const reachedIds = sceneIds.slice(0, reached + 1);
-  const goals = goalProgress(lesson.goals, Object.keys(answers), reachedIds);
-
-  const go = useCallback(
-    (wanted: number) => {
-      setSheet(null);
-      if (wanted >= pages.length) {
-        setComplete(true);
-        setDone(true);
-        return;
-      }
-      if (wanted < 0) return;
-      // Feedback opens only after an attempt; jumping there lands on the attempt.
-      const target = pages[wanted];
-      const q = lesson.scenes[target.scene].question;
-      const next =
-        target.kind === 'feedback' && q && !(q.id in answers)
-          ? pages.findIndex((p) => p.scene === target.scene && p.kind === 'attempt')
-          : wanted;
-      const now = pages[index];
-      const after = pages[next];
-      const sameClip =
-        after.scene === now.scene && (after.kind === 'feedback') === (now.kind === 'feedback');
-      setFromMs(
-        next === index + 1 && sameClip && after.kind !== 'attempt' ? boardTimeMs(now) : null,
-      );
-      setComplete(false);
-      setIndex(next);
-      setReached((value) => Math.max(value, after.scene));
-    },
-    [answers, index, lesson, pages],
-  );
-  const answer = (value: string) => {
-    setAnswers((all) => ({ ...all, [question!.id]: value }));
-    setFromMs(null);
-    setIndex(index + 1);
+  const real = attempted(answers);
+  const goals = goalProgress(lesson.goals, real, reachedIds);
+  const go = (wanted: number) => {
+    setSheet(null);
+    nav.go(wanted);
   };
+  const answer = nav.answer;
 
   const live = useReadingBoard(lesson, pages, index, answers, props.boards);
   const context = { ...readingContext(lesson, page, complete), board: live.context };
@@ -133,6 +91,9 @@ function ReadingSession(props: ReadingLessonProps) {
       },
       answer: (value) =>
         void (answering && question?.attempt !== 'board' && value.trim() && answer(value.trim())),
+      skip: () => !complete && nav.skip(),
+      reveal: () => !complete && nav.reveal(),
+      back: () => go(index - 1),
     },
     `${index}:${complete}:${live.observed}`,
     onReady,
@@ -206,7 +167,7 @@ function ReadingSession(props: ReadingLessonProps) {
             title={lesson.title}
             goals={lesson.goals ?? []}
             met={goals.met}
-            answered={Object.keys(answers).length}
+            answered={real.length}
             questions={lesson.scenes.filter((s) => s.question).length}
             next={props.next}
             exit={props.exit}
@@ -235,6 +196,8 @@ function ReadingSession(props: ReadingLessonProps) {
               answers={answers}
               answering={Boolean(answering)}
               onAnswer={answer}
+              onSkip={nav.skip}
+              onReveal={nav.reveal}
               onThread={() => setThread(true)}
               onHint={talk ? () => talk.onAsk('محتاج تلميح للسؤال ده') : undefined}
             />

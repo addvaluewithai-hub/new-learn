@@ -30,6 +30,7 @@
     "sdk:build": "vite build --config packages/lesson-runtime/vite.config.ts && tsc -p packages/lesson-runtime/tsconfig.build.json",
     "sdk:pack": "npm run sdk:build && node tools/package-sdk.mjs",
     "sdk:check": "node tools/check-sdk.mjs",
+    "eval:nova-tools": "node --import tsx tools/nova-tools-eval.mjs",
     "prepare:review": "node tools/prepare-review-media.mjs",
     "prepare:content": "node tools/prepare-content-assets.mjs",
     "content:import": "node --import tsx tools/import-content.mjs",

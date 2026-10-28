@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ReadingLesson } from '@learn/lesson-runtime';
 import type {
   BoardManifest,
@@ -17,6 +17,7 @@ import { LessonSettings } from '../features/nova/lesson/LessonSettings';
 import { useLessonFlow, useNarrator } from '../features/nova/lesson/useLessonFlow';
 import { useVoicePrefs } from '../features/nova/voice/voicePrefs';
 import { useHandsFree, useVoiceHooks } from '../features/nova/handsfree/useHandsFree';
+import { lessonControl } from '../features/nova/lesson/lessonControl';
 import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 import { HtmlBoard } from '../features/boards/HtmlBoard';
@@ -56,6 +57,8 @@ export default function ReadingClassroom({
   const [assistantOpen, setAssistantOpen] = useState(false);
   const flow = useLessonFlow();
   const moving = flow.settings.narration || flow.settings.pace !== null;
+  // After a spoken skip, answer, step or "continue", a moving lesson goes on once Nova is quiet.
+  const carry = useRef(false);
   // Asking Nova pauses a lesson that moves alone, so the answer can be read in peace.
   const hooks = useVoiceHooks();
   const talk = useLessonTalk(context, () => moving && flow.setPaused(true), hooks);
@@ -66,6 +69,7 @@ export default function ReadingClassroom({
   useNarrator({
     enabled: flow.settings.narration && !assistantOpen,
     paused: flow.paused,
+    asking: flow.settings.questions === 'ask',
     lesson: module?.readingLesson ?? null,
     context,
     controller,
@@ -84,6 +88,14 @@ export default function ReadingClassroom({
     voice: talk.voice,
     controller,
     context,
+    act: (args) =>
+      lessonControl(args, {
+        controller,
+        context,
+        moving,
+        pause: () => flow.setPaused(true),
+        carryOn: () => void (carry.current = true),
+      }),
     resume: () => flow.setPaused(false),
     title: {
       lesson: module?.readingLesson.title ?? '',
@@ -98,6 +110,12 @@ export default function ReadingClassroom({
       });
     },
   });
+  useEffect(() => {
+    if (talk.voice.state !== 'idle' || !carry.current) return;
+    carry.current = false;
+    if (moving) flow.setPaused(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [talk.voice.state]);
   const onReady = useCallback((value: LessonController | null) => setController(value), []);
   const saved = useReadingProgress(module?.readingLesson ?? null, !preview);
   // Every reading lesson may use live teacher-made boards (docs/boards.md).
@@ -142,6 +160,7 @@ export default function ReadingClassroom({
         registry={registry}
         boards={module.readingBoards ?? boardManifests}
         initial={saved.initial}
+        questions={flow.settings.questions}
         suspended={assistantOpen}
         onContext={setContext}
         onReady={onReady}

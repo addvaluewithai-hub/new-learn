@@ -1,6 +1,7 @@
 // Reading lessons through the real platform UI with a controlled, stateful API: home with
 // Continue → study plan → lesson → goals → locked question → feedback → saved progress →
-// reload resumes → completion, at 1280 and 390px.
+// reload resumes → skip and "I don't know" (neither reaches a goal) → completion, at 1280
+// and 390px; then the "show the answers" setting walks past a question without asking.
 import assert from 'node:assert/strict';
 import { mkdir, readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
@@ -19,7 +20,8 @@ function api(store) {
   const summary = (lesson) => {
     const saved = store.get(lesson.id);
     if (!saved) return undefined;
-    const answered = new Set(saved.state.attempts.map((a) => a.questionId));
+    const real = saved.state.attempts.filter((a) => a.written.trim());
+    const answered = new Set(real.map((a) => a.questionId));
     const goals = lesson.goals ?? [];
     return {
       status: saved.completed ? 'completed' : 'started',
@@ -185,12 +187,26 @@ try {
     assert.equal(await page.locator('.rl-titles strong').innerText(), where, 'resumed in place');
     await page.getByRole('button', { name: /أهداف الدرس: 1 من/ }).waitFor();
     await page.screenshot({ path: `test-results/reading-feedback-${width}.png`, fullPage: true });
+    let skipped = false;
     for (let guard = 0; guard < 300 && !(await page.locator('.rl-complete').count()); guard++) {
-      if (await page.locator('.rl-question').count())
-        await page.getByRole('button', { name: 'معرفتش، وريني الحل' }).click();
-      else await next(page);
+      if (!(await page.locator('.rl-question').count())) await next(page);
+      else if (skipped) await page.getByRole('button', { name: 'معرفتش، وريني الحل' }).click();
+      else {
+        // Skip: on to the next scene, no model answer, no goal.
+        const scene = await page.locator('.rl-titles strong').innerText();
+        await page.getByRole('button', { name: 'فوّت', exact: true }).click();
+        await page.waitForFunction(
+          (title) => document.querySelector('.rl-titles strong')?.textContent !== title,
+          scene,
+        );
+        assert.equal(await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).count(), 0);
+        await page.getByRole('button', { name: /أهداف الدرس: 1 من/ }).waitFor();
+        skipped = true;
+      }
     }
     await page.locator('.rl-complete', { hasText: 'خلّصت الدرس' }).waitFor();
+    // Only the one real answer counts: not the skip, not "I don't know".
+    assert.match(await page.locator('.rl-complete-sub').innerText(), /جاوبت 1 من/);
     await page.locator('.reading-save', { hasText: 'اتحفظ' }).waitFor();
     assert.equal(store.get(first.id).completed, true);
     await page.goto(`${url}/?curriculum=${course.id}`);
@@ -198,8 +214,25 @@ try {
     assert.deepEqual(errors, []);
     await page.close();
   }
+  // "Show the answers": the question is shown, Next goes on to its model answer, nothing saved.
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const shown = new Map();
+  await page.route(`${url}/api/**`, api(shown));
+  await page.addInitScript(() =>
+    localStorage.setItem('learn.lesson.flow', JSON.stringify({ questions: 'show' })),
+  );
+  await page.goto(`${url}/?lesson=${first.id}&curriculum=${course.id}`);
+  await page.locator('.rl').waitFor();
+  for (let guard = 0; guard < 80; guard++) {
+    if (await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).count()) break;
+    assert.equal(await page.locator('.rl-question').count(), 0, 'never asked');
+    await next(page);
+  }
+  await page.locator('.rl-tag', { hasText: 'الإجابة النموذجية' }).waitFor();
+  assert.equal(await page.locator('.rl-yours').count(), 0, 'no "your answer" line');
+  await page.close();
   console.log(
-    'Reading: continue, plan, goals, locked question, saved + resumed, completion passed.',
+    'Reading: continue, plan, goals, locked question, saved + resumed, skip and "I don\'t know" (no goal), completion, show-the-answers passed.',
   );
 } finally {
   await browser?.close();
