@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 2.3 complete. Waiting for the owner to save BUILDER_TOKEN in Cloudflare Production and redeploy.**
+**Status: STEP 2.6 complete. Builder service active and waiting for jobs; awaiting the owner's course test.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -119,13 +119,15 @@ Step 1 (done): all nine commands ok; Codex replied `OK`.
 | 1      | تمام |
 | 2      | تمام |
 | 3      | تمام |
-| 4      | Pending: owner must copy the token directly from the server console to Cloudflare Production and redeploy; no private messaging channel is available here. |
-| 5      | Not run: awaiting owner confirmation that the secret is saved and deployed. |
-| 6      | Not run: service not installed or started. |
-| 7      | Not run: awaiting token verification and service startup. |
-| 8      | Not applicable: no test job was run. |
+| 4      | تمام |
+| 5      | تمام — HTTP 200. |
+| 6      | تمام — active; enabled. Log: builder waiting for jobs from [redacted]. |
+| 7      | Pending: owner must submit a small course from the studio and confirm whether the page shows the lesson link. |
+| 8      | Not applicable yet: no test job result is available. |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-28:** The owner confirmed the Cloudflare secret setup. The authenticated claim check returned HTTP 200. Installed and enabled only the new-learn-builder systemd unit; it is active and its startup log confirms it is waiting for jobs. Waiting for the owner to submit the small studio test and confirm the lesson link; no end-to-end job success is claimed yet. The worker code was not edited. wp-slack-agent remains active with its original activation timestamp; its user and Codex login were not changed. No secrets or deployment addresses were added to this report and no merge was performed.
 
 - **Codex, 2026-10-28:** Created server/builder-step2b from main and pulled the corrected worker service into the existing isolated checkout. Step 2.2 passed with Node 22. Step 2.3 completed: the environment file has three nonempty lines, is root-owned, and has mode 600. The token was written only into that file; it was not printed, committed, logged, or sent in chat. Step 2.4 awaits the owner: no separate private messaging channel is available here, so the owner must copy the value directly from the server console into the Cloudflare Production secret and redeploy. No claim request was made and no service was installed or started. wp-slack-agent, its user and its Codex login were not changed. No merge was performed.
 
