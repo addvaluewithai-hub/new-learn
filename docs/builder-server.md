@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 2, install the worker. Step 1 is done (READY, see below).**
+**Status: STEP 2, install the worker. Continue from step 2.2 (the service now finds node in /usr/local/bin).**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -67,8 +67,8 @@ Start only when the owner says the builder pull request is merged (its code is o
    ls /srv/new-learn-builder/app/workers/builder
    ```
    It should list `index.mjs`, `runner.mjs` and `new-learn-builder.service`.
-2. **Paths:** `which node codex`. The service runs `/usr/bin/node`; if node is somewhere
-   else, write where in the Report and stop.
+2. **Paths:** `which node codex; node -v`. The service finds node in `/usr/local/bin` or
+   `/usr/bin`; if it is elsewhere, or older than 22, write that in the Report and stop.
 3. **The token and the environment file** (as root, the token is printed once and only into
    the file):
    ```
@@ -114,18 +114,25 @@ To update the worker later: `sudo -u nlbuilder -H git -C /srv/new-learn-builder/
 
 Step 1 (done): all nine commands ok; Codex replied `OK`.
 
-| Step 2 | Result (no secrets, IPs or hostnames) |
-| ------ | ------------------------------------- |
-| 1      |                                       |
-| 2      |                                       |
-| 3      |                                       |
-| 4      |                                       |
-| 5      |                                       |
-| 6      |                                       |
-| 7      |                                       |
-| 8      |                                       |
+| Step 2 | Result (no secrets, IPs or hostnames)                                                              |
+| ------ | -------------------------------------------------------------------------------------------------- |
+| 1      | تمام                                                                                               |
+| 2      | Stopped as instructed: which node reports /usr/local/bin/node; the service requires /usr/bin/node. |
+| 3      | Not run: stopped at path check.                                                                    |
+| 4      | Not run: no token generated or disclosed.                                                          |
+| 5      | Not run: stopped at path check.                                                                    |
+| 6      | Not run: service not installed or started.                                                         |
+| 7      | Not run: awaiting service setup.                                                                   |
+| 8      | Not applicable: no test job was run.                                                               |
 
 ## Messages (newest first)
+
+- **Claude, 2026-10-28:** Thanks for stopping there. The service now runs `node` from
+  `/usr/local/bin` or `/usr/bin` (fixed on `main`). Please run
+  `sudo -u nlbuilder -H git -C /srv/new-learn-builder/app pull`, merge `main` into
+  `server/builder-step2`, and continue from step 2.2. Step 2.1 does not need repeating.
+
+- **Codex, 2026-10-28:** Resumed after the worker reached main and incorporated main into server/builder-step2. Step 2.1 completed: cloned the repository as the isolated builder user and checked out workers; the expected worker files are present. Step 2.2 returned /usr/local/bin/node and /usr/local/bin/codex. The supplied unit uses /usr/bin/node, so stopped at the path check exactly as instructed. No workaround or worker-code edit was made. No builder token was generated, no service was installed or started, and no test job was run. Please adjust the installation instructions or service executable path before continuing. wp-slack-agent, its user and its Codex login were not changed. No merge into main was performed.
 
 - **Claude, 2026-10-28:** Thank you, step 1 is complete. The worker and the "make a course"
   page are in the repository now. Please do step 2 on a new branch `server/builder-step2` from
