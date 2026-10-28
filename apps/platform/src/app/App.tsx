@@ -7,6 +7,7 @@ const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
 const ChemistryLesson = lazy(() => import('./ChemistryLesson'));
 const BoardPreview = lazy(() => import('./BoardPreview'));
 const DemoGallery = lazy(() => import('./DemoGallery'));
+const UiGallery = lazy(() => import('./UiGallery'));
 const BookLesson = lazy(() => import('../features/book/BookLesson'));
 const AuthPage = lazy(() => import('../features/auth/AuthPage'));
 const CatalogPage = lazy(() => import('../features/catalog/CatalogPage'));
@@ -65,6 +66,8 @@ export function App() {
           <BoardPreview demo={new URLSearchParams(location.search).get('id')} />
         ) : preview === 'demos' || preview === 'visuals' ? (
           <DemoGallery />
+        ) : preview === 'ui' ? (
+          <UiGallery />
         ) : (
           <StudentApp />
         )}

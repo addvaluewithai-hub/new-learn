@@ -1,0 +1,194 @@
+/* Shared controls (shared/ui): buttons, chips, choices, fields, menus and switches. Values
+   come from tokens.css only. */
+.nl-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.nl-button,
+.nl-icon-button,
+.nl-chip,
+.nl-segmented button,
+.nl-input,
+.nl-pill-select select {
+  font: inherit;
+  transition:
+    background-color var(--nl-fast) var(--nl-ease),
+    border-color var(--nl-fast) var(--nl-ease),
+    color var(--nl-fast) var(--nl-ease),
+    box-shadow var(--nl-fast) var(--nl-ease);
+}
+.nl-button:focus-visible,
+.nl-icon-button:focus-visible,
+.nl-chip:focus-visible,
+.nl-segmented button:focus-visible,
+.nl-input:focus-visible,
+.nl-pill-select:has(select:focus-visible),
+.nl-switch:has(input:focus-visible),
+.nl-choice-card:has(input:focus-visible) {
+  outline: 3px solid var(--nl-focus);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+.nl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nl-space-2);
+  min-height: var(--nl-control-md);
+  padding: 0 var(--nl-space-6);
+  border: 1px solid transparent;
+  border-radius: var(--nl-radius-pill);
+  font-weight: 600;
+  font-size: var(--nl-text-md);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.nl-button--sm {
+  min-height: var(--nl-control-sm);
+  padding: 0 var(--nl-space-4);
+  font-size: var(--nl-text-sm);
+}
+.nl-button--lg {
+  min-height: var(--nl-control-lg);
+  padding: 0 var(--nl-space-8);
+  font-size: var(--nl-text-lg);
+}
+.nl-button--block {
+  width: 100%;
+}
+.nl-button--primary {
+  background: var(--nl-primary);
+  color: var(--nl-on-primary);
+}
+.nl-button--primary:hover:not(:disabled) {
+  background: var(--nl-primary-hover);
+}
+.nl-button--secondary {
+  border-color: var(--nl-line);
+  background: var(--nl-surface);
+  color: var(--nl-primary);
+}
+.nl-button--secondary:hover:not(:disabled) {
+  border-color: var(--nl-line-strong);
+  background: var(--nl-surface-sunk);
+}
+.nl-button--accent {
+  background: var(--nl-accent);
+  color: var(--nl-on-accent);
+}
+.nl-button--accent:hover:not(:disabled) {
+  background: var(--nl-accent-hover);
+}
+.nl-button--ghost {
+  background: transparent;
+  color: var(--nl-primary);
+}
+.nl-button--ghost:hover:not(:disabled) {
+  background: var(--nl-wash);
+}
+.nl-button--danger {
+  border-color: var(--nl-danger-line);
+  background: var(--nl-danger-soft);
+  color: var(--nl-danger-ink);
+}
+.nl-button:disabled,
+.nl-icon-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.nl-button-icon {
+  display: inline-flex;
+}
+.nl-icon-button {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.nl-icon-button--sm {
+  width: var(--nl-control-sm);
+  height: var(--nl-control-sm);
+}
+.nl-icon-button--md {
+  width: var(--nl-control-md);
+  height: var(--nl-control-md);
+}
+.nl-icon-button--lg {
+  width: var(--nl-control-lg);
+  height: var(--nl-control-lg);
+}
+
+/* Chips and choices */
+.nl-chip {
+  min-height: 42px;
+  padding: 6px var(--nl-space-4);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-pill);
+  background: var(--nl-surface);
+  color: var(--nl-ink);
+  cursor: pointer;
+}
+.nl-chip[aria-pressed='true'] {
+  border-color: var(--nl-primary);
+  background: var(--nl-primary);
+  color: var(--nl-on-primary);
+}
+.nl-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--nl-radius-pill);
+  background: var(--nl-surface-soft);
+}
+.nl-segmented button {
+  min-height: var(--nl-control-sm);
+  padding: 0 var(--nl-space-4);
+  border: 0;
+  border-radius: var(--nl-radius-pill);
+  background: transparent;
+  color: var(--nl-muted);
+  font-weight: 600;
+  cursor: pointer;
+}
+.nl-segmented button[aria-checked='true'] {
+  background: var(--nl-surface);
+  color: var(--nl-ink);
+  box-shadow: var(--nl-shadow-sm);
+}
+.nl-choice-card {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 14px var(--nl-space-4);
+  border: 1.5px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  cursor: pointer;
+}
+.nl-choice-card input {
+  position: absolute;
+  opacity: 0;
+}
+.nl-choice-card span {
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+  line-height: 1.6;
+}
+.nl-choice-card[data-checked] {
+  border-color: var(--nl-primary);
+  box-shadow: 0 0 0 2px var(--nl-primary);
+  background: var(--nl-surface-sunk);
+}

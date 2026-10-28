@@ -1,14 +1,16 @@
+@import './tokens.css';
 @import './design-tokens.css';
 :root {
   font-family: var(--learn-font);
   color: var(--learn-ink);
   background: var(--learn-canvas);
   font-synthesis: none;
-  --surface: #ffffff;
-  --ink: #193a35;
-  --muted: #62746c;
-  --accent: #146e57;
-  --line: #dde4da;
+  /* Older names, kept as aliases of the tokens (tokens.css). */
+  --surface: var(--nl-surface);
+  --ink: var(--nl-ink);
+  --muted: var(--nl-muted);
+  --accent: var(--nl-green-800);
+  --line: var(--nl-line);
 }
 * {
   box-sizing: border-box;
