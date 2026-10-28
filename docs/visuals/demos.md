@@ -17,8 +17,8 @@ page. Code: `fixtures/demos/` (boards in `boards/`, lessons in `courses/`, the l
 | ai        | إزاي الـAI بيكمّل جملتك؟ | Green-phosphor screen | Writes word by word; temperature reshapes the odds | Done   |
 | interest  | فلوسك بتكبر إزاي؟        | Chalk on a blackboard | Sets rate and years; simple line vs compound curve | Done   |
 | plants    | نسقي ولا نستنى؟          | Watercolour, by hand  | Checks the soil: moist, dry, watered               | Done   |
-| seasons   | ليه فيه صيف وشتا؟        | 3D (three.js)         | Tilts the Earth and moves it round the Sun         | Todo   |
-| suez      | قناة السويس ليه مهمة؟    | Old nautical map      | Picks Suez or the Cape: days and fuel              | Todo   |
+| seasons   | ليه فيه صيف وشتا؟        | 3D (three.js)         | Tilts the Earth and moves it round the Sun         | Done   |
+| suez      | قناة السويس ليه مهمة؟    | Old nautical map      | Picks Suez or the Cape: days and fuel              | Done   |
 | pyramid   | الهرم اتبنى إزاي؟        | Shadow puppets        | Sets the ramp's slope: length against workers      | Todo   |
 | circuit   | ليه اللمبة بتنور؟        | Blueprint             | Closes the switch, adds resistance: Ohm's law      | Todo   |
 | fractions | الكسور بالبيتزا          | Crayon picture book   | Cuts and shades slices: compares fractions         | Todo   |
