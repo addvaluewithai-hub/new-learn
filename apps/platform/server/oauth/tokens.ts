@@ -81,6 +81,18 @@ export async function issueTokens(db: Db, grant: Grant) {
   return { access, refresh };
 }
 
+/** One short-lived access token and no refresh token (our builder acting for a teacher). */
+export async function issueAccess(db: Db, grant: Grant) {
+  const access = randomToken();
+  await db.insert(oauthTokens).values({
+    hash: await tokenHash(access),
+    kind: 'access',
+    ...grant,
+    expiresAt: later(ACCESS_SECONDS),
+  });
+  return access;
+}
+
 /** Rotate a refresh token: the old one stops working, a new pair is issued. */
 export async function refresh(db: Db, token: string, clientId: string) {
   const [row] = await db

@@ -1,0 +1,157 @@
+/* "Make a course": one calm form, then the builder's steps. Ess restyles this later. */
+.studio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+}
+.studio .page-heading {
+  margin-bottom: 4px;
+}
+.studio-field {
+  display: grid;
+  gap: 8px;
+}
+.studio-field > span,
+.studio-choice legend {
+  font-weight: 600;
+}
+.studio textarea {
+  font: inherit;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  resize: vertical;
+  line-height: 1.8;
+}
+.studio-drop {
+  display: block;
+  padding: 18px;
+  border: 1.5px dashed var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.studio-drop input {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.studio-files {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.studio-files li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.studio-files span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.studio-files small,
+.studio-choice small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.studio-choice {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.studio-choice legend {
+  margin-bottom: 10px;
+  padding: 0;
+}
+.studio-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.studio-chip {
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.studio-chip[aria-pressed='true'] {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+}
+.studio-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.studio-toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--green);
+}
+.studio > .button {
+  justify-self: start;
+}
+.studio-active {
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: var(--soft);
+}
+.build-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.build-steps li {
+  position: relative;
+  padding-inline-start: 26px;
+  color: var(--muted);
+}
+.build-steps li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--green);
+}
+.build-steps li.now {
+  color: var(--ink);
+  font-weight: 600;
+}
+.build-steps li.now::before {
+  content: '';
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: build-pulse 1.2s ease-in-out infinite;
+}
+.build-done {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.build-done p {
+  flex-basis: 100%;
+  line-height: 1.8;
+}
+@keyframes build-pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .build-steps li.now::before {
+    animation: none;
+  }
+}

@@ -1,0 +1,17 @@
+# systemd unit for New Learn's course builder (docs/builder-server.md, step 2).
+[Unit]
+Description=New Learn course builder
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=nlbuilder
+WorkingDirectory=/srv/new-learn-builder/app
+EnvironmentFile=/etc/new-learn-builder.env
+ExecStart=/usr/bin/node workers/builder/index.mjs
+Restart=always
+RestartSec=10
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -70,7 +70,7 @@ the video. They don't need developer decisions. Start each session with:
 | D8  | Children: minimum ages, parent consent and data rules per country                                                                   | Owner   | P1, L4     |
 | D9  | Paid courses: human review of boards beyond `board:check`?                                                                          | Owner   | G5         |
 | D10 | Remotion licence: free up to 3 people; the lesson player needs a paid plan when the company reaches 4                               | Owner   | —          |
-| D11 | Where the builder worker runs: a VPS like wp-slack-agent, Cloudflare Containers or Fly.io                                           | Owner   | Y6         |
+| D11 | Decided 2026-10-28: the builder runs on wp-slack-agent's VPS, as its own user and folder (docs/builder-server.md)                   | Owner   | —          |
 
 ## P0: before YC (2 November)
 
