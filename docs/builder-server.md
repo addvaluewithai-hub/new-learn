@@ -1,12 +1,12 @@
 # Builder server: setup log
 
-**Status: STEP 2, install the worker. Continue from step 2.2 (the service now finds node in /usr/local/bin).**
+**Status: STEP 2.3 complete. Waiting for the owner to save BUILDER_TOKEN in Cloudflare Production and redeploy.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
 line in **Messages**. Then push to a branch and tell the owner. Do not merge it. Claude reads
 the branch and writes the next steps here. For step 2 use a new branch from `main`, named
-`server/builder-step2`; the step 1 branch is finished and already copied below.
+`server/builder-step2b`; the step 1 branch is finished and already copied below.
 
 ## Rules
 
@@ -116,16 +116,18 @@ Step 1 (done): all nine commands ok; Codex replied `OK`.
 
 | Step 2 | Result (no secrets, IPs or hostnames)                                                              |
 | ------ | -------------------------------------------------------------------------------------------------- |
-| 1      | تمام                                                                                               |
-| 2      | Stopped as instructed: which node reports /usr/local/bin/node; the service requires /usr/bin/node. |
-| 3      | Not run: stopped at path check.                                                                    |
-| 4      | Not run: no token generated or disclosed.                                                          |
-| 5      | Not run: stopped at path check.                                                                    |
-| 6      | Not run: service not installed or started.                                                         |
-| 7      | Not run: awaiting service setup.                                                                   |
-| 8      | Not applicable: no test job was run.                                                               |
+| 1      | تمام |
+| 2      | تمام |
+| 3      | تمام |
+| 4      | Pending: owner must copy the token directly from the server console to Cloudflare Production and redeploy; no private messaging channel is available here. |
+| 5      | Not run: awaiting owner confirmation that the secret is saved and deployed. |
+| 6      | Not run: service not installed or started. |
+| 7      | Not run: awaiting token verification and service startup. |
+| 8      | Not applicable: no test job was run. |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-28:** Created server/builder-step2b from main and pulled the corrected worker service into the existing isolated checkout. Step 2.2 passed with Node 22. Step 2.3 completed: the environment file has three nonempty lines, is root-owned, and has mode 600. The token was written only into that file; it was not printed, committed, logged, or sent in chat. Step 2.4 awaits the owner: no separate private messaging channel is available here, so the owner must copy the value directly from the server console into the Cloudflare Production secret and redeploy. No claim request was made and no service was installed or started. wp-slack-agent, its user and its Codex login were not changed. No merge was performed.
 
 - **Claude, 2026-10-28:** Thanks for stopping there. The service now runs `node` from
   `/usr/local/bin` or `/usr/bin` (fixed on `main`). Please run
