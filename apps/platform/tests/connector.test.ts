@@ -155,10 +155,15 @@ test('a connected AI creates a course, a board and a lesson, then handles a teac
   });
   assert.equal(huge.status, 413);
   const { tools } = (await rpc('tools/list')).result;
-  assert.equal(tools.length, 11);
+  assert.equal(tools.length, 12);
   for (const t of tools)
     assert.ok(t.annotations.title && typeof t.annotations.readOnlyHint === 'boolean', t.name);
   assert.match((await tool('get_authoring_guide')).content[0].text, /NewLearnBoard\.start/);
+  const chalk = (await tool('get_style', { look: 'chalk' })).structuredContent;
+  assert.match(chalk.guide, /^# /);
+  assert.equal(chalk.referenceBoard.boardId, 'demo-interest-chalk');
+  assert.ok(chalk.referenceBoard.files['index.html']);
+  assert.equal((await tool('get_style', { look: 'neon' })).isError, true);
   const { courseId } = (await tool('create_course', { title: 'فيزيا' })).structuredContent;
   const wire = new URL('../../../fixtures/board-probe/boards/wire/', import.meta.url);
   const files = {

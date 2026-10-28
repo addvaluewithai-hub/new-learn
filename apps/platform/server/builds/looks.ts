@@ -1,7 +1,6 @@
 // Art direction for each look the «اعمل كورس» page offers (src/features/studio/looks.ts has
-// the same ids). The builder's prompt carries the chosen one until each look has its own
-// style guide (docs/visuals/README.md, G7). Demo boards that show each look working live in
-// fixtures/demos/boards.
+// the same ids). The builder's prompt carries a summary; the full style guide and a reference
+// board come from the get_style MCP tool (docs/visuals/styles, server/styles).
 
 const COMMON =
   "Draw every scene's board in this look, one consistent world across the course. Text in the board font (NL Sans); keep the picture readable on a phone.";
@@ -34,6 +33,8 @@ export function lookDirection(look: string): string {
       LOOKS,
     )
       .map(([id, text]) => `- ${id}: ${text.split('.')[0]}.`)
-      .join('\n')}\n${COMMON}`;
-  return `Look (${look}): ${LOOKS[look]} ${COMMON}`;
+      .join(
+        '\n',
+      )}\nThen call get_style with that look before the first board and follow its guide and reference board. ${COMMON}`;
+  return `Look (${look}): ${LOOKS[look]} Before the first board, call get_style with look "${look}" and follow its guide and reference board. ${COMMON}`;
 }

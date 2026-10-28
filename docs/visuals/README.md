@@ -134,5 +134,10 @@ for, and the look.
   cards «مناسب لموضوعك»; «سيبها عليّ» lets the builder choose.
 - The chosen look reaches the builder as art direction (`server/builds/looks.ts`); the page's
   list (`src/features/studio/looks.ts`) must keep the same ids, and a test checks it.
-- Next: a `STYLE.md` per look that the builder reads through MCP (G7), a short plan to edit
-  before the build, and a progress screen that shows boards as they are made.
+- Each look has a style guide in [styles/](styles/) (palette, type, drawing technique,
+  layout, controls, motion, do and don't), written from its demo board. The builder reads it
+  with the `get_style` MCP tool, together with that board's files to start from; the chosen
+  look's prompt line says to call it before the first board. `npm run styles:build` bundles
+  them for the server, and a test fails when the bundle is older than a guide or a board.
+- Next: a short plan to edit before the build, and a progress screen that shows boards as they
+  are made.

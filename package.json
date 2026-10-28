@@ -23,6 +23,7 @@
     "preview": "vite preview --config apps/platform/vite.config.ts",
     "check": "node tools/check-boundaries.mjs",
     "style:previews": "node tools/style-previews.mjs",
+    "styles:build": "node tools/style-guides.mjs",
     "pretest": "npm run sdk:build && npm run prepare:fixture && npm run prepare:boards",
     "test": "node --import tsx --test packages/lesson-runtime/tests/*.test.ts apps/platform/tests/*.test.ts",
     "test:browser": "node tests/browser.mjs",

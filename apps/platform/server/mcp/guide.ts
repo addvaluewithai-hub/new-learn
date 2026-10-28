@@ -68,7 +68,9 @@ board.json:
 - variables: the board's public state; the lesson sets them per step, the learner changes
   them when a step opens the board, and board questions check them.
 - targets: element ids the lesson may highlight, reveal ([data-reveal] elements) or annotate.
-- libraries: only "katex@0.16.25" for now, from /lib/katex@0.16.25/ (katex.min.js, .css).
+- libraries: pinned ones only, from /lib/<name>@<version>/: "katex@0.16.25" (katex.min.js,
+  .css), "p5@2.3.3" (lib/p5.min.js), "p5.brush@2.2.3" (dist/p5.brush.js), "three@0.186.1"
+  (build/three.module.js, an ES module; keep your own scripts classic).
 
 index.html must load the helper and start it:
 <script src="/lib/newlearn-board@1/board.js"></script>
@@ -92,6 +94,12 @@ index.html must load the helper and start it:
   text such as grammar or poetry; no other font families.
 - Pointer positions: NewLearnBoard.point(event) gives canvas pixels (correct at any scale).
 - Formulas and sliders read left to right even in Arabic: give them direction: ltr.
+
+## Looks (get_style)
+New Learn has looks a course can be drawn in: chalk, watercolour, crt, space3d, seachart,
+shadow, blueprint, crayon, calligraphy, pixel. When a course has a look, call get_style with it
+before the first board and follow the guide; it comes with a working reference board to start
+from (never upload the reference unchanged). Use one look for the whole course.
 
 ## Teacher notes
 get_feedback returns open notes: position {sceneId, phase, step}, the current text there,

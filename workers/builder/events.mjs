@@ -1,6 +1,7 @@
 // Codex's JSON events, turned into the short lines a teacher sees while the course is made.
 const TOOLS = {
   get_authoring_guide: 'بقرا دليل الكتابة',
+  get_style: 'بقرا دليل الشكل',
   list_my_courses: 'براجع كورساتك',
   create_course: 'بعمل الكورس',
   update_course: 'بنظّم أجزاء الكورس',

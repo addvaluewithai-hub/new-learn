@@ -104,12 +104,12 @@
   font-weight: 700;
 }
 .nova-options button[data-result='correct'] {
-  border-color: #779e45;
-  background: #f0f7e5;
+  border-color: var(--nl-success);
+  background: var(--nl-success-soft);
   opacity: 1;
 }
 .nova-options button[data-result='incorrect'] {
-  border-color: #cc8871;
+  border-color: var(--nl-danger);
   background: var(--nl-danger-soft);
   opacity: 1;
 }
