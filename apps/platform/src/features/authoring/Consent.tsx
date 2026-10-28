@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import '../../shared/platform.css';
 import './consent.css';
+import { Alert, Button, Spinner } from '../../shared/ui';
 
 const FIELDS = ['client_id', 'redirect_uri', 'code_challenge', 'state'] as const;
 
@@ -41,9 +42,9 @@ export default function Consent({ query, userName }: { query: URLSearchParams; u
     <main className="platform-ui consent-page">
       <section className="consent-card">
         {error ? (
-          <p role="alert">{error}</p>
+          <Alert tone="error">{error}</Alert>
         ) : !app ? (
-          <p role="status">بنتأكد من الطلب…</p>
+          <Spinner label="بنتأكد من الطلب…" />
         ) : (
           <>
             <h1>«{app.name}» عايز يوصل لكورساتك</h1>
@@ -54,17 +55,12 @@ export default function Consent({ query, userName }: { query: URLSearchParams; u
             </p>
             <p className="consent-host">هيرجّعك على: {app.redirectHost}</p>
             <div className="consent-actions">
-              <button type="button" className="button" disabled={busy} onClick={() => decide(true)}>
+              <Button disabled={busy} onClick={() => decide(true)}>
                 اسمح
-              </button>
-              <button
-                type="button"
-                className="button secondary"
-                disabled={busy}
-                onClick={() => decide(false)}
-              >
+              </Button>
+              <Button variant="secondary" disabled={busy} onClick={() => decide(false)}>
                 لأ
-              </button>
+              </Button>
             </div>
           </>
         )}

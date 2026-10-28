@@ -7,7 +7,23 @@ const routes: Record<string, string> = {
   'sign-out': 'POST',
   'request-password-reset': 'POST',
   'reset-password': 'POST',
+  'update-user': 'POST',
+  'change-password': 'POST',
 };
+/** What the settings page may change, and nothing else the auth service would accept. */
+function only(route: string, payload: Record<string, unknown>) {
+  if (route === 'update-user') {
+    const name = typeof payload.name === 'string' ? payload.name.trim() : '';
+    if (name.length < 2 || name.length > 80) throw new HttpError(400, 'الاسم من ٢ لـ٨٠ حرف.');
+    return { name };
+  }
+  const { currentPassword, newPassword } = payload;
+  if (typeof currentPassword !== 'string' || typeof newPassword !== 'string')
+    throw new HttpError(400, 'اكتب كلمة السر الحالية والجديدة.');
+  if (newPassword.length < 8 || newPassword.length > 128)
+    throw new HttpError(400, 'كلمة السر الجديدة من ٨ لـ١٢٨ حرف.');
+  return { currentPassword, newPassword, revokeOtherSessions: true };
+}
 type Transport = typeof fetch;
 export async function authProxy(
   request: Request,
@@ -24,6 +40,7 @@ export async function authProxy(
     payload = await body(request);
     if (route === 'request-password-reset') payload.redirectTo = `${env.APP_ORIGIN}/?auth=reset`;
     if ('callbackURL' in payload) payload.callbackURL = env.APP_ORIGIN;
+    if (route === 'update-user' || route === 'change-password') payload = only(route, payload);
   }
   let upstream: Response;
   try {

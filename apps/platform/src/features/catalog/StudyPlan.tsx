@@ -74,7 +74,11 @@ export function StudyPlan({
                     </div>
                     {open(lesson) ? (
                       <a
-                        className={isCurrent ? 'button primary plan-go' : 'plan-go plan-go-quiet'}
+                        className={
+                          isCurrent
+                            ? 'nl-button nl-button--primary nl-button--md plan-go'
+                            : 'plan-go plan-go-quiet'
+                        }
                         href={lessonHref(curriculum.id, lesson.id)}
                         aria-label={`${action(lesson)}: ${lesson.title}`}
                       >

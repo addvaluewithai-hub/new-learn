@@ -1,8 +1,6 @@
 // New Learn's shared interface parts (docs/design-system.md). Screens build from these and the
-// tokens in ../tokens.css instead of styling their own buttons, fields and panels.
-import './ui-controls.css';
-import './ui-fields.css';
-import './ui-surfaces.css';
+// tokens in ../tokens.css instead of styling their own buttons, fields and panels. Their CSS
+// loads with every page (shared/base.css), so the class names work anywhere.
 
 export { Button, ButtonLink, IconButton } from './Button';
 export type { ButtonSize, ButtonVariant } from './Button';

@@ -1,3 +1,4 @@
+import { Chip, ChoiceCard, PillSelect } from '../../shared/ui';
 import { AUDIENCES, CHOICES } from './choices';
 
 const choiceOf = (key: string) => CHOICES.find((c) => c.key === key)!;
@@ -18,17 +19,13 @@ function Pill({
 }) {
   const choice = choiceOf(name);
   return (
-    <label className="pill">
-      <span className="sr-only">{choice.title}</span>
-      {lead && <span aria-hidden="true">{lead}</span>}
-      <select value={value} onChange={(e) => onPick(name, e.target.value)}>
-        {choice.options.map(([option, label]) => (
-          <option key={option} value={option}>
-            {labels?.[option] ?? label}
-          </option>
-        ))}
-      </select>
-    </label>
+    <PillSelect
+      label={choice.title}
+      lead={lead}
+      value={value}
+      onChange={(e) => onPick(name, e.target.value)}
+      options={choice.options.map(([option, text]) => [option, labels?.[option] ?? text])}
+    />
   );
 }
 
@@ -49,17 +46,16 @@ export function Details({
     <div className="details">
       <div className="audiences" role="radiogroup" aria-label="الكورس لمين">
         {AUDIENCES.map((a) => (
-          <label key={a.id} className={`audience${a.id === audience.id ? ' on' : ''}`}>
-            <input
-              type="radio"
-              name="audience"
-              value={a.id}
-              checked={a.id === audience.id}
-              onChange={() => onPick('audience', a.id)}
-            />
-            <strong>{a.name}</strong>
-            <span>{a.line}</span>
-          </label>
+          <ChoiceCard
+            key={a.id}
+            name="audience"
+            value={a.id}
+            checked={a.id === audience.id}
+            onChange={(id) => onPick('audience', id)}
+            title={a.name}
+          >
+            {a.line}
+          </ChoiceCard>
         ))}
       </div>
       <p className="details-line">
@@ -93,15 +89,13 @@ export function Details({
           </legend>
           <div className="chips">
             {style.options.map(([value, label]) => (
-              <button
+              <Chip
                 key={value}
-                type="button"
-                className="chip"
-                aria-pressed={choices.style.split(',').includes(value)}
-                onClick={() => onPick('style', value, true)}
+                pressed={choices.style.split(',').includes(value)}
+                onToggle={() => onPick('style', value, true)}
               >
                 {label}
-              </button>
+              </Chip>
             ))}
           </div>
         </fieldset>

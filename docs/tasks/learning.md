@@ -6,28 +6,29 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 Items E5–E11 come from docs/ux-audit.md ("Still open").
 
-| ID  | Task                                                                                            | Who  | Pri | Status | Needs  |
-| --- | ----------------------------------------------------------------------------------------------- | ---- | --- | ------ | ------ |
-| E1  | Teacher pages polish: «مسوداتي», draft preview, notes panel, consent screen                     | Ess  | P0  | Todo   | —      |
-| E2  | Home dashboard: continue card, today's goal, streak, my courses                                 | Both | P1  | Todo   | R1, R2 |
-| E3  | Loading states: library, course and lesson skeletons; lesson and board loading; Nova connecting | Ess  | P1  | Todo   | —      |
-| E4  | Error, offline and 404 states with a retry; empty states on every list                          | Ess  | P1  | Todo   | —      |
-| E5  | Library cards: art per subject, remove filler label, real counts                                | Ess  | P1  | Todo   | —      |
-| E6  | Curriculum page: hero repeats the first item, long card list, double «قريبًا»                   | Ess  | P1  | Todo   | —      |
-| E7  | Classroom header: misleading «الدروس»/«المكتبة» labels, dead «مساحة الدرس» pill                 | Ess  | P1  | Todo   | —      |
-| E8  | One digit system across the app (Western suggested, suits maths)                                | Ess  | P1  | Todo   | —      |
-| E9  | Review wording students should not see («نسخة للمراجعة»)                                        | Ess  | P1  | Todo   | —      |
-| E10 | Lesson completion screen: goals reached, next lesson, Nova practice, a small celebration        | Ess  | P1  | Todo   | —      |
-| E11 | Recorded-lesson start state (blank board, small Play)                                           | Ess  | P2  | Todo   | —      |
-| E12 | Recorded-lesson progress: Ess designs steps/numbers, Owner builds it in the runtime             | Both | P2  | Todo   | K3     |
-| E13 | Profile and settings: name, password, language, Nova wake word, reminders                       | Both | P1  | Todo   | —      |
-| E14 | First-time onboarding: grade, subjects, language, then a short tour                             | Both | P2  | Todo   | —      |
-| E15 | Accessibility: contrast, focus rings, keyboard, screen reader labels                            | Ess  | P2  | Todo   | —      |
-| E16 | English interface for the whole app                                                             | Both | P2  | Todo   | —      |
-| E17 | Real-phone tests: iPhone Safari and Android, Nova voice, hands-free; report with videos         | Ess  | P1  | Todo   | —      |
-| E18 | Installable app: icon, splash, offline page                                                     | Both | P2  | Todo   | B2, D7 |
-| E19 | Explore page: search and filter courses by grade, subject and language                          | Both | P2  | Todo   | M2     |
-| E20 | Dark mode                                                                                       | Ess  | P3  | Idea   | B2     |
+| ID  | Task                                                                                                                                 | Who  | Pri | Status | Needs  |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------ | ---- | --- | ------ | ------ |
+| E1  | Teacher pages polish: «مسوداتي», draft preview, notes panel, consent screen                                                          | Ess  | P0  | Todo   | —      |
+| E2  | Home dashboard: continue card, today's goal, streak, my courses                                                                      | Both | P1  | Todo   | R1, R2 |
+| E3  | Loading states: library, course and lesson skeletons; lesson and board loading; Nova connecting                                      | Ess  | P1  | Todo   | —      |
+| E4  | Error, offline and 404 states with a retry; empty states on every list                                                               | Ess  | P1  | Todo   | —      |
+| E5  | Library cards: art per subject, remove filler label, real counts                                                                     | Ess  | P1  | Todo   | —      |
+| E6  | Curriculum page: hero repeats the first item, long card list, double «قريبًا»                                                        | Ess  | P1  | Todo   | —      |
+| E7  | Classroom header: misleading «الدروس»/«المكتبة» labels, dead «مساحة الدرس» pill                                                      | Ess  | P1  | Todo   | —      |
+| E8  | One digit system across the app (Western suggested, suits maths)                                                                     | Ess  | P1  | Todo   | —      |
+| E9  | Review wording students should not see («نسخة للمراجعة»)                                                                             | Ess  | P1  | Todo   | —      |
+| E10 | Lesson completion screen: goals reached, next lesson, Nova practice, a small celebration                                             | Ess  | P1  | Todo   | —      |
+| E11 | Recorded-lesson start state (blank board, small Play)                                                                                | Ess  | P2  | Todo   | —      |
+| E12 | Recorded-lesson progress: Ess designs steps/numbers, Owner builds it in the runtime                                                  | Both | P2  | Todo   | K3     |
+| E13 | Profile and settings: name, password, language, Nova wake word, reminders (`?settings` has name, password, lesson and Nova settings) | Both | P1  | Doing  | —      |
+| E14 | First-time onboarding: grade, subjects, language, then a short tour                                                                  | Both | P2  | Todo   | —      |
+| E15 | Accessibility: contrast, focus rings, keyboard, screen reader labels                                                                 | Ess  | P2  | Todo   | —      |
+| E16 | English interface for the whole app                                                                                                  | Both | P2  | Todo   | —      |
+| E17 | Real-phone tests: iPhone Safari and Android, Nova voice, hands-free; report with videos                                              | Ess  | P1  | Todo   | —      |
+| E18 | Installable app: icon, splash, offline page                                                                                          | Both | P2  | Todo   | B2, D7 |
+| E19 | Explore page: search and filter courses by grade, subject and language                                                               | Both | P2  | Todo   | M2     |
+| E20 | Dark mode                                                                                                                            | Ess  | P3  | Idea   | B2     |
+| E21 | Design system: tokens, shared parts, `?preview=ui`; screens and questions built from them (docs/design-system.md)                    | Both | P1  | Done   | —      |
 
 ## Q. Questions and exams
 
@@ -43,6 +44,7 @@ Reading lessons today have choice, written, choice-and-written and board questio
 | Q6  | Exams from the bank: per goal, optional timer, attempts, shuffled; MCP tool so the teacher's AI writes them | Owner | P2  | Todo   | Q5      |
 | Q7  | Exam player screens: start, question, review, submit                                                        | Both  | P2  | Todo   | Q6      |
 | Q8  | Result page: mastery per goal, answers reviewed, what to study next                                         | Both  | P2  | Todo   | Q6      |
+| Q12 | One look for questions on the tokens; choice answers graded by our code; number keys pick a choice          | Owner | P1  | Done   | —       |
 | Q9  | Written answers: self-check against a model answer, or AI grading (D4)                                      | Owner | P2  | Todo   | D4      |
 | Q10 | Teacher view of results per student and class                                                               | Both  | P3  | Todo   | Q6, T3  |
 | Q11 | Daily review of missed questions (spaced repetition)                                                        | Both  | P3  | Todo   | Q5      |

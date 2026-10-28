@@ -85,15 +85,10 @@
   color: var(--muted);
   line-height: 1.9;
 }
-.mobile-menu,
-.mobile-close,
+.library-shell .mobile-menu,
+.library-shell .mobile-close,
 .menu-overlay {
   display: none;
-}
-.icon-button {
-  padding: 8px;
-  border: 0;
-  background: transparent;
 }
 .empty-state {
   padding: 30px 0;
@@ -116,14 +111,14 @@
   .sidebar.open {
     transform: translateX(0);
   }
-  .mobile-close {
-    display: flex;
+  .library-shell .mobile-close {
+    display: inline-grid;
     position: absolute;
     left: 10px;
     top: 14px;
   }
-  .mobile-menu {
-    display: inline-flex;
+  .library-shell .mobile-menu {
+    display: inline-grid;
   }
   .menu-overlay {
     display: block;

@@ -1,0 +1,41 @@
+/* ?settings: one column of cards, each a group of settings. */
+.settings {
+  display: grid;
+  gap: var(--nl-space-5);
+  max-width: 720px;
+}
+.settings-card {
+  display: grid;
+  gap: var(--nl-space-4);
+}
+.settings-card h2 {
+  font-size: var(--nl-text-xl);
+}
+.settings-card h3 {
+  font-size: var(--nl-text-lg);
+}
+.settings-note {
+  margin-top: calc(-1 * var(--nl-space-3));
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.settings-form {
+  display: grid;
+  gap: var(--nl-space-4);
+  justify-items: start;
+  padding-top: var(--nl-space-4);
+  border-top: 1px solid var(--nl-line);
+}
+.settings-form .nl-field {
+  width: min(100%, 420px);
+}
+.settings-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-3) var(--nl-space-4);
+}
+.settings-row > span {
+  min-width: 110px;
+  font-weight: 600;
+}

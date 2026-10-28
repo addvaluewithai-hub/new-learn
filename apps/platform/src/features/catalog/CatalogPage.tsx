@@ -13,6 +13,7 @@ import './library-account.css';
 import './catalog-cards.css';
 import './home-pick.css';
 import './study-plan.css';
+import { Alert, Button, ButtonLink, Spinner } from '../../shared/ui';
 export default function CatalogPage({
   user,
   onSignOut,
@@ -49,9 +50,9 @@ export default function CatalogPage({
     <LibraryShell user={user} onSignOut={onSignOut}>
       <div className="page-heading">
         {curriculumId && (
-          <a className="text-button" href="/">
+          <ButtonLink variant="link" href="/">
             ← كل المناهج
-          </a>
+          </ButtonLink>
         )}
         {current ? <span className="eyebrow">{current.subject}</span> : null}
         <h1>
@@ -61,16 +62,16 @@ export default function CatalogPage({
         {current ? <p>{current.description}</p> : null}
       </div>
       {loading ? (
-        <p role="status">بنجهّز مناهجك…</p>
+        <Spinner label="بنجهّز مناهجك…" />
       ) : error ? (
-        <div className="error-message" role="alert">
-          {error}
-          <button className="button secondary" onClick={() => setRetry((value) => value + 1)}>
+        <Alert tone="error">
+          {error}{' '}
+          <Button variant="link" onClick={() => setRetry((value) => value + 1)}>
             حاول تاني
-          </button>
-        </div>
+          </Button>
+        </Alert>
       ) : curriculumId && !current ? (
-        <p role="alert">المنهج غير موجود أو مش متاح حاليًا.</p>
+        <Alert tone="error">المنهج غير موجود أو مش متاح حاليًا.</Alert>
       ) : current ? (
         <StudyPlan curriculum={current} resume={resume} />
       ) : (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import './my-drafts.css';
+import { ButtonLink } from '../../shared/ui';
 
 type Course = {
   id: string;
@@ -18,18 +19,18 @@ export function MyDrafts() {
     return (
       <p className="my-drafts-start">
         عندك شرح أو ملفات عايز تحوّلها لدرس تفاعلي؟{' '}
-        <a className="text-button" href="/?studio">
+        <ButtonLink variant="link" href="/?studio">
           اعمل كورس
-        </a>
+        </ButtonLink>
       </p>
     );
   return (
     <section className="my-drafts" aria-label="مسوداتي">
       <div className="my-drafts-head">
         <h2>مسوداتي</h2>
-        <a className="text-button" href="/?studio">
+        <ButtonLink variant="secondary" size="sm" href="/?studio">
           + اعمل كورس جديد
-        </a>
+        </ButtonLink>
       </div>
       {courses.map((course) => (
         <div key={course.id} className="my-drafts-course">

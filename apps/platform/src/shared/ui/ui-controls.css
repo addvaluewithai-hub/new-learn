@@ -1,13 +1,5 @@
 /* Shared controls (shared/ui): buttons, chips, choices, fields, menus and switches. Values
    come from tokens.css only. */
-.nl-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
 .nl-button,
 .nl-icon-button,
 .nl-chip,
@@ -97,6 +89,18 @@
   border-color: var(--nl-danger-line);
   background: var(--nl-danger-soft);
   color: var(--nl-danger-ink);
+}
+.nl-button--link {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--nl-radius-sm);
+  background: none;
+  color: var(--nl-primary);
+}
+.nl-button--link:hover:not(:disabled) {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .nl-button:disabled,
 .nl-icon-button:disabled {

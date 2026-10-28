@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'danger';
+export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'danger' | 'link';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 type Look = { variant?: ButtonVariant; size?: ButtonSize; block?: boolean; icon?: ReactNode };
@@ -11,7 +11,8 @@ const classes = ({ variant = 'primary', size = 'md', block }: Look, extra?: stri
     .join(' ');
 
 /** The one button. Primary for the main action on a screen, secondary beside it, accent for
- *  the hero call to action on dark, ghost for quiet actions, danger for destructive ones. */
+ *  the hero call to action on dark, ghost for quiet actions, danger for destructive ones, link
+ *  for an action inside a sentence. */
 export function Button({
   variant,
   size,

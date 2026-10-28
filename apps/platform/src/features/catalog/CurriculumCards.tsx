@@ -1,6 +1,7 @@
 import { CourseArt } from '../../shared/CourseArt';
 import { stats } from './plan';
 import type { Curriculum } from './types';
+import { ButtonLink, EmptyState } from '../../shared/ui';
 
 /** Courses as calm rows: what it is, how far you are, one way in. */
 export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
@@ -36,14 +37,16 @@ export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
                   </span>
                 </div>
               </div>
-              <a className="button secondary course-open" href={href}>
+              <ButtonLink variant="secondary" className="course-open" href={href}>
                 افتح المنهج
-              </a>
+              </ButtonLink>
             </li>
           );
         })}
       </ul>
-      {!curricula.length && <p className="empty-state">لسه مفيش مناهج متاحة. ارجع لنا قريب.</p>}
+      {!curricula.length && (
+        <EmptyState title="لسه مفيش مناهج متاحة">ارجع لنا قريب، أو اعمل كورسك بنفسك.</EmptyState>
+      )}
     </section>
   );
 }

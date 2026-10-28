@@ -38,7 +38,8 @@ const DEFAULTS: FlowSettings = {
   questions: 'ask',
 };
 
-function load(): FlowSettings {
+/** The learner's lesson settings on this device (also edited on the settings page). */
+export function loadFlow(): FlowSettings {
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) ?? 'null');
     return {
@@ -58,21 +59,23 @@ function load(): FlowSettings {
   }
 }
 
+export function saveFlow(settings: FlowSettings) {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(settings));
+  } catch {
+    // Private mode or blocked storage: the choice lasts for this visit only.
+  }
+}
+
 /**
  * How the lesson moves: by the learner's Next (default), alone at a reading pace, or read
  * aloud by Nova. Settings stay on this device. A lesson that moves on its own never starts by
  * itself when opened: it waits, paused, until the learner presses play.
  */
 export function useLessonFlow() {
-  const [settings, setSettings] = useState(load);
+  const [settings, setSettings] = useState(loadFlow);
   const [paused, setPaused] = useState(() => settings.narration || settings.pace !== null);
-  useEffect(() => {
-    try {
-      localStorage.setItem(KEY, JSON.stringify(settings));
-    } catch {
-      // Private mode or blocked storage: the choice lasts for this visit only.
-    }
-  }, [settings]);
+  useEffect(() => saveFlow(settings), [settings]);
   const change = (next: Partial<FlowSettings>) => {
     setSettings((now) => ({ ...now, ...next }));
     setPaused(false);

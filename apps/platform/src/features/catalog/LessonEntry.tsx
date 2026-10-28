@@ -6,6 +6,7 @@ import { bookReadingModules } from '../../../../../content/book-guided/modules';
 import { bookReference } from '../book/references';
 const readingModules = { ...importedModules, ...bookReadingModules };
 import { Loading } from '../../shared/Loading';
+import { Alert, Button, ButtonLink } from '../../shared/ui';
 const ChemistryLesson = lazy(() => import('../../app/ChemistryLesson'));
 const ReadingClassroom = lazy(() => import('../../app/ReadingClassroom'));
 type Pin = {
@@ -66,11 +67,13 @@ export default function LessonEntry({
   if (error)
     return (
       <main className="platform-ui lesson-entry-message">
-        <p role="alert">{error}</p>
-        <button className="button secondary" onClick={() => setRetry((value) => value + 1)}>
+        <Alert tone="error">{error}</Alert>
+        <Button variant="secondary" onClick={() => setRetry((value) => value + 1)}>
           حاول تاني
-        </button>
-        <a href={backHref}>ارجع للمنهج</a>
+        </Button>
+        <ButtonLink variant="link" href={backHref}>
+          ارجع للمنهج
+        </ButtonLink>
       </main>
     );
   if (!edition) return <Loading text="بنجهّز الدرس…" />;
@@ -95,7 +98,7 @@ export default function LessonEntry({
   if (!matches || !module || module.lessonId !== edition.lessonId)
     return (
       <main className="platform-ui lesson-entry-message">
-        <p role="alert">نسخة الدرس دي لسه مش متاحة على المنصة الجديدة.</p>
+        <Alert tone="error">نسخة الدرس دي لسه مش متاحة على المنصة الجديدة.</Alert>
         <a href={backHref}>ارجع للمنهج</a>
       </main>
     );

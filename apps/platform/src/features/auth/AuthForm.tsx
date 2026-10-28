@@ -1,5 +1,6 @@
 import { PlatformIcon } from '../../shared/PlatformIcon';
 import { useAuthForm } from './useAuthForm';
+import { Alert, Button } from '../../shared/ui';
 const headings = {
   signup: 'رحلتك تبدأ من هنا.',
   login: 'نكمّل من مكاننا؟',
@@ -31,6 +32,7 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
           <label>
             اسمك
             <input
+              className="nl-input"
               value={form.name}
               onChange={(e) => form.setName(e.target.value)}
               autoComplete="name"
@@ -45,6 +47,7 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
           <label>
             البريد الإلكتروني
             <input
+              className="nl-input"
               type="email"
               dir="ltr"
               autoComplete="email"
@@ -59,6 +62,7 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
           <label>
             كلمة المرور
             <input
+              className="nl-input"
               type="password"
               dir="ltr"
               autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
@@ -73,53 +77,47 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
         )}
       </fieldset>
       {mode === 'login' && (
-        <button
-          type="button"
-          className="text-button forgot"
+        <Button
+          variant="link"
+          className="forgot"
           disabled={busy}
           onClick={() => form.changeMode('forgot')}
         >
           نسيت كلمة المرور؟
-        </button>
+        </Button>
       )}
-      {form.error && (
-        <p className="error-message" role="alert">
-          {form.error}
-        </p>
-      )}
-      {form.message && (
-        <p className="success-message" role="status">
-          {form.message}
-        </p>
-      )}
-      <button
-        className="button primary"
+      {form.error && <Alert tone="error">{form.error}</Alert>}
+      {form.message && <Alert tone="success">{form.message}</Alert>}
+      <Button
+        type="submit"
+        size="lg"
+        block
+        className="auth-submit"
         disabled={busy || (mode === 'signup' && form.name.trim().length < 2)}
       >
         {busy ? 'لحظة واحدة…' : buttons[mode]}
         <PlatformIcon name="arrow" />
-      </button>
+      </Button>
       {mode === 'signup' || mode === 'login' ? (
         <p className="auth-switch">
           {mode === 'signup' ? 'عندك حساب بالفعل؟' : 'جديد في Learn؟'}{' '}
-          <button
-            type="button"
-            className="text-button"
+          <Button
+            variant="link"
             disabled={busy}
             onClick={() => form.changeMode(mode === 'signup' ? 'login' : 'signup')}
           >
             {mode === 'signup' ? 'سجّل دخولك' : 'اعمل حساب'}
-          </button>
+          </Button>
         </p>
       ) : (
-        <button
-          type="button"
-          className="text-button auth-back"
+        <Button
+          variant="link"
+          className="auth-back"
           disabled={busy}
           onClick={() => form.changeMode('login')}
         >
           العودة لتسجيل الدخول
-        </button>
+        </Button>
       )}
       <div className="auth-assurance">
         <PlatformIcon name="lock" />

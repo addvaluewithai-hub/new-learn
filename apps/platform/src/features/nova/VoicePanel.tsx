@@ -50,14 +50,14 @@ export function VoicePanel({
         {labels[voice.status]}
       </p>
       {voice.error && (
-        <p role="alert" className="nova-error">
+        <p role="alert" className="nl-alert nl-alert--error">
           {voice.error}
         </p>
       )}
       <div className="nova-voice-controls">
         {voice.status === 'idle' ? (
           <button
-            className="nova-primary"
+            className="nl-button nl-button--primary nl-button--sm"
             disabled={!enabled}
             onClick={() => {
               sent.current = instruction;
@@ -70,7 +70,7 @@ export function VoicePanel({
         ) : (
           <>
             <button
-              className="nova-secondary"
+              className="nl-button nl-button--secondary nl-button--sm"
               disabled={voice.status === 'connecting'}
               aria-pressed={voice.muted}
               onClick={voice.mute}
@@ -79,7 +79,7 @@ export function VoicePanel({
               {voice.muted ? 'افتح الميكروفون' : 'كتم الميكروفون'}
             </button>
             <button
-              className="nova-secondary"
+              className="nl-button nl-button--secondary nl-button--sm"
               disabled={voice.status === 'connecting'}
               onClick={() => void voice.pause()}
             >

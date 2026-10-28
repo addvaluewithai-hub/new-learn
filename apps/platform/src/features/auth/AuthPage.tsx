@@ -4,6 +4,7 @@ import { AuthForm } from './AuthForm';
 import '../../shared/platform.css';
 import './auth-layout.css';
 import './auth-form.css';
+import { Alert } from '../../shared/ui';
 export default function AuthPage({
   onLogin,
   error,
@@ -18,11 +19,7 @@ export default function AuthPage({
         <div className="auth-mobile-brand">
           <Brand />
         </div>
-        {error && (
-          <p className="error-message" role="alert">
-            {error}
-          </p>
-        )}
+        {error && <Alert tone="error">{error}</Alert>}
         <AuthForm onLogin={onLogin} />
       </section>
     </main>

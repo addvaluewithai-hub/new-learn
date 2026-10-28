@@ -15,6 +15,7 @@ const LessonEntry = lazy(() => import('../features/catalog/LessonEntry'));
 const DraftLesson = lazy(() => import('../features/authoring/DraftLesson'));
 const Consent = lazy(() => import('../features/authoring/Consent'));
 const StudioPage = lazy(() => import('../features/studio/StudioPage'));
+const SettingsPage = lazy(() => import('../features/settings/SettingsPage'));
 
 function StudentApp() {
   const session = useSession(),
@@ -28,6 +29,10 @@ function StudentApp() {
     return <AuthPage onLogin={session.refresh} error={session.error} />;
   if (query.get('oauth') === 'consent')
     return <Consent query={query} userName={session.user.name} />;
+  if (query.has('settings'))
+    return (
+      <SettingsPage user={session.user} onSignOut={session.signOut} onSaved={session.refresh} />
+    );
   if (query.has('studio'))
     return <StudioPage user={session.user} onSignOut={session.signOut} jobId={query.get('job')} />;
   const draftId = query.get('draft');

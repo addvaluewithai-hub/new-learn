@@ -1,5 +1,8 @@
 @import './tokens.css';
 @import './design-tokens.css';
+@import './ui/ui-controls.css';
+@import './ui/ui-fields.css';
+@import './ui/ui-surfaces.css';
 :root {
   font-family: var(--learn-font);
   color: var(--learn-ink);
@@ -50,6 +53,15 @@ select:focus-visible {
   outline: 3px solid var(--learn-focus);
   outline-offset: 3px;
 }
+/* Visually hidden, still read by screen readers. */
+.nl-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .app-shell {
   min-height: 100dvh;
 }
@@ -61,15 +73,15 @@ select:focus-visible {
   justify-items: center;
   gap: 14px;
   padding: 24px;
-  color: #5f6f69;
+  color: var(--nl-muted);
   font-size: 15px;
   text-align: center;
 }
 .page-spinner {
   width: 28px;
   height: 28px;
-  border: 3px solid #dfe5df;
-  border-top-color: #17463c;
+  border: 3px solid var(--nl-line);
+  border-top-color: var(--nl-primary);
   border-radius: 50%;
   animation: page-spin 0.8s linear infinite;
 }
