@@ -5,6 +5,7 @@ import { catalog, lessonEdition } from './content';
 import { body, checkOrigin, HttpError, json } from './http';
 import { readProgress, saveProgress } from './progress/store';
 import { authoringRoute } from './authoring/routes';
+import { studioRoute } from './builds/studio';
 export async function handleRequest(request: Request, env: Env): Promise<Response> {
   try {
     checkOrigin(request);
@@ -19,6 +20,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === 'GET' && path === '/api/me') return json({ user });
     if (path.startsWith('/api/authoring/') || path.startsWith('/api/oauth/'))
       return await authoringRoute(request, env, user, path);
+    if (path.startsWith('/api/studio/')) return await studioRoute(request, env, user, path);
     if (request.method === 'GET' && path === '/api/catalog') return json(await catalog(env, user));
     const progressPath = /^\/api\/lessons\/([^/]+)\/progress$/.exec(path);
     if (progressPath) {

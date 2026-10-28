@@ -8,16 +8,29 @@ type Course = {
   lessons: Array<{ id: string; title: string; revision: number }>;
 };
 
-/** The teacher's draft courses made through Claude or ChatGPT; hidden when there are none. */
+/** The teacher's draft courses, made here or through Claude or ChatGPT, and a way to start one. */
 export function MyDrafts() {
   const [courses, setCourses] = useState<Course[]>([]);
   useEffect(() => {
     api<Course[]>('/authoring/courses').then(setCourses, () => setCourses([]));
   }, []);
-  if (!courses.length) return null;
+  if (!courses.length)
+    return (
+      <p className="my-drafts-start">
+        عندك شرح أو ملفات عايز تحوّلها لدرس تفاعلي؟{' '}
+        <a className="text-button" href="/?studio">
+          اعمل كورس
+        </a>
+      </p>
+    );
   return (
     <section className="my-drafts" aria-label="مسوداتي">
-      <h2>مسوداتي</h2>
+      <div className="my-drafts-head">
+        <h2>مسوداتي</h2>
+        <a className="text-button" href="/?studio">
+          + اعمل كورس جديد
+        </a>
+      </div>
       {courses.map((course) => (
         <div key={course.id} className="my-drafts-course">
           <h3>{course.title}</h3>

@@ -1,0 +1,100 @@
+import { database, type Db } from '../db/connection';
+import { oauthClients } from '../db/oauth';
+import type { Env } from '../env';
+import { HttpError } from '../http';
+import { issueAccess } from '../oauth/tokens';
+import { addStep, claimJob, finishJob, jobFile } from './jobs';
+import { buildPrompt } from './request';
+
+// The builder worker's side (docs/builder-server.md): it calls in from our server with its
+// own token, claims jobs and reports back. No cookies; nothing here is reachable without
+// BUILDER_TOKEN. Each job gets a one-hour MCP token for its teacher, so Codex can only touch
+// that teacher's drafts.
+
+/** The OAuth client the builder's MCP tokens belong to. */
+export const BUILDER_CLIENT = 'b111de4000000000000000000000c0de';
+
+const reply = (value: unknown, status = 200) =>
+  Response.json(value, { status, headers: { 'cache-control': 'no-store' } });
+
+async function same(a: string, b: string) {
+  const digest = async (s: string) =>
+    new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)));
+  const [x, y] = await Promise.all([digest(a), digest(b)]);
+  return x.every((v, i) => v === y[i]);
+}
+
+async function input(request: Request) {
+  if (Number(request.headers.get('content-length') ?? 0) > 16384)
+    throw new HttpError(413, 'Too large.');
+  const value = (await request.json().catch(() => null)) as Record<string, unknown> | null;
+  if (!value || typeof value !== 'object') throw new HttpError(400, 'Bad JSON.');
+  return value;
+}
+
+async function claim(db: Db, origin: string) {
+  const claimed = await claimJob(db);
+  if (!claimed) return { job: null };
+  const { job, files } = claimed;
+  await db
+    .insert(oauthClients)
+    .values({ id: BUILDER_CLIENT, name: 'New Learn builder', redirectUris: [] })
+    .onConflictDoNothing();
+  const mcpToken = await issueAccess(db, {
+    clientId: BUILDER_CLIENT,
+    userId: job.ownerId,
+    userName: job.ownerName,
+  });
+  return {
+    job: {
+      id: job.id,
+      prompt: buildPrompt(job.request, files),
+      webSearch: job.request.webSearch,
+      files,
+      mcpUrl: `${origin}/mcp`,
+      mcpToken,
+    },
+  };
+}
+
+export async function handleBuilder(
+  request: Request,
+  env: Env & { BUILDER_TOKEN?: string },
+  deps: { db?: Db } = {},
+): Promise<Response> {
+  try {
+    const secret = env.BUILDER_TOKEN ?? '';
+    const given = /^Bearer\s+(\S+)$/.exec(request.headers.get('authorization') ?? '')?.[1] ?? '';
+    if (secret.length < 32 || !(await same(given, secret)))
+      throw new HttpError(401, 'Unauthorized.');
+    const db = deps.db ?? database(env);
+    const url = new URL(request.url);
+    const path = url.pathname;
+    if (path === '/builder/claim' && request.method === 'POST')
+      return reply(await claim(db, url.origin));
+    let m = /^\/builder\/jobs\/([0-9a-f-]{36})\/files\/([0-9a-f-]{36})$/.exec(path);
+    if (m && request.method === 'GET') {
+      const file = await jobFile(db, m[1], m[2]);
+      const bytes = Uint8Array.from(atob(file.data), (c) => c.charCodeAt(0));
+      return new Response(bytes, { headers: { 'content-type': file.mime } });
+    }
+    m = /^\/builder\/jobs\/([0-9a-f-]{36})\/(steps|finish)$/.exec(path);
+    if (m && request.method === 'POST') {
+      const value = await input(request);
+      if (m[2] === 'steps') {
+        await addStep(db, m[1], String(value.title ?? ''));
+        return reply({ ok: true });
+      }
+      return reply(
+        await finishJob(db, m[1], { ok: value.ok === true, message: String(value.message ?? '') }),
+      );
+    }
+    throw new HttpError(404, 'Not found.');
+  } catch (error) {
+    const status = error instanceof HttpError ? error.status : 500;
+    return reply(
+      { error: error instanceof HttpError ? error.message : 'Builder API error.' },
+      status,
+    );
+  }
+}

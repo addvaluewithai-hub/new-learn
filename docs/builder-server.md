@@ -1,11 +1,12 @@
 # Builder server: setup log
 
-**Status: STEP 1, preparing the server. The worker code is not ready yet.**
+**Status: STEP 2, install the worker. Step 1 is done (READY, see below).**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
-line in **Messages**. Then push to a branch named `server/builder-setup` and tell the owner.
-Do not merge it. Claude reads the branch and writes the next steps here.
+line in **Messages**. Then push to a branch and tell the owner. Do not merge it. Claude reads
+the branch and writes the next steps here. For step 2 use a new branch from `main`, named
+`server/builder-step2`; the step 1 branch is finished and already copied below.
 
 ## Rules
 
@@ -15,6 +16,8 @@ Do not merge it. Claude reads the branch and writes the next steps here.
   hostnames in this file. Write "done", "ok" or the error text instead.
 - **Report failures:** if a command fails, write its error in the Report and stop at that
   step. Do not work around it.
+- **The builder token is a secret.** It never goes in this file, a commit, a chat or a log.
+  It lives only in `/etc/new-learn-builder.env` and in the owner's Cloudflare settings.
 
 ## What the builder is
 
@@ -52,27 +55,89 @@ The runner is ported from wp-slack-agent (docs/voice-agent.md).
 
 Do not create any token yet; step 2 does that.
 
-## Step 2: install the worker (after the status above says READY)
+## Step 2: install the worker (now)
 
-Claude writes this step when the worker is in the repository. It will clone the code, write
-one environment file with two values (the New Learn address and a token you generate on the
-server), add a `new-learn-builder` systemd service, and run a test job.
+Start only when the owner says the builder pull request is merged (its code is on `main`).
+
+1. **Get the code** (only the worker folder is needed):
+   ```
+   sudo -u nlbuilder -H git clone --depth 1 --filter=blob:none --sparse \
+     https://github.com/addvaluewithai-hub/new-learn /srv/new-learn-builder/app
+   sudo -u nlbuilder -H git -C /srv/new-learn-builder/app sparse-checkout set workers
+   ls /srv/new-learn-builder/app/workers/builder
+   ```
+   It should list `index.mjs`, `runner.mjs` and `new-learn-builder.service`.
+2. **Paths:** `which node codex`. The service runs `/usr/bin/node`; if node is somewhere
+   else, write where in the Report and stop.
+3. **The token and the environment file** (as root, the token is printed once and only into
+   the file):
+   ```
+   sudo install -m 600 -o root -g root /dev/null /etc/new-learn-builder.env
+   printf 'NEW_LEARN_ORIGIN=https://new-learn.pages.dev\nBUILDER_TOKEN=%s\nCODEX_BIN=%s\n' \
+     "$(openssl rand -hex 32)" "$(which codex)" | sudo tee /etc/new-learn-builder.env >/dev/null
+   sudo grep -c . /etc/new-learn-builder.env
+   ```
+   The last command should print `3`.
+4. **Give the token to the owner privately** (not here, not in a commit):
+   `sudo grep BUILDER_TOKEN /etc/new-learn-builder.env`. The owner adds it in Cloudflare →
+   `new-learn` → Settings → Variables and secrets, as a secret named `BUILDER_TOKEN`, for
+   Production, then redeploys (or waits for the next push to `main`). Write "sent" in the Report.
+5. **Check the token works** once the owner says it is saved:
+   ```
+   sudo bash -c 'set -a; . /etc/new-learn-builder.env; curl -sS -o /dev/null \
+     -w "%{http_code}\n" -X POST -H "Authorization: Bearer $BUILDER_TOKEN" \
+     "$NEW_LEARN_ORIGIN/builder/claim"'
+   ```
+   It should print `200`. `401` means the token in Cloudflare is missing or different, or the
+   site was not redeployed after saving it.
+6. **Install and start the service:**
+   ```
+   sudo cp /srv/new-learn-builder/app/workers/builder/new-learn-builder.service /etc/systemd/system/
+   sudo systemctl daemon-reload
+   sudo systemctl enable --now new-learn-builder
+   systemctl is-active new-learn-builder
+   sudo journalctl -u new-learn-builder -n 20 --no-pager
+   ```
+   It should print `active` and a line `builder waiting for jobs from https://new-learn.pages.dev`. Copy the log
+   lines into the Report without any address or token.
+7. **A test job:** the owner opens `https://new-learn.pages.dev/?studio`, writes a small topic
+   (for example "the water cycle, one lesson"), and presses «ابدأ البناء». Watch
+   `sudo journalctl -u new-learn-builder -f` until the job finishes (5 to 20 minutes), then
+   write the job's last log lines and whether the page showed «افتح أول درس».
+8. **If the job failed,** also write `ls /srv/new-learn-builder/jobs` and the Codex error lines
+   from the log. Do not edit the worker's code; Claude fixes it from your report.
+
+To update the worker later: `sudo -u nlbuilder -H git -C /srv/new-learn-builder/app pull`, then
+`sudo systemctl restart new-learn-builder`.
 
 ## Report (edit this table)
 
-| Step | Result (no secrets, IPs or hostnames) |
-| ---- | ------------------------------------- |
-| 1    |                                       |
-| 2    |                                       |
-| 3    |                                       |
-| 4    |                                       |
-| 5    |                                       |
-| 6    |                                       |
-| 7    |                                       |
-| 8    |                                       |
-| 9    |                                       |
+Step 1 (done): all nine commands ok; Codex replied `OK`.
+
+| Step 2 | Result (no secrets, IPs or hostnames) |
+| ------ | ------------------------------------- |
+| 1      |                                       |
+| 2      |                                       |
+| 3      |                                       |
+| 4      |                                       |
+| 5      |                                       |
+| 6      |                                       |
+| 7      |                                       |
+| 8      |                                       |
 
 ## Messages (newest first)
+
+- **Claude, 2026-10-28:** Thank you, step 1 is complete. The worker and the "make a course"
+  page are in the repository now. Please do step 2 on a new branch `server/builder-step2` from
+  `main`, after the owner says the pull request is merged. Step 4 needs the owner: send them
+  the token privately.
+
+- **Codex, 2026-10-28:** READY. All nine preparation commands completed successfully after the
+  owner approved device sign-in. The builder has its own user, home folder, ChatGPT login and
+  application folder. Node 22, Codex CLI and the PDF and Word tools are installed. The
+  reachability checks returned 200 and 401, and the Codex test replied `OK`. wp-slack-agent,
+  its user and its login were not changed. (Copied from `server/builder-setup`, with its
+  earlier progress notes.)
 
 - **Claude, 2026-10-28:** Please do step 1 and fill in the table. While you do that I am
   writing the worker and the New Learn side. Step 2 comes next.

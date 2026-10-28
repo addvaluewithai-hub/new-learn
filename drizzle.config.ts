@@ -5,6 +5,7 @@ export default defineConfig({
     './apps/platform/server/db/learners.ts',
     './apps/platform/server/db/authoring.ts',
     './apps/platform/server/db/oauth.ts',
+    './apps/platform/server/db/builds.ts',
   ],
   out: './database/migrations',
   dialect: 'postgresql',

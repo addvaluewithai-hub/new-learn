@@ -43,6 +43,13 @@
       "when": 1793015735172,
       "tag": "0005_authoring_and_oauth",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793196193210,
+      "tag": "0006_builds",
+      "breakpoints": true
     }
   ]
 }

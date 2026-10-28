@@ -1,6 +1,16 @@
 .my-drafts {
   margin-top: 32px;
 }
+.my-drafts-start {
+  margin-top: 32px;
+  color: var(--muted);
+}
+.my-drafts-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
 .my-drafts h2 {
   font-size: 20px;
 }

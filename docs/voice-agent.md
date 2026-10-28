@@ -92,8 +92,26 @@ How a build runs:
 4. Drafts appear in «مسوداتي». The teacher previews them and leaves notes by voice or on
    screen; `fix_notes` is another job on the same Codex session.
 
-Where it runs: Cloudflare Pages cannot run a CLI, so the worker runs on a server. wp-slack-agent
-already runs on a VPS; Cloudflare Containers or Fly.io are the alternatives (decision D11).
+Where it runs: Cloudflare Pages cannot run a CLI, so the worker runs on a server. We chose the
+VPS wp-slack-agent runs on, as its own user and folder (D11; setup in docs/builder-server.md).
+
+What is built (Y6, Y7 first part):
+
+- **Teachers:** the «اعمل كورس» page (`/?studio`): topic, up to 5 files (PDF, Word, images,
+  text), the guide's "Ask first" choices as chips (learners, language, up to 3 teaching
+  styles, boards, questions, size) and web search on or off. Then a progress screen with the
+  builder's steps and a link to the first draft lesson. One build at a time, 10 a day.
+- **App:** `build_jobs` and `build_files` (migration 0006); `/api/studio/jobs` for teachers;
+  `/builder/*` for the worker, behind the `BUILDER_TOKEN` secret. The worker pulls jobs, so
+  the server opens no port. Each job gets a one-hour `/mcp` token for its teacher, and the app
+  writes the prompt (`server/builds/request.ts`), so the worker holds no product logic.
+- **Worker:** `workers/builder/` (Node built-ins only): converts PDF and Word to text, runs
+  `codex exec --json` with `/mcp` as `newlearn`, turns its events into Arabic steps, resumes
+  once after a dropped stream, and reports the result. A job left running 45 minutes goes back
+  to the queue once, then fails.
+- **Still to come:** Nova's `start_build` and `build_status`, fix jobs on the same Codex
+  session, skills (Y9), API keys for customers (Y13) and usage limits per plan (Y10). Voice
+  choice is not on the page yet: lessons have no recorded voice until OR24.
 
 ## Cost and terms (must hold)
 
