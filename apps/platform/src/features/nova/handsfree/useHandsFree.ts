@@ -27,7 +27,8 @@ export const useVoiceHooks = () => useRef<Hooks>({});
 /**
  * Turns hands-free (audio) mode on for the open lesson: microphone always open, voice
  * detection, wake word and earbud button, lock-screen controls, spoken answers submitted
- * through the lesson's own answer flow. Off, it leaves the lesson exactly as it was.
+ * through the lesson's own answer flow. Off, the lesson is as it was, and Nova's lesson_control
+ * tool applies directly (the learner held the button to ask).
  */
 export function useHandsFree({
   hooks,
@@ -36,6 +37,7 @@ export function useHandsFree({
   voice,
   controller,
   context,
+  act,
   resume,
   title,
   onNotice,
@@ -46,18 +48,23 @@ export function useHandsFree({
   voice: Voice;
   controller: LessonController | null;
   context: LessonContext | null;
+  /** Nova's lesson_control tool (also used when hands-free mode is off). */
+  act: (args: Record<string, unknown>) => unknown;
   resume: () => void;
   title: { lesson: string; course: string };
   onNotice: (text: string) => void;
 }) {
-  const now = useRef({ settings, change, voice, controller, context, resume, onNotice });
-  now.current = { settings, change, voice, controller, context, resume, onNotice };
+  const now = useRef({ settings, change, voice, controller, context, act, resume, onNotice });
+  now.current = { settings, change, voice, controller, context, act, resume, onNotice };
   const [free] = useState(
     () =>
       new HandsFree({
         voice: () => now.current.voice,
-        answering: () => now.current.context?.phase === 'attempt',
+        // "Show the answers" never waits for one.
+        answering: () =>
+          now.current.context?.phase === 'attempt' && now.current.settings.questions === 'ask',
         answer: (text) => now.current.controller?.answer?.(text),
+        act: (args) => now.current.act(args),
         resume: () => now.current.resume(),
         wakeWord: () => now.current.settings.wakeWord,
         noisy: () => now.current.settings.noisy,
@@ -77,7 +84,10 @@ export function useHandsFree({
         tool: (name, args) => free.tool(name, args),
         setup: () => ({ handsFree: true, wakeWord: now.current.settings.wakeWord }),
       }
-    : {};
+    : {
+        tool: (name, args) =>
+          name === 'lesson_control' ? now.current.act(args) : { error: 'Unknown tool.' },
+      };
 
   useEffect(() => {
     if (!on) return;

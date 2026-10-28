@@ -116,6 +116,12 @@ export function useLessonTalk(
       return hooks?.current.reply;
     },
     tool: (name, args) => hooks?.current.tool?.(name, args),
+    ended: (seconds, reason) =>
+      void api('/nova/ended', {
+        seconds,
+        reason,
+        handsFree: hooks?.current.setup?.().handsFree === true,
+      }).catch(() => undefined),
     setup: () => hooks?.current.setup?.() ?? {},
     done: () => settle(),
     failed: (message) => {

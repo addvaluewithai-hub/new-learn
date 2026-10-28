@@ -137,9 +137,11 @@ export function summarize(
   completed: boolean,
   updatedAt: Date,
 ): ProgressSummary {
+  // Only real attempts reach a goal: not "I don't know" (an empty answer) nor a skip.
+  const real = state.attempts.filter((a) => a.written.trim() || a.choice !== undefined);
   const progress = goalProgress(
     goals,
-    state.attempts.map((a) => a.questionId),
+    real.map((a) => a.questionId),
     state.reachedSceneIds,
   );
   return {

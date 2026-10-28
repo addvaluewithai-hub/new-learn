@@ -26,6 +26,8 @@ export type VoiceEvents = {
   reply?: ReplyGate;
   /** Extra setup for the next session (hands-free mode). */
   setup?: () => TalkSetup;
+  /** A connected session closed after this many seconds, and why (docs/voice-agent.md, Y3). */
+  ended?: (seconds: number, reason: string) => void;
   /** Client tools the tutor may call (e.g. submit_answer); the result goes back as-is. */
   tool?: (name: string, args: Record<string, unknown>) => unknown;
 };
@@ -40,6 +42,8 @@ export type Session = {
   audio: AudioSession;
   live: LiveConnection;
   ready: boolean;
+  /** When the session was ready (performance.now()). */
+  since: number;
   connected: Promise<void>;
   mic?: Promise<void>;
   /** The learner's turn is open on the server (activityStart sent). */

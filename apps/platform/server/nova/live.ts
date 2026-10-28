@@ -7,21 +7,39 @@ import { DEFAULT_STYLE, paceInstruction, type TutorStyle } from './style';
 /** Hands-free (audio) mode: the learner can't see or touch the screen and answers by voice. */
 export type HandsFree = { handsFree: boolean; wakeWord: string };
 const HANDS_FREE = (wakeWord: string) =>
-  `\nHANDS-FREE MODE: the learner cannot see or touch the screen (it may be off) and speaks without holding a button. After a READ QUESTION, wait silently as long as it takes, even many minutes. When the learner answers that question, call submit_answer with their answer in their own words and say nothing else: the app then shows the model answer and you will be asked to read it. If they ask something instead, answer briefly and wait again. If their words are unclear, say only «مش سامعك كويس، ممكن تعيد؟». Never repeat the question more than once in a row. Never say «${wakeWord}» (the learner's word for calling you).`;
+  `\nHANDS-FREE MODE: the learner cannot see or touch the screen (it may be off) and speaks without holding a button. After a READ QUESTION, wait silently as long as it takes, even many minutes. When the learner answers that question, call submit_answer with their answer in their own words and say nothing else (if they say they do not know, call lesson_control with show_answer instead): the app then shows the model answer and you will be asked to read it. If they ask something instead, answer briefly and wait again. If their words are unclear, say only «مش سامعك كويس، ممكن تعيد؟». Never repeat the question more than once in a row. Never say «${wakeWord}» (the learner's word for calling you).`;
 const SUBMIT = {
-  functionDeclarations: [
-    {
-      name: 'submit_answer',
-      description:
-        "Submit the learner's spoken answer to the lesson question you just read, in their own words.",
-      parameters: {
-        type: 'OBJECT',
-        properties: { answer: { type: 'STRING' } },
-        required: ['answer'],
-      },
-    },
-  ],
+  name: 'submit_answer',
+  description:
+    "Submit the learner's spoken answer to the lesson question you just read, in their own words.",
+  parameters: {
+    type: 'OBJECT',
+    properties: { answer: { type: 'STRING' } },
+    required: ['answer'],
+  },
 };
+/** Moving through the lesson by voice (docs/voice-agent.md); the app applies it. */
+export const LESSON_ACTIONS = [
+  'skip_question',
+  'show_answer',
+  'repeat',
+  'back',
+  'next',
+  'pause',
+  'resume',
+] as const;
+const CONTROL = {
+  name: 'lesson_control',
+  description:
+    'Move through the lesson, only when the learner asks: skip_question leaves the open question unanswered and goes on; show_answer shows its model answer (the learner does not know); repeat says the current line again; back and next move one step; pause stops and waits; resume continues.',
+  parameters: {
+    type: 'OBJECT',
+    properties: { action: { type: 'STRING', enum: [...LESSON_ACTIONS] } },
+    required: ['action'],
+  },
+};
+const CONTROL_RULE =
+  '\nWhen the learner asks to skip a question, to see the answer (or says they do not know it), to hear a line again, to go back, to go on, to pause or to continue, call lesson_control with that action. Then say only a word or two such as «تمام»; if the result has a line, say that line exactly instead; if it has an error, say it in one short sentence. Never call lesson_control unless the learner asked.';
 
 export function liveConfig(
   instruction: string,
@@ -40,14 +58,14 @@ export function liveConfig(
       systemInstruction: {
         parts: [
           {
-            text: `${instruction}\n${pace}\nThe learner is reading the lesson and holds a button to ask you something by voice. Answer what they asked about the step they are on, in two to four short spoken sentences, then stop and let them continue; offer one follow-up only if useful. A message starting with READ is the next line of the lesson for you to say aloud: say the text after it exactly as written, word for word, adding nothing (no greeting, no "next", no comment), clearly like a patient teacher in a classroom rather than a conversation, at the pace above with natural pauses at commas. Consecutive READ lines are one continuous explanation, so keep the same calm voice and pace from line to line. Read math naturally in Egyptian Arabic (1/2 as نص, 1/3 as تلت, x² as إكس تربيع, = as يساوي) and English words in English. READ QUESTION is a question for the learner: read it, then stay silent and never answer it yourself. Messages starting with POSITION are silent updates of where the learner now is; never reply to them on their own. Keep lesson facts exactly as the lesson states them and say plainly when something is an extra example.${mode.handsFree ? HANDS_FREE(mode.wakeWord) : ''}`,
+            text: `${instruction}\n${pace}\nThe learner is reading the lesson and holds a button to ask you something by voice. Answer what they asked about the step they are on, in two to four short spoken sentences, then stop and let them continue; offer one follow-up only if useful. A message starting with READ is the next line of the lesson for you to say aloud: say the text after it exactly as written, word for word, adding nothing (no greeting, no "next", no comment), clearly like a patient teacher in a classroom rather than a conversation, at the pace above with natural pauses at commas. Consecutive READ lines are one continuous explanation, so keep the same calm voice and pace from line to line. Read math naturally in Egyptian Arabic (1/2 as نص, 1/3 as تلت, x² as إكس تربيع, = as يساوي) and English words in English. READ QUESTION is a question for the learner: read it, then stay silent and never answer it yourself. Messages starting with POSITION are silent updates of where the learner now is; never reply to them on their own. Keep lesson facts exactly as the lesson states them and say plainly when something is an extra example.${CONTROL_RULE}${mode.handsFree ? HANDS_FREE(mode.wakeWord) : ''}`,
           },
         ],
       },
       realtimeInputConfig: { automaticActivityDetection: { disabled: true } },
       inputAudioTranscription: {},
       outputAudioTranscription: {},
-      ...(mode.handsFree ? { tools: [SUBMIT] } : {}),
+      tools: [{ functionDeclarations: mode.handsFree ? [CONTROL, SUBMIT] : [CONTROL] }],
     };
   return {
     generationConfig: speech,
@@ -76,5 +94,17 @@ export function liveConfig(
         ],
       },
     ],
+  };
+}
+
+const ENDINGS = ['goaway', 'dropped', 'error', 'idle', 'closed'];
+/** A live session's length and ending, for the logs (no user, no lesson, no words). */
+export function sessionEnd(input: Record<string, unknown>) {
+  const seconds = Number(input.seconds);
+  return {
+    event: 'nova_session_end',
+    seconds: Number.isFinite(seconds) ? Math.min(7200, Math.max(0, Math.round(seconds))) : 0,
+    reason: ENDINGS.includes(input.reason as string) ? input.reason : 'other',
+    handsFree: input.handsFree === true,
   };
 }

@@ -191,3 +191,12 @@ test('a sentence split across steps shows its start before the current step', as
   assert.equal(sentenceLead(steps, 2), 'بعدين');
   assert.equal(sentenceLead(steps, 3), 'بعدين اللي معاك اسمه نص:');
 });
+
+test('goals count real attempts only: "I don\'t know" and skipped questions do not', async () => {
+  const { attempted, goalProgress } = await import('../src/reading/goals');
+  const goals = [{ id: 'G', text: 'g', sceneIds: ['S01'], questionIds: ['Q1'] }];
+  assert.deepEqual(attempted({ Q1: ' ', Q2: 'x' }), ['Q2']);
+  assert.equal(goalProgress(goals, attempted({ Q1: '' })).done, 0);
+  assert.equal(goalProgress(goals, attempted({})).done, 0, 'skipped: no answer at all');
+  assert.equal(goalProgress(goals, attempted({ Q1: 'my answer' })).done, 1);
+});

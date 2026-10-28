@@ -17,6 +17,8 @@ export type HandsFreeHost = {
   /** The learner is on a question's answer page that is still unanswered. */
   answering: () => boolean;
   answer: (text: string) => void;
+  /** Applies a lesson_control call (skip, show the answer, repeat, move, pause). */
+  act: (args: Record<string, unknown>) => unknown;
   /** Continue the narration from where the learner is. */
   resume: () => void;
   wakeWord: () => string;
@@ -45,7 +47,8 @@ export class HandsFree {
   private ours = false;
   private armedUntil = 0;
   private followUpUntil = 0;
-  private pending: string | null = null;
+  /** A tool call held until the learner's words are known to be real. */
+  private pending: (() => void) | null = null;
   private resumeAfterReply = false;
   private answered = false;
   private timers: { quiet?: number; follow?: number } = {};
@@ -97,21 +100,35 @@ export class HandsFree {
       learner: (text) => gate.heardText(text),
       decide: () => {
         const ok = gate.decide();
-        if (ok && this.pending) this.submit(this.pending);
+        if (ok) this.pending?.();
         this.pending = null;
         return ok;
       },
     };
   }
 
-  /** The tutor's submit_answer tool: applied once the learner's words are known to be real. */
+  /** The tutor's tools, applied only once the learner's words are known to be real. */
   tool(name: string, args: Record<string, unknown>) {
+    if (name === 'lesson_control') {
+      // The tutor heard words to call it; noise that was taken for words is held, then dropped.
+      if (!this.gate.holding || this.gate.realSoFar()) return this.control(args);
+      this.pending = () => void this.control(args);
+      return { ok: true };
+    }
     if (name !== 'submit_answer') return { error: 'Unknown tool.' };
     const text = typeof args.answer === 'string' ? args.answer.trim() : '';
     if (!text || !this.host.answering()) return { error: 'No question is waiting for an answer.' };
-    if (this.gate.holding) this.pending = text;
+    if (this.gate.holding) this.pending = () => this.submit(text);
     else this.submit(text);
     return { ok: true };
+  }
+  private control(args: Record<string, unknown>) {
+    // "Wait" means wait: no carrying on after the reply.
+    if (args.action === 'pause') {
+      this.resumeAfterReply = false;
+      clearTimeout(this.timers.follow);
+    }
+    return this.host.act(args);
   }
   private submit(text: string) {
     this.host.answer(text);

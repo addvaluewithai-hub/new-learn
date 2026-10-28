@@ -95,10 +95,22 @@ test('voice PCM is little endian and resamples browser audio to 16kHz', () => {
   assert.ok(Math.abs(decoded[2] - 0.5) < 0.001);
   assert.equal(decodePcm(encodePcm(new Float32Array(480), 48000)).length, 160);
 });
-test('lesson talk: manual activity; lines to read aloud come as READ turns, no tools', () => {
+test('lesson talk: manual activity; READ turns; only the lesson_control tool', () => {
   const talk = liveConfig('I', 'talk') as Record<string, any>;
   assert.deepEqual(talk.realtimeInputConfig, { automaticActivityDetection: { disabled: true } });
-  assert.equal(talk.tools, undefined);
+  const [control] = talk.tools[0].functionDeclarations;
+  assert.equal(talk.tools[0].functionDeclarations.length, 1);
+  assert.equal(control.name, 'lesson_control');
+  assert.deepEqual(control.parameters.properties.action.enum, [
+    'skip_question',
+    'show_answer',
+    'repeat',
+    'back',
+    'next',
+    'pause',
+    'resume',
+  ]);
+  assert.match(talk.systemInstruction.parts[0].text, /Never call lesson_control unless/);
   assert.match(talk.systemInstruction.parts[0].text, /READ QUESTION/);
   const practice = liveConfig('I', 'practice') as Record<string, any>;
   assert.equal(practice.realtimeInputConfig, undefined);
@@ -127,4 +139,20 @@ test('lesson talk history merges spoken and typed turns into what chat accepts',
     { role: 'user', text: 'next question' },
   ]);
   assert.doesNotThrow(() => chatHistory(turns));
+});
+
+test('a live session end is logged as length and reason only', async () => {
+  const { sessionEnd } = await import('../server/nova/live');
+  assert.deepEqual(sessionEnd({ seconds: 912.4, reason: 'goaway', handsFree: true, user: 'x' }), {
+    event: 'nova_session_end',
+    seconds: 912,
+    reason: 'goaway',
+    handsFree: true,
+  });
+  assert.deepEqual(sessionEnd({ seconds: 'a', reason: '<script>' }), {
+    event: 'nova_session_end',
+    seconds: 0,
+    reason: 'other',
+    handsFree: false,
+  });
 });

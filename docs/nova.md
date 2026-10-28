@@ -82,6 +82,37 @@ reopens). Silero VAD (onnxruntime-web, loaded lazily; loudness if it fails) find
 
 Off, the lesson behaves exactly as before.
 
+### Moving through the lesson by voice (OR19, runtime 0.4.2)
+
+Every lesson talk session has a `lesson_control` tool. Nova calls it only when the learner
+asks:
+
+| Action            | What happens                                                                |
+| ----------------- | --------------------------------------------------------------------------- |
+| `skip_question`   | The open question stays unanswered and the lesson goes on to the next scene |
+| `show_answer`     | The model answer is shown, recorded as "I don't know" (an empty answer)     |
+| `repeat`          | A lesson read aloud reads the line again; otherwise Nova says it            |
+| `back`, `next`    | One step, as the buttons do (next never passes an open question)            |
+| `pause`, `resume` | Stop and wait; carry on                                                     |
+
+- **After an action:** Nova says a word or two. A lesson that moves on its own carries on
+  once Nova is quiet (`ReadingClassroom`, `lessonControl.ts`).
+- **In hands-free mode:** an action waits behind the same reply gate as answers, so noise that
+  was taken for words never skips a question.
+- **On screen:** «فوّت» sits next to «معرفتش، وريني الحل».
+- **Settings:** «الأسئلة» is either «اسألني» (the default) or «اعرض الحلول». «اعرض الحلول»
+  shows each question and its model answer without waiting, and Nova reads both as plain
+  lines.
+- **Goals:** only a real attempt reaches a goal. "I don't know", a skip and a shown answer do
+  not. The same rule applies on the server (`summarize`) and in the lesson (`attempted`).
+- **Understanding real speech:** `npm run eval:nova-tools` (needs `GEMINI_API_KEY`) asks the
+  real Live model what it does with 25 Egyptian Arabic phrases and fails below 90%. The
+  browser tests use a scripted tutor, so they prove the wiring, not the understanding.
+- **Session length:** every connected session that closes sends `/api/nova/ended` (seconds and
+  reason: goaway, dropped, error, idle or closed). The server writes one `nova_session_end`
+  log line with nothing about the user or the lesson. Session resumption (Y3) waits until these
+  logs show a need.
+
 ## Server boundary
 
 POST /api/nova/chat, /live, /quiz require same-origin requests and a valid account.

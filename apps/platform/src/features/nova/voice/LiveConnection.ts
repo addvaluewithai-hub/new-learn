@@ -14,6 +14,8 @@ export class LiveConnection {
   private ready = false;
   private intentional = false;
   private cancelSetup: (() => void) | null = null;
+  /** Why the session ended on the server's side, if it did: 'goaway', 'error' or 'dropped'. */
+  ended = '';
   constructor(private callbacks: LiveCallbacks) {}
   connect(token: LiveToken) {
     return new Promise<void>((resolve, reject) => {
@@ -48,6 +50,7 @@ export class LiveConnection {
               resolve();
             }
             if (message.error) {
+              this.ended = 'error';
               fail('تعذّر بدء جلسة Nova.');
               this.close();
               return;
@@ -80,6 +83,7 @@ export class LiveConnection {
             }
             if (content?.turnComplete) this.callbacks.complete();
             if (message.goAway) {
+              this.ended = 'goaway';
               fail('المكالمة انتهت. تقدر تتصل تاني.');
               this.close();
             }
@@ -90,7 +94,10 @@ export class LiveConnection {
       socket.onclose = () => {
         this.ready = false;
         clearTimeout(timer);
-        if (!this.intentional) fail('المكالمة اتقطعت. جرّب تتصل تاني.');
+        if (!this.intentional) {
+          this.ended ||= 'dropped';
+          fail('المكالمة اتقطعت. جرّب تتصل تاني.');
+        }
       };
     });
   }

@@ -121,7 +121,7 @@ limits when building Y3.
 
 | Round | What                                                                    | Why first                       |
 | ----- | ----------------------------------------------------------------------- | ------------------------------- |
-| OR19  | Lesson tools and question style; long sessions                          | felt at once in the street test |
+| OR19  | Lesson tools and question style; session logging (done)                 | felt at once in the street test |
 | OR20  | Builder worker ported from wp-slack-agent; build jobs; skills; API keys | everything heavy needs it       |
 | OR21  | Home "Start" button and Nova home mode                                  | "open the app and talk"         |
 | OR22  | Paid plans, metering, pricing page                                      | paid from the start             |

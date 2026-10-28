@@ -7,7 +7,9 @@
 // judged; a question back whose turnComplete arrives after its audio has played still ends
 // Nova's turn, so the next answer is heard; a real spoken answer is submitted through
 // the lesson's own answer flow (submit_answer → the model answer page), and Nova goes on to
-// read the feedback. The Silero voice detector and the microphone pipeline are real.
+// read the feedback. On the next question, "skip this one" calls lesson_control: the question
+// stays unanswered (nothing saved for it) and Nova reads on from the next scene. The Silero
+// voice detector and the microphone pipeline are real.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -25,6 +27,8 @@ const pkg = JSON.parse(
   await readFile(`content/imported/manhaj-almarifa/${id}/reading.json`, 'utf8'),
 );
 const asked = pkg.scenes.find((s) => s.question);
+const second = pkg.scenes.filter((s) => s.question)[1];
+const afterSecond = pkg.scenes[pkg.scenes.indexOf(second) + 1].steps[0].text;
 const feedbackLine = asked.question.feedback.steps[0].text;
 const pcm = (seconds) => Buffer.alloc(Math.round(24000 * 2 * seconds)).toString('base64');
 const UNHEARD = 'مش سامعك كويس';
@@ -58,12 +62,15 @@ try {
     r.fulfill({ contentType: 'text/css', body: '' }),
   );
   const lives = [],
-    wakes = [];
+    wakes = [],
+    saves = [];
   await page.route('**/api/**', async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
     if (path === '/api/me')
       return route.fulfill({ json: { user: { id: 'u', name: 'أحمد', email: 's@e.com' } } });
+    if (path.endsWith('/progress') && request.method() !== 'GET')
+      saves.push(request.postDataJSON());
     if (path.endsWith('/progress'))
       return route.fulfill({
         json:
@@ -129,6 +136,12 @@ try {
         speak('', 0.4, late);
         return;
       }
+      if (turns === 4) {
+        say({ serverContent: { inputTranscription: { text: 'skip this one please' } } });
+        const skip = { id: 's1', name: 'lesson_control', args: { action: 'skip_question' } };
+        return speak('تمام', 0.2, [{ toolCall: { functionCalls: [skip] } }]);
+      }
+      if (turns > 4) return speak('', 0);
       say({ serverContent: { inputTranscription: { text: 'it asks how we know things' } } });
       const call = { id: 'a1', name: 'submit_answer', args: { answer: 'بتسأل إزاي بنعرف' } };
       speak('', 0, [{ toolCall: { functionCalls: [call] } }]);
@@ -166,11 +179,22 @@ try {
   await until(() => tools.some((t) => t.name === 'submit_answer'), 'submit_answer result');
   assert.deepEqual(tools.find((t) => t.name === 'submit_answer').response, { ok: true });
   await until(() => sent.some((t) => t.includes(feedbackLine)), 'Nova reads the model answer');
+
+  // The next question: "skip this one" → lesson_control → on to the next scene, unanswered.
+  await until(
+    () => sent.some((t) => t.startsWith('READ QUESTION') && t.includes(second.question.arabic)),
+    'the second question',
+  );
+  await until(() => tools.some((t) => t.name === 'lesson_control'), 'lesson_control result');
+  assert.deepEqual(tools.find((t) => t.name === 'lesson_control').response, { ok: true });
+  await until(() => sent.some((t) => t.includes(afterSecond)), 'Nova reads on after the skip');
+  const last = saves.at(-1).state;
+  assert.ok(!last.attempts.some((a) => a.questionId === second.question.id), 'nothing saved');
   const thread = await page.locator('.rl').innerText();
   assert.ok(!thread.includes(UNHEARD), 'the reply to noise was never shown');
   assert.deepEqual(errors, []);
   console.log(
-    'Hands-free: settings, wake word, reading, noise dropped, spoken answer → feedback passed.',
+    'Hands-free: settings, wake word, reading, noise dropped, spoken answer → feedback, spoken skip passed.',
   );
 } finally {
   await browser?.close();

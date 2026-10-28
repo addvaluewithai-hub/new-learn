@@ -69,6 +69,10 @@ export class AnswerGate {
   heardText(text: string) {
     if (this.judging) this.heard += text;
   }
+  /** The learner's words so far are real (a reply to them would be heard). */
+  realSoFar() {
+    return realWords(this.heard);
+  }
   hold(data: string, rate: number) {
     if (this.dropping) return;
     this.held.push([data, rate]);
