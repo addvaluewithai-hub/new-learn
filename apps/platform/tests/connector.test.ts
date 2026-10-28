@@ -130,10 +130,18 @@ test('a connected AI creates a course, a board and a lesson, then handles a teac
     });
     return (await response.json()) as { result: any; error?: unknown };
   };
-  const tool = async (name: string, args: unknown = {}) =>
-    (await rpc('tools/call', { name, arguments: args })).result;
+  const tool = async (name: string, args: unknown = {}) => {
+    const { result } = await rpc('tools/call', { name, arguments: args });
+    // Strict MCP clients (e.g. Claude Code) reject structured content that is not an object.
+    if ('structuredContent' in result) {
+      const content = result.structuredContent;
+      assert.ok(content && typeof content === 'object' && !Array.isArray(content), name);
+    }
+    return result;
+  };
   const init = await rpc('initialize', { protocolVersion: '2025-06-18', capabilities: {} });
   assert.equal(init.result.protocolVersion, '2025-06-18');
+  assert.match(init.result.instructions, /Ask first/);
   const ack = await call('/mcp', {
     method: 'POST',
     headers: { authorization: `Bearer ${tokens.access_token}`, 'content-type': 'application/json' },
@@ -188,6 +196,6 @@ test('a connected AI creates a course, a board and a lesson, then handles a teac
     summary: 'غيرتها لـ300',
   });
   assert.equal(resolved.structuredContent.status, 'review');
-  const courses = (await tool('list_my_courses')).structuredContent;
+  const { courses } = (await tool('list_my_courses')).structuredContent;
   assert.equal(courses[0].lessons[0].previewUrl, added.previewUrl);
 });

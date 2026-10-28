@@ -58,16 +58,18 @@ export const TOOLS: Tool[] = [
     description: 'The teacher’s draft courses with their lessons, revisions and preview links.',
     inputSchema: object({}),
     annotations: read,
-    run: async (_, c) =>
-      (await listCourses(c.db, c.user.id)).map((course) => ({
+    run: async (_, c) => ({
+      courses: (await listCourses(c.db, c.user.id)).map((course) => ({
         ...course,
         lessons: course.lessons.map((l) => ({ ...l, previewUrl: preview(c, l.id) })),
       })),
+    }),
   },
   {
     name: 'create_course',
     title: 'Create a course',
-    description: 'Start a new draft course for the teacher. Returns its id.',
+    description:
+      'Start a new draft course for the teacher. Returns its id. First ask the teacher the short round of choices in the guide ("Ask first") and agree on an outline, unless they already chose.',
     inputSchema: object(courseFields, ['title']),
     annotations: write,
     run: async (args, c) => {

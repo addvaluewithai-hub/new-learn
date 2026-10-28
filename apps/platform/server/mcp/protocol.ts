@@ -12,7 +12,8 @@ export const PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '202
 const INSTRUCTIONS =
   'New Learn turns lessons into interactive, voice-tutored reading lessons. Call ' +
   'get_authoring_guide once before writing lessons or boards; it explains the lesson format, ' +
-  'the board contract and how to read the teacher’s notes.';
+  'the board contract and how to read the teacher’s notes. Before a new course, ask the ' +
+  'teacher the short round of choices in its "Ask first" section and agree on an outline.';
 
 type Message = { jsonrpc?: string; id?: string | number | null; method?: string; params?: any };
 const reply = (id: Message['id'], result: unknown) => ({ jsonrpc: '2.0', id, result });
@@ -73,7 +74,10 @@ async function call(message: Message, context: ToolContext) {
             text: typeof result === 'string' ? result : JSON.stringify(result, null, 2),
           },
         ],
-        ...(typeof result === 'string' ? {} : { structuredContent: result }),
+        // MCP structured content is an object, never a list or text.
+        ...(result && typeof result === 'object' && !Array.isArray(result)
+          ? { structuredContent: result }
+          : {}),
       });
     } catch (error) {
       return reply(id, toolError(error));
