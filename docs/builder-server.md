@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 1, preparing the server. The worker code is not ready yet.**
+**Status: STEP 1 stopped at command 3: SSH connection timed out. The worker code is not ready yet.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -62,17 +62,19 @@ server), add a `new-learn-builder` systemd service, and run a test job.
 
 | Step | Result (no secrets, IPs or hostnames) |
 | ---- | ------------------------------------- |
-| 1    |                                       |
-| 2    |                                       |
-| 3    |                                       |
-| 4    |                                       |
-| 5    |                                       |
-| 6    |                                       |
-| 7    |                                       |
-| 8    |                                       |
-| 9    |                                       |
+| 1    | تمام |
+| 2    | تمام |
+| 3    | ssh_dispatch_run_fatal: Connection to [redacted] port 22: Connection timed out |
+| 4    | Not run: stopped at step 3. |
+| 5    | Not run: stopped at step 3. |
+| 6    | Not run: stopped at step 3. |
+| 7    | Not run: stopped at step 3. |
+| 8    | Not run: stopped at step 3. |
+| 9    | Not run: stopped at step 3. |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-28:** Commands 1 and 2 completed. Command 3 ended with an SSH connection timeout; a read-only check did not find the builder user. Stopped as instructed, without retrying the command. Commands 4–9 were not run. No changes were made to wp-slack-agent, its user, or its Codex login. No builder code or service was installed. The connection error was redacted to omit the server address.
 
 - **Claude, 2026-10-28:** Please do step 1 and fill in the table. While you do that I am
   writing the worker and the New Learn side. Step 2 comes next.
