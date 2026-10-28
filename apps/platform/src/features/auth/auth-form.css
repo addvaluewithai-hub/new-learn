@@ -26,23 +26,19 @@
   display: block;
   margin-top: 18px;
 }
-.auth-form input {
+.auth-form .nl-input {
   display: block;
-  width: 100%;
-  height: 52px;
-  border: 1px solid #d8e0d9;
-  border-radius: 10px;
-  padding: 12px 15px;
+  min-height: 52px;
   margin-top: 8px;
-  background: #fff;
-  color: var(--ink);
 }
-.auth-form input::placeholder {
-  color: #8b958e;
+.auth-form .nl-input::placeholder {
+  color: var(--nl-faint);
   font-size: 0.85rem;
 }
-.auth-form > .button {
-  width: 100%;
+.auth-form .nl-alert {
+  margin-top: 18px;
+}
+.auth-form > .auth-submit {
   margin-top: 28px;
 }
 .auth-switch {
@@ -68,10 +64,7 @@
 .auth-assurance svg {
   flex-shrink: 0;
 }
-.auth-form .error-message {
-  margin-top: 18px;
-}
-.forgot {
+.auth-form .forgot {
   font-size: 0.8rem;
   display: block;
   margin-top: 12px;
@@ -92,13 +85,8 @@
 .auth-form fieldset label {
   font-size: 0.9rem;
 }
-.auth-back {
+.auth-form .auth-back {
   margin-top: 22px;
-}
-.success-message {
-  color: #205b37;
-  line-height: 1.8;
-  margin-top: 18px;
 }
 @media (max-width: 900px) {
   .auth-form-wrap {

@@ -124,7 +124,7 @@ export function NovaModal({
             )}
           </div>
           {!enabled && (
-            <p className="nova-error">
+            <p className="nl-alert nl-alert--error">
               المعاينة بدون حساب. افتح الدرس من المنهج بعد تسجيل الدخول لاستخدام المساعد.
             </p>
           )}

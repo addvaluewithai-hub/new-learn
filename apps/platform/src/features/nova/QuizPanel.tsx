@@ -20,19 +20,19 @@ export function QuizPanel({
           تدريب مولّد بالذكاء الاصطناعي، وليس امتحانًا معتمدًا. النتيجة في الجلسة الحالية فقط.
         </p>
         {error && (
-          <p role="alert" className="nova-error">
+          <p role="alert" className="nl-alert nl-alert--error">
             {error}
           </p>
         )}
         <button
-          className="nova-primary"
+          className="nl-button nl-button--primary nl-button--sm"
           disabled={loading || !enabled}
           onClick={() => void practice.prepare(position)}
         >
           {loading ? 'بنجهّز الأسئلة…' : 'جهّز الاختبار'}
         </button>
         {loading && (
-          <button className="nova-secondary" onClick={practice.stop}>
+          <button className="nl-button nl-button--secondary nl-button--sm" onClick={practice.stop}>
             إلغاء
           </button>
         )}
@@ -48,7 +48,7 @@ export function QuizPanel({
         </h3>
         <p>راجع الأفكار اللي محتاجة تثبيت، واسأل Nova عن أي إجابة.</p>
         <button
-          className="nova-primary"
+          className="nl-button nl-button--primary nl-button--sm"
           onClick={() => void practice.prepare(position)}
           disabled={loading}
         >
@@ -103,7 +103,7 @@ export function QuizPanel({
             {question.englishAnswer}
           </p>
           <p>{question.explanation}</p>
-          <button className="nova-primary" onClick={practice.next}>
+          <button className="nl-button nl-button--primary nl-button--sm" onClick={practice.next}>
             {quiz.index === 9 ? 'شوف النتيجة' : 'السؤال التالي'}
           </button>
         </div>

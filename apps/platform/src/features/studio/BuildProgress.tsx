@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { BuildJob } from './types';
 import './progress.css';
+import { Alert, ButtonLink, Spinner } from '../../shared/ui';
 
 const POLL_MS = 3000;
 
@@ -34,20 +35,14 @@ export function BuildProgress({ jobId }: { jobId: string }) {
   }, [jobId]);
 
   if (!job)
-    return error ? (
-      <p className="error-message" role="alert">
-        {error}
-      </p>
-    ) : (
-      <p role="status">بنجيب حالة الكورس…</p>
-    );
+    return error ? <Alert tone="error">{error}</Alert> : <Spinner label="بنجيب حالة الكورس…" />;
   const working = job.status === 'queued' || job.status === 'running';
   return (
     <section className="studio build" aria-live="polite">
       <div className="page-heading">
-        <a className="text-button" href="/?studio">
+        <ButtonLink variant="link" href="/?studio">
           ← كورس جديد
-        </a>
+        </ButtonLink>
         <span className="eyebrow">
           {job.status === 'queued'
             ? 'مستني دوره'
@@ -75,22 +70,19 @@ export function BuildProgress({ jobId }: { jobId: string }) {
       {job.status === 'done' && (
         <div className="build-done">
           {job.result.message && <p>{job.result.message}</p>}
-          <a className="button primary" href={`/?draft=${job.result.lessonId}`}>
-            افتح أول درس
-          </a>
-          <a className="button secondary" href="/">
+          <ButtonLink href={`/?draft=${job.result.lessonId}`}>افتح أول درس</ButtonLink>
+          <ButtonLink variant="secondary" href="/">
             مسوداتي
-          </a>
+          </ButtonLink>
         </div>
       )}
       {job.status === 'failed' && (
-        <div className="error-message" role="alert">
-          معرفناش نكمّل الكورس ده. {job.error}
-          <a className="text-button" href="/?studio">
-            {' '}
+        <Alert tone="error">
+          معرفناش نكمّل الكورس ده. {job.error}{' '}
+          <ButtonLink variant="link" href="/?studio">
             جرّب تاني
-          </a>
-        </div>
+          </ButtonLink>
+        </Alert>
       )}
     </section>
   );

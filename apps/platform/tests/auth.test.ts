@@ -28,6 +28,40 @@ test('proxy only permits known methods and routes', async () => {
       { status: 404 },
     );
 });
+test('settings may change only the name and the password, with other sessions signed out', async () => {
+  const sent: Array<{ url: string; body: unknown }> = [];
+  const send = (async (url: string, init: RequestInit) => {
+    sent.push({ url, body: JSON.parse(String(init.body)) });
+    return new Response('{"status":true}', { status: 200 });
+  }) as typeof fetch;
+  const post = (route: string, payload: unknown) =>
+    authProxy(request(`/auth/${route}`, 'POST', payload), env, route, send);
+  await post('update-user', { name: '  منى  ', image: 'https://evil.test/x.png', role: 'admin' });
+  await post('change-password', {
+    currentPassword: 'old-pass-1',
+    newPassword: 'new-pass-22',
+    revokeOtherSessions: false,
+  });
+  assert.deepEqual(sent, [
+    { url: `${env.NEON_AUTH_BASE_URL}/update-user`, body: { name: 'منى' } },
+    {
+      url: `${env.NEON_AUTH_BASE_URL}/change-password`,
+      body: {
+        currentPassword: 'old-pass-1',
+        newPassword: 'new-pass-22',
+        revokeOtherSessions: true,
+      },
+    },
+  ]);
+  await assert.rejects(() => post('update-user', { name: 'x' }), { status: 400 });
+  await assert.rejects(
+    () => post('change-password', { currentPassword: 'a', newPassword: 'short' }),
+    {
+      status: 400,
+    },
+  );
+  assert.equal(sent.length, 2, 'bad input never reaches the auth service');
+});
 test('reset callbacks are server selected and cookies are local, private, unchanged in security flags', async () => {
   const response = await authProxy(
     request('/auth/request-password-reset', 'POST', {

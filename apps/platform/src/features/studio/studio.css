@@ -1,20 +1,12 @@
 /* «اعمل كورس»: a studio, not a form. Three numbered moments and one sticky button. */
 .studio {
-  --ink: #17332a;
-  --leaf: #153d35;
-  --lime: #d7f77b;
+  --ink: var(--nl-ink);
+  --leaf: var(--nl-primary);
+  --lime: var(--nl-accent);
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 34px;
   padding-bottom: 120px;
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
 .studio-head h1 {
   margin: 8px 0 10px;
@@ -200,11 +192,7 @@
   color: rgb(255 255 255 / 72%);
   font-size: 0.85rem;
 }
-.studio-cta .button.primary {
-  background: var(--lime);
-  color: var(--leaf);
-}
-.studio-cta .error-message {
+.studio-cta .nl-alert {
   flex-basis: 100%;
   order: 3;
 }

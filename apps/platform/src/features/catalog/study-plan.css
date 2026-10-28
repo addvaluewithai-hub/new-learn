@@ -7,7 +7,7 @@
   gap: 10px 26px;
   margin: 0;
   padding: 16px 0 0;
-  border-top: 1px solid #eef0ec;
+  border-top: 1px solid var(--nl-surface-sunk);
   color: var(--ink);
   font-size: 0.92rem;
   line-height: 1.6;
@@ -37,7 +37,7 @@
   margin-bottom: 30px;
   padding: 20px 22px;
   border-radius: 20px;
-  background: #f6f5f0;
+  background: var(--nl-paper);
 }
 .plan-summary strong {
   font-size: 1.9rem;
@@ -106,7 +106,7 @@
   font-weight: 600;
 }
 .plan-part-node {
-  background: #17463c;
+  background: var(--nl-primary);
   color: #fff;
 }
 .plan-node {
@@ -142,7 +142,7 @@
   box-shadow:
     0 1px 2px rgb(16 32 28 / 5%),
     0 12px 30px rgb(16 32 28 / 8%);
-  outline: 1.5px solid #17463c;
+  outline: 1.5px solid var(--nl-primary);
 }
 .plan-lessons > li[data-done] .plan-node {
   border-color: #9fcf72;
@@ -150,8 +150,8 @@
   color: #3f7a1f;
 }
 .plan-lessons > li[data-current] .plan-node {
-  border-color: #17463c;
-  background: #17463c;
+  border-color: var(--nl-primary);
+  background: var(--nl-primary);
   color: #fff;
 }
 .plan-lessons > li[data-soon] {
@@ -180,7 +180,7 @@
   transition: background 0.15s ease;
 }
 .plan-lessons > li:not([data-current]):not([data-soon]):hover {
-  background: #f6f5f0;
+  background: var(--nl-paper);
 }
 .plan-go {
   display: inline-flex;
@@ -196,10 +196,9 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.plan-go.button {
+.plan-go.nl-button {
   min-height: 44px;
   padding: 8px 18px 8px 22px;
-  border-radius: 99px;
 }
 .plan-go-quiet {
   color: var(--muted);
@@ -233,7 +232,7 @@
   .plan-go-quiet span {
     display: none;
   }
-  .plan-lessons > li > .plan-go.button {
+  .plan-lessons > li > .plan-go.nl-button {
     grid-column: 2;
     justify-self: start;
   }

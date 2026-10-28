@@ -1,6 +1,8 @@
 import { decodeBoardAnswer, gradeBoard } from '../../board/state';
 import { ReadText, textDirection } from '../ReadText';
 import { pageSteps } from '../model';
+import { gradeChoice } from '../grade';
+import { useEffect } from 'react';
 import type { ReadingPage, ReadingQuestion, ReadingScene } from '../types';
 
 /** The one sentence beside the board; its card fits the text (no empty space, no scroll). */
@@ -19,7 +21,7 @@ export function Caption({
   /** The start of a sentence that began on earlier steps, shown faded before this one. */
   lead?: string;
   answer?: string;
-  /** A board answer our code graded. */
+  /** An answer our code graded (a board, or a choice that names the model answer). */
   verdict?: boolean;
   step: number;
   steps: number;
@@ -51,10 +53,12 @@ export function Caption({
       </p>
       {answer !== undefined ? (
         <p className="rl-yours">
-          إجابتك: <bdi dir="auto">{answer || 'معرفتش'}</bdi>
+          <span>
+            إجابتك: <bdi dir="auto">{answer || 'معرفتش'}</bdi>
+          </span>
           {verdict === undefined ? null : (
             <span className="rl-verdict" data-correct={verdict}>
-              {verdict ? ' ✓ مظبوطة' : ' ✗ لسه مش مظبوطة'}
+              {verdict ? '✓ مظبوطة' : '✗ لسه مش مظبوطة'}
             </span>
           )}
         </p>
@@ -62,6 +66,8 @@ export function Caption({
     </div>
   );
 }
+
+const KEYS = ['أ', 'ب', 'ج', 'د', 'ه', 'و', 'ز', 'ح'];
 
 /** The question while the learner answers: wording, choices, and ways out. */
 export function QuestionCaption({
@@ -82,6 +88,17 @@ export function QuestionCaption({
 }) {
   const chooses = question.attempt === 'choice' || question.attempt === 'choice-and-written';
   const choices = chooses ? question.options : [];
+  // Number keys pick a choice (1 is the first), unless the learner is typing.
+  useEffect(() => {
+    if (!choices.length) return;
+    const onKey = (event: KeyboardEvent) => {
+      if ((event.target as HTMLElement | null)?.closest('textarea, input, select')) return;
+      const n = Number(event.key);
+      if (Number.isInteger(n) && n >= 1 && n <= choices.length) onChoose(choices[n - 1]);
+    };
+    addEventListener('keydown', onKey);
+    return () => removeEventListener('keydown', onKey);
+  }, [choices, onChoose]);
   return (
     <div className="rl-caption rl-question">
       <div className="rl-caption-meta">
@@ -111,7 +128,15 @@ export function QuestionCaption({
       {choices.length ? (
         <div className="rl-choices" role="group" aria-label="الاختيارات">
           {choices.map((option, i) => (
-            <button key={i} type="button" onClick={() => onChoose(option)}>
+            <button
+              key={i}
+              type="button"
+              aria-keyshortcuts={String(i + 1)}
+              onClick={() => onChoose(option)}
+            >
+              <span className="rl-choice-key" aria-hidden="true">
+                {KEYS[i] ?? i + 1}
+              </span>
               <ReadText text={option} />
             </button>
           ))}
@@ -169,7 +194,11 @@ export function PageCaption({
       lead={attempt ? undefined : sentenceLead(steps, page.step)}
       answer={onBoard ? onBoard.text : raw}
       verdict={
-        onBoard && question?.board ? gradeBoard(question.board.check, onBoard.values) : undefined
+        onBoard && question?.board
+          ? gradeBoard(question.board.check, onBoard.values)
+          : question && raw !== undefined
+            ? gradeChoice(question, raw)
+            : undefined
       }
       step={attempt ? 0 : page.step}
       steps={attempt ? 1 : steps.length}

@@ -24,7 +24,7 @@ export function Composer({
   const picker = useRef<HTMLInputElement>(null);
   return (
     <div className="composer">
-      <label className="sr-only" htmlFor="studio-topic">
+      <label className="nl-sr-only" htmlFor="studio-topic">
         الكورس عن إيه؟
       </label>
       <textarea
@@ -54,7 +54,7 @@ export function Composer({
         </button>
         <input
           ref={picker}
-          className="sr-only"
+          className="nl-sr-only"
           type="file"
           multiple
           accept={FILE_TYPES}

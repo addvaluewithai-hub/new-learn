@@ -74,7 +74,7 @@ export function LookGallery({
               {look.board && (
                 <button type="button" className="look-try" onClick={() => onPreview(look)}>
                   اتفرّج
-                  <span className="sr-only"> على {look.name}</span>
+                  <span className="nl-sr-only"> على {look.name}</span>
                 </button>
               )}
             </div>
@@ -88,7 +88,7 @@ export function LookGallery({
         onClick={() => slide(false)}
       >
         <span aria-hidden="true">›</span>
-        <span className="sr-only">الأشكال اللي قبل</span>
+        <span className="nl-sr-only">الأشكال اللي قبل</span>
       </button>
       <button
         type="button"
@@ -97,7 +97,7 @@ export function LookGallery({
         onClick={() => slide(true)}
       >
         <span aria-hidden="true">‹</span>
-        <span className="sr-only">أشكال تانية</span>
+        <span className="nl-sr-only">أشكال تانية</span>
       </button>
     </div>
   );

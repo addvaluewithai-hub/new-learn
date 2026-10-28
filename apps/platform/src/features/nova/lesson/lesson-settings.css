@@ -11,14 +11,14 @@
   border: 0;
   border-radius: 50%;
   background: #fff;
-  color: #5f6f69;
+  color: var(--nl-muted);
   box-shadow:
     0 1px 2px rgb(16 32 28 / 6%),
     0 8px 24px rgb(16 32 28 / 7%);
   cursor: pointer;
 }
 .flow-settings-button[data-on] {
-  color: #6a55b8;
+  color: var(--nl-tutor);
 }
 .flow-pop {
   position: absolute;
@@ -32,7 +32,7 @@
   border-radius: 18px;
   background: #fff;
   box-shadow: 0 24px 50px -12px rgb(16 32 28 / 28%);
-  color: #1b2925;
+  color: var(--nl-ink);
   font-size: 14px;
 }
 .flow-row {
@@ -74,7 +74,7 @@
   transition: transform 0.2s ease;
 }
 .flow-switch:checked {
-  background: #6a55b8;
+  background: var(--nl-tutor);
 }
 .flow-switch:checked::before {
   transform: translateX(-18px);
@@ -85,7 +85,7 @@
 }
 .flow-volume input {
   width: 100%;
-  accent-color: #6a55b8;
+  accent-color: var(--nl-tutor);
 }
 .flow-pace {
   display: grid;
@@ -96,20 +96,20 @@
   grid-template-columns: repeat(4, 1fr);
   padding: 4px;
   border-radius: 14px;
-  background: #f1f2ee;
+  background: var(--nl-surface-sunk);
 }
 .flow-pace button {
   height: 36px;
   border: 0;
   border-radius: 10px;
   background: none;
-  color: #5f6f69;
+  color: var(--nl-muted);
   font: inherit;
   font-size: 13.5px;
   cursor: pointer;
 }
 .flow-pace button[aria-checked='true'] {
-  background: #1b2925;
+  background: var(--nl-ink);
   color: #fff;
   font-weight: 600;
 }
@@ -118,7 +118,7 @@
   display: grid;
   gap: 8px;
   padding-top: 12px;
-  border-top: 1px solid #eceee9;
+  border-top: 1px solid var(--nl-surface-sunk);
 }
 .flow-chips {
   display: grid;
@@ -126,20 +126,20 @@
   grid-auto-columns: 1fr;
   padding: 4px;
   border-radius: 14px;
-  background: #f1f2ee;
+  background: var(--nl-surface-sunk);
 }
 .flow-chips button {
   height: 34px;
   border: 0;
   border-radius: 10px;
   background: none;
-  color: #5f6f69;
+  color: var(--nl-muted);
   font: inherit;
   font-size: 13px;
   cursor: pointer;
 }
 .flow-chips button[aria-checked='true'] {
-  background: #6a55b8;
+  background: var(--nl-tutor);
   color: #fff;
   font-weight: 600;
 }
@@ -149,7 +149,7 @@
   justify-content: space-between;
   gap: 12px;
   font-size: 13px;
-  color: #5f6f69;
+  color: var(--nl-muted);
 }
 .flow-select select {
   min-width: 150px;
@@ -157,8 +157,8 @@
   padding: 0 10px;
   border: 1px solid #e1e4de;
   border-radius: 12px;
-  background: #fafbf8;
-  color: #1b2925;
+  background: var(--nl-surface-sunk);
+  color: var(--nl-ink);
   font: inherit;
   font-size: 13.5px;
 }
@@ -166,20 +166,20 @@
   display: grid;
   gap: 6px;
   font-size: 13px;
-  color: #5f6f69;
+  color: var(--nl-muted);
 }
 .flow-persona input {
   height: 38px;
   padding: 0 12px;
   border: 1px solid #e1e4de;
   border-radius: 12px;
-  background: #fafbf8;
-  color: #1b2925;
+  background: var(--nl-surface-sunk);
+  color: var(--nl-ink);
   font: inherit;
   font-size: 13.5px;
 }
 .flow-persona input:focus {
-  outline: 2px solid #6a55b8;
+  outline: 2px solid var(--nl-tutor);
   outline-offset: 1px;
 }
 @media (max-width: 650px) {

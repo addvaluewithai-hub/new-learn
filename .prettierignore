@@ -10,3 +10,4 @@ content/imported/
 .functions-check/
 .wrangler/
 .browser-tmp/
+apps/platform/server/styles/styles.generated.json

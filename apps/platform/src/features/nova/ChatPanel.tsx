@@ -27,12 +27,12 @@ export function ChatPanel({
     <>
       <ChatMessages messages={chat.messages} loading={chat.loading} name={name} />
       {chat.error && (
-        <p className="nova-error" role="alert">
+        <p className="nl-alert nl-alert--error" role="alert">
           {chat.error}
         </p>
       )}
       <form className="nova-composer" onSubmit={submit}>
-        <label className="sr-only" htmlFor="nova-message">
+        <label className="nl-sr-only" htmlFor="nova-message">
           رسالتك لنوفا
         </label>
         <textarea

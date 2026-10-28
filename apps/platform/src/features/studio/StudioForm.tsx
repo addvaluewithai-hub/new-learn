@@ -9,6 +9,7 @@ import { LookPreview } from './LookPreview';
 import { Details } from './Details';
 import './looks.css';
 import './details.css';
+import { Alert, Button, ButtonLink } from '../../shared/ui';
 
 /** «اعمل كورس»: the idea, who it is for, the look, then one button (docs/visuals/README.md). */
 export function StudioForm() {
@@ -110,9 +111,9 @@ export function StudioForm() {
       {active && (
         <p className="studio-active" role="status">
           فيه كورس بيتبني دلوقتي: <strong>{active.topic}</strong>{' '}
-          <a className="text-button" href={`/?studio&job=${active.id}`}>
+          <ButtonLink variant="link" href={`/?studio&job=${active.id}`}>
             تابعه
-          </a>
+          </ButtonLink>
         </p>
       )}
       <section className="studio-step" aria-labelledby="step-idea">
@@ -171,14 +172,10 @@ export function StudioForm() {
             من ٥ لـ٢٠ دقيقة، وتقدر تقفل الصفحة
           </span>
         </div>
-        {error && (
-          <p className="error-message" role="alert">
-            {error}
-          </p>
-        )}
-        <button className="button primary" disabled={busy || Boolean(active)}>
+        {error && <Alert tone="error">{error}</Alert>}
+        <Button type="submit" variant="accent" disabled={busy || Boolean(active)}>
           {busy ? 'بنبعت طلبك…' : 'ابدأ البناء'}
-        </button>
+        </Button>
       </div>
       {dragging && <div className="studio-drop-overlay">سيب الملفات هنا</div>}
       {preview && (

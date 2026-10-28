@@ -13,6 +13,7 @@ import {
 import { getBoard, putBoard } from '../authoring/boardStore';
 import { boardReports, listFeedback, setFeedback } from '../authoring/feedback';
 import { GUIDE } from './guide';
+import { styleFor } from '../styles/styles';
 import { courseFields, filesSchema, id, lessonSchema, object } from './schemas';
 
 /** Who is calling (from the OAuth token, never from arguments) and where previews live. */
@@ -51,6 +52,16 @@ export const TOOLS: Tool[] = [
     inputSchema: object({}),
     annotations: read,
     run: async () => GUIDE,
+  },
+  {
+    name: 'get_style',
+    title: 'Read a look’s style guide',
+    description:
+      'How boards in one of New Learn’s looks are drawn (palette, type, technique, layout, ' +
+      'motion), with a working reference board to start from. Without a look: the list of looks.',
+    inputSchema: object({ look: { type: 'string', description: 'A look id, e.g. "chalk".' } }),
+    annotations: read,
+    run: async (args) => styleFor(str(args, 'look', false)),
   },
   {
     name: 'list_my_courses',

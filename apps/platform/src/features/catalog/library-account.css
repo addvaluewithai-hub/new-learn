@@ -1,6 +1,6 @@
 .sidebar-note {
   margin-top: auto;
-  background: #f0f5e9;
+  background: var(--nl-surface-sunk);
   border-radius: 12px;
   padding: 20px 18px;
   margin-bottom: 26px;
@@ -53,7 +53,6 @@
   font-size: 0.67rem;
   color: var(--muted);
 }
-.sidebar-account .icon-button {
+.sidebar-account .nl-icon-button {
   margin-inline-start: auto;
-  padding: 4px;
 }

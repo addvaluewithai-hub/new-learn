@@ -47,6 +47,7 @@ jobs:
       - run: npm run test:browser:studio
       - run: npm run test:browser:demos
       - run: npm run test:browser:ui
+      - run: npm run test:browser:settings
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()

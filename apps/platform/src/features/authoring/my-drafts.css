@@ -40,6 +40,6 @@
   gap: 12px;
 }
 .my-drafts li span {
-  color: #5f6f69;
+  color: var(--nl-muted);
   font-size: 13px;
 }

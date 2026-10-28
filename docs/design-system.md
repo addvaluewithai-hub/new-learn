@@ -37,6 +37,17 @@ Buttons are pills; fields have the medium radius; cards and dialogs the large. T
 at least 44px except the small size on dense desktop rows. `npm run test:browser:ui` checks the
 page by mouse and keyboard at 1280px and 390px.
 
+## What is built from it
+
+- Library, curriculum plan, sign-in, consent, drafts, the studio and `?settings` use the shared
+  parts; Nova's panels use their classes. Page defaults in `.platform-ui` use `:where()` so a
+  part's own class always wins.
+- Reading lessons (`packages/lesson-runtime`): every `--rl-*` colour reads a token. Questions
+  share one look: choices are 48px cards with a key (أ ب ج…, and number keys 1–n pick one), the
+  quiet ways out («وريني الحل», «فوّت») have full-size tap targets, and our code's grade (a
+  board, or a choice whose model answer names exactly one option, `reading/grade.ts`) shows as a
+  pill with ✓ or ✗, never colour alone.
+
 ## The older classroom (`?preview=probe`, `?preview=chemistry`)
 
 This is a clean implementation of the established Learn classroom, not a visual reset.

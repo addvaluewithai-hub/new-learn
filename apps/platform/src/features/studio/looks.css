@@ -61,7 +61,7 @@
   place-items: center;
   font-size: 2.2rem;
   color: var(--leaf);
-  background: linear-gradient(135deg, #eaf0e7, #d7f77b);
+  background: linear-gradient(135deg, var(--nl-surface-soft), var(--nl-accent));
 }
 .look-name {
   padding: 0 6px;
@@ -150,44 +150,8 @@
     top: calc((158px - 12px) * 9 / 16 - 30px);
   }
 }
-.look-preview {
-  width: min(960px, calc(100vw - 32px));
-  max-height: calc(100dvh - 32px);
+.look-preview .nl-dialog-body {
   padding: 0;
-  border: 0;
-  border-radius: 22px;
-  overflow: auto;
-}
-.look-preview::backdrop {
-  background: rgb(10 20 16 / 60%);
-}
-.look-preview header,
-.look-preview footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 18px 20px;
-}
-.look-preview header > div {
-  flex: 1;
-}
-.look-preview h2 {
-  margin: 0 0 4px;
-  font-size: 1.3rem;
-}
-.look-preview header p {
-  margin: 0;
-  color: var(--muted);
-}
-.look-preview-close {
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--soft);
-  font-size: 1.4rem;
-  cursor: pointer;
 }
 .look-preview-board {
   aspect-ratio: 16 / 9;

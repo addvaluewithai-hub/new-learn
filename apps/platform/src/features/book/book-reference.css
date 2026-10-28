@@ -3,7 +3,7 @@
   position: fixed;
   z-index: 4;
   direction: rtl;
-  font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  font-family: var(--nl-font);
   color: #24453b;
   background: #faf9f3;
   border: 1px solid #d6dfd0;

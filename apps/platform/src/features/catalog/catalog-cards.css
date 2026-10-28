@@ -39,7 +39,7 @@
   border-radius: inherit;
 }
 .course-row:hover {
-  background: #f6f5f0;
+  background: var(--nl-paper);
 }
 .course-copy h3 {
   margin: 2px 0 4px;
@@ -93,7 +93,7 @@
   justify-content: center;
 }
 .math-art {
-  background: #efeafb;
+  background: var(--nl-tutor-soft);
   color: #554570;
 }
 .earth-art {

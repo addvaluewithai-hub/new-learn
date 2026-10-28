@@ -47,6 +47,7 @@ test('a request is a topic, known choices and a few small files', () => {
 test('a chosen look carries its art direction, and the page offers the same looks', () => {
   const { request } = buildInput({ topic: 'الفايدة المركبة', choices: { look: 'chalk' } });
   assert.match(buildPrompt(request, []), /Look \(chalk\): Chalk on a dark/);
+  assert.match(buildPrompt(request, []), /call get_style with look "chalk"/);
   assert.throws(() => buildInput({ topic: 'ok topic', choices: { look: 'neon' } }));
   assert.throws(() => buildInput({ topic: 'ok topic', choices: { look: 'chalk,crt' } }));
   assert.deepEqual(

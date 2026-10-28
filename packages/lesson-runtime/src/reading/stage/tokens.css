@@ -1,0 +1,23 @@
+/* The reading stage's colours: the host's design tokens (--nl-*, docs/design-system.md) when
+   it has them, these values when it does not. */
+.rl {
+  --rl-paper: var(--nl-paper, #f6f5f0);
+  --rl-card: var(--nl-surface, #fff);
+  --rl-ink: var(--nl-ink, #1b2925);
+  --rl-soft: var(--nl-muted, #5f6f69);
+  --rl-faint: var(--nl-faint, #97a39d);
+  --rl-wash: var(--nl-wash, rgb(27 41 37 / 6%));
+  --rl-accent: var(--nl-primary, #17463c);
+  --rl-lime: var(--nl-lime-500, #c4eb67);
+  --rl-line: var(--nl-line, #dde5dd);
+  --rl-focus: var(--nl-focus, #5f9c45);
+  --rl-tutor: var(--nl-tutor, #6a55b8);
+  --rl-tutor-soft: var(--nl-tutor-soft, #efeafb);
+  --rl-right: var(--nl-success, #1f7a4d);
+  --rl-right-soft: var(--nl-success-soft, #e3f3e8);
+  --rl-wrong: var(--nl-danger, #a4462f);
+  --rl-wrong-soft: var(--nl-danger-soft, #fff0ec);
+  --rl-ask: var(--nl-warning, #845a0c);
+  --rl-ask-soft: var(--nl-warning-soft, #fdf3dc);
+  --rl-shadow: var(--nl-shadow-md, 0 1px 2px rgb(16 32 28 / 6%), 0 8px 24px rgb(16 32 28 / 7%));
+}

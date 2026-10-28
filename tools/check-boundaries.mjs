@@ -23,6 +23,8 @@ const generated = new Set([
   'apps/platform/content-modules.json',
   // Board editions (tools/build-boards.mjs): one entry per built board, not authored code.
   'apps/platform/src/features/boards/editions.generated.json',
+  // Style guides with their reference boards (tools/style-guides.mjs), for get_style.
+  'apps/platform/server/styles/styles.generated.json',
 ]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];

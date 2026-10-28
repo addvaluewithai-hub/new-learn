@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { Brand } from '../../shared/Brand';
 import { PlatformIcon } from '../../shared/PlatformIcon';
 import type { User } from '../auth/session';
+import { Alert, IconButton } from '../../shared/ui';
 export function LibraryShell({
   user,
   onSignOut,
@@ -11,7 +12,7 @@ export function LibraryShell({
   user: User;
   onSignOut: () => Promise<void>;
   children: ReactNode;
-  page?: 'library' | 'studio';
+  page?: 'library' | 'studio' | 'settings';
 }) {
   const [menu, setMenu] = useState(false),
     [error, setError] = useState(''),
@@ -30,13 +31,9 @@ export function LibraryShell({
   return (
     <div className="platform-ui library-shell">
       <aside className={`sidebar ${menu ? 'open' : ''}`} aria-label="تنقل المنصة">
-        <button
-          className="mobile-close icon-button"
-          onClick={() => setMenu(false)}
-          aria-label="اقفل القائمة"
-        >
+        <IconButton className="mobile-close" label="اقفل القائمة" onClick={() => setMenu(false)}>
           <PlatformIcon name="close" />
-        </button>
+        </IconButton>
         <Brand />
         <span className="nav-label">مساحة تعلّمك</span>
         <nav>
@@ -48,6 +45,10 @@ export function LibraryShell({
             <PlatformIcon name="spark" />
             اعمل كورس
           </a>
+          <a href="/?settings" aria-current={page === 'settings' ? 'page' : undefined}>
+            <PlatformIcon name="settings" />
+            الإعدادات
+          </a>
         </nav>
         <div className="sidebar-account">
           <div className="avatar">{user.name.slice(0, 1)}</div>
@@ -55,14 +56,9 @@ export function LibraryShell({
             <strong>{user.name}</strong>
             <span>حسابك في Learn</span>
           </div>
-          <button
-            className="icon-button"
-            aria-label="تسجيل الخروج"
-            disabled={busy}
-            onClick={signOut}
-          >
+          <IconButton label="تسجيل الخروج" disabled={busy} onClick={signOut}>
             <PlatformIcon name="logout" />
-          </button>
+          </IconButton>
         </div>
       </aside>
       {menu && (
@@ -70,22 +66,18 @@ export function LibraryShell({
       )}
       <div className="library-main">
         <header className="topbar">
-          <button
-            className="mobile-menu icon-button"
-            onClick={() => setMenu(true)}
-            aria-label="افتح القائمة"
+          <IconButton
+            className="mobile-menu"
+            label="افتح القائمة"
             aria-expanded={menu}
+            onClick={() => setMenu(true)}
           >
             <PlatformIcon name="menu" />
-          </button>
+          </IconButton>
           <Brand />
         </header>
         <main className="library-content library-sheet" id="main-content">
-          {error && (
-            <p className="error-message" role="alert">
-              {error}
-            </p>
-          )}
+          {error && <Alert tone="error">{error}</Alert>}
           {children}
         </main>
       </div>

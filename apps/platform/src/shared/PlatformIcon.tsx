@@ -5,6 +5,7 @@ import { BooksIcon } from '@phosphor-icons/react/dist/csr/Books';
 import { SignOutIcon } from '@phosphor-icons/react/dist/csr/SignOut';
 import { ListIcon } from '@phosphor-icons/react/dist/csr/List';
 import { XIcon } from '@phosphor-icons/react/dist/csr/X';
+import { GearSixIcon } from '@phosphor-icons/react/dist/csr/GearSix';
 const icons = {
   arrow: ArrowLeftIcon,
   spark: SparkleIcon,
@@ -13,6 +14,7 @@ const icons = {
   logout: SignOutIcon,
   menu: ListIcon,
   close: XIcon,
+  settings: GearSixIcon,
 };
 export function PlatformIcon({ name }: { name: keyof typeof icons }) {
   const Icon = icons[name];

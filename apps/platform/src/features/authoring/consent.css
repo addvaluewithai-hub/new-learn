@@ -4,7 +4,7 @@
   place-items: center;
   padding: 16px;
   box-sizing: border-box;
-  background: #f6f5f0;
+  background: var(--nl-paper);
   direction: rtl;
 }
 .consent-card {
@@ -19,15 +19,11 @@
   font-size: 24px;
 }
 .consent-host {
-  color: #5f6f69;
+  color: var(--nl-muted);
   font-size: 14px;
 }
 .consent-actions {
   display: flex;
   gap: 12px;
   margin-top: 20px;
-}
-.consent-actions .button:first-child {
-  background: #17463c;
-  color: #fff;
 }
