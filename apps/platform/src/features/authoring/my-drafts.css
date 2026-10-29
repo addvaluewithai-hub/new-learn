@@ -43,3 +43,8 @@
   color: var(--nl-muted);
   font-size: 13px;
 }
+.my-drafts-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}

@@ -12,7 +12,7 @@ export function LibraryShell({
   user: User;
   onSignOut: () => Promise<void>;
   children: ReactNode;
-  page?: 'library' | 'studio' | 'settings';
+  page?: 'library' | 'studio' | 'teach' | 'settings';
 }) {
   const [menu, setMenu] = useState(false),
     [error, setError] = useState(''),
@@ -44,6 +44,10 @@ export function LibraryShell({
           <a href="/?studio" aria-current={page === 'studio' ? 'page' : undefined}>
             <PlatformIcon name="spark" />
             اعمل كورس
+          </a>
+          <a href="/?teach" aria-current={page === 'teach' ? 'page' : undefined}>
+            <PlatformIcon name="teach" />
+            لوحة المدرس
           </a>
           <a href="/?settings" aria-current={page === 'settings' ? 'page' : undefined}>
             <PlatformIcon name="settings" />

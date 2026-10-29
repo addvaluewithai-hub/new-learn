@@ -101,5 +101,5 @@ question, and walks the consent screen, at 1280px and 390px.
 
 ## Later
 
-Publishing a draft course to students, sharing preview links, ChatGPT directory submission
-(domain token, screenshots, CSP listing), and Claude directory listing.
+Sharing preview links of drafts, ChatGPT directory submission (domain token, screenshots,
+CSP listing), and Claude directory listing. Publishing a draft to students: docs/publishing.md.

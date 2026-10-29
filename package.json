@@ -55,6 +55,7 @@
     "test:browser:demos": "node tests/demos-browser.mjs",
     "test:browser:ui": "node tests/ui-browser.mjs",
     "test:browser:settings": "node tests/settings-browser.mjs",
+    "test:browser:teach": "node --import tsx tests/teach-browser.mjs",
     "test:browser:legacy-gas": "node tests/legacy-gas-reading-browser.mjs",
     "test:browser:statics": "node tests/statics-reading-browser.mjs",
     "test:browser:book": "node --import tsx tests/book-browser.mjs && BOOK_CHAPTER=9 node --import tsx tests/book-browser.mjs",
