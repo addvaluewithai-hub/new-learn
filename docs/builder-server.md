@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 2, install the worker. Continue from step 2.2 (the service now finds node in /usr/local/bin).**
+**Status: STEP 3, switch the builder to Claude Code. Step 2 is done and the builder works.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -23,9 +23,10 @@ the branch and writes the next steps here. For step 2 use a new branch from `mai
 
 New Learn's "make a course" page creates a job. The builder on this server asks
 `https://new-learn.pages.dev` for jobs; nothing calls into the server and no port is opened.
-For each job it runs Codex CLI, whose only tools are New Learn's own `/mcp` tools, acting as
-the teacher who asked. Codex writes the course, which appears as a draft for the teacher.
-The runner is ported from wp-slack-agent (docs/voice-agent.md).
+For each job it runs Claude Code (or Codex CLI, `BUILDER_ENGINE=codex`), whose only tools
+are New Learn's own `/mcp` tools plus reading the job's files, acting as the teacher who
+asked. It writes the course, which appears as a draft for the teacher. The Codex runner is
+ported from wp-slack-agent (docs/voice-agent.md); the Claude runner is `workers/builder/claude.mjs`.
 
 ## Step 1: check and prepare (now)
 
@@ -109,6 +110,42 @@ Start only when the owner says the builder pull request is merged (its code is o
 
 To update the worker later: `sudo -u nlbuilder -H git -C /srv/new-learn-builder/app pull`, then
 `sudo systemctl restart new-learn-builder`.
+
+## Step 3: switch to Claude Code (now)
+
+The worker now runs Claude Code by default (`BUILDER_ENGINE` unset or `claude`); Codex stays
+available with `BUILDER_ENGINE=codex`. Claude Code runs with an Anthropic API key, not a
+sign-in, so customer jobs are billed to our key (task Y13). Do this on a new branch
+`server/builder-step3` from `main`.
+
+1. **Update the worker:** `sudo -u nlbuilder -H git -C /srv/new-learn-builder/app pull`, then
+   `ls /srv/new-learn-builder/app/workers/builder` should list `claude.mjs`.
+2. **Install Claude Code for `nlbuilder`** (its own copy, in its home, no sudo):
+   `sudo -u nlbuilder -H bash -c 'curl -fsSL https://claude.ai/install.sh | bash'`, then
+   `sudo -u nlbuilder -H bash -c '~/.local/bin/claude --version'`. It must be 2.1.259 or
+   newer (for `--permission-prompts`). Write the version in the Report.
+3. **The API key** (the owner creates it at console.anthropic.com → API keys, named
+   `new-learn-builder`, and gives it to you privately). Append it to the environment file as
+   root, never echoing it:
+   `sudo bash -c 'printf "ANTHROPIC_API_KEY=%s\nBUILDER_ENGINE=claude\nCLAUDE_MODEL=sonnet\nCLAUDE_BUDGET_USD=8\n" "<paste the key here>" >> /etc/new-learn-builder.env'`
+   then `sudo grep -c . /etc/new-learn-builder.env` (should print `7`). Clear your shell
+   history line afterwards (`history -d $(history 1 | awk '{print $1}')`).
+4. **Claude Code works for `nlbuilder` with the key:**
+   `sudo -u nlbuilder -H bash -c 'set -a; . /etc/new-learn-builder.env; cd /tmp && claude -p "Reply with the single word OK" --bare --output-format json --max-turns 1 --tools ""'`
+   should print JSON whose `result` is `OK` and `is_error` is `false`. Write the last 2 lines.
+5. **Reinstall the service file** (it now puts `~/.local/bin` on the PATH) and restart:
+   ```
+   sudo cp /srv/new-learn-builder/app/workers/builder/new-learn-builder.service /etc/systemd/system/
+   sudo systemctl daemon-reload && sudo systemctl restart new-learn-builder
+   sudo journalctl -u new-learn-builder -n 5 --no-pager
+   ```
+   The log should say `builder waiting for jobs from https://new-learn.pages.dev engine claude`.
+6. **A test job:** the owner builds a small course from `?studio` with the chalk look. Watch
+   `sudo journalctl -u new-learn-builder -f`; write the job's last lines, the cost line if
+   any, and whether the page showed «افتح أول درس» and the board in the storyboard.
+7. **If it failed,** write the error lines (no key, no token). `Authentication error` means
+   the key is wrong or has no credit; `error_max_turns` or `error_max_budget_usd` means the
+   limits in the env file are too low for that course.
 
 ## Report (edit this table)
 

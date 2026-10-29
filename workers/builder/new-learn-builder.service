@@ -8,8 +8,10 @@ Wants=network-online.target
 User=nlbuilder
 WorkingDirectory=/srv/new-learn-builder/app
 EnvironmentFile=/etc/new-learn-builder.env
-# node and codex may live in /usr/local/bin (npm or NodeSource) or /usr/bin.
-Environment=PATH=/usr/local/bin:/usr/bin:/bin
+# node and codex may live in /usr/local/bin (npm or NodeSource) or /usr/bin; Claude Code's
+# native installer puts `claude` in the builder user's ~/.local/bin.
+Environment=PATH=/home/nlbuilder/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=HOME=/home/nlbuilder
 ExecStart=/usr/bin/env node workers/builder/index.mjs
 Restart=always
 RestartSec=10

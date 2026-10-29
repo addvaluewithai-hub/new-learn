@@ -14,14 +14,26 @@ const TOOLS = {
   resolve_feedback: 'بقفل ملاحظة',
 };
 
-/** The line for a tool call as it starts, or null for events the teacher need not see. */
+const READS = new Set(['Read', 'Glob', 'Grep']);
+
+/** The teacher's line for one tool call, by tool name and arguments; null when not shown. */
+export function labelFor(tool, args) {
+  if (TOOLS[tool]) {
+    const title = args?.lesson?.title;
+    return tool === 'add_lesson' && typeof title === 'string'
+      ? `${TOOLS[tool]}: ${title}`
+      : TOOLS[tool];
+  }
+  if (tool === 'WebSearch' || tool === 'WebFetch') return 'بدوّر على النت';
+  if (READS.has(tool)) return 'بقرا ملفاتك';
+  return null;
+}
+
+/** The line for a Codex event's item as it starts, or null for events the teacher need not see. */
 export function stepFor(item) {
   if (!item) return null;
-  if (item.type === 'mcp_tool_call') {
-    const base = TOOLS[item.tool] ?? 'بشتغل على الكورس';
-    const title = item.arguments?.lesson?.title;
-    return item.tool === 'add_lesson' && typeof title === 'string' ? `${base}: ${title}` : base;
-  }
+  if (item.type === 'mcp_tool_call')
+    return labelFor(item.tool, item.arguments) ?? 'بشتغل على الكورس';
   if (item.type === 'web_search') return 'بدوّر على النت';
   if (item.type === 'command_execution') return 'بقرا ملفاتك';
   return null;
