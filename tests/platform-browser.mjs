@@ -110,8 +110,23 @@ try {
   });
   // A visitor at the bare address sees the front page, and its button leads to sign-up.
   await page.goto(url);
-  await page.getByRole('heading', { name: 'أي فكرة، تبقى درس تلعب فيه بإيدك.' }).waitFor();
+  await page.getByRole('heading', { name: 'أي فكرة، تبقى درس بيترسم قدامك.' }).waitFor();
   assert.equal(await page.locator('.landing-looks li').count(), 10);
+  // The hero replays a demo on its board; picking a look pins it and tints the page.
+  assert.equal(await page.locator('.hero-chip').count(), 10);
+  await page.locator('.hero-line').filter({ hasText: /./ }).waitFor();
+  await page.getByRole('button', { name: 'خريطة قديمة' }).click();
+  assert.equal(
+    await page.getByRole('button', { name: 'خريطة قديمة' }).getAttribute('aria-pressed'),
+    'true',
+  );
+  assert.equal(
+    await page.locator('.landing').evaluate((n) => n.style.getPropertyValue('--look-bg')),
+    '#e9dcc0',
+  );
+  assert.equal(await page.locator('.hero-poster').getAttribute('src'), '/styles/seachart.webp');
+  await page.getByRole('button', { name: 'طباشير على سبورة' }).click();
+  await page.evaluate(() => scrollTo(0, 0));
   await safe(page);
   await page.screenshot({ path: 'test-results/landing-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 850 });
