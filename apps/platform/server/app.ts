@@ -6,6 +6,10 @@ import { body, checkOrigin, HttpError, json } from './http';
 import { readProgress, saveProgress } from './progress/store';
 import { authoringRoute } from './authoring/routes';
 import { studioRoute } from './builds/studio';
+import { publishRoute } from './publish/routes';
+import { readCourseProgress, saveCourseProgress } from './publish/progress';
+import { database } from './db/connection';
+import { PUB } from './publish/store';
 export async function handleRequest(request: Request, env: Env): Promise<Response> {
   try {
     checkOrigin(request);
@@ -21,10 +25,18 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (path.startsWith('/api/authoring/') || path.startsWith('/api/oauth/'))
       return await authoringRoute(request, env, user, path);
     if (path.startsWith('/api/studio/')) return await studioRoute(request, env, user, path);
+    if (path.startsWith('/api/teach/') || path.startsWith('/api/courses'))
+      return await publishRoute(request, env, user, path);
     if (request.method === 'GET' && path === '/api/catalog') return json(await catalog(env, user));
     const progressPath = /^\/api\/lessons\/([^/]+)\/progress$/.exec(path);
     if (progressPath) {
       const lessonId = decodeURIComponent(progressPath[1]);
+      // A published teacher course's lesson («pub:<id>») keeps its progress by course.
+      const pub = PUB.exec(lessonId);
+      if (pub && request.method === 'GET')
+        return json(await readCourseProgress(database(env), user.id, pub[1]));
+      if (pub && request.method === 'PUT')
+        return await saveCourseProgress(database(env), user.id, pub[1], await body(request));
       if (request.method === 'GET') return json(await readProgress(env, user, lessonId));
       if (request.method === 'PUT')
         return await saveProgress(env, user, lessonId, await body(request));

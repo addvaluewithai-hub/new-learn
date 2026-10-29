@@ -6,6 +6,7 @@ export default defineConfig({
     './apps/platform/server/db/authoring.ts',
     './apps/platform/server/db/oauth.ts',
     './apps/platform/server/db/builds.ts',
+    './apps/platform/server/db/publish.ts',
   ],
   out: './database/migrations',
   dialect: 'postgresql',
