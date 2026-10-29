@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { useSession } from '../features/auth/session';
 import { useNavigation } from './navigation';
+import { sitePage } from '../features/site/routes';
 import { Loading } from '../shared/Loading';
 
 const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
@@ -20,6 +21,7 @@ const Landing = lazy(() => import('../features/landing/Landing'));
 const TeachPage = lazy(() => import('../features/teach/TeachPage'));
 const CoursePage = lazy(() => import('../features/courses/CoursePage'));
 const CourseLesson = lazy(() => import('../features/courses/CourseLesson'));
+const SitePages = lazy(() => import('../features/site/SitePages'));
 
 function StudentApp() {
   const session = useSession(),
@@ -76,10 +78,14 @@ function StudentApp() {
 
 export function App() {
   const preview = new URLSearchParams(location.search).get('preview');
+  // The website's own pages (/teachers, /privacy, …) are public; the app lives at `/`.
+  const site = sitePage(location.pathname);
   return (
     <div className="app-shell">
       <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
-        {preview === 'book-ch08' ? (
+        {site ? (
+          <SitePages page={site} />
+        ) : preview === 'book-ch08' ? (
           <BookLesson />
         ) : preview === 'book-ch09' ? (
           <BookLesson chapter={9} />

@@ -1,0 +1,51 @@
+.site-faq {
+  display: grid;
+  border-top: 1px solid var(--nl-line-strong);
+}
+.site-faq details {
+  border-bottom: 1px solid var(--nl-line-strong);
+}
+.site-faq summary {
+  position: relative;
+  padding: var(--nl-space-5) var(--nl-space-1) var(--nl-space-5) var(--nl-space-10);
+  font-size: var(--nl-text-lg);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.site-faq summary::-webkit-details-marker {
+  display: none;
+}
+.site-faq summary::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  inset-inline-end: var(--nl-space-2);
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--nl-surface-soft);
+  color: var(--nl-ink);
+  font-weight: 500;
+  transform: translateY(-50%);
+  transition: transform var(--nl-normal) var(--nl-ease);
+}
+.site-faq details[open] summary::after {
+  content: '–';
+}
+.site-faq summary:hover {
+  color: var(--nl-green-700);
+}
+.site-faq summary:focus-visible {
+  outline: 3px solid var(--nl-focus);
+  outline-offset: -3px;
+  border-radius: var(--nl-radius-md);
+}
+.site-faq p {
+  max-width: 64ch;
+  padding: 0 var(--nl-space-1) var(--nl-space-5);
+  color: var(--nl-muted);
+  line-height: var(--nl-leading);
+}
