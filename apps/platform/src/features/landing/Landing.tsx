@@ -1,25 +1,34 @@
+import { useCallback, useState } from 'react';
 import { Brand } from '../../shared/Brand';
 import { ButtonLink } from '../../shared/ui';
 import { LOOKS } from '../studio/looks';
+import { HeroStage } from './HeroStage';
+import { initialLook, type HeroLook } from './hero';
 import '../../shared/platform.css';
 import './landing.css';
 
 const STEPS = [
   ['اكتب الفكرة', 'موضوع، أو ملزمة، أو صفحة من كتاب. بالعربي أو الإنجليزي.'],
-  ['قول لمين واختار شكله', 'ليك، أو لطلابك، أو لطفل. وشكل يناسب الموضوع: طباشير، خريطة، 3D…'],
-  ['اتعلّم مع Nova', 'بوردات تحرّكها بإيدك، وأسئلة بعد كل فكرة، وNova بتشرح بالصوت.'],
+  ['قول لمين، واختار شكله', 'ليك، أو لطلابك، أو لطفل. وشكل يناسب الموضوع.'],
+  ['اتعلّم مع Nova', 'بوردات بتتحرك بإيدك، وسؤال بعد كل فكرة، وصوت بيشرح.'],
 ];
 const AUDIENCES = [
-  ['ليك إنت', 'بتذاكر لامتحان أو عايز تفهم حاجة جديدة؟ ارفع الملزمة وخلّيها درس تتفاعل معاه.'],
-  ['لطلابك', 'حضّر درس تفاعلي في دقايق، وراجعه قبل ما يوصل لطلابك.'],
+  ['ليك إنت', 'بتذاكر لامتحان؟ ارفع الملزمة وخلّيها درس تتفاعل معاه.'],
+  ['لطلابك', 'حضّر درس في دقايق، راجعه، وابعته بلينك.'],
   ['لولادك', 'أشكال مرحة وكلام بسيط وأسئلة على قد سنّهم.'],
 ];
 
-/** The front door for visitors: what New Learn makes, in the looks it makes it, and one way in. */
+/** The front door for visitors: a lesson drawing itself, in the looks it comes in, and one way in. */
 export default function Landing() {
-  const hero = LOOKS.filter((look) => ['chalk', 'space3d', 'seachart'].includes(look.id));
+  const [look, setLook] = useState<HeroLook>(() => initialLook(location.hash));
+  const [pinned, setPinned] = useState(false);
+  const onChange = useCallback((next: HeroLook, pin: boolean) => {
+    setLook(next);
+    setPinned(pin);
+  }, []);
+  const tint = { '--look-bg': look.colors[0], '--look-ink': look.colors[1] } as React.CSSProperties;
   return (
-    <div className="platform-ui landing" dir="rtl">
+    <div className="platform-ui landing" dir="rtl" style={tint}>
       <header className="landing-nav">
         <Brand />
         <nav aria-label="روابط">
@@ -28,54 +37,51 @@ export default function Landing() {
           <ButtonLink variant="ghost" size="sm" href="/?auth=login">
             ادخل
           </ButtonLink>
-          <ButtonLink size="sm" href="/?auth=signup">
+          <ButtonLink variant="accent" size="sm" href="/?auth=signup">
             ابدأ مجانًا
           </ButtonLink>
         </nav>
       </header>
-      <main>
-        <section className="landing-hero">
-          <div className="landing-hero-copy">
-            <span className="eyebrow">دروس تفاعلية من أي فكرة</span>
-            <h1>أي فكرة، تبقى درس تلعب فيه بإيدك.</h1>
-            <p>
-              اكتب الموضوع واختار شكله، وفي دقايق يبقى عندك درس فيه بوردات بتتحرك، وأسئلة بعد كل
-              فكرة، وNova بتشرح لك بالصوت.
-            </p>
-            <div className="landing-ctas">
-              <ButtonLink variant="accent" size="lg" href="/?auth=signup">
-                اعمل أول درس
-              </ButtonLink>
-              <ButtonLink variant="secondary" size="lg" href="/?preview=demo&id=interest">
-                جرّب درس جاهز
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="landing-hero-art" aria-hidden="true">
-            {hero.map((look) => (
-              <img key={look.id} src={`/styles/${look.id}.webp`} alt="" />
-            ))}
-          </div>
-        </section>
-        <section id="looks" className="landing-section" aria-labelledby="landing-looks">
-          <h2 id="landing-looks">شكل لكل موضوع</h2>
-          <p className="landing-lead">
-            كل درس بيترسم بالكود، بشكل يناسب موضوعه. دوس على أي واحد وجرّبه.
+      <section className="landing-hero">
+        <div className="landing-hero-copy">
+          <span className="eyebrow">درس من أي فكرة، في دقايق</span>
+          <h1>أي فكرة، تبقى درس بيترسم قدامك.</h1>
+          <p>
+            اكتب الموضوع واختار شكله. البورد بيترسم بالكود، وNova بتشرح بالصوت وتسألك بعد كل فكرة.
           </p>
+          <div className="landing-ctas">
+            <ButtonLink variant="accent" size="lg" href="/?auth=signup">
+              اعمل أول درس
+            </ButtonLink>
+            <ButtonLink variant="ghost" size="lg" href={`/?preview=demo&id=${look.demo}`}>
+              افتح الدرس ده كامل
+            </ButtonLink>
+          </div>
+        </div>
+        <HeroStage look={look} pinned={pinned} onChange={onChange} />
+      </section>
+      <main>
+        <section id="looks" className="landing-section" aria-labelledby="landing-looks">
+          <div className="landing-head">
+            <h2 id="landing-looks">شكل لكل موضوع</h2>
+            <p>كل درس بيترسم بالكود، بشكل يناسب موضوعه. دوس على أي واحد وجرّبه.</p>
+          </div>
           <ul className="landing-looks">
-            {LOOKS.map((look) => (
-              <li key={look.id}>
-                <a href={`/?preview=demo&id=${look.demo}`}>
-                  <img src={`/styles/${look.id}.webp`} alt="" loading="lazy" />
-                  <strong>{look.name}</strong>
-                  <span>{look.line}</span>
+            {LOOKS.map((item) => (
+              <li key={item.id}>
+                <a href={`/?preview=demo&id=${item.demo}`}>
+                  <img src={`/styles/${item.id}.webp`} alt="" loading="lazy" />
+                  <strong>{item.name}</strong>
+                  <span>{item.line}</span>
                 </a>
               </li>
             ))}
           </ul>
         </section>
         <section className="landing-section" aria-labelledby="landing-how">
-          <h2 id="landing-how">إزاي بيشتغل</h2>
+          <div className="landing-head">
+            <h2 id="landing-how">إزاي بيشتغل</h2>
+          </div>
           <ol className="landing-steps">
             {STEPS.map(([title, text], i) => (
               <li key={title}>
@@ -87,7 +93,9 @@ export default function Landing() {
           </ol>
         </section>
         <section className="landing-section" aria-labelledby="landing-who">
-          <h2 id="landing-who">لمين؟</h2>
+          <div className="landing-head">
+            <h2 id="landing-who">لمين؟</h2>
+          </div>
           <ul className="landing-who">
             {AUDIENCES.map(([title, text]) => (
               <li key={title}>
