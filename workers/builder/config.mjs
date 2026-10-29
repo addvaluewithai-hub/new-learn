@@ -11,10 +11,18 @@ export function loadConfig(env = process.env) {
   return {
     origin,
     token,
+    /** Which agent writes the course: Claude Code (default) or Codex. */
+    engine: env.BUILDER_ENGINE === 'codex' ? 'codex' : 'claude',
+    claudeBin: env.CLAUDE_BIN || 'claude',
+    /** An API key when we have one; until then the owner's Claude account (setup-token or login). */
+    claudeAuth: env.ANTHROPIC_API_KEY ? 'key' : 'login',
+    claudeModel: env.CLAUDE_MODEL || '',
+    claudeMaxTurns: Number(env.CLAUDE_MAX_TURNS) || 300,
+    claudeBudgetUsd: Number(env.CLAUDE_BUDGET_USD) || 0,
     codexBin: env.CODEX_BIN || 'codex',
     codexModel: env.CODEX_MODEL || '',
     workRoot: env.WORK_ROOT || '/srv/new-learn-builder/jobs',
     pollMs: Number(env.POLL_MS) || 5000,
-    timeoutMs: Number(env.CODEX_TIMEOUT_MS) || 40 * 60 * 1000,
+    timeoutMs: Number(env.BUILD_TIMEOUT_MS || env.CODEX_TIMEOUT_MS) || 40 * 60 * 1000,
   };
 }

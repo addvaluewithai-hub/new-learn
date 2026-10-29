@@ -4,9 +4,11 @@ import { builderApi } from './api.mjs';
 import { loadConfig } from './config.mjs';
 import { prepareFiles } from './files.mjs';
 import { runCodex } from './runner.mjs';
+import { runClaude } from './claude.mjs';
 
-// New Learn's course builder (docs/builder-server.md): asks New Learn for a job, runs Codex
-// for it, reports each step and the result, and deletes the job's files. One job at a time.
+// New Learn's course builder (docs/builder-server.md): asks New Learn for a job, runs Claude
+// Code (or Codex) for it, reports each step and the result, and deletes the job's files. One
+// job at a time.
 
 const config = loadConfig();
 const api = builderApi(config);
@@ -26,20 +28,25 @@ async function work(job) {
   try {
     onStep('بجهّز ملفاتك');
     const images = await prepareFiles(api, job, dir);
-    const result = await runCodex({ job, dir, images, config, prompt: job.prompt }, onStep);
+    const run = config.engine === 'codex' ? runCodex : runClaude;
+    const result = await run({ job, dir, images, config, prompt: job.prompt }, onStep);
     await steps;
     await api.finish(job.id, true, result.finalText);
     log('job', job.id, 'done');
   } catch (error) {
     await steps;
     log('job', job.id, 'failed:', error.message);
-    await api.finish(job.id, false, 'البناء وقف قبل ما يخلص.').catch(() => {});
+    // The account's usage limit (Claude Code names the reset time) is not the teacher's doing.
+    const why = /hit your (session|weekly|opus|sonnet) limit/i.test(error.message)
+      ? 'حساب البناء وصل لحدّ الاستخدام دلوقتي. جرّب تاني بعد شوية.'
+      : 'البناء وقف قبل ما يخلص.';
+    await api.finish(job.id, false, why).catch(() => {});
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
 }
 
-log('builder waiting for jobs from', config.origin);
+log('builder waiting for jobs from', config.origin, 'engine', config.engine);
 while (!stopping) {
   try {
     const job = await api.claim();
