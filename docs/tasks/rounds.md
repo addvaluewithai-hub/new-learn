@@ -47,9 +47,9 @@ At the end of a round, mark its tasks Done in their files.
 | ER7   | Designs for next rounds          | R9, P2, P4                     | ER3               | Also screens for OR4, OR6, OR7 and OR13 before they start                  |
 | ER9   | Phones and people                | E17, V6, V10                   | OR1               | Field work, not code: real phones, first users, interviews                 |
 | OR19  | Nova in the lesson               | Y1, Y2, Y3                     | —                 | Done 2026-10-28 (Y3: logging only); see docs/nova.md                       |
-| OR20  | Builder worker                   | Y6, Y7, Y9, Y13                | A5, D11           | Port wp-slack-agent's Codex runner (docs/voice-agent.md)                   |
+| OR20  | Builder worker                   | Y6, Y7, Y9, Y13                | A5, D11           | Done 2026-10-28 except Nova's `start_build` tools (Y7)                     |
 | OR21  | Start button                     | Y4                             | OR19              | Nova home mode; Ess designs the home first                                 |
-| OR25  | Lessons that look like something | G6, G7, G8, G9, G10, G11       | OR20              | Visual skills tried one by one (docs/visuals)                              |
+| OR25  | Lessons that look like something | G6, G7, G8, G9, G10, G11       | OR20              | G6, G7, G8, G10 done 2026-10-28; G9 and G11 remain                         |
 | OR22  | Paid plans                       | Y10, Y11, Y12                  | D6, L6            | Paid from the start; Ess designs the pricing page                          |
 
 ## Wave 2: public launch

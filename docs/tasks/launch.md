@@ -6,9 +6,9 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 | ID  | Task                                                                                        | Who   | Pri | Status | Needs  |
 | --- | ------------------------------------------------------------------------------------------- | ----- | --- | ------ | ------ |
-| A1  | Migrations apply on merge (Database migrate workflow, `CONTENT_DATABASE_URL`)               | Owner | P0  | Doing  | —      |
+| A1  | Migrations apply on merge (Database migrate workflow, `CONTENT_DATABASE_URL`)               | Owner | P0  | Done   | —      |
 | A2  | Board site's own read-only role `learn_board_reader` (hardening, docs/connector.md)         | Owner | P2  | Todo   | A1     |
-| A3  | Cloudflare `new-learn-boards`: `DATABASE_URL` = the app's value (Production and Preview)    | Owner | P0  | Doing  | —      |
+| A3  | Cloudflare `new-learn-boards`: `DATABASE_URL` = the app's value (Production and Preview)    | Owner | P0  | Done   | —      |
 | A4  | End-to-end test in Claude at `https://new-learn.pages.dev/mcp`: course, board, note, fix    | Owner | P0  | Todo   | A1, A3 |
 | A5  | Live check: «مسوداتي» lists the course; its preview plays, board and notes included         | Owner | P0  | Todo   | A4     |
 | A6  | GitHub secret `CONTENT_DATABASE_URL` so Content sync writes to the database                 | Owner | P1  | Done   | —      |
@@ -30,18 +30,18 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 ## W. Public website (Ess)
 
-| ID  | Task                                                                                    | Who  | Pri | Status | Needs  |
-| --- | --------------------------------------------------------------------------------------- | ---- | --- | ------ | ------ |
-| W1  | Landing page in a new `site/` folder (static); Owner makes its Cloudflare Pages project | Ess  | P0  | Doing  | B1     |
-| W2  | Teacher page: "connect your Claude or ChatGPT", steps with screenshots                  | Ess  | P0  | Todo   | A4, W1 |
-| W3  | Privacy policy, terms and support contact pages (texts from L1–L3)                      | Ess  | P1  | Todo   | W1, L1 |
-| W4  | Sign-up button that opens the real sign-up; no fake "thanks" waitlist form              | Ess  | P0  | Todo   | W1     |
-| W5  | Share image, favicon, page titles and descriptions                                      | Ess  | P1  | Todo   | B2, W1 |
-| W6  | Arabic and English versions of the site                                                 | Ess  | P2  | Todo   | W1     |
-| W7  | Pages for parents and for schools                                                       | Ess  | P2  | Idea   | W1     |
-| W8  | Help centre: short guides and FAQ for students, teachers and parents                    | Ess  | P2  | Todo   | W1     |
-| W9  | Site visit analytics without cookies (e.g. Cloudflare Web Analytics)                    | Both | P1  | Todo   | W1     |
-| W10 | Blog or lesson showcase for search traffic                                              | Ess  | P3  | Idea   | W1     |
+| ID  | Task                                                                                                                                | Who  | Pri | Status | Needs  |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------- | ---- | --- | ------ | ------ |
+| W1  | Landing page in a new `site/` folder (static); Owner makes its Cloudflare Pages project (in the app at `/`, not a separate `site/`) | Ess  | P0  | Done   | B1     |
+| W2  | Teacher page: "connect your Claude or ChatGPT", steps with screenshots                                                              | Ess  | P0  | Todo   | A4, W1 |
+| W3  | Privacy policy, terms and support contact pages (texts from L1–L3)                                                                  | Ess  | P1  | Todo   | W1, L1 |
+| W4  | Sign-up button that opens the real sign-up; no fake "thanks" waitlist form                                                          | Ess  | P0  | Done   | W1     |
+| W5  | Share image, favicon, page titles and descriptions                                                                                  | Ess  | P1  | Todo   | B2, W1 |
+| W6  | Arabic and English versions of the site                                                                                             | Ess  | P2  | Todo   | W1     |
+| W7  | Pages for parents and for schools                                                                                                   | Ess  | P2  | Idea   | W1     |
+| W8  | Help centre: short guides and FAQ for students, teachers and parents                                                                | Ess  | P2  | Todo   | W1     |
+| W9  | Site visit analytics without cookies (e.g. Cloudflare Web Analytics)                                                                | Both | P1  | Todo   | W1     |
+| W10 | Blog or lesson showcase for search traffic                                                                                          | Ess  | P3  | Idea   | W1     |
 
 ## V. Demo, video and YC
 
