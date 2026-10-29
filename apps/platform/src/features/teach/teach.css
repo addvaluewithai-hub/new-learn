@@ -1,0 +1,280 @@
+/* The teacher's workspace (?teach): the dashboard, and one course's publish, outline and notes. */
+.teach-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--nl-space-3);
+  margin-bottom: var(--nl-space-6);
+}
+.teach-stats > div {
+  display: grid;
+  padding: var(--nl-space-4);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface-soft);
+}
+.teach-stats strong {
+  font-size: var(--nl-text-2xl);
+  line-height: 1.2;
+}
+.teach-stats span {
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.teach-courses {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.teach-course {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nl-space-3) var(--nl-space-4);
+  padding: var(--nl-space-4) var(--nl-space-5);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-md);
+}
+.teach-course-copy {
+  display: grid;
+  justify-items: start;
+  gap: var(--nl-space-1);
+}
+.teach-course-copy h2 {
+  font-size: var(--nl-text-lg);
+}
+.teach-course-copy p {
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.teach-course-actions {
+  display: flex;
+  gap: var(--nl-space-2);
+}
+.teach-course-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-3);
+  margin-top: var(--nl-space-2);
+  color: var(--nl-muted);
+}
+.teach-tab {
+  margin-top: var(--nl-space-5);
+}
+.teach-publish {
+  display: grid;
+  gap: var(--nl-space-4);
+  max-width: 720px;
+}
+.teach-publish h2,
+.teach-outline h2 {
+  margin-bottom: var(--nl-space-3);
+  font-size: var(--nl-text-xl);
+}
+.teach-checklist {
+  display: grid;
+  gap: var(--nl-space-2);
+  margin: 0 0 var(--nl-space-4);
+  padding: 0;
+  list-style: none;
+}
+.teach-checklist li {
+  display: flex;
+  gap: var(--nl-space-2);
+}
+.teach-checklist li span {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--nl-success-soft);
+  color: var(--nl-success);
+  font-weight: 700;
+}
+.teach-checklist li[data-ok='false'] span {
+  background: var(--nl-danger-soft);
+  color: var(--nl-danger-ink);
+}
+.teach-checklist li[data-ok='false'][data-warn] span {
+  background: var(--nl-warning-soft);
+  color: var(--nl-warning);
+}
+.teach-publish-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nl-space-2);
+  margin-bottom: var(--nl-space-3);
+}
+.teach-note {
+  margin-top: var(--nl-space-2);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.teach-share-row {
+  display: flex;
+  gap: var(--nl-space-2);
+}
+.teach-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.teach-table th,
+.teach-table td {
+  padding: var(--nl-space-2) 0;
+  border-bottom: 1px solid var(--nl-line);
+  text-align: start;
+}
+.teach-table th {
+  color: var(--nl-muted);
+  font-weight: 600;
+  font-size: var(--nl-text-sm);
+}
+.teach-outline {
+  display: grid;
+  gap: var(--nl-space-5);
+  max-width: 720px;
+}
+.teach-fields {
+  display: grid;
+  gap: var(--nl-space-4);
+}
+.teach-parts {
+  display: grid;
+  gap: var(--nl-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.teach-part {
+  padding: var(--nl-space-4);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-sm);
+}
+.teach-part-head {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-2);
+  margin-bottom: var(--nl-space-3);
+}
+.teach-part-head .nl-input {
+  font-weight: 600;
+}
+.teach-lessons {
+  display: grid;
+  gap: var(--nl-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.teach-lessons li {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-3);
+  min-height: 44px;
+  padding: var(--nl-space-1) 0;
+}
+.teach-lessons a {
+  flex: 1;
+}
+.teach-lesson-n {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--nl-surface-soft);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+  font-weight: 600;
+}
+.teach-lesson-moves {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-1);
+}
+.teach-lesson-moves select {
+  min-height: var(--nl-control-sm);
+  padding: 0 var(--nl-space-2);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-pill);
+  background: var(--nl-surface);
+  color: var(--nl-muted);
+  font: inherit;
+  font-size: var(--nl-text-sm);
+}
+.teach-outline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--nl-space-2);
+}
+.teach-notes .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nl-space-2);
+}
+.teach-notes {
+  display: grid;
+  gap: var(--nl-space-4);
+  max-width: 720px;
+}
+.teach-note-list {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.teach-note-item {
+  display: grid;
+  gap: var(--nl-space-2);
+  padding: var(--nl-space-4);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-sm);
+}
+.teach-note-where {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-2) var(--nl-space-3);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.teach-note-where a {
+  font-weight: 600;
+  color: var(--nl-ink);
+}
+.teach-note-item blockquote {
+  margin: 0;
+  padding: var(--nl-space-2) var(--nl-space-3);
+  border-inline-start: 3px solid var(--nl-line-strong);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.teach-note-fix {
+  color: var(--nl-tutor);
+  font-size: var(--nl-text-sm);
+}
+.teach-note-actions {
+  display: flex;
+  gap: var(--nl-space-2);
+}
+@media (max-width: 640px) {
+  .teach-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .teach-lessons li {
+    flex-wrap: wrap;
+  }
+  .teach-share-row {
+    flex-direction: column;
+  }
+}

@@ -28,9 +28,14 @@ export function MyDrafts() {
     <section className="my-drafts" aria-label="مسوداتي">
       <div className="my-drafts-head">
         <h2>مسوداتي</h2>
-        <ButtonLink variant="secondary" size="sm" href="/?studio">
-          + اعمل كورس جديد
-        </ButtonLink>
+        <span className="my-drafts-links">
+          <ButtonLink variant="link" href="/?teach">
+            لوحة المدرس
+          </ButtonLink>
+          <ButtonLink variant="secondary" size="sm" href="/?studio">
+            + اعمل كورس جديد
+          </ButtonLink>
+        </span>
       </div>
       {courses.map((course) => (
         <div key={course.id} className="my-drafts-course">

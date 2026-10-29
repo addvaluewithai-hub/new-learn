@@ -68,11 +68,15 @@ export async function addFeedback(db: Db, owner: string, lessonId: string, input
 export async function listFeedback(
   db: Db,
   owner: string,
-  filter: { lessonId?: string; status?: FeedbackStatus[] } = {},
+  filter: { lessonId?: string; lessonIds?: string[]; status?: FeedbackStatus[] } = {},
 ) {
   if (filter.lessonId) await lessonRow(db, owner, filter.lessonId);
   const conditions = [eq(authorFeedback.ownerId, owner)];
   if (filter.lessonId) conditions.push(eq(authorFeedback.lessonId, filter.lessonId));
+  if (filter.lessonIds)
+    conditions.push(
+      filter.lessonIds.length ? inArray(authorFeedback.lessonId, filter.lessonIds) : sql`false`,
+    );
   if (filter.status?.length) conditions.push(inArray(authorFeedback.status, filter.status));
   const notes = await db
     .select()

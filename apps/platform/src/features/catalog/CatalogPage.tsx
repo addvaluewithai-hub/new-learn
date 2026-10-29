@@ -7,6 +7,7 @@ import { CurriculumCards } from './CurriculumCards';
 import { ContinueCard } from './ContinueCard';
 import { StudyPlan } from './StudyPlan';
 import { MyDrafts } from '../authoring/MyDrafts';
+import { MyCourses } from '../courses/MyCourses';
 import '../../shared/platform.css';
 import './library-shell.css';
 import './library-account.css';
@@ -78,6 +79,7 @@ export default function CatalogPage({
         <>
           <ContinueCard curricula={curricula} resume={resume} />
           <CurriculumCards curricula={curricula} />
+          <MyCourses />
           <MyDrafts />
         </>
       )}

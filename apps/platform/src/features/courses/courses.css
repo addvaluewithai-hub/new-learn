@@ -1,0 +1,104 @@
+/* A published course as its students see it (?course=<id>), and the library's list of them. */
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nl-space-3);
+  margin-top: var(--nl-space-2);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.course-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-3);
+  margin-bottom: var(--nl-space-6);
+}
+.course-next {
+  color: var(--nl-muted);
+}
+.course-part {
+  margin-bottom: var(--nl-space-5);
+}
+.course-part h2 {
+  margin-bottom: var(--nl-space-3);
+  font-size: var(--nl-text-lg);
+}
+.course-lessons {
+  display: grid;
+  gap: var(--nl-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.course-lessons li {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-3) var(--nl-space-4);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-sm);
+}
+.course-lessons li[data-status='completed'] {
+  background: var(--nl-surface-sunk);
+}
+.course-lessons a {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+}
+.course-lessons a span {
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.course-lesson-n {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nl-primary);
+  color: var(--nl-accent);
+  font-weight: 700;
+}
+.my-courses {
+  margin-top: 32px;
+}
+.my-courses ul {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.my-course {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-4) var(--nl-space-5);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+  box-shadow: var(--nl-shadow-md);
+}
+.my-course > div {
+  display: grid;
+  gap: var(--nl-space-1);
+}
+.my-course h3 {
+  font-size: var(--nl-text-lg);
+}
+.my-course-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--nl-space-3);
+  min-width: 220px;
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.my-course-progress .pick-bar {
+  max-width: 140px;
+}

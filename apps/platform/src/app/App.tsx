@@ -17,6 +17,9 @@ const Consent = lazy(() => import('../features/authoring/Consent'));
 const StudioPage = lazy(() => import('../features/studio/StudioPage'));
 const SettingsPage = lazy(() => import('../features/settings/SettingsPage'));
 const Landing = lazy(() => import('../features/landing/Landing'));
+const TeachPage = lazy(() => import('../features/teach/TeachPage'));
+const CoursePage = lazy(() => import('../features/courses/CoursePage'));
+const CourseLesson = lazy(() => import('../features/courses/CourseLesson'));
 
 function StudentApp() {
   const session = useSession(),
@@ -36,6 +39,22 @@ function StudentApp() {
     return (
       <SettingsPage user={session.user} onSignOut={session.signOut} onSaved={session.refresh} />
     );
+  if (query.has('teach'))
+    return (
+      <TeachPage user={session.user} onSignOut={session.signOut} courseId={query.get('course')} />
+    );
+  const courseId = query.get('course');
+  if (courseId && query.get('lesson'))
+    return (
+      <CourseLesson
+        key={query.get('lesson')}
+        courseId={courseId}
+        lessonId={query.get('lesson')!}
+        studentName={session.user.name}
+      />
+    );
+  if (courseId)
+    return <CoursePage user={session.user} onSignOut={session.signOut} courseId={courseId} />;
   if (query.has('studio'))
     return <StudioPage user={session.user} onSignOut={session.signOut} jobId={query.get('job')} />;
   const draftId = query.get('draft');

@@ -4,7 +4,7 @@ The shared task list for **Owner** (technical lead) and **Ess** (UI/UX designer,
 Claude Code). docs/roadmap.md says why; these files say who does each task, in what order, and
 where it stands. Update the Status cell in the same PR that changes it.
 
-Last full review: 2026-10-27.
+Last full review: 2026-10-29.
 
 | File                       | Areas                                                                                                   |
 | -------------------------- | ------------------------------------------------------------------------------------------------------- |

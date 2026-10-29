@@ -13,6 +13,7 @@ import manifest from '../../../../content/chemistry/states-of-matter/data/manife
 import { createStatesPackage } from '../../../../content/chemistry/states-of-matter/statesPackage';
 import { lessonEdition } from '../content';
 import { getLesson } from '../authoring/store';
+import { lessonCourse, PUB, publishedLesson } from '../publish/store';
 import { database } from '../db/connection';
 import { HttpError } from '../http';
 import type { Env, AuthUser } from '../env';
@@ -121,6 +122,21 @@ export async function assistantContext(env: Env, user: AuthUser, input: Record<s
     return {
       lesson: fromReading(draft.package),
       position: resolveReadingPosition(draft.package, input),
+      student: { name: user.name },
+      board: boardReport(input),
+    };
+  }
+  // A published teacher course: read by anyone with its link, at its current version.
+  const pub = PUB.exec(input.lessonId);
+  if (pub) {
+    const db = database(env);
+    const lesson = await publishedLesson(db, await lessonCourse(db, pub[1]), pub[1]);
+    const pkg = lesson.package as ReadingPackage;
+    if (input.contentRevision !== pkg.contentRevision)
+      throw new HttpError(409, 'نسخة الكورس اتغيّرت. افتح الدرس تاني.');
+    return {
+      lesson: fromReading(pkg),
+      position: resolveReadingPosition(pkg, input),
       student: { name: user.name },
       board: boardReport(input),
     };
