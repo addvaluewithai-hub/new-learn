@@ -127,6 +127,33 @@ try {
   assert.equal(await page.locator('.hero-poster').getAttribute('src'), '/styles/seachart.webp');
   await page.getByRole('button', { name: 'طباشير على سبورة' }).click();
   await page.evaluate(() => scrollTo(0, 0));
+  assert.equal(await page.locator('main > section').count(), 8, 'eight sections under the hero');
+  assert.equal(await page.title(), 'New Learn: أي فكرة، تبقى درس بيترسم قدامك');
+  // The website's own pages, at real paths, for visitors and members alike.
+  for (const [path, heading] of [
+    ['/teachers', 'حضّر درس تفاعلي لطلابك في دقايق.'],
+    ['/support', 'محتاج مساعدة؟'],
+    ['/privacy', 'الخصوصية'],
+    ['/terms', 'الشروط'],
+  ]) {
+    await page.goto(`${url}${path}`);
+    await page.getByRole('heading', { name: heading, level: 1 }).waitFor();
+    assert.ok(await page.locator('.site-foot').isVisible(), `${path} has the site foot`);
+    assert.ok((await page.title()).endsWith('New Learn'), `${path} has its own title`);
+    await safe(page);
+  }
+  await page.goto(`${url}/support`);
+  await page.locator('.site-faq details[open]').waitFor();
+  await page.setViewportSize({ width: 390, height: 850 });
+  await safe(page);
+  await page.screenshot({ path: 'test-results/support-390.png', fullPage: true });
+  await page.goto(`${url}/teachers`);
+  await page.getByRole('heading', { level: 1 }).waitFor();
+  await safe(page);
+  await page.screenshot({ path: 'test-results/teachers-390.png', fullPage: true });
+  await page.setViewportSize({ width: 1280, height: 1000 });
+  await page.goto(url);
+  await page.getByRole('heading', { level: 1 }).waitFor();
   await safe(page);
   await page.screenshot({ path: 'test-results/landing-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 850 });

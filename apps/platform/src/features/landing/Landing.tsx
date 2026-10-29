@@ -1,22 +1,21 @@
 import { useCallback, useState } from 'react';
-import { Brand } from '../../shared/Brand';
 import { ButtonLink } from '../../shared/ui';
 import { LOOKS } from '../studio/looks';
+import { useHead } from '../site/head';
+import { SITE_LINKS } from '../site/routes';
+import { SiteFooter, SiteNav } from '../site/SiteShell';
 import { HeroStage } from './HeroStage';
 import { initialLook, type HeroLook } from './hero';
+import {
+  ConnectSection,
+  FaqSection,
+  HowSection,
+  NovaSection,
+  TeacherSection,
+  WhoSection,
+} from './sections';
 import '../../shared/platform.css';
 import './landing.css';
-
-const STEPS = [
-  ['اكتب الفكرة', 'موضوع، أو ملزمة، أو صفحة من كتاب. بالعربي أو الإنجليزي.'],
-  ['قول لمين، واختار شكله', 'ليك، أو لطلابك، أو لطفل. وشكل يناسب الموضوع.'],
-  ['اتعلّم مع Nova', 'بوردات بتتحرك بإيدك، وسؤال بعد كل فكرة، وصوت بيشرح.'],
-];
-const AUDIENCES = [
-  ['ليك إنت', 'بتذاكر لامتحان؟ ارفع الملزمة وخلّيها درس تتفاعل معاه.'],
-  ['لطلابك', 'حضّر درس في دقايق، راجعه، وابعته بلينك.'],
-  ['لولادك', 'أشكال مرحة وكلام بسيط وأسئلة على قد سنّهم.'],
-];
 
 /** The front door for visitors: a lesson drawing itself, in the looks it comes in, and one way in. */
 export default function Landing() {
@@ -26,22 +25,16 @@ export default function Landing() {
     setLook(next);
     setPinned(pin);
   }, []);
+  useHead({
+    title: 'New Learn: أي فكرة، تبقى درس بيترسم قدامك',
+    description:
+      'اكتب الموضوع واختار شكله. بورد بيترسم بالكود، وسؤال بعد كل فكرة، وNova بتشرح بالصوت. للمذاكرة، ولطلابك، ولولادك.',
+    path: '/',
+  });
   const tint = { '--look-bg': look.colors[0], '--look-ink': look.colors[1] } as React.CSSProperties;
   return (
-    <div className="platform-ui landing" dir="rtl" style={tint}>
-      <header className="landing-nav">
-        <Brand />
-        <nav aria-label="روابط">
-          <a href="#looks">الأشكال</a>
-          <a href="?preview=demos">الديموز</a>
-          <ButtonLink variant="ghost" size="sm" href="/?auth=login">
-            ادخل
-          </ButtonLink>
-          <ButtonLink variant="accent" size="sm" href="/?auth=signup">
-            ابدأ مجانًا
-          </ButtonLink>
-        </nav>
-      </header>
+    <div className="platform-ui site landing" dir="rtl" style={tint}>
+      <SiteNav tone="dark" />
       <section className="landing-hero">
         <div className="landing-hero-copy">
           <span className="eyebrow">درس من أي فكرة، في دقايق</span>
@@ -50,7 +43,7 @@ export default function Landing() {
             اكتب الموضوع واختار شكله. البورد بيترسم بالكود، وNova بتشرح بالصوت وتسألك بعد كل فكرة.
           </p>
           <div className="landing-ctas">
-            <ButtonLink variant="accent" size="lg" href="/?auth=signup">
+            <ButtonLink variant="accent" size="lg" href={SITE_LINKS.signup}>
               اعمل أول درس
             </ButtonLink>
             <ButtonLink variant="ghost" size="lg" href={`/?preview=demo&id=${look.demo}`}>
@@ -62,7 +55,7 @@ export default function Landing() {
       </section>
       <main>
         <section id="looks" className="landing-section" aria-labelledby="landing-looks">
-          <div className="landing-head">
+          <div className="site-head">
             <h2 id="landing-looks">شكل لكل موضوع</h2>
             <p>كل درس بيترسم بالكود، بشكل يناسب موضوعه. دوس على أي واحد وجرّبه.</p>
           </div>
@@ -78,45 +71,21 @@ export default function Landing() {
             ))}
           </ul>
         </section>
-        <section className="landing-section" aria-labelledby="landing-how">
-          <div className="landing-head">
-            <h2 id="landing-how">إزاي بيشتغل</h2>
-          </div>
-          <ol className="landing-steps">
-            {STEPS.map(([title, text], i) => (
-              <li key={title}>
-                <span aria-hidden="true">{['١', '٢', '٣'][i]}</span>
-                <strong>{title}</strong>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-        <section className="landing-section" aria-labelledby="landing-who">
-          <div className="landing-head">
-            <h2 id="landing-who">لمين؟</h2>
-          </div>
-          <ul className="landing-who">
-            {AUDIENCES.map(([title, text]) => (
-              <li key={title}>
-                <strong>{title}</strong>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <HowSection />
+        <NovaSection />
+        <TeacherSection />
+        <ConnectSection />
+        <WhoSection />
+        <FaqSection />
         <section className="landing-final">
           <h2>جرّب بفكرة واحدة.</h2>
           <p>مجانًا، ومن غير ما تثبّت حاجة.</p>
-          <ButtonLink variant="accent" size="lg" href="/?auth=signup">
+          <ButtonLink variant="accent" size="lg" href={SITE_LINKS.signup}>
             اعمل حسابك
           </ButtonLink>
         </section>
       </main>
-      <footer className="landing-foot">
-        <Brand />
-        <span>اتعلّم بطريقتك.</span>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

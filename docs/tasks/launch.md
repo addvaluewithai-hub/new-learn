@@ -30,18 +30,18 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 ## W. Public website (Ess)
 
-| ID  | Task                                                                                                                                    | Who  | Pri | Status | Needs  |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------- | ---- | --- | ------ | ------ |
-| W1  | Landing page (in the app at `/`, not a separate `site/`): the hero replays a demo lesson live on its board, the page tinted by the look | Ess  | P0  | Done   | B1     |
-| W2  | Teacher page: "connect your Claude or ChatGPT", steps with screenshots                                                                  | Ess  | P0  | Todo   | A4, W1 |
-| W3  | Privacy policy, terms and support contact pages (texts from L1–L3)                                                                      | Ess  | P1  | Todo   | W1, L1 |
-| W4  | Sign-up button that opens the real sign-up; no fake "thanks" waitlist form                                                              | Ess  | P0  | Done   | W1     |
-| W5  | Share image, favicon, page titles and descriptions                                                                                      | Ess  | P1  | Todo   | B2, W1 |
-| W6  | Arabic and English versions of the site                                                                                                 | Ess  | P2  | Todo   | W1     |
-| W7  | Pages for parents and for schools                                                                                                       | Ess  | P2  | Idea   | W1     |
-| W8  | Help centre: short guides and FAQ for students, teachers and parents                                                                    | Ess  | P2  | Todo   | W1     |
-| W9  | Site visit analytics without cookies (e.g. Cloudflare Web Analytics)                                                                    | Both | P1  | Todo   | W1     |
-| W10 | Blog or lesson showcase for search traffic                                                                                              | Ess  | P3  | Idea   | W1     |
+| ID  | Task                                                                                                                                     | Who  | Pri | Status | Needs  |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---- | --- | ------ | ------ |
+| W1  | Landing page (in the app at `/`, not a separate `site/`): the hero replays a demo lesson live on its board, the page tinted by the look  | Ess  | P0  | Done   | B1     |
+| W2  | Teacher page (`/teachers`): the studio in four steps with screenshots, and "connect your Claude or ChatGPT" with the connector address   | Ess  | P0  | Done   | A4, W1 |
+| W3  | Privacy, terms and support pages (`/privacy`, `/terms`, `/support`); texts drafted from what the product does, the owner reviews (L1–L3) | Ess  | P1  | Draft  | W1, L1 |
+| W4  | Sign-up button that opens the real sign-up; no fake "thanks" waitlist form                                                               | Ess  | P0  | Done   | W1     |
+| W5  | Share image (`tools/site-og.mjs`), favicon, page titles and descriptions (`features/site/head.ts`)                                       | Ess  | P1  | Done   | B2, W1 |
+| W6  | Arabic and English versions of the site                                                                                                  | Ess  | P2  | Todo   | W1     |
+| W7  | Pages for parents and for schools                                                                                                        | Ess  | P2  | Idea   | W1     |
+| W8  | Help centre: FAQ on `/support` and `/teachers` (done); short guides for students, teachers and parents                                   | Ess  | P2  | Part   | W1     |
+| W9  | Site visit analytics without cookies (e.g. Cloudflare Web Analytics)                                                                     | Both | P1  | Todo   | W1     |
+| W10 | Blog or lesson showcase for search traffic                                                                                               | Ess  | P3  | Idea   | W1     |
 
 ## V. Demo, video and YC
 
