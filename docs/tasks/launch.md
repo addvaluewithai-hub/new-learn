@@ -32,7 +32,7 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 | ID  | Task                                                                                    | Who  | Pri | Status | Needs  |
 | --- | --------------------------------------------------------------------------------------- | ---- | --- | ------ | ------ |
-| W1  | Landing page in a new `site/` folder (static); Owner makes its Cloudflare Pages project | Ess  | P0  | Todo   | B1     |
+| W1  | Landing page in a new `site/` folder (static); Owner makes its Cloudflare Pages project | Ess  | P0  | Doing  | B1     |
 | W2  | Teacher page: "connect your Claude or ChatGPT", steps with screenshots                  | Ess  | P0  | Todo   | A4, W1 |
 | W3  | Privacy policy, terms and support contact pages (texts from L1–L3)                      | Ess  | P1  | Todo   | W1, L1 |
 | W4  | Sign-up button that opens the real sign-up; no fake "thanks" waitlist form              | Ess  | P0  | Todo   | W1     |

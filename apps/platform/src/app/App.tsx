@@ -16,11 +16,14 @@ const DraftLesson = lazy(() => import('../features/authoring/DraftLesson'));
 const Consent = lazy(() => import('../features/authoring/Consent'));
 const StudioPage = lazy(() => import('../features/studio/StudioPage'));
 const SettingsPage = lazy(() => import('../features/settings/SettingsPage'));
+const Landing = lazy(() => import('../features/landing/Landing'));
 
 function StudentApp() {
   const session = useSession(),
     query = useNavigation();
   if (session.loading) return <Loading text="بنجهّز مساحة تعلّمك…" />;
+  // A visitor at the bare address sees the front page; any other address still asks to sign in.
+  if (!session.user && !location.search) return <Landing />;
   if (
     !session.user ||
     query.has('token') ||
@@ -73,6 +76,8 @@ export function App() {
           <DemoGallery />
         ) : preview === 'ui' ? (
           <UiGallery />
+        ) : preview === 'landing' ? (
+          <Landing />
         ) : (
           <StudentApp />
         )}

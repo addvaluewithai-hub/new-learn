@@ -31,10 +31,13 @@ export function LearningSettings() {
         </div>
         <div className="settings-row">
           <span>الدرس بيمشي</span>
-          <Segmented<Pace>
+          <PillSelect
             label="الدرس بيمشي"
             value={flow.pace ?? 'manual'}
-            onChange={(pace) => change({ pace: pace === 'manual' ? null : pace })}
+            onChange={(e) => {
+              const pace = e.target.value as Pace;
+              change({ pace: pace === 'manual' ? null : pace });
+            }}
             options={[
               ['manual', 'لما أدوس التالي'],
               ['slower', 'لوحده بهدوء'],
