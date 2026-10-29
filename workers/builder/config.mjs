@@ -14,6 +14,8 @@ export function loadConfig(env = process.env) {
     /** Which agent writes the course: Claude Code (default) or Codex. */
     engine: env.BUILDER_ENGINE === 'codex' ? 'codex' : 'claude',
     claudeBin: env.CLAUDE_BIN || 'claude',
+    /** An API key when we have one; until then the owner's Claude account (setup-token or login). */
+    claudeAuth: env.ANTHROPIC_API_KEY ? 'key' : 'login',
     claudeModel: env.CLAUDE_MODEL || '',
     claudeMaxTurns: Number(env.CLAUDE_MAX_TURNS) || 300,
     claudeBudgetUsd: Number(env.CLAUDE_BUDGET_USD) || 0,

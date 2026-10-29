@@ -5,6 +5,9 @@ import { labelFor } from './events.mjs';
 // Runs Claude Code for one job: `claude -p` with JSON events on stdout, the job folder as its
 // working directory with read-only file tools, and New Learn's /mcp as its only MCP server,
 // reached with the teacher's one-hour token from the environment (never the command line).
+// It signs in as the owner's Claude account (`claude setup-token`, or a login kept in the
+// builder user's home) until we have an API key; `--bare` is API-key only, so with the
+// account we load the builder user's settings and nothing from the job folder instead.
 
 const TRANSIENT =
   /ECONNRESET|ETIMEDOUT|fetch failed|socket hang up|stream (closed|disconnected)|overloaded|529|connection (reset|closed)/i;
@@ -28,8 +31,9 @@ export function claudeArgs({ job, config, sessionId, resume, prompt }) {
     '--output-format',
     'stream-json',
     '--verbose',
-    // No hooks, project settings, CLAUDE.md or stored logins: only this job's flags and key.
-    '--bare',
+    // With a key: no hooks, project settings, CLAUDE.md or stored logins, only this job's
+    // flags. With the account login: only the builder user's own settings, never the job's.
+    ...(config.claudeAuth === 'key' ? ['--bare'] : ['--setting-sources', 'user']),
     // The session id is ours, so a dropped stream can still be resumed.
     ...(resume ? ['--resume', sessionId] : ['--session-id', sessionId]),
     ...(config.claudeModel ? ['--model', config.claudeModel] : []),
@@ -78,7 +82,9 @@ export function consumeClaude(event, state, onStep) {
     }
   if (event.type === 'result') {
     if (event.is_error || event.subtype !== 'success')
-      state.failure = `Claude Code ${event.subtype}: ${String(event.result ?? '').slice(0, 300)}`;
+      state.failure = `Claude Code ${event.subtype}: ${String(
+        event.result ?? event.error?.message ?? '',
+      ).slice(0, 300)}`;
     else state.finalText = typeof event.result === 'string' ? event.result : '';
   }
 }

@@ -36,7 +36,11 @@ async function work(job) {
   } catch (error) {
     await steps;
     log('job', job.id, 'failed:', error.message);
-    await api.finish(job.id, false, 'البناء وقف قبل ما يخلص.').catch(() => {});
+    // The account's usage limit (Claude Code names the reset time) is not the teacher's doing.
+    const why = /hit your (session|weekly|opus|sonnet) limit/i.test(error.message)
+      ? 'حساب البناء وصل لحدّ الاستخدام دلوقتي. جرّب تاني بعد شوية.'
+      : 'البناء وقف قبل ما يخلص.';
+    await api.finish(job.id, false, why).catch(() => {});
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

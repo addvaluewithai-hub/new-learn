@@ -9,12 +9,18 @@ const job = {
   mcpToken: 'secret-token',
   webSearch: true,
 };
-const config = { claudeModel: 'sonnet', claudeMaxTurns: 300, claudeBudgetUsd: 8 };
+const config = {
+  claudeAuth: 'key',
+  claudeModel: 'sonnet',
+  claudeMaxTurns: 300,
+  claudeBudgetUsd: 8,
+};
 
 test('Claude Code runs bare, with New Learn as its only MCP server and the token in the environment', () => {
   const args: string[] = claudeArgs({ job, config, sessionId: 's-1', prompt: 'P' });
   assert.deepEqual(args.slice(0, 2), ['-p', 'P']);
   assert.ok(args.includes('--bare') && args.includes('--strict-mcp-config'));
+  assert.ok(!args.includes('--setting-sources'));
   const mcp = JSON.parse(args[args.indexOf('--mcp-config') + 1]);
   assert.equal(mcp.mcpServers.newlearn.url, job.mcpUrl);
   assert.equal(mcp.mcpServers.newlearn.type, 'http');
@@ -48,6 +54,21 @@ test('Claude Code runs bare, with New Learn as its only MCP server and the token
   assert.equal(quiet[quiet.indexOf('--tools') + 1], 'Read,Glob,Grep', 'no web without the switch');
   assert.ok(quiet.includes('--resume') && !quiet.includes('--session-id'));
   assert.ok(!quiet.includes('--model') && !quiet.includes('--max-budget-usd'));
+});
+
+test('with the account login (no API key) it is not bare: only the builder user’s settings load', () => {
+  const args: string[] = claudeArgs({
+    job,
+    config: { ...config, claudeAuth: 'login' },
+    sessionId: 's-1',
+    prompt: 'P',
+  });
+  assert.ok(!args.includes('--bare'), 'bare mode never reads a login');
+  assert.deepEqual(
+    args.slice(args.indexOf('--setting-sources'), args.indexOf('--setting-sources') + 2),
+    ['--setting-sources', 'user'],
+  );
+  assert.ok(args.includes('--strict-mcp-config'));
 });
 
 test('the teacher sees one line per tool from the stream; a failed add_lesson and the result are read', () => {

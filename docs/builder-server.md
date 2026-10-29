@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 3, switch the builder to Claude Code. Step 2 is done and the builder works.**
+**Status: STEP 3, switch the builder to Claude Code (owner's account for now). Step 2 is done and the builder works.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -114,8 +114,10 @@ To update the worker later: `sudo -u nlbuilder -H git -C /srv/new-learn-builder/
 ## Step 3: switch to Claude Code (now)
 
 The worker now runs Claude Code by default (`BUILDER_ENGINE` unset or `claude`); Codex stays
-available with `BUILDER_ENGINE=codex`. Claude Code runs with an Anthropic API key, not a
-sign-in, so customer jobs are billed to our key (task Y13). Do this on a new branch
+available with `BUILDER_ENGINE=codex`. For now Claude Code signs in as the owner's Claude
+account, like Codex did with ChatGPT (task Y13: testing only, never customers). When we
+launch, an Anthropic API key goes into the environment file and the worker switches to it by
+itself (`ANTHROPIC_API_KEY` set means bare mode with the key). Do this on a new branch
 `server/builder-step3` from `main`.
 
 1. **Update the worker:** `sudo -u nlbuilder -H git -C /srv/new-learn-builder/app pull`, then
@@ -124,14 +126,20 @@ sign-in, so customer jobs are billed to our key (task Y13). Do this on a new bra
    `sudo -u nlbuilder -H bash -c 'curl -fsSL https://claude.ai/install.sh | bash'`, then
    `sudo -u nlbuilder -H bash -c '~/.local/bin/claude --version'`. It must be 2.1.259 or
    newer (for `--permission-prompts`). Write the version in the Report.
-3. **The API key** (the owner creates it at console.anthropic.com → API keys, named
-   `new-learn-builder`, and gives it to you privately). Append it to the environment file as
-   root, never echoing it:
-   `sudo bash -c 'printf "ANTHROPIC_API_KEY=%s\nBUILDER_ENGINE=claude\nCLAUDE_MODEL=sonnet\nCLAUDE_BUDGET_USD=8\n" "<paste the key here>" >> /etc/new-learn-builder.env'`
-   then `sudo grep -c . /etc/new-learn-builder.env` (should print `7`). Clear your shell
-   history line afterwards (`history -d $(history 1 | awk '{print $1}')`).
-4. **Claude Code works for `nlbuilder` with the key:**
-   `sudo -u nlbuilder -H bash -c 'set -a; . /etc/new-learn-builder.env; cd /tmp && claude -p "Reply with the single word OK" --bare --output-format json --max-turns 1 --tools ""'`
+3. **The account token.** The owner runs `claude setup-token` on their own computer (it needs
+   a browser), copies the printed token (it lasts one year) and gives it to you privately.
+   Append it to the environment file as root, never echoing it:
+   `sudo bash -c 'printf "CLAUDE_CODE_OAUTH_TOKEN=%s\nBUILDER_ENGINE=claude\nCLAUDE_MODEL=sonnet\n" "<paste the token here>" >> /etc/new-learn-builder.env'`
+   then `sudo grep -c . /etc/new-learn-builder.env` (should print `6`). Clear your shell
+   history line afterwards (`history -d $(history 1 | awk '{print $1}')`). Make sure the file
+   has no `ANTHROPIC_API_KEY` line yet: a key always wins over the account.
+   (Without the owner's token, the alternative is a one-time sign-in on the server:
+   `sudo -u nlbuilder -H bash -c 'cd /tmp && claude auth login'`, open the printed link in
+   the owner's browser and paste the code back. The login is kept in `nlbuilder`'s home.)
+4. **Claude Code works for `nlbuilder` with the account:**
+   `sudo -u nlbuilder -H bash -c 'set -a; . /etc/new-learn-builder.env; claude auth status'`
+   should print `"authMethod": "oauth_token"` (or `"claude.ai"` after a sign-in), then
+   `sudo -u nlbuilder -H bash -c 'set -a; . /etc/new-learn-builder.env; cd /tmp && claude -p "Reply with the single word OK" --setting-sources user --output-format json --max-turns 1 --tools ""'`
    should print JSON whose `result` is `OK` and `is_error` is `false`. Write the last 2 lines.
 5. **Reinstall the service file** (it now puts `~/.local/bin` on the PATH) and restart:
    ```
@@ -141,11 +149,16 @@ sign-in, so customer jobs are billed to our key (task Y13). Do this on a new bra
    ```
    The log should say `builder waiting for jobs from https://new-learn.pages.dev engine claude`.
 6. **A test job:** the owner builds a small course from `?studio` with the chalk look. Watch
-   `sudo journalctl -u new-learn-builder -f`; write the job's last lines, the cost line if
-   any, and whether the page showed «افتح أول درس» and the board in the storyboard.
-7. **If it failed,** write the error lines (no key, no token). `Authentication error` means
-   the key is wrong or has no credit; `error_max_turns` or `error_max_budget_usd` means the
-   limits in the env file are too low for that course.
+   `sudo journalctl -u new-learn-builder -f`; write the job's last lines and whether the page
+   showed «افتح أول درس» and the board in the storyboard.
+7. **If it failed,** write the error lines (no key, no token). `Not logged in` or
+   `Failed to authenticate` means the token is missing or expired; `hit your session limit`
+   or `weekly limit` means the account's usage limit (the page tells the teacher to try
+   later); `error_max_turns` means `CLAUDE_MAX_TURNS` is too low for that course.
+
+Later, at launch: the owner creates an API key at console.anthropic.com (named
+`new-learn-builder`), you append `ANTHROPIC_API_KEY=...` and `CLAUDE_BUDGET_USD=8` to the
+environment file, remove the `CLAUDE_CODE_OAUTH_TOKEN` line, and restart.
 
 ## Report (edit this table)
 
