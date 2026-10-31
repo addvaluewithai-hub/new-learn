@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 3.2 complete. Claude Code installed; waiting for the owner to complete the isolated builder user's sign-in.**
+**Status: STEP 3.5 complete. Claude Code and Sonnet verified; builder active with engine claude. Awaiting the owner's studio course test.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -134,12 +134,14 @@ itself (`ANTHROPIC_API_KEY` set means bare mode with the key). Do this on a new 
    history line afterwards (`history -d $(history 1 | awk '{print $1}')`). Make sure the file
    has no `ANTHROPIC_API_KEY` line yet: a key always wins over the account.
    (Without the owner's token, the alternative is a one-time sign-in on the server:
-   `sudo -u nlbuilder -H bash -c 'cd /tmp && claude auth login'`, open the printed link in
+   `sudo -u nlbuilder -H bash -c 'cd /tmp && ~/.local/bin/claude auth login'`, open the printed link in
    the owner's browser and paste the code back. The login is kept in `nlbuilder`'s home.)
 4. **Claude Code works for `nlbuilder` with the account:**
-   `sudo -u nlbuilder -H bash -c 'set -a; . /etc/new-learn-builder.env; claude auth status'`
+   The environment file remains `600 root:root`. Load it as root, then run Claude as
+   `nlbuilder`; do not make the file readable to the user to run these checks.
+   `sudo bash -c 'set -a; . /etc/new-learn-builder.env; exec runuser -u nlbuilder -- env HOME=/home/nlbuilder PATH=/home/nlbuilder/.local/bin:/usr/local/bin:/usr/bin:/bin claude auth status'`
    should print `"authMethod": "oauth_token"` (or `"claude.ai"` after a sign-in), then
-   `sudo -u nlbuilder -H bash -c 'set -a; . /etc/new-learn-builder.env; cd /tmp && claude -p "Reply with the single word OK" --setting-sources user --output-format json --max-turns 1 --tools ""'`
+   `sudo bash -c 'set -a; . /etc/new-learn-builder.env; cd /tmp; exec runuser -u nlbuilder -- env HOME=/home/nlbuilder PATH=/home/nlbuilder/.local/bin:/usr/local/bin:/usr/bin:/bin claude -p "Reply with the single word OK" --model sonnet --setting-sources user --output-format json --max-turns 1 --tools ""'`
    should print JSON whose `result` is `OK` and `is_error` is `false`. Write the last 2 lines.
 5. **Reinstall the service file** (it now puts `~/.local/bin` on the PATH) and restart:
    ```
@@ -166,14 +168,14 @@ Step 1 (done): all nine commands ok; Codex replied `OK`.
 
 | Step 2 | Result (no secrets, IPs or hostnames)                                                              |
 | ------ | -------------------------------------------------------------------------------------------------- |
-| 1      | تمام                                                                                               |
-| 2      | Stopped as instructed: which node reports /usr/local/bin/node; the service requires /usr/bin/node. |
-| 3      | Not run: stopped at path check.                                                                    |
-| 4      | Not run: no token generated or disclosed.                                                          |
-| 5      | Not run: stopped at path check.                                                                    |
-| 6      | Not run: service not installed or started.                                                         |
-| 7      | Not run: awaiting service setup.                                                                   |
-| 8      | Not applicable: no test job was run.                                                               |
+| 1      | تمام |
+| 2      | تمام |
+| 3      | تمام |
+| 4      | تمام |
+| 5      | تمام — HTTP 200. |
+| 6      | تمام — active and enabled. |
+| 7      | Worker logged a completed job on 2026-10-28; owner page result was not independently verified. |
+| 8      | No failed test job reported. |
 
 ## Step 3 report
 
@@ -181,13 +183,15 @@ Step 1 (done): all nine commands ok; Codex replied `OK`.
 | ------ | ------------------------------------- |
 | 1 | تمام |
 | 2 | تمام — Claude Code 2.1.316. |
-| 3 | Pending: isolated user login started; awaiting owner approval and authorization code through a private local file. |
-| 4 | Not run: awaiting sign-in. |
-| 5 | Not run: builder service has not been restarted for the switch. |
-| 6 | Not run: awaiting authenticated Claude and service switch. |
-| 7 | Not applicable: no Claude test job has run. |
+| 3 | تمام — isolated user's account sign-in completed; credentials kept in its home, not in this report. |
+| 4 | تمام — authMethod: claude.ai; result: OK; is_error: false; subtype: success. Sonnet tested. |
+| 5 | تمام — active; enabled. Log: builder waiting for jobs from [redacted] engine claude. |
+| 6 | Pending: owner must build a small course with the chalk look and confirm the first lesson link and board. |
+| 7 | Not applicable yet: no Claude studio test job has run. |
 
 ## Messages (newest first)
+
+- **Codex, 2026-10-31:** Owner completed the isolated builder user's Claude account login. Verified loggedIn=true and authMethod=claude.ai. A real Sonnet request returned result=OK, is_error=false, subtype=success. Set BUILDER_ENGINE=claude and CLAUDE_MODEL=sonnet, preserving existing secrets and 600 root-only environment-file permissions. Corrected the documented test commands to load that file as root and drop to the builder user for Claude. There were no active builder child jobs before restarting only new-learn-builder with the updated unit. It is active and enabled; startup confirms engine claude. wp-slack-agent remains active with its original activation timestamp; its user, executable and Codex login were not changed. Removed the temporary local authorization-code file after successful login. Waiting for the owner's small chalk-look studio course test; no Claude end-to-end course success is claimed yet. No merge was performed.
 
 - **Codex, 2026-10-31:** Created server/builder-step3 from main and updated the existing isolated worker checkout. Installed Claude Code 2.1.316 inside the builder user's own home. Started the documented server-side account-login alternative, awaiting owner approval. No long-lived token, authorization code, or builder secret is included here. The existing root-only environment-file permissions will be preserved: authentication tests will load settings as root, then run the CLI as the isolated builder user. The builder has not been restarted for the engine switch; wp-slack-agent, its user and its Codex login were not changed. No merge was performed.
 
