@@ -713,7 +713,8 @@
         },
         "lessonsTitle": {
           "other": "{count} 节课"
-        }
+        },
+        "try": "免费试学第一部分"
       },
       "grades": {
         "kg": "幼儿园",
@@ -1713,6 +1714,16 @@
       "badge": "付费 · {price}",
       "buy": "购买课程 · {price}",
       "buyHelp": "支付功能还在准备中，很快开通。"
+    },
+    "preview": {
+      "try": "免费试学第一部分",
+      "join": "创建免费账户开始学习",
+      "login": "登录",
+      "note": "“{lesson}”的第一部分无需账户即可学习。已有账户？{login}。",
+      "free": "免费试学",
+      "badge": "免费预览",
+      "back": "返回课程",
+      "rest": "“{lesson}”的其余部分"
     }
   },
   "credits": {

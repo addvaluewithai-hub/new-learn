@@ -17,6 +17,7 @@ import { isStaff } from './staff';
 import { opsRoute, reportError } from './ops/routes';
 import { logError } from './ops/record';
 import { ipOf, rateLimit } from './ops/limits';
+import { publicApi } from './market/preview';
 export async function handleRequest(request: Request, env: Env): Promise<Response> {
   const locale = localeOf(request);
   try {
@@ -34,6 +35,8 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         );
       return await authProxy(request, env, route);
     }
+    // A course's page and free first scene, for visitors without an account (M7).
+    if (path.startsWith('/api/public/')) return await publicApi(request, env, path);
     // Browsers report their errors, signed in or not.
     if (path === '/api/errors' && request.method === 'POST')
       return await reportError(request, env, await currentUser(request, env).catch(() => null));

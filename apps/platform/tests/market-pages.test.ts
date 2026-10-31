@@ -69,6 +69,11 @@ test('the public catalogue and course page: listed courses only, escaped, for se
   );
   assert.match(body, new RegExp(`href="/\\?course=${listed}"`), 'the way into the app');
   assert.match(body, /تعرف درجة الغليان/, 'lesson goals');
+  assert.match(
+    body,
+    new RegExp(`href="/\\?course=${listed}&amp;preview=play"`),
+    'the free first part',
+  );
   assert.doesNotMatch(body, /<script>alert/);
   assert.equal((await get(db, `/courses/${hidden}`)).status, 404);
   assert.match(await (await get(db, `/courses/${hidden}`)).text(), /noindex/);

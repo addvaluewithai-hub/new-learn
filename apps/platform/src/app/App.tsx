@@ -29,6 +29,8 @@ const CreditsPage = lazy(() => import('../features/credits/CreditsPage'));
 const ReviewPage = lazy(() => import('../features/review/ReviewPage'));
 const OpsPage = lazy(() => import('../features/ops/OpsPage'));
 const ExplorePage = lazy(() => import('../features/market/ExplorePage'));
+const CoursePreview = lazy(() => import('../features/courses/CoursePreview'));
+const PreviewLesson = lazy(() => import('../features/courses/PreviewLesson'));
 
 function StudentApp() {
   const session = useSession(),
@@ -39,6 +41,15 @@ function StudentApp() {
   // address still asks to sign in.
   const bare = [...new URLSearchParams(location.search).keys()].every((key) => key === 'lang');
   if (!session.user && bare) return <Landing />;
+  // A course link opened without an account: the course and its free first scene (M7).
+  const visiting =
+    !session.user && !query.get('lesson') && !query.get('auth') && query.get('course');
+  if (visiting)
+    return query.get('preview') === 'play' ? (
+      <PreviewLesson courseId={visiting} />
+    ) : (
+      <CoursePreview courseId={visiting} />
+    );
   if (
     !session.user ||
     query.has('token') ||

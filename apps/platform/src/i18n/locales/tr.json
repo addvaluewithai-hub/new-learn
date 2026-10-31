@@ -716,7 +716,8 @@
         },
         "lessonsTitle": {
           "other": "{count} ders"
-        }
+        },
+        "try": "İlk bölümü ücretsiz dene"
       },
       "grades": {
         "kg": "Anaokulu",
@@ -1731,6 +1732,16 @@
       "badge": "Ücretli · {price}",
       "buy": "Kursu satın al · {price}",
       "buyHelp": "Ödeme henüz hazırlanıyor, yakında açılacak."
+    },
+    "preview": {
+      "try": "İlk bölümü ücretsiz dene",
+      "join": "Ücretsiz hesap aç ve başla",
+      "login": "Giriş yap",
+      "note": "“{lesson}” dersinin ilk bölümü hesapsız açık. Hesabın var mı? {login}.",
+      "free": "Ücretsiz dene",
+      "badge": "Ücretsiz önizleme",
+      "back": "Kursa dön",
+      "rest": "“{lesson}” dersinin devamı"
     }
   },
   "credits": {

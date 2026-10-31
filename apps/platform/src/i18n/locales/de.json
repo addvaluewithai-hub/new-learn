@@ -718,7 +718,8 @@
         "lessonsTitle": {
           "one": "{count} Lektion",
           "other": "{count} Lektionen"
-        }
+        },
+        "try": "Ersten Teil kostenlos testen"
       },
       "grades": {
         "kg": "Kindergarten",
@@ -1733,6 +1734,16 @@
       "badge": "Kostenpflichtig · {price}",
       "buy": "Kurs kaufen · {price}",
       "buyHelp": "Bezahlen ist noch in Vorbereitung und kommt bald."
+    },
+    "preview": {
+      "try": "Ersten Teil kostenlos testen",
+      "join": "Kostenloses Konto anlegen und starten",
+      "login": "Anmelden",
+      "note": "Der erste Teil von „{lesson}“ ist ohne Konto offen. Schon ein Konto? {login}.",
+      "free": "Kostenlos testen",
+      "badge": "Kostenlose Vorschau",
+      "back": "Zurück zum Kurs",
+      "rest": "der Rest von „{lesson}“"
     }
   },
   "credits": {

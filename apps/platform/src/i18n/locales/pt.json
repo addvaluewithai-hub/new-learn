@@ -718,7 +718,8 @@
         "lessonsTitle": {
           "one": "{count} lição",
           "other": "{count} lições"
-        }
+        },
+        "try": "Experimente a primeira parte grátis"
       },
       "grades": {
         "kg": "Educação infantil",
@@ -1733,6 +1734,16 @@
       "badge": "Pago · {price}",
       "buy": "Comprar o curso · {price}",
       "buyHelp": "O pagamento ainda está sendo preparado e abre em breve."
+    },
+    "preview": {
+      "try": "Experimente a primeira parte grátis",
+      "join": "Crie uma conta grátis e comece",
+      "login": "Entrar",
+      "note": "A primeira parte de “{lesson}” está aberta sem conta. Já tem conta? {login}.",
+      "free": "Grátis para experimentar",
+      "badge": "Prévia grátis",
+      "back": "Voltar ao curso",
+      "rest": "o resto de “{lesson}”"
     }
   },
   "credits": {

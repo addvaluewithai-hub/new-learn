@@ -80,23 +80,23 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 
 ## M. Marketplace and payments
 
-| ID  | Task                                                                                                                                                         | Who   | Pri | Status | Needs   |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | --- | ------ | ------- |
-| M1  | The marketplace: a public catalog of courses, each reviewed before listing (docs/marketplace.md)                                                             | Both  | P2  | Done   | F1, X2  |
-| M2  | Discovery: grade, subject, language, rating; a page per course that search engines find; a free preview lesson (public pages, sitemap done; preview remains) | Both  | P2  | Part   | M1      |
-| M3  | Ratings and reviews                                                                                                                                          | Both  | P3  | Todo   | M1      |
-| M4  | Paid courses: price per version, access rule and buy endpoint built; checkout waits for the gateway (docs/credits.md)                                        | Owner | P3  | Part   | D6, L6  |
-| M5  | Teacher payouts (teacher keeps about 70–80%)                                                                                                                 | Owner | P3  | Todo   | M4      |
-| M6  | Credits: ledger, price list, starter credits, build charge and refund, packs waiting for payments (docs/credits.md)                                          | Owner | P3  | Part   | M1      |
-| M7  | Share links: the first scene playable without an account (the link works for signed-in learners; the first scene without an account later)                   | Both  | P2  | Doing  | F1      |
-| M8  | Creator tools: remix with credit, one-click translation, creator analytics, photo-to-lesson                                                                  | Owner | P3  | Todo   | M1, V7  |
-| M9  | School licences per class (see SC)                                                                                                                           | Owner | P3  | Idea   | T3      |
-| M10 | Payment gateways: Paymob and Fawry for Egypt, Stripe abroad; the webhook writes credits or course access (docs/credits.md)                                   | Owner | P1  | Todo   | D6, L6  |
-| M11 | Invoices, VAT, refunds and chargebacks                                                                                                                       | Owner | P2  | Todo   | M10     |
-| M12 | Coupons, bundles and a free first lesson on paid courses                                                                                                     | Both  | P2  | Todo   | M10     |
-| M13 | Revenue share by source: a higher share for sales from the teacher's own link than from the marketplace                                                      | Owner | P2  | Todo   | M5, MK9 |
-| M14 | Teacher verification before the first paid course: identity and payout details                                                                               | Owner | P2  | Todo   | M10     |
-| M15 | Fraud: credit farming, refund abuse, fake reviews and fake enrolments                                                                                        | Owner | P2  | Todo   | M10     |
+| ID  | Task                                                                                                                       | Who   | Pri | Status | Needs   |
+| --- | -------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------ | ------- |
+| M1  | The marketplace: a public catalog of courses, each reviewed before listing (docs/marketplace.md)                           | Both  | P2  | Done   | F1, X2  |
+| M2  | Discovery: grade, subject, language, rating; a page per course that search engines find; a free preview lesson             | Both  | P2  | Done   | M1      |
+| M3  | Ratings and reviews                                                                                                        | Both  | P3  | Todo   | M1      |
+| M4  | Paid courses: price per version, access rule and buy endpoint built; checkout waits for the gateway (docs/credits.md)      | Owner | P3  | Part   | D6, L6  |
+| M5  | Teacher payouts (teacher keeps about 70–80%)                                                                               | Owner | P3  | Todo   | M4      |
+| M6  | Credits: ledger, price list, starter credits, build charge and refund, packs waiting for payments (docs/credits.md)        | Owner | P3  | Part   | M1      |
+| M7  | Share links: the first scene playable without an account (docs/marketplace.md)                                             | Both  | P2  | Done   | F1      |
+| M8  | Creator tools: remix with credit, one-click translation, creator analytics, photo-to-lesson                                | Owner | P3  | Todo   | M1, V7  |
+| M9  | School licences per class (see SC)                                                                                         | Owner | P3  | Idea   | T3      |
+| M10 | Payment gateways: Paymob and Fawry for Egypt, Stripe abroad; the webhook writes credits or course access (docs/credits.md) | Owner | P1  | Todo   | D6, L6  |
+| M11 | Invoices, VAT, refunds and chargebacks                                                                                     | Owner | P2  | Todo   | M10     |
+| M12 | Coupons, bundles and a free first lesson on paid courses                                                                   | Both  | P2  | Todo   | M10     |
+| M13 | Revenue share by source: a higher share for sales from the teacher's own link than from the marketplace                    | Owner | P2  | Todo   | M5, MK9 |
+| M14 | Teacher verification before the first paid course: identity and payout details                                             | Owner | P2  | Todo   | M10     |
+| M15 | Fraud: credit farming, refund abuse, fake reviews and fake enrolments                                                      | Owner | P2  | Todo   | M10     |
 
 ## X. Admin and safety (Owner)
 

@@ -721,7 +721,8 @@
         "lessonsTitle": {
           "one": "{count} leçon",
           "other": "{count} leçons"
-        }
+        },
+        "try": "Essayer la première partie gratuitement"
       },
       "grades": {
         "kg": "Maternelle",
@@ -1745,6 +1746,16 @@
       "badge": "Payant · {price}",
       "buy": "Acheter le cours · {price}",
       "buyHelp": "Le paiement est encore en préparation, il ouvrira bientôt."
+    },
+    "preview": {
+      "try": "Essayer la première partie",
+      "join": "Créer un compte gratuit et commencer",
+      "login": "Se connecter",
+      "note": "La première partie de « {lesson} » est ouverte sans compte. Déjà un compte ? {login}.",
+      "free": "Essai gratuit",
+      "badge": "Aperçu gratuit",
+      "back": "Retour au cours",
+      "rest": "la suite de « {lesson} »"
     }
   },
   "credits": {

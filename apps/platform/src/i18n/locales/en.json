@@ -718,7 +718,8 @@
         "lessonsTitle": {
           "one": "{count} lesson",
           "other": "{count} lessons"
-        }
+        },
+        "try": "Try the first part free"
       },
       "grades": {
         "kg": "Kindergarten",
@@ -1733,6 +1734,16 @@
       "badge": "Paid · {price}",
       "buy": "Buy the course · {price}",
       "buyHelp": "Payments are still being set up and will open soon."
+    },
+    "preview": {
+      "try": "Try the first part free",
+      "join": "Create a free account and start",
+      "login": "Sign in",
+      "note": "The first part of “{lesson}” is open without an account. Have an account? {login}.",
+      "free": "Free to try",
+      "badge": "Free preview",
+      "back": "Back to the course",
+      "rest": "the rest of “{lesson}”"
     }
   },
   "credits": {

@@ -718,7 +718,8 @@
         "lessonsTitle": {
           "one": "{count} lección",
           "other": "{count} lecciones"
-        }
+        },
+        "try": "Prueba la primera parte gratis"
       },
       "grades": {
         "kg": "Infantil",
@@ -1733,6 +1734,16 @@
       "badge": "De pago · {price}",
       "buy": "Comprar el curso · {price}",
       "buyHelp": "Los pagos todavía se están preparando. Abrirán pronto."
+    },
+    "preview": {
+      "try": "Prueba la primera parte gratis",
+      "join": "Crea una cuenta gratis y empieza",
+      "login": "Inicia sesión",
+      "note": "La primera parte de «{lesson}» está abierta sin cuenta. ¿Ya tienes cuenta? {login}.",
+      "free": "Prueba gratis",
+      "badge": "Vista previa gratis",
+      "back": "Volver al curso",
+      "rest": "el resto de «{lesson}»"
     }
   },
   "credits": {

@@ -43,12 +43,14 @@
 .course-lessons li[data-status='completed'] {
   background: var(--nl-surface-sunk);
 }
-.course-lessons a {
+.course-lessons a,
+.course-lesson-text {
   display: grid;
   flex: 1;
   gap: 2px;
 }
-.course-lessons a span {
+.course-lessons a span,
+.course-lesson-text span {
   color: var(--nl-muted);
   font-size: var(--nl-text-sm);
 }
@@ -101,4 +103,12 @@
 }
 .my-course-progress .pick-bar {
   max-width: 140px;
+}
+/* The course page for visitors without an account (CoursePreview, M7). */
+.course-preview {
+  display: grid;
+  gap: var(--nl-space-3);
+}
+.course-preview .course-lessons {
+  margin-block-start: var(--nl-space-4);
 }
