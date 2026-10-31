@@ -630,7 +630,10 @@
       "topicLong": "描述太长了，请控制在 4000 字以内。",
       "badChoice": "未知的选项。",
       "fileCount": "最多 5 个文件。",
-      "filesTotal": "所有文件加起来需小于 10 MB。"
+      "filesTotal": "所有文件加起来需小于 10 MB。",
+      "askShort": "请写出要改什么。",
+      "askLong": "请求太长了，请少于 2000 个字符。",
+      "lessonMissing": "这节课不存在或不属于你。"
     },
     "nova": {
       "badPosition": "课内位置不正确。",
@@ -701,7 +704,8 @@
       "resume": "中断后继续",
       "failed": "生成在完成前停止了。",
       "usageLimit": "生成账户目前已达到使用上限。稍后再试吧。",
-      "noLesson": "没有生成任何课。"
+      "noLesson": "没有生成任何课。",
+      "noChange": "课程没有变化，积分已退还。"
     }
   },
   "auth": {
@@ -1613,6 +1617,19 @@
       "more": {
         "other": "还有 {count} 节课"
       }
+    },
+    "edits": {
+      "toggle": "对话修改",
+      "toggleWorking": "正在修改…",
+      "panel": "通过对话修改本课",
+      "title": "说说本课要改什么",
+      "placeholder": "例如：在第二个场景加一道例题，或者把语言写得更简单",
+      "label": "你想要的修改",
+      "send": "发送",
+      "queued": "排队中…",
+      "done": "已完成。",
+      "oneAtATime": "请等当前的修改完成。",
+      "cost": "每次修改 {credits} 积分，如果没有任何变化会退还。只修改这一课，保存后马上就能在这里看到变化。"
     }
   },
   "courses": {
@@ -1764,7 +1781,8 @@
         "call": "连接器调用"
       },
       "build": {
-        "job": "生成的课程"
+        "job": "生成的课程",
+        "refine": "课程修改"
       },
       "review": {
         "ai": "AI 审核"

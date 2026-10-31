@@ -633,7 +633,10 @@
       "topicLong": "Açıklama çok uzun; 4000 karakterin altında tut.",
       "badChoice": "Bilinmeyen seçim.",
       "fileCount": "En fazla 5 dosya.",
-      "filesTotal": "Dosyaların toplamı 10 MB'tan küçük olmalı."
+      "filesTotal": "Dosyaların toplamı 10 MB'tan küçük olmalı.",
+      "askShort": "Neyin değişeceğini yaz.",
+      "askLong": "İstek çok uzun; 2000 karakterden az olsun.",
+      "lessonMissing": "Bu ders yok ya da senin değil."
     },
     "nova": {
       "badPosition": "Dersteki konum geçersiz.",
@@ -704,7 +707,8 @@
       "resume": "Kesintiden sonra devam ediyorum",
       "failed": "Oluşturma bitmeden durdu.",
       "usageLimit": "Oluşturma hesabı şu an kullanım sınırına ulaştı. Biraz sonra tekrar dene.",
-      "noLesson": "Hiç ders oluşturulmadı."
+      "noLesson": "Hiç ders oluşturulmadı.",
+      "noChange": "Derste hiçbir şey değişmedi, kredilerin iade edildi."
     }
   },
   "auth": {
@@ -1630,6 +1634,19 @@
         "one": "ve {count} ders daha",
         "other": "ve {count} ders daha"
       }
+    },
+    "edits": {
+      "toggle": "Sohbetle düzenle",
+      "toggleWorking": "Düzenleniyor…",
+      "panel": "Bu dersi sohbetle düzenle",
+      "title": "Bu derste neyin değişeceğini söyle",
+      "placeholder": "Örneğin: ikinci sahneye çözümlü bir örnek ekle ya da anlatımı sadeleştir",
+      "label": "İstediğin değişiklik",
+      "send": "Gönder",
+      "queued": "Sırasını bekliyor…",
+      "done": "Tamam.",
+      "oneAtATime": "Süren düzenlemenin bitmesini bekle.",
+      "cost": "Her düzenleme {credits} kredi; hiçbir şey değişmezse iade edilir. Yalnızca bu ders düzenlenir ve değişikliği kaydedilir kaydedilmez burada görürsün."
     }
   },
   "courses": {
@@ -1783,7 +1800,8 @@
         "call": "Bağlayıcı çağrıları"
       },
       "build": {
-        "job": "Oluşturulan kurslar"
+        "job": "Oluşturulan kurslar",
+        "refine": "Ders düzenlemeleri"
       },
       "review": {
         "ai": "Yapay zekâ incelemeleri"

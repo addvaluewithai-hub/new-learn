@@ -7,14 +7,18 @@ import type { AuthUser } from '../env';
 import type { UploadedFile } from './request';
 import { refund, spend } from '../credits/ledger';
 import { countUsage } from '../ops/record';
+import type { ActionId } from '../../src/features/credits/pricing';
+import { REFINE_LIMITS, refineMade } from './refine';
 
 // The queue between the "make a course" page and the builder worker. Jobs belong to the
 // teacher who asked; the worker claims one at a time and reports steps and the result.
 
 export const JOB_LIMITS = { perDay: 10, steps: 200, staleMinutes: 45, attempts: 2 };
+const isRefine = (request: BuildRequest) => Boolean(request.refine);
 
-const view = (row: typeof buildJobs.$inferSelect) => ({
+export const view = (row: typeof buildJobs.$inferSelect) => ({
   id: row.id,
+  kind: isRefine(row.request) ? ('refine' as const) : ('build' as const),
   status: row.status,
   topic: row.request.topic,
   choices: row.request.choices,
@@ -25,31 +29,35 @@ const view = (row: typeof buildJobs.$inferSelect) => ({
   finishedAt: row.finishedAt?.toISOString() ?? null,
 });
 
-/** Queue a job: one at a time per teacher, and a few a day. */
+/** Queue a job: one at a time per teacher, and a few a day (more edits than courses). */
 export async function createJob(
   db: Db,
   user: AuthUser,
   input: { request: BuildRequest; files: UploadedFile[] },
+  action: Extract<ActionId, 'course.build' | 'lesson.refine'> = 'course.build',
 ) {
   const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
   const recent = await db
-    .select({ status: buildJobs.status })
+    .select({ status: buildJobs.status, request: buildJobs.request })
     .from(buildJobs)
     .where(and(eq(buildJobs.ownerId, user.id), gte(buildJobs.createdAt, since)));
   if (recent.some((j) => j.status === 'queued' || j.status === 'running'))
     throw new HttpError(409, 'builds.busy');
-  if (recent.length >= JOB_LIMITS.perDay) throw new HttpError(429, 'builds.dailyLimit');
+  const refine = isRefine(input.request);
+  const same = recent.filter((j) => isRefine(j.request) === refine).length;
+  if (same >= (refine ? REFINE_LIMITS.perDay : JOB_LIMITS.perDay))
+    throw new HttpError(429, 'builds.dailyLimit');
   // The job's id is made here so the charge can name it before the job exists: no credits,
   // no job; a job that fails gives them back (finishJob, claimJob).
   const id = crypto.randomUUID();
-  await spend(db, user, 'course.build', id);
+  await spend(db, user, action, id);
   try {
     const [job] = await db
       .insert(buildJobs)
       .values({ id, ownerId: user.id, ownerName: user.name, request: input.request })
       .returning();
     for (const f of input.files) await db.insert(buildFiles).values({ jobId: job.id, ...f });
-    await countUsage(db, 'build.job');
+    await countUsage(db, refine ? 'build.refine' : 'build.job');
     return view(job);
   } catch (error) {
     await refund(db, user.id, id);
@@ -61,7 +69,7 @@ export async function listJobs(db: Db, ownerId: string) {
   const rows = await db
     .select()
     .from(buildJobs)
-    .where(eq(buildJobs.ownerId, ownerId))
+    .where(and(eq(buildJobs.ownerId, ownerId), sql`${buildJobs.request}->'refine' is null`))
     .orderBy(desc(buildJobs.createdAt))
     .limit(10);
   return rows.map(view);
@@ -175,6 +183,7 @@ export async function addStep(db: Db, jobId: string, title: string) {
  */
 export async function finishJob(db: Db, jobId: string, input: { ok: boolean; message: string }) {
   const job = await running(db, jobId);
+  if (job.request.refine) return finishRefine(db, job, input);
   const [course] = await db
     .select({ id: authorCourses.id })
     .from(authorCourses)
@@ -209,4 +218,33 @@ export async function finishJob(db: Db, jobId: string, input: { ok: boolean; mes
     .where(eq(buildJobs.id, jobId));
   if (!(input.ok && made)) await refund(db, job.ownerId, jobId);
   return { status: input.ok && made ? 'done' : 'failed', ...result };
+}
+
+/**
+ * An edit from the side chat is done when the lesson changed while it ran; the reply is the
+ * worker's own words either way, so the teacher reads why when nothing changed.
+ */
+async function finishRefine(
+  db: Db,
+  job: typeof buildJobs.$inferSelect,
+  input: { ok: boolean; message: string },
+) {
+  const { courseId, lessonId } = job.request.refine!;
+  const message = input.message
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .trim()
+    .slice(0, 600);
+  const made = input.ok && (await refineMade(db, job));
+  const result: BuildResult = { courseId, lessonId, message: input.ok ? message : '' };
+  await db
+    .update(buildJobs)
+    .set({
+      status: made ? 'done' : 'failed',
+      result,
+      error: made ? '' : input.ok ? 'step:noChange' : message || 'step:failed',
+      finishedAt: new Date(),
+    })
+    .where(eq(buildJobs.id, job.id));
+  if (!made) await refund(db, job.ownerId, job.id);
+  return { status: made ? 'done' : 'failed', ...result };
 }

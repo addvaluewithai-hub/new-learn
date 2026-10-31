@@ -12,7 +12,7 @@ it, so a number changes in one place.
 | Action              | Credits      | Charged today |
 | ------------------- | ------------ | ------------- |
 | Build a course      | 30 each      | yes           |
-| Side-chat edit      | 3 each       | soon          |
+| Side-chat edit      | 3 each       | yes           |
 | Recorded narration  | 2 per minute | soon          |
 | Clone your voice    | 20 once      | soon          |
 | Course landing page | 15 each      | soon          |

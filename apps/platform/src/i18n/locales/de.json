@@ -633,7 +633,10 @@
       "topicLong": "Die Beschreibung ist zu lang, bleib unter 4000 Zeichen.",
       "badChoice": "Unbekannte Auswahl.",
       "fileCount": "Höchstens 5 Dateien.",
-      "filesTotal": "Alle Dateien zusammen müssen kleiner als 10 MB sein."
+      "filesTotal": "Alle Dateien zusammen müssen kleiner als 10 MB sein.",
+      "askShort": "Sag, was sich ändern soll.",
+      "askLong": "Die Anfrage ist zu lang; unter 2000 Zeichen bitte.",
+      "lessonMissing": "Diese Lektion gibt es nicht oder sie gehört dir nicht."
     },
     "nova": {
       "badPosition": "Ungültige Stelle in der Lektion.",
@@ -704,7 +707,8 @@
       "resume": "Ich mache nach einer Unterbrechung weiter",
       "failed": "Der Bau hat vor dem Ende angehalten.",
       "usageLimit": "Das Bau-Konto hat gerade sein Nutzungslimit erreicht. Versuch es gleich noch mal.",
-      "noLesson": "Es wurde keine Lektion erstellt."
+      "noLesson": "Es wurde keine Lektion erstellt.",
+      "noChange": "In der Lektion hat sich nichts geändert, deine Credits wurden erstattet."
     }
   },
   "auth": {
@@ -1630,6 +1634,19 @@
         "one": "und 1 weitere Lektion",
         "other": "und {count} weitere Lektionen"
       }
+    },
+    "edits": {
+      "toggle": "Im Chat bearbeiten",
+      "toggleWorking": "Wird bearbeitet…",
+      "panel": "Diese Lektion im Chat bearbeiten",
+      "title": "Sag, was sich in dieser Lektion ändern soll",
+      "placeholder": "Zum Beispiel: ein gerechnetes Beispiel in der zweiten Szene ergänzen oder einfacher formulieren",
+      "label": "Die gewünschte Änderung",
+      "send": "Senden",
+      "queued": "Wartet…",
+      "done": "Erledigt.",
+      "oneAtATime": "Warte, bis die laufende Bearbeitung fertig ist.",
+      "cost": "Jede Bearbeitung kostet {credits} Credits, die erstattet werden, wenn sich nichts ändert. Nur diese Lektion wird bearbeitet, und du siehst die Änderung hier, sobald sie gespeichert ist."
     }
   },
   "courses": {
@@ -1783,7 +1800,8 @@
         "call": "Connector-Aufrufe"
       },
       "build": {
-        "job": "Erstellte Kurse"
+        "job": "Erstellte Kurse",
+        "refine": "Lektionsbearbeitungen"
       },
       "review": {
         "ai": "KI-Prüfungen"

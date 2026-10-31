@@ -636,7 +636,10 @@
       "topicLong": "Description trop longue : restez sous 4 000 caractères.",
       "badChoice": "Choix inconnu.",
       "fileCount": "5 fichiers maximum.",
-      "filesTotal": "L’ensemble des fichiers doit faire moins de 10 Mo."
+      "filesTotal": "L’ensemble des fichiers doit faire moins de 10 Mo.",
+      "askShort": "Dites ce qu’il faut changer.",
+      "askLong": "Demande trop longue : moins de 2000 caractères.",
+      "lessonMissing": "Cette leçon n’existe pas ou ne vous appartient pas."
     },
     "nova": {
       "badPosition": "Position dans la leçon invalide.",
@@ -707,7 +710,8 @@
       "resume": "Je reprends après une coupure",
       "failed": "La création s’est arrêtée avant la fin.",
       "usageLimit": "Le compte de création a atteint sa limite d’utilisation pour le moment. Réessayez un peu plus tard.",
-      "noLesson": "Aucune leçon n’a été créée."
+      "noLesson": "Aucune leçon n’a été créée.",
+      "noChange": "Rien n’a changé dans la leçon, vos crédits ont été remboursés."
     }
   },
   "auth": {
@@ -1641,6 +1645,19 @@
         "many": "et {count} autres leçons",
         "other": "et {count} autres leçons"
       }
+    },
+    "edits": {
+      "toggle": "Modifier en discutant",
+      "toggleWorking": "Modification…",
+      "panel": "Modifier cette leçon en discutant",
+      "title": "Dites ce qu’il faut changer dans cette leçon",
+      "placeholder": "Par exemple : ajoutez un exemple corrigé à la deuxième scène, ou simplifiez le texte",
+      "label": "La modification souhaitée",
+      "send": "Envoyer",
+      "queued": "En attente…",
+      "done": "C’est fait.",
+      "oneAtATime": "Attendez la fin de la modification en cours.",
+      "cost": "Chaque modification coûte {credits} crédits, remboursés si rien ne change. Seule cette leçon est modifiée, et vous voyez le changement ici dès qu’il est enregistré."
     }
   },
   "courses": {
@@ -1796,7 +1813,8 @@
         "call": "Appels du connecteur"
       },
       "build": {
-        "job": "Cours créés"
+        "job": "Cours créés",
+        "refine": "Modifications de leçons"
       },
       "review": {
         "ai": "Revues IA"

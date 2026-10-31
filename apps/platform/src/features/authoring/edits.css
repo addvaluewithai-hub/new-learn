@@ -1,0 +1,88 @@
+/* The draft page's dock (the notes and the side chat) and the side chat itself (S2). */
+.draft-dock {
+  position: fixed;
+  inset-block-end: 112px;
+  inset-inline-end: 16px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  gap: 8px;
+}
+/* Above the two stacked buttons. */
+.draft-dock .draft-notes,
+.draft-dock .draft-edits {
+  inset-block-end: 212px;
+}
+.draft-dock .draft-notes-toggle,
+.draft-dock .draft-edits-toggle {
+  position: static;
+}
+.draft-edits-toggle {
+  background: var(--nl-ink);
+}
+.draft-edits-toggle[data-working] {
+  background: var(--nl-primary);
+}
+.draft-edits ol {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.draft-edits li {
+  display: grid;
+  gap: 4px;
+}
+.draft-edits li p {
+  margin: 0;
+}
+.draft-edit-ask {
+  justify-self: end;
+  max-width: 90%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: var(--nl-paper);
+  overflow-wrap: anywhere;
+}
+.draft-edit-reply {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--nl-muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.draft-edits li[data-status='done'] .draft-edit-reply {
+  color: var(--nl-ink);
+}
+.draft-edits li[data-status='failed'] .draft-edit-reply {
+  color: #9b2c2c;
+}
+.draft-edit-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nl-primary);
+  animation: draft-edit-pulse 1.2s ease-in-out infinite;
+}
+@keyframes draft-edit-pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .draft-edit-dot {
+    animation: none;
+  }
+}
+@media (max-width: 650px) {
+  .draft-dock {
+    inset-block: 76px auto;
+    inset-inline-end: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

@@ -72,7 +72,10 @@
    "topicLong": "الوصف طويل أوي، خليه أقل من 4000 حرف.",
    "badChoice": "اختيار غير معروف.",
    "fileCount": "5 ملفات بالكتير.",
-   "filesTotal": "الملفات مع بعض لازم تكون أقل من 10 ميجا."
+   "filesTotal": "الملفات مع بعض لازم تكون أقل من 10 ميجا.",
+   "askShort": "اكتب عايز تغيّر إيه.",
+   "askLong": "الطلب طويل أوي، خليه أقل من 2000 حرف.",
+   "lessonMissing": "الدرس ده مش موجود أو مش بتاعك."
   },
   "nova": {
    "badPosition": "موضع الدرس غير صحيح.",
@@ -195,7 +198,10 @@
    "topicLong": "Die Beschreibung ist zu lang, bleib unter 4000 Zeichen.",
    "badChoice": "Unbekannte Auswahl.",
    "fileCount": "Höchstens 5 Dateien.",
-   "filesTotal": "Alle Dateien zusammen müssen kleiner als 10 MB sein."
+   "filesTotal": "Alle Dateien zusammen müssen kleiner als 10 MB sein.",
+   "askShort": "Sag, was sich ändern soll.",
+   "askLong": "Die Anfrage ist zu lang; unter 2000 Zeichen bitte.",
+   "lessonMissing": "Diese Lektion gibt es nicht oder sie gehört dir nicht."
   },
   "nova": {
    "badPosition": "Ungültige Stelle in der Lektion.",
@@ -318,7 +324,10 @@
    "topicLong": "The description is too long. Keep it under 4000 characters.",
    "badChoice": "Unknown choice.",
    "fileCount": "5 files at most.",
-   "filesTotal": "All files together must be under 10 MB."
+   "filesTotal": "All files together must be under 10 MB.",
+   "askShort": "Say what to change.",
+   "askLong": "That request is too long; keep it under 2000 characters.",
+   "lessonMissing": "This lesson does not exist or is not yours."
   },
   "nova": {
    "badPosition": "Invalid lesson position.",
@@ -441,7 +450,10 @@
    "topicLong": "La descripción es muy larga; déjala en menos de 4000 caracteres.",
    "badChoice": "Opción desconocida.",
    "fileCount": "Máximo 5 archivos.",
-   "filesTotal": "En total, los archivos deben pesar menos de 10 MB."
+   "filesTotal": "En total, los archivos deben pesar menos de 10 MB.",
+   "askShort": "Di qué quieres cambiar.",
+   "askLong": "La petición es demasiado larga; menos de 2000 caracteres.",
+   "lessonMissing": "Esta lección no existe o no es tuya."
   },
   "nova": {
    "badPosition": "Posición de la lección no válida.",
@@ -567,7 +579,10 @@
    "topicLong": "Description trop longue : restez sous 4 000 caractères.",
    "badChoice": "Choix inconnu.",
    "fileCount": "5 fichiers maximum.",
-   "filesTotal": "L’ensemble des fichiers doit faire moins de 10 Mo."
+   "filesTotal": "L’ensemble des fichiers doit faire moins de 10 Mo.",
+   "askShort": "Dites ce qu’il faut changer.",
+   "askLong": "Demande trop longue : moins de 2000 caractères.",
+   "lessonMissing": "Cette leçon n’existe pas ou ne vous appartient pas."
   },
   "nova": {
    "badPosition": "Position dans la leçon invalide.",
@@ -690,7 +705,10 @@
    "topicLong": "A descrição está longa demais; use menos de 4000 caracteres.",
    "badChoice": "Opção desconhecida.",
    "fileCount": "No máximo 5 arquivos.",
-   "filesTotal": "Os arquivos juntos precisam ter menos de 10 MB."
+   "filesTotal": "Os arquivos juntos precisam ter menos de 10 MB.",
+   "askShort": "Diga o que quer mudar.",
+   "askLong": "O pedido é longo demais; menos de 2000 caracteres.",
+   "lessonMissing": "Esta lição não existe ou não é sua."
   },
   "nova": {
    "badPosition": "Posição da aula inválida.",
@@ -813,7 +831,10 @@
    "topicLong": "Açıklama çok uzun; 4000 karakterin altında tut.",
    "badChoice": "Bilinmeyen seçim.",
    "fileCount": "En fazla 5 dosya.",
-   "filesTotal": "Dosyaların toplamı 10 MB'tan küçük olmalı."
+   "filesTotal": "Dosyaların toplamı 10 MB'tan küçük olmalı.",
+   "askShort": "Neyin değişeceğini yaz.",
+   "askLong": "İstek çok uzun; 2000 karakterden az olsun.",
+   "lessonMissing": "Bu ders yok ya da senin değil."
   },
   "nova": {
    "badPosition": "Dersteki konum geçersiz.",
@@ -933,7 +954,10 @@
    "topicLong": "描述太长了，请控制在 4000 字以内。",
    "badChoice": "未知的选项。",
    "fileCount": "最多 5 个文件。",
-   "filesTotal": "所有文件加起来需小于 10 MB。"
+   "filesTotal": "所有文件加起来需小于 10 MB。",
+   "askShort": "请写出要改什么。",
+   "askLong": "请求太长了，请少于 2000 个字符。",
+   "lessonMissing": "这节课不存在或不属于你。"
   },
   "nova": {
    "badPosition": "课内位置不正确。",

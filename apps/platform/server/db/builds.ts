@@ -7,10 +7,14 @@ import { appSchema } from './content';
 // that teacher, and reports progress and the course it made. Uploads stay with their job.
 
 export type BuildStatus = 'queued' | 'running' | 'done' | 'failed';
+/** An edit of one existing lesson from the side chat (S2), instead of a new course. */
+export type RefineTarget = { courseId: string; lessonId: string; revision: number; locale: string };
 export type BuildRequest = {
+  /** The course's topic, or for an edit the teacher's words. */
   topic: string;
   choices: Record<string, string>;
   webSearch: boolean;
+  refine?: RefineTarget;
 };
 export type BuildStep = { at: string; title: string };
 export type BuildResult = { courseId?: string; lessonId?: string; message?: string };

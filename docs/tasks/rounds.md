@@ -59,7 +59,7 @@ At the end of a round, mark its tasks Done in their files.
 | OR6   | Question types          | Q1, Q2, Q3, Q4                                   | ER7              | Runtime change: full browser checks                                                    |
 | OR7   | Exams and certificates  | Q5, Q6, Q7, Q8, Q9, Q11, Q12, Q13, Q14, R10      | OR6, D4          | Question bank, exams by goal, exam simulation, results, daily review                   |
 | OR9   | Nova and boards         | G1, N1, N2, G2, G3, F8                           | —                | N1 and G1 are one feature; N2 is an Idea                                               |
-| OR10  | Course studio           | S2, S10, S16, S6, S7, S11, S18, K4               | OR3, OR20, OR24  | The side chat (S2) first; K4 is an Idea                                                |
+| OR10  | Course studio           | S2, S10, S16, S6, S7, S11, S18, K4               | OR3, OR20, OR24  | S2 done 2026-10-31 (side chat on the draft page); K4 is an Idea                        |
 | OR11  | Classes                 | T3, T4, T7, T8, T9, Q10, R8                      | OR4, OR7         | R8 is an Idea                                                                          |
 | OR12  | Reach                   | E18, R6, R7, E16                                 | OR5, D7          | E16 done 2026-10-31 (eight languages); installable app, reminders, weekly email remain |
 | OR13  | Marketplace and admin   | M1, M2, E19, M3, X1, X2, X3, X4, X5, X7, M15, T5 | OR4              | Public catalog, discovery, reviews, admin, reports, fraud                              |

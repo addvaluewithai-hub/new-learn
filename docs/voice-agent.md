@@ -109,8 +109,17 @@ What is built (Y6, Y7 first part):
   `codex exec --json` with `/mcp` as `newlearn`, turns its events into Arabic steps, resumes
   once after a dropped stream, and reports the result. A job left running 45 minutes goes back
   to the queue once, then fails.
-- **Still to come:** Nova's `start_build` and `build_status`, fix jobs on the same Codex
-  session, skills (Y9), API keys for customers (Y13) and usage limits per plan (Y10). Voice
+- **Side chat (S2, 2026-10-31):** on a draft (`?draft=<lesson>`), «عدّل بالكلام» opens a chat.
+  The teacher says what to change; that is a build job of its own kind (`request.refine`:
+  course, lesson, revision and the teacher's language), charged `lesson.refine` (3 credits).
+  Its prompt (`server/builds/refine.ts`) limits the worker to that one lesson
+  (`get_lesson`, `update_lesson`, `put_board`), and the teacher's words cannot change the
+  rules. The panel shows the steps; every few seconds the page checks the lesson, and a new
+  revision or board reloads the preview on the step the teacher was on. The job is done when
+  the lesson changed while it ran; otherwise it fails with the worker's own reason and the
+  credits come back. One job at a time per teacher, and 40 edits a day besides the 10 builds.
+  Routes: `POST`/`GET /api/studio/lessons/<id>/edits`; the studio page's list leaves edits out.
+- **Still to come:** Nova's `start_build` and `build_status`, skills (Y9), API keys for customers (Y13) and usage limits per plan (Y10). Voice
   choice is not on the page yet: lessons have no recorded voice until OR24.
 
 ## Cost and terms (must hold)

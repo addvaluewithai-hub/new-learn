@@ -633,7 +633,10 @@
       "topicLong": "The description is too long. Keep it under 4000 characters.",
       "badChoice": "Unknown choice.",
       "fileCount": "5 files at most.",
-      "filesTotal": "All files together must be under 10 MB."
+      "filesTotal": "All files together must be under 10 MB.",
+      "askShort": "Say what to change.",
+      "askLong": "That request is too long; keep it under 2000 characters.",
+      "lessonMissing": "This lesson does not exist or is not yours."
     },
     "nova": {
       "badPosition": "Invalid lesson position.",
@@ -704,7 +707,8 @@
       "resume": "Picking up after an interruption",
       "failed": "The build stopped before it finished.",
       "usageLimit": "The build account has hit its usage limit for now. Try again in a bit.",
-      "noLesson": "No lesson was created."
+      "noLesson": "No lesson was created.",
+      "noChange": "Nothing in the lesson changed, so your credits were refunded."
     }
   },
   "auth": {
@@ -1630,6 +1634,19 @@
         "one": "and 1 more lesson",
         "other": "and {count} more lessons"
       }
+    },
+    "edits": {
+      "toggle": "Edit by chat",
+      "toggleWorking": "Editing…",
+      "panel": "Edit this lesson by chat",
+      "title": "Say what to change in this lesson",
+      "placeholder": "For example: add a worked example to the second scene, or make the wording simpler",
+      "label": "The change you want",
+      "send": "Send",
+      "queued": "Waiting its turn…",
+      "done": "Done.",
+      "oneAtATime": "Wait for the running edit to finish.",
+      "cost": "Each edit costs {credits} credits, refunded if nothing changes. It edits this lesson only, and you see the change here as soon as it is saved."
     }
   },
   "courses": {
@@ -1783,7 +1800,8 @@
         "call": "Connector calls"
       },
       "build": {
-        "job": "Courses built"
+        "job": "Courses built",
+        "refine": "Lesson edits"
       },
       "review": {
         "ai": "AI reviews"

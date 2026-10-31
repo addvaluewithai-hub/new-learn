@@ -5,6 +5,7 @@ import { errorText, HttpError, MACHINE_LOCALE } from '../http';
 import { issueAccess } from '../oauth/tokens';
 import { addStep, claimJob, finishJob, jobFile } from './jobs';
 import { buildPrompt } from './request';
+import { refinePrompt } from './refine';
 
 // The builder worker's side (docs/builder-server.md): it calls in from our server with its
 // own token, claims jobs and reports back. No cookies; nothing here is reachable without
@@ -48,7 +49,9 @@ async function claim(db: Db, origin: string) {
   return {
     job: {
       id: job.id,
-      prompt: buildPrompt(job.request, files),
+      prompt: job.request.refine
+        ? refinePrompt({ ...job.request, refine: job.request.refine })
+        : buildPrompt(job.request, files),
       webSearch: job.request.webSearch,
       files,
       mcpUrl: `${origin}/mcp`,
