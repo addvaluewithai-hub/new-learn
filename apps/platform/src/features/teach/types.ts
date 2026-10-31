@@ -14,6 +14,9 @@ export type Published = {
   publicVersion: number | null;
   priceCents: number;
   currency: string;
+  /** The marketplace (docs/marketplace.md). */
+  listing: 'private' | 'requested' | 'listed';
+  grade: string;
   review: {
     version: number;
     status: 'pending' | 'approved' | 'changes';

@@ -82,7 +82,7 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 
 | ID  | Task                                                                                                                                       | Who   | Pri | Status | Needs   |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- | --- | ------ | ------- |
-| M1  | The marketplace: a public catalog of courses, each reviewed before listing                                                                 | Both  | P2  | Todo   | F1, X2  |
+| M1  | The marketplace: a public catalog of courses, each reviewed before listing (docs/marketplace.md)                                           | Both  | P2  | Done   | F1, X2  |
 | M2  | Discovery: grade, subject, language, rating; a page per course that search engines find; a free preview lesson                             | Both  | P2  | Todo   | M1      |
 | M3  | Ratings and reviews                                                                                                                        | Both  | P3  | Todo   | M1      |
 | M4  | Paid courses: price per version, access rule and buy endpoint built; checkout waits for the gateway (docs/credits.md)                      | Owner | P3  | Part   | D6, L6  |
@@ -100,15 +100,15 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 
 ## X. Admin and safety (Owner)
 
-| ID  | Task                                                                                                                | Who   | Pri | Status | Needs |
-| --- | ------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------ | ----- |
-| X1  | Admin page: users, courses, reports                                                                                 | Owner | P2  | Todo   | F6    |
-| X2  | Review queue for public, paid and child-mode courses (paid versions done, G5; public listing and child mode remain) | Both  | P2  | Doing  | X1    |
-| X3  | Reports from users, takedown, account suspension                                                                    | Owner | P2  | Todo   | X1    |
-| X4  | Log of admin actions                                                                                                | Owner | P3  | Todo   | X1    |
-| X5  | Review what changed: show a reviewer only the differences from the last approved version                            | Owner | P2  | Todo   | G5    |
-| X6  | Consent records for cloned voices and mascots, and rights to uploaded material                                      | Owner | P2  | Todo   | L2    |
-| X7  | AI accuracy pass on free courses before they are listed (the paid review's first pass)                              | Owner | P2  | Todo   | M1    |
+| ID  | Task                                                                                                                  | Who   | Pri | Status | Needs |
+| --- | --------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------ | ----- |
+| X1  | Admin page: users, courses, reports                                                                                   | Owner | P2  | Todo   | F6    |
+| X2  | Review queue for public, paid and child-mode courses (paid versions and marketplace listing done; child mode remains) | Both  | P2  | Doing  | X1    |
+| X3  | Reports from users, takedown, account suspension                                                                      | Owner | P2  | Todo   | X1    |
+| X4  | Log of admin actions                                                                                                  | Owner | P3  | Todo   | X1    |
+| X5  | Review what changed: show a reviewer only the differences from the last approved version                              | Owner | P2  | Todo   | G5    |
+| X6  | Consent records for cloned voices and mascots, and rights to uploaded material                                        | Owner | P2  | Todo   | L2    |
+| X7  | AI accuracy pass on free courses before they are listed (the paid review's first pass)                                | Owner | P2  | Done   | M1    |
 
 ## MK. Marketing assets
 

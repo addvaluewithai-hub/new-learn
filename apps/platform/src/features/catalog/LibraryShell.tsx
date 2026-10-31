@@ -13,7 +13,7 @@ export function LibraryShell({
   user: User;
   onSignOut: () => Promise<void>;
   children: ReactNode;
-  page?: 'library' | 'studio' | 'teach' | 'credits' | 'review' | 'ops' | 'settings';
+  page?: 'library' | 'studio' | 'teach' | 'explore' | 'credits' | 'review' | 'ops' | 'settings';
 }) {
   const [menu, setMenu] = useState(false),
     [error, setError] = useState(''),
@@ -46,6 +46,10 @@ export function LibraryShell({
           <a href="/" aria-current={page === 'library' ? 'page' : undefined}>
             <PlatformIcon name="books" />
             {t('catalog.shell.nav.library')}
+          </a>
+          <a href="/?explore" aria-current={page === 'explore' ? 'page' : undefined}>
+            <PlatformIcon name="explore" />
+            {t('catalog.shell.nav.explore')}
           </a>
           <a href="/?studio" aria-current={page === 'studio' ? 'page' : undefined}>
             <PlatformIcon name="spark" />

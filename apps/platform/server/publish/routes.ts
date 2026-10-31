@@ -8,6 +8,7 @@ import { saveOutline, teacherCourse, teacherCourses } from './teach';
 import { myCourses } from './library';
 import { canStudy, parsePrice, requireStudy } from './paid';
 import { requireProvider } from '../payments/provider';
+import { marketCourses, marketFacets, setListing } from '../market/store';
 
 // The app's side of published courses: the teacher's workspace (/api/teach) and the
 // student's course page, enrolment and lessons (/api/courses). The user is the session's.
@@ -33,6 +34,26 @@ export async function publishRoute(
   }
   if ((m = new RegExp(`^/api/teach/courses/${UUID}/publish$`).exec(path)) && method === 'POST')
     return json(await publishCourse(db, user, m[1], parsePrice(await body(request))), 201);
+  if ((m = new RegExp(`^/api/teach/courses/${UUID}/listing$`).exec(path)) && method === 'POST') {
+    const input = await body(request);
+    return json(
+      await setListing(db, user.id, m[1], { list: input.list === true, grade: input.grade }),
+    );
+  }
+  // The marketplace: listed courses with filters, and the values the filters offer.
+  if (path === '/api/courses/market' && method === 'GET') {
+    const q = new URL(request.url).searchParams;
+    const pick = (k: string) => q.get(k)?.slice(0, 80) || undefined;
+    return json({
+      courses: await marketCourses(db, {
+        q: pick('q'),
+        subject: pick('subject'),
+        language: pick('language'),
+        grade: pick('grade'),
+      }),
+      facets: await marketFacets(db),
+    });
+  }
   if ((m = new RegExp(`^/api/teach/courses/${UUID}/withdraw$`).exec(path)) && method === 'POST') {
     await withdrawCourse(db, user.id, m[1]);
     return json({ ok: true });

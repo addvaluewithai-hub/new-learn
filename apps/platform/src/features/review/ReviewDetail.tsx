@@ -80,7 +80,9 @@ export function ReviewDetail({ courseId, version }: { courseId: string; version:
           {t('review.item', {
             teacher: detail.teacher,
             version: detail.version,
-            price: formatPrice(detail.priceCents, detail.currency, locale),
+            price: detail.priceCents
+              ? formatPrice(detail.priceCents, detail.currency, locale)
+              : t('review.forListing'),
           })}
         </p>
       </div>

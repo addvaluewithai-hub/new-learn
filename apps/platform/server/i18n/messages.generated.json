@@ -120,6 +120,10 @@
    "notFound": "المراجعة دي مش موجودة.",
    "decided": "المراجعة دي اتقرر فيها خلاص.",
    "needNotes": "اكتب ملاحظاتك للمدرس قبل ما تطلب تعديلات."
+  },
+  "market": {
+   "badGrade": "الصف ده مش معروف.",
+   "fixFirst": "النسخة دي محتاجة تعديلات الأول: صلّحها وانشر نسخة جديدة."
   }
  },
  "de": {
@@ -246,6 +250,10 @@
    "notFound": "Diese Prüfung gibt es nicht.",
    "decided": "Über diese Prüfung wurde schon entschieden.",
    "needNotes": "Schreib deine Notizen für die Lehrkraft, bevor du Änderungen anforderst."
+  },
+  "market": {
+   "badGrade": "Unbekannte Klasse.",
+   "fixFirst": "Diese Version braucht zuerst Änderungen: korrigiere sie und veröffentliche eine neue Version."
   }
  },
  "en": {
@@ -372,6 +380,10 @@
    "notFound": "This review doesn't exist.",
    "decided": "This review has already been decided.",
    "needNotes": "Write your notes for the teacher before requesting changes."
+  },
+  "market": {
+   "badGrade": "Unknown grade.",
+   "fixFirst": "This version needs changes first: fix it and publish a new version."
   }
  },
  "es": {
@@ -498,6 +510,10 @@
    "notFound": "Esta revisión no existe.",
    "decided": "Esta revisión ya tiene una decisión.",
    "needNotes": "Escribe tus notas para el docente antes de pedir cambios."
+  },
+  "market": {
+   "badGrade": "Grado desconocido.",
+   "fixFirst": "Esta versión necesita cambios primero: corrígela y publica una versión nueva."
   }
  },
  "fr": {
@@ -627,6 +643,10 @@
    "notFound": "Cette relecture n’existe pas.",
    "decided": "Une décision a déjà été prise pour cette relecture.",
    "needNotes": "Écrivez vos remarques pour l’enseignant avant de demander des modifications."
+  },
+  "market": {
+   "badGrade": "Niveau inconnu.",
+   "fixFirst": "Cette version doit d’abord être corrigée : corrigez-la et publiez une nouvelle version."
   }
  },
  "pt": {
@@ -753,6 +773,10 @@
    "notFound": "Esta revisão não existe.",
    "decided": "Esta revisão já foi decidida.",
    "needNotes": "Escreva seus comentários para o professor antes de pedir ajustes."
+  },
+  "market": {
+   "badGrade": "Ano desconhecido.",
+   "fixFirst": "Esta versão precisa de ajustes primeiro: corrija e publique uma nova versão."
   }
  },
  "tr": {
@@ -879,6 +903,10 @@
    "notFound": "Böyle bir inceleme yok.",
    "decided": "Bu inceleme için zaten karar verildi.",
    "needNotes": "Değişiklik istemeden önce öğretmene notlarını yaz."
+  },
+  "market": {
+   "badGrade": "Bilinmeyen sınıf.",
+   "fixFirst": "Bu sürümün önce düzeltilmesi gerekiyor: düzelt ve yeni bir sürüm yayınla."
   }
  },
  "zh": {
@@ -1002,6 +1030,10 @@
    "notFound": "这条审核不存在。",
    "decided": "这条审核已经有结果了。",
    "needNotes": "要求修改前，请先写下给老师的意见。"
+  },
+  "market": {
+   "badGrade": "未知年级。",
+   "fixFirst": "这个版本需要先修改：改好后发布新版本。"
   }
  }
 }

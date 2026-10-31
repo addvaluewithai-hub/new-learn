@@ -15,6 +15,8 @@ import { appSchema } from './content';
 import { authorCourses, type CoursePart } from './authoring';
 import type { ProgressSnapshot } from './learners';
 
+export type Listing = 'private' | 'requested' | 'listed';
+
 // Teacher courses published to students (roadmap item 5, the publish step). A course keeps
 // the draft's id; each publish is a new numbered version whose lessons are copied in full
 // (package and board manifests), so later edits to the draft never change what students see.
@@ -42,6 +44,13 @@ export const publishedCourses = appSchema.table(
     /** The price of the public version in minor units (cents, piastres); 0 is free. */
     priceCents: integer('price_cents').notNull().default(0),
     currency: text('currency').notNull().default('USD'),
+    /**
+     * The marketplace (docs/marketplace.md): `private` (share link only), `requested` (waiting
+     * for review, or for a paid version's approval) or `listed` (in the public catalog).
+     */
+    listing: text('listing').$type<Listing>().notNull().default('private'),
+    /** The school grade it is for, from GRADES (empty: not said). */
+    grade: text('grade').notNull().default(''),
     publishedAt: timestamp('published_at', { withTimezone: true }).defaultNow().notNull(),
     withdrawnAt: timestamp('withdrawn_at', { withTimezone: true }),
   },
@@ -49,6 +58,8 @@ export const publishedCourses = appSchema.table(
     index('published_courses_owner').on(t.ownerId),
     check('published_course_version', sql`${t.version} >= 1`),
     check('published_course_price', sql`${t.priceCents} >= 0`),
+    check('published_course_listing', sql`${t.listing} in ('private','requested','listed')`),
+    index('published_courses_listed').on(t.listing, t.publishedAt),
   ],
 );
 

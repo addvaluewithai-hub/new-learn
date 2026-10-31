@@ -24,6 +24,8 @@ export async function teacherCourses(db: Db, owner: string) {
       publicVersion: publishedCourses.publicVersion,
       priceCents: publishedCourses.priceCents,
       currency: publishedCourses.currency,
+      listing: publishedCourses.listing,
+      grade: publishedCourses.grade,
       publishedAt: publishedCourses.publishedAt,
       withdrawnAt: publishedCourses.withdrawnAt,
     })
@@ -71,6 +73,9 @@ export async function teacherCourses(db: Db, owner: string) {
             publicVersion: pub.publicVersion,
             priceCents: pub.priceCents,
             currency: pub.currency,
+            // The marketplace (docs/marketplace.md).
+            listing: pub.listing,
+            grade: pub.grade,
             review: reviews.find((r) => r.courseId === c.id) ?? null,
             publishedAt: pub.publishedAt.toISOString(),
             withdrawn: Boolean(pub.withdrawnAt),

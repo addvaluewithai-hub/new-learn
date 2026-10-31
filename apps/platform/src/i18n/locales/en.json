@@ -681,6 +681,10 @@
       "notFound": "This review doesn't exist.",
       "decided": "This review has already been decided.",
       "needNotes": "Write your notes for the teacher before requesting changes."
+    },
+    "market": {
+      "badGrade": "Unknown grade.",
+      "fixFirst": "This version needs changes first: fix it and publish a new version."
     }
   },
   "build": {
@@ -826,7 +830,8 @@
         "settings": "Settings",
         "credits": "Credits",
         "review": "Review",
-        "ops": "Operations"
+        "ops": "Operations",
+        "explore": "Explore"
       },
       "account": "Your Learn account",
       "signOut": "Log out",
@@ -1730,8 +1735,8 @@
     "topUp": "Top up credits"
   },
   "review": {
-    "title": "Paid course review",
-    "lead": "Read each lesson as a student would, run the AI review as a starting point, then approve or send notes to the teacher.",
+    "title": "Course review",
+    "lead": "Paid courses before sale, and free ones before they are listed. Read each lesson as a student would, run the AI review as a starting point, then approve or send notes to the teacher.",
     "loading": "Getting the courses…",
     "empty": "No courses are waiting for review.",
     "item": "{teacher} · version {version} · {price}",
@@ -1770,7 +1775,8 @@
     "decided": {
       "approved": "Approved. This version is now on sale.",
       "changes": "Your notes were sent to the teacher."
-    }
+    },
+    "forListing": "Free · for listing"
   },
   "ops": {
     "title": "Running the platform",
@@ -1808,6 +1814,59 @@
       },
       "auth": {
         "signup": "New accounts"
+      }
+    }
+  },
+  "market": {
+    "free": "Free",
+    "grades": {
+      "none": "Not set",
+      "kg": "Kindergarten",
+      "g1": "Grade 1",
+      "g2": "Grade 2",
+      "g3": "Grade 3",
+      "g4": "Grade 4",
+      "g5": "Grade 5",
+      "g6": "Grade 6",
+      "g7": "Grade 7",
+      "g8": "Grade 8",
+      "g9": "Grade 9",
+      "g10": "Grade 10",
+      "g11": "Grade 11",
+      "g12": "Grade 12",
+      "university": "University",
+      "adults": "Adults"
+    },
+    "listing": {
+      "title": "Marketplace",
+      "lead": "List the course in the Learn marketplace so anyone can find it and learn from it.",
+      "grade": "Grade",
+      "list": "List in the marketplace",
+      "unlist": "Take it out",
+      "see": "See it listed",
+      "status": {
+        "private": "Not listed",
+        "requested": "Waiting for review before listing",
+        "listed": "Listed in the marketplace"
+      },
+      "freeNote": "A free course is reviewed by our team (with an AI accuracy check) before it is listed, and each new version is reviewed again.",
+      "paidNote": "A paid course is listed with its approved version, since every paid version is reviewed before sale."
+    },
+    "explore": {
+      "title": "Explore",
+      "lead": "Courses made by teachers and reviewed by the Learn team.",
+      "search": "Search",
+      "searchHint": "Course, subject or teacher",
+      "subject": "Subject",
+      "grade": "Grade",
+      "language": "Language",
+      "any": "All",
+      "loading": "Loading courses…",
+      "empty": "No courses in the marketplace yet.",
+      "noMatch": "No courses match these choices.",
+      "lessons": {
+        "one": "{count} lesson",
+        "other": "{count} lessons"
       }
     }
   }

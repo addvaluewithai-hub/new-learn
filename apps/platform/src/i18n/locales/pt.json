@@ -681,6 +681,10 @@
       "notFound": "Esta revisão não existe.",
       "decided": "Esta revisão já foi decidida.",
       "needNotes": "Escreva seus comentários para o professor antes de pedir ajustes."
+    },
+    "market": {
+      "badGrade": "Ano desconhecido.",
+      "fixFirst": "Esta versão precisa de ajustes primeiro: corrija e publique uma nova versão."
     }
   },
   "build": {
@@ -826,7 +830,8 @@
         "settings": "Configurações",
         "credits": "Créditos",
         "review": "Revisão",
-        "ops": "Operação"
+        "ops": "Operação",
+        "explore": "Explorar"
       },
       "account": "Sua conta no Learn",
       "signOut": "Sair",
@@ -1730,8 +1735,8 @@
     "topUp": "Recarregar créditos"
   },
   "review": {
-    "title": "Revisão de cursos pagos",
-    "lead": "Leia cada aula como um aluno leria, rode a revisão por IA como ponto de partida e depois aprove ou envie comentários ao professor.",
+    "title": "Revisão de cursos",
+    "lead": "Cursos pagos antes da venda e grátis antes do catálogo. Leia cada lição como um aluno, use a revisão por IA como ponto de partida e aprove ou envie notas.",
     "loading": "Carregando os cursos…",
     "empty": "Nenhum curso esperando revisão.",
     "item": "{teacher} · versão {version} · {price}",
@@ -1770,7 +1775,8 @@
     "decided": {
       "approved": "Aprovado. Esta versão já está à venda.",
       "changes": "Os comentários foram enviados ao professor."
-    }
+    },
+    "forListing": "Grátis · para o catálogo"
   },
   "ops": {
     "title": "Operação da plataforma",
@@ -1808,6 +1814,59 @@
       },
       "auth": {
         "signup": "Contas novas"
+      }
+    }
+  },
+  "market": {
+    "free": "Grátis",
+    "grades": {
+      "none": "Não informado",
+      "kg": "Educação infantil",
+      "g1": "1º ano",
+      "g2": "2º ano",
+      "g3": "3º ano",
+      "g4": "4º ano",
+      "g5": "5º ano",
+      "g6": "6º ano",
+      "g7": "7º ano",
+      "g8": "8º ano",
+      "g9": "9º ano",
+      "g10": "10º ano",
+      "g11": "11º ano",
+      "g12": "12º ano",
+      "university": "Universidade",
+      "adults": "Adultos"
+    },
+    "listing": {
+      "title": "Catálogo",
+      "lead": "Coloque o curso no catálogo do Learn para que qualquer pessoa o encontre.",
+      "grade": "Ano",
+      "list": "Colocar no catálogo",
+      "unlist": "Tirar do catálogo",
+      "see": "Ver no catálogo",
+      "status": {
+        "private": "Fora do catálogo",
+        "requested": "Aguardando revisão antes de entrar",
+        "listed": "No catálogo"
+      },
+      "freeNote": "Um curso grátis é revisado pela nossa equipe (com uma checagem de precisão por IA) antes de entrar, e cada nova versão é revisada de novo.",
+      "paidNote": "Um curso pago entra com sua versão aprovada, já que cada versão paga é revisada antes da venda."
+    },
+    "explore": {
+      "title": "Explorar",
+      "lead": "Cursos feitos por professores e revisados pela equipe do Learn.",
+      "search": "Buscar",
+      "searchHint": "Curso, matéria ou professor",
+      "subject": "Matéria",
+      "grade": "Ano",
+      "language": "Idioma",
+      "any": "Todos",
+      "loading": "Carregando cursos…",
+      "empty": "Ainda não há cursos no catálogo.",
+      "noMatch": "Nenhum curso corresponde.",
+      "lessons": {
+        "one": "{count} lição",
+        "other": "{count} lições"
       }
     }
   }

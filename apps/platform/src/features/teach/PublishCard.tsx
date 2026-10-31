@@ -4,6 +4,7 @@ import { Alert, Button, Card, TextInput } from '../../shared/ui';
 import { useI18n } from '../../i18n';
 import { shareLink, type Workspace } from './types';
 import { initialPrice, priceCents, PriceFields, ReviewStatus } from './PriceFields';
+import { ListingCard } from '../market/ListingCard';
 
 /** The self-check, the publish or update button, the share link, and who got how far. */
 export function PublishCard({
@@ -105,6 +106,7 @@ export function PublishCard({
           <p className="teach-note">{t('teach.publish.withdrawnNote')}</p>
         )}
       </Card>
+      {live && <ListingCard courseId={work.id} published={work.published!} onChanged={onChanged} />}
       {live && (
         <Card className="teach-share">
           <h2>{t('teach.publish.linkTitle')}</h2>

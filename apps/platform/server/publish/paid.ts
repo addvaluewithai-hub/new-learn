@@ -6,6 +6,7 @@ import type { AuthUser, Env } from '../env';
 import { HttpError } from '../http';
 import { isStaff } from '../staff';
 import { validPrice, type Currency } from '../../src/features/credits/pricing';
+import { openListingReview } from '../market/store';
 
 // Paid courses (docs/credits.md). A teacher prices a version when publishing it. A free
 // version is public at once; a paid one goes to the platform's review and students keep the
@@ -26,11 +27,19 @@ export function parsePrice(input: Record<string, unknown>): Price {
 /** After a version is written: make it public (free) or open its review (paid). */
 export async function settleVersion(db: Db, courseId: string, version: number, price: Price) {
   if (price.priceCents === 0) {
-    await db
+    const [row] = await db
       .update(publishedCourses)
       .set({ publicVersion: version, priceCents: 0, currency: price.currency })
+      .where(eq(publishedCourses.id, courseId))
+      .returning({ listing: publishedCourses.listing });
+    // In the marketplace, a new free version is reviewed before it is listed again.
+    if (row.listing === 'private') return null;
+    await openListingReview(db, courseId, version);
+    await db
+      .update(publishedCourses)
+      .set({ listing: 'requested' })
       .where(eq(publishedCourses.id, courseId));
-    return null;
+    return { status: 'pending' as const, version };
   }
   // An older version still waiting is replaced by this one: reviewers look at the newest.
   await db

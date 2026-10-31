@@ -71,7 +71,9 @@ export default function ReviewPage({
                         {t('review.item', {
                           teacher: r.teacher,
                           version: r.version,
-                          price: formatPrice(r.priceCents, r.currency, locale),
+                          price: r.priceCents
+                            ? formatPrice(r.priceCents, r.currency, locale)
+                            : t('review.forListing'),
                         })}
                       </span>
                       <small>
