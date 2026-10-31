@@ -57,7 +57,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--nl-space-3);
-  margin-top: var(--nl-space-7);
+  margin-top: var(--nl-space-8);
 }
 .landing-ctas .nl-button--accent {
   box-shadow: 0 12px 36px rgb(215 247 123 / 28%);

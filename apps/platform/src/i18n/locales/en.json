@@ -1,0 +1,1582 @@
+{
+  "common": {
+    "language": "Language",
+    "brandHome": "Learn home",
+    "brandTagline": "Your learning space",
+    "forward": "→",
+    "back": "←",
+    "backLink": "←",
+    "close": "Close",
+    "loadingSpace": "Getting your learning space ready…",
+    "loadingLesson": "Getting the lesson space ready…",
+    "network": {
+      "offline": "Connection lost. Check your internet and try again.",
+      "unexpected": "The platform sent an unexpected response. Try again.",
+      "failed": "Couldn't complete the request."
+    }
+  },
+  "looks": {
+    "auto": {
+      "name": "Leave it to me",
+      "line": "We'll pick the look that suits your topic."
+    },
+    "chalk": {
+      "name": "Chalk on a blackboard",
+      "line": "Drawn right in front of you: for equations and graphs."
+    },
+    "watercolour": {
+      "name": "Hand-painted watercolor",
+      "line": "Warm and calm: for nature, home and everyday life."
+    },
+    "crt": {
+      "name": "Old computer screen",
+      "line": "Glowing green: for tech, AI and numbers."
+    },
+    "space3d": {
+      "name": "3D model",
+      "line": "Things you can spin and see from every side: space and solid shapes."
+    },
+    "seachart": {
+      "name": "Old map",
+      "line": "Aged paper and ink: for geography, journeys and trade."
+    },
+    "shadow": {
+      "name": "Shadow puppets",
+      "line": "Scenes in paper and shadow: for history and stories."
+    },
+    "blueprint": {
+      "name": "Blueprint",
+      "line": "White lines on blue: for physics, circuits and machines."
+    },
+    "crayon": {
+      "name": "Crayons",
+      "line": "Fun and simple: for kids and first concepts."
+    },
+    "calligraphy": {
+      "name": "Arabic calligraphy and ink",
+      "line": "Naskh script and ink on paper: for Arabic, poetry and grammar."
+    },
+    "pixel": {
+      "name": "Pixel game",
+      "line": "Steps and puzzles: for coding and logical thinking."
+    },
+    "examples": {
+      "chalk": "Compound interest for first-year business students",
+      "watercolour": "How plants drink water and make their food",
+      "space3d": "The planets and their distance from the sun, for 4th grade",
+      "pixel": "First steps in coding for kids",
+      "calligraphy": "The hamza: when it sits on an alif and when it sits on the line",
+      "seachart": "The Silk Road: trade between China and Europe"
+    }
+  },
+  "site": {
+    "nav": {
+      "label": "Site links",
+      "looks": "Looks",
+      "teachers": "For teachers",
+      "demos": "Demos",
+      "support": "Support",
+      "login": "Log in",
+      "start": "Start free"
+    },
+    "foot": {
+      "tagline": "Any idea becomes a lesson, drawn right in front of you.",
+      "product": "Product",
+      "account": "Account",
+      "help": "Help",
+      "looks": "Looks",
+      "demos": "Demos",
+      "teachers": "For teachers",
+      "connect": "Connect your AI",
+      "signup": "Sign up",
+      "login": "Log in",
+      "support": "Support and FAQ",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "teachers": {
+      "metaTitle": "For teachers · New Learn",
+      "metaDescription": "Build an interactive lesson for your students in minutes: in the studio, or with your own Claude or ChatGPT. Review it, publish it by link, and follow along.",
+      "eyebrow": "For teachers",
+      "title": "Build an interactive lesson for your students in minutes.",
+      "lead": "From your handout or an idea in your head: a board that draws itself in front of your students, a question after each idea, and Nova explaining by voice. You review and publish; your students open a link.",
+      "start": "Start free",
+      "demos": "See ready-made lessons",
+      "studioTitle": "Option one: in the studio",
+      "studioLead": "Four steps, without writing a line of code.",
+      "studio": [
+        {
+          "title": "Type your idea or upload your handout",
+          "text": "A topic, a PDF or photos from the textbook. Say who the lesson is for and pick one of the ready-made looks."
+        },
+        {
+          "title": "Watch it being built",
+          "text": "The lesson builds step by step in a few minutes, and you see each board as soon as it's drawn."
+        },
+        {
+          "title": "Review and leave notes",
+          "text": "Open the lesson the way a student will see it and leave a note on any step. The fix lands right on that step."
+        },
+        {
+          "title": "Publish by link and follow along",
+          "text": "One link for your students. See who started and who finished each lesson, and publish a new version whenever you make changes."
+        }
+      ],
+      "connectTitle": "Option two: with your own Claude or ChatGPT",
+      "connectLead": "If you like working with your own AI, connect it to the site and it writes the lesson right here. We check the format and save it as a draft in your account.",
+      "connect": [
+        {
+          "title": "In Claude, open Settings, then Connectors, then Add custom connector.",
+          "text": "Name it New Learn, with this URL:"
+        },
+        {
+          "title": "Log in to New Learn and allow the app.",
+          "text": "What it can do: create drafts and read your notes, nothing more. It can't publish or see your students."
+        },
+        {
+          "title": "Ask for the lesson in your own words.",
+          "text": "For example: “Make me a lesson on compound interest for first-year business students, 3 scenes, in plain English.” It will ask you a few questions first and agree on a plan with you."
+        },
+        {
+          "title": "Open the preview link it sends you.",
+          "text": "Leave notes on the steps, then tell it “Fix my notes.” When you're happy with it, publish it from the teacher dashboard."
+        }
+      ],
+      "chatgpt": "In ChatGPT it works the same way, from Settings then Connectors, if your plan supports custom connectors.",
+      "faqTitle": "Teacher questions"
+    },
+    "support": {
+      "metaTitle": "Support and FAQ · New Learn",
+      "metaDescription": "How to reach us, and answers to common questions about New Learn.",
+      "title": "Need help?",
+      "lead": "Email us at {email} and we'll reply within one business day. Include the email you signed up with, the page link, and a screenshot if something's wrong.",
+      "mailSubject": "Help with New Learn",
+      "email": "Send an email",
+      "teachers": "Teachers page",
+      "faqTitle": "Frequently asked questions",
+      "moreTitle": "More",
+      "privacy": "{link}: what we store and who sees it.",
+      "terms": "{link}: your account, your content and AI-generated content.",
+      "takedown": "Found content that infringes your rights? Email us the link and a description of your rights, and we'll take it down while we review."
+    },
+    "legal": {
+      "updatedLabel": "Last updated: {date}",
+      "question": "Have a question about any part of this? Email us at {email} or use the {support}.",
+      "supportLink": "support page",
+      "privacy": {
+        "title": "Privacy",
+        "metaTitle": "Privacy · New Learn",
+        "description": "What New Learn stores, who sees it, and what reaches the AI.",
+        "updated": "October 29, 2026",
+        "intro": "We write this as plainly as we'd like to read it ourselves. If anything is unclear, email us.",
+        "sections": [
+          {
+            "title": "What we store",
+            "paragraphs": [],
+            "bullets": [
+              "Your account: your name, email and an encrypted password, through the Neon Auth service.",
+              "Your learning: the lessons you opened, where you stopped, and your answers to questions.",
+              "If you're a teacher: your courses, lessons, notes and boards, plus the courses you published and who enrolled in them.",
+              "Files you upload to build a lesson (a handout, images, text): stored temporarily until the lesson is built, then deleted.",
+              "Your settings, such as lesson speed, how questions work and the site language."
+            ]
+          },
+          {
+            "title": "Who sees it",
+            "paragraphs": [],
+            "bullets": [
+              "You, from your account.",
+              "The teacher who made a course sees how many people started and finished each lesson, but not your detailed answers.",
+              "Students see the teacher's name on the course.",
+              "Our team, only when needed, to fix a problem or answer a support request.",
+              "We don't sell your data or give it to anyone for advertising."
+            ]
+          },
+          {
+            "title": "AI",
+            "paragraphs": [],
+            "bullets": [
+              "Nova, the lesson assistant, runs on Google Gemini models. We send it the current step of the lesson and your question, plus your voice if you turn voice on. The conversation is sent to the model so it can reply, and we don't use it to train models.",
+              "Lesson building uses Anthropic models (Claude): we send the idea you wrote and the files you uploaded so it can write the lesson.",
+              "If you connect your own Claude or ChatGPT to the site, it sees only your drafts and notes, with the access you approved, and it can't publish or see students. You can revoke the connection by emailing us.",
+              "Lessons written by AI are labeled as such on the platform, and they can contain mistakes; the teacher reviews them before publishing."
+            ]
+          },
+          {
+            "title": "Cookies and tracking",
+            "paragraphs": [
+              "We use a single session cookie to keep you logged in, and the site language you choose is saved on your device. There are no ads, no trackers, and no analytics that identify you."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Where your data lives",
+            "paragraphs": [
+              "The site runs on Cloudflare and the database on Neon. The boards a lesson draws run in an isolated page with no access to your account."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Children",
+            "paragraphs": [
+              "Accounts are for people aged 13 or older. Younger children use the platform through a parent's or the school's account, and the parent or guardian is responsible for that account."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Deleting your account",
+            "paragraphs": [
+              "Email us from the address you signed up with, and we'll delete the account and all its data within 30 days. Courses you published to students are removed along with it."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Changes",
+            "paragraphs": [
+              "If we change anything important here, we'll announce it on the platform before it takes effect. The date at the top shows the last update."
+            ],
+            "bullets": []
+          }
+        ]
+      },
+      "terms": {
+        "title": "Terms",
+        "metaTitle": "Terms · New Learn",
+        "description": "New Learn's terms of use: your account, your content and AI-generated content.",
+        "updated": "October 29, 2026",
+        "intro": "By using New Learn, you agree to these terms. The platform is still in beta.",
+        "sections": [
+          {
+            "title": "The service",
+            "paragraphs": [
+              "New Learn turns an idea or a handout into an interactive lesson: a board drawn in code, explanations, questions, and a voice assistant called Nova. Teachers can publish their lessons to their students by link."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Your account",
+            "paragraphs": [],
+            "bullets": [
+              "You're responsible for your password and for everything that happens in your account.",
+              "The information you sign up with must be accurate.",
+              "Accounts are for people aged 13 or older; younger children use a parent's or the school's account."
+            ]
+          },
+          {
+            "title": "Your content",
+            "paragraphs": [],
+            "bullets": [
+              "What you write or upload stays yours.",
+              "Only upload what you have the right to use, and you're responsible for that. If you upload a handout or a book you don't have the rights to, we'll remove it.",
+              "You give us permission to display and run the lesson for you and for the students you publish it to, and to keep copies of it so the service works.",
+              "If you see content that infringes your rights, email us the link and a description of your rights, and we'll suspend the content while we review."
+            ]
+          },
+          {
+            "title": "AI-generated content",
+            "paragraphs": [],
+            "bullets": [
+              "Lessons written by AI may contain errors or gaps. Review them before you publish them to anyone.",
+              "We label this content on the platform as AI-generated, and we don't treat it as an authoritative source.",
+              "Nova is there to help you understand, not to replace a teacher or a source."
+            ]
+          },
+          {
+            "title": "Acceptable use",
+            "paragraphs": [],
+            "bullets": [
+              "No harmful or misleading content, and nothing that breaks the law or violates other people's rights.",
+              "No attempts to access accounts or data that aren't yours, or to disrupt the service.",
+              "If you connect your own Claude or ChatGPT, you're responsible for what it does from your account."
+            ]
+          },
+          {
+            "title": "Availability",
+            "paragraphs": [
+              "The platform is in beta: features may change or stop, and outages can happen. We provide the service as is, without warranties, and we try to give notice before any major change."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Closing your account",
+            "paragraphs": [
+              "You can close your account at any time by emailing us. If an account breaks these terms, we may suspend it after notifying its owner."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Changes and contact",
+            "paragraphs": [
+              "If we change the terms, we'll announce it on the platform before the changes take effect. For any question, the support page explains how to reach us."
+            ],
+            "bullets": []
+          }
+        ]
+      }
+    },
+    "faq": {
+      "general": [
+        {
+          "q": "Is it free?",
+          "a": "It's free for now, while we're just starting out. If we add paid plans, we'll tell you well in advance, and whatever you've made stays yours."
+        },
+        {
+          "q": "How long does a lesson take to build?",
+          "a": "5 to 20 minutes, depending on its size. You can watch the steps as they happen, or close the page and come back to find it ready."
+        },
+        {
+          "q": "Who writes the lesson?",
+          "a": "AI writes the explanations and questions and draws the board in code, and we check that the format is sound and the board works. The teacher is the one who reviews and publishes."
+        },
+        {
+          "q": "Can the AI make mistakes?",
+          "a": "Yes. That's why every lesson starts as a draft: you can leave a note on any step and ask for a fix, and nothing reaches students until you publish it yourself."
+        },
+        {
+          "q": "What does Nova see?",
+          "a": "The lesson, the step you're on, and your answers in this session only. Nova explains and answers, but grading comes from the lesson itself, not from Nova."
+        },
+        {
+          "q": "Does it work on mobile?",
+          "a": "Yes. The lesson and the board fit small screens, and you can talk to Nova by voice with a single button."
+        },
+        {
+          "q": "Is the site available in other languages?",
+          "a": "Yes. Pick a language at the top or in Settings, and Nova will talk to you in it. The lessons themselves stay in the language they were written in."
+        },
+        {
+          "q": "How do I delete my account?",
+          "a": "Email us from the address you signed up with, and we'll delete the account and all its data within 30 days."
+        }
+      ],
+      "teachers": [
+        {
+          "q": "Do my students need an account?",
+          "a": "Yes, a free account with their email. They open the course link and tap “Start course,” and their progress is saved."
+        },
+        {
+          "q": "Can I upload a handout or a book?",
+          "a": "PDF, Word, images or text, up to 5 files. You need the right to use them, and the files are deleted once the lesson is built."
+        },
+        {
+          "q": "Can I connect my own Claude or ChatGPT?",
+          "a": "Yes. You add the site as a connector and ask it for the lesson from your account. It only sees your drafts, and it can't publish or see your students."
+        }
+      ]
+    }
+  },
+  "landing": {
+    "metaTitle": "New Learn: any idea becomes a lesson, drawn right in front of you",
+    "metaDescription": "Type a topic and pick a look. A board drawn in code, a question after each idea, and Nova explaining by voice. For studying, for your students, and for your kids.",
+    "hero": {
+      "eyebrow": "A lesson from any idea, in minutes",
+      "title": "Any idea becomes a lesson, drawn right in front of you.",
+      "lead": "Type a topic and pick a look. The board draws itself in code, and Nova explains by voice and asks you a question after each idea.",
+      "start": "Make your first lesson",
+      "openDemo": "Open the full lesson",
+      "looksLabel": "Looks"
+    },
+    "looks": {
+      "title": "A look for every topic",
+      "lead": "Every lesson is drawn in code, in a style that suits its topic. Tap any one to try it."
+    },
+    "how": {
+      "title": "How it works",
+      "lead": "From idea to lesson in three steps, and you see everything along the way.",
+      "steps": [
+        {
+          "title": "Type your idea",
+          "text": "A topic, a handout or a page from a book. Say who it's for and pick a look."
+        },
+        {
+          "title": "Watch it being built",
+          "text": "The lesson builds step by step, and each board appears as soon as it's drawn."
+        },
+        {
+          "title": "Learn with Nova",
+          "text": "A board you can play with, a question after each idea, and a voice that explains."
+        }
+      ]
+    },
+    "nova": {
+      "eyebrow": "Nova",
+      "title": "Help inside the lesson, not outside it.",
+      "lead": "At every step, there's someone to ask. After every idea, there's a question to check you've got it.",
+      "points": [
+        {
+          "title": "Knows where you are",
+          "text": "Nova sees the step you're on, so the answer fits your question without replaying the lesson."
+        },
+        {
+          "title": "By voice or by text",
+          "text": "Press and talk, or type. You can hear the reply too, if you like."
+        },
+        {
+          "title": "Graded by the lesson, not by Nova",
+          "text": "A question after each idea: multiple choice, written, or on the board itself. The right answer is set in the lesson."
+        }
+      ],
+      "shotAlt": "A reading lesson in New Learn: the board and the Nova bar"
+    },
+    "teacher": {
+      "eyebrow": "For teachers",
+      "title": "From handout to link, the same day.",
+      "points": [
+        {
+          "title": "Start from your handout",
+          "text": "Upload a PDF or photos from the textbook, or type the idea. The lesson is built from it."
+        },
+        {
+          "title": "Review before it goes out",
+          "text": "Leave a note on any step, and the fix lands right on that step. Nothing gets published unless you publish it."
+        },
+        {
+          "title": "One link for your students",
+          "text": "They open it and start. You see who started and who finished each lesson."
+        }
+      ],
+      "cta": "Teachers page",
+      "shotAlt": "Teacher dashboard: publishing and the course link"
+    },
+    "connect": {
+      "eyebrow": "Have Claude or ChatGPT?",
+      "title": "Let it write the lesson here.",
+      "lead": "Connect it to the site as a connector and ask it for a lesson in your own words. It writes; we check the format and save it as a draft in your account. It only sees your drafts and can't publish.",
+      "cta": "How to connect it"
+    },
+    "who": {
+      "title": "Who is it for?",
+      "items": [
+        {
+          "title": "For you",
+          "text": "Studying for an exam? Upload your handout and turn it into a lesson you can interact with.",
+          "cta": "Make your first lesson"
+        },
+        {
+          "title": "For your students",
+          "text": "Build a lesson in minutes, review it, and send it by link.",
+          "cta": "For teachers"
+        },
+        {
+          "title": "For your kids",
+          "text": "Playful looks, simple words, and questions that fit their age.",
+          "cta": "Try the fractions lesson"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "more": "Everything else is on the {link}.",
+      "moreLink": "support page"
+    },
+    "final": {
+      "title": "Try it with one idea.",
+      "lead": "Free, with nothing to install.",
+      "cta": "Create your account"
+    }
+  },
+  "runtime": {
+    "lessonScenes": "Lesson scenes",
+    "audioFailed": "Couldn't play the audio. Try again.",
+    "sceneFailed": "Couldn't play the scene.",
+    "sceneRenderFailed": "Couldn't show the scene. Try replaying it.",
+    "scenePlaybackStopped": "Couldn't play the scene; we'll pause here until the audio works.",
+    "reloadPreview": "Reload preview",
+    "tryAgain": "Try again",
+    "startOver": "Start over",
+    "pause": "Pause",
+    "resumeExplaining": "Keep explaining",
+    "startExplaining": "Start explaining",
+    "playbackPosition": "Playback position",
+    "replayScene": "Replay scene",
+    "loadingAudio": "Loading audio…",
+    "yourTurn": "Your turn",
+    "chooseAnswer": "Choose your answer",
+    "hearFeedback": "Hear the feedback and continue",
+    "boardQuestion": "Let's try it",
+    "boardFeedback": "Let's review the idea and continue",
+    "sceneTrack": "Scene {scene} of {scenes}. Show scenes",
+    "goalsChip": "Lesson goals: {met} of {goals}",
+    "lessonGoals": "Lesson goals",
+    "goalsNote": "A goal counts as learned when you answer the question that tests it.",
+    "conversation": "Conversation",
+    "yourAnswer": "Your answer: {answer}",
+    "dontKnow": "I didn't know",
+    "correct": "✓ Correct",
+    "notCorrect": "✗ Not quite yet",
+    "question": "Question",
+    "modelAnswer": "Model answer",
+    "tryYourself": "Try it yourself",
+    "hint": "Hint",
+    "hintRequest": "I need a hint for this question",
+    "showSolution": "I don't know, show me the answer",
+    "skip": "Skip",
+    "choices": "Choices",
+    "choiceLetters": "ABCDEFGH",
+    "boardAsk": "Change the board until it shows your answer, then press “Send.”",
+    "listSeparator": ", ",
+    "lessonNavigation": "Lesson navigation",
+    "previousStep": "Previous step",
+    "next": "Next",
+    "finishLesson": "Finish lesson",
+    "autoTurnResume": "Resume auto-advance",
+    "autoTurnPause": "Pause auto-advance",
+    "hideText": "Hide text",
+    "showText": "Show text",
+    "answerDock": "Answer",
+    "sendMyAnswer": "Send my answer",
+    "answerField": "Your answer",
+    "answerPlaceholder": "Write your answer here…",
+    "send": "Send",
+    "pickAbove": "Pick an answer above",
+    "lessonConversation": "Lesson conversation",
+    "minimizeConversation": "Minimize conversation",
+    "close": "Close",
+    "quickQuestions": "Quick questions",
+    "suggestSimpler": "Explain it more simply",
+    "suggestExample": "Give me another example",
+    "suggestWhy": "Why is that?",
+    "typing": "Typing",
+    "sceneNumber": "Scene {number}",
+    "byVoice": "By voice",
+    "lessonDone": "You finished the lesson",
+    "answeredOne": "You answered {answered} of {questions} question",
+    "answeredMany": "You answered {answered} of {questions} questions",
+    "goalsMet": "Goals: {met} of {goals}",
+    "nextLesson": "Next lesson: {title}",
+    "reviewLesson": "Review the lesson from the start"
+  },
+  "server": {
+    "http": {
+      "notJson": "The request must be JSON.",
+      "tooLarge": "The request is too large.",
+      "badBody": "The request data isn't valid.",
+      "badOrigin": "Request origin not allowed.",
+      "notAllowed": "Request not allowed.",
+      "notFound": "Page not found.",
+      "failed": "Couldn't complete the request. Try again.",
+      "badStatus": "Invalid status."
+    },
+    "auth": {
+      "unavailable": "The account service isn't available right now.",
+      "unavailableRetry": "The account service isn't available right now. Try again.",
+      "unexpected": "The account service sent an unexpected response.",
+      "nameLength": "Your name must be 2 to 80 characters.",
+      "passwordsNeeded": "Enter your current password and your new one.",
+      "passwordLength": "The new password must be 8 to 128 characters.",
+      "signIn": "Log in to continue.",
+      "checkFailed": "Couldn't verify your login session.",
+      "expired": "Your session has expired. Log in again."
+    },
+    "oauth": {
+      "badRequest": "Invalid connection request."
+    },
+    "content": {
+      "unavailable": "Couldn't load the curricula right now. Try again in a bit.",
+      "lessonNotReady": "This lesson isn't available yet.",
+      "lessonChanged": "This lesson's version has changed. Open the lesson from the curriculum again."
+    },
+    "progress": {
+      "invalid": "The progress data isn't valid.",
+      "unavailable": "Progress saving isn't available for this lesson.",
+      "savedElsewhere": "Progress was saved from somewhere else.",
+      "courseChanged": "This course's version has changed. Open the lesson from the course page again."
+    },
+    "publish": {
+      "lessonsReady": {
+        "other": "{count} lessons ready",
+        "one": "{count} lesson ready"
+      },
+      "noLessons": "The course has no lessons",
+      "hasTitle": "The course has a title",
+      "boardsFound": "All boards are there",
+      "boardProblems": {
+        "other": "{count} boards have drawing notes from the preview",
+        "one": "{count} board has drawing notes from the preview"
+      },
+      "boardsDrawn": "Boards drew correctly in the preview",
+      "openNotes": {
+        "other": "{count} notes still open",
+        "one": "{count} note still open"
+      },
+      "noOpenNotes": "No open notes",
+      "courseGone": "This course doesn't exist or has been unpublished.",
+      "notPublished": "This course isn't published.",
+      "lessonGone": "This lesson doesn't exist, or its course has been unpublished.",
+      "lessonMissing": "This lesson doesn't exist.",
+      "courseMissing": "This course doesn't exist.",
+      "partsEveryLesson": "The parts must include every lesson exactly once.",
+      "otherLessons": "Other lessons"
+    },
+    "builds": {
+      "busy": "A course is still being built. Wait until it's done.",
+      "dailyLimit": "You've reached today's limit. Try again tomorrow.",
+      "jobMissing": "This job doesn't exist.",
+      "fileType": "This file type isn't supported: PDF, Word, images or text only.",
+      "fileUnreadable": "The file can't be read.",
+      "fileSize": "Each file must be under 4 MB.",
+      "topicShort": "Tell us what the course is about.",
+      "topicLong": "The description is too long. Keep it under 4000 characters.",
+      "badChoice": "Unknown choice.",
+      "fileCount": "5 files at most.",
+      "filesTotal": "All files together must be under 10 MB."
+    },
+    "nova": {
+      "badPosition": "Invalid lesson position.",
+      "badPhase": "Invalid lesson phase.",
+      "badTiming": "Invalid lesson timing.",
+      "noLesson": "No lesson specified.",
+      "draftChanged": "The draft has changed. Open the preview again.",
+      "courseChanged": "This course's version has changed. Open the lesson again.",
+      "trialChanged": "The trial version has changed. Open the lesson again.",
+      "lessonUnavailable": "Lesson help isn't available.",
+      "wait": "Wait a moment before sending another request.",
+      "unavailable": "Nova isn't available right now.",
+      "timeout": "The reply took too long. Try again.",
+      "busy": "Lots of requests right now. Wait a moment and try again.",
+      "unreachable": "Couldn't reach Nova. Try again.",
+      "noAnswer": "No clear answer. Try rephrasing your question.",
+      "quizIncomplete": "The quiz didn't finish. Try again.",
+      "quizInvalid": "The quiz questions need to be prepared again. Try again.",
+      "quizUnreadable": "The quiz needs to be prepared again.",
+      "badChat": "Invalid conversation.",
+      "badMessage": "Invalid message.",
+      "unknownAction": "Unknown request.",
+      "askFirst": "Type a question first.",
+      "callFailed": "Couldn't set up the call.",
+      "badAudio": "Invalid audio.",
+      "shortAudio": "The audio is too short.",
+      "badWakeWord": "Invalid wake word."
+    }
+  },
+  "build": {
+    "steps": {
+      "prepare": "Preparing your files",
+      "readGuide": "Reading the writing guide",
+      "readStyle": "Reading the style guide",
+      "listCourses": "Checking your courses",
+      "createCourse": "Creating the course",
+      "arrangeCourse": "Arranging the course parts",
+      "writeLesson": "Writing a lesson",
+      "writeLessonNamed": "Writing a lesson: {title}",
+      "editLesson": "Fixing the lesson",
+      "readLesson": "Reviewing the lesson",
+      "makeBoard": "Making an interactive board",
+      "readBoard": "Reviewing the board",
+      "readFeedback": "Reading the notes",
+      "resolveFeedback": "Closing a note",
+      "webSearch": "Searching the web",
+      "readFiles": "Reading your files",
+      "working": "Working on the course",
+      "fixLesson": "Fixing issues in the lesson",
+      "retry": "Trying again",
+      "resume": "Picking up after an interruption",
+      "failed": "The build stopped before it finished.",
+      "usageLimit": "The build account has hit its usage limit for now. Try again in a bit.",
+      "noLesson": "No lesson was created."
+    }
+  },
+  "auth": {
+    "form": {
+      "eyebrow": "Welcome to LEARN",
+      "heading": {
+        "signup": "Your journey starts here.",
+        "login": "Pick up where you left off?",
+        "forgot": "Let's get your account back.",
+        "reset": "A new password."
+      },
+      "submit": {
+        "signup": "Create account",
+        "login": "Log in",
+        "forgot": "Send reset link",
+        "reset": "Save password"
+      },
+      "lead": {
+        "signup": "Create an account and start your journey.",
+        "login": "Your lessons are waiting.",
+        "recover": "Keep your inbox handy."
+      },
+      "name": "Your name",
+      "namePlaceholder": "What should we call you?",
+      "email": "Email",
+      "password": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "forgotLink": "Forgot your password?",
+      "busy": "Just a moment…",
+      "haveAccount": "Already have an account?",
+      "toLogin": "Log in",
+      "newHere": "New to Learn?",
+      "toSignup": "Sign up",
+      "backToLogin": "Back to log in",
+      "assurance": "Your login details are tied to your account."
+    },
+    "messages": {
+      "resetSent": "If that email is registered, you'll get a link to reset your password.",
+      "resetInvalid": "This reset link isn't valid. Request a new one.",
+      "passwordChanged": "Your password has been changed. Log in.",
+      "wrongCredentials": "The email or password is incorrect.",
+      "emailTaken": "This email is already registered. Try logging in."
+    },
+    "story": {
+      "eyebrow": "Learn your way",
+      "title": "Understanding starts{br}with a question.",
+      "lead": "Ask, try, and take your time.{br}Every step you understand opens a new path.",
+      "board": "One small idea opens up so much",
+      "note": "Why isn't 2 : 3 the same as 3 : 2?",
+      "bottom": "A space to learn. Made to fit you."
+    }
+  },
+  "catalog": {
+    "retry": "Try again",
+    "backToCurriculum": "Back to curriculum",
+    "action": {
+      "start": "Start",
+      "continue": "Continue",
+      "review": "Review",
+      "soon": "Coming soon"
+    },
+    "page": {
+      "allCurricula": "All curricula",
+      "greeting": {
+        "morning": "Good morning, {name}",
+        "evening": "Good evening, {name}"
+      },
+      "loading": "Getting your curricula ready…",
+      "notFound": "This curriculum doesn't exist or isn't available right now."
+    },
+    "continue": {
+      "goals": "Goals: {done} of {total}",
+      "resume": "Pick up where you left off",
+      "next": "Next lesson",
+      "start": "Start here",
+      "lessonsDone": {
+        "other": "{completed} of {count} lessons",
+        "one": "{completed} of {count} lesson"
+      }
+    },
+    "cards": {
+      "title": "My curricula",
+      "count": {
+        "other": "{count} curricula",
+        "one": "{count} curriculum"
+      },
+      "done": "Finished {completed} of {total}",
+      "available": "{count} available",
+      "open": "Open curriculum",
+      "emptyTitle": "No curricula available yet",
+      "emptyText": "Check back soon, or make your own course."
+    },
+    "plan": {
+      "label": "Your curriculum progress",
+      "summary": {
+        "other": "goals learned · {completed} of {count} lessons finished",
+        "one": "goals learned · {completed} of {count} lesson finished"
+      },
+      "goLabel": "{action}: {title}",
+      "restPart": "Lessons"
+    },
+    "lesson": {
+      "loading": "Getting the lesson ready…",
+      "unavailable": "This version of the lesson isn't available on the new platform yet."
+    },
+    "shell": {
+      "navLabel": "Platform navigation",
+      "closeMenu": "Close menu",
+      "openMenu": "Open menu",
+      "navTitle": "Your learning space",
+      "nav": {
+        "library": "My curricula",
+        "studio": "Make a course",
+        "teach": "Teacher dashboard",
+        "settings": "Settings"
+      },
+      "account": "Your Learn account",
+      "signOut": "Log out",
+      "signOutFailed": "Couldn't log out."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "account": {
+      "title": "Account",
+      "note": "Saved to your account, so it shows up on any device you log in from.",
+      "name": "Your name",
+      "nameHint": "This is what Nova calls you.",
+      "email": "Email",
+      "saving": "Saving…",
+      "saveName": "Save name",
+      "nameSaved": "Your name has been updated.",
+      "passwordTitle": "Change password",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "newPasswordHint": "At least 8 characters.",
+      "changing": "Changing…",
+      "changePassword": "Change password",
+      "passwordSaved": "Your password has been changed, and we've logged you out on all other devices.",
+      "saveFailed": "We couldn't save that."
+    },
+    "language": {
+      "hint": "The site and Nova use this language; lessons stay in the language they were written in."
+    },
+    "lessons": {
+      "title": "Lessons",
+      "note": "Saved on this device only, and applies from your next lesson.",
+      "questions": "Questions",
+      "ask": "Ask me",
+      "show": "Show me the answer",
+      "pace": "The lesson moves on",
+      "paceManual": "When I tap Next",
+      "paceSlower": "On its own, slowly",
+      "paceNormal": "On its own",
+      "paceFaster": "On its own, quickly",
+      "narration": "Voice narration",
+      "narrationHint": "Nova reads each step aloud.",
+      "handsFree": "Hands-free",
+      "handsFreeHint": "Nova reads, and you answer with your voice without touching the screen."
+    },
+    "nova": {
+      "title": "Nova",
+      "note": "Saved on this device only, and applies the next time Nova speaks.",
+      "voice": "Voice",
+      "voiceLabel": "Nova's voice",
+      "paceLabel": "Nova's speaking speed",
+      "persona": "How would you like Nova to be?",
+      "personaPlaceholder": "For example: calm, patient and a little playful"
+    }
+  },
+  "app": {
+    "preview": {
+      "student": "Student",
+      "notReady": "This course isn't ready yet. {link}",
+      "backToGallery": "Back to the gallery"
+    },
+    "demos": {
+      "eyebrow": "New Learn gallery",
+      "title": "One course, a different style every time",
+      "lead": "Short courses, all made on the same platform: an interactive board you can play with, a question on the board, and Nova explaining by voice.",
+      "soon": "Coming soon"
+    },
+    "classroom": {
+      "saving": "Saving…",
+      "saved": "Saved",
+      "offline": "Offline",
+      "readAloudFailed": "I couldn't read the lesson aloud just now, so I turned reading off. Try turning it back on in a bit.",
+      "loadFailed": "Couldn't load the lesson. Check your internet and try again.",
+      "backToCurriculum": "Back to curriculum",
+      "backToPlatform": "Back to the platform",
+      "loading": "Getting the lesson ready…",
+      "preview": "Preview",
+      "previewTitle": "Progress is kept for this session only",
+      "previewLabel": "Preview, progress kept for this session only"
+    }
+  },
+  "ui": {
+    "head": {
+      "title": "Design system",
+      "lead": "All the shared colors, sizes and components. Any change here updates every screen built with them."
+    },
+    "buttons": {
+      "title": "Buttons",
+      "build": "Start building",
+      "openLesson": "Open lesson",
+      "skip": "Skip",
+      "deleteDraft": "Delete draft",
+      "unavailable": "Unavailable",
+      "tryFree": "Try it free",
+      "seeDemos": "See demos",
+      "small": "Small",
+      "normal": "Normal",
+      "large": "Large",
+      "settings": "Settings"
+    },
+    "choices": {
+      "title": "Choices",
+      "story": "Story first",
+      "steps": "Step by step",
+      "examples": "Worked examples",
+      "paceLabel": "Explanation speed",
+      "slow": "Slow",
+      "normal": "Normal",
+      "fast": "Fast",
+      "whoLabel": "Who's the course for",
+      "meTitle": "For me",
+      "meText": "I'm studying or want to learn something new",
+      "studentsTitle": "For my students",
+      "studentsText": "A course I teach to a class or group"
+    },
+    "fields": {
+      "title": "Fields",
+      "name": "Your name",
+      "nameHint": "Shown to Nova and on your certificates.",
+      "email": "Email",
+      "emailError": "That email doesn't look right.",
+      "note": "Note for the lesson",
+      "notePlaceholder": "Write whatever you'd like…",
+      "levelLead": "For students",
+      "levelLabel": "Level",
+      "beginner": "Beginners",
+      "some": "Some background",
+      "narration": "Voice narration",
+      "narrationHint": "Nova reads each step aloud."
+    },
+    "feedback": {
+      "title": "States and messages",
+      "draft": "Draft",
+      "fits": "Fits your topic",
+      "right": "Right",
+      "wrong": "Wrong",
+      "review": "Needs review",
+      "error": "The email or password is incorrect.",
+      "savedTitle": "Saved",
+      "savedText": "Your settings are saved on this device.",
+      "info": "Building now. You can close the page.",
+      "loading": "Getting the lesson ready…",
+      "emptyTitle": "No courses yet",
+      "emptyAction": "Make your first course",
+      "emptyText": "Type an idea and we'll build your first interactive lesson in minutes."
+    },
+    "surfaces": {
+      "title": "Surfaces",
+      "plain": "Plain card",
+      "plainText": "For the main content on a page.",
+      "soft": "Soft card",
+      "softText": "For a group of settings or a summary.",
+      "outline": "Outlined card",
+      "outlineText": "For an item in a list.",
+      "openDialog": "Open dialog",
+      "dialogTitle": "Delete the draft?",
+      "dialogText": "You won't be able to get it back.",
+      "delete": "Delete",
+      "back": "Back"
+    },
+    "tokens": {
+      "coloursTitle": "Colors",
+      "colours": {
+        "primary": "Primary",
+        "accent": "Lime",
+        "tutor": "Nova",
+        "ink": "Text",
+        "muted": "Muted text",
+        "line": "Lines",
+        "bg": "Background",
+        "paper": "Lesson paper",
+        "surfaceSoft": "Soft surface",
+        "success": "Right",
+        "danger": "Wrong",
+        "warning": "Warning"
+      },
+      "typeTitle": "Type and sizes",
+      "type": {
+        "page": "Page title",
+        "section": "Section title",
+        "large": "Large text",
+        "body": "Regular text on every screen",
+        "small": "Small text and details"
+      },
+      "shapeTitle": "Corners and shadows"
+    }
+  },
+  "nova": {
+    "defaultName": "friend",
+    "modal": {
+      "purposeQuiz": "Lesson practice",
+      "purposeHelp": "Help with your lesson",
+      "statusLoading": "Getting a reply ready",
+      "statusReady": "Ready for your question",
+      "statusVoice": "Voice conversation",
+      "close": "Close Nova",
+      "paused": "The lesson is paused here",
+      "loadingContext": "Getting the lesson context ready…",
+      "modes": "Conversation mode",
+      "chat": "Chat",
+      "voice": "Voice",
+      "previewOnly": "Preview works without an account. Log in and open the lesson from the curriculum to use the assistant.",
+      "sessionOnly": "The conversation and practice last for this session only.",
+      "backToLesson": "Back to the lesson"
+    },
+    "assistant": {
+      "endEyebrow": "Lock in what you learned",
+      "endTitle": "Ready for a quick quiz on the lesson?",
+      "endLead": "Ten questions, and with every answer we'll look at the why. Pick whichever way suits you.",
+      "voiceQuiz": "Voice quiz",
+      "voiceQuizHint": "Talk with Nova",
+      "chatQuiz": "Chat quiz",
+      "chatQuizHint": "Question and answer, step by step",
+      "capsule": "Help from Nova",
+      "ask": "Ask Nova",
+      "talkVoice": "Talk to Nova by voice",
+      "openChat": "Open Nova chat"
+    },
+    "chat": {
+      "log": "Conversation",
+      "welcome": "Hi {name} 👋",
+      "welcomeTitle": "Let's stop at any idea and figure it out together.",
+      "welcomeLead": "Ask about the explanation, a term, or an example that needs clearing up.",
+      "thinking": "Nova is getting a reply ready…",
+      "latest": "↓ Latest messages",
+      "label": "Your message to Nova",
+      "placeholder": "Ask about the part we're on…",
+      "stop": "Stop reply",
+      "send": "Send message",
+      "footnote": "Enter to send · Shift + Enter for a new line · Nova can make mistakes, so double-check the explanation.",
+      "sendFailed": "Couldn't send the message."
+    },
+    "quiz": {
+      "eyebrow": "Lesson practice",
+      "title": "Ten questions, step by step.",
+      "lead": "The questions are in English with a translation, and after each answer we'll go over the why together.",
+      "disclaimer": "AI-generated practice, not an official exam. Your score lasts for this session only.",
+      "preparing": "Preparing the questions…",
+      "prepare": "Prepare the quiz",
+      "cancel": "Cancel",
+      "doneEyebrow": "Practice finished",
+      "score": "{score} / {total}",
+      "doneLead": "Go back over the ideas that need more work, and ask Nova about any answer.",
+      "preparingNew": "Preparing a new practice round…",
+      "again": "New practice round",
+      "progress": "Question {number} of {total}",
+      "correct": "Correct answer",
+      "review": "Let's understand the answer",
+      "result": "See your score",
+      "next": "Next question",
+      "prepareFailed": "Couldn't prepare the quiz."
+    },
+    "voice": {
+      "status": {
+        "idle": "Ready when you are",
+        "connecting": "Connecting the call…",
+        "listening": "Nova is listening",
+        "speaking": "Nova is speaking",
+        "paused": "Call paused"
+      },
+      "start": "Start call",
+      "unmute": "Unmute mic",
+      "mute": "Mute mic",
+      "resume": "Resume call",
+      "pause": "Pause",
+      "hangup": "End call",
+      "footnote": "The mic only turns on with your permission. You can interrupt Nova mid-sentence.",
+      "micBlocked": "Allow the microphone in your browser, or use chat.",
+      "startFailed": "Couldn't start the call.",
+      "resumeFailed": "Couldn't resume the call audio. Call again.",
+      "noMic": "Your browser doesn't support the microphone here. Use chat instead.",
+      "closed": "The call was closed.",
+      "slow": "The connection took too long. Try again.",
+      "sessionFailed": "Couldn't start a Nova session.",
+      "ended": "The call has ended. You can call again.",
+      "readFailed": "Couldn't read Nova's reply.",
+      "connectFailed": "Couldn't connect. Check your internet and try again.",
+      "dropped": "The call dropped. Try calling again.",
+      "paces": {
+        "slowest": "Extra slow",
+        "slow": "Slow",
+        "normal": "Normal"
+      }
+    },
+    "voiceStyle": {
+      "title": "Nova's voice",
+      "voice": "Voice",
+      "pace": "Speaking speed",
+      "persona": "How would you like Nova to be?",
+      "personaPlaceholder": "For example: calm, patient and a little playful",
+      "applies": "Applies the next time Nova speaks."
+    },
+    "lessonSettings": {
+      "label": "Lesson settings and Nova's voice",
+      "narration": "Nova reads the lesson",
+      "narrationHint": "Reads each step, moves on by itself, and stops at questions.",
+      "volume": "Volume",
+      "autoTurn": "Auto-advance",
+      "paces": {
+        "manual": "Manual",
+        "slower": "Slower",
+        "normal": "Normal",
+        "faster": "Faster"
+      },
+      "paceHint": "How long before the next step appears. “Manual” means you use the Next button.",
+      "questions": "Questions",
+      "questionModes": {
+        "ask": "Ask me",
+        "show": "Show answers"
+      },
+      "questionsHint": "“Show answers” keeps the lesson going without waiting for you to answer. Anything shown without your answer doesn't count toward your goals."
+    },
+    "handsFree": {
+      "title": "Listening mode (no screen)",
+      "hint": "Nova reads the lesson, and you answer the questions with your voice without touching your phone. You can lock the screen.",
+      "wakeWord": "Wake word",
+      "wakeWordHint": "Say it, then your question, to interrupt Nova's reading, or press the headphone button once.",
+      "noisy": "Noisy place",
+      "noisyHint": "Nova only waits for your reply after the wake word or the headphone button.",
+      "noisyNotice": "Sounds like it's noisy where you are. So I'll wait until you press the headphone button once or call my name, then take your time to answer.",
+      "micOpenTalk": "Mic is on: go ahead and talk",
+      "micOpenReply": "Mic is on for your reply",
+      "ignoredNoise": "Ignored a sound that wasn't speech: “{heard}”"
+    },
+    "talk": {
+      "hold": {
+        "idle": "Press and talk",
+        "connecting": "Connecting…",
+        "listening": "Listening…",
+        "thinking": "Thinking…",
+        "speaking": "Stop",
+        "reading": "Press and talk"
+      },
+      "placeholder": {
+        "idle": "Ask Nova about this step…",
+        "connecting": "Connecting you to Nova…",
+        "listening": "Nova is listening… let go of the button when you're done",
+        "thinking": "Nova is thinking…",
+        "speaking": "Nova is replying… press and talk to interrupt",
+        "reading": "Nova is reading… press and talk to ask a question"
+      },
+      "tip": "Press and hold the button while you talk",
+      "ask": "Ask Nova",
+      "send": "Send to Nova",
+      "holdLabel": "Press and hold to talk with Nova",
+      "holdTitle": "Press and hold to talk, or hold down Space",
+      "orb": "Nova chat: tap to open, or press and hold to talk",
+      "askFailed": "Couldn't send your question. Try again.",
+      "voiceQuestion": "Voice question",
+      "micBlocked": "Allow the microphone in your browser, or type your question.",
+      "failed": "Couldn't talk to Nova.",
+      "lessonLoading": "The lesson is still loading.",
+      "noReply": "Nova didn't reply this time. Try again."
+    }
+  },
+  "classroom": {
+    "probe": {
+      "title": "We explain an idea, try it, and move on.",
+      "lead": "An engine test with sample tones, not an approved lesson."
+    },
+    "backToCurriculum": "{back} Back to curriculum",
+    "footer": "Review copy · original audio · progress and notes for this session only",
+    "header": {
+      "brandBack": "Learn, back to curriculum",
+      "brandStart": "Learn, start of lesson",
+      "openGuide": "Open lesson guide",
+      "help": "Lesson help"
+    },
+    "tools": {
+      "label": "Learning tools",
+      "guide": "Explain the idea",
+      "terms": "Key terms",
+      "notes": "My notes",
+      "source": "Source",
+      "scenes": "Scenes"
+    },
+    "guide": {
+      "titles": {
+        "guide": "Let's take it one piece at a time",
+        "terms": "Terms and what they mean",
+        "notes": "A space for your thoughts",
+        "source": "Lesson sources"
+      },
+      "label": "Lesson help",
+      "title": "Lesson guide",
+      "subtitle": "Ready-made explanations and self-review",
+      "close": "Close help",
+      "eyebrowGuide": "Let's think it through",
+      "eyebrowTools": "Learning tools",
+      "promptTitle": "Keep your eye on the idea",
+      "promptText": "Watch the idea on the board, try the question yourself, then compare your answer with the teacher's feedback.",
+      "reviewTerms": "Review the key terms",
+      "notesLabel": "Write a summary or a question to come back to.",
+      "notesPlaceholder": "What idea clicked for you?",
+      "notesHint": "Notes last for this session only; copy them before you close the page.",
+      "openSource": "Open the source",
+      "sourceNote": "A review copy with the original recordings. Showing it here doesn't mean the content or timings have been re-approved.",
+      "footer": "A ready-made lesson guide, not an AI chat"
+    }
+  },
+  "book": {
+    "loading": "Getting the lesson ready…",
+    "reference": {
+      "from": "From the book · p. {pages}",
+      "sizes": "Book reference size",
+      "small": "Small",
+      "smallLabel": "Small reference",
+      "half": "Half screen",
+      "halfLabel": "Half-screen reference",
+      "full": "Full",
+      "fullLabel": "Full-screen reference",
+      "hide": "Hide",
+      "hideLabel": "Hide book reference",
+      "zoomIn": "Zoom in on the part of the book being explained",
+      "zoomOut": "Zoom out from the part of the book being explained",
+      "image": "The part of page {pages} being explained",
+      "open": "Open book reference",
+      "toggle": "Book · p. {pages}",
+      "fullDialog": "Full-screen book reference",
+      "panel": "Book reference"
+    }
+  },
+  "boards": {
+    "html": {
+      "unavailable": "This board isn't working right now. Carry on with the written explanation."
+    }
+  },
+  "studio": {
+    "form": {
+      "eyebrow": "Course studio",
+      "title": "Make an interactive lesson from an idea",
+      "lead": "Tell us what you want to learn or teach, who it's for, and pick a look. We'll build you a lesson with boards to play with and questions, and you can review it before anyone else sees it.",
+      "active": "A course is being built right now: {topic} {follow}",
+      "follow": "Follow it",
+      "ideaNumber": "1",
+      "ideaTitle": "The idea",
+      "detailsNumber": "2",
+      "detailsTitle": "Who's it for?",
+      "lookNumber": "3",
+      "lookTitle": "The look",
+      "examples": "Examples",
+      "examplesLead": "Or start from an example:",
+      "untitled": "New lesson",
+      "summary": "{audience} · {look} · takes 5 to 20 minutes, and you can close the page",
+      "sending": "Sending your request…",
+      "start": "Start building",
+      "dropHere": "Drop files here",
+      "errors": {
+        "tooMany": "5 files at most.",
+        "tooBig": "Each file must be under 4 MB.",
+        "tooBigTogether": "All files together must be under 10 MB.",
+        "noTopic": "Tell us what the course is about.",
+        "startFailed": "Couldn't start the build."
+      }
+    },
+    "composer": {
+      "label": "What's the course about?",
+      "placeholder": "What do you want to learn or teach? Type the topic and anything important: “Compound interest, with everyday banking examples”",
+      "files": "Your files",
+      "size": "{size} MB",
+      "remove": "Remove {name}",
+      "attach": "Upload files",
+      "webSearch": "Search the web",
+      "hint": "PDF, Word, images or text, up to 5 files"
+    },
+    "details": {
+      "more": "More details",
+      "upToThree": "(up to 3)"
+    },
+    "leads": {
+      "myLevel": "My level",
+      "goal": "I want to",
+      "time": "My time",
+      "language": "In",
+      "students": "Students",
+      "questions": "Questions",
+      "age": "Age",
+      "boards": "Boards"
+    },
+    "choices": {
+      "audience": {
+        "title": "Who's the course for",
+        "me": "For me",
+        "students": "For my students",
+        "kids": "For a child"
+      },
+      "goal": {
+        "title": "Goal",
+        "understand": "Understand the idea",
+        "practice": "Practice problems",
+        "review": "Review quickly"
+      },
+      "age": {
+        "title": "Age",
+        "from4to6": "4 to 6 years old",
+        "from7to9": "7 to 9 years old",
+        "from10to12": "10 to 12 years old"
+      },
+      "level": {
+        "title": "Students' level",
+        "beginner": "Beginners",
+        "some": "Some background",
+        "revision": "Revision"
+      },
+      "language": {
+        "title": "Explanation language",
+        "egyptian": "Egyptian Arabic",
+        "msa": "Standard Arabic",
+        "english": "English",
+        "mixed": "Arabic with English terms"
+      },
+      "style": {
+        "title": "Teaching style",
+        "story": "Story first",
+        "steps": "Step by step",
+        "problem": "Problem first",
+        "examples": "Worked examples",
+        "analogies": "Everyday analogies"
+      },
+      "boards": {
+        "title": "Boards",
+        "text": "Text only",
+        "some": "Interactive where it helps",
+        "most": "Mostly interactive"
+      },
+      "questions": {
+        "title": "Questions",
+        "each": "After every scene",
+        "key": "At key points",
+        "none": "No questions"
+      },
+      "size": {
+        "title": "Size",
+        "oneLesson": "1 lesson",
+        "threeLessons": "3 lessons",
+        "fiveLessons": "5 lessons"
+      }
+    },
+    "audiences": {
+      "me": {
+        "name": "For me",
+        "line": "I'm studying or want to learn something new",
+        "level": {
+          "beginner": "Brand new to it",
+          "some": "I know a bit",
+          "revision": "Studying for an exam"
+        },
+        "size": {
+          "oneLesson": "15 minutes",
+          "threeLessons": "About an hour",
+          "fiveLessons": "Over an hour"
+        }
+      },
+      "students": {
+        "name": "For my students",
+        "line": "A course I teach to a class or group"
+      },
+      "kids": {
+        "name": "For a child",
+        "line": "For my son, my daughter or young pupils",
+        "size": {
+          "oneLesson": "1 short lesson",
+          "threeLessons": "3 short lessons",
+          "fiveLessons": "5 short lessons"
+        }
+      }
+    },
+    "gallery": {
+      "label": "Lesson look",
+      "fits": "Fits your topic",
+      "try": "Preview",
+      "tryLook": "the {name} look",
+      "prevIcon": "‹",
+      "prev": "Previous looks",
+      "nextIcon": "›",
+      "next": "More looks"
+    },
+    "preview": {
+      "description": "{line} Try the board yourself.",
+      "choose": "Choose this look",
+      "openDemo": "Open the demo lesson"
+    },
+    "progress": {
+      "loading": "Getting the course status…",
+      "newCourse": "New course",
+      "status": {
+        "queued": "Waiting its turn",
+        "running": "Building now",
+        "done": "Done",
+        "failed": "Stopped"
+      },
+      "duration": "This takes 5 to 20 minutes. You can close the page and come back; the work keeps going.",
+      "waiting": "Waiting for the builder to pick up your request…",
+      "retrying": "{error} Trying again…",
+      "openFirst": "Open the first lesson",
+      "myDrafts": "My drafts",
+      "failed": "We couldn't finish this course. {error} {retry}",
+      "retry": "Try again"
+    },
+    "boards": {
+      "title": "Boards",
+      "drawingNext": "Drawing the next board…",
+      "drawingFirst": "Drawing the first board…"
+    }
+  },
+  "teach": {
+    "loadingCourse": "Getting the course ready…",
+    "loadingCourses": "Getting your courses ready…",
+    "lessonCount": {
+      "other": "{count} lessons",
+      "one": "{count} lesson"
+    },
+    "studentCount": {
+      "other": "{count} students",
+      "one": "{count} student"
+    },
+    "openNoteCount": {
+      "other": "{count} open notes",
+      "one": "{count} open note"
+    },
+    "status": {
+      "draft": "Draft",
+      "withdrawn": "Unpublished",
+      "stale": "Published, with changes since",
+      "live": "Published · version {version}"
+    },
+    "dashboard": {
+      "eyebrow": "Teacher dashboard",
+      "title": "Your courses",
+      "stats": {
+        "courses": "Courses",
+        "published": "Published",
+        "students": "Students",
+        "openNotes": "Open notes"
+      },
+      "open": "Open",
+      "preview": "Preview",
+      "emptyTitle": "You don't have any courses yet",
+      "emptyAction": "Make your first course",
+      "emptyBody": "Type an idea or upload a handout, and we'll build you a draft to review and publish to your students."
+    },
+    "course": {
+      "back": "Your courses",
+      "subjectFallback": "Course",
+      "previewFirst": "Preview the first lesson",
+      "tabsLabel": "Course sections",
+      "tabs": {
+        "publish": "Publish",
+        "outline": "Outline",
+        "notes": "Notes",
+        "notesCount": "Notes ({count})"
+      }
+    },
+    "outline": {
+      "saved": "Saved. Your students will see the changes the next time you publish.",
+      "title": "Course name",
+      "subject": "Subject",
+      "description": "Short description",
+      "descriptionHint": "Shown to your students on the course page.",
+      "partName": "Part {n} name",
+      "removePart": "Remove part",
+      "up": "Up",
+      "down": "Down",
+      "moveTo": "Move to part",
+      "movePlaceholder": "Move to…",
+      "partFallback": "Part {n}",
+      "addPart": "+ New part",
+      "saving": "Saving…",
+      "save": "Save outline",
+      "moreLessons": "Other lessons",
+      "lessons": "Lessons"
+    },
+    "publish": {
+      "before": "Before you publish",
+      "published": "Your course is published. Send the link to your students.",
+      "updated": "The new version is now live for your students.",
+      "wait": "One moment…",
+      "publishChanges": "Publish changes",
+      "publishNew": "Publish a new version",
+      "republish": "Publish again",
+      "publish": "Publish to your students",
+      "withdrawDone": "The course has been unpublished for your students.",
+      "withdraw": "Unpublish course",
+      "withdrawnNote": "This course is unpublished: your students can't see it right now, and their progress is kept until you publish it again.",
+      "linkTitle": "Course link",
+      "linkNote": "Anyone who opens it and logs in can start the course.",
+      "copied": "Copied",
+      "copy": "Copy",
+      "version": "Version {version} · published {date}",
+      "students": "Your students",
+      "lesson": "Lesson",
+      "started": "Started",
+      "finished": "Finished",
+      "noStudents": "No one has started yet. Send the link to your students."
+    },
+    "notes": {
+      "status": {
+        "open": "Open",
+        "review": "Fixed, please review",
+        "done": "Done",
+        "dismissed": "Dismissed"
+      },
+      "phase": {
+        "narration": "Explanation",
+        "attempt": "Question",
+        "feedback": "Answer"
+      },
+      "lessonFallback": "Lesson",
+      "filterLabel": "Note status",
+      "filter": "{status} ({count})",
+      "where": "{phase} · step {step}",
+      "fix": "Fix: {fix}",
+      "markDone": "Mark done",
+      "reopen": "Reopen",
+      "dismiss": "Dismiss",
+      "emptyFiltered": "No notes with this status",
+      "empty": "No notes",
+      "emptyBody": "Open the preview and leave a note on any step, and the AI connected to your account will fix it."
+    }
+  },
+  "authoring": {
+    "consent": {
+      "checking": "Checking the request…",
+      "title": "“{name}” wants access to your courses",
+      "body": "Hi {name}. If you allow it, it can create courses, lessons and interactive boards as drafts in your account, and read and fix your notes on lessons. It can't publish anything to students or see your account or your students' data.",
+      "host": "It will send you back to: {host}",
+      "allow": "Allow",
+      "deny": "Don't allow"
+    },
+    "feedback": {
+      "kinds": {
+        "text": "Explanation",
+        "board": "Board",
+        "question": "Question",
+        "translation": "Translation"
+      },
+      "status": {
+        "open": "Open",
+        "review": "Fixed, please review",
+        "done": "Done",
+        "dismissed": "Dismissed"
+      },
+      "toggle": "Draft notes",
+      "toggleCount": "Draft notes ({count})",
+      "panel": "Notes on this step",
+      "where": "{scene} · step {step}",
+      "end": "End of lesson",
+      "revision": "Version {revision}",
+      "fix": "Fix: {fix}",
+      "done": "Done",
+      "notYet": "Not yet",
+      "kindLabel": "Note type",
+      "placeholder": "What needs fixing in this step?",
+      "noteLabel": "Note",
+      "send": "Send note",
+      "hint": "Ask Claude: “Check my notes on the lesson and fix them.” It will mark each note “Fixed, please review.”"
+    },
+    "drafts": {
+      "start": "Have an explanation or files you want to turn into an interactive lesson? {link}",
+      "startLink": "Make a course",
+      "title": "My drafts",
+      "dashboard": "Teacher dashboard",
+      "newCourse": "+ Make a new course",
+      "revision": "Version {revision}"
+    }
+  },
+  "courses": {
+    "loading": "Getting the course ready…",
+    "back": "Your library",
+    "subjectFallback": "Course",
+    "by": "By {teacher}",
+    "lessonCount": {
+      "other": "{count} lessons",
+      "one": "{count} lesson"
+    },
+    "progress": "Finished {done} of {total}",
+    "wait": "One moment…",
+    "continue": "Continue course",
+    "start": "Start course",
+    "next": "Next: {title}",
+    "lessonsFallback": "Lessons",
+    "completed": "Finished",
+    "started": "Started",
+    "mine": {
+      "title": "Courses you're enrolled in",
+      "fallback": "Course",
+      "continue": "Continue: {title}",
+      "start": "Start: {title}"
+    }
+  }
+}

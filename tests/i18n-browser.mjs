@@ -77,7 +77,13 @@ const PAGES = [
   { path: '/?studio', signedIn: true, name: 'studio' },
   { path: '/?teach', signedIn: true, name: 'teach' },
   { path: '/?preview=ui', signedIn: false, name: 'ui' },
-  { path: '/?preview=demo&id=interest', signedIn: false, name: 'lesson', content: true },
+  {
+    path: '/?preview=demo&id=interest',
+    signedIn: false,
+    name: 'lesson',
+    content: true,
+    ready: '.rl-dock',
+  },
 ];
 
 let browser;
@@ -104,8 +110,15 @@ try {
         await page.route('**/api/**', api(item.signedIn));
         const join = item.path.includes('?') ? '&' : '?';
         await page.goto(`${app}${item.path}${join}lang=${code}`);
-        await page.locator('h1').first().waitFor({ timeout: 20000 });
         const where = `${code} ${item.name} ${width}`;
+        await page
+          .locator(item.ready ?? 'h1')
+          .first()
+          .waitFor({ state: 'attached', timeout: 20000 })
+          .catch(() => {
+            throw new Error(`${where}: no heading`);
+          });
+        await page.waitForLoadState('networkidle').catch(() => {});
         assert.equal(await page.evaluate(() => document.documentElement.lang), code, where);
         assert.equal(
           await page.evaluate(() => document.documentElement.dir),

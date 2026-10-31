@@ -1,0 +1,1582 @@
+{
+  "common": {
+    "language": "Sprache",
+    "brandHome": "Learn-Startseite",
+    "brandTagline": "Dein Lernraum",
+    "forward": "→",
+    "back": "←",
+    "backLink": "←",
+    "close": "Schließen",
+    "loadingSpace": "Dein Lernraum wird vorbereitet…",
+    "loadingLesson": "Die Lektion wird vorbereitet…",
+    "network": {
+      "offline": "Keine Verbindung. Prüf dein Internet und versuch es noch mal.",
+      "unexpected": "Unerwartete Antwort der Plattform. Versuch es noch mal.",
+      "failed": "Das hat nicht geklappt."
+    }
+  },
+  "looks": {
+    "auto": {
+      "name": "Überlass es mir",
+      "line": "Wir wählen den Stil, der zu deinem Thema passt."
+    },
+    "chalk": {
+      "name": "Kreide auf Tafel",
+      "line": "Der Stift zeichnet vor deinen Augen: für Formeln und Diagramme."
+    },
+    "watercolour": {
+      "name": "Aquarell von Hand",
+      "line": "Warm und ruhig: für Natur, Zuhause und Alltag."
+    },
+    "crt": {
+      "name": "Alter Monitor",
+      "line": "Leuchtendes Grün: für Technik, KI und Zahlen."
+    },
+    "space3d": {
+      "name": "3D-Modell",
+      "line": "Dinge, die sich drehen und von allen Seiten zeigen: für Weltall und Körper."
+    },
+    "seachart": {
+      "name": "Alte Seekarte",
+      "line": "Altes Papier und Tinte: für Geografie, Reisen und Handel."
+    },
+    "shadow": {
+      "name": "Schattenspiel",
+      "line": "Szenen aus Papier und Schatten: für Geschichte und Erzählungen."
+    },
+    "blueprint": {
+      "name": "Bauplan",
+      "line": "Weiße Linien auf Blau: für Physik, Schaltkreise und Maschinen."
+    },
+    "crayon": {
+      "name": "Wachsmalstifte",
+      "line": "Fröhlich und einfach: für Kinder und erste Begriffe."
+    },
+    "calligraphy": {
+      "name": "Arabische Kalligrafie",
+      "line": "Naschi und Tinte auf Papier: für Arabisch, Lyrik und Grammatik."
+    },
+    "pixel": {
+      "name": "Pixelspiel",
+      "line": "Schritte und Rätsel: für Programmieren und logisches Denken."
+    },
+    "examples": {
+      "chalk": "Zinseszins für Wirtschaftsstudierende im ersten Semester",
+      "watercolour": "Wie Pflanzen Wasser trinken und ihre Nahrung herstellen",
+      "space3d": "Die Planeten und ihr Abstand zur Sonne, 4. Klasse",
+      "pixel": "Erste Schritte im Programmieren für Kinder",
+      "calligraphy": "Das Hamza: wann auf dem Alif, wann auf der Zeile",
+      "seachart": "Die Seidenstraße: Handel zwischen China und Europa"
+    }
+  },
+  "site": {
+    "nav": {
+      "label": "Navigation",
+      "looks": "Stile",
+      "teachers": "Für Lehrkräfte",
+      "demos": "Demos",
+      "support": "Hilfe",
+      "login": "Anmelden",
+      "start": "Kostenlos starten"
+    },
+    "foot": {
+      "tagline": "Jede Idee wird zur Lektion, die vor dir entsteht.",
+      "product": "Produkt",
+      "account": "Konto",
+      "help": "Hilfe",
+      "looks": "Stile",
+      "demos": "Demos",
+      "teachers": "Für Lehrkräfte",
+      "connect": "Deine KI verbinden",
+      "signup": "Konto erstellen",
+      "login": "Anmelden",
+      "support": "Hilfe & FAQ",
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen"
+    },
+    "teachers": {
+      "metaTitle": "Für Lehrkräfte · New Learn",
+      "metaDescription": "Erstell in Minuten eine interaktive Lektion für deine Schüler: im Studio oder mit deinem eigenen Claude oder ChatGPT. Prüfen, per Link veröffentlichen, Fortschritt sehen.",
+      "eyebrow": "Für Lehrkräfte",
+      "title": "Eine interaktive Lektion für deine Schüler, in Minuten.",
+      "lead": "Aus deinem Skript oder einer Idee im Kopf: ein Board, das vor deinen Schülern entsteht, eine Frage nach jeder Idee, und Nova erklärt per Stimme. Du prüfst und veröffentlichst, deine Schüler öffnen einen Link.",
+      "start": "Kostenlos starten",
+      "demos": "Fertige Lektionen ansehen",
+      "studioTitle": "Weg 1: im Studio",
+      "studioLead": "Vier Schritte, ohne eine Zeile Code.",
+      "studio": [
+        {
+          "title": "Schreib die Idee oder lade dein Skript hoch",
+          "text": "Ein Thema, ein PDF oder Fotos aus dem Buch. Sag, für wen die Lektion ist, und wähl einen der fertigen Stile."
+        },
+        {
+          "title": "Schau zu, wie sie entsteht",
+          "text": "Die Lektion wird in wenigen Minuten Schritt für Schritt gebaut, und du siehst jedes Board, sobald es gezeichnet ist."
+        },
+        {
+          "title": "Prüfen und Notizen schreiben",
+          "text": "Öffne die Lektion so, wie deine Schüler sie sehen, und schreib zu jedem Schritt eine Notiz. Die Korrektur kommt genau dort an."
+        },
+        {
+          "title": "Per Link teilen und dranbleiben",
+          "text": "Ein Link für deine Schüler. Du siehst, wer jede Lektion begonnen und abgeschlossen hat, und veröffentlichst eine neue Version, wenn du etwas änderst."
+        }
+      ],
+      "connectTitle": "Weg 2: mit deinem Claude oder ChatGPT",
+      "connectLead": "Wenn du gern mit deiner eigenen KI arbeitest, verbinde sie mit der Seite, und sie schreibt die Lektion direkt hier. Wir prüfen das Format und speichern sie als Entwurf in deinem Konto.",
+      "connect": [
+        {
+          "title": "Öffne in Claude die Einstellungen, dann Connectors, dann Add custom connector.",
+          "text": "Name: New Learn, Link:"
+        },
+        {
+          "title": "Melde dich bei New Learn an und erlaube den Zugriff.",
+          "text": "Berechtigung: nur Entwürfe erstellen und deine Notizen lesen. Veröffentlichen oder Schüler sehen kann es nicht."
+        },
+        {
+          "title": "Wünsch dir die Lektion in deinen Worten.",
+          "text": "Zum Beispiel: „Mach mir eine Lektion über Zinseszins für Wirtschaftsstudierende im ersten Semester, 3 Szenen, in einfachem Deutsch.“ Claude stellt dir zuerst ein paar Fragen und stimmt den Plan mit dir ab."
+        },
+        {
+          "title": "Öffne den Vorschau-Link, den du bekommst.",
+          "text": "Schreib deine Notizen zu den Schritten und sag: „Setz die Notizen um.“ Wenn es dir gefällt, veröffentlichst du es im Bereich „Unterrichten“."
+        }
+      ],
+      "chatgpt": "In ChatGPT geht es genauso über Einstellungen, dann Connectors, wenn dein Abo eigene Connectors unterstützt.",
+      "faqTitle": "Fragen von Lehrkräften"
+    },
+    "support": {
+      "metaTitle": "Hilfe & FAQ · New Learn",
+      "metaDescription": "So erreichst du uns, und Antworten auf häufige Fragen zu New Learn.",
+      "title": "Brauchst du Hilfe?",
+      "lead": "Schreib uns an {email}, wir antworten innerhalb eines Werktags. Nenn die E-Mail-Adresse deines Kontos, den Link der Seite und bei einem Problem gern einen Screenshot.",
+      "mailSubject": "Hilfe zu New Learn",
+      "email": "E-Mail schreiben",
+      "teachers": "Seite für Lehrkräfte",
+      "faqTitle": "Häufige Fragen",
+      "moreTitle": "Außerdem",
+      "privacy": "{link}: was wir speichern und wer es sieht.",
+      "terms": "{link}: dein Konto, deine Inhalte und KI-generierte Inhalte.",
+      "takedown": "Verletzt ein Inhalt deine Rechte? Schick uns den Link und beschreib dein Recht, und wir sperren den Inhalt, bis wir es geprüft haben."
+    },
+    "legal": {
+      "updatedLabel": "Zuletzt geändert: {date}",
+      "question": "Fragen zu einem Punkt? Schreib uns an {email} oder über die {support}.",
+      "supportLink": "Hilfeseite",
+      "privacy": {
+        "title": "Datenschutz",
+        "metaTitle": "Datenschutz · New Learn",
+        "description": "Was New Learn speichert, wer es sieht und was die KI davon bekommt.",
+        "updated": "29. Oktober 2026",
+        "intro": "Wir schreiben das so einfach, wie wir es selbst gern lesen. Wenn etwas unklar ist, schreib uns.",
+        "sections": [
+          {
+            "title": "Was wir speichern",
+            "paragraphs": [],
+            "bullets": [
+              "Dein Konto: Name, E-Mail-Adresse und verschlüsseltes Passwort, über den Dienst Neon Auth.",
+              "Dein Lernen: die Lektionen, die du geöffnet hast, wo du aufgehört hast, und deine Antworten auf die Fragen.",
+              "Wenn du Lehrkraft bist: deine Kurse, Lektionen, Notizen und Boards sowie die Kurse, die du veröffentlicht hast, und wer sich eingeschrieben hat.",
+              "Dateien, die du für eine Lektion hochlädst (Skript, Bilder, Text): Sie werden vorübergehend gespeichert, bis die Lektion gebaut ist, und danach gelöscht.",
+              "Deine Einstellungen, etwa Tempo der Lektion, Art der Fragen und Sprache der Seite."
+            ]
+          },
+          {
+            "title": "Wer es sieht",
+            "paragraphs": [],
+            "bullets": [
+              "Du, in deinem Konto.",
+              "Die Lehrkraft, die den Kurs erstellt hat, sieht, wie viele jede Lektion begonnen und abgeschlossen haben, aber nicht deine Antworten im Detail.",
+              "Schüler sehen den Namen der Lehrkraft am Kurs.",
+              "Unser Team, nur wenn nötig, um ein Problem zu lösen oder eine Supportanfrage zu beantworten.",
+              "Wir verkaufen deine Daten nicht und geben sie niemandem für Werbung."
+            ]
+          },
+          {
+            "title": "Künstliche Intelligenz",
+            "paragraphs": [],
+            "bullets": [
+              "Nova, die Lernhilfe in der Lektion, läuft mit Modellen von Google Gemini. Wir schicken ihr den aktuellen Schritt der Lektion und deine Frage, und deine Stimme, wenn du die Sprachfunktion einschaltest. Das Gespräch geht an das Modell, damit es antworten kann; wir nutzen es nicht zum Trainieren von Modellen.",
+              "Lektionen werden mit Modellen von Anthropic (Claude) gebaut: Wir schicken die Idee, die du geschrieben hast, und die Dateien, die du hochgeladen hast, damit es die Lektion schreibt.",
+              "Wenn du dein eigenes Claude oder ChatGPT mit der Seite verbindest, sieht es nur deine Entwürfe und Notizen, mit der Berechtigung, der du zugestimmt hast, und kann weder veröffentlichen noch Schüler sehen. Du kannst die Verbindung aufheben, indem du uns schreibst.",
+              "Von KI geschriebene Lektionen kennzeichnen wir auf der Plattform als solche, und sie können Fehler enthalten; die Lehrkraft prüft sie vor dem Veröffentlichen."
+            ]
+          },
+          {
+            "title": "Cookies und Tracking",
+            "paragraphs": [
+              "Wir nutzen ein einziges Sitzungs-Cookie, damit du angemeldet bleibst, und die Sprache, die du gewählt hast, wird auf deinem Gerät gespeichert. Keine Werbung, keine Tracking-Tools und keine Analysen, die dich persönlich identifizieren."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Wo deine Daten liegen",
+            "paragraphs": [
+              "Die Seite läuft auf Cloudflare, die Datenbank auf Neon. Die Boards, die eine Lektion zeichnet, laufen auf einer isolierten Seite ohne jeden Zugriff auf dein Konto."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Kinder",
+            "paragraphs": [
+              "Ein Konto gibt es ab 13 Jahren. Jüngere nutzen die Plattform über das Konto eines Elternteils oder der Schule, und die erziehungsberechtigte Person ist für das Konto verantwortlich."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Konto löschen",
+            "paragraphs": [
+              "Schreib uns von der E-Mail-Adresse, mit der du dich registriert hast, und wir löschen das Konto und alle seine Daten innerhalb von 30 Tagen. Kurse, die du für Schüler veröffentlicht hast, werden mit entfernt."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Änderungen",
+            "paragraphs": [
+              "Wenn wir hier etwas Wichtiges ändern, sagen wir es auf der Plattform, bevor es gilt. Das Datum oben zeigt die letzte Änderung."
+            ],
+            "bullets": []
+          }
+        ]
+      },
+      "terms": {
+        "title": "Nutzungsbedingungen",
+        "metaTitle": "Nutzungsbedingungen · New Learn",
+        "description": "Nutzungsbedingungen von New Learn: dein Konto, deine Inhalte und KI-generierte Inhalte.",
+        "updated": "29. Oktober 2026",
+        "intro": "Wenn du New Learn nutzt, stimmst du diesen Bedingungen zu. Die Plattform ist noch in der Testphase.",
+        "sections": [
+          {
+            "title": "Der Dienst",
+            "paragraphs": [
+              "New Learn macht aus einer Idee oder einem Skript eine interaktive Lektion: ein Board, das per Code gezeichnet wird, Erklärungen, Fragen und eine Sprachhilfe namens Nova. Lehrkräfte können ihre Lektionen per Link für ihre Schüler veröffentlichen."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Dein Konto",
+            "paragraphs": [],
+            "bullets": [
+              "Du bist für dein Passwort verantwortlich und für alles, was über dein Konto passiert.",
+              "Deine Angaben bei der Registrierung müssen stimmen.",
+              "Ein Konto gibt es ab 13 Jahren; Jüngere nutzen das Konto eines Elternteils oder der Schule."
+            ]
+          },
+          {
+            "title": "Deine Inhalte",
+            "paragraphs": [],
+            "bullets": [
+              "Was du schreibst oder hochlädst, bleibt deins.",
+              "Du lädst nur hoch, was du nutzen darfst, und trägst dafür die Verantwortung. Wenn du ein Skript oder Buch hochlädst, das du nicht nutzen darfst, entfernen wir es.",
+              "Du erlaubst uns, die Lektion für dich und die Schüler, für die du sie veröffentlichst, anzuzeigen und abzuspielen und Kopien davon zu speichern, damit der Dienst funktioniert.",
+              "Wenn ein Inhalt deine Rechte verletzt, schick uns den Link und beschreib dein Recht, und wir sperren den Inhalt, bis wir ihn geprüft haben."
+            ]
+          },
+          {
+            "title": "KI-generierte Inhalte",
+            "paragraphs": [],
+            "bullets": [
+              "Von KI geschriebene Lektionen können Fehler oder Lücken enthalten. Prüf sie, bevor du sie für andere veröffentlichst.",
+              "Wir kennzeichnen diese Inhalte auf der Plattform als KI-generiert und betrachten sie nicht als verlässliche Quelle.",
+              "Nova hilft beim Verstehen, ersetzt aber weder die Lehrkraft noch die Quelle."
+            ]
+          },
+          {
+            "title": "Erlaubte Nutzung",
+            "paragraphs": [],
+            "bullets": [
+              "Verboten sind schädliche oder irreführende Inhalte und solche, die gegen Gesetze oder die Rechte anderer verstoßen.",
+              "Verboten ist der Versuch, auf fremde Konten oder Daten zuzugreifen oder den Dienst zu stören.",
+              "Wenn du dein Claude oder ChatGPT verbindest, bist du für das verantwortlich, was es über dein Konto tut."
+            ]
+          },
+          {
+            "title": "Verfügbarkeit",
+            "paragraphs": [
+              "Die Plattform ist in der Testphase: Funktionen können sich ändern oder wegfallen, und es kann zu Störungen kommen. Wir bieten den Dienst so an, wie er ist, ohne Gewährleistung, und versuchen, größere Änderungen vorher anzukündigen."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Konto beenden",
+            "paragraphs": [
+              "Du kannst dein Konto jederzeit schließen, indem du uns schreibst. Verstößt ein Konto gegen diese Bedingungen, können wir es sperren, nachdem wir die Person informiert haben, der es gehört."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Änderungen und Kontakt",
+            "paragraphs": [
+              "Wenn wir die Bedingungen ändern, sagen wir es auf der Plattform, bevor sie gelten. Bei Fragen findest du auf der Hilfeseite, wie du uns erreichst."
+            ],
+            "bullets": []
+          }
+        ]
+      }
+    },
+    "faq": {
+      "general": [
+        {
+          "q": "Ist es kostenlos?",
+          "a": "Im Moment ja, wir stehen noch am Anfang. Wenn es Tarife gibt, sagen wir es rechtzeitig vorher, und was du erstellt hast, bleibt deins."
+        },
+        {
+          "q": "Wie lange dauert eine Lektion?",
+          "a": "5 bis 20 Minuten, je nach Umfang. Du siehst die Schritte entstehen und kannst die Seite schließen; wenn du zurückkommst, ist sie fertig."
+        },
+        {
+          "q": "Wer schreibt die Lektion?",
+          "a": "Die KI schreibt Erklärungen und Fragen und zeichnet das Board per Code, und wir prüfen, ob das Format stimmt und das Board läuft. Die Lehrkraft prüft und veröffentlicht."
+        },
+        {
+          "q": "Kann die KI Fehler machen?",
+          "a": "Ja. Deshalb ist jede Lektion zuerst ein Entwurf: Du kannst zu jedem Schritt eine Notiz schreiben und eine Korrektur anfordern, und nichts erreicht Schüler, bevor du es selbst veröffentlichst."
+        },
+        {
+          "q": "Was sieht Nova?",
+          "a": "Die Lektion, den Schritt, bei dem du gerade bist, und deine Antworten, nur in dieser Sitzung. Nova erklärt und antwortet, aber bewertet wird von der Lektion selbst, nicht von ihr."
+        },
+        {
+          "q": "Funktioniert es auf dem Handy?",
+          "a": "Ja. Lektion und Board passen sich dem kleinen Bildschirm an, und du sprichst mit nur einem Button mit Nova."
+        },
+        {
+          "q": "Gibt es die Seite in anderen Sprachen?",
+          "a": "Ja. Wähl die Sprache oben oder in den Einstellungen, und Nova spricht sie mit dir. Die Lektionen selbst bleiben in der Sprache, in der sie geschrieben wurden."
+        },
+        {
+          "q": "Wie lösche ich mein Konto?",
+          "a": "Schreib uns von der E-Mail-Adresse deines Kontos, und wir löschen das Konto und alle seine Daten innerhalb von 30 Tagen."
+        }
+      ],
+      "teachers": [
+        {
+          "q": "Brauchen meine Schüler ein Konto?",
+          "a": "Ja, ein kostenloses mit E-Mail. Sie öffnen den Kurslink und tippen auf „Kurs starten“, und ihr Fortschritt wird gespeichert."
+        },
+        {
+          "q": "Kann ich ein Skript oder Buch hochladen?",
+          "a": "PDF, Word, Bilder oder Text, bis zu 5 Dateien. Du musst sie nutzen dürfen, und die Dateien werden gelöscht, sobald die Lektion gebaut ist."
+        },
+        {
+          "q": "Kann ich mein Claude oder ChatGPT verbinden?",
+          "a": "Ja. Du fügst die Seite als Connector hinzu und bittest es in deinem Konto um die Lektion. Es sieht nur deine Entwürfe und kann weder veröffentlichen noch Schüler sehen."
+        }
+      ]
+    }
+  },
+  "landing": {
+    "metaTitle": "New Learn: Jede Idee wird zur Lektion, die vor dir entsteht",
+    "metaDescription": "Schreib ein Thema und wähl den Stil. Ein Board, per Code gezeichnet, eine Frage nach jeder Idee, und Nova erklärt per Stimme. Zum Lernen, für deine Schüler und für deine Kinder.",
+    "hero": {
+      "eyebrow": "Eine Lektion aus jeder Idee, in Minuten",
+      "title": "Jede Idee wird zur Lektion, die vor dir entsteht.",
+      "lead": "Schreib ein Thema und wähl den Stil. Das Board wird per Code gezeichnet, und Nova erklärt per Stimme und fragt dich nach jeder Idee.",
+      "start": "Erste Lektion erstellen",
+      "openDemo": "Diese Lektion ganz öffnen",
+      "looksLabel": "Stile"
+    },
+    "looks": {
+      "title": "Ein Stil für jedes Thema",
+      "lead": "Jede Lektion wird per Code gezeichnet, im Stil, der zum Thema passt. Tipp auf einen und probier ihn aus."
+    },
+    "how": {
+      "title": "So funktioniert's",
+      "lead": "Von der Idee zur Lektion in drei Schritten, und du siehst alles.",
+      "steps": [
+        {
+          "title": "Schreib die Idee",
+          "text": "Ein Thema, ein Skript oder eine Buchseite. Sag, für wen, und wähl den Stil."
+        },
+        {
+          "title": "Schau beim Entstehen zu",
+          "text": "Die Lektion wird Schritt für Schritt gebaut, und jedes Board erscheint, sobald es gezeichnet ist."
+        },
+        {
+          "title": "Lern mit Nova",
+          "text": "Ein Board, das du selbst bewegst, eine Frage nach jeder Idee und eine Stimme, die erklärt."
+        }
+      ]
+    },
+    "nova": {
+      "eyebrow": "Nova",
+      "title": "Hilfe in der Lektion, nicht daneben.",
+      "lead": "Bei jedem Schritt kannst du jemanden fragen. Und nach jeder Idee prüft eine Frage, ob du sie verstanden hast.",
+      "points": [
+        {
+          "title": "Sie weiß, wo du bist",
+          "text": "Nova sieht den Schritt, bei dem du bist, und antwortet genau auf deine Frage, ohne die Lektion zu wiederholen."
+        },
+        {
+          "title": "Per Stimme oder Text",
+          "text": "Drück und sprich, oder tipp. Die Antwort kannst du dir auch anhören."
+        },
+        {
+          "title": "Bewertet wird von der Lektion, nicht von ihr",
+          "text": "Eine Frage nach jeder Idee: zur Auswahl, zum Schreiben oder direkt am Board. Die richtige Antwort steht in der Lektion fest."
+        }
+      ],
+      "shotAlt": "Eine Leselektion in New Learn: das Board und die Nova-Leiste"
+    },
+    "teacher": {
+      "eyebrow": "Für Lehrkräfte",
+      "title": "Vom Skript zum Link, am selben Tag.",
+      "points": [
+        {
+          "title": "Aus deinem Skript",
+          "text": "Lade ein PDF oder Fotos aus dem Buch hoch, oder schreib die Idee. Die Lektion entsteht daraus."
+        },
+        {
+          "title": "Prüfen, bevor es ankommt",
+          "text": "Schreib zu jedem Schritt eine Notiz, die Korrektur kommt genau dort an. Nichts wird ohne dich veröffentlicht."
+        },
+        {
+          "title": "Ein Link für deine Schüler",
+          "text": "Sie öffnen ihn und legen los. Du siehst, wer jede Lektion begonnen und abgeschlossen hat."
+        }
+      ],
+      "cta": "Seite für Lehrkräfte",
+      "shotAlt": "Bereich für Lehrkräfte: Veröffentlichen und Kurslink"
+    },
+    "connect": {
+      "eyebrow": "Du hast Claude oder ChatGPT?",
+      "title": "Lass es die Lektion hier schreiben.",
+      "lead": "Verbinde es als Connector mit der Seite und wünsch dir eine Lektion in deinen Worten. Es schreibt, wir prüfen das Format und speichern sie als Entwurf in deinem Konto. Es sieht nur deine Entwürfe und kann nichts veröffentlichen.",
+      "cta": "So verbindest du es"
+    },
+    "who": {
+      "title": "Für wen?",
+      "items": [
+        {
+          "title": "Für dich",
+          "text": "Du lernst für eine Prüfung? Lade dein Skript hoch und mach daraus eine Lektion zum Mitmachen.",
+          "cta": "Erste Lektion erstellen"
+        },
+        {
+          "title": "Für deine Schüler",
+          "text": "Erstell eine Lektion in Minuten, prüf sie und schick sie per Link.",
+          "cta": "Für Lehrkräfte"
+        },
+        {
+          "title": "Für deine Kinder",
+          "text": "Fröhliche Stile, einfache Worte und Fragen, die zu ihrem Alter passen.",
+          "cta": "Lektion zu Brüchen testen"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "more": "Alles Weitere auf der {link}.",
+      "moreLink": "Hilfeseite"
+    },
+    "final": {
+      "title": "Probier es mit einer Idee.",
+      "lead": "Kostenlos und ohne Installation.",
+      "cta": "Konto erstellen"
+    }
+  },
+  "runtime": {
+    "lessonScenes": "Szenen der Lektion",
+    "audioFailed": "Der Ton ließ sich nicht abspielen. Versuch es noch mal.",
+    "sceneFailed": "Die Szene ließ sich nicht abspielen.",
+    "sceneRenderFailed": "Die Szene ließ sich nicht anzeigen. Spiel sie noch mal ab.",
+    "scenePlaybackStopped": "Die Szene ließ sich nicht abspielen; wir halten hier an, bis der Ton läuft.",
+    "reloadPreview": "Vorschau neu laden",
+    "tryAgain": "Noch mal versuchen",
+    "startOver": "Von vorn",
+    "pause": "Pause",
+    "resumeExplaining": "Weiter erklären",
+    "startExplaining": "Erklärung starten",
+    "playbackPosition": "Wiedergabeposition",
+    "replayScene": "Szene wiederholen",
+    "loadingAudio": "Ton wird geladen…",
+    "yourTurn": "Du bist dran",
+    "chooseAnswer": "Wähl deine Antwort",
+    "hearFeedback": "Hör die Rückmeldung, dann geht's weiter",
+    "boardQuestion": "Probieren wir's aus",
+    "boardFeedback": "Kurz die Idee prüfen, dann weiter",
+    "sceneTrack": "Szene {scene} von {scenes}. Szenen anzeigen",
+    "goalsChip": "Lernziele: {met} von {goals}",
+    "lessonGoals": "Lernziele",
+    "goalsNote": "Ein Ziel wird abgehakt, wenn du die Frage beantwortest, die es prüft.",
+    "conversation": "Gespräch",
+    "yourAnswer": "Deine Antwort: {answer}",
+    "dontKnow": "Weiß ich nicht",
+    "correct": "✓ Richtig",
+    "notCorrect": "✗ Noch nicht richtig",
+    "question": "Frage",
+    "modelAnswer": "Musterlösung",
+    "tryYourself": "Probier's selbst",
+    "hint": "Tipp",
+    "hintRequest": "Ich brauche einen Tipp zu dieser Frage",
+    "showSolution": "Weiß ich nicht, zeig mir die Lösung",
+    "skip": "Überspringen",
+    "choices": "Auswahl",
+    "choiceLetters": "ABCDEFGH",
+    "boardAsk": "Verändere das Board, bis du deine Antwort hast, und tipp dann auf „Senden“.",
+    "listSeparator": ", ",
+    "lessonNavigation": "Navigation in der Lektion",
+    "previousStep": "Vorheriger Schritt",
+    "next": "Weiter",
+    "finishLesson": "Lektion beenden",
+    "autoTurnResume": "Automatisch weiter",
+    "autoTurnPause": "Umblättern stoppen",
+    "hideText": "Text ausblenden",
+    "showText": "Text einblenden",
+    "answerDock": "Antworten",
+    "sendMyAnswer": "Antwort senden",
+    "answerField": "Deine Antwort",
+    "answerPlaceholder": "Schreib deine Lösung hier…",
+    "send": "Senden",
+    "pickAbove": "Wähl oben eine Antwort",
+    "lessonConversation": "Gespräch zur Lektion",
+    "minimizeConversation": "Gespräch verkleinern",
+    "close": "Schließen",
+    "quickQuestions": "Schnelle Fragen",
+    "suggestSimpler": "Erklär es einfacher",
+    "suggestExample": "Gib mir noch ein Beispiel",
+    "suggestWhy": "Warum ist das so?",
+    "typing": "schreibt",
+    "sceneNumber": "Szene {number}",
+    "byVoice": "Per Stimme",
+    "lessonDone": "Lektion geschafft",
+    "answeredOne": "{answered} von {questions} Frage beantwortet",
+    "answeredMany": "{answered} von {questions} Fragen beantwortet",
+    "goalsMet": "Ziele: {met} von {goals}",
+    "nextLesson": "Nächste Lektion: {title}",
+    "reviewLesson": "Lektion noch mal von vorn"
+  },
+  "server": {
+    "http": {
+      "notJson": "Die Anfrage muss JSON sein.",
+      "tooLarge": "Die Anfrage ist zu groß.",
+      "badBody": "Ungültige Anfragedaten.",
+      "badOrigin": "Herkunft der Anfrage nicht erlaubt.",
+      "notAllowed": "Anfrage nicht erlaubt.",
+      "notFound": "Seite nicht gefunden.",
+      "failed": "Das hat nicht geklappt. Versuch es noch mal.",
+      "badStatus": "Ungültiger Status."
+    },
+    "auth": {
+      "unavailable": "Der Kontodienst ist gerade nicht erreichbar.",
+      "unavailableRetry": "Der Kontodienst ist gerade nicht erreichbar. Versuch es noch mal.",
+      "unexpected": "Unerwartete Antwort vom Kontodienst.",
+      "nameLength": "Der Name braucht 2 bis 80 Zeichen.",
+      "passwordsNeeded": "Gib dein aktuelles und dein neues Passwort ein.",
+      "passwordLength": "Das neue Passwort braucht 8 bis 128 Zeichen.",
+      "signIn": "Melde dich an, um weiterzumachen.",
+      "checkFailed": "Die Anmeldung ließ sich nicht prüfen.",
+      "expired": "Deine Sitzung ist abgelaufen. Melde dich neu an."
+    },
+    "oauth": {
+      "badRequest": "Ungültige Verbindungsanfrage."
+    },
+    "content": {
+      "unavailable": "Die Lernpfade lassen sich gerade nicht laden. Versuch es gleich noch mal.",
+      "lessonNotReady": "Die Lektion ist noch nicht verfügbar.",
+      "lessonChanged": "Die Lektion wurde geändert. Öffne sie noch mal über den Lernpfad."
+    },
+    "progress": {
+      "invalid": "Ungültige Fortschrittsdaten.",
+      "unavailable": "Für diese Lektion lässt sich kein Fortschritt speichern.",
+      "savedElsewhere": "Der Fortschritt wurde an anderer Stelle gespeichert.",
+      "courseChanged": "Der Kurs wurde geändert. Öffne die Lektion noch mal über die Kursseite."
+    },
+    "publish": {
+      "lessonsReady": {
+        "other": "{count} Lektionen fertig",
+        "one": "{count} Lektion fertig"
+      },
+      "noLessons": "Keine Lektionen im Kurs",
+      "hasTitle": "Der Kurs hat einen Titel",
+      "boardsFound": "Alle Boards vorhanden",
+      "boardProblems": {
+        "other": "{count} Boards mit Zeichenproblemen in der Vorschau",
+        "one": "{count} Board mit Zeichenproblemen in der Vorschau"
+      },
+      "boardsDrawn": "Boards in der Vorschau richtig gezeichnet",
+      "openNotes": {
+        "other": "{count} Notizen noch offen",
+        "one": "{count} Notiz noch offen"
+      },
+      "noOpenNotes": "Keine offenen Notizen",
+      "courseGone": "Diesen Kurs gibt es nicht, oder er wurde zurückgezogen.",
+      "notPublished": "Dieser Kurs ist nicht veröffentlicht.",
+      "lessonGone": "Diese Lektion gibt es nicht, oder der Kurs wurde zurückgezogen.",
+      "lessonMissing": "Diese Lektion gibt es nicht.",
+      "courseMissing": "Diesen Kurs gibt es nicht.",
+      "partsEveryLesson": "Die Teile müssen jede Lektion genau einmal enthalten.",
+      "otherLessons": "Weitere Lektionen"
+    },
+    "builds": {
+      "busy": "Ein Kurs wird gerade noch gebaut. Warte, bis er fertig ist.",
+      "dailyLimit": "Tageslimit erreicht. Versuch es morgen wieder.",
+      "jobMissing": "Diesen Auftrag gibt es nicht.",
+      "fileType": "Dateityp nicht unterstützt: nur PDF, Word, Bilder oder Text.",
+      "fileUnreadable": "Die Datei ist nicht lesbar.",
+      "fileSize": "Jede Datei muss kleiner als 4 MB sein.",
+      "topicShort": "Schreib, worum es im Kurs geht.",
+      "topicLong": "Die Beschreibung ist zu lang, bleib unter 4000 Zeichen.",
+      "badChoice": "Unbekannte Auswahl.",
+      "fileCount": "Höchstens 5 Dateien.",
+      "filesTotal": "Alle Dateien zusammen müssen kleiner als 10 MB sein."
+    },
+    "nova": {
+      "badPosition": "Ungültige Stelle in der Lektion.",
+      "badPhase": "Ungültige Phase der Lektion.",
+      "badTiming": "Ungültiges Timing der Lektion.",
+      "noLesson": "Keine Lektion angegeben.",
+      "draftChanged": "Der Entwurf wurde geändert. Öffne die Vorschau noch mal.",
+      "courseChanged": "Der Kurs wurde geändert. Öffne die Lektion noch mal.",
+      "trialChanged": "Die Testversion wurde geändert. Öffne die Lektion noch mal.",
+      "lessonUnavailable": "Die Lernhilfe ist nicht verfügbar.",
+      "wait": "Warte kurz vor der nächsten Anfrage.",
+      "unavailable": "Nova ist gerade nicht verfügbar.",
+      "timeout": "Die Antwort hat zu lange gedauert. Versuch es noch mal.",
+      "busy": "Gerade kommen viele Anfragen. Warte kurz und versuch es noch mal.",
+      "unreachable": "Nova ist nicht erreichbar. Versuch es noch mal.",
+      "noAnswer": "Keine klare Antwort. Formulier die Frage noch mal anders.",
+      "quizIncomplete": "Das Quiz ist unvollständig. Versuch es noch mal.",
+      "quizInvalid": "Die Quizfragen müssen neu erstellt werden. Versuch es noch mal.",
+      "quizUnreadable": "Das Quiz muss neu erstellt werden.",
+      "badChat": "Ungültiges Gespräch.",
+      "badMessage": "Ungültige Nachricht.",
+      "unknownAction": "Unbekannte Anfrage.",
+      "askFirst": "Schreib zuerst eine Frage.",
+      "callFailed": "Der Anruf ließ sich nicht vorbereiten.",
+      "badAudio": "Ungültiges Audio.",
+      "shortAudio": "Audio zu kurz.",
+      "badWakeWord": "Ungültiges Aktivierungswort."
+    }
+  },
+  "build": {
+    "steps": {
+      "prepare": "Ich bereite deine Dateien vor",
+      "readGuide": "Ich lese den Schreibleitfaden",
+      "readStyle": "Ich lese den Stilleitfaden",
+      "listCourses": "Ich sehe deine Kurse durch",
+      "createCourse": "Ich erstelle den Kurs",
+      "arrangeCourse": "Ich ordne die Teile des Kurses",
+      "writeLesson": "Ich schreibe eine Lektion",
+      "writeLessonNamed": "Ich schreibe die Lektion: {title}",
+      "editLesson": "Ich überarbeite die Lektion",
+      "readLesson": "Ich prüfe die Lektion",
+      "makeBoard": "Ich baue ein interaktives Board",
+      "readBoard": "Ich prüfe das Board",
+      "readFeedback": "Ich lese die Notizen",
+      "resolveFeedback": "Ich schließe eine Notiz",
+      "webSearch": "Ich suche im Netz",
+      "readFiles": "Ich lese deine Dateien",
+      "working": "Ich arbeite am Kurs",
+      "fixLesson": "Ich behebe Probleme in der Lektion",
+      "retry": "Ich versuche es noch mal",
+      "resume": "Ich mache nach einer Unterbrechung weiter",
+      "failed": "Der Bau hat vor dem Ende angehalten.",
+      "usageLimit": "Das Bau-Konto hat gerade sein Nutzungslimit erreicht. Versuch es gleich noch mal.",
+      "noLesson": "Es wurde keine Lektion erstellt."
+    }
+  },
+  "auth": {
+    "form": {
+      "eyebrow": "Willkommen bei LEARN",
+      "heading": {
+        "signup": "Hier beginnt deine Reise.",
+        "login": "Machen wir weiter?",
+        "forgot": "Holen wir dein Konto zurück.",
+        "reset": "Ein neues Passwort."
+      },
+      "submit": {
+        "signup": "Konto erstellen",
+        "login": "Anmelden",
+        "forgot": "Link senden",
+        "reset": "Passwort speichern"
+      },
+      "lead": {
+        "signup": "Erstell ein Konto und leg los.",
+        "login": "Deine Lektionen warten auf dich.",
+        "recover": "Halte dein E-Mail-Postfach bereit."
+      },
+      "name": "Dein Name",
+      "namePlaceholder": "Wie sollen wir dich nennen?",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "passwordPlaceholder": "Mindestens 8 Zeichen",
+      "forgotLink": "Passwort vergessen?",
+      "busy": "Einen Moment…",
+      "haveAccount": "Du hast schon ein Konto?",
+      "toLogin": "Anmelden",
+      "newHere": "Neu bei Learn?",
+      "toSignup": "Konto erstellen",
+      "backToLogin": "Zurück zur Anmeldung",
+      "assurance": "Deine Anmeldedaten gehören zu deinem Konto."
+    },
+    "messages": {
+      "resetSent": "Wenn die E-Mail-Adresse registriert ist, bekommst du einen Link, um dein Passwort zurückzusetzen.",
+      "resetInvalid": "Der Link ist ungültig. Fordere einen neuen an.",
+      "passwordChanged": "Passwort geändert. Melde dich an.",
+      "wrongCredentials": "E-Mail oder Passwort stimmt nicht.",
+      "emailTaken": "Diese E-Mail ist schon registriert. Melde dich lieber an."
+    },
+    "story": {
+      "eyebrow": "Lern auf deine Art",
+      "title": "Verstehen beginnt{br}mit einer Frage.",
+      "lead": "Frag, probier aus und nimm dir Zeit.{br}Jeder Schritt, den du verstehst, öffnet dir einen Weg.",
+      "board": "Eine kleine Idee, die vieles öffnet",
+      "note": "Warum ist 2 : 3 nicht dasselbe wie 3 : 2?",
+      "bottom": "Ein Ort zum Lernen. Ganz für dich."
+    }
+  },
+  "catalog": {
+    "retry": "Noch mal versuchen",
+    "backToCurriculum": "Zurück zum Lernpfad",
+    "action": {
+      "start": "Starten",
+      "continue": "Weiter",
+      "review": "Wiederholen",
+      "soon": "Bald"
+    },
+    "page": {
+      "allCurricula": "Alle Lernpfade",
+      "greeting": {
+        "morning": "Guten Morgen, {name}",
+        "evening": "Guten Abend, {name}"
+      },
+      "loading": "Deine Lernpfade werden vorbereitet…",
+      "notFound": "Diesen Lernpfad gibt es nicht, oder er ist gerade nicht verfügbar."
+    },
+    "continue": {
+      "goals": "Ziele: {done} von {total}",
+      "resume": "Weitermachen, wo du warst",
+      "next": "Nächste Lektion",
+      "start": "Hier starten",
+      "lessonsDone": {
+        "other": "{completed} von {count} Lektionen",
+        "one": "{completed} von {count} Lektion"
+      }
+    },
+    "cards": {
+      "title": "Meine Lernpfade",
+      "count": {
+        "other": "{count} Lernpfade",
+        "one": "{count} Lernpfad"
+      },
+      "done": "{completed} von {total} geschafft",
+      "available": "{count} verfügbar",
+      "open": "Lernpfad öffnen",
+      "emptyTitle": "Noch keine Lernpfade verfügbar",
+      "emptyText": "Schau bald wieder vorbei, oder erstell deinen eigenen Kurs."
+    },
+    "plan": {
+      "label": "Dein Fortschritt im Lernpfad",
+      "summary": {
+        "other": "Ziele erreicht · {completed} von {count} Lektionen geschafft",
+        "one": "Ziele erreicht · {completed} von {count} Lektion geschafft"
+      },
+      "goLabel": "{action}: {title}",
+      "restPart": "Lektionen"
+    },
+    "lesson": {
+      "loading": "Die Lektion wird vorbereitet…",
+      "unavailable": "Diese Version der Lektion ist auf der neuen Plattform noch nicht verfügbar."
+    },
+    "shell": {
+      "navLabel": "Navigation",
+      "closeMenu": "Menü schließen",
+      "openMenu": "Menü öffnen",
+      "navTitle": "Dein Lernraum",
+      "nav": {
+        "library": "Meine Lernpfade",
+        "studio": "Kurs erstellen",
+        "teach": "Unterrichten",
+        "settings": "Einstellungen"
+      },
+      "account": "Dein Learn-Konto",
+      "signOut": "Abmelden",
+      "signOutFailed": "Abmelden hat nicht geklappt."
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "account": {
+      "title": "Konto",
+      "note": "Wird in deinem Konto gespeichert und gilt auf jedem Gerät, mit dem du dich anmeldest.",
+      "name": "Dein Name",
+      "nameHint": "So spricht Nova dich an.",
+      "email": "E-Mail",
+      "saving": "Wird gespeichert…",
+      "saveName": "Name speichern",
+      "nameSaved": "Dein Name wurde geändert.",
+      "passwordTitle": "Passwort ändern",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "newPasswordHint": "Mindestens 8 Zeichen.",
+      "changing": "Wird geändert…",
+      "changePassword": "Passwort ändern",
+      "passwordSaved": "Passwort geändert, und wir haben dich auf allen anderen Geräten abgemeldet.",
+      "saveFailed": "Speichern hat nicht geklappt."
+    },
+    "language": {
+      "hint": "Die Seite und Nova nutzen diese Sprache; Lektionen bleiben in der Sprache, in der sie geschrieben wurden."
+    },
+    "lessons": {
+      "title": "Lektionen",
+      "note": "Wird nur auf diesem Gerät gespeichert und gilt ab der nächsten Lektion.",
+      "questions": "Fragen",
+      "ask": "Frag mich",
+      "show": "Zeig die Antwort",
+      "pace": "Die Lektion läuft",
+      "paceManual": "Wenn ich auf Weiter tippe",
+      "paceSlower": "Von selbst, gemächlich",
+      "paceNormal": "Von selbst",
+      "paceFaster": "Von selbst, zügig",
+      "narration": "Vorlesen",
+      "narrationHint": "Nova liest jeden Schritt laut vor.",
+      "handsFree": "Freihändig",
+      "handsFreeHint": "Nova liest vor, und du antwortest mit deiner Stimme, ohne den Bildschirm zu berühren."
+    },
+    "nova": {
+      "title": "Nova",
+      "note": "Wird nur auf diesem Gerät gespeichert und gilt, sobald Nova das nächste Mal spricht.",
+      "voice": "Stimme",
+      "voiceLabel": "Novas Stimme",
+      "paceLabel": "Novas Sprechtempo",
+      "persona": "Wie soll Nova sein?",
+      "personaPlaceholder": "Zum Beispiel: ruhig, geduldig und ein bisschen witzig"
+    }
+  },
+  "app": {
+    "preview": {
+      "student": "Schüler",
+      "notReady": "Dieser Kurs ist noch nicht fertig. {link}",
+      "backToGallery": "Zurück zur Galerie"
+    },
+    "demos": {
+      "eyebrow": "Galerie von New Learn",
+      "title": "Ein Kurs, jedes Mal ein anderer Stil",
+      "lead": "Kurze Kurse, alle auf derselben Plattform gebaut: ein interaktives Board, das du selbst bewegst, eine Frage am Board, und Nova erklärt dir alles per Stimme.",
+      "soon": "Bald"
+    },
+    "classroom": {
+      "saving": "Wird gespeichert…",
+      "saved": "Gespeichert",
+      "offline": "Offline",
+      "readAloudFailed": "Ich kann die Lektion gerade nicht vorlesen, deshalb habe ich das Vorlesen ausgeschaltet. Schalte es gleich noch mal ein.",
+      "loadFailed": "Die Lektion ließ sich nicht laden. Prüf dein Internet und versuch es noch mal.",
+      "backToCurriculum": "Zurück zum Lernpfad",
+      "backToPlatform": "Zurück zur Plattform",
+      "loading": "Die Lektion wird vorbereitet…",
+      "preview": "Vorschau",
+      "previewTitle": "Fortschritt nur in dieser Sitzung",
+      "previewLabel": "Vorschau, Fortschritt nur in dieser Sitzung"
+    }
+  },
+  "ui": {
+    "head": {
+      "title": "Designsystem",
+      "lead": "Alle Farben, Größen und gemeinsamen Komponenten. Jede Änderung hier gilt für alle Bildschirme, die damit gebaut sind."
+    },
+    "buttons": {
+      "title": "Buttons",
+      "build": "Jetzt erstellen",
+      "openLesson": "Lektion öffnen",
+      "skip": "Überspringen",
+      "deleteDraft": "Entwurf löschen",
+      "unavailable": "Nicht verfügbar",
+      "tryFree": "Kostenlos testen",
+      "seeDemos": "Demos ansehen",
+      "small": "Klein",
+      "normal": "Normal",
+      "large": "Groß",
+      "settings": "Einstellungen"
+    },
+    "choices": {
+      "title": "Auswahl",
+      "story": "Erst eine Geschichte",
+      "steps": "Schritt für Schritt",
+      "examples": "Gelöste Beispiele",
+      "paceLabel": "Erklärtempo",
+      "slow": "Ruhig",
+      "normal": "Normal",
+      "fast": "Schnell",
+      "whoLabel": "Für wen ist der Kurs?",
+      "meTitle": "Für mich",
+      "meText": "Ich lerne oder will etwas Neues lernen",
+      "studentsTitle": "Für meine Schüler",
+      "studentsText": "Ein Kurs für eine Klasse oder Gruppe"
+    },
+    "fields": {
+      "title": "Felder",
+      "name": "Dein Name",
+      "nameHint": "Für Nova und auf deinen Zertifikaten sichtbar.",
+      "email": "E-Mail",
+      "emailError": "Diese E-Mail-Adresse stimmt so nicht.",
+      "note": "Notiz zur Lektion",
+      "notePlaceholder": "Schreib, was du möchtest…",
+      "levelLead": "Für Schüler",
+      "levelLabel": "Niveau",
+      "beginner": "Anfänger",
+      "some": "Mit Vorwissen",
+      "narration": "Vorlesen",
+      "narrationHint": "Nova liest jeden Schritt laut vor."
+    },
+    "feedback": {
+      "title": "Status und Meldungen",
+      "draft": "Entwurf",
+      "fits": "Passt zu deinem Thema",
+      "right": "Richtig",
+      "wrong": "Falsch",
+      "review": "Bitte prüfen",
+      "error": "E-Mail oder Passwort stimmt nicht.",
+      "savedTitle": "Gespeichert",
+      "savedText": "Deine Einstellungen sind auf diesem Gerät gespeichert.",
+      "info": "Wird gerade gebaut, du kannst die Seite schließen.",
+      "loading": "Die Lektion wird vorbereitet…",
+      "emptyTitle": "Noch keine Kurse",
+      "emptyAction": "Ersten Kurs erstellen",
+      "emptyText": "Schreib eine Idee, und wir bauen dir in Minuten deine erste interaktive Lektion."
+    },
+    "surfaces": {
+      "title": "Flächen",
+      "plain": "Normale Karte",
+      "plainText": "Für den Hauptinhalt der Seite.",
+      "soft": "Sanfte Karte",
+      "softText": "Für eine Gruppe Einstellungen oder eine Zusammenfassung.",
+      "outline": "Karte mit Rahmen",
+      "outlineText": "Für einen Eintrag in einer Liste.",
+      "openDialog": "Dialog öffnen",
+      "dialogTitle": "Entwurf löschen?",
+      "dialogText": "Du kannst ihn danach nicht wiederherstellen.",
+      "delete": "Löschen",
+      "back": "Zurück"
+    },
+    "tokens": {
+      "coloursTitle": "Farben",
+      "colours": {
+        "primary": "Primär",
+        "accent": "Limette",
+        "tutor": "Nova",
+        "ink": "Text",
+        "muted": "Gedämpfter Text",
+        "line": "Linien",
+        "bg": "Hintergrund",
+        "paper": "Lektionspapier",
+        "surfaceSoft": "Sanfte Fläche",
+        "success": "Richtig",
+        "danger": "Falsch",
+        "warning": "Warnung"
+      },
+      "typeTitle": "Schrift und Größen",
+      "type": {
+        "page": "Seitentitel",
+        "section": "Abschnittstitel",
+        "large": "Großer Text",
+        "body": "Normaler Text auf allen Bildschirmen",
+        "small": "Kleiner Text und Details"
+      },
+      "shapeTitle": "Ecken und Schatten"
+    }
+  },
+  "nova": {
+    "defaultName": "du",
+    "modal": {
+      "purposeQuiz": "Übung zur Lektion",
+      "purposeHelp": "Hilfe in der Lektion",
+      "statusLoading": "Bereitet die Antwort vor",
+      "statusReady": "Bereit für deine Frage",
+      "statusVoice": "Sprachgespräch",
+      "close": "Nova schließen",
+      "paused": "Die Lektion ist hier pausiert",
+      "loadingContext": "Die Lektion wird geladen…",
+      "modes": "Gesprächsart",
+      "chat": "Chat",
+      "voice": "Stimme",
+      "previewOnly": "Vorschau ohne Konto. Öffne die Lektion nach der Anmeldung über den Lernpfad, um die Hilfe zu nutzen.",
+      "sessionOnly": "Gespräch und Übung gelten nur für diese Sitzung.",
+      "backToLesson": "Zurück zur Lektion"
+    },
+    "assistant": {
+      "endEyebrow": "Festige, was du gelernt hast",
+      "endTitle": "Bereit für ein kurzes Quiz zur Lektion?",
+      "endLead": "Zehn Fragen, und bei jeder Antwort klären wir das Warum. Wähl, was dir am besten passt.",
+      "voiceQuiz": "Quiz per Stimme",
+      "voiceQuizHint": "Sprich mit Nova",
+      "chatQuiz": "Quiz im Chat",
+      "chatQuizHint": "Frage und Antwort, Schritt für Schritt",
+      "capsule": "Nova-Hilfe",
+      "ask": "Frag Nova",
+      "talkVoice": "Mit Nova sprechen",
+      "openChat": "Nova-Chat öffnen"
+    },
+    "chat": {
+      "log": "Gespräch",
+      "welcome": "Hallo {name} 👋",
+      "welcomeTitle": "Wir halten bei jeder Idee an und verstehen sie zusammen.",
+      "welcomeLead": "Frag nach der Erklärung, nach Begriffen oder nach einem Beispiel, das unklar ist.",
+      "thinking": "Nova bereitet die Antwort vor…",
+      "latest": "↓ Neueste Nachrichten",
+      "label": "Deine Nachricht an Nova",
+      "placeholder": "Frag zu dem Teil, bei dem wir gerade sind…",
+      "stop": "Antwort stoppen",
+      "send": "Nachricht senden",
+      "footnote": "Enter zum Senden · Shift + Enter für eine neue Zeile · Nova kann sich irren, prüf die Erklärung.",
+      "sendFailed": "Die Nachricht ließ sich nicht senden."
+    },
+    "quiz": {
+      "eyebrow": "Übung zur Lektion",
+      "title": "Zehn Fragen, Schritt für Schritt.",
+      "lead": "Die Fragen sind auf Englisch mit Übersetzung, und nach jeder Antwort klären wir zusammen das Warum.",
+      "disclaimer": "Von KI erstellte Übung, keine offizielle Prüfung. Das Ergebnis gilt nur für diese Sitzung.",
+      "preparing": "Die Fragen werden vorbereitet…",
+      "prepare": "Quiz erstellen",
+      "cancel": "Abbrechen",
+      "doneEyebrow": "Übung geschafft",
+      "score": "{score} / {total}",
+      "doneLead": "Schau dir die Ideen an, die noch sitzen müssen, und frag Nova zu jeder Antwort.",
+      "preparingNew": "Eine neue Übung wird vorbereitet…",
+      "again": "Neue Übung",
+      "progress": "Frage {number} von {total}",
+      "correct": "Richtige Antwort",
+      "review": "Schauen wir uns die Antwort an",
+      "result": "Ergebnis ansehen",
+      "next": "Nächste Frage",
+      "prepareFailed": "Das Quiz ließ sich nicht erstellen."
+    },
+    "voice": {
+      "status": {
+        "idle": "Bereit, wenn du es bist",
+        "connecting": "Verbindung wird aufgebaut…",
+        "listening": "Nova hört dir zu",
+        "speaking": "Nova spricht",
+        "paused": "Anruf pausiert"
+      },
+      "start": "Anruf starten",
+      "unmute": "Mikro an",
+      "mute": "Mikro aus",
+      "resume": "Anruf fortsetzen",
+      "pause": "Pausieren",
+      "hangup": "Auflegen",
+      "footnote": "Das Mikrofon startet nur mit deiner Erlaubnis. Du kannst Nova jederzeit unterbrechen.",
+      "micBlocked": "Erlaube das Mikrofon im Browser oder nutze den Chat.",
+      "startFailed": "Der Anruf ließ sich nicht starten.",
+      "resumeFailed": "Der Ton des Anrufs ließ sich nicht fortsetzen. Ruf noch mal an.",
+      "noMic": "Dein Browser unterstützt hier kein Mikrofon. Nutze den Chat.",
+      "closed": "Der Anruf wurde beendet.",
+      "slow": "Die Verbindung dauert zu lange. Versuch es noch mal.",
+      "sessionFailed": "Die Sitzung mit Nova ließ sich nicht starten.",
+      "ended": "Anruf beendet. Du kannst noch mal anrufen.",
+      "readFailed": "Novas Antwort ließ sich nicht lesen.",
+      "connectFailed": "Keine Verbindung. Prüf dein Internet und versuch es noch mal.",
+      "dropped": "Der Anruf ist abgebrochen. Ruf noch mal an.",
+      "paces": {
+        "slowest": "Ganz gemütlich",
+        "slow": "Ruhig",
+        "normal": "Normal"
+      }
+    },
+    "voiceStyle": {
+      "title": "Novas Stimme",
+      "voice": "Stimme",
+      "pace": "Sprechtempo",
+      "persona": "Wie soll Nova sein?",
+      "personaPlaceholder": "Zum Beispiel: ruhig, geduldig und ein bisschen witzig",
+      "applies": "Gilt, sobald Nova das nächste Mal spricht."
+    },
+    "lessonSettings": {
+      "label": "Lektionseinstellungen und Novas Stimme",
+      "narration": "Nova liest vor",
+      "narrationHint": "Sie liest jeden Schritt, blättert von selbst um und hält bei Fragen an.",
+      "volume": "Lautstärke",
+      "autoTurn": "Automatisch umblättern",
+      "paces": {
+        "manual": "Manuell",
+        "slower": "Langsamer",
+        "normal": "Normal",
+        "faster": "Schneller"
+      },
+      "paceHint": "Die Zeit, bis der nächste Schritt erscheint. „Manuell“ heißt: mit dem Weiter-Button.",
+      "questions": "Fragen",
+      "questionModes": {
+        "ask": "Frag mich",
+        "show": "Lösungen zeigen"
+      },
+      "questionsHint": "„Lösungen zeigen“ führt die Lektion weiter, ohne auf deine Antwort zu warten. Was ohne Antwort gezeigt wurde, zählt nicht für die Ziele."
+    },
+    "handsFree": {
+      "title": "Zuhörmodus (ohne Bildschirm)",
+      "hint": "Nova liest die Lektion vor, und du beantwortest die Fragen mit deiner Stimme, ohne das Handy zu berühren. Du kannst den Bildschirm ausschalten.",
+      "wakeWord": "Aktivierungswort",
+      "wakeWordHint": "Sag es und dann deine Frage, um Nova beim Vorlesen zu unterbrechen, oder drück einmal die Kopfhörertaste.",
+      "noisy": "Laute Umgebung",
+      "noisyHint": "Nova wartet nur nach dem Aktivierungswort oder der Kopfhörertaste auf deine Antwort.",
+      "noisyNotice": "Bei dir scheint es laut zu sein. Ich warte also, bis du einmal die Kopfhörertaste drückst oder mich rufst, und dann antworte ganz in Ruhe.",
+      "micOpenTalk": "Mikro ist an: sprich",
+      "micOpenReply": "Mikro ist an für deine Antwort",
+      "ignoredNoise": "Geräusch ignoriert, keine Sprache: „{heard}“"
+    },
+    "talk": {
+      "hold": {
+        "idle": "Drück und sprich",
+        "connecting": "Verbinde…",
+        "listening": "Ich höre…",
+        "thinking": "Denkt nach…",
+        "speaking": "Stopp",
+        "reading": "Drück und sprich"
+      },
+      "placeholder": {
+        "idle": "Frag Nova zu diesem Schritt…",
+        "connecting": "Verbinde mit Nova…",
+        "listening": "Nova hört zu… lass los, wenn du fertig bist",
+        "thinking": "Nova denkt nach…",
+        "speaking": "Nova antwortet… drück und sprich, um sie zu unterbrechen",
+        "reading": "Nova liest vor… drück und sprich, um sie zu fragen"
+      },
+      "tip": "Halte den Button gedrückt, während du sprichst",
+      "ask": "Frag Nova",
+      "send": "An Nova senden",
+      "holdLabel": "Gedrückt halten und mit Nova sprechen",
+      "holdTitle": "Gedrückt halten und sprechen — oder die Leertaste gedrückt halten",
+      "orb": "Gespräch mit Nova: tippen zum Öffnen, oder gedrückt halten und sprechen",
+      "askFailed": "Die Frage ließ sich nicht senden. Versuch es noch mal.",
+      "voiceQuestion": "Frage per Stimme",
+      "micBlocked": "Erlaube das Mikrofon im Browser, oder tipp deine Frage.",
+      "failed": "Das Gespräch mit Nova hat nicht geklappt.",
+      "lessonLoading": "Die Lektion lädt noch.",
+      "noReply": "Nova hat diesmal nicht geantwortet. Versuch es noch mal."
+    }
+  },
+  "classroom": {
+    "probe": {
+      "title": "Eine Idee erklären, ausprobieren, weiter.",
+      "lead": "Test der Engine mit Probetönen, keine geprüfte Lektion."
+    },
+    "backToCurriculum": "{back} Zurück zum Lernpfad",
+    "footer": "Prüfversion · Originalton · Fortschritt und Notizen nur in dieser Sitzung",
+    "header": {
+      "brandBack": "Learn, zurück zum Lernpfad",
+      "brandStart": "Learn, Anfang der Lektion",
+      "openGuide": "Leitfaden öffnen",
+      "help": "Hilfe zur Lektion"
+    },
+    "tools": {
+      "label": "Lernwerkzeuge",
+      "guide": "Idee erklären",
+      "terms": "Begriffe",
+      "notes": "Meine Notizen",
+      "source": "Quelle",
+      "scenes": "Szenen"
+    },
+    "guide": {
+      "titles": {
+        "guide": "Verstehen wir es Stück für Stück",
+        "terms": "Begriff und Bedeutung",
+        "notes": "Platz für deine Gedanken",
+        "source": "Quellen der Lektion"
+      },
+      "label": "Hilfe zur Lektion",
+      "title": "Leitfaden zur Lektion",
+      "subtitle": "Fertige Erklärungen und Selbstcheck",
+      "close": "Hilfe schließen",
+      "eyebrowGuide": "Gemeinsam denken",
+      "eyebrowTools": "Lernwerkzeuge",
+      "promptTitle": "Behalte die Idee im Blick",
+      "promptText": "Sieh dir die Idee am Board an, probier die Frage selbst und vergleich dann deine Antwort mit der Rückmeldung der Lehrkraft.",
+      "reviewTerms": "Begriffe wiederholen",
+      "notesLabel": "Schreib eine Zusammenfassung oder eine Frage für später.",
+      "notesPlaceholder": "Welche Idee hast du verstanden?",
+      "notesHint": "Notizen nur für diese Sitzung; kopier sie, bevor du die Seite schließt.",
+      "openSource": "Quelle öffnen",
+      "sourceNote": "Prüfversion mit den Originalaufnahmen. Die Anzeige hier bedeutet keine erneute Freigabe von Inhalt oder Timing.",
+      "footer": "Fertiger Leitfaden zur Lektion, kein KI-Chat"
+    }
+  },
+  "book": {
+    "loading": "Die Lektion wird vorbereitet…",
+    "reference": {
+      "from": "Aus dem Buch · S. {pages}",
+      "sizes": "Größe der Buchansicht",
+      "small": "Klein",
+      "smallLabel": "Kleine Buchansicht",
+      "half": "Halb",
+      "halfLabel": "Buchansicht auf halbem Bildschirm",
+      "full": "Voll",
+      "fullLabel": "Buchansicht im Vollbild",
+      "hide": "Ausblenden",
+      "hideLabel": "Buchansicht ausblenden",
+      "zoomIn": "Erklärten Buchausschnitt vergrößern",
+      "zoomOut": "Erklärten Buchausschnitt verkleinern",
+      "image": "Erklärter Ausschnitt von Seite {pages}",
+      "open": "Buchansicht öffnen",
+      "toggle": "Buch · S. {pages}",
+      "fullDialog": "Buchansicht im Vollbild",
+      "panel": "Buchansicht"
+    }
+  },
+  "boards": {
+    "html": {
+      "unavailable": "Dieses Board funktioniert gerade nicht. Mach mit der schriftlichen Erklärung weiter."
+    }
+  },
+  "studio": {
+    "form": {
+      "eyebrow": "Kurs-Studio",
+      "title": "Mach aus einer Idee eine interaktive Lektion",
+      "lead": "Schreib, was du lernen oder erklären willst, sag, für wen, und wähl den Stil. Wir bauen dir eine Lektion mit Boards zum Ausprobieren und mit Fragen, und du kannst sie prüfen, bevor jemand anderes sie sieht.",
+      "active": "Ein Kurs wird gerade gebaut: {topic} {follow}",
+      "follow": "Ansehen",
+      "ideaNumber": "1",
+      "ideaTitle": "Die Idee",
+      "detailsNumber": "2",
+      "detailsTitle": "Für wen?",
+      "lookNumber": "3",
+      "lookTitle": "Der Stil",
+      "examples": "Beispiele",
+      "examplesLead": "Oder starte mit einem Beispiel:",
+      "untitled": "Neue Lektion",
+      "summary": "{audience} · {look} · dauert 5 bis 20 Minuten, du kannst die Seite schließen",
+      "sending": "Deine Anfrage wird gesendet…",
+      "start": "Jetzt erstellen",
+      "dropHere": "Dateien hier ablegen",
+      "errors": {
+        "tooMany": "Höchstens 5 Dateien.",
+        "tooBig": "Jede Datei muss kleiner als 4 MB sein.",
+        "tooBigTogether": "Alle Dateien zusammen müssen kleiner als 10 MB sein.",
+        "noTopic": "Schreib, worum es im Kurs geht.",
+        "startFailed": "Das Erstellen ließ sich nicht starten."
+      }
+    },
+    "composer": {
+      "label": "Worum geht es im Kurs?",
+      "placeholder": "Was willst du lernen oder erklären? Schreib das Thema und alles, was wichtig ist: „Zinseszins, mit Beispielen vom Sparkonto“",
+      "files": "Deine Dateien",
+      "size": "{size} MB",
+      "remove": "{name} entfernen",
+      "attach": "Dateien hochladen",
+      "webSearch": "Im Netz suchen",
+      "hint": "PDF, Word, Bilder oder Text, bis zu 5 Dateien"
+    },
+    "details": {
+      "more": "Mehr Details",
+      "upToThree": "(bis zu 3)"
+    },
+    "leads": {
+      "myLevel": "Ich",
+      "goal": "Ich will",
+      "time": "Zeit",
+      "language": "auf",
+      "students": "Schüler",
+      "questions": "Fragen",
+      "age": "Alter",
+      "boards": "Boards"
+    },
+    "choices": {
+      "audience": {
+        "title": "Für wen ist der Kurs?",
+        "me": "Für mich",
+        "students": "Für meine Schüler",
+        "kids": "Für ein Kind"
+      },
+      "goal": {
+        "title": "Ziel",
+        "understand": "die Idee verstehen",
+        "practice": "Aufgaben üben",
+        "review": "schnell wiederholen"
+      },
+      "age": {
+        "title": "Alter",
+        "from4to6": "4 bis 6 Jahre",
+        "from7to9": "7 bis 9 Jahre",
+        "from10to12": "10 bis 12 Jahre"
+      },
+      "level": {
+        "title": "Niveau der Schüler",
+        "beginner": "Anfänger",
+        "some": "Mit Vorwissen",
+        "revision": "Zur Wiederholung"
+      },
+      "language": {
+        "title": "Sprache der Erklärung",
+        "egyptian": "Ägyptisch",
+        "msa": "Hocharabisch",
+        "english": "Englisch",
+        "mixed": "Arabisch mit englischen Fachbegriffen"
+      },
+      "style": {
+        "title": "Erklärstil",
+        "story": "Erst eine Geschichte",
+        "steps": "Schritt für Schritt",
+        "problem": "Erst ein Problem",
+        "examples": "Gelöste Beispiele",
+        "analogies": "Vergleiche aus dem Alltag"
+      },
+      "boards": {
+        "title": "Boards",
+        "text": "nur Text",
+        "some": "interaktiv, wo es hilft",
+        "most": "meist interaktiv"
+      },
+      "questions": {
+        "title": "Fragen",
+        "each": "nach jeder Szene",
+        "key": "an wichtigen Stellen",
+        "none": "keine"
+      },
+      "size": {
+        "title": "Umfang",
+        "oneLesson": "1 Lektion",
+        "threeLessons": "3 Lektionen",
+        "fiveLessons": "5 Lektionen"
+      }
+    },
+    "audiences": {
+      "me": {
+        "name": "Für mich",
+        "line": "Ich lerne oder will etwas Neues lernen",
+        "level": {
+          "beginner": "höre zum ersten Mal davon",
+          "some": "kenne mich etwas aus",
+          "revision": "lerne für eine Prüfung"
+        },
+        "size": {
+          "oneLesson": "15 Minuten",
+          "threeLessons": "etwa eine Stunde",
+          "fiveLessons": "über eine Stunde"
+        }
+      },
+      "students": {
+        "name": "Für meine Schüler",
+        "line": "Ein Kurs für eine Klasse oder Gruppe"
+      },
+      "kids": {
+        "name": "Für ein Kind",
+        "line": "Für mein Kind oder kleine Schüler",
+        "size": {
+          "oneLesson": "Eine kurze Lektion",
+          "threeLessons": "3 kurze Lektionen",
+          "fiveLessons": "5 kurze Lektionen"
+        }
+      }
+    },
+    "gallery": {
+      "label": "Stil der Lektion",
+      "fits": "Passt zu deinem Thema",
+      "try": "Ansehen",
+      "tryLook": "im Stil {name}",
+      "prevIcon": "‹",
+      "prev": "Vorherige Stile",
+      "nextIcon": "›",
+      "next": "Weitere Stile"
+    },
+    "preview": {
+      "description": "{line} Probier das Board selbst aus.",
+      "choose": "Diesen Stil wählen",
+      "openDemo": "Demo-Lektion öffnen"
+    },
+    "progress": {
+      "loading": "Kursstatus wird geladen…",
+      "newCourse": "Neuer Kurs",
+      "status": {
+        "queued": "Wartet",
+        "running": "Wird gebaut",
+        "done": "Fertig",
+        "failed": "Gestoppt"
+      },
+      "duration": "Das dauert 5 bis 20 Minuten. Du kannst die Seite schließen und später wiederkommen, die Arbeit läuft weiter.",
+      "waiting": "Warte, bis der Builder deine Anfrage übernimmt…",
+      "retrying": "{error} Wir versuchen es noch mal…",
+      "openFirst": "Erste Lektion öffnen",
+      "myDrafts": "Meine Entwürfe",
+      "failed": "Wir konnten diesen Kurs nicht fertigstellen. {error} {retry}",
+      "retry": "Noch mal versuchen"
+    },
+    "boards": {
+      "title": "Boards",
+      "drawingNext": "Das nächste Board wird gezeichnet…",
+      "drawingFirst": "Das erste Board wird gezeichnet…"
+    }
+  },
+  "teach": {
+    "loadingCourse": "Der Kurs wird geladen…",
+    "loadingCourses": "Deine Kurse werden geladen…",
+    "lessonCount": {
+      "other": "{count} Lektionen",
+      "one": "{count} Lektion"
+    },
+    "studentCount": {
+      "other": "{count} Schüler",
+      "one": "{count} Schüler"
+    },
+    "openNoteCount": {
+      "other": "{count} offene Notizen",
+      "one": "{count} offene Notiz"
+    },
+    "status": {
+      "draft": "Entwurf",
+      "withdrawn": "Zurückgezogen",
+      "stale": "Veröffentlicht, mit neuen Änderungen",
+      "live": "Veröffentlicht · Version {version}"
+    },
+    "dashboard": {
+      "eyebrow": "Unterrichten",
+      "title": "Deine Kurse",
+      "stats": {
+        "courses": "Kurse",
+        "published": "Veröffentlicht",
+        "students": "Schüler",
+        "openNotes": "Offene Notizen"
+      },
+      "open": "Öffnen",
+      "preview": "Vorschau",
+      "emptyTitle": "Du hast noch keine Kurse",
+      "emptyAction": "Ersten Kurs erstellen",
+      "emptyBody": "Schreib eine Idee oder lade ein Skript hoch, und wir bauen dir einen Entwurf, den du prüfst und für deine Schüler veröffentlichst."
+    },
+    "course": {
+      "back": "Deine Kurse",
+      "subjectFallback": "Kurs",
+      "previewFirst": "Erste Lektion ansehen",
+      "tabsLabel": "Bereiche des Kurses",
+      "tabs": {
+        "publish": "Veröffentlichen",
+        "outline": "Aufbau",
+        "notes": "Notizen",
+        "notesCount": "Notizen ({count})"
+      }
+    },
+    "outline": {
+      "saved": "Gespeichert. Die Änderung erreicht deine Schüler mit der nächsten Veröffentlichung.",
+      "title": "Kursname",
+      "subject": "Fach",
+      "description": "Kurzbeschreibung",
+      "descriptionHint": "Deine Schüler sehen sie auf der Kursseite.",
+      "partName": "Name von Teil {n}",
+      "removePart": "Teil entfernen",
+      "up": "Hoch",
+      "down": "Runter",
+      "moveTo": "In Teil verschieben",
+      "movePlaceholder": "Verschieben nach…",
+      "partFallback": "Teil {n}",
+      "addPart": "+ Neuer Teil",
+      "saving": "Wird gespeichert…",
+      "save": "Aufbau speichern",
+      "moreLessons": "Weitere Lektionen",
+      "lessons": "Lektionen"
+    },
+    "publish": {
+      "before": "Vor dem Veröffentlichen",
+      "published": "Der Kurs ist veröffentlicht. Schick den Link an deine Schüler.",
+      "updated": "Die neue Version ist bei deinen Schülern angekommen.",
+      "wait": "Einen Moment…",
+      "publishChanges": "Änderungen veröffentlichen",
+      "publishNew": "Neue Version veröffentlichen",
+      "republish": "Wieder veröffentlichen",
+      "publish": "Für Schüler veröffentlichen",
+      "withdrawDone": "Der Kurs wurde für deine Schüler zurückgezogen.",
+      "withdraw": "Kurs zurückziehen",
+      "withdrawnNote": "Der Kurs ist zurückgezogen: Deine Schüler sehen ihn gerade nicht, und ihr Fortschritt bleibt gespeichert, bis du ihn wieder veröffentlichst.",
+      "linkTitle": "Kurslink",
+      "linkNote": "Alle, die ihn öffnen und sich anmelden, können den Kurs starten.",
+      "copied": "Kopiert",
+      "copy": "Kopieren",
+      "version": "Version {version} · veröffentlicht {date}",
+      "students": "Deine Schüler",
+      "lesson": "Lektion",
+      "started": "Begonnen",
+      "finished": "Fertig",
+      "noStudents": "Noch hat niemand begonnen. Schick den Link an deine Schüler."
+    },
+    "notes": {
+      "status": {
+        "open": "Offen",
+        "review": "Korrigiert, bitte prüfen",
+        "done": "Erledigt",
+        "dismissed": "Verworfen"
+      },
+      "phase": {
+        "narration": "Erklärung",
+        "attempt": "Frage",
+        "feedback": "Antwort"
+      },
+      "lessonFallback": "Lektion",
+      "filterLabel": "Status der Notizen",
+      "filter": "{status} ({count})",
+      "where": "{phase} · Schritt {step}",
+      "fix": "Korrektur: {fix}",
+      "markDone": "Erledigt",
+      "reopen": "Wieder öffnen",
+      "dismiss": "Verwerfen",
+      "emptyFiltered": "Keine Notizen mit diesem Status",
+      "empty": "Keine Notizen",
+      "emptyBody": "Öffne die Vorschau und schreib zu einem Schritt eine Notiz, und die KI, die mit deinem Konto verbunden ist, setzt sie um."
+    }
+  },
+  "authoring": {
+    "consent": {
+      "checking": "Die Anfrage wird geprüft…",
+      "title": "„{name}“ möchte auf deine Kurse zugreifen",
+      "body": "Hallo {name}. Wenn du es erlaubst, kann es Kurse, Lektionen und interaktive Boards als Entwürfe in deinem Konto erstellen und deine Notizen zu den Lektionen lesen und umsetzen. Es kann nichts für Schüler veröffentlichen und weder dein Konto noch die Daten deiner Schüler sehen.",
+      "host": "Danach geht es zurück zu: {host}",
+      "allow": "Erlauben",
+      "deny": "Nein"
+    },
+    "feedback": {
+      "kinds": {
+        "text": "Erklärung",
+        "board": "Board",
+        "question": "Frage",
+        "translation": "Übersetzung"
+      },
+      "status": {
+        "open": "Offen",
+        "review": "Korrigiert, bitte prüfen",
+        "done": "Erledigt",
+        "dismissed": "Verworfen"
+      },
+      "toggle": "Notizen zum Entwurf",
+      "toggleCount": "Notizen zum Entwurf ({count})",
+      "panel": "Notizen zu diesem Schritt",
+      "where": "{scene} · Schritt {step}",
+      "end": "Ende der Lektion",
+      "revision": "Version {revision}",
+      "fix": "Korrektur: {fix}",
+      "done": "Erledigt",
+      "notYet": "Noch nicht",
+      "kindLabel": "Art der Notiz",
+      "placeholder": "Was muss in diesem Schritt besser werden?",
+      "noteLabel": "Notiz",
+      "send": "Notiz senden",
+      "hint": "Sag zu Claude: „Schau dir meine Notizen zur Lektion an und setz sie um.“ Claude markiert dann jede Notiz mit „Korrigiert, bitte prüfen“."
+    },
+    "drafts": {
+      "start": "Du hast eine Erklärung oder Dateien, aus denen eine interaktive Lektion werden soll? {link}",
+      "startLink": "Kurs erstellen",
+      "title": "Meine Entwürfe",
+      "dashboard": "Unterrichten",
+      "newCourse": "+ Neuen Kurs erstellen",
+      "revision": "Version {revision}"
+    }
+  },
+  "courses": {
+    "loading": "Der Kurs wird geladen…",
+    "back": "Deine Bibliothek",
+    "subjectFallback": "Kurs",
+    "by": "Von {teacher}",
+    "lessonCount": {
+      "other": "{count} Lektionen",
+      "one": "{count} Lektion"
+    },
+    "progress": "{done} von {total} geschafft",
+    "wait": "Einen Moment…",
+    "continue": "Weiterlernen",
+    "start": "Kurs starten",
+    "next": "Als Nächstes: {title}",
+    "lessonsFallback": "Lektionen",
+    "completed": "Abgeschlossen",
+    "started": "Begonnen",
+    "mine": {
+      "title": "Meine Kurse",
+      "fallback": "Kurs",
+      "continue": "Weiter: {title}",
+      "start": "Starten: {title}"
+    }
+  }
+}

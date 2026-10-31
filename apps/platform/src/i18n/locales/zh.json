@@ -1,0 +1,1572 @@
+{
+  "common": {
+    "language": "语言",
+    "brandHome": "Learn 首页",
+    "brandTagline": "你的学习空间",
+    "forward": "→",
+    "back": "←",
+    "backLink": "←",
+    "close": "关闭",
+    "loadingSpace": "正在准备你的学习空间…",
+    "loadingLesson": "正在准备这节课…",
+    "network": {
+      "offline": "网络断开了。检查一下网络再试试。",
+      "unexpected": "平台返回了意外的响应。再试一次吧。",
+      "failed": "请求没能完成。"
+    }
+  },
+  "looks": {
+    "auto": {
+      "name": "交给我吧",
+      "line": "我们帮你挑最适合主题的风格。"
+    },
+    "chalk": {
+      "name": "黑板粉笔",
+      "line": "笔在你眼前画：适合公式和图表。"
+    },
+    "watercolour": {
+      "name": "手绘水彩",
+      "line": "温暖安静：适合自然、家居和日常生活。"
+    },
+    "crt": {
+      "name": "复古电脑屏",
+      "line": "闪烁的绿光：适合科技、AI 和数字。"
+    },
+    "space3d": {
+      "name": "3D 立体",
+      "line": "能旋转，能从各个角度看：适合太空和物体。"
+    },
+    "seachart": {
+      "name": "古地图",
+      "line": "旧纸和墨水：适合地理、旅行和贸易。"
+    },
+    "shadow": {
+      "name": "皮影戏",
+      "line": "纸片和光影的场景：适合历史和故事。"
+    },
+    "blueprint": {
+      "name": "工程蓝图",
+      "line": "蓝底白线：适合物理、电路和机械。"
+    },
+    "crayon": {
+      "name": "蜡笔画",
+      "line": "活泼简单：适合孩子和入门概念。"
+    },
+    "calligraphy": {
+      "name": "阿拉伯书法",
+      "line": "纸上的纳斯赫体和墨迹：适合阿拉伯语、诗歌和语法。"
+    },
+    "pixel": {
+      "name": "像素游戏",
+      "line": "步骤和谜题：适合编程和逻辑思维。"
+    },
+    "examples": {
+      "chalk": "给商科大一学生讲复利",
+      "watercolour": "植物怎么喝水、制造养分",
+      "space3d": "给四年级讲行星和它们离太阳的距离",
+      "pixel": "孩子学编程的第一步",
+      "calligraphy": "海姆宰：什么时候写在艾利夫上，什么时候写在线上",
+      "seachart": "丝绸之路：中国和欧洲之间的贸易"
+    }
+  },
+  "site": {
+    "nav": {
+      "label": "网站导航",
+      "looks": "风格",
+      "teachers": "教师",
+      "demos": "示例",
+      "support": "帮助",
+      "login": "登录",
+      "start": "免费开始"
+    },
+    "foot": {
+      "tagline": "任何想法，都能变成眼前画出的一节课。",
+      "product": "产品",
+      "account": "账户",
+      "help": "帮助",
+      "looks": "风格",
+      "demos": "示例",
+      "teachers": "教师",
+      "connect": "连接你的 AI",
+      "signup": "注册",
+      "login": "登录",
+      "support": "帮助与问答",
+      "privacy": "隐私",
+      "terms": "条款"
+    },
+    "teachers": {
+      "metaTitle": "教师 · New Learn",
+      "metaDescription": "几分钟就能为学生备好一节互动课：用工作室，或用你自己的 Claude 和 ChatGPT。审阅、用链接发布、跟进进度。",
+      "eyebrow": "教师",
+      "title": "几分钟，为学生备好一节互动课。",
+      "lead": "从你的讲义或脑中的一个想法出发：画板在学生眼前画出来，每个知识点后都有一道题，Nova 用语音讲解。你来审阅和发布，学生打开链接就能学。",
+      "start": "免费开始",
+      "demos": "看看现成的课",
+      "studioTitle": "方法一：用工作室",
+      "studioLead": "四步搞定，不用写一行代码。",
+      "studio": [
+        {
+          "title": "写下想法或上传讲义",
+          "text": "一个主题、PDF，或课本的照片。说明课是给谁的，再从现成的风格里挑一个。"
+        },
+        {
+          "title": "看着它生成",
+          "text": "课会在几分钟内一步步搭好，每个画板一画出来你就能看到。"
+        },
+        {
+          "title": "审阅并写批注",
+          "text": "按学生看到的样子打开这节课，在任意一步写批注。修改会照着批注来。"
+        },
+        {
+          "title": "用链接发布并跟进",
+          "text": "给学生一个链接就行。你能看到谁开始了、谁学完了每节课，修改后还能发布新版本。"
+        }
+      ],
+      "connectTitle": "方法二：用你自己的 Claude 或 ChatGPT",
+      "connectLead": "如果你习惯用自己的 AI，把它连接到网站，它就能直接在这里写课。我们会检查格式，并把课存为你账户里的草稿。",
+      "connect": [
+        {
+          "title": "在 Claude 里打开设置，然后 Connectors，再点 Add custom connector。",
+          "text": "名称填 New Learn，链接填："
+        },
+        {
+          "title": "登录 New Learn 并授权这个应用。",
+          "text": "权限：只能创建草稿、读取你的批注。不能发布，也看不到学生。"
+        },
+        {
+          "title": "用你自己的话提要求。",
+          "text": "比如：“给商科大一学生做一节讲复利的课，3 个场景，用通俗的中文。”它会先问你几个问题，再和你定好计划。"
+        },
+        {
+          "title": "打开它发来的预览链接。",
+          "text": "在各个步骤上写批注，然后跟它说“按批注修改”。满意了，就在教师面板里发布。"
+        }
+      ],
+      "chatgpt": "ChatGPT 也一样：设置，然后 Connectors，前提是你的套餐支持自定义连接器。",
+      "faqTitle": "老师常问的问题"
+    },
+    "support": {
+      "metaTitle": "帮助与问答 · New Learn",
+      "metaDescription": "怎么联系我们，以及关于 New Learn 的常见问题。",
+      "title": "需要帮助？",
+      "lead": "发邮件到 {email}，我们会在一个工作日内回复。写上你注册用的邮箱、页面链接，有问题的话附上截图。",
+      "mailSubject": "New Learn 求助",
+      "email": "发邮件",
+      "teachers": "教师专区",
+      "faqTitle": "常见问题",
+      "moreTitle": "更多",
+      "privacy": "{link}：我们存什么、谁能看到。",
+      "terms": "{link}：你的账户、你的内容，以及 AI 生成的内容。",
+      "takedown": "发现侵犯你权利的内容？把链接和权利说明发给我们，我们会在核查期间先下架。"
+    },
+    "legal": {
+      "updatedLabel": "最后更新：{date}",
+      "question": "对哪一条有疑问？发邮件到 {email}，或者去{support}。",
+      "supportLink": "帮助页面",
+      "privacy": {
+        "title": "隐私",
+        "metaTitle": "隐私 · New Learn",
+        "description": "New Learn 存什么、谁能看到，以及 AI 能接触到什么。",
+        "updated": "2026年10月29日",
+        "intro": "我们用自己也愿意读的大白话来写。有不清楚的地方，就联系我们。",
+        "sections": [
+          {
+            "title": "我们存什么",
+            "paragraphs": [],
+            "bullets": [
+              "你的账户：姓名、邮箱和加密后的密码，通过 Neon Auth 服务保存。",
+              "你的学习：你打开过的课、学到了哪里，以及你对题目的回答。",
+              "如果你是老师：你的课程、课、批注和画板，以及你发布的课程和加入的人。",
+              "你为生成课而上传的文件（讲义、图片、文本）：只临时保存到课生成完，之后就会删除。",
+              "你的设置，比如课的节奏、答题方式和网站语言。"
+            ]
+          },
+          {
+            "title": "谁能看到",
+            "paragraphs": [],
+            "bullets": [
+              "你自己，在你的账户里。",
+              "创建课程的老师能看到每节课有多少人开始、多少人学完，但看不到你的具体回答。",
+              "学生能看到课程上的老师姓名。",
+              "我们的团队，只在必要时，为了解决问题或回复帮助请求。",
+              "我们不卖你的数据，也不把它交给任何人做广告。"
+            ]
+          },
+          {
+            "title": "AI",
+            "paragraphs": [],
+            "bullets": [
+              "Nova 是课堂助手，由 Google Gemini 模型驱动。我们会把课的当前步骤和你的问题发给它，开了语音的话还有你的声音。对话会发送给模型以便回复，我们不会用它来训练模型。",
+              "生成课使用 Anthropic 的模型（Claude）：我们会把你写的想法和你上传的文件发过去，让它来写课。",
+              "如果你把自己的 Claude 或 ChatGPT 连接到网站，它只能按你同意的权限看到你的草稿和批注，不能发布，也看不到学生。你可以联系我们取消连接。",
+              "AI 写的课会在平台上标注出来，而且可能出错；老师会在发布前审阅。"
+            ]
+          },
+          {
+            "title": "Cookie 与追踪",
+            "paragraphs": [
+              "我们只用一个会话 Cookie 让你保持登录，你选的网站语言保存在你的设备上。没有广告，没有追踪工具，也没有识别你个人身份的分析。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "你的数据在哪里",
+            "paragraphs": [
+              "网站托管在 Cloudflare，数据库在 Neon。课里画出的画板在一个隔离的页面中运行，对你的账户没有任何权限。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "儿童",
+            "paragraphs": [
+              "年满 13 岁才能注册账户。更小的孩子通过家长或学校的账户使用平台，由家长对账户负责。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "删除账户",
+            "paragraphs": [
+              "用你注册时的邮箱联系我们，我们会在 30 天内删除账户及其全部数据。你发布给学生的课程也会一并移除。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "变更",
+            "paragraphs": [
+              "如果这里有重要变更，我们会在生效前在平台上告知。上方的日期就是最后更新时间。"
+            ],
+            "bullets": []
+          }
+        ]
+      },
+      "terms": {
+        "title": "条款",
+        "metaTitle": "条款 · New Learn",
+        "description": "New Learn 使用条款：你的账户、你的内容，以及 AI 生成的内容。",
+        "updated": "2026年10月29日",
+        "intro": "使用 New Learn 即表示你同意这些条款。平台目前仍处于测试阶段。",
+        "sections": [
+          {
+            "title": "服务",
+            "paragraphs": [
+              "New Learn 把一个想法或一份讲义变成一节互动课：用代码画出的画板、讲解、题目，以及名叫 Nova 的语音助手。老师可以用链接把课发布给学生。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "你的账户",
+            "paragraphs": [],
+            "bullets": [
+              "你要对密码以及你账户里发生的一切负责。",
+              "注册时提供的信息必须真实。",
+              "年满 13 岁才能注册账户；更小的孩子使用家长或学校的账户。"
+            ]
+          },
+          {
+            "title": "你的内容",
+            "paragraphs": [],
+            "bullets": [
+              "你写的或上传的内容仍归你所有。",
+              "你只上传你有权使用的内容，并为此负责。如果你上传了无权使用的讲义或书，我们会把它删除。",
+              "你授权我们为你和你发布给的学生展示、运行这节课，并保存它的副本，以便服务正常运行。",
+              "如果你发现有内容侵犯你的权利，把链接和权利说明发给我们，我们会在核查期间先停用该内容。"
+            ]
+          },
+          {
+            "title": "AI 生成的内容",
+            "paragraphs": [],
+            "bullets": [
+              "AI 写的课可能有错误或遗漏。发布给任何人之前，请先审阅。",
+              "我们会在平台上标注这类内容来自 AI，也不把它当作权威参考。",
+              "Nova 是帮助理解的助手，不能替代老师或原始资料。"
+            ]
+          },
+          {
+            "title": "可接受的使用",
+            "paragraphs": [],
+            "bullets": [
+              "禁止有害、误导、违法或侵犯他人权利的内容。",
+              "禁止试图访问不属于你的账户或数据，或破坏服务。",
+              "如果你连接了自己的 Claude 或 ChatGPT，你要对它在你账户里的操作负责。"
+            ]
+          },
+          {
+            "title": "可用性",
+            "paragraphs": [
+              "平台处于测试阶段：功能可能变动或停用，也可能出现故障。我们按现状提供服务，不作任何保证，并会尽量在重大变更前告知。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "终止账户",
+            "paragraphs": [
+              "你可以随时联系我们关闭账户。如果某个账户违反这些条款，我们可能会在通知账户所有者后停用它。"
+            ],
+            "bullets": []
+          },
+          {
+            "title": "变更与联系",
+            "paragraphs": [
+              "如果我们修改条款，会在生效前在平台上告知。有任何问题，帮助页面上有联系方式。"
+            ],
+            "bullets": []
+          }
+        ]
+      }
+    },
+    "faq": {
+      "general": [
+        {
+          "q": "免费吗？",
+          "a": "我们刚起步，现在是免费的。以后如果推出套餐，我们会提前足够的时间告知，你做过的东西仍归你所有。"
+        },
+        {
+          "q": "生成一节课要多久？",
+          "a": "根据长短，5 到 20 分钟。你可以看着每一步生成，也可以关掉页面，回来时课就做好了。"
+        },
+        {
+          "q": "课是谁写的？",
+          "a": "AI 写讲解和题目，并用代码画出画板；我们负责确认格式正确、画板能用。审阅和发布由老师来做。"
+        },
+        {
+          "q": "AI 会出错吗？",
+          "a": "会。所以课会先生成草稿，你可以在任意一步写批注并要求修改，而且只有你亲自发布，内容才会到学生那里。"
+        },
+        {
+          "q": "Nova 能看到什么？",
+          "a": "只有这节课、你当前所在的步骤，以及你在这次学习中的回答。Nova 负责讲解和答疑，但判对错靠的是课本身，不是她。"
+        },
+        {
+          "q": "手机上能用吗？",
+          "a": "能。课和画板会适配小屏幕，点一个按钮就能和 Nova 语音对话。"
+        },
+        {
+          "q": "网站有其他语言吗？",
+          "a": "有。在页面顶部或设置里选语言，Nova 也会用这种语言和你说话。课本身保持编写时的语言。"
+        },
+        {
+          "q": "怎么删除账户？",
+          "a": "用你注册时的邮箱联系我们，我们会在 30 天内删除账户及其全部数据。"
+        }
+      ],
+      "teachers": [
+        {
+          "q": "学生需要账户吗？",
+          "a": "需要，用邮箱注册一个免费账户就行。他们打开课程链接、点“开始课程”，学习进度就会保存下来。"
+        },
+        {
+          "q": "可以上传讲义或书吗？",
+          "a": "PDF、Word、图片或文本，最多 5 个文件。你必须有权使用这些内容，课生成后文件就会删除。"
+        },
+        {
+          "q": "能连接我自己的 Claude 或 ChatGPT 吗？",
+          "a": "能。把网站添加为连接器，然后在你的账户里让它写课。它只能看到你的草稿，不能发布，也看不到学生。"
+        }
+      ]
+    }
+  },
+  "landing": {
+    "metaTitle": "New Learn：任何想法，都能变成眼前画出的一节课",
+    "metaDescription": "写下主题，选好风格。用代码画出的画板，每个知识点后一道题，还有 Nova 语音讲解。适合自学、教学生，也适合孩子。",
+    "hero": {
+      "eyebrow": "任何想法，几分钟变成一节课",
+      "title": "任何想法，都能变成眼前画出的一节课。",
+      "lead": "写下主题，选好风格。画板用代码画出来，Nova 用语音讲解，每个知识点后还会考考你。",
+      "start": "做第一节课",
+      "openDemo": "打开完整版",
+      "looksLabel": "风格"
+    },
+    "looks": {
+      "title": "每个主题，都有合适的风格",
+      "lead": "每节课都用代码画出，风格贴合主题。点任意一个试试。"
+    },
+    "how": {
+      "title": "怎么用",
+      "lead": "从想法到一节课，只需三步，每一步你都看得见。",
+      "steps": [
+        {
+          "title": "写下想法",
+          "text": "一个主题、一份讲义或课本的一页。说明给谁学，再选个风格。"
+        },
+        {
+          "title": "看着它生成",
+          "text": "课一步步搭好，每个画板一画好就显示出来。"
+        },
+        {
+          "title": "和 Nova 一起学",
+          "text": "能用手拖动的画板，每个知识点后一道题，还有语音讲解。"
+        }
+      ]
+    },
+    "nova": {
+      "eyebrow": "Nova",
+      "title": "帮助就在课里，不在课外。",
+      "lead": "每一步都有人可以问。每个知识点都有一道题，确认你真的懂了。",
+      "points": [
+        {
+          "title": "她知道你学到哪了",
+          "text": "Nova 看得到你停在哪一步，所以只回答你问的，不用把课重讲一遍。"
+        },
+        {
+          "title": "语音或打字",
+          "text": "按住说话，或者直接打字。想听的话，还能听语音回复。"
+        },
+        {
+          "title": "判对错靠课，不靠她",
+          "text": "每个知识点后一道题：选择、填写，或直接在画板上作答。正确答案在课里早已定好。"
+        }
+      ],
+      "shotAlt": "New Learn 里的阅读课：画板和 Nova 栏"
+    },
+    "teacher": {
+      "eyebrow": "给老师",
+      "title": "从讲义到链接，当天搞定。",
+      "points": [
+        {
+          "title": "从讲义开始",
+          "text": "上传 PDF 或课本照片，或者写下想法。课就以此为基础生成。"
+        },
+        {
+          "title": "送达前先审阅",
+          "text": "在任意一步写批注，修改会照着批注来。不经你的手，什么都不会发布。"
+        },
+        {
+          "title": "给学生一个链接",
+          "text": "他们打开就能开始。你能看到谁开始了、谁学完了每节课。"
+        }
+      ],
+      "cta": "教师专区",
+      "shotAlt": "教师面板：发布和课程链接"
+    },
+    "connect": {
+      "eyebrow": "你有 Claude 或 ChatGPT？",
+      "title": "让它在这里写课。",
+      "lead": "把它作为连接器连到网站，用你自己的话让它写一节课。它来写，我们检查格式，并存为你账户里的草稿。它只能看到你的草稿，不能发布。",
+      "cta": "如何连接"
+    },
+    "who": {
+      "title": "适合谁？",
+      "items": [
+        {
+          "title": "你自己",
+          "text": "在备考？上传讲义，把它变成能互动的一节课。",
+          "cta": "做第一节课"
+        },
+        {
+          "title": "你的学生",
+          "text": "几分钟备好一节课，审阅后用链接发出去。",
+          "cta": "教师专区"
+        },
+        {
+          "title": "你的孩子",
+          "text": "有趣的风格、简单的话语，题目难度正好适合他们的年龄。",
+          "cta": "试试分数课"
+        }
+      ]
+    },
+    "faq": {
+      "title": "常见问题",
+      "more": "其他问题请看{link}。",
+      "moreLink": "帮助页面"
+    },
+    "final": {
+      "title": "用一个想法试试。",
+      "lead": "免费，无需安装。",
+      "cta": "创建账户"
+    }
+  },
+  "runtime": {
+    "lessonScenes": "课的场景",
+    "audioFailed": "音频没能播放。再试一次吧。",
+    "sceneFailed": "场景没能播放。",
+    "sceneRenderFailed": "场景没能显示。试试重新播放。",
+    "scenePlaybackStopped": "场景没能播放；我们先停在这里，等音频恢复。",
+    "reloadPreview": "重新加载预览",
+    "tryAgain": "再试一次",
+    "startOver": "从头开始",
+    "pause": "暂停",
+    "resumeExplaining": "继续讲解",
+    "startExplaining": "开始讲解",
+    "playbackPosition": "播放位置",
+    "replayScene": "重播场景",
+    "loadingAudio": "正在加载音频…",
+    "yourTurn": "轮到你了",
+    "chooseAnswer": "选出你的答案",
+    "hearFeedback": "听听点评，然后继续",
+    "boardQuestion": "我们来试试",
+    "boardFeedback": "回顾一下，然后继续",
+    "sceneTrack": "第 {scene} 个场景，共 {scenes} 个。查看场景",
+    "goalsChip": "学习目标：{met}/{goals}",
+    "lessonGoals": "学习目标",
+    "goalsNote": "回答了检验某个目标的题，这个目标就会打勾。",
+    "conversation": "对话",
+    "yourAnswer": "你的答案：{answer}",
+    "dontKnow": "不知道",
+    "correct": "✓ 答对了",
+    "notCorrect": "✗ 还不对",
+    "question": "题目",
+    "modelAnswer": "参考答案",
+    "tryYourself": "自己试试",
+    "hint": "提示",
+    "hintRequest": "这道题我需要提示",
+    "showSolution": "不会，给我看答案",
+    "skip": "跳过",
+    "choices": "选项",
+    "choiceLetters": "ABCDEFGH",
+    "boardAsk": "调整画板，直到得出你的答案，然后点“发送”。",
+    "listSeparator": "、",
+    "lessonNavigation": "课内导航",
+    "previousStep": "上一步",
+    "next": "下一步",
+    "finishLesson": "完成这节课",
+    "autoTurnResume": "自动继续",
+    "autoTurnPause": "停止自动翻页",
+    "hideText": "隐藏文字",
+    "showText": "显示文字",
+    "answerDock": "作答",
+    "sendMyAnswer": "提交我的答案",
+    "answerField": "你的答案",
+    "answerPlaceholder": "在这里写下你的解答…",
+    "send": "发送",
+    "pickAbove": "从上面选一个答案",
+    "lessonConversation": "课堂对话",
+    "minimizeConversation": "收起对话",
+    "close": "关闭",
+    "quickQuestions": "快捷提问",
+    "suggestSimpler": "讲得再简单点",
+    "suggestExample": "再举个例子",
+    "suggestWhy": "为什么会这样？",
+    "typing": "正在输入",
+    "sceneNumber": "场景 {number}",
+    "byVoice": "语音",
+    "lessonDone": "这节课学完了",
+    "answeredOne": "回答了 {answered}/{questions} 道题",
+    "answeredMany": "回答了 {answered}/{questions} 道题",
+    "goalsMet": "目标 {met}/{goals}",
+    "nextLesson": "下一节：{title}",
+    "reviewLesson": "从头复习这节课"
+  },
+  "server": {
+    "http": {
+      "notJson": "请求必须是 JSON。",
+      "tooLarge": "请求太大了。",
+      "badBody": "请求数据不正确。",
+      "badOrigin": "请求来源不被允许。",
+      "notAllowed": "不允许此请求。",
+      "notFound": "页面不存在。",
+      "failed": "请求没能完成。再试一次吧。",
+      "badStatus": "状态不正确。"
+    },
+    "auth": {
+      "unavailable": "账户服务暂时不可用。",
+      "unavailableRetry": "账户服务暂时不可用。请再试一次。",
+      "unexpected": "账户服务返回了意外的响应。",
+      "nameLength": "名字需要 2 到 80 个字符。",
+      "passwordsNeeded": "请输入当前密码和新密码。",
+      "passwordLength": "新密码需要 8 到 128 个字符。",
+      "signIn": "请先登录再继续。",
+      "checkFailed": "无法验证登录状态。",
+      "expired": "登录已过期。请重新登录。"
+    },
+    "oauth": {
+      "badRequest": "连接请求不正确。"
+    },
+    "content": {
+      "unavailable": "暂时无法加载学习路线。稍后再试吧。",
+      "lessonNotReady": "这节课还没开放。",
+      "lessonChanged": "这节课的版本变了。请从学习路线重新打开。"
+    },
+    "progress": {
+      "invalid": "进度数据不正确。",
+      "unavailable": "这节课不支持保存进度。",
+      "savedElsewhere": "进度已在别处保存。",
+      "courseChanged": "课程版本变了。请从课程页面重新打开这节课。"
+    },
+    "publish": {
+      "lessonsReady": {
+        "other": "{count} 节课已就绪"
+      },
+      "noLessons": "课程里还没有课",
+      "hasTitle": "课程有标题",
+      "boardsFound": "所有画板都在",
+      "boardProblems": {
+        "other": "{count} 个画板在预览中有绘制问题"
+      },
+      "boardsDrawn": "画板在预览中都画对了",
+      "openNotes": {
+        "other": "{count} 条批注还没处理"
+      },
+      "noOpenNotes": "没有未处理的批注",
+      "courseGone": "这门课程不存在或已撤回。",
+      "notPublished": "这门课程还没发布。",
+      "lessonGone": "这节课不存在，或课程已撤回。",
+      "lessonMissing": "这节课不存在。",
+      "courseMissing": "这门课程不存在。",
+      "partsEveryLesson": "每节课都必须在单元里出现且只出现一次。",
+      "otherLessons": "其他课"
+    },
+    "builds": {
+      "busy": "有一门课程还在生成中。请等它完成。",
+      "dailyLimit": "今天的次数用完了。明天再试吧。",
+      "jobMissing": "这个任务不存在。",
+      "fileType": "不支持这种文件类型：只支持 PDF、Word、图片或文本。",
+      "fileUnreadable": "无法读取这个文件。",
+      "fileSize": "每个文件需小于 4 MB。",
+      "topicShort": "写一下课程是关于什么的。",
+      "topicLong": "描述太长了，请控制在 4000 字以内。",
+      "badChoice": "未知的选项。",
+      "fileCount": "最多 5 个文件。",
+      "filesTotal": "所有文件加起来需小于 10 MB。"
+    },
+    "nova": {
+      "badPosition": "课内位置不正确。",
+      "badPhase": "课的阶段不正确。",
+      "badTiming": "课的时间点不正确。",
+      "noLesson": "没有指定课。",
+      "draftChanged": "草稿已更改。请重新打开预览。",
+      "courseChanged": "课程版本变了。请重新打开这节课。",
+      "trialChanged": "试用版本变了。请重新打开这节课。",
+      "lessonUnavailable": "课堂助手不可用。",
+      "wait": "请稍等再发新请求。",
+      "unavailable": "Nova 助手暂时不可用。",
+      "timeout": "回复超时了。再试一次吧。",
+      "busy": "现在请求太多。稍等一下再试。",
+      "unreachable": "连不上 Nova 助手。再试一次吧。",
+      "noAnswer": "没有得到明确的回复。换个问法试试。",
+      "quizIncomplete": "测验没完成。再试一次吧。",
+      "quizInvalid": "测验题需要重新准备。再试一次吧。",
+      "quizUnreadable": "测验需要重新准备。",
+      "badChat": "对话不正确。",
+      "badMessage": "消息不正确。",
+      "unknownAction": "请求不存在。",
+      "askFirst": "先写一个问题。",
+      "callFailed": "通话没能准备好。",
+      "badAudio": "音频不正确。",
+      "shortAudio": "音频太短了。",
+      "badWakeWord": "唤醒词不正确。"
+    }
+  },
+  "build": {
+    "steps": {
+      "prepare": "正在准备你的文件",
+      "readGuide": "正在阅读写作指南",
+      "readStyle": "正在阅读风格指南",
+      "listCourses": "正在查看你的课程",
+      "createCourse": "正在创建课程",
+      "arrangeCourse": "正在整理课程单元",
+      "writeLesson": "正在写一节课",
+      "writeLessonNamed": "正在写课：{title}",
+      "editLesson": "正在修改这节课",
+      "readLesson": "正在检查这节课",
+      "makeBoard": "正在制作互动画板",
+      "readBoard": "正在检查画板",
+      "readFeedback": "正在阅读批注",
+      "resolveFeedback": "正在关闭一条批注",
+      "webSearch": "正在网上搜索",
+      "readFiles": "正在阅读你的文件",
+      "working": "正在制作课程",
+      "fixLesson": "正在修复课里的问题",
+      "retry": "正在重试",
+      "resume": "中断后继续",
+      "failed": "生成在完成前停止了。",
+      "usageLimit": "生成账户目前已达到使用上限。稍后再试吧。",
+      "noLesson": "没有生成任何课。"
+    }
+  },
+  "auth": {
+    "form": {
+      "eyebrow": "欢迎来到 LEARN",
+      "heading": {
+        "signup": "你的旅程从这里开始。",
+        "login": "接着上次继续？",
+        "forgot": "帮你找回账户。",
+        "reset": "设置新密码。"
+      },
+      "submit": {
+        "signup": "创建账户",
+        "login": "登录",
+        "forgot": "发送找回链接",
+        "reset": "保存密码"
+      },
+      "lead": {
+        "signup": "创建账户，开始你的旅程。",
+        "login": "你的课在等你。",
+        "recover": "留意一下你的邮箱。"
+      },
+      "name": "你的名字",
+      "namePlaceholder": "想让我们怎么称呼你？",
+      "email": "邮箱",
+      "password": "密码",
+      "passwordPlaceholder": "至少 8 个字符",
+      "forgotLink": "忘记密码？",
+      "busy": "稍等一下…",
+      "haveAccount": "已经有账户了？",
+      "toLogin": "去登录",
+      "newHere": "第一次用 Learn？",
+      "toSignup": "创建账户",
+      "backToLogin": "返回登录",
+      "assurance": "登录信息与你的账户绑定。"
+    },
+    "messages": {
+      "resetSent": "如果这个邮箱已注册，你会收到一个找回密码的链接。",
+      "resetInvalid": "找回链接无效。请重新申请一个。",
+      "passwordChanged": "密码已更改。请重新登录。",
+      "wrongCredentials": "邮箱或密码不正确。",
+      "emailTaken": "这个邮箱已注册。试试直接登录。"
+    },
+    "story": {
+      "eyebrow": "按你的方式学",
+      "title": "理解，{br}从一个问题开始。",
+      "lead": "提问，尝试，慢慢来。{br}每弄懂一步，都会为你打开一条路。",
+      "board": "一个小想法，能打开很多扇门",
+      "note": "为什么 2 : 3 和 3 : 2 不一样？",
+      "bottom": "一个学习空间，为你量身打造。"
+    }
+  },
+  "catalog": {
+    "retry": "再试一次",
+    "backToCurriculum": "返回学习路线",
+    "action": {
+      "start": "开始",
+      "continue": "继续",
+      "review": "复习",
+      "soon": "即将推出"
+    },
+    "page": {
+      "allCurricula": "全部学习路线",
+      "greeting": {
+        "morning": "早上好，{name}",
+        "evening": "晚上好，{name}"
+      },
+      "loading": "正在准备你的学习路线…",
+      "notFound": "学习路线不存在，或暂时不可用。"
+    },
+    "continue": {
+      "goals": "目标 {done}/{total}",
+      "resume": "从上次的地方继续",
+      "next": "下一节",
+      "start": "从这里开始",
+      "lessonsDone": {
+        "other": "{completed}/{count} 节课"
+      }
+    },
+    "cards": {
+      "title": "我的学习路线",
+      "count": {
+        "other": "{count} 条学习路线"
+      },
+      "done": "已学完 {completed}/{total}",
+      "available": "{count} 节可学",
+      "open": "打开学习路线",
+      "emptyTitle": "还没有可学的学习路线",
+      "emptyText": "过段时间再来看看，或者自己做一门课程。"
+    },
+    "plan": {
+      "label": "你在这条学习路线上的进度",
+      "summary": {
+        "other": "个目标已达成 · 已学完 {completed}/{count} 节课"
+      },
+      "goLabel": "{action}：{title}",
+      "restPart": "课程内容"
+    },
+    "lesson": {
+      "loading": "正在准备这节课…",
+      "unavailable": "这个版本的课在新平台上还不能用。"
+    },
+    "shell": {
+      "navLabel": "平台导航",
+      "closeMenu": "关闭菜单",
+      "openMenu": "打开菜单",
+      "navTitle": "你的学习空间",
+      "nav": {
+        "library": "我的学习路线",
+        "studio": "创建课程",
+        "teach": "教师面板",
+        "settings": "设置"
+      },
+      "account": "你的 Learn 账户",
+      "signOut": "退出登录",
+      "signOutFailed": "没能退出登录。"
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "account": {
+      "title": "账户",
+      "note": "保存在你的账户里，在任何设备上登录都能看到。",
+      "name": "你的名字",
+      "nameHint": "Nova 会这样称呼你。",
+      "email": "邮箱",
+      "saving": "正在保存…",
+      "saveName": "保存名字",
+      "nameSaved": "名字已更新。",
+      "passwordTitle": "修改密码",
+      "currentPassword": "当前密码",
+      "newPassword": "新密码",
+      "newPasswordHint": "至少 8 个字符。",
+      "changing": "正在修改…",
+      "changePassword": "修改密码",
+      "passwordSaved": "密码已修改，其他设备上的登录也已退出。",
+      "saveFailed": "没能保存。"
+    },
+    "language": {
+      "hint": "网站和 Nova 会使用这种语言，课保持编写时的语言。"
+    },
+    "lessons": {
+      "title": "课堂",
+      "note": "只保存在这台设备上，从下一节课开始生效。",
+      "questions": "题目",
+      "ask": "问我",
+      "show": "显示答案",
+      "pace": "课的节奏",
+      "paceManual": "我点下一步时",
+      "paceSlower": "自动，慢一点",
+      "paceNormal": "自动",
+      "paceFaster": "自动，快一点",
+      "narration": "语音讲解",
+      "narrationHint": "Nova 会朗读每一步。",
+      "handsFree": "免手动",
+      "handsFreeHint": "Nova 朗读，你用声音作答，不用碰屏幕。"
+    },
+    "nova": {
+      "title": "Nova",
+      "note": "只保存在这台设备上，从 Nova 下一次说话开始生效。",
+      "voice": "声音",
+      "voiceLabel": "Nova 的声音",
+      "paceLabel": "Nova 的语速",
+      "persona": "想让 Nova 是什么样的？",
+      "personaPlaceholder": "比如：温和、耐心，偶尔开个玩笑"
+    }
+  },
+  "app": {
+    "preview": {
+      "student": "学生",
+      "notReady": "这门课程还没准备好。{link}",
+      "backToGallery": "返回示例库"
+    },
+    "demos": {
+      "eyebrow": "New Learn 示例库",
+      "title": "同一门课，每次换一种风格",
+      "lead": "这些短课程都在同一个平台上做成：能用手拖动的互动画板、画板上的题目，还有 Nova 语音讲解。",
+      "soon": "即将推出"
+    },
+    "classroom": {
+      "saving": "正在保存…",
+      "saved": "已保存",
+      "offline": "离线",
+      "readAloudFailed": "我现在没法朗读这节课，所以先关掉了朗读。过一会儿再打开试试。",
+      "loadFailed": "课没能加载。检查一下网络再试试。",
+      "backToCurriculum": "返回学习路线",
+      "backToPlatform": "返回平台",
+      "loading": "正在准备这节课…",
+      "preview": "预览",
+      "previewTitle": "进度只保存在本次会话",
+      "previewLabel": "预览，进度只保存在本次会话"
+    }
+  },
+  "ui": {
+    "head": {
+      "title": "设计系统",
+      "lead": "所有共用的颜色、尺寸和组件。这里一改，所有用到它们的页面都会跟着变。"
+    },
+    "buttons": {
+      "title": "按钮",
+      "build": "开始生成",
+      "openLesson": "打开这节课",
+      "skip": "跳过",
+      "deleteDraft": "删除草稿",
+      "unavailable": "不可用",
+      "tryFree": "免费试用",
+      "seeDemos": "看看示例",
+      "small": "小",
+      "normal": "中",
+      "large": "大",
+      "settings": "设置"
+    },
+    "choices": {
+      "title": "选项",
+      "story": "先讲故事",
+      "steps": "一步一步",
+      "examples": "例题讲解",
+      "paceLabel": "讲解速度",
+      "slow": "慢",
+      "normal": "正常",
+      "fast": "快",
+      "whoLabel": "课程给谁",
+      "meTitle": "我自己",
+      "meText": "我在备考，或想学点新东西",
+      "studentsTitle": "我的学生",
+      "studentsText": "给一个班或一组学生讲的课程"
+    },
+    "fields": {
+      "title": "输入框",
+      "name": "你的名字",
+      "nameHint": "会显示给 Nova，也会印在你的证书上。",
+      "email": "邮箱",
+      "emailError": "这个邮箱格式不对。",
+      "note": "给这节课的批注",
+      "notePlaceholder": "写下你想说的…",
+      "levelLead": "学生",
+      "levelLabel": "水平",
+      "beginner": "零基础",
+      "some": "有些基础",
+      "narration": "语音讲解",
+      "narrationHint": "Nova 会朗读每一步。"
+    },
+    "feedback": {
+      "title": "状态与消息",
+      "draft": "草稿",
+      "fits": "适合你的主题",
+      "right": "对",
+      "wrong": "错",
+      "review": "需要审阅",
+      "error": "邮箱或密码不对。",
+      "savedTitle": "已保存",
+      "savedText": "你的设置已保存在这台设备上。",
+      "info": "正在生成，你可以关掉页面。",
+      "loading": "正在准备这节课…",
+      "emptyTitle": "还没有课程",
+      "emptyAction": "做第一门课程",
+      "emptyText": "写下一个想法，我们几分钟就能为你做好第一节互动课。"
+    },
+    "surfaces": {
+      "title": "表面",
+      "plain": "普通卡片",
+      "plainText": "用于页面上的主要内容。",
+      "soft": "柔和卡片",
+      "softText": "用于一组设置或摘要。",
+      "outline": "描边卡片",
+      "outlineText": "用于列表中的一项。",
+      "openDialog": "打开对话框",
+      "dialogTitle": "删除这份草稿？",
+      "dialogText": "删除后就无法恢复了。",
+      "delete": "删除",
+      "back": "返回"
+    },
+    "tokens": {
+      "coloursTitle": "颜色",
+      "colours": {
+        "primary": "主色",
+        "accent": "柠檬黄",
+        "tutor": "Nova",
+        "ink": "文字",
+        "muted": "次要文字",
+        "line": "线条",
+        "bg": "背景",
+        "paper": "课本纸",
+        "surfaceSoft": "柔和表面",
+        "success": "对",
+        "danger": "错",
+        "warning": "提醒"
+      },
+      "typeTitle": "字体与字号",
+      "type": {
+        "page": "页面标题",
+        "section": "区块标题",
+        "large": "大号文字",
+        "body": "所有页面的正文",
+        "small": "小字与细节"
+      },
+      "shapeTitle": "圆角与阴影"
+    }
+  },
+  "nova": {
+    "defaultName": "朋友",
+    "modal": {
+      "purposeQuiz": "课堂练习",
+      "purposeHelp": "课堂帮助",
+      "statusLoading": "正在准备回复",
+      "statusReady": "等你提问",
+      "statusVoice": "语音对话",
+      "close": "关闭 Nova",
+      "paused": "课停在这里",
+      "loadingContext": "正在准备课的上下文…",
+      "modes": "对话方式",
+      "chat": "文字",
+      "voice": "语音",
+      "previewOnly": "预览不需要账户。登录后从学习路线打开这节课，就能使用助手。",
+      "sessionOnly": "对话和练习只保存在本次会话。",
+      "backToLesson": "回到课堂"
+    },
+    "assistant": {
+      "endEyebrow": "巩固所学",
+      "endTitle": "来个这节课的小测验？",
+      "endLead": "十道题，每答一道都会弄清原因。选你觉得舒服的方式。",
+      "voiceQuiz": "语音测验",
+      "voiceQuizHint": "和 Nova 对话",
+      "chatQuiz": "文字测验",
+      "chatQuizHint": "一问一答，一步一步来",
+      "capsule": "Nova 帮助",
+      "ask": "问 Nova",
+      "talkVoice": "和 Nova 语音对话",
+      "openChat": "打开 Nova 聊天"
+    },
+    "chat": {
+      "log": "对话",
+      "welcome": "你好，{name} 👋",
+      "welcomeTitle": "在任何一个知识点停下来，我们一起弄懂。",
+      "welcomeLead": "可以问讲解、术语，或者需要解释的例子。",
+      "thinking": "Nova 正在准备回复…",
+      "latest": "↓ 最新消息",
+      "label": "给 Nova 的消息",
+      "placeholder": "问问我们正在学的这部分…",
+      "stop": "停止回复",
+      "send": "发送消息",
+      "footnote": "Enter 发送 · Shift + Enter 换行 · Nova 可能会出错，请核对讲解。",
+      "sendFailed": "消息没能发送。"
+    },
+    "quiz": {
+      "eyebrow": "课堂练习",
+      "title": "十道题，一步一步来。",
+      "lead": "题目是英文的，附有翻译，每答一道我们都一起弄清原因。",
+      "disclaimer": "AI 生成的练习，不是正式考试。成绩只保存在本次会话。",
+      "preparing": "正在准备题目…",
+      "prepare": "准备测验",
+      "cancel": "取消",
+      "doneEyebrow": "练习完成",
+      "score": "{score} / {total}",
+      "doneLead": "复习还需要巩固的知识点，哪道题不明白都可以问 Nova。",
+      "preparingNew": "正在准备新的练习…",
+      "again": "再练一次",
+      "progress": "第 {number} 题，共 {total} 题",
+      "correct": "回答正确",
+      "review": "我们来弄懂这道题",
+      "result": "查看成绩",
+      "next": "下一题",
+      "prepareFailed": "测验没能准备好。"
+    },
+    "voice": {
+      "status": {
+        "idle": "随时可以开始",
+        "connecting": "正在接通…",
+        "listening": "Nova 在听",
+        "speaking": "Nova 在说",
+        "paused": "通话已暂停"
+      },
+      "start": "开始通话",
+      "unmute": "打开麦克风",
+      "mute": "静音",
+      "resume": "继续通话",
+      "pause": "暂停",
+      "hangup": "挂断",
+      "footnote": "麦克风只在你允许后才开启。Nova 说话时，你可以随时打断。",
+      "micBlocked": "请在浏览器中允许使用麦克风，或者改用文字。",
+      "startFailed": "通话没能开始。",
+      "resumeFailed": "通话声音没能恢复。请重新拨打。",
+      "noMic": "这里的浏览器不支持麦克风。请改用文字。",
+      "closed": "通话已关闭。",
+      "slow": "连接太慢了。再试一次吧。",
+      "sessionFailed": "Nova 会话没能开始。",
+      "ended": "通话结束了。你可以再打一次。",
+      "readFailed": "没能读取 Nova 的回复。",
+      "connectFailed": "连接失败。检查一下网络再试试。",
+      "dropped": "通话断了。再打一次试试。",
+      "paces": {
+        "slowest": "特别慢",
+        "slow": "慢一点",
+        "normal": "正常"
+      }
+    },
+    "voiceStyle": {
+      "title": "Nova 的声音",
+      "voice": "声音",
+      "pace": "语速",
+      "persona": "想让 Nova 是什么样的？",
+      "personaPlaceholder": "比如：温和、耐心，偶尔开个玩笑",
+      "applies": "从 Nova 下一次说话开始生效。"
+    },
+    "lessonSettings": {
+      "label": "课堂设置和 Nova 的声音",
+      "narration": "Nova 朗读课文",
+      "narrationHint": "朗读每一步并自动翻页，遇到题目会停下。",
+      "volume": "音量",
+      "autoTurn": "自动翻页",
+      "paces": {
+        "manual": "手动",
+        "slower": "慢一点",
+        "normal": "正常",
+        "faster": "快一点"
+      },
+      "paceHint": "下一步出现前的等待时间。“手动”就是点“下一步”按钮。",
+      "questions": "题目",
+      "questionModes": {
+        "ask": "问我",
+        "show": "显示答案"
+      },
+      "questionsHint": "“显示答案”会直接往下讲，不等你作答。没作答就显示答案的题，不计入目标。"
+    },
+    "handsFree": {
+      "title": "收听模式（不用看屏幕）",
+      "hint": "Nova 朗读课文，你用声音回答题目，不用碰手机。可以锁屏。",
+      "wakeWord": "唤醒词",
+      "wakeWordHint": "先说唤醒词再说问题，就能在 Nova 朗读时打断她；也可以按一下耳机按钮。",
+      "noisy": "环境嘈杂",
+      "noisyHint": "Nova 只在唤醒词或耳机按钮之后才等你回答。",
+      "noisyNotice": "你那边好像有点吵。我会等你按一下耳机按钮，或者叫我一声，然后你再慢慢回答。",
+      "micOpenTalk": "麦克风已打开：请说",
+      "micOpenReply": "麦克风已打开，等你回答",
+      "ignoredNoise": "忽略了一段不是说话的声音：“{heard}”"
+    },
+    "talk": {
+      "hold": {
+        "idle": "按住说话",
+        "connecting": "正在连接…",
+        "listening": "在听…",
+        "thinking": "在思考…",
+        "speaking": "停",
+        "reading": "按住说话"
+      },
+      "placeholder": {
+        "idle": "问问 Nova 这一步…",
+        "connecting": "正在连接 Nova…",
+        "listening": "Nova 在听… 说完松开按钮",
+        "thinking": "Nova 在思考…",
+        "speaking": "Nova 在回复… 按住说话可以打断她",
+        "reading": "Nova 在朗读… 按住说话可以提问"
+      },
+      "tip": "按住按钮不放，同时说话",
+      "ask": "问 Nova",
+      "send": "发给 Nova",
+      "holdLabel": "长按和 Nova 说话",
+      "holdTitle": "长按说话，或长按空格键",
+      "orb": "Nova 对话：点一下打开，或长按说话",
+      "askFailed": "问题没能发送。再试一次吧。",
+      "voiceQuestion": "语音提问",
+      "micBlocked": "请在浏览器中允许使用麦克风，或者打字提问。",
+      "failed": "没能和 Nova 对话。",
+      "lessonLoading": "课还在加载。",
+      "noReply": "Nova 这次没回复。再试一次吧。"
+    }
+  },
+  "classroom": {
+    "probe": {
+      "title": "讲一个概念，试一试，再继续。",
+      "lead": "用测试音检验引擎，不是正式的课。"
+    },
+    "backToCurriculum": "{back} 返回学习路线",
+    "footer": "审阅版 · 原始音频 · 进度和笔记只保存在本次会话",
+    "header": {
+      "brandBack": "Learn，返回学习路线",
+      "brandStart": "Learn，回到课的开头",
+      "openGuide": "打开课堂指南",
+      "help": "课堂帮助"
+    },
+    "tools": {
+      "label": "学习工具",
+      "guide": "讲讲这个概念",
+      "terms": "术语",
+      "notes": "我的笔记",
+      "source": "资料来源",
+      "scenes": "场景"
+    },
+    "guide": {
+      "titles": {
+        "guide": "我们一点一点来弄懂",
+        "terms": "术语和含义",
+        "notes": "记下你的想法",
+        "source": "课的资料来源"
+      },
+      "label": "课堂帮助",
+      "title": "课堂指南",
+      "subtitle": "现成讲解和自我复习",
+      "close": "关闭帮助",
+      "eyebrowGuide": "一起想想",
+      "eyebrowTools": "学习工具",
+      "promptTitle": "盯住这个概念",
+      "promptText": "看画板上的概念，自己试着做题，然后把你的答案和老师的点评对照一下。",
+      "reviewTerms": "复习术语",
+      "notesLabel": "写个小结或问题，以后回来看。",
+      "notesPlaceholder": "你弄懂了什么？",
+      "notesHint": "笔记只保存在本次会话；关页面前记得复制。",
+      "openSource": "打开参考资料",
+      "sourceNote": "使用原始录音的审阅版。在这里展示不代表重新认可内容或时间点。",
+      "footer": "现成的课堂指南，不是 AI 对话"
+    }
+  },
+  "book": {
+    "loading": "正在准备这节课…",
+    "reference": {
+      "from": "出自课本 · 第 {pages} 页",
+      "sizes": "课本参考图大小",
+      "small": "小",
+      "smallLabel": "小尺寸参考图",
+      "half": "半屏",
+      "halfLabel": "半屏参考图",
+      "full": "全屏",
+      "fullLabel": "全屏参考图",
+      "hide": "隐藏",
+      "hideLabel": "隐藏课本参考图",
+      "zoomIn": "放大课本中讲到的部分",
+      "zoomOut": "缩小课本中讲到的部分",
+      "image": "第 {pages} 页中讲到的部分",
+      "open": "打开课本参考图",
+      "toggle": "课本 · 第 {pages} 页",
+      "fullDialog": "全屏课本参考图",
+      "panel": "课本参考图"
+    }
+  },
+  "boards": {
+    "html": {
+      "unavailable": "这个画板现在用不了。先看文字讲解继续吧。"
+    }
+  },
+  "studio": {
+    "form": {
+      "eyebrow": "课程工作室",
+      "title": "把一个想法做成互动课",
+      "lead": "写下你想学或想讲什么，说明给谁，再选个风格。我们会为你做一节有可玩画板和题目的课，别人看到之前你可以先审阅。",
+      "active": "有一门课程正在生成：{topic} {follow}",
+      "follow": "去看看",
+      "ideaNumber": "1",
+      "ideaTitle": "想法",
+      "detailsNumber": "2",
+      "detailsTitle": "给谁？",
+      "lookNumber": "3",
+      "lookTitle": "风格",
+      "examples": "示例",
+      "examplesLead": "或者从示例开始：",
+      "untitled": "新课",
+      "summary": "{audience} · {look} · 需要 5 到 20 分钟，可以关掉页面",
+      "sending": "正在发送你的请求…",
+      "start": "开始生成",
+      "dropHere": "把文件拖到这里",
+      "errors": {
+        "tooMany": "最多 5 个文件。",
+        "tooBig": "每个文件需小于 4 MB。",
+        "tooBigTogether": "所有文件加起来需小于 10 MB。",
+        "noTopic": "写一下课程是关于什么的。",
+        "startFailed": "没能开始生成。"
+      }
+    },
+    "composer": {
+      "label": "课程是关于什么的？",
+      "placeholder": "你想学或想讲什么？写下主题和任何重要的要求：“复利，结合国内银行的例子”",
+      "files": "你的文件",
+      "size": "{size} MB",
+      "remove": "移除 {name}",
+      "attach": "上传文件",
+      "webSearch": "联网搜索",
+      "hint": "PDF、Word、图片或文本，最多 5 个文件"
+    },
+    "details": {
+      "more": "更多细节",
+      "upToThree": "（最多 3 个）"
+    },
+    "leads": {
+      "myLevel": "我",
+      "goal": "我想",
+      "time": "我有",
+      "language": "用",
+      "students": "学生",
+      "questions": "题目",
+      "age": "年龄",
+      "boards": "画板"
+    },
+    "choices": {
+      "audience": {
+        "title": "课程给谁",
+        "me": "我自己",
+        "students": "我的学生",
+        "kids": "孩子"
+      },
+      "goal": {
+        "title": "目标",
+        "understand": "理解概念",
+        "practice": "练习做题",
+        "review": "快速复习"
+      },
+      "age": {
+        "title": "年龄",
+        "from4to6": "4 到 6 岁",
+        "from7to9": "7 到 9 岁",
+        "from10to12": "10 到 12 岁"
+      },
+      "level": {
+        "title": "学生水平",
+        "beginner": "零基础",
+        "some": "有些基础",
+        "revision": "复习"
+      },
+      "language": {
+        "title": "讲解语言",
+        "egyptian": "埃及方言",
+        "msa": "标准阿拉伯语",
+        "english": "英语",
+        "mixed": "阿拉伯语加英文术语"
+      },
+      "style": {
+        "title": "讲解方式",
+        "story": "先讲故事",
+        "steps": "一步一步",
+        "problem": "先抛问题",
+        "examples": "例题讲解",
+        "analogies": "生活中的类比"
+      },
+      "boards": {
+        "title": "画板",
+        "text": "只要文字",
+        "some": "有用时才互动",
+        "most": "大部分互动"
+      },
+      "questions": {
+        "title": "题目",
+        "each": "每个场景后",
+        "key": "在关键处",
+        "none": "不出题"
+      },
+      "size": {
+        "title": "规模",
+        "oneLesson": "1 节课",
+        "threeLessons": "3 节课",
+        "fiveLessons": "5 节课"
+      }
+    },
+    "audiences": {
+      "me": {
+        "name": "我自己",
+        "line": "我在备考，或想学点新东西",
+        "level": {
+          "beginner": "第一次听说",
+          "some": "了解一点",
+          "revision": "在备考"
+        },
+        "size": {
+          "oneLesson": "一刻钟",
+          "threeLessons": "大约一小时",
+          "fiveLessons": "一小时以上"
+        }
+      },
+      "students": {
+        "name": "我的学生",
+        "line": "给一个班或一组学生讲的课程"
+      },
+      "kids": {
+        "name": "孩子",
+        "line": "给我的儿子、女儿或低年级学生",
+        "size": {
+          "oneLesson": "1 节短课",
+          "threeLessons": "3 节短课",
+          "fiveLessons": "5 节短课"
+        }
+      }
+    },
+    "gallery": {
+      "label": "课的风格",
+      "fits": "适合你的主题",
+      "try": "看看",
+      "tryLook": "“{name}”风格",
+      "prevIcon": "‹",
+      "prev": "上一组风格",
+      "nextIcon": "›",
+      "next": "更多风格"
+    },
+    "preview": {
+      "description": "{line}用手试试这个画板。",
+      "choose": "选这个风格",
+      "openDemo": "打开示例课"
+    },
+    "progress": {
+      "loading": "正在获取课程状态…",
+      "newCourse": "新课程",
+      "status": {
+        "queued": "排队中",
+        "running": "正在生成",
+        "done": "完成",
+        "failed": "已停止"
+      },
+      "duration": "这需要 5 到 20 分钟。你可以关掉页面再回来，生成会继续。",
+      "waiting": "正在等待生成器接收你的请求…",
+      "retrying": "{error} 正在重试…",
+      "openFirst": "打开第一节课",
+      "myDrafts": "我的草稿",
+      "failed": "这门课程没能继续生成。{error} {retry}",
+      "retry": "再试一次"
+    },
+    "boards": {
+      "title": "画板",
+      "drawingNext": "正在画下一个画板…",
+      "drawingFirst": "正在画第一个画板…"
+    }
+  },
+  "teach": {
+    "loadingCourse": "正在准备课程…",
+    "loadingCourses": "正在准备你的课程…",
+    "lessonCount": {
+      "other": "{count} 节课"
+    },
+    "studentCount": {
+      "other": "{count} 名学生"
+    },
+    "openNoteCount": {
+      "other": "{count} 条待处理批注"
+    },
+    "status": {
+      "draft": "草稿",
+      "withdrawn": "已撤回",
+      "stale": "已发布，发布后有修改",
+      "live": "已发布 · 第 {version} 版"
+    },
+    "dashboard": {
+      "eyebrow": "教师面板",
+      "title": "你的课程",
+      "stats": {
+        "courses": "课程",
+        "published": "已发布",
+        "students": "学生",
+        "openNotes": "待处理批注"
+      },
+      "open": "打开",
+      "preview": "预览",
+      "emptyTitle": "你还没有课程",
+      "emptyAction": "做第一门课程",
+      "emptyBody": "写下一个想法或上传讲义，我们会为你做一份草稿，审阅后就能发布给学生。"
+    },
+    "course": {
+      "back": "你的课程",
+      "subjectFallback": "课程",
+      "previewFirst": "预览第一节课",
+      "tabsLabel": "课程分区",
+      "tabs": {
+        "publish": "发布",
+        "outline": "编排",
+        "notes": "批注",
+        "notesCount": "批注（{count}）"
+      }
+    },
+    "outline": {
+      "saved": "已保存。修改会在下次发布时送达学生。",
+      "title": "课程名称",
+      "subject": "科目",
+      "description": "简短介绍",
+      "descriptionHint": "会显示在学生看到的课程页面上。",
+      "partName": "第 {n} 单元名称",
+      "removePart": "删除单元",
+      "up": "上移",
+      "down": "下移",
+      "moveTo": "移到单元",
+      "movePlaceholder": "移到…",
+      "partFallback": "第 {n} 单元",
+      "addPart": "+ 新单元",
+      "saving": "正在保存…",
+      "save": "保存编排",
+      "moreLessons": "其他课",
+      "lessons": "课程内容"
+    },
+    "publish": {
+      "before": "发布前检查",
+      "published": "课程已发布。把链接发给学生吧。",
+      "updated": "新版本已送达学生。",
+      "wait": "稍等…",
+      "publishChanges": "发布修改",
+      "publishNew": "发布新版本",
+      "republish": "重新发布",
+      "publish": "发布给学生",
+      "withdrawDone": "课程已从学生那里撤回。",
+      "withdraw": "撤回课程",
+      "withdrawnNote": "课程已撤回：学生现在看不到它，他们的进度会保留到你重新发布。",
+      "linkTitle": "课程链接",
+      "linkNote": "任何人打开链接并登录自己的账户，就能开始这门课程。",
+      "copied": "已复制",
+      "copy": "复制",
+      "version": "第 {version} 版 · 发布于 {date}",
+      "students": "你的学生",
+      "lesson": "课",
+      "started": "已开始",
+      "finished": "已学完",
+      "noStudents": "还没有人开始。把链接发给学生吧。"
+    },
+    "notes": {
+      "status": {
+        "open": "待处理",
+        "review": "已修改，请审阅",
+        "done": "完成",
+        "dismissed": "已忽略"
+      },
+      "phase": {
+        "narration": "讲解",
+        "attempt": "题目",
+        "feedback": "答案"
+      },
+      "lessonFallback": "课",
+      "filterLabel": "批注状态",
+      "filter": "{status}（{count}）",
+      "where": "{phase} · 第 {step} 步",
+      "fix": "修改：{fix}",
+      "markDone": "完成",
+      "reopen": "重新打开",
+      "dismiss": "忽略",
+      "emptyFiltered": "没有这个状态的批注",
+      "empty": "没有批注",
+      "emptyBody": "打开预览，在任意一步写批注，连接到你账户的 AI 就会帮你修改。"
+    }
+  },
+  "authoring": {
+    "consent": {
+      "checking": "正在核对请求…",
+      "title": "“{name}”想访问你的课程",
+      "body": "你好，{name}。如果你允许，它可以在你的账户里把课程、课和互动画板创建为草稿，并读取和修改你在课上的批注。它不能向学生发布任何内容，也看不到你的账户或学生的数据。",
+      "host": "之后会跳转回：{host}",
+      "allow": "允许",
+      "deny": "拒绝"
+    },
+    "feedback": {
+      "kinds": {
+        "text": "讲解",
+        "board": "画板",
+        "question": "题目",
+        "translation": "翻译"
+      },
+      "status": {
+        "open": "待处理",
+        "review": "已修改，请审阅",
+        "done": "完成",
+        "dismissed": "已忽略"
+      },
+      "toggle": "草稿批注",
+      "toggleCount": "草稿批注（{count}）",
+      "panel": "这一步的批注",
+      "where": "{scene} · 第 {step} 步",
+      "end": "课的结尾",
+      "revision": "第 {revision} 版",
+      "fix": "修改：{fix}",
+      "done": "完成",
+      "notYet": "还没",
+      "kindLabel": "批注类型",
+      "placeholder": "这一步有什么需要调整？",
+      "noteLabel": "批注",
+      "send": "发送批注",
+      "hint": "跟 Claude 说：“看看我在这节课上的批注并修改。”它会把每条批注标为“已修改，请审阅”。"
+    },
+    "drafts": {
+      "start": "有讲解或文件想变成互动课？{link}",
+      "startLink": "创建课程",
+      "title": "我的草稿",
+      "dashboard": "教师面板",
+      "newCourse": "+ 创建新课程",
+      "revision": "第 {revision} 版"
+    }
+  },
+  "courses": {
+    "loading": "正在准备课程…",
+    "back": "你的书架",
+    "subjectFallback": "课程",
+    "by": "{teacher} 制作",
+    "lessonCount": {
+      "other": "{count} 节课"
+    },
+    "progress": "已学完 {done}/{total}",
+    "wait": "稍等…",
+    "continue": "继续这门课程",
+    "start": "开始课程",
+    "next": "下一节：{title}",
+    "lessonsFallback": "课程内容",
+    "completed": "已学完",
+    "started": "已开始",
+    "mine": {
+      "title": "已加入的课程",
+      "fallback": "课程",
+      "continue": "继续：{title}",
+      "start": "开始：{title}"
+    }
+  }
+}

@@ -219,7 +219,7 @@
   gap: var(--nl-space-8) var(--nl-space-6);
   max-width: 1160px;
   margin: 0 auto;
-  padding: var(--nl-space-12) clamp(16px, 4vw, 48px) var(--nl-space-10);
+  padding: 48px clamp(16px, 4vw, 48px) var(--nl-space-10);
   border-top: 1px solid var(--nl-line);
 }
 .site-foot-brand {
@@ -258,10 +258,20 @@
     grid-column: 1 / -1;
   }
 }
-/* The narrowest phones: the bar keeps the brand, the language globe and «start»; logging in
-   stays in the foot and on the sign-up page. */
+/* Phones: the bar keeps the brand mark and name, the language globe and «start» (longer in
+   some languages); logging in stays in the foot and on the sign-up page. */
+@media (max-width: 820px) {
+  .site-nav .nl-button--ghost,
+  .site-nav .brand strong span {
+    display: none;
+  }
+  .site-nav .nl-button {
+    white-space: nowrap;
+  }
+}
+/* The narrowest phones: the brand is its mark alone. */
 @media (max-width: 380px) {
-  .site-nav .nl-button--ghost {
+  .site-nav .brand strong {
     display: none;
   }
 }

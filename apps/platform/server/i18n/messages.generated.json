@@ -98,5 +98,726 @@
    "shortAudio": "الصوت قصير جدًا.",
    "badWakeWord": "كلمة النداء غير صحيحة."
   }
+ },
+ "de": {
+  "http": {
+   "notJson": "Die Anfrage muss JSON sein.",
+   "tooLarge": "Die Anfrage ist zu groß.",
+   "badBody": "Ungültige Anfragedaten.",
+   "badOrigin": "Herkunft der Anfrage nicht erlaubt.",
+   "notAllowed": "Anfrage nicht erlaubt.",
+   "notFound": "Seite nicht gefunden.",
+   "failed": "Das hat nicht geklappt. Versuch es noch mal.",
+   "badStatus": "Ungültiger Status."
+  },
+  "auth": {
+   "unavailable": "Der Kontodienst ist gerade nicht erreichbar.",
+   "unavailableRetry": "Der Kontodienst ist gerade nicht erreichbar. Versuch es noch mal.",
+   "unexpected": "Unerwartete Antwort vom Kontodienst.",
+   "nameLength": "Der Name braucht 2 bis 80 Zeichen.",
+   "passwordsNeeded": "Gib dein aktuelles und dein neues Passwort ein.",
+   "passwordLength": "Das neue Passwort braucht 8 bis 128 Zeichen.",
+   "signIn": "Melde dich an, um weiterzumachen.",
+   "checkFailed": "Die Anmeldung ließ sich nicht prüfen.",
+   "expired": "Deine Sitzung ist abgelaufen. Melde dich neu an."
+  },
+  "oauth": {
+   "badRequest": "Ungültige Verbindungsanfrage."
+  },
+  "content": {
+   "unavailable": "Die Lernpfade lassen sich gerade nicht laden. Versuch es gleich noch mal.",
+   "lessonNotReady": "Die Lektion ist noch nicht verfügbar.",
+   "lessonChanged": "Die Lektion wurde geändert. Öffne sie noch mal über den Lernpfad."
+  },
+  "progress": {
+   "invalid": "Ungültige Fortschrittsdaten.",
+   "unavailable": "Für diese Lektion lässt sich kein Fortschritt speichern.",
+   "savedElsewhere": "Der Fortschritt wurde an anderer Stelle gespeichert.",
+   "courseChanged": "Der Kurs wurde geändert. Öffne die Lektion noch mal über die Kursseite."
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} Lektionen fertig",
+    "one": "{count} Lektion fertig"
+   },
+   "noLessons": "Keine Lektionen im Kurs",
+   "hasTitle": "Der Kurs hat einen Titel",
+   "boardsFound": "Alle Boards vorhanden",
+   "boardProblems": {
+    "other": "{count} Boards mit Zeichenproblemen in der Vorschau",
+    "one": "{count} Board mit Zeichenproblemen in der Vorschau"
+   },
+   "boardsDrawn": "Boards in der Vorschau richtig gezeichnet",
+   "openNotes": {
+    "other": "{count} Notizen noch offen",
+    "one": "{count} Notiz noch offen"
+   },
+   "noOpenNotes": "Keine offenen Notizen",
+   "courseGone": "Diesen Kurs gibt es nicht, oder er wurde zurückgezogen.",
+   "notPublished": "Dieser Kurs ist nicht veröffentlicht.",
+   "lessonGone": "Diese Lektion gibt es nicht, oder der Kurs wurde zurückgezogen.",
+   "lessonMissing": "Diese Lektion gibt es nicht.",
+   "courseMissing": "Diesen Kurs gibt es nicht.",
+   "partsEveryLesson": "Die Teile müssen jede Lektion genau einmal enthalten.",
+   "otherLessons": "Weitere Lektionen"
+  },
+  "builds": {
+   "busy": "Ein Kurs wird gerade noch gebaut. Warte, bis er fertig ist.",
+   "dailyLimit": "Tageslimit erreicht. Versuch es morgen wieder.",
+   "jobMissing": "Diesen Auftrag gibt es nicht.",
+   "fileType": "Dateityp nicht unterstützt: nur PDF, Word, Bilder oder Text.",
+   "fileUnreadable": "Die Datei ist nicht lesbar.",
+   "fileSize": "Jede Datei muss kleiner als 4 MB sein.",
+   "topicShort": "Schreib, worum es im Kurs geht.",
+   "topicLong": "Die Beschreibung ist zu lang, bleib unter 4000 Zeichen.",
+   "badChoice": "Unbekannte Auswahl.",
+   "fileCount": "Höchstens 5 Dateien.",
+   "filesTotal": "Alle Dateien zusammen müssen kleiner als 10 MB sein."
+  },
+  "nova": {
+   "badPosition": "Ungültige Stelle in der Lektion.",
+   "badPhase": "Ungültige Phase der Lektion.",
+   "badTiming": "Ungültiges Timing der Lektion.",
+   "noLesson": "Keine Lektion angegeben.",
+   "draftChanged": "Der Entwurf wurde geändert. Öffne die Vorschau noch mal.",
+   "courseChanged": "Der Kurs wurde geändert. Öffne die Lektion noch mal.",
+   "trialChanged": "Die Testversion wurde geändert. Öffne die Lektion noch mal.",
+   "lessonUnavailable": "Die Lernhilfe ist nicht verfügbar.",
+   "wait": "Warte kurz vor der nächsten Anfrage.",
+   "unavailable": "Nova ist gerade nicht verfügbar.",
+   "timeout": "Die Antwort hat zu lange gedauert. Versuch es noch mal.",
+   "busy": "Gerade kommen viele Anfragen. Warte kurz und versuch es noch mal.",
+   "unreachable": "Nova ist nicht erreichbar. Versuch es noch mal.",
+   "noAnswer": "Keine klare Antwort. Formulier die Frage noch mal anders.",
+   "quizIncomplete": "Das Quiz ist unvollständig. Versuch es noch mal.",
+   "quizInvalid": "Die Quizfragen müssen neu erstellt werden. Versuch es noch mal.",
+   "quizUnreadable": "Das Quiz muss neu erstellt werden.",
+   "badChat": "Ungültiges Gespräch.",
+   "badMessage": "Ungültige Nachricht.",
+   "unknownAction": "Unbekannte Anfrage.",
+   "askFirst": "Schreib zuerst eine Frage.",
+   "callFailed": "Der Anruf ließ sich nicht vorbereiten.",
+   "badAudio": "Ungültiges Audio.",
+   "shortAudio": "Audio zu kurz.",
+   "badWakeWord": "Ungültiges Aktivierungswort."
+  }
+ },
+ "en": {
+  "http": {
+   "notJson": "The request must be JSON.",
+   "tooLarge": "The request is too large.",
+   "badBody": "The request data isn't valid.",
+   "badOrigin": "Request origin not allowed.",
+   "notAllowed": "Request not allowed.",
+   "notFound": "Page not found.",
+   "failed": "Couldn't complete the request. Try again.",
+   "badStatus": "Invalid status."
+  },
+  "auth": {
+   "unavailable": "The account service isn't available right now.",
+   "unavailableRetry": "The account service isn't available right now. Try again.",
+   "unexpected": "The account service sent an unexpected response.",
+   "nameLength": "Your name must be 2 to 80 characters.",
+   "passwordsNeeded": "Enter your current password and your new one.",
+   "passwordLength": "The new password must be 8 to 128 characters.",
+   "signIn": "Log in to continue.",
+   "checkFailed": "Couldn't verify your login session.",
+   "expired": "Your session has expired. Log in again."
+  },
+  "oauth": {
+   "badRequest": "Invalid connection request."
+  },
+  "content": {
+   "unavailable": "Couldn't load the curricula right now. Try again in a bit.",
+   "lessonNotReady": "This lesson isn't available yet.",
+   "lessonChanged": "This lesson's version has changed. Open the lesson from the curriculum again."
+  },
+  "progress": {
+   "invalid": "The progress data isn't valid.",
+   "unavailable": "Progress saving isn't available for this lesson.",
+   "savedElsewhere": "Progress was saved from somewhere else.",
+   "courseChanged": "This course's version has changed. Open the lesson from the course page again."
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} lessons ready",
+    "one": "{count} lesson ready"
+   },
+   "noLessons": "The course has no lessons",
+   "hasTitle": "The course has a title",
+   "boardsFound": "All boards are there",
+   "boardProblems": {
+    "other": "{count} boards have drawing notes from the preview",
+    "one": "{count} board has drawing notes from the preview"
+   },
+   "boardsDrawn": "Boards drew correctly in the preview",
+   "openNotes": {
+    "other": "{count} notes still open",
+    "one": "{count} note still open"
+   },
+   "noOpenNotes": "No open notes",
+   "courseGone": "This course doesn't exist or has been unpublished.",
+   "notPublished": "This course isn't published.",
+   "lessonGone": "This lesson doesn't exist, or its course has been unpublished.",
+   "lessonMissing": "This lesson doesn't exist.",
+   "courseMissing": "This course doesn't exist.",
+   "partsEveryLesson": "The parts must include every lesson exactly once.",
+   "otherLessons": "Other lessons"
+  },
+  "builds": {
+   "busy": "A course is still being built. Wait until it's done.",
+   "dailyLimit": "You've reached today's limit. Try again tomorrow.",
+   "jobMissing": "This job doesn't exist.",
+   "fileType": "This file type isn't supported: PDF, Word, images or text only.",
+   "fileUnreadable": "The file can't be read.",
+   "fileSize": "Each file must be under 4 MB.",
+   "topicShort": "Tell us what the course is about.",
+   "topicLong": "The description is too long. Keep it under 4000 characters.",
+   "badChoice": "Unknown choice.",
+   "fileCount": "5 files at most.",
+   "filesTotal": "All files together must be under 10 MB."
+  },
+  "nova": {
+   "badPosition": "Invalid lesson position.",
+   "badPhase": "Invalid lesson phase.",
+   "badTiming": "Invalid lesson timing.",
+   "noLesson": "No lesson specified.",
+   "draftChanged": "The draft has changed. Open the preview again.",
+   "courseChanged": "This course's version has changed. Open the lesson again.",
+   "trialChanged": "The trial version has changed. Open the lesson again.",
+   "lessonUnavailable": "Lesson help isn't available.",
+   "wait": "Wait a moment before sending another request.",
+   "unavailable": "Nova isn't available right now.",
+   "timeout": "The reply took too long. Try again.",
+   "busy": "Lots of requests right now. Wait a moment and try again.",
+   "unreachable": "Couldn't reach Nova. Try again.",
+   "noAnswer": "No clear answer. Try rephrasing your question.",
+   "quizIncomplete": "The quiz didn't finish. Try again.",
+   "quizInvalid": "The quiz questions need to be prepared again. Try again.",
+   "quizUnreadable": "The quiz needs to be prepared again.",
+   "badChat": "Invalid conversation.",
+   "badMessage": "Invalid message.",
+   "unknownAction": "Unknown request.",
+   "askFirst": "Type a question first.",
+   "callFailed": "Couldn't set up the call.",
+   "badAudio": "Invalid audio.",
+   "shortAudio": "The audio is too short.",
+   "badWakeWord": "Invalid wake word."
+  }
+ },
+ "es": {
+  "http": {
+   "notJson": "La solicitud debe estar en JSON.",
+   "tooLarge": "La solicitud es demasiado grande.",
+   "badBody": "Los datos de la solicitud no son válidos.",
+   "badOrigin": "El origen de la solicitud no está permitido.",
+   "notAllowed": "Solicitud no permitida.",
+   "notFound": "Página no encontrada.",
+   "failed": "No se pudo completar la solicitud. Inténtalo de nuevo.",
+   "badStatus": "Estado no válido."
+  },
+  "auth": {
+   "unavailable": "El servicio de cuentas no está disponible ahora.",
+   "unavailableRetry": "El servicio de cuentas no está disponible ahora. Inténtalo de nuevo.",
+   "unexpected": "El servicio de cuentas respondió algo inesperado.",
+   "nameLength": "El nombre debe tener entre 2 y 80 caracteres.",
+   "passwordsNeeded": "Escribe tu contraseña actual y la nueva.",
+   "passwordLength": "La contraseña nueva debe tener entre 8 y 128 caracteres.",
+   "signIn": "Inicia sesión para continuar.",
+   "checkFailed": "No se pudo verificar tu sesión.",
+   "expired": "Tu sesión expiró. Vuelve a iniciar sesión."
+  },
+  "oauth": {
+   "badRequest": "La solicitud de conexión no es válida."
+  },
+  "content": {
+   "unavailable": "No se pudieron cargar los programas ahora. Inténtalo de nuevo en un rato.",
+   "lessonNotReady": "La lección todavía no está disponible.",
+   "lessonChanged": "La versión de la lección cambió. Vuelve a abrirla desde el programa."
+  },
+  "progress": {
+   "invalid": "Los datos de avance no son válidos.",
+   "unavailable": "No se puede guardar el avance en esta lección.",
+   "savedElsewhere": "El avance se guardó desde otro lugar.",
+   "courseChanged": "La versión del curso cambió. Vuelve a abrir la lección desde la página del curso."
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} lecciones listas",
+    "one": "{count} lección lista"
+   },
+   "noLessons": "El curso no tiene lecciones",
+   "hasTitle": "El curso tiene título",
+   "boardsFound": "Están todas las pizarras",
+   "boardProblems": {
+    "other": "{count} pizarras con avisos de dibujo en la vista previa",
+    "one": "{count} pizarra con avisos de dibujo en la vista previa"
+   },
+   "boardsDrawn": "Las pizarras se dibujaron bien en la vista previa",
+   "openNotes": {
+    "other": "{count} notas siguen abiertas",
+    "one": "{count} nota sigue abierta"
+   },
+   "noOpenNotes": "No hay notas abiertas",
+   "courseGone": "Este curso no existe o fue retirado.",
+   "notPublished": "Este curso no está publicado.",
+   "lessonGone": "Esta lección no existe o el curso fue retirado.",
+   "lessonMissing": "Esta lección no existe.",
+   "courseMissing": "Este curso no existe.",
+   "partsEveryLesson": "Las partes deben incluir cada lección una sola vez.",
+   "otherLessons": "Otras lecciones"
+  },
+  "builds": {
+   "busy": "Ya hay un curso creándose. Espera a que termine.",
+   "dailyLimit": "Llegaste al límite de hoy. Inténtalo mañana.",
+   "jobMissing": "Esta tarea no existe.",
+   "fileType": "Este tipo de archivo no es compatible: solo PDF, Word, imágenes o texto.",
+   "fileUnreadable": "No se puede leer el archivo.",
+   "fileSize": "Cada archivo debe pesar menos de 4 MB.",
+   "topicShort": "Escribe de qué trata el curso.",
+   "topicLong": "La descripción es muy larga; déjala en menos de 4000 caracteres.",
+   "badChoice": "Opción desconocida.",
+   "fileCount": "Máximo 5 archivos.",
+   "filesTotal": "En total, los archivos deben pesar menos de 10 MB."
+  },
+  "nova": {
+   "badPosition": "Posición de la lección no válida.",
+   "badPhase": "Fase de la lección no válida.",
+   "badTiming": "Tiempo de la lección no válido.",
+   "noLesson": "No se indicó la lección.",
+   "draftChanged": "El borrador cambió. Vuelve a abrir la vista previa.",
+   "courseChanged": "La versión del curso cambió. Vuelve a abrir la lección.",
+   "trialChanged": "La versión de prueba cambió. Vuelve a abrir la lección.",
+   "lessonUnavailable": "La ayuda de la lección no está disponible.",
+   "wait": "Espera un momento antes de hacer otra solicitud.",
+   "unavailable": "La ayuda de Nova no está disponible ahora.",
+   "timeout": "La respuesta tardó demasiado. Inténtalo de nuevo.",
+   "busy": "Hay muchas solicitudes ahora. Espera un momento e inténtalo de nuevo.",
+   "unreachable": "No se pudo conectar con Nova. Inténtalo de nuevo.",
+   "noAnswer": "No hubo una respuesta clara. Intenta formular la pregunta de otra forma.",
+   "quizIncomplete": "La prueba no se completó. Inténtalo de nuevo.",
+   "quizInvalid": "Hay que volver a preparar las preguntas de la prueba. Inténtalo de nuevo.",
+   "quizUnreadable": "Hay que volver a preparar la prueba.",
+   "badChat": "Conversación no válida.",
+   "badMessage": "Mensaje no válido.",
+   "unknownAction": "Esa solicitud no existe.",
+   "askFirst": "Primero escribe una pregunta.",
+   "callFailed": "No se pudo preparar la llamada.",
+   "badAudio": "Audio no válido.",
+   "shortAudio": "El audio es demasiado corto.",
+   "badWakeWord": "Palabra de activación no válida."
+  }
+ },
+ "fr": {
+  "http": {
+   "notJson": "La requête doit être en JSON.",
+   "tooLarge": "La requête est trop volumineuse.",
+   "badBody": "Données de la requête invalides.",
+   "badOrigin": "Origine de la requête non autorisée.",
+   "notAllowed": "Requête non autorisée.",
+   "notFound": "Page introuvable.",
+   "failed": "La requête n’a pas abouti. Réessayez.",
+   "badStatus": "Statut invalide."
+  },
+  "auth": {
+   "unavailable": "Le service des comptes est indisponible pour le moment.",
+   "unavailableRetry": "Le service des comptes est indisponible pour le moment. Réessayez.",
+   "unexpected": "Réponse inattendue du service des comptes.",
+   "nameLength": "Le nom doit faire entre 2 et 80 caractères.",
+   "passwordsNeeded": "Saisissez le mot de passe actuel et le nouveau.",
+   "passwordLength": "Le nouveau mot de passe doit faire entre 8 et 128 caractères.",
+   "signIn": "Connectez-vous pour continuer.",
+   "checkFailed": "Impossible de vérifier votre session.",
+   "expired": "Votre session a expiré. Reconnectez-vous."
+  },
+  "oauth": {
+   "badRequest": "Demande de connexion invalide."
+  },
+  "content": {
+   "unavailable": "Impossible de charger les programmes pour le moment. Réessayez dans un instant.",
+   "lessonNotReady": "La leçon n’est pas encore disponible.",
+   "lessonChanged": "La version de la leçon a changé. Rouvrez la leçon depuis le programme."
+  },
+  "progress": {
+   "invalid": "Données de progression invalides.",
+   "unavailable": "L’enregistrement de la progression n’est pas disponible pour cette leçon.",
+   "savedElsewhere": "La progression a été enregistrée ailleurs.",
+   "courseChanged": "La version du cours a changé. Rouvrez la leçon depuis la page du cours."
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} leçons prêtes",
+    "one": "{count} leçon prête",
+    "many": "{count} leçons prêtes"
+   },
+   "noLessons": "Aucune leçon dans le cours",
+   "hasTitle": "Le cours a un titre",
+   "boardsFound": "Tous les tableaux sont là",
+   "boardProblems": {
+    "other": "{count} tableaux ont des remarques de rendu dans l’aperçu",
+    "one": "{count} tableau a des remarques de rendu dans l’aperçu",
+    "many": "{count} tableaux ont des remarques de rendu dans l’aperçu"
+   },
+   "boardsDrawn": "Les tableaux s’affichent correctement dans l’aperçu",
+   "openNotes": {
+    "other": "{count} remarques encore ouvertes",
+    "one": "{count} remarque encore ouverte",
+    "many": "{count} remarques encore ouvertes"
+   },
+   "noOpenNotes": "Aucune remarque ouverte",
+   "courseGone": "Ce cours n’existe pas ou a été retiré.",
+   "notPublished": "Ce cours n’est pas publié.",
+   "lessonGone": "Cette leçon n’existe pas ou le cours a été retiré.",
+   "lessonMissing": "Cette leçon n’existe pas.",
+   "courseMissing": "Ce cours n’existe pas.",
+   "partsEveryLesson": "Chaque leçon doit figurer une seule fois dans les parties.",
+   "otherLessons": "Autres leçons"
+  },
+  "builds": {
+   "busy": "Un cours est déjà en création. Attendez qu’il soit terminé.",
+   "dailyLimit": "Limite du jour atteinte. Réessayez demain.",
+   "jobMissing": "Cette tâche n’existe pas.",
+   "fileType": "Type de fichier non pris en charge : PDF, Word, images ou texte uniquement.",
+   "fileUnreadable": "Fichier illisible.",
+   "fileSize": "Chaque fichier doit faire moins de 4 Mo.",
+   "topicShort": "Indiquez le sujet du cours.",
+   "topicLong": "Description trop longue : restez sous 4 000 caractères.",
+   "badChoice": "Choix inconnu.",
+   "fileCount": "5 fichiers maximum.",
+   "filesTotal": "L’ensemble des fichiers doit faire moins de 10 Mo."
+  },
+  "nova": {
+   "badPosition": "Position dans la leçon invalide.",
+   "badPhase": "Phase de la leçon invalide.",
+   "badTiming": "Minutage de la leçon invalide.",
+   "noLesson": "Leçon non précisée.",
+   "draftChanged": "Le brouillon a changé. Rouvrez l’aperçu.",
+   "courseChanged": "La version du cours a changé. Rouvrez la leçon.",
+   "trialChanged": "La version d’essai a changé. Rouvrez la leçon.",
+   "lessonUnavailable": "L’aide de la leçon n’est pas disponible.",
+   "wait": "Patientez un peu avant une nouvelle demande.",
+   "unavailable": "L’aide de Nova est indisponible pour le moment.",
+   "timeout": "La réponse a trop tardé. Réessayez.",
+   "busy": "Trop de demandes en ce moment. Patientez un peu et réessayez.",
+   "unreachable": "Impossible de joindre Nova. Réessayez.",
+   "noAnswer": "Pas de réponse claire. Essayez de reformuler la question.",
+   "quizIncomplete": "Le quiz n’est pas complet. Réessayez.",
+   "quizInvalid": "Les questions du quiz doivent être préparées à nouveau. Réessayez.",
+   "quizUnreadable": "Le quiz doit être préparé à nouveau.",
+   "badChat": "Conversation invalide.",
+   "badMessage": "Message invalide.",
+   "unknownAction": "Demande inconnue.",
+   "askFirst": "Écrivez d’abord une question.",
+   "callFailed": "Impossible de préparer l’appel.",
+   "badAudio": "Audio invalide.",
+   "shortAudio": "Audio trop court.",
+   "badWakeWord": "Mot d’appel invalide."
+  }
+ },
+ "pt": {
+  "http": {
+   "notJson": "O pedido precisa ser JSON.",
+   "tooLarge": "O pedido é maior que o permitido.",
+   "badBody": "Os dados do pedido não são válidos.",
+   "badOrigin": "A origem do pedido não é permitida.",
+   "notAllowed": "Pedido não permitido.",
+   "notFound": "Página não encontrada.",
+   "failed": "Não deu para concluir o pedido. Tente de novo.",
+   "badStatus": "Status inválido."
+  },
+  "auth": {
+   "unavailable": "O serviço de contas está indisponível no momento.",
+   "unavailableRetry": "O serviço de contas está indisponível no momento. Tente de novo.",
+   "unexpected": "O serviço de contas respondeu de um jeito inesperado.",
+   "nameLength": "O nome precisa ter de 2 a 80 caracteres.",
+   "passwordsNeeded": "Digite a senha atual e a nova.",
+   "passwordLength": "A nova senha precisa ter de 8 a 128 caracteres.",
+   "signIn": "Entre na sua conta para continuar.",
+   "checkFailed": "Não deu para verificar sua sessão.",
+   "expired": "Sua sessão expirou. Entre de novo."
+  },
+  "oauth": {
+   "badRequest": "Pedido de conexão inválido."
+  },
+  "content": {
+   "unavailable": "Não deu para carregar as trilhas agora. Tente de novo daqui a pouco.",
+   "lessonNotReady": "Esta aula ainda não está disponível.",
+   "lessonChanged": "A versão da aula mudou. Abra a aula pela trilha de novo."
+  },
+  "progress": {
+   "invalid": "Os dados de progresso não são válidos.",
+   "unavailable": "Não é possível salvar o progresso desta aula.",
+   "savedElsewhere": "O progresso foi salvo em outro lugar.",
+   "courseChanged": "A versão do curso mudou. Abra a aula pela página do curso de novo."
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} aulas prontas",
+    "one": "{count} aula pronta"
+   },
+   "noLessons": "O curso não tem aulas",
+   "hasTitle": "O curso tem título",
+   "boardsFound": "Todos os quadros estão presentes",
+   "boardProblems": {
+    "other": "{count} quadros com avisos de desenho na prévia",
+    "one": "{count} quadro com avisos de desenho na prévia"
+   },
+   "boardsDrawn": "Os quadros foram desenhados certinho na prévia",
+   "openNotes": {
+    "other": "{count} comentários ainda em aberto",
+    "one": "{count} comentário ainda em aberto"
+   },
+   "noOpenNotes": "Nenhum comentário em aberto",
+   "courseGone": "Este curso não existe ou foi retirado.",
+   "notPublished": "Este curso não está publicado.",
+   "lessonGone": "Esta aula não existe ou o curso foi retirado.",
+   "lessonMissing": "Esta aula não existe.",
+   "courseMissing": "Este curso não existe.",
+   "partsEveryLesson": "As partes precisam conter cada aula uma única vez.",
+   "otherLessons": "Outras aulas"
+  },
+  "builds": {
+   "busy": "Já tem um curso sendo montado. Espere ele terminar.",
+   "dailyLimit": "Você chegou ao limite de hoje. Tente amanhã.",
+   "jobMissing": "Esta tarefa não existe.",
+   "fileType": "Tipo de arquivo não aceito: só PDF, Word, imagens ou texto.",
+   "fileUnreadable": "Não dá para ler o arquivo.",
+   "fileSize": "Cada arquivo precisa ter menos de 4 MB.",
+   "topicShort": "Escreva sobre o que é o curso.",
+   "topicLong": "A descrição está longa demais; use menos de 4000 caracteres.",
+   "badChoice": "Opção desconhecida.",
+   "fileCount": "No máximo 5 arquivos.",
+   "filesTotal": "Os arquivos juntos precisam ter menos de 10 MB."
+  },
+  "nova": {
+   "badPosition": "Posição da aula inválida.",
+   "badPhase": "Fase da aula inválida.",
+   "badTiming": "Tempo da aula inválido.",
+   "noLesson": "Nenhuma aula definida.",
+   "draftChanged": "O rascunho mudou. Abra a prévia de novo.",
+   "courseChanged": "A versão do curso mudou. Abra a aula de novo.",
+   "trialChanged": "A versão de teste mudou. Abra a aula de novo.",
+   "lessonUnavailable": "A ajuda da aula não está disponível.",
+   "wait": "Espere um pouco antes de pedir de novo.",
+   "unavailable": "A ajuda da Nova está indisponível no momento.",
+   "timeout": "A resposta demorou. Tente de novo.",
+   "busy": "Muitos pedidos agora. Espere um pouco e tente de novo.",
+   "unreachable": "Não deu para falar com a Nova. Tente de novo.",
+   "noAnswer": "Sem resposta clara. Tente fazer a pergunta de outro jeito.",
+   "quizIncomplete": "O teste não foi concluído. Tente de novo.",
+   "quizInvalid": "As perguntas do teste precisam ser preparadas de novo. Tente de novo.",
+   "quizUnreadable": "O teste precisa ser preparado de novo.",
+   "badChat": "Conversa inválida.",
+   "badMessage": "Mensagem inválida.",
+   "unknownAction": "Pedido não encontrado.",
+   "askFirst": "Escreva uma pergunta primeiro.",
+   "callFailed": "Não deu para preparar a chamada.",
+   "badAudio": "Áudio inválido.",
+   "shortAudio": "O áudio é curto demais.",
+   "badWakeWord": "Palavra de ativação inválida."
+  }
+ },
+ "tr": {
+  "http": {
+   "notJson": "İstek JSON olmalı.",
+   "tooLarge": "İstek izin verilenden büyük.",
+   "badBody": "İstek verileri geçersiz.",
+   "badOrigin": "İsteğin kaynağına izin verilmiyor.",
+   "notAllowed": "Bu isteğe izin verilmiyor.",
+   "notFound": "Sayfa bulunamadı.",
+   "failed": "İstek tamamlanamadı. Tekrar dene.",
+   "badStatus": "Durum geçersiz."
+  },
+  "auth": {
+   "unavailable": "Hesap hizmeti şu an kullanılamıyor.",
+   "unavailableRetry": "Hesap hizmeti şu an kullanılamıyor. Tekrar dene.",
+   "unexpected": "Hesap hizmetinden beklenmedik bir yanıt geldi.",
+   "nameLength": "Ad 2 ile 80 karakter arasında olmalı.",
+   "passwordsNeeded": "Mevcut ve yeni parolanı yaz.",
+   "passwordLength": "Yeni parola 8 ile 128 karakter arasında olmalı.",
+   "signIn": "Devam etmek için giriş yap.",
+   "checkFailed": "Oturum doğrulanamadı.",
+   "expired": "Oturumun sona erdi. Yeniden giriş yap."
+  },
+  "oauth": {
+   "badRequest": "Bağlantı isteği geçersiz."
+  },
+  "content": {
+   "unavailable": "Programlar şu an yüklenemiyor. Biraz sonra tekrar dene.",
+   "lessonNotReady": "Ders henüz hazır değil.",
+   "lessonChanged": "Dersin sürümü değişti. Dersi programdan yeniden aç."
+  },
+  "progress": {
+   "invalid": "İlerleme verileri geçersiz.",
+   "unavailable": "Bu ders için ilerleme kaydedilemiyor.",
+   "savedElsewhere": "İlerleme başka bir yerden kaydedildi.",
+   "courseChanged": "Kursun sürümü değişti. Dersi kurs sayfasından yeniden aç."
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} ders hazır",
+    "one": "{count} ders hazır"
+   },
+   "noLessons": "Kursta hiç ders yok",
+   "hasTitle": "Kursun bir adı var",
+   "boardsFound": "Tüm tahtalar yerinde",
+   "boardProblems": {
+    "other": "{count} tahtada önizlemeden kalan çizim notu var",
+    "one": "{count} tahtada önizlemeden kalan çizim notu var"
+   },
+   "boardsDrawn": "Tahtalar önizlemede doğru çizildi",
+   "openNotes": {
+    "other": "{count} not hâlâ açık",
+    "one": "{count} not hâlâ açık"
+   },
+   "noOpenNotes": "Açık not yok",
+   "courseGone": "Bu kurs yok ya da yayından kaldırıldı.",
+   "notPublished": "Bu kurs yayında değil.",
+   "lessonGone": "Bu ders yok ya da kurs yayından kaldırıldı.",
+   "lessonMissing": "Bu ders bulunamadı.",
+   "courseMissing": "Bu kurs bulunamadı.",
+   "partsEveryLesson": "Her ders bölümlerde tam bir kez yer almalı.",
+   "otherLessons": "Diğer dersler"
+  },
+  "builds": {
+   "busy": "Hâlâ oluşturulan bir kurs var. Bitmesini bekle.",
+   "dailyLimit": "Bugünkü sınıra ulaştın. Yarın tekrar dene.",
+   "jobMissing": "Bu görev bulunamadı.",
+   "fileType": "Bu dosya türü desteklenmiyor: yalnızca PDF, Word, fotoğraf ya da metin.",
+   "fileUnreadable": "Dosya okunamıyor.",
+   "fileSize": "Her dosya 4 MB'tan küçük olmalı.",
+   "topicShort": "Kursun ne hakkında olduğunu yaz.",
+   "topicLong": "Açıklama çok uzun; 4000 karakterin altında tut.",
+   "badChoice": "Bilinmeyen seçim.",
+   "fileCount": "En fazla 5 dosya.",
+   "filesTotal": "Dosyaların toplamı 10 MB'tan küçük olmalı."
+  },
+  "nova": {
+   "badPosition": "Dersteki konum geçersiz.",
+   "badPhase": "Ders aşaması geçersiz.",
+   "badTiming": "Ders zamanlaması geçersiz.",
+   "noLesson": "Ders belirtilmedi.",
+   "draftChanged": "Taslak değişti. Önizlemeyi yeniden aç.",
+   "courseChanged": "Kursun sürümü değişti. Dersi yeniden aç.",
+   "trialChanged": "Deneme sürümü değişti. Dersi yeniden aç.",
+   "lessonUnavailable": "Ders asistanı kullanılamıyor.",
+   "wait": "Yeni bir istekten önce biraz bekle.",
+   "unavailable": "Nova şu an kullanılamıyor.",
+   "timeout": "Cevap gecikti. Tekrar dene.",
+   "busy": "Şu an çok fazla istek var. Biraz bekleyip tekrar dene.",
+   "unreachable": "Nova'ya ulaşılamadı. Tekrar dene.",
+   "noAnswer": "Net bir cevap gelmedi. Soruyu farklı sormayı dene.",
+   "quizIncomplete": "Test tamamlanmadı. Tekrar dene.",
+   "quizInvalid": "Test soruları yeniden hazırlanmalı. Tekrar dene.",
+   "quizUnreadable": "Testin yeniden hazırlanması gerekiyor.",
+   "badChat": "Sohbet geçersiz.",
+   "badMessage": "Mesaj geçersiz.",
+   "unknownAction": "Böyle bir istek yok.",
+   "askFirst": "Önce bir soru yaz.",
+   "callFailed": "Görüşme hazırlanamadı.",
+   "badAudio": "Ses geçersiz.",
+   "shortAudio": "Ses çok kısa.",
+   "badWakeWord": "Çağrı sözcüğü geçersiz."
+  }
+ },
+ "zh": {
+  "http": {
+   "notJson": "请求必须是 JSON。",
+   "tooLarge": "请求太大了。",
+   "badBody": "请求数据不正确。",
+   "badOrigin": "请求来源不被允许。",
+   "notAllowed": "不允许此请求。",
+   "notFound": "页面不存在。",
+   "failed": "请求没能完成。再试一次吧。",
+   "badStatus": "状态不正确。"
+  },
+  "auth": {
+   "unavailable": "账户服务暂时不可用。",
+   "unavailableRetry": "账户服务暂时不可用。请再试一次。",
+   "unexpected": "账户服务返回了意外的响应。",
+   "nameLength": "名字需要 2 到 80 个字符。",
+   "passwordsNeeded": "请输入当前密码和新密码。",
+   "passwordLength": "新密码需要 8 到 128 个字符。",
+   "signIn": "请先登录再继续。",
+   "checkFailed": "无法验证登录状态。",
+   "expired": "登录已过期。请重新登录。"
+  },
+  "oauth": {
+   "badRequest": "连接请求不正确。"
+  },
+  "content": {
+   "unavailable": "暂时无法加载学习路线。稍后再试吧。",
+   "lessonNotReady": "这节课还没开放。",
+   "lessonChanged": "这节课的版本变了。请从学习路线重新打开。"
+  },
+  "progress": {
+   "invalid": "进度数据不正确。",
+   "unavailable": "这节课不支持保存进度。",
+   "savedElsewhere": "进度已在别处保存。",
+   "courseChanged": "课程版本变了。请从课程页面重新打开这节课。"
+  },
+  "publish": {
+   "lessonsReady": {
+    "other": "{count} 节课已就绪"
+   },
+   "noLessons": "课程里还没有课",
+   "hasTitle": "课程有标题",
+   "boardsFound": "所有画板都在",
+   "boardProblems": {
+    "other": "{count} 个画板在预览中有绘制问题"
+   },
+   "boardsDrawn": "画板在预览中都画对了",
+   "openNotes": {
+    "other": "{count} 条批注还没处理"
+   },
+   "noOpenNotes": "没有未处理的批注",
+   "courseGone": "这门课程不存在或已撤回。",
+   "notPublished": "这门课程还没发布。",
+   "lessonGone": "这节课不存在，或课程已撤回。",
+   "lessonMissing": "这节课不存在。",
+   "courseMissing": "这门课程不存在。",
+   "partsEveryLesson": "每节课都必须在单元里出现且只出现一次。",
+   "otherLessons": "其他课"
+  },
+  "builds": {
+   "busy": "有一门课程还在生成中。请等它完成。",
+   "dailyLimit": "今天的次数用完了。明天再试吧。",
+   "jobMissing": "这个任务不存在。",
+   "fileType": "不支持这种文件类型：只支持 PDF、Word、图片或文本。",
+   "fileUnreadable": "无法读取这个文件。",
+   "fileSize": "每个文件需小于 4 MB。",
+   "topicShort": "写一下课程是关于什么的。",
+   "topicLong": "描述太长了，请控制在 4000 字以内。",
+   "badChoice": "未知的选项。",
+   "fileCount": "最多 5 个文件。",
+   "filesTotal": "所有文件加起来需小于 10 MB。"
+  },
+  "nova": {
+   "badPosition": "课内位置不正确。",
+   "badPhase": "课的阶段不正确。",
+   "badTiming": "课的时间点不正确。",
+   "noLesson": "没有指定课。",
+   "draftChanged": "草稿已更改。请重新打开预览。",
+   "courseChanged": "课程版本变了。请重新打开这节课。",
+   "trialChanged": "试用版本变了。请重新打开这节课。",
+   "lessonUnavailable": "课堂助手不可用。",
+   "wait": "请稍等再发新请求。",
+   "unavailable": "Nova 助手暂时不可用。",
+   "timeout": "回复超时了。再试一次吧。",
+   "busy": "现在请求太多。稍等一下再试。",
+   "unreachable": "连不上 Nova 助手。再试一次吧。",
+   "noAnswer": "没有得到明确的回复。换个问法试试。",
+   "quizIncomplete": "测验没完成。再试一次吧。",
+   "quizInvalid": "测验题需要重新准备。再试一次吧。",
+   "quizUnreadable": "测验需要重新准备。",
+   "badChat": "对话不正确。",
+   "badMessage": "消息不正确。",
+   "unknownAction": "请求不存在。",
+   "askFirst": "先写一个问题。",
+   "callFailed": "通话没能准备好。",
+   "badAudio": "音频不正确。",
+   "shortAudio": "音频太短了。",
+   "badWakeWord": "唤醒词不正确。"
+  }
  }
 }
