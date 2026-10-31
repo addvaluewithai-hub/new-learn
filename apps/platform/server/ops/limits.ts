@@ -22,6 +22,8 @@ export const LIMITS = {
   /** Sign-up and sign-in attempts, per IP. */
   'auth.signup': { max: 10, seconds: 3600 },
   'auth.signin': { max: 30, seconds: 600 },
+  /** The public marketplace pages, per IP. */
+  'pages.public': { max: 600, seconds: 3600 },
   /** Error reports from browsers, per IP. */
   'errors.report': { max: 30, seconds: 3600 },
 } satisfies Record<string, Limit>;

@@ -87,6 +87,7 @@
       "account": "Compte",
       "help": "Aide",
       "looks": "Styles",
+      "courses": "Tous les cours",
       "demos": "Démos",
       "teachers": "Pour les enseignants",
       "connect": "Connecter votre IA",
@@ -687,7 +688,58 @@
     },
     "market": {
       "badGrade": "Niveau inconnu.",
-      "fixFirst": "Cette version doit d’abord être corrigée : corrigez-la et publiez une nouvelle version."
+      "fixFirst": "Cette version doit d’abord être corrigée : corrigez-la et publiez une nouvelle version.",
+      "page": {
+        "allCourses": "Tous les cours",
+        "home": "Accueil",
+        "teach": "Enseignants",
+        "privacy": "Confidentialité",
+        "terms": "Conditions",
+        "catalogueTitle": "Cours Learn",
+        "catalogueLead": "Des cours interactifs créés par des enseignants et relus par l’équipe Learn, avec un tuteur IA qui explique et répond.",
+        "search": "Rechercher",
+        "searchHint": "Cours, matière ou enseignant",
+        "subject": "Matière",
+        "grade": "Niveau",
+        "anySubject": "Toutes les matières",
+        "anyGrade": "Tous les niveaux",
+        "show": "Afficher",
+        "noMatch": "Aucun cours ne correspond.",
+        "empty": "Pas encore de cours ici.",
+        "free": "Gratuit",
+        "by": "avec {teacher}",
+        "reviewed": "Relu par l’équipe Learn",
+        "start": "Commencer le cours",
+        "open": "Ouvrir le cours",
+        "startNote": "Un compte gratuit suffit pour commencer et garder votre progression.",
+        "notFound": "Ce cours n’existe pas ou n’est pas au catalogue.",
+        "fallbackDescription": "Un cours interactif sur Learn : {title}.",
+        "lessons": {
+          "one": "{count} leçon",
+          "other": "{count} leçons"
+        },
+        "lessonsTitle": {
+          "one": "{count} leçon",
+          "other": "{count} leçons"
+        }
+      },
+      "grades": {
+        "kg": "Maternelle",
+        "g1": "Année 1",
+        "g2": "Année 2",
+        "g3": "Année 3",
+        "g4": "Année 4",
+        "g5": "Année 5",
+        "g6": "Année 6",
+        "g7": "Année 7",
+        "g8": "Année 8",
+        "g9": "Année 9",
+        "g10": "Année 10",
+        "g11": "Année 11",
+        "g12": "Année 12",
+        "university": "Université",
+        "adults": "Adultes"
+      }
     }
   },
   "build": {

@@ -35,6 +35,7 @@ const COLUMNS: Array<[TextKey, Array<[TextKey, string]>]> = [
     'site.foot.product',
     [
       ['site.foot.looks', SITE_LINKS.looks],
+      ['site.foot.courses', SITE_LINKS.courses],
       ['site.foot.demos', SITE_LINKS.demos],
       ['site.foot.teachers', SITE_LINKS.teachers],
       ['site.foot.connect', SITE_LINKS.connect],

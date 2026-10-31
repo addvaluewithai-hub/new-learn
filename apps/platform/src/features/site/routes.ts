@@ -33,6 +33,8 @@ export const SITE_LINKS = {
   looks: '/#looks',
   demos: '/?preview=demos',
   teachers: '/teachers',
+  /** The marketplace's public pages (Pages Functions, docs/marketplace.md). */
+  courses: '/courses',
   connect: '/teachers#connect',
   support: '/support',
   privacy: '/privacy',

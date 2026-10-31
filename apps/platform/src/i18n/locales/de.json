@@ -87,6 +87,7 @@
       "account": "Konto",
       "help": "Hilfe",
       "looks": "Stile",
+      "courses": "Alle Kurse",
       "demos": "Demos",
       "teachers": "Für Lehrkräfte",
       "connect": "Deine KI verbinden",
@@ -684,7 +685,58 @@
     },
     "market": {
       "badGrade": "Unbekannte Klasse.",
-      "fixFirst": "Diese Version braucht zuerst Änderungen: korrigiere sie und veröffentliche eine neue Version."
+      "fixFirst": "Diese Version braucht zuerst Änderungen: korrigiere sie und veröffentliche eine neue Version.",
+      "page": {
+        "allCourses": "Alle Kurse",
+        "home": "Start",
+        "teach": "Für Lehrkräfte",
+        "privacy": "Datenschutz",
+        "terms": "Bedingungen",
+        "catalogueTitle": "Learn-Kurse",
+        "catalogueLead": "Interaktive Kurse von Lehrkräften, geprüft vom Learn-Team, mit einem KI-Tutor, der erklärt und antwortet.",
+        "search": "Suchen",
+        "searchHint": "Kurs, Fach oder Lehrkraft",
+        "subject": "Fach",
+        "grade": "Klasse",
+        "anySubject": "Alle Fächer",
+        "anyGrade": "Alle Klassen",
+        "show": "Anzeigen",
+        "noMatch": "Keine Kurse passen dazu.",
+        "empty": "Hier gibt es noch keine Kurse.",
+        "free": "Kostenlos",
+        "by": "mit {teacher}",
+        "reviewed": "Vom Learn-Team geprüft",
+        "start": "Kurs starten",
+        "open": "Kurs öffnen",
+        "startNote": "Du brauchst ein kostenloses Konto, um zu starten und deinen Fortschritt zu speichern.",
+        "notFound": "Diesen Kurs gibt es nicht oder er ist nicht gelistet.",
+        "fallbackDescription": "Ein interaktiver Kurs auf Learn: {title}.",
+        "lessons": {
+          "one": "{count} Lektion",
+          "other": "{count} Lektionen"
+        },
+        "lessonsTitle": {
+          "one": "{count} Lektion",
+          "other": "{count} Lektionen"
+        }
+      },
+      "grades": {
+        "kg": "Kindergarten",
+        "g1": "Klasse 1",
+        "g2": "Klasse 2",
+        "g3": "Klasse 3",
+        "g4": "Klasse 4",
+        "g5": "Klasse 5",
+        "g6": "Klasse 6",
+        "g7": "Klasse 7",
+        "g8": "Klasse 8",
+        "g9": "Klasse 9",
+        "g10": "Klasse 10",
+        "g11": "Klasse 11",
+        "g12": "Klasse 12",
+        "university": "Universität",
+        "adults": "Erwachsene"
+      }
     }
   },
   "build": {
