@@ -8,16 +8,16 @@ Items E5–E11 come from docs/ux-audit.md ("Still open").
 
 | ID  | Task                                                                                                                                                         | Who  | Pri | Status | Needs  |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | --- | ------ | ------ |
-| E1  | Teacher pages polish: «مسوداتي», draft preview, notes panel, consent screen                                                                                  | Ess  | P0  | Todo   | —      |
+| E1  | Teacher pages polish: «مسوداتي» (counts, workspace link, first lessons), consent screen (can / cannot lists), draft preview                                  | Ess  | P0  | Done   | —      |
 | E2  | Home dashboard: continue card, today's goal, streak, my courses                                                                                              | Both | P1  | Todo   | R1, R2 |
-| E3  | Loading states: library, course and lesson skeletons; lesson and board loading; Nova connecting                                                              | Ess  | P1  | Todo   | —      |
-| E4  | Error, offline and 404 states with a retry; empty states on every list (retry and empty states on the library; offline and 404 later)                        | Ess  | P1  | Doing  | —      |
-| E5  | Library cards: art per subject, remove filler label, real counts                                                                                             | Ess  | P1  | Todo   | —      |
-| E6  | Curriculum page: hero repeats the first item, long card list, double «قريبًا»                                                                                | Ess  | P1  | Todo   | —      |
-| E7  | Classroom header: misleading «الدروس»/«المكتبة» labels, dead «مساحة الدرس» pill                                                                              | Ess  | P1  | Todo   | —      |
-| E8  | One digit system across the app (Western suggested, suits maths) (numbers in messages are Western in every language; some Arabic copy still writes ١٢٣)      | Ess  | P1  | Doing  | —      |
-| E9  | Review wording students should not see («نسخة للمراجعة»)                                                                                                     | Ess  | P1  | Todo   | —      |
-| E10 | Lesson completion screen: goals reached, next lesson, Nova practice, a small celebration                                                                     | Ess  | P1  | Todo   | —      |
+| E3  | Loading states: page skeletons (library, course, teacher pages, credits, review), boards shimmer until ready; Nova connecting already shown                  | Ess  | P1  | Done   | —      |
+| E4  | Error, offline and 404 states with a retry; empty states on every list (retry on load errors, an offline line, a not-found page)                             | Ess  | P1  | Done   | —      |
+| E5  | Library cards: art per subject, remove filler label, real counts                                                                                             | Ess  | P1  | Done   | —      |
+| E6  | Curriculum page: hero repeats the first item, long card list, double «قريبًا»                                                                                | Ess  | P1  | Done   | —      |
+| E7  | Classroom header: misleading «الدروس»/«المكتبة» labels, dead «مساحة الدرس» pill                                                                              | Ess  | P1  | Done   | —      |
+| E8  | One digit system across the app: Western digits in every language                                                                                            | Ess  | P1  | Done   | —      |
+| E9  | Review wording students should not see («نسخة للمراجعة»)                                                                                                     | Ess  | P1  | Done   | —      |
+| E10 | Lesson completion screen: goals reached, next lesson, practice with Nova, a small celebration                                                                | Ess  | P1  | Done   | —      |
 | E11 | Recorded-lesson start state (blank board, small Play)                                                                                                        | Ess  | P2  | Todo   | —      |
 | E12 | Recorded-lesson progress: Ess designs steps/numbers, Owner builds it in the runtime                                                                          | Both | P2  | Todo   | K3     |
 | E13 | Profile and settings: name, password, language, Nova wake word, reminders (`?settings`: name, password, language, lesson and Nova settings; reminders later) | Both | P1  | Done   | —      |

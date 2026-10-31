@@ -13,7 +13,9 @@
       "offline": "Connection lost. Check your internet and try again.",
       "unexpected": "The platform sent an unexpected response. Try again.",
       "failed": "Couldn't complete the request."
-    }
+    },
+    "retry": "Try again",
+    "offline": "You're offline. We'll carry on as soon as you're back."
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "Yes. You add the site as a connector and ask it for the lesson from your account. It only sees your drafts, and it can't publish or see your students."
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "Page not found · New Learn",
+      "title": "This page doesn't exist.",
+      "lead": "The link may have changed or been mistyped. Head home, or contact us if you need anything.",
+      "home": "Home",
+      "support": "Support"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "You answered {answered} of {questions} questions",
     "goalsMet": "Goals: {met} of {goals}",
     "nextLesson": "Next lesson: {title}",
-    "reviewLesson": "Review the lesson from the start"
+    "reviewLesson": "Review the lesson from the start",
+    "practiceWithNova": "Practice with Nova",
+    "practiceRequest": "Ask me two short questions about this lesson so I can check I understood it."
   },
   "server": {
     "http": {
@@ -776,8 +787,8 @@
     "cards": {
       "title": "My curricula",
       "count": {
-        "other": "{count} curricula",
-        "one": "{count} curriculum"
+        "one": "{count} curriculum",
+        "other": "{count} curricula"
       },
       "done": "Finished {completed} of {total}",
       "available": "{count} available",
@@ -1171,7 +1182,7 @@
       "lead": "An engine test with sample tones, not an approved lesson."
     },
     "backToCurriculum": "{back} Back to curriculum",
-    "footer": "Review copy · original audio · progress and notes for this session only",
+    "footer": "Original recording · progress and notes for this session only",
     "header": {
       "brandBack": "Learn, back to curriculum",
       "brandStart": "Learn, start of lesson",
@@ -1206,7 +1217,7 @@
       "notesPlaceholder": "What idea clicked for you?",
       "notesHint": "Notes last for this session only; copy them before you close the page.",
       "openSource": "Open the source",
-      "sourceNote": "A review copy with the original recordings. Showing it here doesn't mean the content or timings have been re-approved.",
+      "sourceNote": "The lesson explained with its original recordings.",
       "footer": "A ready-made lesson guide, not an AI chat"
     }
   },
@@ -1547,14 +1558,29 @@
       "notesTitle": "Reviewer's notes",
       "superseded": "A newer version was sent for review.",
       "publicPrice": "Students see version {version} · {price}"
+    },
+    "connect": {
+      "title": "Connect your Claude or ChatGPT",
+      "lead": "Add this link as a connector and ask it for a lesson in your own words. It writes it here as a draft, and it can't publish.",
+      "address": "Connector link",
+      "how": "How to connect it"
     }
   },
   "authoring": {
     "consent": {
       "checking": "Checking the request…",
       "title": "“{name}” wants access to your courses",
-      "body": "Hi {name}. If you allow it, it can create courses, lessons and interactive boards as drafts in your account, and read and fix your notes on lessons. It can't publish anything to students or see your account or your students' data.",
+      "greeting": "Hi {name}. If you allow it, it can work in your account like this:",
+      "can": [
+        "Create courses, lessons and interactive boards as drafts.",
+        "Read your notes on lessons and fix them."
+      ],
+      "cannot": [
+        "It can't publish anything to students.",
+        "It can't see your account or your students' data."
+      ],
       "host": "It will send you back to: {host}",
+      "revoke": "You can turn this connection off at any time from the support page.",
       "allow": "Allow",
       "deny": "Don't allow"
     },
@@ -1592,7 +1618,16 @@
       "title": "My drafts",
       "dashboard": "Teacher dashboard",
       "newCourse": "+ Make a new course",
-      "revision": "Version {revision}"
+      "revision": "Version {revision}",
+      "lessons": {
+        "one": "1 lesson",
+        "other": "{count} lessons"
+      },
+      "open": "Open in teacher dashboard",
+      "more": {
+        "one": "and 1 more lesson",
+        "other": "and {count} more lessons"
+      }
     }
   },
   "courses": {

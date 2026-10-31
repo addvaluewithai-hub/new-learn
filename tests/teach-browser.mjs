@@ -204,6 +204,10 @@ async function run(width, height) {
   await page.goto(`${app}/?teach`);
   await page.getByRole('heading', { name: 'كورساتك', level: 1 }).waitFor({ timeout: 20000 });
   assert.equal(await page.locator('.teach-course').count(), 1);
+  // «Connect your AI»: the connector address, copied with one click.
+  await page.locator('.teach-connect').getByRole('button').click();
+  if (width === 1280)
+    assert.match(await page.evaluate(() => navigator.clipboard.readText()), /\/mcp$/);
   await page.screenshot({ path: `test-results/teach-${width}.png`, fullPage: true });
   await page.getByRole('link', { name: 'افتح' }).click();
   await page.getByRole('heading', { name: 'المية', level: 1 }).waitFor();

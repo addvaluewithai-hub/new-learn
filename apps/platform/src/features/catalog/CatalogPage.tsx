@@ -14,7 +14,7 @@ import './library-account.css';
 import './catalog-cards.css';
 import './home-pick.css';
 import './study-plan.css';
-import { Alert, Button, ButtonLink, Spinner } from '../../shared/ui';
+import { Alert, Button, ButtonLink, PageSkeleton } from '../../shared/ui';
 import { useI18n } from '../../i18n';
 import { Rich } from '../../i18n/Rich';
 export default function CatalogPage({
@@ -76,7 +76,7 @@ export default function CatalogPage({
         {current ? <p>{current.description}</p> : null}
       </div>
       {loading ? (
-        <Spinner label={t('catalog.page.loading')} />
+        <PageSkeleton label={t('catalog.page.loading')} />
       ) : error ? (
         <Alert tone="error">
           {error}{' '}

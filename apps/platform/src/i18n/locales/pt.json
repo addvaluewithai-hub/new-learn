@@ -13,7 +13,9 @@
       "offline": "A conexão caiu. Confira a internet e tente de novo.",
       "unexpected": "A plataforma respondeu de um jeito inesperado. Tente de novo.",
       "failed": "Não deu para concluir o pedido."
-    }
+    },
+    "retry": "Tentar de novo",
+    "offline": "Você está sem conexão. A gente continua assim que ela voltar."
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "Pode. Você adiciona o site como connector e pede a aula pela sua conta. Ele só vê seus rascunhos e não pode publicar nem ver os alunos."
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "Página não encontrada · New Learn",
+      "title": "Esta página não existe.",
+      "lead": "O link pode ter mudado ou estar errado. Volte ao início ou fale com a gente se precisar.",
+      "home": "Início",
+      "support": "Suporte"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "Você respondeu {answered} de {questions} perguntas",
     "goalsMet": "Metas: {met} de {goals}",
     "nextLesson": "Próxima aula: {title}",
-    "reviewLesson": "Rever a aula do início"
+    "reviewLesson": "Rever a aula do início",
+    "practiceWithNova": "Pratique com a Nova",
+    "practiceRequest": "Me faça duas perguntas curtas sobre esta aula para eu ver se entendi."
   },
   "server": {
     "http": {
@@ -776,8 +787,8 @@
     "cards": {
       "title": "Minhas trilhas",
       "count": {
-        "other": "{count} trilhas",
-        "one": "{count} trilha"
+        "one": "{count} trilha",
+        "other": "{count} trilhas"
       },
       "done": "Você concluiu {completed} de {total}",
       "available": "{count} disponíveis",
@@ -1171,7 +1182,7 @@
       "lead": "Teste do motor com tons sintéticos, não é uma aula aprovada."
     },
     "backToCurriculum": "{back} Voltar à trilha",
-    "footer": "Versão para revisão · áudio original · progresso e anotações só nesta sessão",
+    "footer": "Gravação original · progresso e anotações só desta sessão",
     "header": {
       "brandBack": "Learn, voltar à trilha",
       "brandStart": "Learn, início da aula",
@@ -1206,7 +1217,7 @@
       "notesPlaceholder": "Que ideia você entendeu?",
       "notesHint": "Anotações só desta sessão; copie antes de fechar a página.",
       "openSource": "Abrir a referência",
-      "sourceNote": "Versão de revisão com as gravações originais. Mostrá-la aqui não significa aprovar de novo o conteúdo ou os tempos.",
+      "sourceNote": "A aula explicada com as gravações originais.",
       "footer": "Um guia pronto da aula, não uma conversa com IA"
     }
   },
@@ -1547,14 +1558,29 @@
       "notesTitle": "Comentários da revisão",
       "superseded": "Uma versão mais nova foi enviada para revisão.",
       "publicPrice": "Os alunos veem a versão {version} · {price}"
+    },
+    "connect": {
+      "title": "Conecte seu Claude ou ChatGPT",
+      "lead": "Adicione este link como connector e peça uma aula com suas palavras. Ele escreve aqui como rascunho e não pode publicar.",
+      "address": "Link do connector",
+      "how": "Como conectar"
     }
   },
   "authoring": {
     "consent": {
       "checking": "Verificando o pedido…",
       "title": "«{name}» quer acessar seus cursos",
-      "body": "Oi, {name}. Se você permitir, ele vai poder criar cursos, aulas e quadros interativos como rascunhos na sua conta, além de ler e corrigir seus comentários nas aulas. Ele não vai poder publicar nada para os alunos nem ver sua conta ou os dados dos seus alunos.",
+      "greeting": "Olá, {name}. Se você permitir, ele vai poder fazer isto na sua conta:",
+      "can": [
+        "Criar cursos, aulas e quadros interativos como rascunho.",
+        "Ler seus comentários nas aulas e corrigi-los."
+      ],
+      "cannot": [
+        "Não vai poder publicar nada para os alunos.",
+        "Não vai ver sua conta nem os dados dos seus alunos."
+      ],
       "host": "Você vai voltar para: {host}",
+      "revoke": "Você pode desligar essa conexão a qualquer momento pela página de suporte.",
       "allow": "Permitir",
       "deny": "Não"
     },
@@ -1592,7 +1618,16 @@
       "title": "Meus rascunhos",
       "dashboard": "Painel do professor",
       "newCourse": "+ Criar novo curso",
-      "revision": "Versão {revision}"
+      "revision": "Versão {revision}",
+      "lessons": {
+        "one": "1 aula",
+        "other": "{count} aulas"
+      },
+      "open": "Abrir no painel do professor",
+      "more": {
+        "one": "e mais 1 aula",
+        "other": "e mais {count} aulas"
+      }
     }
   },
   "courses": {

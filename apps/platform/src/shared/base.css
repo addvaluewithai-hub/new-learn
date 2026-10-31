@@ -3,6 +3,7 @@
 @import './ui/ui-controls.css';
 @import './ui/ui-fields.css';
 @import './ui/ui-surfaces.css';
+@import './ui/ui-skeleton.css';
 :root {
   font-family: var(--learn-font);
   color: var(--learn-ink);

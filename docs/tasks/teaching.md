@@ -38,7 +38,7 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 | T3  | Classes: invite students by link or code, assign lessons, progress by scene                                       | Both | P2  | Todo   | F1      |
 | T4  | Where students struggle: failed questions and drop-off per lesson                                                 | Both | P2  | Todo   | T3, V7  |
 | T5  | Teacher public profile page                                                                                       | Both | P3  | Todo   | M1      |
-| T6  | In-app "connect your AI" card with a copy button for the `/mcp` link                                              | Ess  | P1  | Todo   | A5      |
+| T6  | In-app "connect your AI" card with a copy button for the `/mcp` link (teacher dashboard)                          | Ess  | P1  | Done   | A5      |
 | T7  | Insights: what students ask Nova most, per lesson and step                                                        | Both | P2  | Todo   | V7      |
 | T8  | Ask the teacher: a question inbox or office hours when Nova isn't enough                                          | Both | P3  | Todo   | T3      |
 | T9  | Gift access to a paid course by e-mail (`course_access` source `gift`)                                            | Both | P2  | Todo   | M4      |

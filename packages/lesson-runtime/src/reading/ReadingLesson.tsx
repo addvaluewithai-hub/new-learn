@@ -175,6 +175,14 @@ function ReadingSession(props: ReadingLessonProps) {
             next={props.next}
             exit={props.exit}
             onReview={() => go(0)}
+            onPractice={
+              talk
+                ? () => {
+                    setThread(true);
+                    talk.onAsk(text.practiceRequest);
+                  }
+                : undefined
+            }
           />
         </div>
       ) : (

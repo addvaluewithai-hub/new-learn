@@ -64,7 +64,8 @@ export function StudyPlan({
                     </span>
                     <div className="plan-lesson-copy">
                       <h3>{lesson.title}</h3>
-                      {lesson.subtitle ? <p dir="auto">{lesson.subtitle}</p> : null}
+                      {/* A lesson not out yet says so once, not also in its subtitle. */}
+                      {lesson.subtitle && open(lesson) ? <p dir="auto">{lesson.subtitle}</p> : null}
                       {open(lesson) ? (
                         <GoalMarks
                           done={lesson.progress?.goalsDone ?? 0}

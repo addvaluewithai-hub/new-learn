@@ -13,7 +13,9 @@
       "offline": "Keine Verbindung. Prüf dein Internet und versuch es noch mal.",
       "unexpected": "Unerwartete Antwort der Plattform. Versuch es noch mal.",
       "failed": "Das hat nicht geklappt."
-    }
+    },
+    "retry": "Noch mal versuchen",
+    "offline": "Du bist offline. Sobald du wieder online bist, geht es weiter."
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "Ja. Du fügst die Seite als Connector hinzu und bittest es in deinem Konto um die Lektion. Es sieht nur deine Entwürfe und kann weder veröffentlichen noch Schüler sehen."
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "Seite nicht gefunden · New Learn",
+      "title": "Diese Seite gibt es nicht.",
+      "lead": "Vielleicht hat sich der Link geändert oder er ist falsch geschrieben. Zurück zur Startseite, oder schreib uns, wenn du Hilfe brauchst.",
+      "home": "Startseite",
+      "support": "Support"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "{answered} von {questions} Fragen beantwortet",
     "goalsMet": "Ziele: {met} von {goals}",
     "nextLesson": "Nächste Lektion: {title}",
-    "reviewLesson": "Lektion noch mal von vorn"
+    "reviewLesson": "Lektion noch mal von vorn",
+    "practiceWithNova": "Mit Nova üben",
+    "practiceRequest": "Stell mir zwei kurze Fragen zu dieser Lektion, damit ich sehe, ob ich sie verstanden habe."
   },
   "server": {
     "http": {
@@ -776,8 +787,8 @@
     "cards": {
       "title": "Meine Lernpfade",
       "count": {
-        "other": "{count} Lernpfade",
-        "one": "{count} Lernpfad"
+        "one": "{count} Lernpfad",
+        "other": "{count} Lernpfade"
       },
       "done": "{completed} von {total} geschafft",
       "available": "{count} verfügbar",
@@ -1171,7 +1182,7 @@
       "lead": "Test der Engine mit Probetönen, keine geprüfte Lektion."
     },
     "backToCurriculum": "{back} Zurück zum Lernpfad",
-    "footer": "Prüfversion · Originalton · Fortschritt und Notizen nur in dieser Sitzung",
+    "footer": "Originalaufnahme · Fortschritt und Notizen nur für diese Sitzung",
     "header": {
       "brandBack": "Learn, zurück zum Lernpfad",
       "brandStart": "Learn, Anfang der Lektion",
@@ -1206,7 +1217,7 @@
       "notesPlaceholder": "Welche Idee hast du verstanden?",
       "notesHint": "Notizen nur für diese Sitzung; kopier sie, bevor du die Seite schließt.",
       "openSource": "Quelle öffnen",
-      "sourceNote": "Prüfversion mit den Originalaufnahmen. Die Anzeige hier bedeutet keine erneute Freigabe von Inhalt oder Timing.",
+      "sourceNote": "Die Lektion mit ihren Originalaufnahmen erklärt.",
       "footer": "Fertiger Leitfaden zur Lektion, kein KI-Chat"
     }
   },
@@ -1547,14 +1558,29 @@
       "notesTitle": "Notizen aus der Prüfung",
       "superseded": "Eine neuere Version wurde zur Prüfung gesendet.",
       "publicPrice": "Schüler sehen Version {version} · {price}"
+    },
+    "connect": {
+      "title": "Verbinde dein Claude oder ChatGPT",
+      "lead": "Füge diesen Link als Connector hinzu und bitte um eine Lektion in deinen Worten. Sie entsteht hier als Entwurf, veröffentlichen kann es nicht.",
+      "address": "Connector-Link",
+      "how": "So verbindest du es"
     }
   },
   "authoring": {
     "consent": {
       "checking": "Die Anfrage wird geprüft…",
       "title": "„{name}“ möchte auf deine Kurse zugreifen",
-      "body": "Hallo {name}. Wenn du es erlaubst, kann es Kurse, Lektionen und interaktive Boards als Entwürfe in deinem Konto erstellen und deine Notizen zu den Lektionen lesen und umsetzen. Es kann nichts für Schüler veröffentlichen und weder dein Konto noch die Daten deiner Schüler sehen.",
+      "greeting": "Hallo {name}. Wenn du es erlaubst, kann es in deinem Konto Folgendes tun:",
+      "can": [
+        "Kurse, Lektionen und interaktive Boards als Entwürfe anlegen.",
+        "Deine Notizen zu Lektionen lesen und umsetzen."
+      ],
+      "cannot": [
+        "Es kann nichts für Schüler veröffentlichen.",
+        "Es sieht weder dein Konto noch die Daten deiner Schüler."
+      ],
       "host": "Danach geht es zurück zu: {host}",
+      "revoke": "Du kannst diese Verbindung jederzeit über die Support-Seite trennen.",
       "allow": "Erlauben",
       "deny": "Nein"
     },
@@ -1592,7 +1618,16 @@
       "title": "Meine Entwürfe",
       "dashboard": "Unterrichten",
       "newCourse": "+ Neuen Kurs erstellen",
-      "revision": "Version {revision}"
+      "revision": "Version {revision}",
+      "lessons": {
+        "one": "1 Lektion",
+        "other": "{count} Lektionen"
+      },
+      "open": "Im Lehrkräfte-Bereich öffnen",
+      "more": {
+        "one": "und 1 weitere Lektion",
+        "other": "und {count} weitere Lektionen"
+      }
     }
   },
   "courses": {

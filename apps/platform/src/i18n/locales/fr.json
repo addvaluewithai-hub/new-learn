@@ -13,7 +13,9 @@
       "offline": "La connexion a été coupée. Vérifiez votre réseau et réessayez.",
       "unexpected": "Réponse inattendue de la plateforme. Réessayez.",
       "failed": "Impossible de traiter la demande."
-    }
+    },
+    "retry": "Réessayer",
+    "offline": "Vous êtes hors ligne. On reprend dès que la connexion revient."
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "Oui. Ajoutez le site comme connecteur, puis demandez-lui la leçon depuis votre compte. Il ne voit que vos brouillons, et il ne peut ni publier ni voir les élèves."
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "Page introuvable · New Learn",
+      "title": "Cette page n’existe pas.",
+      "lead": "Le lien a peut-être changé ou contient une faute. Revenez à l’accueil, ou contactez-nous si besoin.",
+      "home": "Accueil",
+      "support": "Support"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "Questions répondues : {answered} sur {questions}",
     "goalsMet": "Objectifs : {met} sur {goals}",
     "nextLesson": "Leçon suivante : {title}",
-    "reviewLesson": "Revoir la leçon depuis le début"
+    "reviewLesson": "Revoir la leçon depuis le début",
+    "practiceWithNova": "S’entraîner avec Nova",
+    "practiceRequest": "Posez-moi deux petites questions sur cette leçon pour vérifier que je l’ai comprise."
   },
   "server": {
     "http": {
@@ -780,9 +791,9 @@
     "cards": {
       "title": "Mes programmes",
       "count": {
-        "other": "{count} programmes",
         "one": "{count} programme",
-        "many": "{count} programmes"
+        "many": "{count} programmes",
+        "other": "{count} programmes"
       },
       "done": "Terminées : {completed} sur {total}",
       "available": "Disponibles : {count}",
@@ -1177,7 +1188,7 @@
       "lead": "Test du moteur avec des tonalités d’essai, pas une leçon validée."
     },
     "backToCurriculum": "{back} Retour au programme",
-    "footer": "Version de relecture · audio d’origine · progression et notes de cette session uniquement",
+    "footer": "Enregistrement original · progression et notes pour cette session uniquement",
     "header": {
       "brandBack": "Learn, retour au programme",
       "brandStart": "Learn, début de la leçon",
@@ -1212,7 +1223,7 @@
       "notesPlaceholder": "Quelle idée avez-vous comprise ?",
       "notesHint": "Notes de cette session ; copiez-les avant de fermer la page.",
       "openSource": "Ouvrir la référence",
-      "sourceNote": "Version de relecture avec les enregistrements d’origine. L’afficher ici ne revalide ni le contenu ni les minutages.",
+      "sourceNote": "La leçon expliquée avec ses enregistrements originaux.",
       "footer": "Un guide préparé pour la leçon, pas une conversation avec une IA"
     }
   },
@@ -1556,14 +1567,29 @@
       "notesTitle": "Remarques de la relecture",
       "superseded": "Une version plus récente a été envoyée en relecture.",
       "publicPrice": "Les élèves voient la version {version} · {price}"
+    },
+    "connect": {
+      "title": "Connectez votre Claude ou ChatGPT",
+      "lead": "Ajoutez ce lien comme connecteur et demandez-lui une leçon avec vos mots. Il l’écrit ici en brouillon, sans pouvoir publier.",
+      "address": "Lien du connecteur",
+      "how": "Comment le connecter"
     }
   },
   "authoring": {
     "consent": {
       "checking": "Vérification de la demande…",
       "title": "« {name} » veut accéder à vos cours",
-      "body": "Bonjour {name}. Si vous l’autorisez, il pourra créer des cours, des leçons et des tableaux interactifs comme brouillons dans votre compte, et lire et corriger vos remarques sur les leçons. Il ne pourra rien publier pour les élèves, ni voir votre compte ou les données de vos élèves.",
+      "greeting": "Bonjour {name}. Si vous l’autorisez, il pourra agir ainsi dans votre compte :",
+      "can": [
+        "Créer des cours, des leçons et des tableaux interactifs en brouillon.",
+        "Lire vos remarques sur les leçons et les corriger."
+      ],
+      "cannot": [
+        "Il ne pourra rien publier pour les élèves.",
+        "Il ne verra ni votre compte ni les données de vos élèves."
+      ],
       "host": "Retour ensuite vers : {host}",
+      "revoke": "Vous pouvez couper cette connexion à tout moment depuis la page d’assistance.",
       "allow": "Autoriser",
       "deny": "Refuser"
     },
@@ -1601,7 +1627,18 @@
       "title": "Mes brouillons",
       "dashboard": "Espace enseignant",
       "newCourse": "+ Créer un nouveau cours",
-      "revision": "Version {revision}"
+      "revision": "Version {revision}",
+      "lessons": {
+        "one": "{count} leçon",
+        "many": "{count} leçons",
+        "other": "{count} leçons"
+      },
+      "open": "Ouvrir dans l’espace enseignant",
+      "more": {
+        "one": "et {count} autre leçon",
+        "many": "et {count} autres leçons",
+        "other": "et {count} autres leçons"
+      }
     }
   },
   "courses": {

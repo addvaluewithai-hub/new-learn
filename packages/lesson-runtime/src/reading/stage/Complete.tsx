@@ -11,6 +11,7 @@ export function Complete({
   next,
   exit,
   onReview,
+  onPractice,
 }: {
   title: string;
   goals: ReadingGoal[];
@@ -20,6 +21,8 @@ export function Complete({
   next?: { title: string; href: string } | null;
   exit?: { label: string; href: string };
   onReview: () => void;
+  /** Opens the conversation and asks Nova for a short check (when the host has Nova). */
+  onPractice?: () => void;
 }) {
   const text = useRuntimeText();
   const tally = { answered, questions };
@@ -57,6 +60,11 @@ export function Complete({
             <span>{exit.label}</span>
           </a>
         ) : null}
+        {onPractice && (
+          <button type="button" className="rl-practice" onClick={onPractice}>
+            {text.practiceWithNova}
+          </button>
+        )}
         <button type="button" className="rl-quiet" onClick={onReview}>
           {text.reviewLesson}
         </button>

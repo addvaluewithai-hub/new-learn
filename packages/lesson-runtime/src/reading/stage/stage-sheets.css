@@ -95,8 +95,13 @@
   text-align: center;
   animation: rl-in 0.4s ease both;
 }
+.rl-complete-mark {
+  position: relative;
+}
 .rl-complete-mark circle {
   fill: var(--rl-lime);
+  transform-origin: center;
+  animation: rl-pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both;
 }
 .rl-complete-mark path {
   fill: none;
@@ -104,6 +109,69 @@
   stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: rl-draw 0.45s 0.3s ease-out forwards;
+}
+/* A small burst of dots around the check: the one celebration, quiet and brief. */
+.rl-complete-mark::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--rl-lime) 3px, transparent 4px) 50% 0 / 10px 10px no-repeat,
+    radial-gradient(circle, var(--rl-accent) 3px, transparent 4px) 100% 50% / 10px 10px no-repeat,
+    radial-gradient(circle, var(--rl-lime) 3px, transparent 4px) 50% 100% / 10px 10px no-repeat,
+    radial-gradient(circle, var(--rl-accent) 3px, transparent 4px) 0 50% / 10px 10px no-repeat,
+    radial-gradient(circle, var(--rl-accent) 2px, transparent 3px) 85% 15% / 8px 8px no-repeat,
+    radial-gradient(circle, var(--rl-lime) 2px, transparent 3px) 15% 85% / 8px 8px no-repeat;
+  opacity: 0;
+  animation: rl-burst 0.8s 0.35s ease-out both;
+}
+@keyframes rl-pop {
+  from {
+    transform: scale(0.4);
+  }
+}
+@keyframes rl-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rl-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rl-complete-mark circle,
+  .rl-complete-mark::before {
+    animation: none;
+  }
+  .rl-complete-mark path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+.rl-practice {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--rl-line, rgb(0 0 0 / 12%));
+  border-radius: 999px;
+  background: var(--rl-card);
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
 }
 .rl-complete h2 {
   margin: 0;

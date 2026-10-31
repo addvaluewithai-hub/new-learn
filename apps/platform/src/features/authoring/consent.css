@@ -1,3 +1,4 @@
+/* The connector's consent screen (features/authoring/Consent): who asks, what it may do. */
 .consent-page {
   min-height: 100vh;
   display: grid;
@@ -7,22 +8,65 @@
   background: var(--nl-paper);
 }
 .consent-card {
-  width: min(480px, 100%);
-  padding: 28px;
+  display: grid;
+  gap: var(--nl-space-3);
+  width: min(500px, 100%);
+  padding: clamp(22px, 5vw, 32px);
   border-radius: 24px;
-  background: #fff;
+  background: var(--nl-surface);
   box-shadow: 0 16px 40px rgb(16 32 28 / 12%);
 }
+.consent-card .brand {
+  justify-self: start;
+  margin-bottom: var(--nl-space-2);
+}
 .consent-card h1 {
-  margin: 0 0 12px;
-  font-size: 24px;
+  margin: 0;
+  font-size: clamp(1.35rem, 4vw, 1.6rem);
+  line-height: 1.35;
+}
+.consent-card > p {
+  margin: 0;
+  line-height: var(--nl-leading);
+}
+.consent-list {
+  display: grid;
+  gap: var(--nl-space-2);
+  margin: 0;
+  padding: var(--nl-space-3) var(--nl-space-4);
+  border-radius: var(--nl-radius-md);
+  list-style: none;
+  line-height: 1.6;
+}
+.consent-list li {
+  display: flex;
+  gap: var(--nl-space-2);
+}
+.consent-list[data-tone='can'] {
+  background: var(--nl-success-soft);
+}
+.consent-list[data-tone='can'] li::before {
+  content: '✓';
+  color: var(--nl-success);
+  font-weight: 700;
+}
+.consent-list[data-tone='cannot'] {
+  background: var(--nl-surface-sunk);
+}
+.consent-list[data-tone='cannot'] li::before {
+  content: '✗';
+  color: var(--nl-muted);
+  font-weight: 700;
 }
 .consent-host {
   color: var(--nl-muted);
-  font-size: 14px;
+  font-size: var(--nl-text-sm);
 }
 .consent-actions {
   display: flex;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: var(--nl-space-2);
+}
+.consent-actions .nl-button {
+  flex: 1;
 }

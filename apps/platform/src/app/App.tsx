@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { useSession } from '../features/auth/session';
 import { useNavigation } from './navigation';
 import { sitePage } from '../features/site/routes';
+import { OfflineNotice } from '../shared/OfflineNotice';
 import { Loading } from '../shared/Loading';
 import { RuntimeTextProvider } from '@learn/lesson-runtime';
 import { useI18n, useRuntimeText } from '../i18n';
@@ -100,6 +101,7 @@ export function App() {
   const site = sitePage(location.pathname);
   return (
     <div className="app-shell">
+      <OfflineNotice />
       {/* The lesson player's own texts follow the app's language. */}
       <RuntimeTextProvider value={runtimeText}>
         <Suspense fallback={<Loading text={t('common.loadingLesson')} />}>

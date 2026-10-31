@@ -142,3 +142,16 @@
   gap: 20px;
   padding: 24px;
 }
+/* While the device is offline (shared/OfflineNotice). */
+.offline-notice {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 50;
+  margin: 0;
+  padding: 8px 16px;
+  background: var(--nl-warning-soft);
+  color: var(--nl-warning);
+  font-weight: 600;
+  text-align: center;
+}

@@ -142,6 +142,15 @@ try {
     assert.ok((await page.title()).endsWith('New Learn'), `${path} has its own title`);
     await safe(page);
   }
+  // An address that is not ours says so, with a way home.
+  await page.goto(`${url}/no-such-page`);
+  await page.getByRole('heading', { name: 'الصفحة دي مش موجودة.', level: 1 }).waitFor();
+  assert.equal(await page.getByRole('link', { name: 'الرئيسية', exact: true }).count(), 1);
+  // Offline: a quiet line at the top, gone when the connection is back.
+  await page.context().setOffline(true);
+  await page.getByText('انت مش متصل بالنت دلوقتي').waitFor();
+  await page.context().setOffline(false);
+  await page.getByText('انت مش متصل بالنت دلوقتي').waitFor({ state: 'detached' });
   await page.goto(`${url}/support`);
   await page.locator('.site-faq details[open]').waitFor();
   await page.setViewportSize({ width: 390, height: 850 });

@@ -13,7 +13,9 @@
       "offline": "网络断开了。检查一下网络再试试。",
       "unexpected": "平台返回了意外的响应。再试一次吧。",
       "failed": "请求没能完成。"
-    }
+    },
+    "retry": "重试",
+    "offline": "你现在没有联网。网络恢复后会继续。"
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "能。把网站添加为连接器，然后在你的账户里让它写课。它只能看到你的草稿，不能发布，也看不到学生。"
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "页面不存在 · New Learn",
+      "title": "这个页面不存在。",
+      "lead": "链接可能已更改或输错了。回到首页，或者有需要就联系我们。",
+      "home": "首页",
+      "support": "支持"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "回答了 {answered}/{questions} 道题",
     "goalsMet": "目标 {met}/{goals}",
     "nextLesson": "下一节：{title}",
-    "reviewLesson": "从头复习这节课"
+    "reviewLesson": "从头复习这节课",
+    "practiceWithNova": "和 Nova 练一练",
+    "practiceRequest": "问我两个关于这节课的小问题，看看我有没有理解。"
   },
   "server": {
     "http": {
@@ -1165,7 +1176,7 @@
       "lead": "用测试音检验引擎，不是正式的课。"
     },
     "backToCurriculum": "{back} 返回学习路线",
-    "footer": "审阅版 · 原始音频 · 进度和笔记只保存在本次会话",
+    "footer": "原始录音 · 进度和笔记仅保存在本次学习中",
     "header": {
       "brandBack": "Learn，返回学习路线",
       "brandStart": "Learn，回到课的开头",
@@ -1200,7 +1211,7 @@
       "notesPlaceholder": "你弄懂了什么？",
       "notesHint": "笔记只保存在本次会话；关页面前记得复制。",
       "openSource": "打开参考资料",
-      "sourceNote": "使用原始录音的审阅版。在这里展示不代表重新认可内容或时间点。",
+      "sourceNote": "用原始录音讲解这节课。",
       "footer": "现成的课堂指南，不是 AI 对话"
     }
   },
@@ -1538,14 +1549,23 @@
       "notesTitle": "审核意见",
       "superseded": "已有更新的版本提交审核。",
       "publicPrice": "学生看到的是第 {version} 版 · {price}"
+    },
+    "connect": {
+      "title": "连接你的 Claude 或 ChatGPT",
+      "lead": "把这个链接添加为连接器，用你自己的话让它做一节课。它会在这里写成草稿，但不能发布。",
+      "address": "连接器链接",
+      "how": "如何连接"
     }
   },
   "authoring": {
     "consent": {
       "checking": "正在核对请求…",
       "title": "“{name}”想访问你的课程",
-      "body": "你好，{name}。如果你允许，它可以在你的账户里把课程、课和互动画板创建为草稿，并读取和修改你在课上的批注。它不能向学生发布任何内容，也看不到你的账户或学生的数据。",
+      "greeting": "你好，{name}。如果你允许，它可以在你的账号里做这些事：",
+      "can": ["把课程、课和互动画板创建为草稿。", "阅读你对课的批注并修改。"],
+      "cannot": ["不能向学生发布任何内容。", "看不到你的账号和学生的数据。"],
       "host": "之后会跳转回：{host}",
+      "revoke": "你可以随时在支持页面关闭这个连接。",
       "allow": "允许",
       "deny": "拒绝"
     },
@@ -1583,7 +1603,14 @@
       "title": "我的草稿",
       "dashboard": "教师面板",
       "newCourse": "+ 创建新课程",
-      "revision": "第 {revision} 版"
+      "revision": "第 {revision} 版",
+      "lessons": {
+        "other": "{count} 节课"
+      },
+      "open": "在教师面板中打开",
+      "more": {
+        "other": "还有 {count} 节课"
+      }
     }
   },
   "courses": {

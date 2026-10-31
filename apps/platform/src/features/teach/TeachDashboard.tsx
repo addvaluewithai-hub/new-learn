@@ -1,6 +1,8 @@
 import { Badge, ButtonLink, EmptyState } from '../../shared/ui';
 import { useI18n } from '../../i18n';
 import { previewHref, statusOf, type TeachCourse } from './types';
+import { ConnectCard } from './ConnectCard';
+import './price.css';
 
 /** Every course of the teacher: where it stands, who studies it, what waits for them. */
 export function TeachDashboard({ courses }: { courses: TeachCourse[] }) {
@@ -78,6 +80,7 @@ export function TeachDashboard({ courses }: { courses: TeachCourse[] }) {
           {t('teach.dashboard.emptyBody')}
         </EmptyState>
       )}
+      <ConnectCard />
     </>
   );
 }
