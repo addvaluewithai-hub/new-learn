@@ -738,6 +738,10 @@
         "university": "University",
         "adults": "Adults"
       }
+    },
+    "voice": {
+      "nothingToRecord": "Every line of this lesson is recorded.",
+      "tooManyLines": "This lesson has too many lines to record in one go."
     }
   },
   "build": {
@@ -765,7 +769,8 @@
       "failed": "The build stopped before it finished.",
       "usageLimit": "The build account has hit its usage limit for now. Try again in a bit.",
       "noLesson": "No lesson was created.",
-      "noChange": "Nothing in the lesson changed, so your credits were refunded."
+      "noChange": "Nothing in the lesson changed, so your credits were refunded.",
+      "incomplete": "The recording did not finish every line."
     }
   },
   "auth": {
@@ -1639,6 +1644,26 @@
       "persona": "Character",
       "personaHint": "One line about the manner: tone, mood, style.",
       "personaPlaceholder": "For example: a deep-voiced astronomer who loves a dramatic pause before the reveal"
+    },
+    "narration": {
+      "title": "Recorded narration",
+      "lead": "Each line is recorded once in the course voice, at {price} credits per minute. Edit a line later and only that line is recorded again.",
+      "loading": "Checking the recordings…",
+      "recorded": "{recorded} of {lines} lines recorded",
+      "none": "Not recorded yet",
+      "done": "Fully recorded",
+      "flagged": {
+        "one": "{count} line to listen to",
+        "other": "{count} lines to listen to"
+      },
+      "record": {
+        "one": "Record {count} line ({credits} credits)",
+        "other": "Record {count} lines ({credits} credits)"
+      },
+      "queued": "Waiting…",
+      "running": "Recording now…",
+      "failed": "The recording failed and the credits came back. Try again.",
+      "started": "Recording started. You can leave the page and come back."
     }
   },
   "authoring": {

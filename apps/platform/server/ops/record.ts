@@ -14,6 +14,7 @@ export type UsageKind =
   | 'mcp.call'
   | 'build.job'
   | 'build.refine'
+  | 'build.voice'
   | 'review.ai'
   | 'auth.signup';
 
@@ -26,6 +27,7 @@ export const USAGE_CENTS: Record<UsageKind, number> = {
   'mcp.call': 0,
   'build.job': 250,
   'build.refine': 20,
+  'build.voice': 30,
   'review.ai': 2,
   'auth.signup': 0,
 };

@@ -738,6 +738,10 @@
         "university": "Universidad",
         "adults": "Adultos"
       }
+    },
+    "voice": {
+      "nothingToRecord": "Todas las líneas de esta lección están grabadas.",
+      "tooManyLines": "Esta lección tiene demasiadas líneas para grabarlas de una vez."
     }
   },
   "build": {
@@ -765,7 +769,8 @@
       "failed": "La creación se detuvo antes de terminar.",
       "usageLimit": "La cuenta de creación llegó a su límite de uso por ahora. Inténtalo de nuevo en un rato.",
       "noLesson": "No se creó ninguna lección.",
-      "noChange": "No cambió nada en la lección, así que te devolvimos los créditos."
+      "noChange": "No cambió nada en la lección, así que te devolvimos los créditos.",
+      "incomplete": "La grabación no terminó todas las líneas."
     }
   },
   "auth": {
@@ -1639,6 +1644,28 @@
       "persona": "Carácter",
       "personaHint": "Una línea sobre la manera: tono, ánimo, estilo.",
       "personaPlaceholder": "Por ejemplo: un astrónomo de voz grave al que le gusta una pausa dramática antes de la revelación"
+    },
+    "narration": {
+      "title": "Narración grabada",
+      "lead": "Cada línea se graba una vez con la voz del curso, a {price} créditos por minuto. Si editas una línea después, solo esa línea se vuelve a grabar.",
+      "loading": "Comprobando las grabaciones…",
+      "recorded": "{recorded} de {lines} líneas grabadas",
+      "none": "Aún sin grabar",
+      "done": "Grabado por completo",
+      "flagged": {
+        "one": "{count} línea para escuchar",
+        "other": "{count} líneas para escuchar",
+        "many": "{count} líneas para escuchar"
+      },
+      "record": {
+        "one": "Grabar {count} línea ({credits} créditos)",
+        "other": "Grabar {count} líneas ({credits} créditos)",
+        "many": "Grabar {count} líneas ({credits} créditos)"
+      },
+      "queued": "En espera…",
+      "running": "Grabando ahora…",
+      "failed": "La grabación falló y los créditos volvieron. Inténtalo de nuevo.",
+      "started": "Grabación iniciada. Puedes salir de la página y volver."
     }
   },
   "authoring": {

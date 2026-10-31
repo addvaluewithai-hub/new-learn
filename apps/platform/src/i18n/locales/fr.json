@@ -741,6 +741,10 @@
         "university": "Université",
         "adults": "Adultes"
       }
+    },
+    "voice": {
+      "nothingToRecord": "Toutes les lignes de cette leçon sont enregistrées.",
+      "tooManyLines": "Cette leçon a trop de lignes pour un seul enregistrement."
     }
   },
   "build": {
@@ -768,7 +772,8 @@
       "failed": "La création s’est arrêtée avant la fin.",
       "usageLimit": "Le compte de création a atteint sa limite d’utilisation pour le moment. Réessayez un peu plus tard.",
       "noLesson": "Aucune leçon n’a été créée.",
-      "noChange": "Rien n’a changé dans la leçon, vos crédits ont été remboursés."
+      "noChange": "Rien n’a changé dans la leçon, vos crédits ont été remboursés.",
+      "incomplete": "L'enregistrement n'a pas couvert toutes les lignes."
     }
   },
   "auth": {
@@ -1648,6 +1653,28 @@
       "persona": "Caractère",
       "personaHint": "Une ligne sur la manière : ton, humeur, style.",
       "personaPlaceholder": "Par exemple : un astronome à la voix grave qui aime une pause dramatique avant la révélation"
+    },
+    "narration": {
+      "title": "Narration enregistrée",
+      "lead": "Chaque ligne est enregistrée une fois avec la voix du cours, à {price} crédits par minute. Si vous modifiez une ligne plus tard, seule cette ligne est réenregistrée.",
+      "loading": "Vérification des enregistrements…",
+      "recorded": "{recorded} lignes sur {lines} enregistrées",
+      "none": "Pas encore enregistré",
+      "done": "Entièrement enregistré",
+      "flagged": {
+        "one": "{count} ligne à écouter",
+        "other": "{count} lignes à écouter",
+        "many": "{count} lignes à écouter"
+      },
+      "record": {
+        "one": "Enregistrer {count} ligne ({credits} crédits)",
+        "other": "Enregistrer {count} lignes ({credits} crédits)",
+        "many": "Enregistrer {count} lignes ({credits} crédits)"
+      },
+      "queued": "En attente…",
+      "running": "Enregistrement en cours…",
+      "failed": "L'enregistrement a échoué et les crédits ont été rendus. Réessayez.",
+      "started": "Enregistrement lancé. Vous pouvez quitter la page et revenir."
     }
   },
   "authoring": {

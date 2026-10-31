@@ -8,6 +8,7 @@ import { serverText } from '../i18n';
 import { SOURCE } from '../../src/i18n/core';
 import { mergeSnapshots, readingOutline, validateSnapshot } from '../progress/snapshot';
 import { enrol, lessonCourse, publishedLesson } from './store';
+import { lessonAudioMap } from '../media/playback';
 
 // A student's place in a published course's lesson: the same snapshot and optimistic
 // revision as lesson_progress, keyed by the course enrolment and the lesson.
@@ -122,5 +123,7 @@ export async function courseLessonView(db: Db, courseId: string, lessonId: strin
     package: row.package,
     boards: row.boards as PublishedBoards,
     voice: row.voice,
+    // Recorded narration, by line: the clip's hash (its file is /media/audio/<hash>.wav).
+    audio: await lessonAudioMap(db, row.package as ReadingPackage, row.voice, row.language),
   };
 }

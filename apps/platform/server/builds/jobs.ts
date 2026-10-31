@@ -1,6 +1,13 @@
 import { and, asc, desc, eq, gte, inArray, lte, sql } from 'drizzle-orm';
 import type { Db } from '../db/connection';
-import { buildFiles, buildJobs, type BuildRequest, type BuildResult } from '../db/builds';
+import {
+  buildFiles,
+  buildJobs,
+  jobKind,
+  type BuildRequest,
+  type BuildResult,
+  type JobKind,
+} from '../db/builds';
 import { authorBoards, authorCourses, authorLessons } from '../db/authoring';
 import { HttpError } from '../http';
 import type { AuthUser } from '../env';
@@ -9,16 +16,28 @@ import { refund, spend } from '../credits/ledger';
 import { countUsage } from '../ops/record';
 import type { ActionId } from '../../src/features/credits/pricing';
 import { REFINE_LIMITS, refineMade } from './refine';
+import { voiceMade } from '../media/narration';
 
 // The queue between the "make a course" page and the builder worker. Jobs belong to the
 // teacher who asked; the worker claims one at a time and reports steps and the result.
 
 export const JOB_LIMITS = { perDay: 10, steps: 200, staleMinutes: 45, attempts: 2 };
-const isRefine = (request: BuildRequest) => Boolean(request.refine);
+/** Recordings a teacher may ask for in a day (one per lesson, re-asked after edits). */
+export const VOICE_LIMITS = { perDay: 60 };
+const PER_DAY: Record<JobKind, number> = {
+  build: JOB_LIMITS.perDay,
+  refine: REFINE_LIMITS.perDay,
+  voice: VOICE_LIMITS.perDay,
+};
+/** Which jobs a worker takes: the builder makes and edits courses; the media worker records. */
+export const WORKER_KINDS: Record<string, JobKind[]> = {
+  builder: ['build', 'refine'],
+  media: ['voice'],
+};
 
 export const view = (row: typeof buildJobs.$inferSelect) => ({
   id: row.id,
-  kind: isRefine(row.request) ? ('refine' as const) : ('build' as const),
+  kind: jobKind(row.request),
   status: row.status,
   topic: row.request.topic,
   choices: row.request.choices,
@@ -34,30 +53,39 @@ export async function createJob(
   db: Db,
   user: AuthUser,
   input: { request: BuildRequest; files: UploadedFile[] },
-  action: Extract<ActionId, 'course.build' | 'lesson.refine'> = 'course.build',
+  action: Extract<ActionId, 'course.build' | 'lesson.refine' | 'voice.minute'> = 'course.build',
+  units = 1,
 ) {
   const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
   const recent = await db
     .select({ status: buildJobs.status, request: buildJobs.request })
     .from(buildJobs)
     .where(and(eq(buildJobs.ownerId, user.id), gte(buildJobs.createdAt, since)));
-  if (recent.some((j) => j.status === 'queued' || j.status === 'running'))
+  const kind = jobKind(input.request);
+  // One build or edit at a time; a recording runs on another worker, beside them.
+  const workers = (k: JobKind) => (k === 'voice' ? 'media' : 'builder');
+  if (
+    recent.some(
+      (j) =>
+        (j.status === 'queued' || j.status === 'running') &&
+        workers(jobKind(j.request)) === workers(kind),
+    )
+  )
     throw new HttpError(409, 'builds.busy');
-  const refine = isRefine(input.request);
-  const same = recent.filter((j) => isRefine(j.request) === refine).length;
-  if (same >= (refine ? REFINE_LIMITS.perDay : JOB_LIMITS.perDay))
-    throw new HttpError(429, 'builds.dailyLimit');
+  const same = recent.filter((j) => jobKind(j.request) === kind).length;
+  if (same >= PER_DAY[kind]) throw new HttpError(429, 'builds.dailyLimit');
+  const refine = kind === 'refine';
   // The job's id is made here so the charge can name it before the job exists: no credits,
   // no job; a job that fails gives them back (finishJob, claimJob).
   const id = crypto.randomUUID();
-  await spend(db, user, action, id);
+  await spend(db, user, action, id, units);
   try {
     const [job] = await db
       .insert(buildJobs)
       .values({ id, ownerId: user.id, ownerName: user.name, request: input.request })
       .returning();
     for (const f of input.files) await db.insert(buildFiles).values({ jobId: job.id, ...f });
-    await countUsage(db, refine ? 'build.refine' : 'build.job');
+    await countUsage(db, kind === 'voice' ? 'build.voice' : refine ? 'build.refine' : 'build.job');
     return view(job);
   } catch (error) {
     await refund(db, user.id, id);
@@ -69,7 +97,13 @@ export async function listJobs(db: Db, ownerId: string) {
   const rows = await db
     .select()
     .from(buildJobs)
-    .where(and(eq(buildJobs.ownerId, ownerId), sql`${buildJobs.request}->'refine' is null`))
+    .where(
+      and(
+        eq(buildJobs.ownerId, ownerId),
+        sql`${buildJobs.request}->'refine' is null`,
+        sql`${buildJobs.request}->'voice' is null`,
+      ),
+    )
     .orderBy(desc(buildJobs.createdAt))
     .limit(10);
   return rows.map(view);
@@ -111,10 +145,10 @@ async function jobBoards(db: Db, job: typeof buildJobs.$inferSelect) {
 }
 
 /**
- * The worker takes the oldest queued job. A job left running past its time (the worker
- * died) goes back to the queue once, then fails.
+ * A worker takes the oldest queued job of its kinds. A job left running past its time (the
+ * worker died) goes back to the queue once, then fails.
  */
-export async function claimJob(db: Db) {
+export async function claimJob(db: Db, kinds: JobKind[] = WORKER_KINDS.builder) {
   const stale = sql`now() - make_interval(mins => ${JOB_LIMITS.staleMinutes})`;
   const stuck = await db
     .update(buildJobs)
@@ -131,7 +165,7 @@ export async function claimJob(db: Db) {
     .update(buildJobs)
     .set({ status: 'running', startedAt: new Date(), attempts: sql`${buildJobs.attempts} + 1` })
     .where(
-      sql`${buildJobs.id} = (select id from learn_app.build_jobs where status = 'queued' order by created_at limit 1 for update skip locked)`,
+      sql`${buildJobs.id} = (select id from learn_app.build_jobs where status = 'queued' and ${kindFilter(kinds)} order by created_at limit 1 for update skip locked)`,
     )
     .returning();
   if (!job) return null;
@@ -146,6 +180,14 @@ export async function claimJob(db: Db) {
     .where(eq(buildFiles.jobId, job.id))
     .orderBy(asc(buildFiles.name));
   return { job, files };
+}
+
+/** SQL for "the job is one of these kinds", from the request's shape. */
+function kindFilter(kinds: JobKind[]) {
+  const voice = kinds.includes('voice');
+  const refine = kinds.includes('refine');
+  const build = kinds.includes('build');
+  return sql`((request->'voice' is not null and ${voice}) or (request->'refine' is not null and ${refine}) or (request->'voice' is null and request->'refine' is null and ${build}))`;
 }
 
 async function running(db: Db, id: string) {
@@ -184,6 +226,7 @@ export async function addStep(db: Db, jobId: string, title: string) {
 export async function finishJob(db: Db, jobId: string, input: { ok: boolean; message: string }) {
   const job = await running(db, jobId);
   if (job.request.refine) return finishRefine(db, job, input);
+  if (job.request.voice) return finishVoice(db, job, input);
   const [course] = await db
     .select({ id: authorCourses.id })
     .from(authorCourses)
@@ -242,6 +285,29 @@ async function finishRefine(
       status: made ? 'done' : 'failed',
       result,
       error: made ? '' : input.ok ? 'step:noChange' : message || 'step:failed',
+      finishedAt: new Date(),
+    })
+    .where(eq(buildJobs.id, job.id));
+  if (!made) await refund(db, job.ownerId, job.id);
+  return { status: made ? 'done' : 'failed', ...result };
+}
+
+/** A recording is done when every line of the lesson has its clip; the message counts flags. */
+async function finishVoice(
+  db: Db,
+  job: typeof buildJobs.$inferSelect,
+  input: { ok: boolean; message: string },
+) {
+  const { courseId, lessonId } = job.request.voice!;
+  const made = input.ok && (await voiceMade(db, job));
+  const message = input.message.replace(/\s+/g, ' ').trim().slice(0, 120);
+  const result: BuildResult = { courseId, lessonId, message: made ? message : '' };
+  await db
+    .update(buildJobs)
+    .set({
+      status: made ? 'done' : 'failed',
+      result,
+      error: made ? '' : input.ok ? 'step:incomplete' : message || 'step:failed',
       finishedAt: new Date(),
     })
     .where(eq(buildJobs.id, job.id));

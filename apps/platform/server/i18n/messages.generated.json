@@ -184,6 +184,10 @@
     "university": "جامعة",
     "adults": "كبار"
    }
+  },
+  "voice": {
+   "nothingToRecord": "كل سطور الدرس ده متسجّلة.",
+   "tooManyLines": "الدرس ده سطوره كتير أوي للتسجيل مرة واحدة."
   }
  },
  "de": {
@@ -366,6 +370,10 @@
     "university": "Universität",
     "adults": "Erwachsene"
    }
+  },
+  "voice": {
+   "nothingToRecord": "Jede Zeile dieser Lektion ist aufgenommen.",
+   "tooManyLines": "Diese Lektion hat zu viele Zeilen für eine Aufnahme auf einmal."
   }
  },
  "en": {
@@ -548,6 +556,10 @@
     "university": "University",
     "adults": "Adults"
    }
+  },
+  "voice": {
+   "nothingToRecord": "Every line of this lesson is recorded.",
+   "tooManyLines": "This lesson has too many lines to record in one go."
   }
  },
  "es": {
@@ -730,6 +742,10 @@
     "university": "Universidad",
     "adults": "Adultos"
    }
+  },
+  "voice": {
+   "nothingToRecord": "Todas las líneas de esta lección están grabadas.",
+   "tooManyLines": "Esta lección tiene demasiadas líneas para grabarlas de una vez."
   }
  },
  "fr": {
@@ -915,6 +931,10 @@
     "university": "Université",
     "adults": "Adultes"
    }
+  },
+  "voice": {
+   "nothingToRecord": "Toutes les lignes de cette leçon sont enregistrées.",
+   "tooManyLines": "Cette leçon a trop de lignes pour un seul enregistrement."
   }
  },
  "pt": {
@@ -1097,6 +1117,10 @@
     "university": "Universidade",
     "adults": "Adultos"
    }
+  },
+  "voice": {
+   "nothingToRecord": "Todas as linhas desta lição estão gravadas.",
+   "tooManyLines": "Esta lição tem linhas a mais para gravar de uma vez."
   }
  },
  "tr": {
@@ -1277,6 +1301,10 @@
     "university": "Üniversite",
     "adults": "Yetişkinler"
    }
+  },
+  "voice": {
+   "nothingToRecord": "Bu dersin her satırı kaydedilmiş.",
+   "tooManyLines": "Bu dersin satırları tek seferde kaydedilemeyecek kadar çok."
   }
  },
  "zh": {
@@ -1454,6 +1482,10 @@
     "university": "大学",
     "adults": "成人"
    }
+  },
+  "voice": {
+   "nothingToRecord": "这节课的每一句都已录制。",
+   "tooManyLines": "这节课句子太多，无法一次录完。"
   }
  }
 }

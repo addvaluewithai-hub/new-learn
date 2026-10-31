@@ -733,6 +733,10 @@
         "university": "大学",
         "adults": "成人"
       }
+    },
+    "voice": {
+      "nothingToRecord": "这节课的每一句都已录制。",
+      "tooManyLines": "这节课句子太多，无法一次录完。"
     }
   },
   "build": {
@@ -760,7 +764,8 @@
       "failed": "生成在完成前停止了。",
       "usageLimit": "生成账户目前已达到使用上限。稍后再试吧。",
       "noLesson": "没有生成任何课。",
-      "noChange": "课程没有变化，积分已退还。"
+      "noChange": "课程没有变化，积分已退还。",
+      "incomplete": "录制没有完成所有句子。"
     }
   },
   "auth": {
@@ -1628,6 +1633,24 @@
       "persona": "性格",
       "personaHint": "一句话描述说话方式：语气、情绪、风格。",
       "personaPlaceholder": "例如：一位嗓音低沉的天文学家，喜欢在揭晓前来个戏剧性的停顿"
+    },
+    "narration": {
+      "title": "录制讲解",
+      "lead": "每一句只用课程声音录一次，每分钟 {price} 个积分。以后改了某一句，只重录那一句。",
+      "loading": "正在查看录音…",
+      "recorded": "已录 {recorded} / {lines} 句",
+      "none": "尚未录制",
+      "done": "已全部录制",
+      "flagged": {
+        "other": "{count} 句需要听一下"
+      },
+      "record": {
+        "other": "录制 {count} 句（{credits} 积分）"
+      },
+      "queued": "排队中…",
+      "running": "正在录制…",
+      "failed": "录制失败，积分已退回。请再试一次。",
+      "started": "已开始录制。你可以离开页面稍后再来。"
     }
   },
   "authoring": {

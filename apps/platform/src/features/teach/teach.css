@@ -317,3 +317,44 @@
   color: var(--nl-ink);
   font: inherit;
 }
+
+/* Recorded narration per lesson (NarrationCard), under the voice in the outline tab. */
+.teach-narration {
+  display: grid;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-4) 0;
+  border-top: 1px solid var(--nl-line, #e2e0d8);
+}
+.teach-narration h2 {
+  margin: 0;
+  font-size: var(--nl-text-lg);
+}
+.teach-narration-list {
+  display: grid;
+  gap: var(--nl-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.teach-narration-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-2);
+  padding: var(--nl-space-2) 0;
+  border-top: 1px solid var(--nl-line, #e2e0d8);
+}
+.teach-narration-title {
+  flex: 1 1 12rem;
+  font-weight: 600;
+}
+.teach-narration-state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-1);
+}
+.teach-narration-failed {
+  color: var(--nl-danger, #b42318);
+  font-size: var(--nl-text-sm);
+}

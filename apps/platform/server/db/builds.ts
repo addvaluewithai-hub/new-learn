@@ -9,13 +9,19 @@ import { appSchema } from './content';
 export type BuildStatus = 'queued' | 'running' | 'done' | 'failed';
 /** An edit of one existing lesson from the side chat (S2), instead of a new course. */
 export type RefineTarget = { courseId: string; lessonId: string; revision: number; locale: string };
+/** Recording one lesson's narration (docs/voice-agent.md): the media worker's job. */
+export type VoiceTarget = { courseId: string; lessonId: string; revision: number; lines: number };
 export type BuildRequest = {
-  /** The course's topic, or for an edit the teacher's words. */
+  /** The course's topic, or for an edit the teacher's words, or for a recording the lesson. */
   topic: string;
   choices: Record<string, string>;
   webSearch: boolean;
   refine?: RefineTarget;
+  voice?: VoiceTarget;
 };
+export type JobKind = 'build' | 'refine' | 'voice';
+export const jobKind = (request: BuildRequest): JobKind =>
+  request.voice ? 'voice' : request.refine ? 'refine' : 'build';
 export type BuildStep = { at: string; title: string };
 export type BuildResult = { courseId?: string; lessonId?: string; message?: string };
 

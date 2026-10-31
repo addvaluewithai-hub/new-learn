@@ -738,6 +738,10 @@
         "university": "Universität",
         "adults": "Erwachsene"
       }
+    },
+    "voice": {
+      "nothingToRecord": "Jede Zeile dieser Lektion ist aufgenommen.",
+      "tooManyLines": "Diese Lektion hat zu viele Zeilen für eine Aufnahme auf einmal."
     }
   },
   "build": {
@@ -765,7 +769,8 @@
       "failed": "Der Bau hat vor dem Ende angehalten.",
       "usageLimit": "Das Bau-Konto hat gerade sein Nutzungslimit erreicht. Versuch es gleich noch mal.",
       "noLesson": "Es wurde keine Lektion erstellt.",
-      "noChange": "In der Lektion hat sich nichts geändert, deine Credits wurden erstattet."
+      "noChange": "In der Lektion hat sich nichts geändert, deine Credits wurden erstattet.",
+      "incomplete": "Die Aufnahme hat nicht alle Zeilen abgeschlossen."
     }
   },
   "auth": {
@@ -1639,6 +1644,26 @@
       "persona": "Charakter",
       "personaHint": "Eine Zeile zur Art: Ton, Stimmung, Stil.",
       "personaPlaceholder": "Zum Beispiel: ein Astronom mit tiefer Stimme, der die dramatische Pause vor der Auflösung liebt"
+    },
+    "narration": {
+      "title": "Aufgenommene Erzählung",
+      "lead": "Jede Zeile wird einmal mit der Kursstimme aufgenommen, für {price} Credits pro Minute. Änderst du später eine Zeile, wird nur diese neu aufgenommen.",
+      "loading": "Aufnahmen werden geprüft…",
+      "recorded": "{recorded} von {lines} Zeilen aufgenommen",
+      "none": "Noch nicht aufgenommen",
+      "done": "Vollständig aufgenommen",
+      "flagged": {
+        "one": "{count} Zeile zum Anhören",
+        "other": "{count} Zeilen zum Anhören"
+      },
+      "record": {
+        "one": "{count} Zeile aufnehmen ({credits} Credits)",
+        "other": "{count} Zeilen aufnehmen ({credits} Credits)"
+      },
+      "queued": "Wartet…",
+      "running": "Wird gerade aufgenommen…",
+      "failed": "Die Aufnahme ist fehlgeschlagen, die Credits sind zurück. Versuch es noch einmal.",
+      "started": "Aufnahme gestartet. Du kannst die Seite verlassen und später zurückkommen."
     }
   },
   "authoring": {

@@ -738,6 +738,10 @@
         "university": "Universidade",
         "adults": "Adultos"
       }
+    },
+    "voice": {
+      "nothingToRecord": "Todas as linhas desta lição estão gravadas.",
+      "tooManyLines": "Esta lição tem linhas a mais para gravar de uma vez."
     }
   },
   "build": {
@@ -765,7 +769,8 @@
       "failed": "A montagem parou antes de terminar.",
       "usageLimit": "A conta de montagem atingiu o limite de uso por agora. Tente de novo daqui a pouco.",
       "noLesson": "Nenhuma aula foi criada.",
-      "noChange": "Nada mudou na lição, então seus créditos foram devolvidos."
+      "noChange": "Nada mudou na lição, então seus créditos foram devolvidos.",
+      "incomplete": "A gravação não terminou todas as linhas."
     }
   },
   "auth": {
@@ -1639,6 +1644,28 @@
       "persona": "Caráter",
       "personaHint": "Uma linha sobre o jeito: tom, humor, estilo.",
       "personaPlaceholder": "Por exemplo: um astrônomo de voz grave que adora uma pausa dramática antes da revelação"
+    },
+    "narration": {
+      "title": "Narração gravada",
+      "lead": "Cada linha é gravada uma vez com a voz do curso, a {price} créditos por minuto. Se editar uma linha depois, só essa linha é gravada de novo.",
+      "loading": "A verificar as gravações…",
+      "recorded": "{recorded} de {lines} linhas gravadas",
+      "none": "Ainda não gravado",
+      "done": "Totalmente gravado",
+      "flagged": {
+        "one": "{count} linha para ouvir",
+        "other": "{count} linhas para ouvir",
+        "many": "{count} linhas para ouvir"
+      },
+      "record": {
+        "one": "Gravar {count} linha ({credits} créditos)",
+        "other": "Gravar {count} linhas ({credits} créditos)",
+        "many": "Gravar {count} linhas ({credits} créditos)"
+      },
+      "queued": "À espera…",
+      "running": "A gravar agora…",
+      "failed": "A gravação falhou e os créditos voltaram. Tente outra vez.",
+      "started": "Gravação iniciada. Pode sair da página e voltar."
     }
   },
   "authoring": {

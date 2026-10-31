@@ -4,6 +4,7 @@ import { Alert, Button, Field, IconButton, TextArea, TextInput } from '../../sha
 import { t as translate, useI18n } from '../../i18n';
 import type { CourseVoice, Part, Workspace } from './types';
 import { VoiceFields } from './VoiceFields';
+import { NarrationCard } from './NarrationCard';
 
 /** The course's name and its lessons in parts: rename, move up and down, regroup, then save. */
 export function Outline({ work, onChanged }: { work: Workspace; onChanged: () => Promise<void> }) {
@@ -76,6 +77,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
         </Field>
       </div>
       <VoiceFields value={voice} onChange={setVoice} />
+      <NarrationCard work={work} />
       <ol className="teach-parts">
         {parts.map((part, at) => (
           <li key={at} className="teach-part">

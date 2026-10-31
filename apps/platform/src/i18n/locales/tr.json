@@ -736,6 +736,10 @@
         "university": "Üniversite",
         "adults": "Yetişkinler"
       }
+    },
+    "voice": {
+      "nothingToRecord": "Bu dersin her satırı kaydedilmiş.",
+      "tooManyLines": "Bu dersin satırları tek seferde kaydedilemeyecek kadar çok."
     }
   },
   "build": {
@@ -763,7 +767,8 @@
       "failed": "Oluşturma bitmeden durdu.",
       "usageLimit": "Oluşturma hesabı şu an kullanım sınırına ulaştı. Biraz sonra tekrar dene.",
       "noLesson": "Hiç ders oluşturulmadı.",
-      "noChange": "Derste hiçbir şey değişmedi, kredilerin iade edildi."
+      "noChange": "Derste hiçbir şey değişmedi, kredilerin iade edildi.",
+      "incomplete": "Kayıt tüm satırları tamamlamadı."
     }
   },
   "auth": {
@@ -1637,6 +1642,26 @@
       "persona": "Karakter",
       "personaHint": "Konuşma tarzı için bir satır: ton, ruh hali, üslup.",
       "personaPlaceholder": "Örneğin: açıklamadan önce dramatik bir duraklamayı seven, kalın sesli bir gökbilimci"
+    },
+    "narration": {
+      "title": "Kayıtlı anlatım",
+      "lead": "Her satır kurs sesiyle bir kez kaydedilir, dakikası {price} kredi. Sonradan bir satırı değiştirirsen yalnızca o satır yeniden kaydedilir.",
+      "loading": "Kayıtlar kontrol ediliyor…",
+      "recorded": "{lines} satırdan {recorded} tanesi kaydedildi",
+      "none": "Henüz kaydedilmedi",
+      "done": "Tamamı kaydedildi",
+      "flagged": {
+        "one": "Dinlenecek {count} satır",
+        "other": "Dinlenecek {count} satır"
+      },
+      "record": {
+        "one": "{count} satırı kaydet ({credits} kredi)",
+        "other": "{count} satırı kaydet ({credits} kredi)"
+      },
+      "queued": "Bekliyor…",
+      "running": "Şu anda kaydediliyor…",
+      "failed": "Kayıt başarısız oldu, krediler iade edildi. Tekrar dene.",
+      "started": "Kayıt başladı. Sayfadan ayrılıp sonra dönebilirsin."
     }
   },
   "authoring": {

@@ -254,6 +254,7 @@ export async function publishedLesson(db: Db, courseId: string, lessonId: string
       boards: publishedLessons.boards,
       title: publishedLessons.title,
       voice: publishedCourses.voice,
+      language: publishedCourses.language,
     })
     .from(publishedLessons)
     .innerJoin(publishedCourses, eq(publishedCourses.id, publishedLessons.courseId))

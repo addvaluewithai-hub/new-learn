@@ -9,6 +9,7 @@ import { myCourses } from './library';
 import { canStudy, parsePrice, requireStudy } from './paid';
 import { requireProvider } from '../payments/provider';
 import { marketCourses, marketFacets, setListing } from '../market/store';
+import { createNarration, narrationPlan } from '../media/narration';
 
 // The app's side of published courses: the teacher's workspace (/api/teach) and the
 // student's course page, enrolment and lessons (/api/courses). The user is the session's.
@@ -54,6 +55,11 @@ export async function publishRoute(
       facets: await marketFacets(db),
     });
   }
+  // Recorded narration (docs/voice-agent.md): where each lesson stands, and record one.
+  if ((m = new RegExp(`^/api/teach/courses/${UUID}/narration$`).exec(path)) && method === 'GET')
+    return json(await narrationPlan(db, user.id, m[1]));
+  if ((m = new RegExp(`^/api/teach/lessons/${UUID}/narration$`).exec(path)) && method === 'POST')
+    return json(await createNarration(db, user, m[1]), 201);
   if ((m = new RegExp(`^/api/teach/courses/${UUID}/withdraw$`).exec(path)) && method === 'POST') {
     await withdrawCourse(db, user.id, m[1]);
     return json({ ok: true });
