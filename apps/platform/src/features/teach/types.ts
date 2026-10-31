@@ -10,6 +10,18 @@ export type Published = {
   students: number;
   /** The draft changed after this version was published. */
   stale: boolean;
+  /** The version students see and its price; a paid version waits for review first. */
+  publicVersion: number | null;
+  priceCents: number;
+  currency: string;
+  review: {
+    version: number;
+    status: 'pending' | 'approved' | 'changes';
+    notes: string;
+    priceCents: number;
+    currency: string;
+    decidedAt: string | null;
+  } | null;
 };
 export type TeachCourse = {
   id: string;
@@ -41,6 +53,13 @@ export function statusOf(course: TeachCourse): {
   const p = course.published;
   if (!p) return { tone: 'neutral', text: t('teach.status.draft') };
   if (p.withdrawn) return { tone: 'danger', text: t('teach.status.withdrawn') };
+  if (p.review?.status === 'pending')
+    return {
+      tone: 'warning',
+      text: t('teach.price.status.pending', { version: p.review.version }),
+    };
+  if (p.review?.status === 'changes' && p.review.version === p.version)
+    return { tone: 'danger', text: t('teach.price.status.changes', { version: p.review.version }) };
   if (p.stale) return { tone: 'warning', text: t('teach.status.stale') };
   return { tone: 'success', text: t('teach.status.live', { version: p.version }) };
 }

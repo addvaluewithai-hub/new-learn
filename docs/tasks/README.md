@@ -68,7 +68,7 @@ the video. They don't need developer decisions. Start each session with:
 | D6  | Payments provider that works in Egypt, the Gulf and abroad, with teacher payouts (needed early: paid from the start)                | Owner   | Y11, M4    |
 | D7  | Mobile: installable web app first, or a native app                                                                                  | Owner   | E18        |
 | D8  | Children: minimum ages, parent consent and data rules per country                                                                   | Owner   | P1, L4     |
-| D9  | Paid courses: human review of boards beyond `board:check`?                                                                          | Owner   | G5         |
+| D9  | Decided 2026-10-31: every paid version is reviewed by staff before sale, with an AI first pass (docs/credits.md)                    | Owner   | —          |
 | D10 | Remotion licence: free up to 3 people; the lesson player needs a paid plan when the company reaches 4                               | Owner   | —          |
 | D11 | Decided 2026-10-28: the builder runs on wp-slack-agent's VPS, as its own user and folder (docs/builder-server.md)                   | Owner   | —          |
 

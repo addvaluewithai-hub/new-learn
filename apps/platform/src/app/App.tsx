@@ -24,6 +24,8 @@ const TeachPage = lazy(() => import('../features/teach/TeachPage'));
 const CoursePage = lazy(() => import('../features/courses/CoursePage'));
 const CourseLesson = lazy(() => import('../features/courses/CourseLesson'));
 const SitePages = lazy(() => import('../features/site/SitePages'));
+const CreditsPage = lazy(() => import('../features/credits/CreditsPage'));
+const ReviewPage = lazy(() => import('../features/review/ReviewPage'));
 
 function StudentApp() {
   const session = useSession(),
@@ -45,6 +47,15 @@ function StudentApp() {
   if (query.has('settings'))
     return (
       <SettingsPage user={session.user} onSignOut={session.signOut} onSaved={session.refresh} />
+    );
+  if (query.has('credits')) return <CreditsPage user={session.user} onSignOut={session.signOut} />;
+  if (query.has('review'))
+    return (
+      <ReviewPage
+        user={session.user}
+        onSignOut={session.signOut}
+        item={query.get('review') || null}
+      />
     );
   if (query.has('teach'))
     return (

@@ -12,6 +12,7 @@ import {
 import { HttpError } from '../http';
 import type { Vars } from '../../src/i18n/core';
 import { course, courseLessons } from '../authoring/store';
+import { FREE, settleVersion, type Price } from './paid';
 
 // Publishing a teacher's draft course to students: the self-check, the copy that students
 // read, enrolment, and what each side sees. Drafts stay the owner's; published rows are read
@@ -128,8 +129,16 @@ export async function selfCheck(db: Db, owner: string, courseId: string) {
   };
 }
 
-/** Publish the draft as the next version: lessons in the order of the course's parts. */
-export async function publishCourse(db: Db, owner: { id: string; name: string }, courseId: string) {
+/**
+ * Publish the draft as the next version: lessons in the order of the course's parts. A free
+ * version is public at once; a paid one waits for the platform's review (paid.ts).
+ */
+export async function publishCourse(
+  db: Db,
+  owner: { id: string; name: string },
+  courseId: string,
+  price: Price = FREE,
+) {
   const check = await selfCheck(db, owner.id, courseId);
   const failed = check.checks.find((c) => !c.ok);
   if (failed) throw new HttpError(400, failed.key, failed.vars);
@@ -175,7 +184,8 @@ export async function publishCourse(db: Db, owner: { id: string; name: string },
       };
     }),
   );
-  return { courseId, version, lessons: ordered.length };
+  const review = await settleVersion(db, courseId, version, price);
+  return { courseId, version, lessons: ordered.length, review };
 }
 
 /** Lessons in part order; lessons in no part come last in creation order. */
@@ -199,7 +209,8 @@ export async function publicCourse(db: Db, courseId: string) {
     .select()
     .from(publishedCourses)
     .where(and(eq(publishedCourses.id, courseId), isNull(publishedCourses.withdrawnAt)));
-  if (!row) return null;
+  // A paid course is public from its first approved version.
+  if (!row || row.publicVersion === null) return null;
   const lessons = await db
     .select({
       id: publishedLessons.lessonId,
@@ -208,7 +219,9 @@ export async function publicCourse(db: Db, courseId: string) {
       package: publishedLessons.package,
     })
     .from(publishedLessons)
-    .where(and(eq(publishedLessons.courseId, courseId), eq(publishedLessons.version, row.version)))
+    .where(
+      and(eq(publishedLessons.courseId, courseId), eq(publishedLessons.version, row.publicVersion)),
+    )
     .orderBy(asc(publishedLessons.position));
   return {
     id: row.id,
@@ -217,7 +230,9 @@ export async function publicCourse(db: Db, courseId: string) {
     description: row.description,
     language: row.language,
     teacher: row.ownerName,
-    version: row.version,
+    version: row.publicVersion,
+    priceCents: row.priceCents,
+    currency: row.currency,
     publishedAt: row.publishedAt.toISOString(),
     parts: row.parts,
     lessons: lessons.map((l) => ({
@@ -244,7 +259,7 @@ export async function publishedLesson(db: Db, courseId: string, lessonId: string
       and(
         eq(publishedLessons.courseId, courseId),
         eq(publishedLessons.lessonId, lessonId),
-        eq(publishedLessons.version, publishedCourses.version),
+        eq(publishedLessons.version, publishedCourses.publicVersion),
         isNull(publishedCourses.withdrawnAt),
       ),
     );
@@ -261,7 +276,7 @@ export async function lessonCourse(db: Db, lessonId: string) {
     .where(
       and(
         eq(publishedLessons.lessonId, lessonId),
-        eq(publishedLessons.version, publishedCourses.version),
+        eq(publishedLessons.version, publishedCourses.publicVersion),
         isNull(publishedCourses.withdrawnAt),
       ),
     )

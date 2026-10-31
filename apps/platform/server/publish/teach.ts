@@ -8,6 +8,7 @@ import { HttpError } from '../http';
 import { serverText } from '../i18n';
 import { SOURCE } from '../../src/i18n/core';
 import { selfCheck, type Check } from './store';
+import { latestReviews } from '../review/store';
 
 // What the teacher's workspace shows: every course with its draft, its published version,
 // its students and its open notes; and the outline and notes of one course.
@@ -20,6 +21,9 @@ export async function teacherCourses(db: Db, owner: string) {
     .select({
       id: publishedCourses.id,
       version: publishedCourses.version,
+      publicVersion: publishedCourses.publicVersion,
+      priceCents: publishedCourses.priceCents,
+      currency: publishedCourses.currency,
       publishedAt: publishedCourses.publishedAt,
       withdrawnAt: publishedCourses.withdrawnAt,
     })
@@ -36,6 +40,7 @@ export async function teacherCourses(db: Db, owner: string) {
     .innerJoin(authorLessons, eq(authorLessons.id, authorFeedback.lessonId))
     .where(and(eq(authorFeedback.ownerId, owner), eq(authorFeedback.status, 'open')))
     .groupBy(authorLessons.courseId);
+  const reviews = await latestReviews(db, ids);
   const updated = await db
     .select({ id: authorCourses.id, updatedAt: authorCourses.updatedAt })
     .from(authorCourses)
@@ -62,6 +67,11 @@ export async function teacherCourses(db: Db, owner: string) {
       published: pub
         ? {
             version: pub.version,
+            // What students see now, and at what price (paid versions wait for review).
+            publicVersion: pub.publicVersion,
+            priceCents: pub.priceCents,
+            currency: pub.currency,
+            review: reviews.find((r) => r.courseId === c.id) ?? null,
             publishedAt: pub.publishedAt.toISOString(),
             withdrawn: Boolean(pub.withdrawnAt),
             students: students.find((s) => s.courseId === c.id)?.n ?? 0,

@@ -30,7 +30,11 @@ export async function myCourses(db: Db, userId: string) {
       })
       .from(publishedLessons)
       .where(
-        and(eq(publishedLessons.courseId, course.id), eq(publishedLessons.version, course.version)),
+        and(
+          eq(publishedLessons.courseId, course.id),
+          // Students read the public version; the owner and staff may be on a pending one.
+          eq(publishedLessons.version, course.publicVersion ?? course.version),
+        ),
       )
       .orderBy(asc(publishedLessons.position));
     const progress = await db

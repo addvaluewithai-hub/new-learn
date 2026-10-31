@@ -53,20 +53,20 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 
 ## G. Boards (Owner)
 
-| ID  | Task                                                                                                                                                            | Who   | Pri | Status  | Needs |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------- | ----- |
-| G1  | Nova sets declared board values live while explaining (clamped to ranges)                                                                                       | Owner | P2  | Todo    | —     |
-| G2  | Template gallery: number line, graph, molecule, timeline (Ess designs the look)                                                                                 | Both  | P2  | Todo    | —     |
-| G3  | Hands-free board questions: a spoken answer sets the checked values                                                                                             | Owner | P3  | Todo    | G1    |
-| G4  | Boards inside Claude/ChatGPT chat through MCP Apps, same files                                                                                                  | Owner | P3  | Todo    | A5    |
-| G5  | Human review of boards in paid courses, if D9 says so                                                                                                           | Owner | P3  | Blocked | D9    |
-| G6  | Visual skills: try the catalogue one at a time, two test scenes each (docs/visuals) (ten looks tried, one demo each: docs/visuals/demos.md)                     | Both  | P1  | Done    | —     |
-| G7  | Lesson styles: STYLE.md, helper, example boards and preview for each kept skill                                                                                 | Owner | P1  | Done    | G6    |
-| G8  | Style cards with real previews and a live board on the «اعمل كورس» page                                                                                         | Owner | P1  | Done    | —     |
-| G9  | The builder screenshots its boards and fixes them against STYLE.md before finishing                                                                             | Owner | P1  | Todo    | Y6    |
-| G10 | Serve three.js, D3, p5.js (+ p5.brush) and lottie-web from the board origin, pinned (three.js, p5.js, p5.brush and Amiri; D3 and lottie when a look needs them) | Owner | P1  | Done    | —     |
-| G11 | A picture in every scene by default; text alone only when the teacher chooses                                                                                   | Owner | P1  | Todo    | G7    |
-| G12 | Lesson clips: short videos made once (Remotion, Manim) and played in a step                                                                                     | Owner | P3  | Idea    | F7    |
+| ID  | Task                                                                                                                                                            | Who   | Pri | Status | Needs |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------ | ----- |
+| G1  | Nova sets declared board values live while explaining (clamped to ranges)                                                                                       | Owner | P2  | Todo   | —     |
+| G2  | Template gallery: number line, graph, molecule, timeline (Ess designs the look)                                                                                 | Both  | P2  | Todo   | —     |
+| G3  | Hands-free board questions: a spoken answer sets the checked values                                                                                             | Owner | P3  | Todo   | G1    |
+| G4  | Boards inside Claude/ChatGPT chat through MCP Apps, same files                                                                                                  | Owner | P3  | Todo   | A5    |
+| G5  | Review of paid courses: staff queue, every lesson as text, AI first pass, approve or send back with notes (docs/credits.md)                                     | Owner | P3  | Done   | D9    |
+| G6  | Visual skills: try the catalogue one at a time, two test scenes each (docs/visuals) (ten looks tried, one demo each: docs/visuals/demos.md)                     | Both  | P1  | Done   | —     |
+| G7  | Lesson styles: STYLE.md, helper, example boards and preview for each kept skill                                                                                 | Owner | P1  | Done   | G6    |
+| G8  | Style cards with real previews and a live board on the «اعمل كورس» page                                                                                         | Owner | P1  | Done   | —     |
+| G9  | The builder screenshots its boards and fixes them against STYLE.md before finishing                                                                             | Owner | P1  | Todo   | Y6    |
+| G10 | Serve three.js, D3, p5.js (+ p5.brush) and lottie-web from the board origin, pinned (three.js, p5.js, p5.brush and Amiri; D3 and lottie when a look needs them) | Owner | P1  | Done   | —     |
+| G11 | A picture in every scene by default; text alone only when the teacher chooses                                                                                   | Owner | P1  | Todo   | G7    |
+| G12 | Lesson clips: short videos made once (Remotion, Manim) and played in a step                                                                                     | Owner | P3  | Idea   | F7    |
 
 ## M. Marketplace and payments
 
@@ -75,9 +75,9 @@ preview. The writing runs on our builder worker (docs/voice-agent.md, Y6–Y7).
 | M1  | Public catalog of free courses, with review before listing                                                                                 | Both  | P2  | Todo   | F1, X2 |
 | M2  | Discovery: grade, subject, language, rating; a free preview lesson                                                                         | Both  | P2  | Todo   | M1     |
 | M3  | Ratings and reviews                                                                                                                        | Both  | P3  | Todo   | M1     |
-| M4  | Paid courses: checkout and access                                                                                                          | Owner | P3  | Todo   | D6, L6 |
+| M4  | Paid courses: price per version, access rule and buy endpoint built; checkout waits for the gateway (docs/credits.md)                      | Owner | P3  | Part   | D6, L6 |
 | M5  | Teacher payouts (teacher keeps about 70–80%)                                                                                               | Owner | P3  | Todo   | M4     |
-| M6  | Plans for teachers above free limits (database growth is our main cost)                                                                    | Owner | P3  | Idea   | M1     |
+| M6  | Credits: ledger, price list, starter credits, build charge and refund, packs waiting for payments (docs/credits.md)                        | Owner | P3  | Part   | M1     |
 | M7  | Share links: the first scene playable without an account (the link works for signed-in learners; the first scene without an account later) | Both  | P2  | Doing  | F1     |
 | M8  | Creator tools: remix with credit, one-click translation, creator analytics, photo-to-lesson                                                | Owner | P3  | Todo   | M1, V7 |
 | M9  | School licences per class                                                                                                                  | Owner | P3  | Idea   | T3     |

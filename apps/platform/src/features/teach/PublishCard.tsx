@@ -3,6 +3,7 @@ import { api } from '../../shared/api';
 import { Alert, Button, Card, TextInput } from '../../shared/ui';
 import { useI18n } from '../../i18n';
 import { shareLink, type Workspace } from './types';
+import { initialPrice, priceCents, PriceFields, ReviewStatus } from './PriceFields';
 
 /** The self-check, the publish or update button, the share link, and who got how far. */
 export function PublishCard({
@@ -16,12 +17,14 @@ export function PublishCard({
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<{ tone: 'success' | 'error'; text: string } | null>(null);
   const [copied, setCopied] = useState(false);
+  const [price, setPrice] = useState(() => initialPrice(work.published));
+  const paid = price.paid;
   const live = work.published && !work.published.withdrawn;
-  const act = async (path: string, done: string) => {
+  const act = async (path: string, done: string, data: object = {}) => {
     setBusy(true);
     setMessage(null);
     try {
-      await api(`/teach/courses/${work.id}/${path}`, {});
+      await api(`/teach/courses/${work.id}/${path}`, data);
       await onChanged();
       setMessage({ tone: 'success', text: done });
     } catch (e) {
@@ -58,22 +61,34 @@ export function PublishCard({
             </li>
           ))}
         </ul>
+        <PriceFields value={price} onChange={setPrice} />
+        {work.published && <ReviewStatus published={work.published} />}
         <div className="teach-publish-actions">
           <Button
             disabled={busy || !work.check.ready}
             onClick={() =>
-              act('publish', live ? t('teach.publish.updated') : t('teach.publish.published'))
+              act(
+                'publish',
+                paid
+                  ? t('teach.price.sent')
+                  : live
+                    ? t('teach.publish.updated')
+                    : t('teach.publish.published'),
+                { priceCents: priceCents(price), currency: price.currency },
+              )
             }
           >
             {busy
               ? t('teach.publish.wait')
-              : live
-                ? work.published?.stale
-                  ? t('teach.publish.publishChanges')
-                  : t('teach.publish.publishNew')
-                : work.published
-                  ? t('teach.publish.republish')
-                  : t('teach.publish.publish')}
+              : paid
+                ? t('teach.price.submit')
+                : live
+                  ? work.published?.stale
+                    ? t('teach.publish.publishChanges')
+                    : t('teach.publish.publishNew')
+                  : work.published
+                    ? t('teach.publish.republish')
+                    : t('teach.publish.publish')}
           </Button>
           {live && (
             <Button

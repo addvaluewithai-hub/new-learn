@@ -1,0 +1,116 @@
+/* The staff review pages (features/review): the queue, and one course version in full. */
+.review-queue {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.review-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-4) var(--nl-space-5);
+}
+.review-item > div {
+  display: grid;
+  flex: 1 1 16em;
+  gap: 2px;
+}
+.review-item span,
+.review-item small {
+  color: var(--nl-muted);
+}
+.review-detail {
+  display: grid;
+  gap: var(--nl-space-6);
+  max-width: 860px;
+}
+.review-detail h2 {
+  margin-bottom: var(--nl-space-2);
+  font-size: var(--nl-text-xl);
+}
+.review-ai,
+.review-decision {
+  display: grid;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-5);
+}
+.review-hint {
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.review-findings {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.review-findings li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-2);
+  padding: var(--nl-space-3);
+  border-inline-start: 3px solid var(--nl-line-strong);
+  background: var(--nl-surface-sunk);
+}
+.review-findings li p {
+  flex-basis: 100%;
+  line-height: var(--nl-leading);
+}
+.review-findings small {
+  color: var(--nl-muted);
+}
+.review-lessons {
+  display: grid;
+  gap: var(--nl-space-2);
+}
+.review-lesson {
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius-lg);
+  background: var(--nl-surface);
+}
+.review-lesson summary {
+  padding: var(--nl-space-4);
+  font-weight: 600;
+  cursor: pointer;
+}
+.review-lesson > div {
+  display: grid;
+  gap: var(--nl-space-5);
+  padding: 0 var(--nl-space-5) var(--nl-space-5);
+}
+.review-lesson h3 {
+  margin-bottom: var(--nl-space-2);
+  font-size: var(--nl-text-lg);
+}
+.review-lesson ol,
+.review-question ul {
+  display: grid;
+  gap: var(--nl-space-1);
+  padding-inline-start: 1.4em;
+  line-height: var(--nl-leading);
+}
+.review-question {
+  display: grid;
+  gap: var(--nl-space-2);
+  margin-top: var(--nl-space-3);
+  padding: var(--nl-space-3) var(--nl-space-4);
+  border-radius: var(--nl-radius-md);
+  background: var(--nl-surface-sunk);
+}
+.review-answer {
+  color: var(--nl-success);
+  font-weight: 600;
+}
+.review-feedback small {
+  color: var(--nl-muted);
+}
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nl-space-3);
+}

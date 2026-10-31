@@ -49,7 +49,12 @@ frozen packages and boards, enrolment, progress with conflicts, withdrawal, the 
 the notes count. `npm run test:browser:teach` drives the workspace and a student's course
 against a mocked API at 1280px and 390px.
 
+## Paid courses
+
+A version can be priced; paid versions are reviewed by the platform before students can buy
+them, and students keep the last approved version meanwhile. See docs/credits.md.
+
 ## Not yet
 
-Paid courses, a read-only preview link of a draft, the first scene without an account, roll
+Payments (the gateway; prices and review are built), a read-only preview link of a draft, the first scene without an account, roll
 back to an older version, and dragging in the outline.

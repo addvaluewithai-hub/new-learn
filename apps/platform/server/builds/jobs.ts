@@ -5,6 +5,7 @@ import { authorBoards, authorCourses, authorLessons } from '../db/authoring';
 import { HttpError } from '../http';
 import type { AuthUser } from '../env';
 import type { UploadedFile } from './request';
+import { refund, spend } from '../credits/ledger';
 
 // The queue between the "make a course" page and the builder worker. Jobs belong to the
 // teacher who asked; the worker claims one at a time and reports steps and the result.
@@ -37,12 +38,21 @@ export async function createJob(
   if (recent.some((j) => j.status === 'queued' || j.status === 'running'))
     throw new HttpError(409, 'builds.busy');
   if (recent.length >= JOB_LIMITS.perDay) throw new HttpError(429, 'builds.dailyLimit');
-  const [job] = await db
-    .insert(buildJobs)
-    .values({ ownerId: user.id, ownerName: user.name, request: input.request })
-    .returning();
-  for (const f of input.files) await db.insert(buildFiles).values({ jobId: job.id, ...f });
-  return view(job);
+  // The job's id is made here so the charge can name it before the job exists: no credits,
+  // no job; a job that fails gives them back (finishJob, claimJob).
+  const id = crypto.randomUUID();
+  await spend(db, user, 'course.build', id);
+  try {
+    const [job] = await db
+      .insert(buildJobs)
+      .values({ id, ownerId: user.id, ownerName: user.name, request: input.request })
+      .returning();
+    for (const f of input.files) await db.insert(buildFiles).values({ jobId: job.id, ...f });
+    return view(job);
+  } catch (error) {
+    await refund(db, user.id, id);
+    throw error;
+  }
 }
 
 export async function listJobs(db: Db, ownerId: string) {
@@ -96,14 +106,17 @@ async function jobBoards(db: Db, job: typeof buildJobs.$inferSelect) {
  */
 export async function claimJob(db: Db) {
   const stale = sql`now() - make_interval(mins => ${JOB_LIMITS.staleMinutes})`;
-  await db
+  const stuck = await db
     .update(buildJobs)
     .set({
       status: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then 'failed' else 'queued' end`,
       error: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then 'step:failed' else ${buildJobs.error} end`,
       finishedAt: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then now() else null end`,
     })
-    .where(and(eq(buildJobs.status, 'running'), sql`${buildJobs.startedAt} < ${stale}`));
+    .where(and(eq(buildJobs.status, 'running'), sql`${buildJobs.startedAt} < ${stale}`))
+    .returning({ id: buildJobs.id, ownerId: buildJobs.ownerId, status: buildJobs.status });
+  for (const gone of stuck.filter((j) => j.status === 'failed'))
+    await refund(db, gone.ownerId, gone.id);
   const [job] = await db
     .update(buildJobs)
     .set({ status: 'running', startedAt: new Date(), attempts: sql`${buildJobs.attempts} + 1` })
@@ -192,5 +205,6 @@ export async function finishJob(db: Db, jobId: string, input: { ok: boolean; mes
       finishedAt: new Date(),
     })
     .where(eq(buildJobs.id, jobId));
+  if (!(input.ok && made)) await refund(db, job.ownerId, jobId);
   return { status: input.ok && made ? 'done' : 'failed', ...result };
 }

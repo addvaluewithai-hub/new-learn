@@ -1,0 +1,92 @@
+/* The credits page (features/credits): balance, price list, packs, history, staff grants. */
+.credits {
+  display: grid;
+  gap: var(--nl-space-8);
+  max-width: 760px;
+}
+.credits h2 {
+  margin-bottom: var(--nl-space-3);
+  font-size: var(--nl-text-xl);
+}
+.credits-balance {
+  display: grid;
+  gap: var(--nl-space-1);
+  padding: var(--nl-space-6);
+  background: var(--nl-green-950);
+  color: #ffffff;
+}
+.credits-balance span,
+.credits-balance small {
+  color: rgb(255 255 255 / 72%);
+}
+.credits-balance strong {
+  color: var(--nl-accent);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  line-height: 1.1;
+}
+.credits-prices,
+.credits-history {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--nl-line);
+  list-style: none;
+}
+.credits-prices li,
+.credits-history li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-2) var(--nl-space-3);
+  padding: var(--nl-space-3) var(--nl-space-1);
+  border-bottom: 1px solid var(--nl-line);
+}
+.credits-prices li > span,
+.credits-history li > span {
+  flex: 1 1 14em;
+}
+.credits-prices li[data-soon] > span {
+  color: var(--nl-muted);
+}
+.credits-prices strong small,
+.credits-history small {
+  color: var(--nl-muted);
+  font-weight: 400;
+}
+.credits-history time {
+  color: var(--nl-faint);
+  font-size: var(--nl-text-sm);
+}
+.credits-history strong {
+  min-width: 4ch;
+  text-align: end;
+}
+.credits-history strong[data-sign='minus'] {
+  color: var(--nl-danger-ink);
+}
+.credits-history strong[data-sign='plus'] {
+  color: var(--nl-success);
+}
+.credits-packs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--nl-space-3);
+}
+.credits-pack {
+  display: grid;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-5);
+}
+.credits-pack strong {
+  font-size: var(--nl-text-xl);
+}
+.credits-note {
+  margin-top: var(--nl-space-3);
+  color: var(--nl-muted);
+  line-height: var(--nl-leading);
+}
+.credits-grant form {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin-block: var(--nl-space-3);
+}

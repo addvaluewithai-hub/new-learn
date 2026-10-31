@@ -7,6 +7,7 @@ import { courseLessonHref, type MyCourse, type PublicCourse } from './types';
 import { go } from '../studio/types';
 import { useI18n } from '../../i18n';
 import { Rich } from '../../i18n/Rich';
+import { formatPrice } from '../credits/format';
 import '../../shared/platform.css';
 import '../catalog/library-shell.css';
 import '../catalog/library-account.css';
@@ -22,7 +23,7 @@ export default function CoursePage({
   onSignOut: () => Promise<void>;
   courseId: string;
 }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [course, setCourse] = useState<PublicCourse | null>(null);
   const [mine, setMine] = useState<MyCourse | null | undefined>(undefined);
   const [error, setError] = useState('');
@@ -47,6 +48,18 @@ export default function CoursePage({
       setBusy(false);
     }
   };
+  // A paid course asks the payment gateway for a checkout; until one is connected it says so.
+  const buy = async () => {
+    setBusy(true);
+    try {
+      const { url } = await api<{ url: string }>(`/courses/${courseId}/buy`, {});
+      location.assign(url);
+    } catch (e) {
+      setError((e as Error).message);
+      setBusy(false);
+    }
+  };
+  const price = course?.priceCents ? formatPrice(course.priceCents, course.currency, locale) : '';
   const parts = course
     ? [
         ...course.parts
@@ -88,20 +101,30 @@ export default function CoursePage({
                 </span>
               )}
               <span>{t('courses.lessonCount', { count: course.lessons.length })}</span>
+              {price && <Badge tone="accent">{t('courses.paid.badge', { price })}</Badge>}
               {mine && <span>{t('courses.progress', { done, total: course.lessons.length })}</span>}
             </p>
           </div>
           <div className="course-start">
-            <Button size="lg" variant="accent" disabled={busy || !next} onClick={start}>
-              {busy
-                ? t('courses.wait')
-                : mine
-                  ? done
-                    ? t('courses.continue')
-                    : t('courses.start')
-                  : t('courses.start')}
-            </Button>
-            {next && mine && (
+            {course.access === false ? (
+              <>
+                <Button size="lg" variant="accent" disabled={busy} onClick={buy}>
+                  {t('courses.paid.buy', { price })}
+                </Button>
+                <span className="course-next">{t('courses.paid.buyHelp')}</span>
+              </>
+            ) : (
+              <Button size="lg" variant="accent" disabled={busy || !next} onClick={start}>
+                {busy
+                  ? t('courses.wait')
+                  : mine
+                    ? done
+                      ? t('courses.continue')
+                      : t('courses.start')
+                    : t('courses.start')}
+              </Button>
+            )}
+            {course.access !== false && next && mine && (
               <span className="course-next">
                 <Rich k="courses.next" parts={{ title: <bdi>{next.title}</bdi> }} />
               </span>

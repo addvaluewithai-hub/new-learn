@@ -6,6 +6,8 @@ import { enrol, publicCourse, publishCourse, withdrawCourse } from './store';
 import { courseLessonView } from './progress';
 import { saveOutline, teacherCourse, teacherCourses } from './teach';
 import { myCourses } from './library';
+import { canStudy, parsePrice, requireStudy } from './paid';
+import { requireProvider } from '../payments/provider';
 
 // The app's side of published courses: the teacher's workspace (/api/teach) and the
 // student's course page, enrolment and lessons (/api/courses). The user is the session's.
@@ -30,7 +32,7 @@ export async function publishRoute(
       return json(await saveOutline(db, user.id, m[1], await body(request), locale));
   }
   if ((m = new RegExp(`^/api/teach/courses/${UUID}/publish$`).exec(path)) && method === 'POST')
-    return json(await publishCourse(db, user, m[1]), 201);
+    return json(await publishCourse(db, user, m[1], parsePrice(await body(request))), 201);
   if ((m = new RegExp(`^/api/teach/courses/${UUID}/withdraw$`).exec(path)) && method === 'POST') {
     await withdrawCourse(db, user.id, m[1]);
     return json({ ok: true });
@@ -45,13 +47,31 @@ export async function publishRoute(
   if ((m = new RegExp(`^/api/courses/${UUID}$`).exec(path))) {
     const course = await publicCourse(db, m[1]);
     if (!course) throw new HttpError(404, 'publish.courseGone');
-    if (method === 'GET') return json(course);
+    // `access`: whether this person may study it now (free, bought, theirs, or staff).
+    if (method === 'GET') return json({ ...course, access: await canStudy(db, env, user, m[1]) });
     if (method === 'POST') {
+      await requireStudy(db, env, user, m[1]);
       await enrol(db, user.id, m[1]);
       return json({ ok: true }, 201);
     }
   }
-  if ((m = new RegExp(`^/api/courses/${UUID}/lessons/${UUID}$`).exec(path)) && method === 'GET')
+  if ((m = new RegExp(`^/api/courses/${UUID}/lessons/${UUID}$`).exec(path)) && method === 'GET') {
+    await requireStudy(db, env, user, m[1]);
     return json(await courseLessonView(db, m[1], m[2]));
+  }
+  // Buying goes through a payment gateway; until one is connected this says so.
+  if ((m = new RegExp(`^/api/courses/${UUID}/buy$`).exec(path)) && method === 'POST') {
+    const course = await publicCourse(db, m[1]);
+    if (!course) throw new HttpError(404, 'publish.courseGone');
+    const provider = requireProvider(env);
+    return json(
+      await provider.checkout(env, user, {
+        kind: 'course',
+        courseId: m[1],
+        priceCents: course.priceCents,
+        currency: course.currency,
+      }),
+    );
+  }
   throw new HttpError(404, 'http.notFound');
 }
