@@ -67,3 +67,11 @@ would surprise you, so an alert means something is wrong.
    to your email. On the free plan requests stop at the daily cap instead of costing more.
 
 Check `?ops` once a day during the first weeks: a jump in one row is the earliest sign.
+
+## Cloudflare from GitHub Actions
+
+The repository secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` (an account token
+with R2: edit and Pages: edit) let the workflow **Cloudflare setup** (`workflow_dispatch`) do the
+dashboard work: it creates the R2 bucket `new-learn-media`, binds it to the Pages project as
+`MEDIA` (production and preview) and, when given, sets `STAFF_EMAILS`. Run it again whenever a
+binding or variable changes; a binding takes effect on the next deployment.

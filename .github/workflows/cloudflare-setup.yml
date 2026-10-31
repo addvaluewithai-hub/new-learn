@@ -1,0 +1,66 @@
+name: Cloudflare setup
+# Sets up what the platform needs on Cloudflare, so nobody clicks through the dashboard: the
+# R2 bucket for recorded voices and pictures, bound to the Pages project as MEDIA (production
+# and preview), and optionally the STAFF_EMAILS variable. Uses the repository secrets
+# CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN (R2: edit, Pages: edit). Idempotent: run it
+# again whenever a binding or variable changes. Bindings take effect on the next deployment.
+on:
+  workflow_dispatch:
+    inputs:
+      staff_emails:
+        description: 'STAFF_EMAILS for the Pages project (comma separated); empty keeps it as is'
+        required: false
+        default: ''
+permissions:
+  contents: read
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      BUCKET: new-learn-media
+      PROJECT: new-learn
+      STAFF_EMAILS: ${{ inputs.staff_emails }}
+    steps:
+      - name: Check the secrets
+        run: |
+          if [ -z "$CF_ACCOUNT" ] || [ -z "$CF_TOKEN" ]; then
+            echo "CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN is not set."; exit 1
+          fi
+      - name: Create the R2 bucket (kept when it exists)
+        run: |
+          code=$(curl -sS -o out.json -w '%{http_code}' -X POST \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/r2/buckets" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            --data "{\"name\":\"$BUCKET\",\"locationHint\":\"weur\"}")
+          if [ "$code" = "200" ]; then echo "bucket $BUCKET created";
+          elif grep -q '"code":10004' out.json; then echo "bucket $BUCKET already exists";
+          else echo "R2 answered $code"; cat out.json; exit 1; fi
+      - name: Bind the bucket to the Pages project (and set STAFF_EMAILS when given)
+        run: |
+          node - <<'JS'
+          const { CF_ACCOUNT, CF_TOKEN, BUCKET, PROJECT, STAFF_EMAILS } = process.env;
+          const env = { r2_buckets: { MEDIA: { name: BUCKET } } };
+          if (STAFF_EMAILS) env.env_vars = { STAFF_EMAILS: { type: 'plain_text', value: STAFF_EMAILS } };
+          const body = { deployment_configs: { production: env, preview: env } };
+          const response = await fetch(
+            `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/${PROJECT}`,
+            {
+              method: 'PATCH',
+              headers: { authorization: `Bearer ${CF_TOKEN}`, 'content-type': 'application/json' },
+              body: JSON.stringify(body),
+            },
+          );
+          const data = await response.json();
+          if (!data.success) {
+            console.log(JSON.stringify(data.errors));
+            process.exit(1);
+          }
+          for (const name of ['production', 'preview']) {
+            const cfg = data.result.deployment_configs[name];
+            console.log(name, 'r2:', Object.keys(cfg.r2_buckets ?? {}).join(','),
+              'vars:', Object.keys(cfg.env_vars ?? {}).join(','));
+          }
+          JS

@@ -2,7 +2,7 @@
 
 **Status: STEP 3, switch the builder to Claude Code (owner's account for now). Step 2 is done and the builder works.**
 
-**2026-10-31: the worker moves to Cloud Run (docs/worker-cloud-run.md). Keep this VPS service running until the first Cloud Run build succeeds, then stop it; step 3 below is no longer needed on the VPS.**
+**2026-10-31: the builder stays here. Voices and pictures run as a Cloud Run job instead (docs/worker-cloud-run.md); the builder's steps below still apply.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a

@@ -1,19 +1,15 @@
-# New Learn's worker (docs/worker-cloud-run.md): the course builder, run as a Cloud Run job on
-# a schedule. Node, the file converters the builder uses, and Claude Code for a non-root user.
+# New Learn's media worker image (docs/worker-cloud-run.md): the Cloud Run job that records
+# voices (later pictures) with Vertex AI. Node built-ins only, a non-root user, no keys. The
+# course builder keeps its own home on the VPS (docs/builder-server.md).
 FROM node:22-bookworm-slim
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends ca-certificates curl git poppler-utils pandoc \
+  && apt-get install -y --no-install-recommends ca-certificates \
   && rm -rf /var/lib/apt/lists/* \
   && useradd --create-home --shell /bin/bash worker
 USER worker
 WORKDIR /home/worker
-# Claude Code's native installer puts `claude` in ~/.local/bin.
-RUN curl -fsSL https://claude.ai/install.sh | bash
-ENV PATH="/home/worker/.local/bin:${PATH}" \
-  HOME=/home/worker \
-  WORK_ROOT=/tmp/new-learn-jobs \
-  BUILDER_MODE=once \
-  DISABLE_AUTOUPDATER=1 \
-  DISABLE_UPDATES=1
+ENV HOME=/home/worker \
+  BUILDER_MODE=once
 COPY --chown=worker:worker builder ./app/builder
-CMD ["node", "app/builder/index.mjs"]
+COPY --chown=worker:worker media ./app/media
+CMD ["node", "app/media/index.mjs"]
