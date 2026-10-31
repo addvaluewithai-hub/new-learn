@@ -1,8 +1,8 @@
 # The marketplace
 
 Status (2026-10-31): listing, review and the Explore page (M1, X7; migration
-`0010_marketplace.sql`), and the public pages, sitemap and robots file (M2) are built and
-tested. A free preview lesson without an account comes next.
+`0010_marketplace.sql`), the public pages, sitemap and robots file (M2), and the free first
+scene for visitors without an account (M7) are built and tested.
 
 ## Listing a course
 
@@ -55,9 +55,24 @@ The pages are in the visitor's language (`?lang=`, then the browser's, then Arab
 script, styles inline, fonts and images from the site), are cached for five minutes, and are
 limited per IP (`pages.public`, 600 an hour). The site's footer links to `/courses`.
 
+## Free first scene (M7)
+
+A course link (`/?course=<id>`) opened without an account no longer asks to sign in first. It
+shows the course for visitors (`CoursePreview`): subject, title, description, teacher, price,
+the lessons, «جرّب أول جزء ببلاش» and «اعمل حساب مجاني وابدأ». The try button opens
+`/?course=<id>&preview=play` (`PreviewLesson`): the first scene of the first lesson, played by the
+lesson runtime with its boards, saving nothing and without Nova. Its end screen names what
+follows and leads to sign-up at `/?course=<id>&auth=signup`; after signing in, the same address
+opens the full course page. The public course page links to the try button too.
+
+The server sends only that scene, its goals and the boards it draws with
+(`server/market/preview.ts`, `firstScene`): `GET /api/public/courses/<id>` (the course card) and
+`GET /api/public/courses/<id>/preview`, without an account, limited per IP like the public
+pages. It works for any published course with its link, listed or not, paid or free; a
+withdrawn course answers 404.
+
 ## Next
 
-- A free preview lesson playable without an account (M7), and the public page in the app's own
-  look once the brand is chosen (B1).
+- The public pages in the app's own look once the brand is chosen (B1).
 - Ratings and reviews (M3), teacher profile pages (T5), and showing a reviewer only what
   changed since the last approved version (X5).

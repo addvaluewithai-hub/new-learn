@@ -164,7 +164,8 @@
      "few": "الـ{count} دروس",
      "many": "الـ{count} درس",
      "other": "الـ{count} درس"
-    }
+    },
+    "try": "جرّب أول جزء ببلاش"
    },
    "grades": {
     "kg": "حضانة",
@@ -345,7 +346,8 @@
     "lessonsTitle": {
      "one": "{count} Lektion",
      "other": "{count} Lektionen"
-    }
+    },
+    "try": "Ersten Teil kostenlos testen"
    },
    "grades": {
     "kg": "Kindergarten",
@@ -526,7 +528,8 @@
     "lessonsTitle": {
      "one": "{count} lesson",
      "other": "{count} lessons"
-    }
+    },
+    "try": "Try the first part free"
    },
    "grades": {
     "kg": "Kindergarten",
@@ -707,7 +710,8 @@
     "lessonsTitle": {
      "one": "{count} lección",
      "other": "{count} lecciones"
-    }
+    },
+    "try": "Prueba la primera parte gratis"
    },
    "grades": {
     "kg": "Infantil",
@@ -891,7 +895,8 @@
     "lessonsTitle": {
      "one": "{count} leçon",
      "other": "{count} leçons"
-    }
+    },
+    "try": "Essayer la première partie gratuitement"
    },
    "grades": {
     "kg": "Maternelle",
@@ -1072,7 +1077,8 @@
     "lessonsTitle": {
      "one": "{count} lição",
      "other": "{count} lições"
-    }
+    },
+    "try": "Experimente a primeira parte grátis"
    },
    "grades": {
     "kg": "Educação infantil",
@@ -1251,7 +1257,8 @@
     },
     "lessonsTitle": {
      "other": "{count} ders"
-    }
+    },
+    "try": "İlk bölümü ücretsiz dene"
    },
    "grades": {
     "kg": "Anaokulu",
@@ -1427,7 +1434,8 @@
     },
     "lessonsTitle": {
      "other": "{count} 节课"
-    }
+    },
+    "try": "免费试学第一部分"
    },
    "grades": {
     "kg": "幼儿园",

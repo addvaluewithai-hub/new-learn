@@ -72,6 +72,7 @@ h1{font-size:clamp(28px,5vw,40px);line-height:1.2;margin:16px 0 8px}h2{font-size
 .price{display:inline-block;padding:2px 10px;border-radius:999px;background:#e7f3d0;font-size:14px;font-weight:600;width:max-content}
 form{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}input,select,button{font:inherit;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
 input{flex:1 1 14rem}button,.cta{background:var(--primary);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-weight:600;text-decoration:none;display:inline-block;cursor:pointer}
+.ctas{display:flex;flex-wrap:wrap;gap:8px}.cta--light{background:#fff;color:var(--primary);box-shadow:inset 0 0 0 1px var(--line)}
 .panel{background:#fff;border-radius:18px;padding:20px;margin:16px 0}.panel h2{margin-top:0}.panel ol{margin:0;padding-inline-start:1.4em}.panel li{margin:6px 0}
 .goals{margin:2px 0 0;padding-inline-start:1.2em;color:var(--muted);font-size:15px}
 footer{color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:16px}
@@ -219,7 +220,7 @@ export function coursePage(
 <p class="lead">${esc(t('by', { teacher: course.teacher }))} · ${esc(t('reviewed'))}</p>
 ${course.description ? `<p dir="auto">${esc(course.description)}</p>` : ''}
 <p><span class="price">${esc(priceText(locale, course))}</span></p>
-<p><a class="cta" href="/?course=${esc(course.id)}">${esc(t(course.priceCents ? 'open' : 'start'))}</a></p>
+<p class="ctas"><a class="cta" href="/?course=${esc(course.id)}">${esc(t(course.priceCents ? 'open' : 'start'))}</a><a class="cta cta--light" href="/?course=${esc(course.id)}&amp;preview=play">${esc(t('try'))}</a></p>
 <p class="note">${esc(t('startNote'))}</p>
 <section class="panel"><h2>${esc(t('lessonsTitle', { count: lessons.length }))}</h2><ol>${items}</ol></section>`,
   );
