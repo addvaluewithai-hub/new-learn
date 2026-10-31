@@ -4,15 +4,15 @@ The shared task list for **Owner** (technical lead) and **Ess** (UI/UX designer,
 Claude Code). docs/roadmap.md says why; these files say who does each task, in what order, and
 where it stands. Update the Status cell in the same PR that changes it.
 
-Last full review: 2026-10-29.
+Last full review: 2026-10-31.
 
-| File                       | Areas                                                                                                   |
-| -------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [launch.md](launch.md)     | Connector go-live, brand and domain, website, YC and demo, legal, operations                            |
-| [learning.md](learning.md) | Student pages and states, questions and exams, streaks and rewards, Nova, content, parents and children |
-| [teaching.md](teaching.md) | Course studio, teacher pages, publishing and accounts, boards, marketplace and payments, admin          |
-| [voice.md](voice.md)       | Nova everywhere (lesson tools, Start button), the builder worker, paid plans                            |
-| [rounds.md](rounds.md)     | The same tasks grouped into working sessions (one PR each), in waves                                    |
+| File                       | Areas                                                                                                                             |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| [launch.md](launch.md)     | Connector go-live, brand and domain, website, YC and demo, legal, operations                                                      |
+| [learning.md](learning.md) | Student pages and states, questions and exams, streaks and rewards, Nova, content, parents and children                           |
+| [teaching.md](teaching.md) | Course studio, voices, teacher pages, publishing and accounts, boards, marketplace and payments, admin, marketing assets, schools |
+| [voice.md](voice.md)       | Nova everywhere (lesson tools, Start button), the builder worker, paid plans                                                      |
+| [rounds.md](rounds.md)     | The same tasks grouped into working sessions (one PR each), in waves                                                              |
 
 ## How to read the tables
 
@@ -85,6 +85,12 @@ course, video, screenshots, application and first users; E1 teacher pages polish
 - Boards v1:
   - sandboxed board origin, fixed canvases and `board:check`;
   - the chapter 8 Young's modulus board.
+- This week (2026-10-28 to 31):
+  - studio («اعمل كورس») with looks and live previews; the builder on Claude Code;
+  - teacher workspace, publishing to students, the student's course page;
+  - the website: landing, teachers, support, privacy and terms pages;
+  - eight languages, one file each (docs/i18n.md);
+  - credits, paid course versions and staff review with an AI first pass (docs/credits.md).
 - Connector (PR #25):
   - MCP tools and OAuth;
   - teacher drafts, notes per step and board self-checks.

@@ -61,7 +61,9 @@ not rewrite previously released content or student progress.
 
 ## Engineering gates
 
-At most 300 lines for authored code, CSS, tests and documentation; generated lockfiles excluded.
+Aim for at most 300 lines for authored code, CSS, tests and documentation (a guideline: a file may
+run longer when splitting would not help; `npm run check` notes files over 300 and fails above
+800); generated files and language files excluded.
 Boundaries are checked by tools/check-boundaries.mjs, alongside the line limit.
 Useful modules are copied with behavior tests; unrelated legacy features remain outside this repo.
 Build and unit tests are mandatory; browser behavior checks run in CI with Chromium.

@@ -102,12 +102,8 @@
           "tableFrom": "lesson_editions",
           "tableTo": "lessons",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "lesson_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["lesson_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -115,10 +111,7 @@
       "compositePrimaryKeys": {
         "lesson_editions_lesson_id_content_revision_pk": {
           "name": "lesson_editions_lesson_id_content_revision_pk",
-          "columns": [
-            "lesson_id",
-            "content_revision"
-          ]
+          "columns": ["lesson_id", "content_revision"]
         }
       },
       "uniqueConstraints": {},
@@ -174,12 +167,8 @@
           "tableFrom": "lessons",
           "tableTo": "curricula",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "curriculum_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["curriculum_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -189,10 +178,7 @@
         "lesson_position": {
           "name": "lesson_position",
           "nullsNotDistinct": false,
-          "columns": [
-            "curriculum_id",
-            "position"
-          ]
+          "columns": ["curriculum_id", "position"]
         }
       },
       "policies": {},
@@ -241,12 +227,8 @@
           "tableFrom": "lesson_releases",
           "tableTo": "lessons",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "lesson_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["lesson_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -255,14 +237,8 @@
           "tableFrom": "lesson_releases",
           "tableTo": "lesson_editions",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "lesson_id",
-            "content_revision"
-          ],
-          "columnsTo": [
-            "lesson_id",
-            "content_revision"
-          ],
+          "columnsFrom": ["lesson_id", "content_revision"],
+          "columnsTo": ["lesson_id", "content_revision"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -322,14 +298,8 @@
           "tableFrom": "lesson_enrollments",
           "tableTo": "lesson_editions",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "lesson_id",
-            "content_revision"
-          ],
-          "columnsTo": [
-            "lesson_id",
-            "content_revision"
-          ],
+          "columnsFrom": ["lesson_id", "content_revision"],
+          "columnsTo": ["lesson_id", "content_revision"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -339,11 +309,7 @@
         "user_lesson_edition": {
           "name": "user_lesson_edition",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "lesson_id",
-            "content_revision"
-          ]
+          "columns": ["user_id", "lesson_id", "content_revision"]
         }
       },
       "policies": {},
@@ -394,12 +360,8 @@
           "tableFrom": "lesson_progress",
           "tableTo": "lesson_enrollments",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "enrollment_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["enrollment_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -501,10 +463,7 @@
       "compositePrimaryKeys": {
         "author_boards_hash_owner_id_pk": {
           "name": "author_boards_hash_owner_id_pk",
-          "columns": [
-            "hash",
-            "owner_id"
-          ]
+          "columns": ["hash", "owner_id"]
         }
       },
       "uniqueConstraints": {},
@@ -719,12 +678,8 @@
           "tableFrom": "author_feedback",
           "tableTo": "author_lessons",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "lesson_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["lesson_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -818,12 +773,8 @@
           "tableFrom": "author_lessons",
           "tableTo": "author_courses",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["course_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -889,12 +840,8 @@
           "tableFrom": "author_lesson_revisions",
           "tableTo": "author_lessons",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "lesson_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["lesson_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -902,10 +849,7 @@
       "compositePrimaryKeys": {
         "author_lesson_revisions_lesson_id_revision_pk": {
           "name": "author_lesson_revisions_lesson_id_revision_pk",
-          "columns": [
-            "lesson_id",
-            "revision"
-          ]
+          "columns": ["lesson_id", "revision"]
         }
       },
       "uniqueConstraints": {},
@@ -1016,12 +960,8 @@
           "tableFrom": "oauth_codes",
           "tableTo": "oauth_clients",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "client_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["client_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1109,12 +1049,8 @@
           "tableFrom": "oauth_tokens",
           "tableTo": "oauth_clients",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "client_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["client_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1190,12 +1126,8 @@
           "tableFrom": "build_files",
           "tableTo": "build_jobs",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "job_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["job_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1378,12 +1310,8 @@
           "tableFrom": "course_enrollments",
           "tableTo": "published_courses",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["course_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1393,10 +1321,7 @@
         "course_enrollment_user": {
           "name": "course_enrollment_user",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "course_id"
-          ]
+          "columns": ["user_id", "course_id"]
         }
       },
       "policies": {},
@@ -1453,12 +1378,8 @@
           "tableFrom": "course_progress",
           "tableTo": "course_enrollments",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "enrollment_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["enrollment_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1466,10 +1387,7 @@
       "compositePrimaryKeys": {
         "course_progress_enrollment_id_lesson_id_pk": {
           "name": "course_progress_enrollment_id_lesson_id_pk",
-          "columns": [
-            "enrollment_id",
-            "lesson_id"
-          ]
+          "columns": ["enrollment_id", "lesson_id"]
         }
       },
       "uniqueConstraints": {},
@@ -1607,12 +1525,8 @@
           "tableFrom": "published_courses",
           "tableTo": "author_courses",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1693,12 +1607,8 @@
           "tableFrom": "published_lessons",
           "tableTo": "published_courses",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["course_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1706,11 +1616,7 @@
       "compositePrimaryKeys": {
         "published_lessons_course_id_version_lesson_id_pk": {
           "name": "published_lessons_course_id_version_lesson_id_pk",
-          "columns": [
-            "course_id",
-            "version",
-            "lesson_id"
-          ]
+          "columns": ["course_id", "version", "lesson_id"]
         }
       },
       "uniqueConstraints": {},
@@ -1767,12 +1673,8 @@
           "tableFrom": "course_access",
           "tableTo": "published_courses",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["course_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1782,10 +1684,7 @@
         "course_access_user": {
           "name": "course_access_user",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "course_id"
-          ]
+          "columns": ["user_id", "course_id"]
         }
       },
       "policies": {},
@@ -1909,12 +1808,8 @@
           "tableFrom": "course_reviews",
           "tableTo": "published_courses",
           "schemaTo": "learn_app",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["course_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -1924,10 +1819,7 @@
         "course_review_version": {
           "name": "course_review_version",
           "nullsNotDistinct": false,
-          "columns": [
-            "course_id",
-            "version"
-          ]
+          "columns": ["course_id", "version"]
         }
       },
       "policies": {},
@@ -2059,11 +1951,7 @@
         "credit_entry_once": {
           "name": "credit_entry_once",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "kind",
-            "ref"
-          ]
+          "columns": ["user_id", "kind", "ref"]
         }
       },
       "policies": {},

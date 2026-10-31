@@ -30,6 +30,9 @@ const generated = new Set([
 ]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];
+const AIM = 300;
+const HARD = 800;
+const long = [];
 let count = 0;
 let largest = { path: '', lines: 0 };
 
@@ -60,7 +63,9 @@ async function scan(folder) {
     const lines = content.trimEnd().split('\n').length;
     count++;
     if (lines > largest.lines) largest = { path: name, lines };
-    if (lines > 300) errors.push(`${name}: ${lines} lines (limit 300)`);
+    // 300 is the aim, not a wall (AGENTS.md): longer files are listed; only very big fail.
+    if (lines > HARD) errors.push(`${name}: ${lines} lines (more than ${HARD}: split it)`);
+    else if (lines > AIM) long.push(`${name} (${lines})`);
     if (!path.startsWith(runtime + sep)) continue;
     for (const match of content.matchAll(/(?:\bfrom\s*|\bimport\s*\(?\s*)['"]([^'"]+)['"]/g)) {
       const specifier = match[1];
@@ -79,6 +84,8 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log(
-    `Boundaries and 300-line limit passed: ${count} authored files. Largest: ${largest.path} (${largest.lines}).`,
+    `Boundaries passed and no file over ${HARD} lines: ${count} authored files. Largest: ${largest.path} (${largest.lines}).`,
   );
+  if (long.length)
+    console.log(`Over the ${AIM}-line aim (fine if they read better whole): ${long.join(', ')}.`);
 }

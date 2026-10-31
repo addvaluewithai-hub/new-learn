@@ -16,7 +16,10 @@ The old addvaluewithai-hub/learn is a reference, not a workspace dependency.
 - Runtime source imports only itself, React/React DOM, Remotion and @remotion/player.
 - Curriculum custom components and parameters belong to content packages, not engine switches.
 - Add directories when used; do not pre-create a folder for every future feature.
-- Keep authored code, CSS and tests at most 300 lines after readable formatting.
+- Aim for at most 300 lines per authored file (code, CSS, tests) after readable formatting.
+  It is a guideline, not a hard limit: a file that reads better whole may run to 400 or more.
+  Split when there is a natural seam (by responsibility); don't split just to hit a number.
+  `npm run check` lists files over 300 as a note and fails only above 800 ("very big").
 - Split by responsibility, not part1/part2 or minification.
 - Use explicit public exports between packages; no reaching into another package's src.
 
