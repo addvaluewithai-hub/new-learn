@@ -13,7 +13,7 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 | A5  | Live check: «مسوداتي» lists the course; its preview plays, board and notes included         | Owner | P0  | Todo   | A4     |
 | A6  | GitHub secret `CONTENT_DATABASE_URL` so Content sync writes to the database                 | Owner | P1  | Done   | —      |
 | A7  | Test the same flow from ChatGPT (developer mode connector) and Claude Code CLI              | Owner | P1  | Todo   | A5     |
-| A8  | Rate limits: OAuth client registration, `/mcp` calls, Nova (shared quotas, not per isolate) | Owner | P1  | Todo   | A5     |
+| A8  | Rate limits: OAuth client registration, `/mcp` calls, Nova (shared quotas, not per isolate) | Owner | P1  | Done   | A5     |
 | A9  | "Connected apps" page: see and revoke Claude/ChatGPT access (Owner API, Ess design)         | Both  | P2  | Todo   | A5     |
 
 ## B. Brand and domain
@@ -73,9 +73,9 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 
 | ID  | Task                                                                                  | Who   | Pri | Status | Needs |
 | --- | ------------------------------------------------------------------------------------- | ----- | --- | ------ | ----- |
-| O1  | Error reporting for the app, functions and `/mcp`                                     | Owner | P1  | Todo   | —     |
+| O1  | Error reporting for the app, functions and `/mcp`                                     | Owner | P1  | Done   | —     |
 | O2  | Uptime checks: app, board site, `/mcp`, Nova                                          | Owner | P1  | Todo   | —     |
 | O3  | Database backups: confirm Neon restore works on a branch                              | Owner | P1  | Todo   | —     |
 | O4  | Fixed staging: one preview branch with its own Neon branch, used before every release | Owner | P1  | Todo   | A1    |
-| O5  | Cost alerts: Neon, Cloudflare, Gemini                                                 | Owner | P1  | Todo   | —     |
+| O5  | Cost alerts: Neon, Cloudflare, Gemini (steps in docs/operations.md)                   | Owner | P1  | Todo   | —     |
 | O6  | Security review before public launch: dependencies, headers, OAuth, limits            | Owner | P2  | Todo   | A8    |

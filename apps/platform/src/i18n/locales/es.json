@@ -566,7 +566,8 @@
       "notAllowed": "Solicitud no permitida.",
       "notFound": "Página no encontrada.",
       "failed": "No se pudo completar la solicitud. Inténtalo de nuevo.",
-      "badStatus": "Estado no válido."
+      "badStatus": "Estado no válido.",
+      "tooMany": "Demasiadas solicitudes en poco tiempo. Espera un poco y vuelve a intentarlo."
     },
     "auth": {
       "unavailable": "El servicio de cuentas no está disponible ahora.",
@@ -820,7 +821,8 @@
         "teach": "Panel docente",
         "settings": "Configuración",
         "credits": "Créditos",
-        "review": "Revisión"
+        "review": "Revisión",
+        "ops": "Operación"
       },
       "account": "Tu cuenta de Learn",
       "signOut": "Cerrar sesión",
@@ -1751,6 +1753,44 @@
     "decided": {
       "approved": "Aprobado. Esta versión ya está a la venta.",
       "changes": "Las notas se enviaron al docente."
+    }
+  },
+  "ops": {
+    "title": "Operación de la plataforma",
+    "lead": "Lo que se usó cada día y lo que falló, para detectar pronto problemas y costes.",
+    "loading": "Cargando…",
+    "usage": {
+      "title": "Uso, últimos 14 días",
+      "note": "Los costes son estimaciones para nuestro seguimiento, no una factura.",
+      "empty": "Todavía no hay uso registrado.",
+      "cost": "Unos {cost}"
+    },
+    "errors": {
+      "title": "Últimos errores",
+      "empty": "No hay errores registrados.",
+      "server": "Servidor",
+      "browser": "Navegador",
+      "details": "Detalles"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Chats con Nova",
+        "live": "Sesiones de voz con Nova",
+        "quiz": "Cuestionarios de práctica",
+        "wake": "Detecciones de la palabra de activación"
+      },
+      "mcp": {
+        "call": "Llamadas del conector"
+      },
+      "build": {
+        "job": "Cursos creados"
+      },
+      "review": {
+        "ai": "Revisiones con IA"
+      },
+      "auth": {
+        "signup": "Cuentas nuevas"
+      }
     }
   }
 }

@@ -566,7 +566,8 @@
       "notAllowed": "Bu isteğe izin verilmiyor.",
       "notFound": "Sayfa bulunamadı.",
       "failed": "İstek tamamlanamadı. Tekrar dene.",
-      "badStatus": "Durum geçersiz."
+      "badStatus": "Durum geçersiz.",
+      "tooMany": "Kısa sürede çok fazla istek. Biraz bekleyip tekrar dene."
     },
     "auth": {
       "unavailable": "Hesap hizmeti şu an kullanılamıyor.",
@@ -820,7 +821,8 @@
         "teach": "Öğretmen paneli",
         "settings": "Ayarlar",
         "credits": "Krediler",
-        "review": "İnceleme"
+        "review": "İnceleme",
+        "ops": "İşletim"
       },
       "account": "Learn hesabın",
       "signOut": "Çıkış yap",
@@ -1751,6 +1753,44 @@
     "decided": {
       "approved": "Onaylandı. Bu sürüm artık satışta.",
       "changes": "Notlar öğretmene gönderildi."
+    }
+  },
+  "ops": {
+    "title": "Platformun işletimi",
+    "lead": "Her gün neyin kullanıldığı ve neyin bozulduğu; sorunları ve maliyetleri erken görmek için.",
+    "loading": "Yükleniyor…",
+    "usage": {
+      "title": "Kullanım, son 14 gün",
+      "note": "Maliyetler takip için kaba tahminlerdir, fatura değildir.",
+      "empty": "Henüz kayıtlı kullanım yok.",
+      "cost": "Yaklaşık {cost}"
+    },
+    "errors": {
+      "title": "Son hatalar",
+      "empty": "Kayıtlı hata yok.",
+      "server": "Sunucu",
+      "browser": "Tarayıcı",
+      "details": "Ayrıntılar"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Nova sohbetleri",
+        "live": "Nova sesli oturumları",
+        "quiz": "Alıştırma testleri",
+        "wake": "Uyandırma sözcüğü kontrolleri"
+      },
+      "mcp": {
+        "call": "Bağlayıcı çağrıları"
+      },
+      "build": {
+        "job": "Oluşturulan kurslar"
+      },
+      "review": {
+        "ai": "Yapay zekâ incelemeleri"
+      },
+      "auth": {
+        "signup": "Yeni hesaplar"
+      }
     }
   }
 }

@@ -8,7 +8,8 @@
    "notAllowed": "الطلب غير مسموح.",
    "notFound": "الصفحة غير موجودة.",
    "failed": "تعذر تنفيذ الطلب. جرّب تاني.",
-   "badStatus": "الحالة غير صحيحة."
+   "badStatus": "الحالة غير صحيحة.",
+   "tooMany": "طلبات كتير في وقت قصير. استنى شوية وجرّب تاني."
   },
   "auth": {
    "unavailable": "خدمة الحسابات مش متاحة حاليًا.",
@@ -127,7 +128,8 @@
    "notAllowed": "Anfrage nicht erlaubt.",
    "notFound": "Seite nicht gefunden.",
    "failed": "Das hat nicht geklappt. Versuch es noch mal.",
-   "badStatus": "Ungültiger Status."
+   "badStatus": "Ungültiger Status.",
+   "tooMany": "Zu viele Anfragen in kurzer Zeit. Warte kurz und versuche es erneut."
   },
   "auth": {
    "unavailable": "Der Kontodienst ist gerade nicht erreichbar.",
@@ -249,7 +251,8 @@
    "notAllowed": "Request not allowed.",
    "notFound": "Page not found.",
    "failed": "Couldn't complete the request. Try again.",
-   "badStatus": "Invalid status."
+   "badStatus": "Invalid status.",
+   "tooMany": "Too many requests in a short time. Wait a little and try again."
   },
   "auth": {
    "unavailable": "The account service isn't available right now.",
@@ -371,7 +374,8 @@
    "notAllowed": "Solicitud no permitida.",
    "notFound": "Página no encontrada.",
    "failed": "No se pudo completar la solicitud. Inténtalo de nuevo.",
-   "badStatus": "Estado no válido."
+   "badStatus": "Estado no válido.",
+   "tooMany": "Demasiadas solicitudes en poco tiempo. Espera un poco y vuelve a intentarlo."
   },
   "auth": {
    "unavailable": "El servicio de cuentas no está disponible ahora.",
@@ -493,7 +497,8 @@
    "notAllowed": "Requête non autorisée.",
    "notFound": "Page introuvable.",
    "failed": "La requête n’a pas abouti. Réessayez.",
-   "badStatus": "Statut invalide."
+   "badStatus": "Statut invalide.",
+   "tooMany": "Trop de requêtes en peu de temps. Patientez un peu et réessayez."
   },
   "auth": {
    "unavailable": "Le service des comptes est indisponible pour le moment.",
@@ -618,7 +623,8 @@
    "notAllowed": "Pedido não permitido.",
    "notFound": "Página não encontrada.",
    "failed": "Não deu para concluir o pedido. Tente de novo.",
-   "badStatus": "Status inválido."
+   "badStatus": "Status inválido.",
+   "tooMany": "Pedidos demais em pouco tempo. Espere um pouco e tente de novo."
   },
   "auth": {
    "unavailable": "O serviço de contas está indisponível no momento.",
@@ -740,7 +746,8 @@
    "notAllowed": "Bu isteğe izin verilmiyor.",
    "notFound": "Sayfa bulunamadı.",
    "failed": "İstek tamamlanamadı. Tekrar dene.",
-   "badStatus": "Durum geçersiz."
+   "badStatus": "Durum geçersiz.",
+   "tooMany": "Kısa sürede çok fazla istek. Biraz bekleyip tekrar dene."
   },
   "auth": {
    "unavailable": "Hesap hizmeti şu an kullanılamıyor.",
@@ -862,7 +869,8 @@
    "notAllowed": "不允许此请求。",
    "notFound": "页面不存在。",
    "failed": "请求没能完成。再试一次吧。",
-   "badStatus": "状态不正确。"
+   "badStatus": "状态不正确。",
+   "tooMany": "短时间内请求过多，请稍等片刻再试。"
   },
   "auth": {
    "unavailable": "账户服务暂时不可用。",

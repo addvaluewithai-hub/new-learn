@@ -3,6 +3,7 @@ import type { AuthUser, Env } from '../env';
 import { body, HttpError, json } from '../http';
 import { requireStaff } from '../staff';
 import { aiReview } from './ai';
+import { countUsage } from '../ops/record';
 import { decide, reviewDetail, reviewQueue, saveAiReport } from './store';
 
 // Staff's review of paid courses (docs/credits.md): the queue, one version in full, the AI's
@@ -27,6 +28,7 @@ export async function reviewRoute(
   if (ai && request.method === 'POST') {
     const detail = await reviewDetail(db, courseId, version);
     const report = await aiReview(env, detail.lessons, locale);
+    await countUsage(db, 'review.ai');
     await saveAiReport(db, courseId, version, report);
     return json(report);
   }

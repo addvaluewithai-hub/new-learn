@@ -566,7 +566,8 @@
       "notAllowed": "Pedido não permitido.",
       "notFound": "Página não encontrada.",
       "failed": "Não deu para concluir o pedido. Tente de novo.",
-      "badStatus": "Status inválido."
+      "badStatus": "Status inválido.",
+      "tooMany": "Pedidos demais em pouco tempo. Espere um pouco e tente de novo."
     },
     "auth": {
       "unavailable": "O serviço de contas está indisponível no momento.",
@@ -820,7 +821,8 @@
         "teach": "Painel do professor",
         "settings": "Configurações",
         "credits": "Créditos",
-        "review": "Revisão"
+        "review": "Revisão",
+        "ops": "Operação"
       },
       "account": "Sua conta no Learn",
       "signOut": "Sair",
@@ -1751,6 +1753,44 @@
     "decided": {
       "approved": "Aprovado. Esta versão já está à venda.",
       "changes": "Os comentários foram enviados ao professor."
+    }
+  },
+  "ops": {
+    "title": "Operação da plataforma",
+    "lead": "O que foi usado a cada dia e o que falhou, para pegar problemas e custos cedo.",
+    "loading": "Carregando…",
+    "usage": {
+      "title": "Uso, últimos 14 dias",
+      "note": "Os custos são estimativas para nosso acompanhamento, não uma fatura.",
+      "empty": "Nenhum uso registrado ainda.",
+      "cost": "Cerca de {cost}"
+    },
+    "errors": {
+      "title": "Últimos erros",
+      "empty": "Nenhum erro registrado.",
+      "server": "Servidor",
+      "browser": "Navegador",
+      "details": "Detalhes"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Conversas com a Nova",
+        "live": "Sessões de voz com a Nova",
+        "quiz": "Quizzes de prática",
+        "wake": "Detecções da palavra de ativação"
+      },
+      "mcp": {
+        "call": "Chamadas do conector"
+      },
+      "build": {
+        "job": "Cursos criados"
+      },
+      "review": {
+        "ai": "Revisões por IA"
+      },
+      "auth": {
+        "signup": "Contas novas"
+      }
     }
   }
 }
