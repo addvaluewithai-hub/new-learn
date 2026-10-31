@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { api, ApiError } from '../../shared/api';
-export type User = { id: string; name: string; email: string };
+/** `staff`: on the platform's team (reviews paid courses, grants credits); the server decides. */
+export type User = { id: string; name: string; email: string; staff?: boolean };
 export function useSession() {
   const [user, setUser] = useState<User | null>(null),
     [loading, setLoading] = useState(true),

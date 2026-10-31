@@ -29,7 +29,7 @@ const server = spawn(
   { stdio: 'ignore' },
 );
 
-const user = { id: 'u1', name: 'Mona', email: 'mona@example.com' };
+const user = { id: 'u1', name: 'Mona', email: 'mona@example.com', staff: true };
 function api(signedIn) {
   return (route) => {
     const path = new URL(route.request().url()).pathname;
@@ -41,6 +41,28 @@ function api(signedIn) {
     if (path === '/api/courses') return send({ courses: [] });
     if (path === '/api/teach/courses') return send({ courses: [] });
     if (path === '/api/studio/jobs') return send({ jobs: [] });
+    if (path === '/api/review/queue') return send({ reviews: [] });
+    if (path === '/api/credits')
+      return send({
+        balance: 60,
+        starter: 60,
+        entries: [
+          {
+            id: 'e1',
+            amount: 60,
+            kind: 'starter',
+            action: '',
+            note: '',
+            at: '2026-10-31T09:00:00Z',
+          },
+        ],
+        prices: [
+          { id: 'course.build', credits: 30, unit: 'each', status: 'live' },
+          { id: 'tutor.minute', credits: 1, unit: 'minute', status: 'soon' },
+        ],
+        packs: [{ id: 'small', credits: 100, priceCents: 1000 }],
+        payments: { connected: false },
+      });
     return send({ error: 'not here' }, 404);
   };
 }
@@ -76,6 +98,8 @@ const PAGES = [
   { path: '/?settings', signedIn: true, name: 'settings' },
   { path: '/?studio', signedIn: true, name: 'studio' },
   { path: '/?teach', signedIn: true, name: 'teach' },
+  { path: '/?credits', signedIn: true, heading: 'credits.title', name: 'credits' },
+  { path: '/?review', signedIn: true, heading: 'review.title', name: 'review' },
   { path: '/?preview=ui', signedIn: false, name: 'ui' },
   {
     path: '/?preview=demo&id=interest',
@@ -141,7 +165,7 @@ try {
           );
         if (
           ['en', 'zh'].includes(code) &&
-          ['landing', 'studio', 'lesson', 'settings'].includes(item.name)
+          ['landing', 'studio', 'lesson', 'settings', 'credits'].includes(item.name)
         )
           await page.screenshot({ path: `test-results/i18n-${code}-${item.name}-${width}.png` });
       }

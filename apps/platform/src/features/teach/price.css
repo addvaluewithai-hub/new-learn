@@ -1,0 +1,57 @@
+/* The publish card's price and the review status (features/teach/PriceFields). */
+.teach-price {
+  display: grid;
+  gap: var(--nl-space-2);
+  margin-block: var(--nl-space-4);
+  padding-top: var(--nl-space-4);
+  border-top: 1px solid var(--nl-line);
+}
+.teach-price h3 {
+  font-size: var(--nl-text-lg);
+}
+.teach-price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nl-space-2);
+}
+.teach-price-row .nl-input {
+  width: 8em;
+}
+.teach-price-row select {
+  min-height: 40px;
+  padding-inline: 10px;
+  border: 1px solid var(--nl-line-strong);
+  border-radius: var(--nl-radius-md);
+  background: var(--nl-surface);
+  font: inherit;
+}
+.teach-price-row small {
+  color: var(--nl-muted);
+}
+.teach-review {
+  display: grid;
+  gap: var(--nl-space-1);
+  margin-bottom: var(--nl-space-4);
+  padding: var(--nl-space-3) var(--nl-space-4);
+  border-inline-start: 3px solid var(--nl-line-strong);
+  border-radius: var(--nl-radius-md);
+  background: var(--nl-surface-sunk);
+}
+.teach-review[data-status='pending'] {
+  border-inline-start-color: var(--nl-warning);
+}
+.teach-review[data-status='approved'] {
+  border-inline-start-color: var(--nl-success);
+}
+.teach-review[data-status='changes'] {
+  border-inline-start-color: var(--nl-danger);
+}
+.teach-review span,
+.teach-review small {
+  color: var(--nl-muted);
+}
+.teach-review p {
+  white-space: pre-line;
+  line-height: var(--nl-leading);
+}

@@ -12,7 +12,7 @@ both repositories. Never hand-edit generated files, never reuse a revision, neve
   **every** lesson in teaching order. Lessons that are not ready still need their
   `lessons/<id>/lesson.json`; they export as skipped and show as «قريبًا».
 - Boards: one module per renderer directly in the lesson's `scenes/`, importing only
-  `remotion` and `@learn/lesson-runtime`, at most 300 lines a file. They receive the shared
+  `remotion` and `@learn/lesson-runtime`, about 300 lines a file at most. They receive the shared
   board contract (docs/content-import.md, "The contract every curriculum meets"): the clip's
   lines in `reading.steps`, the question in `question.readingParts`, the answer in
   `answer.parts`. No text needs to be injected into params.
@@ -38,7 +38,7 @@ npm run format:check && npm run check && npm test && npm run build
 npm run functions:check && npm run test:browser:reading
 ```
 
-`check` enforces the 300-line limit on imported boards; `build` compiles them with strict
+`check` notes imported board files over 300 lines and fails above 500; `build` compiles them with strict
 TypeScript. Then look at the lessons yourself: with `npm run preview` and a mocked `/api`
 (copy the route handler in `tests/reading-browser.mjs`), open
 `/?lesson=<lessonId>&curriculum=<c>` at 390 and 1280 px, step through a teaching scene, a

@@ -606,7 +606,9 @@
       "lessonMissing": "Diese Lektion gibt es nicht.",
       "courseMissing": "Diesen Kurs gibt es nicht.",
       "partsEveryLesson": "Die Teile müssen jede Lektion genau einmal enthalten.",
-      "otherLessons": "Weitere Lektionen"
+      "otherLessons": "Weitere Lektionen",
+      "badPrice": "Der Kurs muss kostenlos sein oder einen Preis zwischen dem erlaubten Minimum und Maximum der Währung haben.",
+      "paidCourse": "Dieser Kurs ist kostenpflichtig. Kauf ihn zuerst, um loszulegen."
     },
     "builds": {
       "busy": "Ein Kurs wird gerade noch gebaut. Warte, bis er fertig ist.",
@@ -647,6 +649,23 @@
       "badAudio": "Ungültiges Audio.",
       "shortAudio": "Audio zu kurz.",
       "badWakeWord": "Ungültiges Aktivierungswort."
+    },
+    "credits": {
+      "notEnough": "Nicht genug Guthaben: Das kostet {cost} Credits, du hast {balance}.",
+      "badAmount": "Die Anzahl Credits muss eine ganze Zahl von 1 bis 100.000 sein.",
+      "unknownAccount": "Kein Konto mit dieser E-Mail hat die Plattform bisher geöffnet.",
+      "unknownPack": "Dieses Paket gibt es nicht."
+    },
+    "payments": {
+      "notConnected": "Bezahlen ist noch in Vorbereitung. Es kommt bald."
+    },
+    "staff": {
+      "only": "Diese Seite ist nur für das Team von New Learn."
+    },
+    "review": {
+      "notFound": "Diese Prüfung gibt es nicht.",
+      "decided": "Über diese Prüfung wurde schon entschieden.",
+      "needNotes": "Schreib deine Notizen für die Lehrkraft, bevor du Änderungen anforderst."
     }
   },
   "build": {
@@ -788,7 +807,9 @@
         "library": "Meine Lernpfade",
         "studio": "Kurs erstellen",
         "teach": "Unterrichten",
-        "settings": "Einstellungen"
+        "settings": "Einstellungen",
+        "credits": "Credits",
+        "review": "Prüfung"
       },
       "account": "Dein Learn-Konto",
       "signOut": "Abmelden",
@@ -1507,6 +1528,25 @@
       "emptyFiltered": "Keine Notizen mit diesem Status",
       "empty": "Keine Notizen",
       "emptyBody": "Öffne die Vorschau und schreib zu einem Schritt eine Notiz, und die KI, die mit deinem Konto verbunden ist, setzt sie um."
+    },
+    "price": {
+      "title": "Preis",
+      "free": "Kostenlos",
+      "paid": "Kostenpflichtig",
+      "amount": "Preis",
+      "currency": "Währung",
+      "share": "Du bekommst {share} % von jedem Verkauf, vor Zahlungsgebühren.",
+      "reviewNote": "Bezahlte Kurse prüft unser Team vor dem Verkauf, damit die Qualität stimmt. Bis eine Version freigegeben ist, sehen Schüler weiter die zuletzt freigegebene.",
+      "submit": "Zur Prüfung senden",
+      "sent": "Zur Prüfung gesendet.",
+      "status": {
+        "pending": "Wartet auf Prüfung · Version {version}",
+        "approved": "Freigegeben · Version {version}",
+        "changes": "Änderungen nötig · Version {version}"
+      },
+      "notesTitle": "Notizen aus der Prüfung",
+      "superseded": "Eine neuere Version wurde zur Prüfung gesendet.",
+      "publicPrice": "Schüler sehen Version {version} · {price}"
     }
   },
   "authoring": {
@@ -1577,6 +1617,105 @@
       "fallback": "Kurs",
       "continue": "Weiter: {title}",
       "start": "Starten: {title}"
+    },
+    "paid": {
+      "badge": "Kostenpflichtig · {price}",
+      "buy": "Kurs kaufen · {price}",
+      "buyHelp": "Bezahlen ist noch in Vorbereitung und kommt bald."
+    }
+  },
+  "credits": {
+    "title": "Deine Credits",
+    "lead": "Credits werden verbraucht, wenn die Plattform mit KI oder Stimme etwas für dich erledigt. Schreibst du den Kurs mit deinem eigenen Claude oder ChatGPT, kostet das keine Credits.",
+    "loading": "Dein Guthaben wird geladen…",
+    "balanceLabel": "Guthaben",
+    "count": {
+      "other": "{count} Credits",
+      "one": "{count} Credit"
+    },
+    "starterNote": "Jedes neue Konto bekommt zum Start {count} Credits geschenkt.",
+    "pricesTitle": "Was kostet was",
+    "connectorFree": "Dein eigenes Claude oder ChatGPT über den Connector: ohne Credits.",
+    "soon": "Bald",
+    "units": {
+      "each": "pro Nutzung",
+      "minute": "pro Minute",
+      "set": "pro Set"
+    },
+    "actions": {
+      "courseBuild": "Kurs im Studio bauen",
+      "lessonRefine": "Änderungen im Seitenchat",
+      "voiceMinute": "Erklärung vertonen",
+      "voiceClone": "Deine Stimme klonen",
+      "marketingLanding": "Landingpage für den Kurs",
+      "marketingShort": "Kurzvideo aus einer Lektion",
+      "marketingPosts": "Social-Media-Posts (5 Posts)",
+      "tutorMinute": "Nova live per Sprache"
+    },
+    "packsTitle": "Guthaben aufladen",
+    "buy": "Kaufen · {price}",
+    "paymentsSoon": "Bezahlen ist noch in Vorbereitung. Bis dahin schreib uns über die Hilfeseite, wenn du Credits brauchst.",
+    "historyTitle": "Verbraucht und hinzugefügt",
+    "historyEmpty": "Noch keine Buchungen.",
+    "kinds": {
+      "starter": "Startgeschenk",
+      "grant": "Vom Team von New Learn hinzugefügt",
+      "purchase": "Aufladung",
+      "spend": "Verbraucht",
+      "refund": "Zurückerstattet"
+    },
+    "grantTitle": "Credits zu einem Konto hinzufügen",
+    "grantLead": "Nur fürs Team: Das Konto muss die Plattform schon einmal geöffnet haben.",
+    "grantEmail": "E-Mail des Kontos",
+    "grantAmount": "Anzahl Credits",
+    "grantNote": "Notiz",
+    "grantButton": "Credits hinzufügen",
+    "granted": "Hinzugefügt. {email} hat jetzt {balance} Credits.",
+    "costLine": "Der Kurs kostet {cost} Credits · du hast {balance}",
+    "notEnough": "Dein Guthaben reicht dafür nicht.",
+    "topUp": "Guthaben aufladen"
+  },
+  "review": {
+    "title": "Prüfung bezahlter Kurse",
+    "lead": "Lies jede Lektion wie ein Schüler, starte die KI-Prüfung als Ausgangspunkt und gib den Kurs dann frei oder schick der Lehrkraft Notizen.",
+    "loading": "Kurse werden geladen…",
+    "empty": "Keine Kurse warten auf Prüfung.",
+    "item": "{teacher} · Version {version} · {price}",
+    "waiting": "Wartet seit {date}",
+    "aiDone": "Von KI geprüft",
+    "open": "Öffnen",
+    "back": "Alle Kurse",
+    "aiTitle": "Erste KI-Prüfung",
+    "aiRun": "KI-Prüfung starten",
+    "aiRunning": "Wird geprüft…",
+    "aiNone": "Noch nicht gestartet.",
+    "aiClean": "Die KI hat nichts Nennenswertes gefunden.",
+    "aiHint": "Die KI macht nur Vorschläge. Entscheiden tust du.",
+    "severity": {
+      "high": "Muss behoben werden",
+      "medium": "Wichtig",
+      "low": "Kleinigkeit"
+    },
+    "kind": {
+      "accuracy": "Richtigkeit",
+      "clarity": "Verständlichkeit",
+      "safety": "Sicherheit",
+      "rights": "Rechte",
+      "quality": "Qualität"
+    },
+    "lessonsTitle": "Lektionen",
+    "step": "Schritt {n}",
+    "question": "Frage",
+    "marked": "Richtige Antwort: {answer}",
+    "feedback": "Rückmeldung",
+    "decisionTitle": "Entscheidung",
+    "notesLabel": "Notizen für die Lehrkraft",
+    "notesHelp": "Pflicht, wenn du Änderungen anforderst. Die Lehrkraft sieht sie im Bereich „Unterrichten“.",
+    "approve": "Freigeben und veröffentlichen",
+    "requestChanges": "Änderungen anfordern",
+    "decided": {
+      "approved": "Freigegeben. Diese Version kann jetzt gekauft werden.",
+      "changes": "Die Notizen wurden an die Lehrkraft geschickt."
     }
   }
 }

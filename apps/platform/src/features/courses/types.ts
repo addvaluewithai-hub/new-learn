@@ -13,6 +13,11 @@ export type PublicCourse = {
   language: string;
   teacher: string;
   version: number;
+  /** 0 is free; a paid course is studied once bought (docs/credits.md). */
+  priceCents: number;
+  currency: string;
+  /** Whether the signed-in person may study it now. */
+  access: boolean;
   publishedAt: string;
   parts: Array<{ title: string; lessonIds: string[] }>;
   lessons: CourseLessonInfo[];

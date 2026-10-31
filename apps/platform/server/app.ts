@@ -11,6 +11,9 @@ import { publishRoute } from './publish/routes';
 import { readCourseProgress, saveCourseProgress } from './publish/progress';
 import { database } from './db/connection';
 import { PUB } from './publish/store';
+import { creditsRoute } from './credits/routes';
+import { reviewRoute } from './review/routes';
+import { isStaff } from './staff';
 export async function handleRequest(request: Request, env: Env): Promise<Response> {
   const locale = localeOf(request);
   try {
@@ -22,7 +25,10 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     const user = await currentUser(request, env);
     if (path.startsWith('/api/nova/'))
       return await novaRoute(request, env, user, path.slice('/api/nova/'.length), locale);
-    if (request.method === 'GET' && path === '/api/me') return json({ user });
+    if (request.method === 'GET' && path === '/api/me')
+      return json({ user: { ...user, staff: isStaff(env, user) } });
+    if (path.startsWith('/api/credits')) return await creditsRoute(request, env, user, path);
+    if (path.startsWith('/api/review/')) return await reviewRoute(request, env, user, path, locale);
     if (path.startsWith('/api/authoring/') || path.startsWith('/api/oauth/'))
       return await authoringRoute(request, env, user, path);
     if (path.startsWith('/api/studio/')) return await studioRoute(request, env, user, path);

@@ -51,7 +51,7 @@ Every curriculum reaches students through the same reading lesson screen; nothin
 per subject. Per lesson, the bundle must carry: a catalog entry (course `catalog` with parts),
 written text for every step (`readText` in authoring), a short learner goal per objective
 (`studentText`), English and Arabic question text with a model answer, and one board module
-per renderer directly in the lesson's `scenes/` (compiled here, at most 300 lines a file,
+per renderer directly in the lesson's `scenes/` (compiled here, about 300 lines a file at most,
 importing only `remotion` and `@learn/lesson-runtime`).
 
 What a board receives in reading lessons (`VisualProps`), the same for every curriculum:

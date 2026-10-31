@@ -606,7 +606,9 @@
       "lessonMissing": "This lesson doesn't exist.",
       "courseMissing": "This course doesn't exist.",
       "partsEveryLesson": "The parts must include every lesson exactly once.",
-      "otherLessons": "Other lessons"
+      "otherLessons": "Other lessons",
+      "badPrice": "The course must be free, or priced between the lowest and highest price allowed for its currency.",
+      "paidCourse": "This is a paid course. Buy it first to start."
     },
     "builds": {
       "busy": "A course is still being built. Wait until it's done.",
@@ -647,6 +649,23 @@
       "badAudio": "Invalid audio.",
       "shortAudio": "The audio is too short.",
       "badWakeWord": "Invalid wake word."
+    },
+    "credits": {
+      "notEnough": "Not enough credits: this costs {cost} credits and you have {balance}.",
+      "badAmount": "The number of credits must be a whole number from 1 to 100,000.",
+      "unknownAccount": "No account with this email has opened the platform yet.",
+      "unknownPack": "This pack doesn't exist."
+    },
+    "payments": {
+      "notConnected": "Payments aren't ready yet. They'll open soon."
+    },
+    "staff": {
+      "only": "This page is for the New Learn team only."
+    },
+    "review": {
+      "notFound": "This review doesn't exist.",
+      "decided": "This review has already been decided.",
+      "needNotes": "Write your notes for the teacher before requesting changes."
     }
   },
   "build": {
@@ -788,7 +807,9 @@
         "library": "My curricula",
         "studio": "Make a course",
         "teach": "Teacher dashboard",
-        "settings": "Settings"
+        "settings": "Settings",
+        "credits": "Credits",
+        "review": "Review"
       },
       "account": "Your Learn account",
       "signOut": "Log out",
@@ -1507,6 +1528,25 @@
       "emptyFiltered": "No notes with this status",
       "empty": "No notes",
       "emptyBody": "Open the preview and leave a note on any step, and the AI connected to your account will fix it."
+    },
+    "price": {
+      "title": "Price",
+      "free": "Free",
+      "paid": "Paid",
+      "amount": "Price",
+      "currency": "Currency",
+      "share": "You get {share}% of each sale, before payment fees.",
+      "reviewNote": "Our team reviews paid courses before they go on sale, to keep quality high. Until a version is approved, students keep seeing the last approved one.",
+      "submit": "Send for review",
+      "sent": "Sent for review.",
+      "status": {
+        "pending": "Waiting for review · version {version}",
+        "approved": "Approved · version {version}",
+        "changes": "Needs changes · version {version}"
+      },
+      "notesTitle": "Reviewer's notes",
+      "superseded": "A newer version was sent for review.",
+      "publicPrice": "Students see version {version} · {price}"
     }
   },
   "authoring": {
@@ -1577,6 +1617,105 @@
       "fallback": "Course",
       "continue": "Continue: {title}",
       "start": "Start: {title}"
+    },
+    "paid": {
+      "badge": "Paid · {price}",
+      "buy": "Buy the course · {price}",
+      "buyHelp": "Payments are still being set up and will open soon."
+    }
+  },
+  "credits": {
+    "title": "Your credits",
+    "lead": "Credits are used when the platform does something for you with AI or voice. If you write the course with your own Claude or ChatGPT, it costs no credits.",
+    "loading": "Getting your credits…",
+    "balanceLabel": "Balance",
+    "count": {
+      "other": "{count} credits",
+      "one": "{count} credit"
+    },
+    "starterNote": "Every new account starts with {count} free credits.",
+    "pricesTitle": "What things cost",
+    "connectorFree": "Your own Claude or ChatGPT through the connector: no credits.",
+    "soon": "Soon",
+    "units": {
+      "each": "each",
+      "minute": "per minute",
+      "set": "per set"
+    },
+    "actions": {
+      "courseBuild": "Building a course in the studio",
+      "lessonRefine": "Edits from the side chat",
+      "voiceMinute": "Voice narration",
+      "voiceClone": "Cloning your voice",
+      "marketingLanding": "Course landing page",
+      "marketingShort": "Short video from a lesson",
+      "marketingPosts": "Social posts (5 posts)",
+      "tutorMinute": "Live voice with Nova"
+    },
+    "packsTitle": "Top up your credits",
+    "buy": "Buy · {price}",
+    "paymentsSoon": "Payments aren't ready yet. Until they are, contact us from the support page if you need credits.",
+    "historyTitle": "Spent and added",
+    "historyEmpty": "No activity yet.",
+    "kinds": {
+      "starter": "Welcome gift",
+      "grant": "Added by the New Learn team",
+      "purchase": "Top-up",
+      "spend": "Spent",
+      "refund": "Refunded"
+    },
+    "grantTitle": "Add credits to an account",
+    "grantLead": "Team only: the account must have opened the platform at least once.",
+    "grantEmail": "Account email",
+    "grantAmount": "Number of credits",
+    "grantNote": "Note",
+    "grantButton": "Add credits",
+    "granted": "Added. {email} now has {balance} credits.",
+    "costLine": "This build costs {cost} credits · you have {balance}",
+    "notEnough": "You don't have enough credits for this build.",
+    "topUp": "Top up credits"
+  },
+  "review": {
+    "title": "Paid course review",
+    "lead": "Read each lesson as a student would, run the AI review as a starting point, then approve or send notes to the teacher.",
+    "loading": "Getting the courses…",
+    "empty": "No courses are waiting for review.",
+    "item": "{teacher} · version {version} · {price}",
+    "waiting": "Waiting since {date}",
+    "aiDone": "AI reviewed",
+    "open": "Open",
+    "back": "All courses",
+    "aiTitle": "First AI review",
+    "aiRun": "Run AI review",
+    "aiRunning": "Reviewing…",
+    "aiNone": "Not run yet.",
+    "aiClean": "The AI found nothing worth flagging.",
+    "aiHint": "The AI only suggests. The decision is yours.",
+    "severity": {
+      "high": "Must fix",
+      "medium": "Important",
+      "low": "Minor"
+    },
+    "kind": {
+      "accuracy": "Accuracy",
+      "clarity": "Clarity",
+      "safety": "Safety",
+      "rights": "Rights",
+      "quality": "Quality"
+    },
+    "lessonsTitle": "Lessons",
+    "step": "Step {n}",
+    "question": "Question",
+    "marked": "Right answer: {answer}",
+    "feedback": "Feedback",
+    "decisionTitle": "Decision",
+    "notesLabel": "Notes for the teacher",
+    "notesHelp": "Required if you request changes. The teacher sees them in the teacher dashboard.",
+    "approve": "Approve and publish",
+    "requestChanges": "Request changes",
+    "decided": {
+      "approved": "Approved. This version is now on sale.",
+      "changes": "Your notes were sent to the teacher."
     }
   }
 }

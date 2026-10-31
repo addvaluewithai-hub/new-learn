@@ -199,6 +199,22 @@
   flex-basis: 100%;
   order: 3;
 }
+/* What the build costs and what is left: a line under the summary, the whole width. */
+.studio-cta .studio-cost {
+  flex-basis: 100%;
+  order: 2;
+  margin: 0;
+  color: rgb(255 255 255 / 78%);
+  font-size: 0.85rem;
+}
+.studio-cta .studio-cost[data-short] {
+  color: var(--nl-accent);
+  font-weight: 600;
+}
+.studio-cta .studio-cost a {
+  color: inherit;
+  text-decoration: underline;
+}
 .studio-active {
   padding: 12px 15px;
   border-radius: 12px;

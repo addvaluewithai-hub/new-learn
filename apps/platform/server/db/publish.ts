@@ -34,12 +34,21 @@ export const publishedCourses = appSchema.table(
     language: text('language').notNull().default('ar'),
     parts: jsonb('parts').$type<CoursePart[]>().notNull().default([]),
     version: integer('version').notNull().default(1),
+    /**
+     * The version students see. A free course shows each version as it is published; a paid
+     * one shows the last version the platform approved (docs/credits.md), null until then.
+     */
+    publicVersion: integer('public_version'),
+    /** The price of the public version in minor units (cents, piastres); 0 is free. */
+    priceCents: integer('price_cents').notNull().default(0),
+    currency: text('currency').notNull().default('USD'),
     publishedAt: timestamp('published_at', { withTimezone: true }).defaultNow().notNull(),
     withdrawnAt: timestamp('withdrawn_at', { withTimezone: true }),
   },
   (t) => [
     index('published_courses_owner').on(t.ownerId),
     check('published_course_version', sql`${t.version} >= 1`),
+    check('published_course_price', sql`${t.priceCents} >= 0`),
   ],
 );
 

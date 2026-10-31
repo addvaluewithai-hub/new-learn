@@ -606,7 +606,9 @@
       "lessonMissing": "Bu ders bulunamadı.",
       "courseMissing": "Bu kurs bulunamadı.",
       "partsEveryLesson": "Her ders bölümlerde tam bir kez yer almalı.",
-      "otherLessons": "Diğer dersler"
+      "otherLessons": "Diğer dersler",
+      "badPrice": "Kurs ücretsiz olmalı ya da fiyatı, para birimi için izin verilen en düşük ve en yüksek fiyat arasında olmalı.",
+      "paidCourse": "Bu kurs ücretli. Başlamak için önce satın al."
     },
     "builds": {
       "busy": "Hâlâ oluşturulan bir kurs var. Bitmesini bekle.",
@@ -647,6 +649,23 @@
       "badAudio": "Ses geçersiz.",
       "shortAudio": "Ses çok kısa.",
       "badWakeWord": "Çağrı sözcüğü geçersiz."
+    },
+    "credits": {
+      "notEnough": "Bakiyen yetmiyor: bunun için {cost} kredi gerekiyor, sende {balance} var.",
+      "badAmount": "Kredi miktarı 1 ile 100.000 arasında bir tam sayı olmalı.",
+      "unknownAccount": "Bu e-postayla platformu açmış bir hesap henüz yok.",
+      "unknownPack": "Böyle bir paket yok."
+    },
+    "payments": {
+      "notConnected": "Ödeme henüz hazırlanıyor. Yakında açılacak."
+    },
+    "staff": {
+      "only": "Bu sayfa yalnızca New Learn ekibi için."
+    },
+    "review": {
+      "notFound": "Böyle bir inceleme yok.",
+      "decided": "Bu inceleme için zaten karar verildi.",
+      "needNotes": "Değişiklik istemeden önce öğretmene notlarını yaz."
     }
   },
   "build": {
@@ -788,7 +807,9 @@
         "library": "Programlarım",
         "studio": "Kurs oluştur",
         "teach": "Öğretmen paneli",
-        "settings": "Ayarlar"
+        "settings": "Ayarlar",
+        "credits": "Krediler",
+        "review": "İnceleme"
       },
       "account": "Learn hesabın",
       "signOut": "Çıkış yap",
@@ -1507,6 +1528,25 @@
       "emptyFiltered": "Bu durumda not yok",
       "empty": "Not yok",
       "emptyBody": "Önizlemeyi aç ve istediğin adıma not yaz; hesabına bağlı yapay zekâ onu düzeltsin."
+    },
+    "price": {
+      "title": "Fiyat",
+      "free": "Ücretsiz",
+      "paid": "Ücretli",
+      "amount": "Fiyat",
+      "currency": "Para birimi",
+      "share": "Her satıştan, ödeme ücretleri düşülmeden önce %{share} alırsın.",
+      "reviewNote": "Ücretli kurslar, kalite için satışa çıkmadan önce ekibimiz tarafından incelenir. Bir sürüm onaylanana kadar öğrenciler en son onaylanan sürümü görmeye devam eder.",
+      "submit": "İncelemeye gönder",
+      "sent": "İncelemeye gönderildi.",
+      "status": {
+        "pending": "İnceleme bekliyor · Sürüm {version}",
+        "approved": "Onaylandı · Sürüm {version}",
+        "changes": "Değişiklik gerekiyor · Sürüm {version}"
+      },
+      "notesTitle": "İnceleme notları",
+      "superseded": "İncelemeye daha yeni bir sürüm gönderildi.",
+      "publicPrice": "Öğrencilerin gördüğü: Sürüm {version} · {price}"
     }
   },
   "authoring": {
@@ -1577,6 +1617,105 @@
       "fallback": "Kurs",
       "continue": "Devam et: {title}",
       "start": "Başla: {title}"
+    },
+    "paid": {
+      "badge": "Ücretli · {price}",
+      "buy": "Kursu satın al · {price}",
+      "buyHelp": "Ödeme henüz hazırlanıyor, yakında açılacak."
+    }
+  },
+  "credits": {
+    "title": "Kredilerin",
+    "lead": "Platform senin için yapay zekâyla ya da sesle bir şey yaptığında kredi harcanır. Kursu kendi Claude veya ChatGPT'inle yazıyorsan kredi harcanmaz.",
+    "loading": "Bakiyen yükleniyor…",
+    "balanceLabel": "Bakiye",
+    "count": {
+      "other": "{count} kredi",
+      "one": "{count} kredi"
+    },
+    "starterNote": "Her yeni hesap {count} hediye krediyle başlar.",
+    "pricesTitle": "Ne kaç kredi",
+    "connectorFree": "Connector üzerinden kendi Claude veya ChatGPT'in: kredisiz.",
+    "soon": "Yakında",
+    "units": {
+      "each": "kullanım başına",
+      "minute": "dakika başına",
+      "set": "set başına"
+    },
+    "actions": {
+      "courseBuild": "Stüdyoda kurs oluşturma",
+      "lessonRefine": "Yan sohbetten düzenleme",
+      "voiceMinute": "Anlatımı seslendirme",
+      "voiceClone": "Sesini klonlama",
+      "marketingLanding": "Kurs tanıtım sayfası",
+      "marketingShort": "Dersten kısa video",
+      "marketingPosts": "Sosyal medya gönderileri (5 gönderi)",
+      "tutorMinute": "Nova ile canlı sesli sohbet"
+    },
+    "packsTitle": "Kredi yükle",
+    "buy": "Satın al · {price}",
+    "paymentsSoon": "Ödeme henüz hazırlanıyor. Açılana kadar krediye ihtiyacın olursa destek sayfasından bize yaz.",
+    "historyTitle": "Harcananlar ve eklenenler",
+    "historyEmpty": "Henüz hareket yok.",
+    "kinds": {
+      "starter": "Başlangıç hediyesi",
+      "grant": "New Learn ekibinden ekleme",
+      "purchase": "Kredi yükleme",
+      "spend": "Harcandı",
+      "refund": "İade edildi"
+    },
+    "grantTitle": "Hesaba kredi ekle",
+    "grantLead": "Yalnızca ekip için: hesap platformu en az bir kez açmış olmalı.",
+    "grantEmail": "Hesabın e-postası",
+    "grantAmount": "Kredi miktarı",
+    "grantNote": "Not",
+    "grantButton": "Krediyi ekle",
+    "granted": "Eklendi. {email} hesabında artık {balance} kredi var.",
+    "costLine": "Bu oluşturma {cost} kredi · sende {balance} var",
+    "notEnough": "Bakiyen bu oluşturma için yetmiyor.",
+    "topUp": "Kredi yükle"
+  },
+  "review": {
+    "title": "Ücretli kurs incelemesi",
+    "lead": "Her dersi bir öğrenci gibi oku, başlangıç olarak YZ incelemesini çalıştır, sonra onayla ya da öğretmene not gönder.",
+    "loading": "Kurslar yükleniyor…",
+    "empty": "İnceleme bekleyen kurs yok.",
+    "item": "{teacher} · Sürüm {version} · {price}",
+    "waiting": "{date} tarihinden beri bekliyor",
+    "aiDone": "YZ inceledi",
+    "open": "Aç",
+    "back": "Tüm kurslar",
+    "aiTitle": "İlk YZ incelemesi",
+    "aiRun": "YZ incelemesini başlat",
+    "aiRunning": "İnceleniyor…",
+    "aiNone": "Henüz çalıştırılmadı.",
+    "aiClean": "YZ dikkat çekecek bir şey bulmadı.",
+    "aiHint": "YZ yalnızca öneri sunar, karar senin.",
+    "severity": {
+      "high": "Düzeltilmeli",
+      "medium": "Önemli",
+      "low": "Küçük"
+    },
+    "kind": {
+      "accuracy": "Doğruluk",
+      "clarity": "Açıklık",
+      "safety": "Güvenlik",
+      "rights": "Haklar",
+      "quality": "Kalite"
+    },
+    "lessonsTitle": "Dersler",
+    "step": "Adım {n}",
+    "question": "Soru",
+    "marked": "Doğru cevap: {answer}",
+    "feedback": "Yorum",
+    "decisionTitle": "Karar",
+    "notesLabel": "Öğretmene notlar",
+    "notesHelp": "Değişiklik isteyeceksen zorunlu. Öğretmen bunları öğretmen panelinde görür.",
+    "approve": "Onayla ve yayınla",
+    "requestChanges": "Değişiklik iste",
+    "decided": {
+      "approved": "Onaylandı. Bu sürüm artık satışta.",
+      "changes": "Notlar öğretmene gönderildi."
     }
   }
 }

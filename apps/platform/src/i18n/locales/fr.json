@@ -609,7 +609,9 @@
       "lessonMissing": "Cette leçon n’existe pas.",
       "courseMissing": "Ce cours n’existe pas.",
       "partsEveryLesson": "Chaque leçon doit figurer une seule fois dans les parties.",
-      "otherLessons": "Autres leçons"
+      "otherLessons": "Autres leçons",
+      "badPrice": "Le cours doit être gratuit, ou son prix compris entre le minimum et le maximum autorisés pour la devise.",
+      "paidCourse": "Ce cours est payant. Achetez-le d’abord pour commencer."
     },
     "builds": {
       "busy": "Un cours est déjà en création. Attendez qu’il soit terminé.",
@@ -650,6 +652,23 @@
       "badAudio": "Audio invalide.",
       "shortAudio": "Audio trop court.",
       "badWakeWord": "Mot d’appel invalide."
+    },
+    "credits": {
+      "notEnough": "Solde insuffisant : cela coûte {cost} crédits et vous en avez {balance}.",
+      "badAmount": "Le nombre de crédits doit être un nombre entier de 1 à 100 000.",
+      "unknownAccount": "Aucun compte avec cet e-mail n’a encore ouvert la plateforme.",
+      "unknownPack": "Ce pack n’existe pas."
+    },
+    "payments": {
+      "notConnected": "Le paiement est encore en préparation. Il ouvrira bientôt."
+    },
+    "staff": {
+      "only": "Cette page est réservée à l’équipe New Learn."
+    },
+    "review": {
+      "notFound": "Cette relecture n’existe pas.",
+      "decided": "Une décision a déjà été prise pour cette relecture.",
+      "needNotes": "Écrivez vos remarques pour l’enseignant avant de demander des modifications."
     }
   },
   "build": {
@@ -794,7 +813,9 @@
         "library": "Mes programmes",
         "studio": "Créer un cours",
         "teach": "Espace enseignant",
-        "settings": "Paramètres"
+        "settings": "Paramètres",
+        "credits": "Crédits",
+        "review": "Relecture"
       },
       "account": "Votre compte Learn",
       "signOut": "Se déconnecter",
@@ -1516,6 +1537,25 @@
       "emptyFiltered": "Aucune remarque dans cet état",
       "empty": "Aucune remarque",
       "emptyBody": "Ouvrez l’aperçu et laissez une remarque sur n’importe quelle étape : l’IA connectée à votre compte la corrigera."
+    },
+    "price": {
+      "title": "Prix",
+      "free": "Gratuit",
+      "paid": "Payant",
+      "amount": "Prix",
+      "currency": "Devise",
+      "share": "Vous recevez {share} % de chaque vente, avant les frais de paiement.",
+      "reviewNote": "Notre équipe relit les cours payants avant leur mise en vente, pour garantir la qualité. Tant qu’une version n’est pas approuvée, les élèves continuent de voir la dernière version approuvée.",
+      "submit": "Envoyer en relecture",
+      "sent": "Envoyé en relecture.",
+      "status": {
+        "pending": "En attente de relecture · version {version}",
+        "approved": "Approuvé · version {version}",
+        "changes": "Modifications demandées · version {version}"
+      },
+      "notesTitle": "Remarques de la relecture",
+      "superseded": "Une version plus récente a été envoyée en relecture.",
+      "publicPrice": "Les élèves voient la version {version} · {price}"
     }
   },
   "authoring": {
@@ -1587,6 +1627,106 @@
       "fallback": "Cours",
       "continue": "Continuer : {title}",
       "start": "Commencer : {title}"
+    },
+    "paid": {
+      "badge": "Payant · {price}",
+      "buy": "Acheter le cours · {price}",
+      "buyHelp": "Le paiement est encore en préparation, il ouvrira bientôt."
+    }
+  },
+  "credits": {
+    "title": "Vos crédits",
+    "lead": "Les crédits sont utilisés quand la plateforme fait quelque chose pour vous avec l’IA ou la voix. Si vous écrivez le cours avec votre propre Claude ou ChatGPT, cela ne coûte aucun crédit.",
+    "loading": "Nous chargeons votre solde…",
+    "balanceLabel": "Solde",
+    "count": {
+      "other": "{count} crédits",
+      "one": "{count} crédit",
+      "many": "{count} crédits"
+    },
+    "starterNote": "Chaque nouveau compte commence avec {count} crédits offerts.",
+    "pricesTitle": "Ce que ça coûte",
+    "connectorFree": "Votre propre Claude ou ChatGPT via le connecteur : sans crédit.",
+    "soon": "Bientôt",
+    "units": {
+      "each": "par utilisation",
+      "minute": "par minute",
+      "set": "par lot"
+    },
+    "actions": {
+      "courseBuild": "Créer un cours dans le studio",
+      "lessonRefine": "Retouches depuis le chat latéral",
+      "voiceMinute": "Explication enregistrée à la voix",
+      "voiceClone": "Clonage de votre voix",
+      "marketingLanding": "Page de présentation du cours",
+      "marketingShort": "Vidéo courte tirée d’une leçon",
+      "marketingPosts": "Publications pour les réseaux (5 posts)",
+      "tutorMinute": "Nova à la voix, en direct"
+    },
+    "packsTitle": "Rechargez vos crédits",
+    "buy": "Acheter · {price}",
+    "paymentsSoon": "Le paiement est encore en préparation. D’ici là, écrivez-nous depuis la page d’aide si vous avez besoin de crédits.",
+    "historyTitle": "Dépensés et ajoutés",
+    "historyEmpty": "Aucun mouvement pour l’instant.",
+    "kinds": {
+      "starter": "Cadeau de bienvenue",
+      "grant": "Ajout de l’équipe New Learn",
+      "purchase": "Recharge",
+      "spend": "Dépensé",
+      "refund": "Remboursé"
+    },
+    "grantTitle": "Ajouter des crédits à un compte",
+    "grantLead": "Réservé à l’équipe : le compte doit avoir ouvert la plateforme au moins une fois.",
+    "grantEmail": "E-mail du compte",
+    "grantAmount": "Nombre de crédits",
+    "grantNote": "Note",
+    "grantButton": "Ajouter les crédits",
+    "granted": "C’est ajouté. {email} a maintenant {balance} crédits.",
+    "costLine": "Cette création coûte {cost} crédits · vous en avez {balance}",
+    "notEnough": "Votre solde ne suffit pas pour cette création.",
+    "topUp": "Recharger mes crédits"
+  },
+  "review": {
+    "title": "Relecture des cours payants",
+    "lead": "Lisez chaque leçon comme un élève, lancez la relecture par l’IA comme point de départ, puis approuvez ou envoyez vos remarques à l’enseignant.",
+    "loading": "Nous chargeons les cours…",
+    "empty": "Aucun cours n’attend de relecture.",
+    "item": "{teacher} · version {version} · {price}",
+    "waiting": "En attente depuis {date}",
+    "aiDone": "Relu par l’IA",
+    "open": "Ouvrir",
+    "back": "Tous les cours",
+    "aiTitle": "Première relecture par l’IA",
+    "aiRun": "Lancer la relecture IA",
+    "aiRunning": "Relecture en cours…",
+    "aiNone": "Pas encore lancée.",
+    "aiClean": "L’IA n’a rien trouvé à signaler.",
+    "aiHint": "L’IA ne fait que suggérer : c’est vous qui décidez.",
+    "severity": {
+      "high": "À corriger",
+      "medium": "Important",
+      "low": "Mineur"
+    },
+    "kind": {
+      "accuracy": "Exactitude",
+      "clarity": "Clarté",
+      "safety": "Sécurité",
+      "rights": "Droits",
+      "quality": "Qualité"
+    },
+    "lessonsTitle": "Leçons",
+    "step": "Étape {n}",
+    "question": "Question",
+    "marked": "Bonne réponse : {answer}",
+    "feedback": "Commentaire",
+    "decisionTitle": "Décision",
+    "notesLabel": "Remarques pour l’enseignant",
+    "notesHelp": "Obligatoires si vous demandez des modifications. L’enseignant les voit dans son espace enseignant.",
+    "approve": "Approuver et publier",
+    "requestChanges": "Demander des modifications",
+    "decided": {
+      "approved": "Approuvé : cette version est maintenant en vente.",
+      "changes": "Vos remarques ont été envoyées à l’enseignant."
     }
   }
 }

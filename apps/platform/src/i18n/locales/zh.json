@@ -603,7 +603,9 @@
       "lessonMissing": "这节课不存在。",
       "courseMissing": "这门课程不存在。",
       "partsEveryLesson": "每节课都必须在单元里出现且只出现一次。",
-      "otherLessons": "其他课"
+      "otherLessons": "其他课",
+      "badPrice": "课程必须免费，或者价格在该币种允许的最低价和最高价之间。",
+      "paidCourse": "这是付费课程。先购买才能开始学习。"
     },
     "builds": {
       "busy": "有一门课程还在生成中。请等它完成。",
@@ -644,6 +646,23 @@
       "badAudio": "音频不正确。",
       "shortAudio": "音频太短了。",
       "badWakeWord": "唤醒词不正确。"
+    },
+    "credits": {
+      "notEnough": "积分不够：这需要 {cost} 积分，你有 {balance}。",
+      "badAmount": "积分数量必须是 1 到 100000 之间的整数。",
+      "unknownAccount": "还没有用这个邮箱打开过平台的账户。",
+      "unknownPack": "这个套餐不存在。"
+    },
+    "payments": {
+      "notConnected": "支付功能还在准备中，很快开通。"
+    },
+    "staff": {
+      "only": "此页面仅限 New Learn 团队使用。"
+    },
+    "review": {
+      "notFound": "这条审核不存在。",
+      "decided": "这条审核已经有结果了。",
+      "needNotes": "要求修改前，请先写下给老师的意见。"
     }
   },
   "build": {
@@ -782,7 +801,9 @@
         "library": "我的学习路线",
         "studio": "创建课程",
         "teach": "教师面板",
-        "settings": "设置"
+        "settings": "设置",
+        "credits": "积分",
+        "review": "审核"
       },
       "account": "你的 Learn 账户",
       "signOut": "退出登录",
@@ -1498,6 +1519,25 @@
       "emptyFiltered": "没有这个状态的批注",
       "empty": "没有批注",
       "emptyBody": "打开预览，在任意一步写批注，连接到你账户的 AI 就会帮你修改。"
+    },
+    "price": {
+      "title": "价格",
+      "free": "免费",
+      "paid": "付费",
+      "amount": "价格",
+      "currency": "币种",
+      "share": "每笔销售你可获得 {share}%，支付手续费另计。",
+      "reviewNote": "为保证质量，付费课程开售前会由我们的团队审核。在新版本获批之前，学生看到的仍是上一个获批的版本。",
+      "submit": "提交审核",
+      "sent": "已提交审核。",
+      "status": {
+        "pending": "等待审核 · 第 {version} 版",
+        "approved": "已批准 · 第 {version} 版",
+        "changes": "需要修改 · 第 {version} 版"
+      },
+      "notesTitle": "审核意见",
+      "superseded": "已有更新的版本提交审核。",
+      "publicPrice": "学生看到的是第 {version} 版 · {price}"
     }
   },
   "authoring": {
@@ -1567,6 +1607,104 @@
       "fallback": "课程",
       "continue": "继续：{title}",
       "start": "开始：{title}"
+    },
+    "paid": {
+      "badge": "付费 · {price}",
+      "buy": "购买课程 · {price}",
+      "buyHelp": "支付功能还在准备中，很快开通。"
+    }
+  },
+  "credits": {
+    "title": "你的积分",
+    "lead": "平台用 AI 或语音帮你做事时会消耗积分。如果你用自己的 Claude 或 ChatGPT 写课程，就不花积分。",
+    "loading": "正在获取你的积分…",
+    "balanceLabel": "余额",
+    "count": {
+      "other": "{count} 积分"
+    },
+    "starterNote": "每个新账户开通时赠送 {count} 积分。",
+    "pricesTitle": "各项花多少",
+    "connectorFree": "通过连接器使用你自己的 Claude 或 ChatGPT：不花积分。",
+    "soon": "即将推出",
+    "units": {
+      "each": "每次",
+      "minute": "每分钟",
+      "set": "每组"
+    },
+    "actions": {
+      "courseBuild": "在工作室生成课程",
+      "lessonRefine": "在侧边聊天里修改",
+      "voiceMinute": "为讲解录制配音",
+      "voiceClone": "克隆你的声音",
+      "marketingLanding": "课程落地页",
+      "marketingShort": "用一节课做短视频",
+      "marketingPosts": "社交媒体帖子（5 条）",
+      "tutorMinute": "和 Nova 实时语音"
+    },
+    "packsTitle": "充值积分",
+    "buy": "购买 · {price}",
+    "paymentsSoon": "支付功能还在准备中。开通之前，如果需要积分，可以通过帮助页面联系我们。",
+    "historyTitle": "支出和到账",
+    "historyEmpty": "还没有记录。",
+    "kinds": {
+      "starter": "新手赠送",
+      "grant": "New Learn 团队添加",
+      "purchase": "充值",
+      "spend": "消耗",
+      "refund": "退回"
+    },
+    "grantTitle": "给账户添加积分",
+    "grantLead": "仅限团队使用：该账户必须至少打开过一次平台。",
+    "grantEmail": "账户邮箱",
+    "grantAmount": "积分数量",
+    "grantNote": "备注",
+    "grantButton": "添加积分",
+    "granted": "已添加。{email} 现在有 {balance} 积分。",
+    "costLine": "这次生成需要 {cost} 积分 · 你有 {balance}",
+    "notEnough": "你的积分不够这次生成。",
+    "topUp": "充值积分"
+  },
+  "review": {
+    "title": "付费课程审核",
+    "lead": "像学生一样读完每节课，先运行 AI 审核作参考，然后批准，或给老师发送意见。",
+    "loading": "正在获取课程…",
+    "empty": "没有等待审核的课程。",
+    "item": "{teacher} · 第 {version} 版 · {price}",
+    "waiting": "自 {date} 起等待",
+    "aiDone": "AI 已审核",
+    "open": "打开",
+    "back": "所有课程",
+    "aiTitle": "AI 初审",
+    "aiRun": "运行 AI 审核",
+    "aiRunning": "审核中…",
+    "aiNone": "还没运行。",
+    "aiClean": "AI 没发现值得注意的问题。",
+    "aiHint": "AI 只给建议，决定权在你。",
+    "severity": {
+      "high": "必须修改",
+      "medium": "重要",
+      "low": "小问题"
+    },
+    "kind": {
+      "accuracy": "准确性",
+      "clarity": "清晰度",
+      "safety": "安全",
+      "rights": "版权",
+      "quality": "质量"
+    },
+    "lessonsTitle": "课程内容",
+    "step": "第 {n} 步",
+    "question": "题目",
+    "marked": "正确答案：{answer}",
+    "feedback": "点评",
+    "decisionTitle": "决定",
+    "notesLabel": "给老师的意见",
+    "notesHelp": "要求修改时必填。老师会在教师面板里看到。",
+    "approve": "批准并发布",
+    "requestChanges": "要求修改",
+    "decided": {
+      "approved": "已批准，这个版本现在可以购买了。",
+      "changes": "意见已发送给老师。"
     }
   }
 }

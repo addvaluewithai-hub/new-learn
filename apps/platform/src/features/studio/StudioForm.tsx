@@ -12,6 +12,8 @@ import './details.css';
 import { Alert, Button, ButtonLink } from '../../shared/ui';
 import { useI18n } from '../../i18n';
 import { Rich } from '../../i18n/Rich';
+import { useBalance } from '../credits/useBalance';
+import { ACTIONS } from '../credits/pricing';
 
 /** «اعمل كورس»: the idea, who it is for, the look, then one button (docs/visuals/README.md). */
 export function StudioForm() {
@@ -26,6 +28,10 @@ export function StudioForm() {
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [active, setActive] = useState<BuildJob | null>(null);
+  // What a build costs and what the account has (docs/credits.md); read again after a job.
+  const balance = useBalance(active?.id);
+  const cost = ACTIONS['course.build'].credits;
+  const short = balance !== null && balance < cost;
   const suggested = useMemo(
     () => suggestLooks(topic.trim().length > 2 ? topic : '', choices.audience),
     [topic, choices.audience],
@@ -185,8 +191,19 @@ export function StudioForm() {
             {t('studio.form.summary', { audience: audienceName, look: t(lookOf(look).name) })}
           </span>
         </div>
+        {balance !== null && (
+          <p className="studio-cost" data-short={short || undefined}>
+            {t('credits.costLine', { cost, balance })}
+            {short && (
+              <>
+                {' · '}
+                {t('credits.notEnough')} <a href="/?credits">{t('credits.topUp')}</a>
+              </>
+            )}
+          </p>
+        )}
         {error && <Alert tone="error">{error}</Alert>}
-        <Button type="submit" variant="accent" disabled={busy || Boolean(active)}>
+        <Button type="submit" variant="accent" disabled={busy || Boolean(active) || short}>
           {busy ? t('studio.form.sending') : t('studio.form.start')}
         </Button>
       </div>

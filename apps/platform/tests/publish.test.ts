@@ -71,6 +71,7 @@ test('a draft becomes a numbered version students read; edits wait for the next 
     courseId,
     version: 1,
     lessons: 2,
+    review: null,
   });
   const seen = await publicCourse(db, courseId);
   assert.equal(seen?.teacher, teacher.name);
@@ -96,6 +97,7 @@ test('a draft becomes a numbered version students read; edits wait for the next 
     courseId,
     version: 2,
     lessons: 2,
+    review: null,
   });
   assert.equal((await publicCourse(db, courseId))?.lessons[1].title, 'الغليان والتبخر');
   assert.equal((await teacherCourses(db, teacher.id))[0].published?.stale, false);
