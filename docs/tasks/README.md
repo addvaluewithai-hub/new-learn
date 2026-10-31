@@ -6,6 +6,9 @@ where it stands. Update the Status cell in the same PR that changes it.
 
 Last full review: 2026-10-31.
 
+What only the owner can do (accounts, dashboards, decisions, legal, people), as a checklist:
+[../owner-todo.md](../owner-todo.md).
+
 | File                       | Areas                                                                                                                             |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [launch.md](launch.md)     | Connector go-live, brand and domain, website, YC and demo, legal, operations                                                      |

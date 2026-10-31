@@ -38,6 +38,9 @@ export function NovaAssistant({
   function show(next: NovaMode, goal: NovaPurpose) {
     controller?.pause();
     setSnapshot(controller?.getContext() ?? context);
+    // The player can still draw one more frame as it pauses: read the position again once it
+    // has stopped, so Nova is told the frame the learner sees.
+    requestAnimationFrame(() => setSnapshot(controller?.getContext() ?? context));
     setMode(next);
     setPurpose(goal);
     setOpen(true);
