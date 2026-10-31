@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 // @ts-expect-error plain JavaScript worker (workers/builder), run by Node on our server
 import { claudeArgs, consumeClaude } from '../../../workers/builder/claude.mjs';
+import { shown } from './steps';
 
 const job = {
   id: 'j1',
@@ -105,13 +106,24 @@ test('the teacher sees one line per tool from the stream; a failed add_lesson an
     },
   ])
     consumeClaude(e, state, (line: string) => lines.push(line));
+  // Step keys the studio shows in the teacher's language (build.steps in the language files).
   assert.deepEqual(lines, [
-    'بقرا دليل الكتابة',
-    'بدوّر على النت',
-    'بقرا ملفاتك',
-    'بكتب درس: Time helps',
-    'بصلّح مشاكل في الدرس',
+    'step:readGuide',
+    'step:webSearch',
+    'step:readFiles',
+    'step:writeLessonNamed:Time helps',
+    'step:fixLesson',
   ]);
+  assert.deepEqual(
+    lines.map((l) => shown(l)),
+    [
+      'بقرا دليل الكتابة',
+      'بدوّر على النت',
+      'بقرا ملفاتك',
+      'بكتب درس: Time helps',
+      'بصلّح مشاكل في الدرس',
+    ],
+  );
   assert.equal(state.sessionId, 'sess-9');
   assert.equal(state.finalText, 'Made 1 lesson.');
   assert.equal(state.failure, '');

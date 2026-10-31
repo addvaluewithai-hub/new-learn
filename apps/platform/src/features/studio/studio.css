@@ -78,7 +78,8 @@
   align-items: center;
   gap: 8px;
   max-width: 100%;
-  padding: 6px 8px 6px 12px;
+  padding-block: 6px;
+  padding-inline: 8px 12px;
   border-radius: 999px;
   background: var(--soft);
   font-size: 0.9rem;
@@ -150,7 +151,8 @@
   align-items: center;
   gap: 8px;
   min-height: 40px;
-  padding: 4px 12px 4px 4px;
+  padding-block: 4px;
+  padding-inline: 12px 4px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: #fff;
@@ -172,7 +174,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 16px;
-  padding: 14px 16px 14px 14px;
+  padding-block: 14px;
+  padding-inline: 16px 14px;
   border-radius: 20px;
   background: var(--leaf);
   color: #fff;

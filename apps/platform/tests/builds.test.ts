@@ -77,7 +77,9 @@ test('the worker claims a job, acts as its teacher through MCP, reports steps an
     teacher,
     buildInput({ topic: 'Compound interest', files: [pdf] }),
   );
-  await assert.rejects(createJob(db, teacher, buildInput({ topic: 'Another one' })), /بيتبني/);
+  await assert.rejects(createJob(db, teacher, buildInput({ topic: 'Another one' })), {
+    key: 'builds.busy',
+  });
   const { job } = (await (await call('/builder/claim', { method: 'POST' })).json()) as any;
   assert.equal(job.id, queued.id);
   assert.equal(job.mcpUrl, 'https://learn.test/mcp');
@@ -142,7 +144,7 @@ test('the worker claims a job, acts as its teacher through MCP, reports steps an
     2,
     'later boards are not this job’s',
   );
-  await assert.rejects(getJob(db, 'someone-else', job.id), /مش موجودة/);
+  await assert.rejects(getJob(db, 'someone-else', job.id), { key: 'builds.jobMissing' });
   assert.equal((await step('late')).status, 409, 'a finished job takes no more steps');
 });
 
@@ -164,5 +166,5 @@ test('a run that made no lesson fails honestly', async () => {
     await call(`/builder/jobs/${job.id}/finish`, { ok: true, message: '' })
   ).json();
   assert.equal(result.status, 'failed');
-  assert.equal((await getJob(db, teacher.id, job.id)).error, 'مفيش درس اتعمل.');
+  assert.equal((await getJob(db, teacher.id, job.id)).error, 'step:noLesson');
 });

@@ -3,6 +3,7 @@ import { Brand } from '../../shared/Brand';
 import { PlatformIcon } from '../../shared/PlatformIcon';
 import type { User } from '../auth/session';
 import { Alert, IconButton } from '../../shared/ui';
+import { useI18n } from '../../i18n';
 export function LibraryShell({
   user,
   onSignOut,
@@ -17,62 +18,71 @@ export function LibraryShell({
   const [menu, setMenu] = useState(false),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false);
+  const { t } = useI18n();
   async function signOut() {
     setBusy(true);
     setError('');
     try {
       await onSignOut();
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'تعذر تسجيل الخروج.');
+      setError(error instanceof Error ? error.message : t('catalog.shell.signOutFailed'));
     } finally {
       setBusy(false);
     }
   }
   return (
     <div className="platform-ui library-shell">
-      <aside className={`sidebar ${menu ? 'open' : ''}`} aria-label="تنقل المنصة">
-        <IconButton className="mobile-close" label="اقفل القائمة" onClick={() => setMenu(false)}>
+      <aside className={`sidebar ${menu ? 'open' : ''}`} aria-label={t('catalog.shell.navLabel')}>
+        <IconButton
+          className="mobile-close"
+          label={t('catalog.shell.closeMenu')}
+          onClick={() => setMenu(false)}
+        >
           <PlatformIcon name="close" />
         </IconButton>
         <Brand />
-        <span className="nav-label">مساحة تعلّمك</span>
+        <span className="nav-label">{t('catalog.shell.navTitle')}</span>
         <nav>
           <a href="/" aria-current={page === 'library' ? 'page' : undefined}>
             <PlatformIcon name="books" />
-            مناهجي
+            {t('catalog.shell.nav.library')}
           </a>
           <a href="/?studio" aria-current={page === 'studio' ? 'page' : undefined}>
             <PlatformIcon name="spark" />
-            اعمل كورس
+            {t('catalog.shell.nav.studio')}
           </a>
           <a href="/?teach" aria-current={page === 'teach' ? 'page' : undefined}>
             <PlatformIcon name="teach" />
-            لوحة المدرس
+            {t('catalog.shell.nav.teach')}
           </a>
           <a href="/?settings" aria-current={page === 'settings' ? 'page' : undefined}>
             <PlatformIcon name="settings" />
-            الإعدادات
+            {t('catalog.shell.nav.settings')}
           </a>
         </nav>
         <div className="sidebar-account">
           <div className="avatar">{user.name.slice(0, 1)}</div>
           <div>
             <strong>{user.name}</strong>
-            <span>حسابك في Learn</span>
+            <span>{t('catalog.shell.account')}</span>
           </div>
-          <IconButton label="تسجيل الخروج" disabled={busy} onClick={signOut}>
+          <IconButton label={t('catalog.shell.signOut')} disabled={busy} onClick={signOut}>
             <PlatformIcon name="logout" />
           </IconButton>
         </div>
       </aside>
       {menu && (
-        <button className="menu-overlay" onClick={() => setMenu(false)} aria-label="اقفل القائمة" />
+        <button
+          className="menu-overlay"
+          onClick={() => setMenu(false)}
+          aria-label={t('catalog.shell.closeMenu')}
+        />
       )}
       <div className="library-main">
         <header className="topbar">
           <IconButton
             className="mobile-menu"
-            label="افتح القائمة"
+            label={t('catalog.shell.openMenu')}
             aria-expanded={menu}
             onClick={() => setMenu(true)}
           >

@@ -1,3 +1,4 @@
+import { t } from '../../i18n';
 import type { Note } from '../authoring/FeedbackPanel';
 
 export type Part = { title: string; lessonIds: string[] };
@@ -32,14 +33,14 @@ export const shareLink = (courseId: string) => `${location.origin}/?course=${cou
 export const previewHref = (course: { lessons: TeachLesson[] }) =>
   course.lessons[0] ? `/?draft=${course.lessons[0].id}` : null;
 
-/** One line on where a course stands, for its card and its page. */
+/** One line on where a course stands, for its card and its page. Call it while rendering. */
 export function statusOf(course: TeachCourse): {
   tone: 'neutral' | 'success' | 'warning' | 'danger';
   text: string;
 } {
   const p = course.published;
-  if (!p) return { tone: 'neutral', text: 'مسودة' };
-  if (p.withdrawn) return { tone: 'danger', text: 'مسحوب' };
-  if (p.stale) return { tone: 'warning', text: `منشور، وفيه تعديلات بعد النشر` };
-  return { tone: 'success', text: `منشور · نسخة ${p.version}` };
+  if (!p) return { tone: 'neutral', text: t('teach.status.draft') };
+  if (p.withdrawn) return { tone: 'danger', text: t('teach.status.withdrawn') };
+  if (p.stale) return { tone: 'warning', text: t('teach.status.stale') };
+  return { tone: 'success', text: t('teach.status.live', { version: p.version }) };
 }

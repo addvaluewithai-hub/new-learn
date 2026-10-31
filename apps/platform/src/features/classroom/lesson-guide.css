@@ -4,7 +4,6 @@
   border-radius: 22px;
   display: flex;
   flex-direction: column;
-  direction: rtl;
   box-shadow: var(--learn-shadow);
   max-height: 730px;
 }
@@ -65,7 +64,7 @@
 }
 .guide-prompt > svg {
   vertical-align: middle;
-  margin-left: 6px;
+  margin-inline-end: 6px;
 }
 .guide-prompt strong {
   font-size: 13px;

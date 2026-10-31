@@ -6,8 +6,7 @@ export function limitNova(userId: string, action: string, now = Date.now()) {
   const key = `${userId}:${action}`,
     max = { chat: 20, wake: 40, ended: 10 }[action] ?? 3;
   const entry = requests.get(key) ?? { until: now + 60000, count: 0 };
-  if (entry.count >= max || requests.size >= 10000)
-    throw new HttpError(429, 'استنى شوية قبل طلب جديد.');
+  if (entry.count >= max || requests.size >= 10000) throw new HttpError(429, 'nova.wait');
   entry.count++;
   requests.set(key, entry);
 }

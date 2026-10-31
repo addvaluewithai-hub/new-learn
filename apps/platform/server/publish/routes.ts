@@ -12,15 +12,22 @@ import { myCourses } from './library';
 
 const UUID = '([0-9a-f-]{36})';
 
-export async function publishRoute(request: Request, env: Env, user: AuthUser, path: string) {
+export async function publishRoute(
+  request: Request,
+  env: Env,
+  user: AuthUser,
+  path: string,
+  locale: string,
+) {
   const db = database(env);
   const method = request.method;
   let m: RegExpExecArray | null;
   if (path === '/api/teach/courses' && method === 'GET')
     return json({ courses: await teacherCourses(db, user.id) });
   if ((m = new RegExp(`^/api/teach/courses/${UUID}$`).exec(path))) {
-    if (method === 'GET') return json(await teacherCourse(db, user.id, m[1]));
-    if (method === 'POST') return json(await saveOutline(db, user.id, m[1], await body(request)));
+    if (method === 'GET') return json(await teacherCourse(db, user.id, m[1], locale));
+    if (method === 'POST')
+      return json(await saveOutline(db, user.id, m[1], await body(request), locale));
   }
   if ((m = new RegExp(`^/api/teach/courses/${UUID}/publish$`).exec(path)) && method === 'POST')
     return json(await publishCourse(db, user, m[1]), 201);
@@ -31,13 +38,13 @@ export async function publishRoute(request: Request, env: Env, user: AuthUser, p
   if ((m = new RegExp(`^/api/teach/notes/${UUID}$`).exec(path)) && method === 'POST') {
     const input = await body(request);
     if (!['done', 'open', 'dismissed'].includes(String(input.status)))
-      throw new HttpError(400, 'الحالة غير صحيحة.');
+      throw new HttpError(400, 'http.badStatus');
     return json(await setFeedback(db, user.id, m[1], { status: input.status as 'done' }));
   }
   if (path === '/api/courses' && method === 'GET') return json(await myCourses(db, user.id));
   if ((m = new RegExp(`^/api/courses/${UUID}$`).exec(path))) {
     const course = await publicCourse(db, m[1]);
-    if (!course) throw new HttpError(404, 'الكورس ده مش موجود أو اتسحب.');
+    if (!course) throw new HttpError(404, 'publish.courseGone');
     if (method === 'GET') return json(course);
     if (method === 'POST') {
       await enrol(db, user.id, m[1]);
@@ -46,5 +53,5 @@ export async function publishRoute(request: Request, env: Env, user: AuthUser, p
   }
   if ((m = new RegExp(`^/api/courses/${UUID}/lessons/${UUID}$`).exec(path)) && method === 'GET')
     return json(await courseLessonView(db, m[1], m[2]));
-  throw new HttpError(404, 'الصفحة غير موجودة.');
+  throw new HttpError(404, 'http.notFound');
 }

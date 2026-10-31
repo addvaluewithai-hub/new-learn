@@ -1,3 +1,5 @@
+import { SOURCE } from '../../src/i18n/core';
+import { languageInEnglish } from '../i18n';
 /**
  * The learner's own tutor settings: which voice Nova speaks with, how slowly, and a short
  * line about its manner. Everything is checked here; the line is the learner's data and only
@@ -66,6 +68,10 @@ const PACE_TEXT: Record<TutorStyle['pace'], string> = {
   slow: 'Speak slowly and calmly, with short pauses between sentences.',
   normal: 'Speak at a natural, calm teaching pace.',
 };
+
+/** The language Nova speaks (the learner's interface language): Egyptian Arabic for Arabic. */
+export const speechOf = (locale: string) =>
+  locale === SOURCE ? 'Egyptian Arabic' : languageInEnglish(locale);
 
 /** How Nova sounds when speaking. */
 export const paceInstruction = (style: TutorStyle) => PACE_TEXT[style.pace];

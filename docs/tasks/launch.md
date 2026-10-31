@@ -37,7 +37,7 @@ See README.md for priorities, statuses and how Ess works with Claude Code.
 | W3  | Privacy, terms and support pages (`/privacy`, `/terms`, `/support`); texts drafted from what the product does, the owner reviews (L1–L3) | Ess  | P1  | Draft  | W1, L1 |
 | W4  | Sign-up button that opens the real sign-up; no fake "thanks" waitlist form                                                               | Ess  | P0  | Done   | W1     |
 | W5  | Share image (`tools/site-og.mjs`), favicon, page titles and descriptions (`features/site/head.ts`)                                       | Ess  | P1  | Done   | B2, W1 |
-| W6  | Arabic and English versions of the site                                                                                                  | Ess  | P2  | Todo   | W1     |
+| W6  | The site and the app in eight languages (ar, en, fr, es, pt, de, tr, zh): one file per language, docs/i18n.md                            | Ess  | P2  | Done   | W1     |
 | W7  | Pages for parents and for schools                                                                                                        | Ess  | P2  | Idea   | W1     |
 | W8  | Help centre: FAQ on `/support` and `/teachers` (done); short guides for students, teachers and parents                                   | Ess  | P2  | Part   | W1     |
 | W9  | Site visit analytics without cookies (e.g. Cloudflare Web Analytics)                                                                     | Both | P1  | Todo   | W1     |

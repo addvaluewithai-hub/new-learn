@@ -66,7 +66,7 @@ async function canvasFits(page, layout) {
 }
 
 async function run(width, height, answer) {
-  const page = await browser.newPage({ viewport: { width, height } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width, height } });
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(`${app}/?preview=board`);

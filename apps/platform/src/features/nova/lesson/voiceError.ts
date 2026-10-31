@@ -1,7 +1,9 @@
+import { t } from '../../../i18n';
+
 /** What the learner sees when talking to Nova fails to start. */
 export const reason = (error: unknown) =>
   error instanceof Error && error.name === 'NotAllowedError'
-    ? 'اسمح بالميكروفون من المتصفح، أو اكتب سؤالك.'
+    ? t('nova.talk.micBlocked')
     : error instanceof Error
       ? error.message
-      : 'تعذّر الكلام مع Nova.';
+      : t('nova.talk.failed');

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { ReadingGoal, ReadingPackage } from '../types';
+import { fill as fillText, useRuntimeText } from '../../text';
 
 /** One segment per scene: done, current (with its own step fill), or ahead. */
 export function SceneTrack({
@@ -15,12 +16,13 @@ export function SceneTrack({
   fill: number;
   onOpen: () => void;
 }) {
+  const text = useRuntimeText();
   return (
     <button
       type="button"
       className="rl-track"
       onClick={onOpen}
-      aria-label={`المشهد ${scene + 1} من ${lesson.scenes.length}. اعرض المشاهد`}
+      aria-label={fillText(text.sceneTrack, { scene: scene + 1, scenes: lesson.scenes.length })}
     >
       {lesson.scenes.map((s, i) => (
         <span
@@ -37,6 +39,7 @@ export function SceneTrack({
 
 /** Goals as progress: diamond count; the list opens on demand. */
 export function GoalsChip({ goals, met }: { goals: ReadingGoal[]; met: Set<string> }) {
+  const text = useRuntimeText();
   const [open, setOpen] = useState(false);
   const box = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -63,7 +66,7 @@ export function GoalsChip({ goals, met }: { goals: ReadingGoal[]; met: Set<strin
         type="button"
         className="rl-chip"
         aria-expanded={open}
-        aria-label={`أهداف الدرس: ${met.size} من ${goals.length}`}
+        aria-label={fillText(text.goalsChip, { met: met.size, goals: goals.length })}
         onClick={() => setOpen((value) => !value)}
       >
         <span className="rl-diamond" data-met={met.size > 0 || undefined} aria-hidden />
@@ -72,8 +75,8 @@ export function GoalsChip({ goals, met }: { goals: ReadingGoal[]; met: Set<strin
         </bdi>
       </button>
       {open ? (
-        <div className="rl-pop" role="dialog" aria-label="أهداف الدرس">
-          <span className="rl-eyebrow">أهداف الدرس</span>
+        <div className="rl-pop" role="dialog" aria-label={text.lessonGoals}>
+          <span className="rl-eyebrow">{text.lessonGoals}</span>
           <ul>
             {goals.map((goal) => (
               <li key={goal.id} data-met={met.has(goal.id) || undefined}>
@@ -82,7 +85,7 @@ export function GoalsChip({ goals, met }: { goals: ReadingGoal[]; met: Set<strin
               </li>
             ))}
           </ul>
-          <small>بيتعلّم على الهدف لما تجاوب السؤال اللي بيقيسه.</small>
+          <small>{text.goalsNote}</small>
         </div>
       ) : null}
     </div>

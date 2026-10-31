@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { useSession } from '../auth/session';
 import { useNavigation } from '../../app/navigation';
 import { Loading } from '../../shared/Loading';
+import { useI18n } from '../../i18n';
 import type { LessonContext } from '@learn/lesson-runtime';
 import { BookReference } from './BookReference';
 import { referencePart as reference9 } from '../../../../../content/book-guided/physics-ch09/reference';
@@ -20,9 +21,10 @@ const load = () => import('../../../../../content/book-guided/physics-ch08/readi
 export default function BookLesson({ chapter = 8 }: { chapter?: 8 | 9 }) {
   const session = useSession();
   const query = useNavigation();
-  if (session.loading) return <Loading text="بنجهّز الدرس…" />;
+  const { t } = useI18n();
+  if (session.loading) return <Loading text={t('book.loading')} />;
   return (
-    <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
+    <Suspense fallback={<Loading text={t('common.loadingLesson')} />}>
       {!session.user ||
       query.has('token') ||
       ['login', 'signup', 'forgot', 'reset'].includes(query.get('auth') ?? '') ? (

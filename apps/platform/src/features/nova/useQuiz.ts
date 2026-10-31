@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { api } from '../../shared/api';
+import { t } from '../../i18n';
 import type { Position, PracticeQuestion, Quiz } from './types';
 export function applyAnswer(quiz: Quiz, index: number, choice: number): Quiz {
   if (
@@ -42,7 +43,7 @@ export function useQuiz() {
         setQuiz({ questions: result.questions, answers: [], index: 0, revealed: false });
     } catch (e) {
       if (!controller.signal.aborted)
-        setError(e instanceof Error ? e.message : 'تعذّر تجهيز الاختبار.');
+        setError(e instanceof Error ? e.message : t('nova.quiz.prepareFailed'));
     } finally {
       if (pending.current === controller) {
         pending.current = null;

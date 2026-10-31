@@ -1,4 +1,4 @@
-import { HttpError } from '../http';
+import { errorText, HttpError, MACHINE_LOCALE } from '../http';
 import { BoardProblems } from '../authoring/boardFiles';
 import { LessonProblems } from '../authoring/format';
 import { TOOLS, type ToolContext } from './tools';
@@ -29,7 +29,7 @@ function toolError(error: unknown) {
     error instanceof LessonProblems || error instanceof BoardProblems
       ? error.problems
       : error instanceof HttpError && error.status < 500
-        ? [error.message]
+        ? [errorText(error, MACHINE_LOCALE)]
         : null;
   if (!problems) throw error;
   const result = { ok: false, problems };

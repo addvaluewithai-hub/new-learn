@@ -81,12 +81,12 @@ export function defaultValues(manifest: BoardManifest): BoardValues {
 }
 
 /** "Load = 300 N, Material = steel" for the learner's own answer. */
-export function describeValues(manifest: BoardManifest, values: BoardValues) {
+export function describeValues(manifest: BoardManifest, values: BoardValues, separator = ', ') {
   return Object.entries(manifest.variables)
     .filter(([name]) => name in values)
     .map(([name, v]) => {
       const unit = v.type === 'number' && v.unit ? ` ${v.unit}` : '';
       return `${v.label ?? name} = ${values[name]}${unit}`;
     })
-    .join('، ');
+    .join(separator);
 }

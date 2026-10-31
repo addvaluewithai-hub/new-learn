@@ -35,9 +35,8 @@ export async function createJob(
     .from(buildJobs)
     .where(and(eq(buildJobs.ownerId, user.id), gte(buildJobs.createdAt, since)));
   if (recent.some((j) => j.status === 'queued' || j.status === 'running'))
-    throw new HttpError(409, 'فيه كورس لسه بيتبني. استنى لما يخلص.');
-  if (recent.length >= JOB_LIMITS.perDay)
-    throw new HttpError(429, 'وصلت للحد النهارده. جرّب بكرة.');
+    throw new HttpError(409, 'builds.busy');
+  if (recent.length >= JOB_LIMITS.perDay) throw new HttpError(429, 'builds.dailyLimit');
   const [job] = await db
     .insert(buildJobs)
     .values({ ownerId: user.id, ownerName: user.name, request: input.request })
@@ -61,7 +60,7 @@ export async function getJob(db: Db, ownerId: string, id: string) {
     .select()
     .from(buildJobs)
     .where(and(eq(buildJobs.id, id), eq(buildJobs.ownerId, ownerId)));
-  if (!row) throw new HttpError(404, 'المهمة دي مش موجودة.');
+  if (!row) throw new HttpError(404, 'builds.jobMissing');
   return { ...view(row), boards: await jobBoards(db, row) };
 }
 
@@ -101,7 +100,7 @@ export async function claimJob(db: Db) {
     .update(buildJobs)
     .set({
       status: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then 'failed' else 'queued' end`,
-      error: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then 'البناء وقف قبل ما يخلص.' else ${buildJobs.error} end`,
+      error: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then 'step:failed' else ${buildJobs.error} end`,
       finishedAt: sql`case when ${buildJobs.attempts} >= ${JOB_LIMITS.attempts} then now() else null end`,
     })
     .where(and(eq(buildJobs.status, 'running'), sql`${buildJobs.startedAt} < ${stale}`));
@@ -128,8 +127,8 @@ export async function claimJob(db: Db) {
 
 async function running(db: Db, id: string) {
   const [job] = await db.select().from(buildJobs).where(eq(buildJobs.id, id));
-  if (!job) throw new HttpError(404, 'Unknown job.');
-  if (job.status !== 'running') throw new HttpError(409, 'The job is not running.');
+  if (!job) throw HttpError.plain(404, 'Unknown job.');
+  if (job.status !== 'running') throw HttpError.plain(409, 'The job is not running.');
   return job;
 }
 
@@ -139,7 +138,7 @@ export async function jobFile(db: Db, jobId: string, fileId: string) {
     .select()
     .from(buildFiles)
     .where(and(eq(buildFiles.id, fileId), eq(buildFiles.jobId, jobId)));
-  if (!file) throw new HttpError(404, 'Unknown file.');
+  if (!file) throw HttpError.plain(404, 'Unknown file.');
   return file;
 }
 
@@ -154,7 +153,11 @@ export async function addStep(db: Db, jobId: string, title: string) {
     .where(eq(buildJobs.id, jobId));
 }
 
-/** The worker is done: the course it made is the teacher's newest one since the job began. */
+/**
+ * The worker is done: the course it made is the teacher's newest one since the job began.
+ * The error is the worker's own words or a `step:<id>` line (build.steps), which the page
+ * shows in the teacher's language, like the steps.
+ */
 export async function finishJob(db: Db, jobId: string, input: { ok: boolean; message: string }) {
   const job = await running(db, jobId);
   const [course] = await db
@@ -185,7 +188,7 @@ export async function finishJob(db: Db, jobId: string, input: { ok: boolean; mes
     .set({
       status: input.ok && made ? 'done' : 'failed',
       result,
-      error: !input.ok ? message || 'البناء وقف قبل ما يخلص.' : made ? '' : 'مفيش درس اتعمل.',
+      error: !input.ok ? message || 'step:failed' : made ? '' : 'step:noLesson',
       finishedAt: new Date(),
     })
     .where(eq(buildJobs.id, jobId));

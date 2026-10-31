@@ -5,7 +5,9 @@ import { courseEnrollments, courseProgress, publishedCourses } from '../db/publi
 import { listFeedback } from '../authoring/feedback';
 import { course, courseLessons, listCourses, updateCourse } from '../authoring/store';
 import { HttpError } from '../http';
-import { selfCheck } from './store';
+import { serverText } from '../i18n';
+import { SOURCE } from '../../src/i18n/core';
+import { selfCheck, type Check } from './store';
 
 // What the teacher's workspace shows: every course with its draft, its published version,
 // its students and its open notes; and the outline and notes of one course.
@@ -72,14 +74,16 @@ export async function teacherCourses(db: Db, owner: string) {
 }
 
 /** One course's workspace: the outline, the self-check, its notes and its students' progress. */
-export async function teacherCourse(db: Db, owner: string, courseId: string) {
+export async function teacherCourse(db: Db, owner: string, courseId: string, locale = SOURCE) {
   const [all, check] = await Promise.all([
     teacherCourses(db, owner),
     selfCheck(db, owner, courseId),
   ]);
   const row = all.find((c) => c.id === courseId);
-  if (!row) throw new HttpError(404, 'الكورس ده مش موجود.');
+  if (!row) throw new HttpError(404, 'publish.courseMissing');
   const lessonIds = check.lessons.map((l) => l.id);
+  const say = (lines: Check[]) =>
+    lines.map((c) => ({ ok: c.ok, text: serverText(locale, c.key, c.vars) }));
   const notes = await listFeedback(db, owner, { lessonIds, status: [] });
   const progress = row.published
     ? await db
@@ -95,7 +99,7 @@ export async function teacherCourse(db: Db, owner: string, courseId: string) {
     : [];
   return {
     ...row,
-    check: { ready: check.ready, checks: check.checks, warnings: check.warnings },
+    check: { ready: check.ready, checks: say(check.checks), warnings: say(check.warnings) },
     notes,
     progress,
   };
@@ -107,6 +111,7 @@ export async function saveOutline(
   owner: string,
   courseId: string,
   input: Record<string, unknown>,
+  locale = SOURCE,
 ) {
   await course(db, owner, courseId);
   const lessons = await courseLessons(db, owner, courseId);
@@ -117,10 +122,12 @@ export async function saveOutline(
   if (parts) {
     const listed = parts.flatMap((p) => p.lessonIds ?? []);
     if (listed.some((id) => !known.has(id)) || new Set(listed).size !== listed.length)
-      throw new HttpError(400, 'الأجزاء لازم تحتوي كل درس مرة واحدة.');
-    // Lessons the editor left out stay in a last part, so none is lost.
+      throw new HttpError(400, 'publish.partsEveryLesson');
+    // Lessons the editor left out stay in a last part, so none is lost. Its name is content,
+    // stored once: it is written in the teacher's language at the time.
     const rest = lessons.filter((l) => !listed.includes(l.id)).map((l) => l.id);
-    if (rest.length) parts.push({ title: 'دروس تانية', lessonIds: rest });
+    if (rest.length)
+      parts.push({ title: serverText(locale, 'publish.otherLessons'), lessonIds: rest });
   }
   const str = (key: string) =>
     typeof input[key] === 'string' ? (input[key] as string).trim() : undefined;

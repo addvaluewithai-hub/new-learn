@@ -1,3 +1,4 @@
+import { t } from '../../../i18n';
 export type LiveToken = { token: string; model: string; config: Record<string, unknown> };
 export type LiveCallbacks = {
   audio: (data: string, rate: number) => void;
@@ -25,7 +26,7 @@ export class LiveConnection {
       this.socket = socket;
       let settled = false,
         chain = Promise.resolve();
-      const timer = window.setTimeout(() => fail('الاتصال اتأخر. جرّب تاني.'), 15000);
+      const timer = window.setTimeout(() => fail(t('nova.voice.slow')), 15000);
       const fail = (message: string) => {
         if (!settled) {
           settled = true;
@@ -33,7 +34,7 @@ export class LiveConnection {
           reject(new Error(message));
         } else if (!this.intentional) this.callbacks.error(message);
       };
-      this.cancelSetup = () => fail('المكالمة اتقفلت.');
+      this.cancelSetup = () => fail(t('nova.voice.closed'));
       socket.onopen = () =>
         this.send({ setup: { model: `models/${token.model}`, ...token.config } });
       socket.onmessage = (event) => {
@@ -51,7 +52,7 @@ export class LiveConnection {
             }
             if (message.error) {
               this.ended = 'error';
-              fail('تعذّر بدء جلسة Nova.');
+              fail(t('nova.voice.sessionFailed'));
               this.close();
               return;
             }
@@ -84,19 +85,19 @@ export class LiveConnection {
             if (content?.turnComplete) this.callbacks.complete();
             if (message.goAway) {
               this.ended = 'goaway';
-              fail('المكالمة انتهت. تقدر تتصل تاني.');
+              fail(t('nova.voice.ended'));
               this.close();
             }
           })
-          .catch(() => fail('تعذّر قراءة رد Nova.'));
+          .catch(() => fail(t('nova.voice.readFailed')));
       };
-      socket.onerror = () => fail('تعذّر الاتصال. راجع الإنترنت وجرّب تاني.');
+      socket.onerror = () => fail(t('nova.voice.connectFailed'));
       socket.onclose = () => {
         this.ready = false;
         clearTimeout(timer);
         if (!this.intentional) {
           this.ended ||= 'dropped';
-          fail('المكالمة اتقطعت. جرّب تتصل تاني.');
+          fail(t('nova.voice.dropped'));
         }
       };
     });

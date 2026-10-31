@@ -1,0 +1,59 @@
+.language-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding-inline: 10px 4px;
+  border: 1px solid var(--nl-line-strong);
+  border-radius: 999px;
+  color: var(--nl-ink);
+}
+.language-picker select {
+  min-height: 34px;
+  padding-inline: 2px 6px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--nl-text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+.language-picker select:focus-visible {
+  outline: none;
+}
+.language-picker:focus-within {
+  outline: 3px solid var(--nl-focus);
+  outline-offset: 2px;
+}
+.language-picker option {
+  color: var(--nl-ink);
+  background: var(--nl-surface);
+}
+.language-picker-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.language-picker--dark {
+  border-color: rgb(255 255 255 / 24%);
+  color: #ffffff;
+}
+/* In the site bar on a phone: only the globe, with the native list still opening on tap. */
+@media (max-width: 820px) {
+  .site-nav .language-picker {
+    width: 36px;
+    justify-content: center;
+    padding: 0;
+  }
+  .site-nav .language-picker select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+  }
+}

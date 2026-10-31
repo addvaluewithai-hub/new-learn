@@ -7,7 +7,9 @@
 }
 .site-faq summary {
   position: relative;
-  padding: var(--nl-space-5) var(--nl-space-1) var(--nl-space-5) var(--nl-space-10);
+  /* Room for the +/– sign at the end of the line, in either direction. */
+  padding-block: var(--nl-space-5);
+  padding-inline: var(--nl-space-1) var(--nl-space-10);
   font-size: var(--nl-text-lg);
   font-weight: 600;
   cursor: pointer;

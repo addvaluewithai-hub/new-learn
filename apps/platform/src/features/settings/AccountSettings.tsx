@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { api } from '../../shared/api';
 import { Alert, Button, Card, Field, TextInput } from '../../shared/ui';
 import type { User } from '../auth/session';
+import { useI18n, type TextKey } from '../../i18n';
 
 /** Name and password, saved to the account itself (the auth service), so every device has them. */
 export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => Promise<void> }) {
@@ -10,15 +11,19 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
   const [next, setNext] = useState('');
   const [busy, setBusy] = useState<'' | 'name' | 'password'>('');
   const [result, setResult] = useState<{ tone: 'success' | 'error'; text: string } | null>(null);
+  const { t } = useI18n();
 
-  async function run(kind: 'name' | 'password', send: () => Promise<unknown>, done: string) {
+  async function run(kind: 'name' | 'password', send: () => Promise<unknown>, done: TextKey) {
     setBusy(kind);
     setResult(null);
     try {
       await send();
-      setResult({ tone: 'success', text: done });
+      setResult({ tone: 'success', text: t(done) });
     } catch (error) {
-      setResult({ tone: 'error', text: error instanceof Error ? error.message : 'معرفناش نحفظ.' });
+      setResult({
+        tone: 'error',
+        text: error instanceof Error ? error.message : t('settings.account.saveFailed'),
+      });
     } finally {
       setBusy('');
     }
@@ -31,7 +36,7 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
         await api('/auth/update-user', { name: name.trim() });
         await onSaved();
       },
-      'اسمك اتغيّر.',
+      'settings.account.nameSaved',
     );
   };
   const savePassword = (event: FormEvent) => {
@@ -43,15 +48,19 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
         setCurrent('');
         setNext('');
       },
-      'كلمة السر اتغيّرت، وخرّجنا حسابك من أي جهاز تاني.',
+      'settings.account.passwordSaved',
     );
   };
   return (
     <Card className="settings-card">
-      <h2>الحساب</h2>
-      <p className="settings-note">بيتحفظ في حسابك، فيظهر على أي جهاز تدخل منه.</p>
+      <h2>{t('settings.account.title')}</h2>
+      <p className="settings-note">{t('settings.account.note')}</p>
       <form className="settings-form" onSubmit={saveName}>
-        <Field id="settings-name" label="اسمك" hint="Nova بتناديك بيه.">
+        <Field
+          id="settings-name"
+          label={t('settings.account.name')}
+          hint={t('settings.account.nameHint')}
+        >
           <TextInput
             id="settings-name"
             value={name}
@@ -62,7 +71,7 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
             onChange={(e) => setName(e.target.value)}
           />
         </Field>
-        <Field id="settings-email" label="الإيميل">
+        <Field id="settings-email" label={t('settings.account.email')}>
           <TextInput id="settings-email" value={user.email} dir="ltr" readOnly />
         </Field>
         <Button
@@ -70,12 +79,12 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
           variant="secondary"
           disabled={busy !== '' || name.trim() === user.name || name.trim().length < 2}
         >
-          {busy === 'name' ? 'بنحفظ…' : 'احفظ الاسم'}
+          {busy === 'name' ? t('settings.account.saving') : t('settings.account.saveName')}
         </Button>
       </form>
       <form className="settings-form" onSubmit={savePassword}>
-        <h3>غيّر كلمة السر</h3>
-        <Field id="settings-current" label="كلمة السر الحالية">
+        <h3>{t('settings.account.passwordTitle')}</h3>
+        <Field id="settings-current" label={t('settings.account.currentPassword')}>
           <TextInput
             id="settings-current"
             type="password"
@@ -86,7 +95,11 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
             onChange={(e) => setCurrent(e.target.value)}
           />
         </Field>
-        <Field id="settings-new" label="كلمة السر الجديدة" hint="٨ أحرف على الأقل.">
+        <Field
+          id="settings-new"
+          label={t('settings.account.newPassword')}
+          hint={t('settings.account.newPasswordHint')}
+        >
           <TextInput
             id="settings-new"
             type="password"
@@ -104,7 +117,9 @@ export function AccountSettings({ user, onSaved }: { user: User; onSaved: () => 
           variant="secondary"
           disabled={busy !== '' || !current || next.length < 8}
         >
-          {busy === 'password' ? 'بنغيّر…' : 'غيّر كلمة السر'}
+          {busy === 'password'
+            ? t('settings.account.changing')
+            : t('settings.account.changePassword')}
         </Button>
       </form>
       {result && <Alert tone={result.tone}>{result.text}</Alert>}

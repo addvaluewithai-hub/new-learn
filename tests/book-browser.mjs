@@ -45,6 +45,7 @@ try {
   await mkdir('test-results', { recursive: true });
   for (const width of [1280, 390, 320]) {
     const page = await browser.newPage({
+      locale: 'ar-EG',
       viewport: { width, height: 900 },
       permissions: ['microphone'],
       reducedMotion: 'reduce',

@@ -3,6 +3,7 @@ import { ChatMessages } from './ChatMessages';
 import { NovaIcon } from './NovaIcon';
 import type { Position } from './types';
 import type { useChat } from './useChat';
+import { useI18n } from '../../i18n';
 export function ChatPanel({
   chat,
   position,
@@ -14,6 +15,7 @@ export function ChatPanel({
   name: string;
   enabled: boolean;
 }) {
+  const { t } = useI18n();
   const [draft, setDraft] = useState('');
   async function submit(event: React.FormEvent) {
     event.preventDefault();
@@ -33,14 +35,14 @@ export function ChatPanel({
       )}
       <form className="nova-composer" onSubmit={submit}>
         <label className="nl-sr-only" htmlFor="nova-message">
-          رسالتك لنوفا
+          {t('nova.chat.label')}
         </label>
         <textarea
           id="nova-message"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           maxLength={2000}
-          placeholder="اسأل عن الجزء اللي واقفين عنده…"
+          placeholder={t('nova.chat.placeholder')}
           disabled={!enabled}
           rows={2}
           onKeyDown={(e) => {
@@ -51,18 +53,20 @@ export function ChatPanel({
           }}
         />
         {chat.loading ? (
-          <button type="button" onClick={chat.stop} aria-label="إيقاف الرد">
+          <button type="button" onClick={chat.stop} aria-label={t('nova.chat.stop')}>
             <NovaIcon name="pause" />
           </button>
         ) : (
-          <button type="submit" disabled={!enabled || !draft.trim()} aria-label="إرسال الرسالة">
+          <button
+            type="submit"
+            disabled={!enabled || !draft.trim()}
+            aria-label={t('nova.chat.send')}
+          >
             <NovaIcon name="send" />
           </button>
         )}
       </form>
-      <small className="nova-footnote">
-        Enter للإرسال · Shift + Enter لسطر جديد · Nova قد تخطئ، راجع الشرح.
-      </small>
+      <small className="nova-footnote">{t('nova.chat.footnote')}</small>
     </>
   );
 }

@@ -5,6 +5,7 @@ import type { BoardLink, BoardObservation, BoardValues } from '../board/types';
 import type { LessonContext } from '../context';
 import { boardManifest, readingBoardView, type BoardManifests, type LearnerValues } from './board';
 import type { ReadingPackage, ReadingPage } from './types';
+import { useRuntimeText } from '../text';
 
 /**
  * The live board of the current page: what it shows, the learner's own changes, and what the
@@ -17,6 +18,7 @@ export function useReadingBoard(
   answers: Record<string, string>,
   boards?: BoardManifests,
 ) {
+  const { listSeparator } = useRuntimeText();
   const page = pages[index];
   const scene = lesson.scenes[page.scene];
   const q = scene.question;
@@ -59,7 +61,10 @@ export function useReadingBoard(
     if (!view || !manifest || !q?.board) return '';
     const names = checkedVariables(q.board.check);
     const shown = Object.fromEntries(names.map((n) => [n, view.variables[n]]));
-    return encodeBoardAnswer({ values: view.variables, text: describeValues(manifest, shown) });
+    return encodeBoardAnswer({
+      values: view.variables,
+      text: describeValues(manifest, shown, listSeparator),
+    });
   };
   const context: LessonContext['board'] =
     view && manifest

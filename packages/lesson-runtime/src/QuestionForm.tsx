@@ -1,6 +1,7 @@
 import { canSubmitAttempt } from './flow';
 import type { Attempt } from './session';
 import type { LessonQuestion } from './types';
+import { useRuntimeText } from './text';
 
 export function QuestionForm({
   question,
@@ -13,6 +14,7 @@ export function QuestionForm({
   onChange: (attempt: Attempt) => void;
   onSubmit: () => void;
 }) {
+  const text = useRuntimeText();
   return (
     <form
       className="lesson-question"
@@ -21,14 +23,14 @@ export function QuestionForm({
         onSubmit();
       }}
     >
-      <p className="lesson-label">دورك دلوقتي</p>
+      <p className="lesson-label">{text.yourTurn}</p>
       <h2 dir="ltr" lang="en">
         {question.english}
       </h2>
       <p>{question.title}</p>
       {question.attempt !== 'written' && (
         <fieldset>
-          <legend>اختار إجابتك</legend>
+          <legend>{text.chooseAnswer}</legend>
           {question.options.map((option, index) => (
             <label key={index}>
               <input
@@ -63,7 +65,7 @@ export function QuestionForm({
         className="lesson-primary"
         disabled={!canSubmitAttempt(question, draft.choice, draft.written)}
       >
-        اسمع التعقيب ونكمل
+        {text.hearFeedback}
       </button>
     </form>
   );

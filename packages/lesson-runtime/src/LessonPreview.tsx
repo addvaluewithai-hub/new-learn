@@ -12,6 +12,7 @@ import { PlaybackControls } from './PlaybackControls';
 import { QuestionForm } from './QuestionForm';
 import './preview.css';
 import { useHostBridge, type HostPlayback } from './useHostBridge';
+import { useRuntimeText } from './text';
 
 export type LessonPreviewProps = HostPlayback & {
   lesson: LessonPackage;
@@ -41,6 +42,7 @@ function PreviewSession({ lesson, registry, layout: override, ...host }: LessonP
     [lesson],
   );
   const [state, dispatch] = useReducer(reducer, undefined, initialSession);
+  const text = useRuntimeText();
   const player = useRef<PlayerRef>(null);
   const portrait = useMediaQuery('(max-width: 650px)');
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
@@ -52,13 +54,14 @@ function PreviewSession({ lesson, registry, layout: override, ...host }: LessonP
   const epoch = state.epoch;
   const liveEpoch = useRef(epoch);
   liveEpoch.current = epoch;
+  const audioFailed = text.audioFailed;
   const onAudioError = useCallback(
     (error: Error) => {
       if (liveEpoch.current !== epoch) return;
       player.current?.pause();
-      dispatch({ type: 'error', epoch, message: error.message || 'تعذّر تشغيل الصوت. جرّب تاني.' });
+      dispatch({ type: 'error', epoch, message: error.message || audioFailed });
     },
-    [epoch],
+    [epoch, audioFailed],
   );
   const inputProps = useMemo(
     () => ({
@@ -110,7 +113,7 @@ function PreviewSession({ lesson, registry, layout: override, ...host }: LessonP
           {state.index + 1} / {lesson.scenes.length}
         </span>
       </header>
-      <nav className="lesson-scenes" aria-label="مشاهد الدرس">
+      <nav className="lesson-scenes" aria-label={text.lessonScenes}>
         {lesson.scenes.map((item, index) => (
           <button
             key={item.id}
@@ -141,14 +144,12 @@ function PreviewSession({ lesson, registry, layout: override, ...host }: LessonP
           spaceKeyToPlayOrPause={false}
           moveToBeginningWhenEnded={false}
           numberOfSharedAudioTags={2}
-          errorFallback={() => (
-            <div className="lesson-failure">تعذّر عرض المشهد. جرّب إعادة تشغيله.</div>
-          )}
+          errorFallback={() => <div className="lesson-failure">{text.sceneRenderFailed}</div>}
         />
       </div>
       {state.error && (
         <div className="lesson-error" role="alert">
-          <p>تعذّر تشغيل المشهد؛ هنقف هنا لحد ما الصوت يشتغل.</p>
+          <p>{text.scenePlaybackStopped}</p>
           <button
             onClickCapture={(event) => {
               if (state.fatalError) {
@@ -161,7 +162,7 @@ function PreviewSession({ lesson, registry, layout: override, ...host }: LessonP
               player.current?.play(event);
             }}
           >
-            {state.fatalError ? 'أعد تحميل المعاينة' : 'حاول تاني'}
+            {state.fatalError ? text.reloadPreview : text.tryAgain}
           </button>
         </div>
       )}
@@ -184,7 +185,7 @@ function PreviewSession({ lesson, registry, layout: override, ...host }: LessonP
           <h2>{lesson.review.heading}</h2>
           <p>{lesson.review.summary}</p>
           <button className="lesson-primary" onClick={() => dispatch({ type: 'restart' })}>
-            ابدأ من الأول
+            {text.startOver}
           </button>
         </div>
       )}

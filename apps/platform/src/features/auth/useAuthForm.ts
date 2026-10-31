@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { api, ApiError } from '../../shared/api';
+import { t, type TextKey } from '../../i18n';
 export type AuthMode = 'login' | 'signup' | 'forgot' | 'reset';
 export function useAuthForm(onLogin: () => Promise<void>) {
   const params = new URLSearchParams(location.search);
@@ -15,7 +16,7 @@ export function useAuthForm(onLogin: () => Promise<void>) {
     [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
-    [message, setMessage] = useState('');
+    [message, setMessage] = useState<TextKey | ''>('');
   function changeMode(next: AuthMode) {
     if (busy) return;
     setMode(next);
@@ -38,16 +39,16 @@ export function useAuthForm(onLogin: () => Promise<void>) {
     try {
       if (mode === 'forgot') {
         await api('/auth/request-password-reset', { email: email.trim() });
-        setMessage('لو البريد مسجّل، هيوصلك رابط لاستعادة كلمة المرور.');
+        setMessage('auth.messages.resetSent');
       } else if (mode === 'reset') {
         const token = params.get('token');
-        if (!token) throw new Error('رابط الاستعادة غير صالح. اطلب رابط جديد.');
+        if (!token) throw new Error(t('auth.messages.resetInvalid'));
         await api('/auth/reset-password', { newPassword: password, token });
         history.replaceState(null, '', '/?auth=login');
         window.dispatchEvent(new PopStateEvent('popstate'));
         setMode('login');
         setPassword('');
-        setMessage('اتغيّرت كلمة المرور. سجّل دخولك.');
+        setMessage('auth.messages.passwordChanged');
       } else {
         await api(
           mode === 'signup' ? '/auth/sign-up/email' : '/auth/sign-in/email',
@@ -67,13 +68,13 @@ export function useAuthForm(onLogin: () => Promise<void>) {
       setError(
         error instanceof ApiError &&
           (error.code === 'INVALID_EMAIL_OR_PASSWORD' || error.status === 401)
-          ? 'البريد أو كلمة المرور غير صحيحة.'
+          ? t('auth.messages.wrongCredentials')
           : error instanceof ApiError &&
               (error.code?.startsWith('USER_ALREADY_EXISTS') || error.status === 422)
-            ? 'البريد مسجّل بالفعل. جرّب تسجيل الدخول.'
+            ? t('auth.messages.emailTaken')
             : error instanceof Error
               ? error.message
-              : 'تعذر تنفيذ الطلب.',
+              : t('common.network.failed'),
       );
     } finally {
       setBusy(false);

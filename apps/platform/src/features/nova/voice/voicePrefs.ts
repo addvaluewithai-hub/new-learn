@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import type { TextKey } from '../../../i18n';
 
 /**
  * The learner's tutor settings: Nova's voice, how slowly it speaks, and a short line about
@@ -39,10 +40,10 @@ export const VOICES = [
   'Sulafat',
 ] as const;
 export const SPEECH_PACES = [
-  { id: 'slowest', label: 'بالراحة خالص' },
-  { id: 'slow', label: 'هادي' },
-  { id: 'normal', label: 'عادي' },
-] as const;
+  { id: 'slowest', label: 'nova.voice.paces.slowest' },
+  { id: 'slow', label: 'nova.voice.paces.slow' },
+  { id: 'normal', label: 'nova.voice.paces.normal' },
+] as const satisfies ReadonlyArray<{ id: string; label: TextKey }>;
 export const PERSONA_MAX = 120;
 
 export type VoicePrefs = {

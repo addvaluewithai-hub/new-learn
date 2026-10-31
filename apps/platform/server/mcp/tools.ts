@@ -31,13 +31,13 @@ type Tool = {
 const str = (args: Args, key: string, required = true) => {
   const v = args[key];
   if (v === undefined && !required) return undefined;
-  if (typeof v !== 'string' || !v.trim()) throw new HttpError(400, `${key} is required`);
+  if (typeof v !== 'string' || !v.trim()) throw HttpError.plain(400, `${key} is required`);
   return v.trim();
 };
 const uuid = (args: Args, key: string) => {
   const v = str(args, key)!;
   if (!/^[0-9a-f-]{36}$/i.test(v))
-    throw new HttpError(400, `${key} must be an id from this server`);
+    throw HttpError.plain(400, `${key} must be an id from this server`);
   return v;
 };
 const preview = (c: ToolContext, lessonId: string) => `${c.origin}/?draft=${lessonId}`;
@@ -254,7 +254,7 @@ export const TOOLS: Tool[] = [
     run: async (args, c) => {
       const status = str(args, 'status') as FeedbackStatus;
       if (status !== 'review' && status !== 'dismissed')
-        throw new HttpError(400, 'status must be review or dismissed');
+        throw HttpError.plain(400, 'status must be review or dismissed');
       const row = await setFeedback(c.db, c.user.id, uuid(args, 'feedbackId'), {
         status,
         resolution: str(args, 'summary'),

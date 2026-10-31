@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 import readline from 'node:readline';
-import { labelFor } from './events.mjs';
+import { failedStep, labelFor, step } from './events.mjs';
 
 // Runs Claude Code for one job: `claude -p` with JSON events on stdout, the job folder as its
 // working directory with read-only file tools, and New Learn's /mcp as its only MCP server,
@@ -78,7 +78,7 @@ export function consumeClaude(event, state, onStep) {
     for (const block of blocks) {
       if (block.type !== 'tool_result' || !block.is_error) continue;
       const name = state.calls.get(block.tool_use_id);
-      if (name) onStep(name === 'add_lesson' ? 'بصلّح مشاكل في الدرس' : 'بعيد المحاولة');
+      if (name) onStep(failedStep(name));
     }
   if (event.type === 'result') {
     if (event.is_error || event.subtype !== 'success')
@@ -148,7 +148,7 @@ export async function runClaude(input, onStep) {
     return await attempt({ ...input, sessionId }, onStep);
   } catch (error) {
     if (error.timedOut || !error.started || !TRANSIENT.test(error.message)) throw error;
-    onStep('بكمّل بعد انقطاع');
+    onStep(step('resume'));
     return attempt(
       {
         ...input,

@@ -32,7 +32,7 @@ export function recordedOutline(lesson: LessonPackage): Outline {
 
 const PHASES = ['narration', 'attempt', 'feedback', 'complete'] as const;
 const bad = (): never => {
-  throw new HttpError(400, 'بيانات التقدم غير صحيحة.');
+  throw new HttpError(400, 'progress.invalid');
 };
 const int = (v: unknown, min = 0) =>
   Number.isInteger(v) && (v as number) >= min ? (v as number) : bad();

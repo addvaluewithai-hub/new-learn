@@ -10,7 +10,7 @@ import { buildPackage, type AuthorLesson, type BoardRef } from './format';
 // query below is scoped to it, so one teacher can never read or change another's drafts.
 
 export const LIMITS = { courses: 50, lessons: 300, boards: 300 };
-const notFound = () => new HttpError(404, 'not found');
+const notFound = () => HttpError.plain(404, 'not found');
 const FIELDS = { title: 120, subject: 80, description: 600, language: 10 } as const;
 
 /** Course fields within their limits; parts list lessons under short titles. */
@@ -18,7 +18,7 @@ function courseInput(input: Record<string, unknown>) {
   for (const [key, max] of Object.entries(FIELDS)) {
     const v = input[key];
     if (v !== undefined && (typeof v !== 'string' || v.length > max))
-      throw new HttpError(400, `${key}: text up to ${max} characters`);
+      throw HttpError.plain(400, `${key}: text up to ${max} characters`);
   }
   const parts = input.parts as CoursePart[] | undefined;
   if (
@@ -33,7 +33,7 @@ function courseInput(input: Record<string, unknown>) {
           p.lessonIds.every((id) => typeof id === 'string'),
       ))
   )
-    throw new HttpError(400, 'parts: up to 50 of {title, lessonIds}');
+    throw HttpError.plain(400, 'parts: up to 50 of {title, lessonIds}');
 }
 
 export async function listCourses(db: Db, owner: string) {
@@ -87,7 +87,7 @@ export async function createCourse(
 ) {
   courseInput(input);
   if ((await count(db, authorCourses, owner)) >= LIMITS.courses)
-    throw new HttpError(429, `at most ${LIMITS.courses} courses`);
+    throw HttpError.plain(429, `at most ${LIMITS.courses} courses`);
   const [row] = await db
     .insert(authorCourses)
     .values({
@@ -114,7 +114,7 @@ export async function updateCourse(
     const ids = (await courseLessons(db, owner, id)).map((l) => l.id).sort();
     const listed = input.parts.flatMap((p) => p.lessonIds).sort();
     if (JSON.stringify(ids) !== JSON.stringify(listed))
-      throw new HttpError(400, 'parts must list every lesson of the course exactly once');
+      throw HttpError.plain(400, 'parts must list every lesson of the course exactly once');
   }
   const changes = Object.fromEntries(
     Object.entries(input).filter(([, value]) => value !== undefined),
@@ -198,7 +198,7 @@ async function save(
 export async function addLesson(db: Db, owner: string, courseId: string, source: AuthorLesson) {
   await course(db, owner, courseId);
   if ((await count(db, authorLessons, owner)) >= LIMITS.lessons)
-    throw new HttpError(429, `at most ${LIMITS.lessons} lessons`);
+    throw HttpError.plain(429, `at most ${LIMITS.lessons} lessons`);
   const id = crypto.randomUUID();
   // Validate before any row exists, so a rejected lesson leaves nothing behind.
   buildPackage(

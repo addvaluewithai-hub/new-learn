@@ -6,6 +6,6 @@ import { HttpError } from '../http';
 /** Any Drizzle Postgres database: Neon over HTTP in production, PGlite in tests. */
 export type Db = PgDatabase<PgQueryResultHKT>;
 export function database(env: Env): Db {
-  if (!env.DATABASE_URL) throw new HttpError(503, 'تعذر تحميل المناهج حاليًا. جرّب تاني بعد شوية.');
+  if (!env.DATABASE_URL) throw new HttpError(503, 'content.unavailable');
   return drizzle(neon(env.DATABASE_URL)) as unknown as Db;
 }

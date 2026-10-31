@@ -168,15 +168,15 @@ test('normal Nova accepts only compiled Chapter 9 positions and withholds answer
   assert.ok(!JSON.stringify(context).includes('forged text'));
   for (const scene of context.lesson.scenes)
     if (scene.question) assert.ok(!('answer' in scene.question));
-  await assert.rejects(
-    assistantContext({} as Env, user, { ...position, contentRevision: 'old' }),
-    /نسخة التجربة/,
-  );
-  await assert.rejects(
-    assistantContext({} as Env, user, { ...position, sceneId: 'P121-A' }),
-    /موضع الدرس/,
-  );
-  await assert.rejects(assistantContext({} as Env, user, { ...position, step: 999 }), /موضع الدرس/);
+  await assert.rejects(assistantContext({} as Env, user, { ...position, contentRevision: 'old' }), {
+    key: 'nova.trialChanged',
+  });
+  await assert.rejects(assistantContext({} as Env, user, { ...position, sceneId: 'P121-A' }), {
+    key: 'nova.badPosition',
+  });
+  await assert.rejects(assistantContext({} as Env, user, { ...position, step: 999 }), {
+    key: 'nova.badPosition',
+  });
 });
 
 test('Chapter 9 preview creates no catalog release pin', async () => {

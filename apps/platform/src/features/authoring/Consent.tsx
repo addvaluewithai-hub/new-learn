@@ -3,6 +3,8 @@ import { api } from '../../shared/api';
 import '../../shared/platform.css';
 import './consent.css';
 import { Alert, Button, Spinner } from '../../shared/ui';
+import { useI18n } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 
 const FIELDS = ['client_id', 'redirect_uri', 'code_challenge', 'state'] as const;
 
@@ -11,6 +13,7 @@ const FIELDS = ['client_id', 'redirect_uri', 'code_challenge', 'state'] as const
  * work on their courses. The server checks every value again before issuing a code.
  */
 export default function Consent({ query, userName }: { query: URLSearchParams; userName: string }) {
+  const { t, dir } = useI18n();
   const request = Object.fromEntries(FIELDS.map((f) => [f, query.get(f) ?? undefined]));
   const [app, setApp] = useState<{ name: string; redirectHost: string } | null>(null);
   const [error, setError] = useState('');
@@ -39,27 +42,35 @@ export default function Consent({ query, userName }: { query: URLSearchParams; u
     }
   };
   return (
-    <main className="platform-ui consent-page">
+    <main className="platform-ui consent-page" dir={dir}>
       <section className="consent-card">
         {error ? (
           <Alert tone="error">{error}</Alert>
         ) : !app ? (
-          <Spinner label="بنتأكد من الطلب…" />
+          <Spinner label={t('authoring.consent.checking')} />
         ) : (
           <>
-            <h1>«{app.name}» عايز يوصل لكورساتك</h1>
+            <h1>
+              <Rich k="authoring.consent.title" parts={{ name: <bdi>{app.name}</bdi> }} />
+            </h1>
             <p>
-              أهلًا {userName.split(' ')[0]}. لو سمحت، هيقدر يعمل كورسات ودروس وبوردات تفاعلية
-              كمسودات في حسابك، ويقرا ملاحظاتك على الدروس ويصلّحها. مش هيقدر ينشر حاجة للطلبة ولا
-              يشوف حسابك أو بيانات طلبتك.
+              <Rich
+                k="authoring.consent.body"
+                parts={{ name: <bdi>{userName.split(' ')[0]}</bdi> }}
+              />
             </p>
-            <p className="consent-host">هيرجّعك على: {app.redirectHost}</p>
+            <p className="consent-host">
+              <Rich
+                k="authoring.consent.host"
+                parts={{ host: <bdi dir="ltr">{app.redirectHost}</bdi> }}
+              />
+            </p>
             <div className="consent-actions">
               <Button disabled={busy} onClick={() => decide(true)}>
-                اسمح
+                {t('authoring.consent.allow')}
               </Button>
               <Button variant="secondary" disabled={busy} onClick={() => decide(false)}>
-                لأ
+                {t('authoring.consent.deny')}
               </Button>
             </div>
           </>

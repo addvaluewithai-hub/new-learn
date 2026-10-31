@@ -42,7 +42,7 @@ test('a reading snapshot is accepted only with real scenes, steps and questions'
     }),
     { ...snap(), schemaVersion: 2 },
   ])
-    assert.throws(() => validateSnapshot(outline, bad), /بيانات التقدم/);
+    assert.throws(() => validateSnapshot(outline, bad), { key: 'progress.invalid' });
 });
 test('merging keeps every attempt and reached scene; the cursor follows the newest save', () => {
   const answer = { id: 'q1', sceneId: asked.id, questionId: asked.question!.id, written: '7/12' };

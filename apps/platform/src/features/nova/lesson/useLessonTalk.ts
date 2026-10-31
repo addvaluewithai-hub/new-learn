@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { LessonContext, ThreadNote } from '@learn/lesson-runtime';
 import { api } from '../../../shared/api';
+import { t } from '../../../i18n';
 import { positionOf } from '../types';
 import { atOf, chatTurns, earlierText, whereText } from './notes';
 import { voiceStyle } from '../voice/voicePrefs';
@@ -64,7 +65,7 @@ export function useLessonTalk(
     } catch (error) {
       if (controller.signal.aborted) return;
       patch(reply.id, () => ({
-        text: error instanceof Error ? error.message : 'تعذّر إرسال السؤال. جرّب تاني.',
+        text: error instanceof Error ? error.message : t('nova.talk.askFailed'),
         pending: false,
         failed: true,
       }));
@@ -150,7 +151,10 @@ export function useLessonTalk(
 
   function settle() {
     const turn = spoken.current;
-    patch(turn.learner, (n) => ({ pending: false, text: n.text.trim() || 'سؤال بالصوت' }));
+    patch(turn.learner, (n) => ({
+      pending: false,
+      text: n.text.trim() || t('nova.talk.voiceQuestion'),
+    }));
     patch(turn.tutor, () => ({ pending: false }));
     spoken.current = {};
   }

@@ -5,12 +5,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 10px 7px 7px;
+  padding: 7px;
+  padding-inline-start: 10px;
   border: 1px solid #d8e4df;
   border-radius: 999px;
   background: #fff;
   box-shadow: 0 8px 30px #163b3521;
-  direction: rtl;
   color: var(--nl-primary);
 }
 .nova-capsule img {
@@ -118,7 +118,7 @@
   height: 7px;
   border-radius: 50%;
   background: #658e3a;
-  margin-left: 5px;
+  margin-inline-end: 5px;
 }
 .nova-context {
   margin: 0 22px;

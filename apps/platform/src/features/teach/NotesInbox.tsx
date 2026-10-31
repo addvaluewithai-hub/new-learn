@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import { api } from '../../shared/api';
 import { Alert, Badge, Button, Chip, EmptyState } from '../../shared/ui';
+import { Rich } from '../../i18n/Rich';
+import { useI18n, type TextKey } from '../../i18n';
 import type { Workspace } from './types';
 
 type Status = 'open' | 'review' | 'done' | 'dismissed';
-const STATUS: Record<Status, { text: string; tone: 'warning' | 'tutor' | 'success' | 'neutral' }> =
+const STATUS: Record<Status, { text: TextKey; tone: 'warning' | 'tutor' | 'success' | 'neutral' }> =
   {
-    open: { text: 'مفتوحة', tone: 'warning' },
-    review: { text: 'اتصلحت، راجعها', tone: 'tutor' },
-    done: { text: 'تمام', tone: 'success' },
-    dismissed: { text: 'اتشالت', tone: 'neutral' },
+    open: { text: 'teach.notes.status.open', tone: 'warning' },
+    review: { text: 'teach.notes.status.review', tone: 'tutor' },
+    done: { text: 'teach.notes.status.done', tone: 'success' },
+    dismissed: { text: 'teach.notes.status.dismissed', tone: 'neutral' },
   };
-const PHASE: Record<string, string> = {
-  narration: 'الشرح',
-  attempt: 'السؤال',
-  feedback: 'الإجابة',
+const PHASE: Record<string, TextKey> = {
+  narration: 'teach.notes.phase.narration',
+  attempt: 'teach.notes.phase.attempt',
+  feedback: 'teach.notes.phase.feedback',
 };
 
 /** Every note on the course, by status, with the step it is on and what to do about it. */
@@ -25,6 +27,7 @@ export function NotesInbox({
   work: Workspace;
   onChanged: () => Promise<void>;
 }) {
+  const { t } = useI18n();
   const [show, setShow] = useState<Status[]>(['open', 'review']);
   const [busy, setBusy] = useState('');
   const [error, setError] = useState('');
@@ -43,13 +46,17 @@ export function NotesInbox({
     }
   };
   const notes = work.notes.filter((n) => show.includes(n.status));
-  const lessonTitle = (id: string) => work.lessons.find((l) => l.id === id)?.title ?? 'درس';
+  const lessonTitle = (id: string) =>
+    work.lessons.find((l) => l.id === id)?.title ?? t('teach.notes.lessonFallback');
   return (
     <div className="teach-notes">
-      <div className="chips" role="group" aria-label="حالة الملاحظات">
+      <div className="chips" role="group" aria-label={t('teach.notes.filterLabel')}>
         {(Object.keys(STATUS) as Status[]).map((s) => (
           <Chip key={s} pressed={show.includes(s)} onToggle={() => toggle(s)}>
-            {STATUS[s].text} ({work.notes.filter((n) => n.status === s).length})
+            {t('teach.notes.filter', {
+              status: t(STATUS[s].text),
+              count: work.notes.filter((n) => n.status === s).length,
+            })}
           </Chip>
         ))}
       </div>
@@ -59,19 +66,28 @@ export function NotesInbox({
           {notes.map((n) => (
             <li key={n.id} className="teach-note-item">
               <div className="teach-note-where">
-                <Badge tone={STATUS[n.status].tone}>{STATUS[n.status].text}</Badge>
-                <a href={`/?draft=${n.lessonId}`}>{lessonTitle(n.lessonId)}</a>
+                <Badge tone={STATUS[n.status].tone}>{t(STATUS[n.status].text)}</Badge>
+                <a href={`/?draft=${n.lessonId}`}>
+                  <bdi>{lessonTitle(n.lessonId)}</bdi>
+                </a>
                 <span>
-                  {PHASE[n.position.phase] ?? n.position.phase} · خطوة {n.position.step + 1}
+                  {t('teach.notes.where', {
+                    phase: PHASE[n.position.phase] ? t(PHASE[n.position.phase]) : n.position.phase,
+                    step: n.position.step + 1,
+                  })}
                 </span>
               </div>
               {n.currentText && <blockquote>{n.currentText}</blockquote>}
               <p>{n.note}</p>
-              {n.resolution && <p className="teach-note-fix">الإصلاح: {n.resolution}</p>}
+              {n.resolution && (
+                <p className="teach-note-fix">
+                  <Rich k="teach.notes.fix" parts={{ fix: <bdi>{n.resolution}</bdi> }} />
+                </p>
+              )}
               <div className="teach-note-actions">
                 {n.status === 'review' && (
                   <Button size="sm" disabled={busy === n.id} onClick={() => set(n.id, 'done')}>
-                    تمام
+                    {t('teach.notes.markDone')}
                   </Button>
                 )}
                 {n.status !== 'open' && (
@@ -81,7 +97,7 @@ export function NotesInbox({
                     disabled={busy === n.id}
                     onClick={() => set(n.id, 'open')}
                   >
-                    افتحها تاني
+                    {t('teach.notes.reopen')}
                   </Button>
                 )}
                 {n.status === 'open' && (
@@ -91,7 +107,7 @@ export function NotesInbox({
                     disabled={busy === n.id}
                     onClick={() => set(n.id, 'dismissed')}
                   >
-                    شيلها
+                    {t('teach.notes.dismiss')}
                   </Button>
                 )}
               </div>
@@ -99,8 +115,10 @@ export function NotesInbox({
           ))}
         </ul>
       ) : (
-        <EmptyState title={work.notes.length ? 'مفيش ملاحظات بالحالة دي' : 'مفيش ملاحظات'}>
-          افتح المعاينة واكتب ملاحظة على أي خطوة، والـAI اللي متوصّل بحسابك يصلّحها.
+        <EmptyState
+          title={work.notes.length ? t('teach.notes.emptyFiltered') : t('teach.notes.empty')}
+        >
+          {t('teach.notes.emptyBody')}
         </EmptyState>
       )}
     </div>

@@ -8,6 +8,7 @@ import { codexArgs } from '../../../workers/builder/runner.mjs';
 import { builderApi } from '../../../workers/builder/api.mjs';
 // @ts-expect-error plain JavaScript worker
 import { loadConfig } from '../../../workers/builder/config.mjs';
+import { shown } from './steps';
 
 const job = {
   id: 'j1',
@@ -63,11 +64,15 @@ test('the teacher sees one line per tool, lesson titles included, no repeats', (
   ])
     consume(e, state, (line: string) => lines.push(line));
   assert.deepEqual(lines, [
-    'بقرا دليل الكتابة',
-    'بدوّر على النت',
-    'بكتب درس: Time helps',
-    'بصلّح مشاكل في الدرس',
+    'step:readGuide',
+    'step:webSearch',
+    'step:writeLessonNamed:Time helps',
+    'step:fixLesson',
   ]);
+  assert.deepEqual(
+    lines.map((l) => shown(l)),
+    ['بقرا دليل الكتابة', 'بدوّر على النت', 'بكتب درس: Time helps', 'بصلّح مشاكل في الدرس'],
+  );
   assert.equal(state.threadId, 'th1');
   assert.equal(state.finalText, 'Made 1 lesson.');
   assert.equal(stepFor({ type: 'reasoning' }), null);

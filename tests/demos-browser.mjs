@@ -28,7 +28,7 @@ async function poll(check, label, timeout = 30000) {
 const board = (page) => page.frameLocator('.html-board iframe');
 
 async function run(width, height) {
-  const page = await browser.newPage({ viewport: { width, height } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width, height } });
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(`${app}/?preview=demos`);

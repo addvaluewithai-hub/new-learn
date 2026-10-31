@@ -64,7 +64,7 @@ try {
   }
   browser = await chromium.launch({ headless: true });
   await mkdir('test-results', { recursive: true });
-  const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width: 1280, height: 1000 } });
   let signedIn = false,
     failCatalog = false,
     failLogout = false;

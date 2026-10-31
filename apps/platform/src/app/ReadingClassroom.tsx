@@ -22,6 +22,7 @@ import { lessonHref, nextImported } from '../features/catalog/plan';
 import '../features/classroom/reading-classroom.css';
 import { HtmlBoard } from '../features/boards/HtmlBoard';
 import { boardManifests } from '../features/boards/editions';
+import { useI18n, type TextKey } from '../i18n';
 
 export type ReadingModule = {
   readingLesson: ReadingPackage;
@@ -29,11 +30,11 @@ export type ReadingModule = {
   /** Manifests of the live boards the lesson uses (docs/boards.md). */
   readingBoards?: Readonly<Record<string, BoardManifest>>;
 };
-const SAVE: Record<SaveState, string> = {
+const SAVE: Record<SaveState, TextKey | ''> = {
   idle: '',
-  saving: 'بنحفظ…',
-  saved: 'اتحفظ',
-  offline: 'مش متصل',
+  saving: 'app.classroom.saving',
+  saved: 'app.classroom.saved',
+  offline: 'app.classroom.offline',
 };
 
 /** Full-screen reading lesson: the runtime stage, saved progress, and Nova in the conversation. */
@@ -51,7 +52,8 @@ export default function ReadingClassroom({
   reference?: (context: LessonContext | null) => ReactNode;
 }) {
   const [module, setModule] = useState<ReadingModule | null>(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(false);
+  const { t } = useI18n();
   const [context, setContext] = useState<LessonContext | null>(null);
   const [controller, setController] = useState<LessonController | null>(null);
   const [assistantOpen, setAssistantOpen] = useState(false);
@@ -77,7 +79,7 @@ export default function ReadingClassroom({
     stop: stopTeaching,
     onFail: () => {
       flow.change({ narration: false });
-      talk.notify('مقدرتش أقرا الدرس بصوتي دلوقتي، فقفلت القراية. جرّب تشغّلها تاني بعد شوية.');
+      talk.notify(t('app.classroom.readAloudFailed'));
     },
   });
   // Audio mode: the same lesson, answered by voice, the screen may be off.
@@ -127,7 +129,7 @@ export default function ReadingClassroom({
     let live = true;
     load().then(
       (value) => live && setModule(value),
-      () => live && setError('تعذّر تحميل الدرس. اتأكد من النت وجرّب تاني.'),
+      () => live && setError(true),
     );
     return () => {
       live = false;
@@ -140,18 +142,19 @@ export default function ReadingClassroom({
   if (error)
     return (
       <main className="platform-ui lesson-entry-message">
-        <p role="alert">{error}</p>
-        <a href={backHref}>ارجع للمنهج</a>
+        <p role="alert">{t('app.classroom.loadFailed')}</p>
+        <a href={backHref}>{t('app.classroom.backToCurriculum')}</a>
       </main>
     );
   if (!module || saved.initial === null)
     return (
       <div className="reading-classroom reading-loading" role="status">
         <span className="reading-spinner" aria-hidden />
-        بنجهّز الدرس…
+        {t('app.classroom.loading')}
       </div>
     );
   const lesson = module.readingLesson;
+  const saveKey = SAVE[saved.status];
   const next = preview ? null : nextImported(lesson.curriculumId, lesson.lessonId);
   return (
     <div className="reading-classroom">
@@ -165,20 +168,23 @@ export default function ReadingClassroom({
         onContext={setContext}
         onReady={onReady}
         onProgress={preview ? undefined : saved.record}
-        exit={{ label: preview ? 'ارجع للمنصة' : 'ارجع للمنهج', href: backHref }}
+        exit={{
+          label: t(preview ? 'app.classroom.backToPlatform' : 'app.classroom.backToCurriculum'),
+          href: backHref,
+        }}
         next={next ? { title: next.title, href: lessonHref(lesson.curriculumId, next.id) } : null}
         status={
           preview ? (
             <span
               className="reading-save"
-              title="التقدم في الجلسة فقط"
-              aria-label="معاينة، التقدم في الجلسة فقط"
+              title={t('app.classroom.previewTitle')}
+              aria-label={t('app.classroom.previewLabel')}
             >
-              معاينة
+              {t('app.classroom.preview')}
             </span>
-          ) : SAVE[saved.status] ? (
+          ) : saveKey ? (
             <span className="reading-save" data-state={saved.status}>
-              {SAVE[saved.status]}
+              {t(saveKey)}
             </span>
           ) : null
         }

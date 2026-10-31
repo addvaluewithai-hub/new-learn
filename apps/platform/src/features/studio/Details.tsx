@@ -1,4 +1,5 @@
 import { Chip, ChoiceCard, PillSelect } from '../../shared/ui';
+import { useI18n, type TextKey } from '../../i18n';
 import { AUDIENCES, CHOICES } from './choices';
 
 const choiceOf = (key: string) => CHOICES.find((c) => c.key === key)!;
@@ -12,19 +13,20 @@ function Pill({
   onPick,
 }: {
   name: string;
-  lead: string;
-  labels?: Record<string, string>;
+  lead?: TextKey;
+  labels?: Record<string, TextKey>;
   value: string;
   onPick: (key: string, value: string) => void;
 }) {
+  const { t } = useI18n();
   const choice = choiceOf(name);
   return (
     <PillSelect
-      label={choice.title}
-      lead={lead}
+      label={t(choice.title)}
+      lead={lead ? t(lead) : ''}
       value={value}
       onChange={(e) => onPick(name, e.target.value)}
-      options={choice.options.map(([option, text]) => [option, labels?.[option] ?? text])}
+      options={choice.options.map(([option, text]) => [option, t(labels?.[option] ?? text)])}
     />
   );
 }
@@ -38,13 +40,14 @@ export function Details({
   choices: Record<string, string>;
   onPick: (key: string, value: string, multi?: boolean) => void;
 }) {
+  const { t } = useI18n();
   const audience = AUDIENCES.find((a) => a.id === choices.audience) ?? AUDIENCES[0];
   const asked = audience.asks.map((ask) => ask.key);
   const more = ['questions', 'boards'].filter((key) => !asked.includes(key));
   const style = choiceOf('style');
   return (
     <div className="details">
-      <div className="audiences" role="radiogroup" aria-label="الكورس لمين">
+      <div className="audiences" role="radiogroup" aria-label={t('studio.choices.audience.title')}>
         {AUDIENCES.map((a) => (
           <ChoiceCard
             key={a.id}
@@ -52,9 +55,9 @@ export function Details({
             value={a.id}
             checked={a.id === audience.id}
             onChange={(id) => onPick('audience', id)}
-            title={a.name}
+            title={t(a.name)}
           >
-            {a.line}
+            {t(a.line)}
           </ChoiceCard>
         ))}
       </div>
@@ -71,13 +74,13 @@ export function Details({
         ))}
       </p>
       <details className="details-more">
-        <summary>تفاصيل أكتر</summary>
+        <summary>{t('studio.details.more')}</summary>
         <p className="details-line">
           {more.map((key) => (
             <Pill
               key={key}
               name={key}
-              lead={key === 'boards' ? 'بوردات' : 'أسئلة'}
+              lead={key === 'boards' ? 'studio.leads.boards' : 'studio.leads.questions'}
               value={choices[key]}
               onPick={onPick}
             />
@@ -85,7 +88,7 @@ export function Details({
         </p>
         <fieldset className="details-style">
           <legend>
-            {style.title} <small>(لحد ٣)</small>
+            {t(style.title)} <small>{t('studio.details.upToThree')}</small>
           </legend>
           <div className="chips">
             {style.options.map(([value, label]) => (
@@ -94,7 +97,7 @@ export function Details({
                 pressed={choices.style.split(',').includes(value)}
                 onToggle={() => onPick('style', value, true)}
               >
-                {label}
+                {t(label)}
               </Chip>
             ))}
           </div>

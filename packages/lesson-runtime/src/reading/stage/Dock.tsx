@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useRuntimeText } from '../../text';
 
 const Arrow = ({ back }: { back?: boolean }) => (
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -71,14 +72,15 @@ export function Dock({
   flow?: DockFlow;
   text?: DockText;
 }) {
+  const t = useRuntimeText();
   return (
-    <nav className="rl-dock" aria-label="التنقل في الدرس">
+    <nav className="rl-dock" aria-label={t.lessonNavigation}>
       <button
         type="button"
         className="rl-round"
         onClick={onBack}
         disabled={!canBack}
-        aria-label="الخطوة اللي فاتت"
+        aria-label={t.previousStep}
       >
         <Arrow back />
       </button>
@@ -89,7 +91,7 @@ export function Dock({
           data-speaking={flow.speaking || undefined}
           onClick={flow.onToggle}
           aria-pressed={flow.paused}
-          aria-label={flow.paused ? 'كمّل لوحده' : 'وقّف التقليب'}
+          aria-label={flow.paused ? t.autoTurnResume : t.autoTurnPause}
         >
           {flow.paused ? <Play /> : <Pause />}
         </button>
@@ -100,8 +102,8 @@ export function Dock({
           className="rl-round rl-text-toggle"
           onClick={text.onToggle}
           aria-pressed={!text.shown}
-          aria-label={text.shown ? 'إخفاء النص' : 'إظهار النص'}
-          title={text.shown ? 'إخفاء النص' : 'إظهار النص'}
+          aria-label={text.shown ? t.hideText : t.showText}
+          title={text.shown ? t.hideText : t.showText}
         >
           <TextIcon off={!text.shown} />
         </button>
@@ -142,6 +144,7 @@ export function AnswerDock({
   /** The answer is what the board shows now: sending reads it from the board. */
   board?: () => void;
 }) {
+  const t = useRuntimeText();
   const [draft, setDraft] = useState('');
   const field = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
@@ -149,19 +152,19 @@ export function AnswerDock({
   }, [written]);
   const send = () => draft.trim() && onSubmit(draft.trim());
   return (
-    <nav className="rl-dock" aria-label="جاوب">
+    <nav className="rl-dock" aria-label={t.answerDock}>
       <button
         type="button"
         className="rl-round"
         onClick={onBack}
         disabled={!canBack}
-        aria-label="الخطوة اللي فاتت"
+        aria-label={t.previousStep}
       >
         <Arrow back />
       </button>
       {board ? (
         <button type="button" className="rl-next" onClick={board}>
-          <span>ابعت إجابتي</span>
+          <span>{t.sendMyAnswer}</span>
         </button>
       ) : written ? (
         <form
@@ -174,10 +177,10 @@ export function AnswerDock({
           <textarea
             ref={field}
             rows={1}
-            aria-label="إجابتك"
+            aria-label={t.answerField}
             dir="auto"
             value={draft}
-            placeholder="اكتب حلّك هنا…"
+            placeholder={t.answerPlaceholder}
             onChange={(event) => setDraft(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === 'Enter' && !event.shiftKey) {
@@ -187,11 +190,11 @@ export function AnswerDock({
             }}
           />
           <button type="submit" className="rl-next" disabled={!draft.trim()}>
-            <span>ابعت</span>
+            <span>{t.send}</span>
           </button>
         </form>
       ) : (
-        <p className="rl-dock-hint">اختار إجابة من فوق</p>
+        <p className="rl-dock-hint">{t.pickAbove}</p>
       )}
     </nav>
   );

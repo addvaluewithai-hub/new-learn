@@ -1,5 +1,7 @@
 import ReadingClassroom, { type ReadingModule } from './ReadingClassroom';
 import { DEMOS } from '../../../../fixtures/demos';
+import { useI18n } from '../i18n';
+import { Rich } from '../i18n/Rich';
 
 // `?preview=board`: the synthetic live-board probe; `?preview=demo&id=…`: one demo course
 // (docs/visuals/demos.md). No account and no saved progress.
@@ -10,13 +12,19 @@ const probe = (): Promise<ReadingModule> =>
   }));
 
 export default function BoardPreview({ demo }: { demo?: string | null }) {
+  const { t } = useI18n();
   if (demo === undefined)
-    return <ReadingClassroom load={probe} backHref="/" studentName="طالب" preview />;
+    return (
+      <ReadingClassroom load={probe} backHref="/" studentName={t('app.preview.student')} preview />
+    );
   const found = DEMOS.find((d) => d.id === demo);
   if (!found?.load)
     return (
       <p className="lesson-entry-message" role="alert">
-        الكورس ده لسه مش جاهز. <a href="/?preview=demos">ارجع للمعرض</a>
+        <Rich
+          k="app.preview.notReady"
+          parts={{ link: <a href="/?preview=demos">{t('app.preview.backToGallery')}</a> }}
+        />
       </p>
     );
   const load = found.load;
@@ -24,7 +32,7 @@ export default function BoardPreview({ demo }: { demo?: string | null }) {
     <ReadingClassroom
       load={() => load().then((readingLesson) => ({ readingLesson, readingRenderers: {} }))}
       backHref="/?preview=demos"
-      studentName="طالب"
+      studentName={t('app.preview.student')}
       preview
     />
   );

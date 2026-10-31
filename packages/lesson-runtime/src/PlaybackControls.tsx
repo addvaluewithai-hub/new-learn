@@ -1,6 +1,7 @@
 import type { RefObject } from 'react';
 import type { PlayerRef } from '@remotion/player';
 import type { Session } from './session';
+import { useRuntimeText } from './text';
 
 export function PlaybackControls({
   player,
@@ -13,6 +14,7 @@ export function PlaybackControls({
   duration: number;
   onReplay: () => void;
 }) {
+  const text = useRuntimeText();
   const enabled = ['narration', 'feedback'].includes(state.mode) && !state.error;
   return (
     <div className="lesson-controls">
@@ -23,10 +25,14 @@ export function PlaybackControls({
           state.playing ? player.current?.pause() : player.current?.play(event)
         }
       >
-        {state.playing ? 'إيقاف مؤقت' : state.frame > 0 ? 'كمّل الشرح' : 'ابدأ الشرح'}
+        {state.playing
+          ? text.pause
+          : state.frame > 0
+            ? text.resumeExplaining
+            : text.startExplaining}
       </button>
       <input
-        aria-label="موضع التشغيل"
+        aria-label={text.playbackPosition}
         type="range"
         min={0}
         max={duration - 1}
@@ -35,9 +41,9 @@ export function PlaybackControls({
         onChange={(event) => player.current?.seekTo(Number(event.target.value))}
       />
       <button className="lesson-secondary" disabled={state.fatalError} onClick={onReplay}>
-        أعد المشهد
+        {text.replayScene}
       </button>
-      {state.buffering && <span role="status">بنحمّل الصوت…</span>}
+      {state.buffering && <span role="status">{text.loadingAudio}</span>}
     </div>
   );
 }

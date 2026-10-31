@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Message } from './types';
+import { useI18n } from '../../i18n';
 export function ChatMessages({
   messages,
   loading,
@@ -9,6 +10,7 @@ export function ChatMessages({
   loading: boolean;
   name: string;
 }) {
+  const { t } = useI18n();
   const scroll = useRef<HTMLDivElement>(null),
     follow = useRef(true);
   const [unseen, setUnseen] = useState(false);
@@ -27,7 +29,7 @@ export function ChatMessages({
         className="nova-messages"
         ref={scroll}
         role="log"
-        aria-label="المحادثة"
+        aria-label={t('nova.chat.log')}
         aria-live="polite"
         onScroll={() => {
           const node = scroll.current!;
@@ -37,9 +39,9 @@ export function ChatMessages({
       >
         {!messages.length && (
           <div className="nova-welcome">
-            <span>أهلًا {name} 👋</span>
-            <h3>نقف عند أي فكرة ونفهمها سوا.</h3>
-            <p>اسأل عن الشرح أو المصطلحات أو مثال محتاج توضيح.</p>
+            <span>{t('nova.chat.welcome', { name })}</span>
+            <h3>{t('nova.chat.welcomeTitle')}</h3>
+            <p>{t('nova.chat.welcomeLead')}</p>
           </div>
         )}
         {messages.map((message) => (
@@ -50,13 +52,13 @@ export function ChatMessages({
         ))}
         {loading && (
           <p className="nova-thinking" role="status">
-            <span className="nova-dots" /> Nova بتجهّز الرد…
+            <span className="nova-dots" /> {t('nova.chat.thinking')}
           </p>
         )}
       </div>
       {unseen && (
         <button className="nova-latest" onClick={latest}>
-          ↓ آخر الرسائل
+          {t('nova.chat.latest')}
         </button>
       )}
     </div>

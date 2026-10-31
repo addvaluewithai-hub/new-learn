@@ -8,6 +8,8 @@ import { database } from '../db/connection';
 import { enrollments, progress, type ProgressSnapshot } from '../db/learners';
 import type { AuthUser, Env } from '../env';
 import { HttpError, json } from '../http';
+import { serverText } from '../i18n';
+import { SOURCE } from '../../src/i18n/core';
 import {
   carryOver,
   mergeSnapshots,
@@ -21,7 +23,7 @@ async function outlineFor(moduleId: string): Promise<Outline> {
   const reading = readingPackages[moduleId as keyof typeof readingPackages];
   if (reading) return readingOutline((await reading()).default as unknown as ReadingPackage);
   if (moduleId === 'states-of-matter-review') return recordedOutline(createStatesPackage(manifest));
-  throw new HttpError(404, 'حفظ التقدم مش متاح للدرس ده.');
+  throw new HttpError(404, 'progress.unavailable');
 }
 
 // The user always comes from the session; lesson and edition from the current release.
@@ -62,20 +64,24 @@ export async function saveProgress(
   user: AuthUser,
   lessonId: string,
   input: Record<string, unknown>,
+  locale = SOURCE,
 ) {
   const edition = await lessonEdition(env, lessonId);
   if (input.contentRevision !== edition.contentRevision)
-    throw new HttpError(409, 'نسخة الدرس اتغيّرت. افتح الدرس من المنهج تاني.');
+    throw new HttpError(409, 'content.lessonChanged');
   const outline = await outlineFor(edition.moduleId);
   const incoming = validateSnapshot(outline, input.state);
   const complete = incoming.phase === 'complete' || input.complete === true;
   const expected = input.revision;
   if (expected !== null && !(Number.isInteger(expected) && (expected as number) >= 0))
-    throw new HttpError(400, 'بيانات التقدم غير صحيحة.');
+    throw new HttpError(400, 'progress.invalid');
   const db = database(env);
   const conflict = async () =>
     json(
-      { error: 'التقدم اتحفظ من مكان تاني.', current: await readProgress(env, user, lessonId) },
+      {
+        error: serverText(locale, 'progress.savedElsewhere'),
+        current: await readProgress(env, user, lessonId),
+      },
       409,
     );
   const now = new Date();

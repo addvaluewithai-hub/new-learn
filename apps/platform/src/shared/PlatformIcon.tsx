@@ -7,6 +7,7 @@ import { ListIcon } from '@phosphor-icons/react/dist/csr/List';
 import { XIcon } from '@phosphor-icons/react/dist/csr/X';
 import { GearSixIcon } from '@phosphor-icons/react/dist/csr/GearSix';
 import { ChalkboardTeacherIcon } from '@phosphor-icons/react/dist/csr/ChalkboardTeacher';
+import { useI18n } from '../i18n';
 const icons = {
   arrow: ArrowLeftIcon,
   spark: SparkleIcon,
@@ -20,5 +21,7 @@ const icons = {
 };
 export function PlatformIcon({ name }: { name: keyof typeof icons }) {
   const Icon = icons[name];
-  return <Icon size={22} aria-hidden="true" />;
+  const { dir } = useI18n();
+  // The arrow points forward: left in right-to-left languages, right otherwise.
+  return <Icon size={22} aria-hidden="true" mirrored={name === 'arrow' && dir === 'ltr'} />;
 }

@@ -21,6 +21,13 @@ import {
 import { UiTokens } from './UiTokens';
 import '../shared/platform.css';
 import './ui-gallery.css';
+import { useI18n, type TextKey } from '../i18n';
+
+const CHIPS: Array<[string, TextKey]> = [
+  ['story', 'ui.choices.story'],
+  ['steps', 'ui.choices.steps'],
+  ['examples', 'ui.choices.examples'],
+];
 
 /** `?preview=ui`: every token and shared part on one page (docs/design-system.md). Change a
  *  token or a part, and this page and every screen built from it change together. */
@@ -31,170 +38,167 @@ export default function UiGallery() {
   const [pace, setPace] = useState<'slow' | 'normal' | 'fast'>('normal');
   const [who, setWho] = useState('me');
   const [name, setName] = useState('');
+  const { t, dir } = useI18n();
   const toggle = (id: string) =>
     setChips((now) => (now.includes(id) ? now.filter((c) => c !== id) : [...now, id]));
   return (
-    <main className="platform-ui ui-gallery" dir="rtl">
+    <main className="platform-ui ui-gallery" dir={dir}>
       <header className="ui-head">
         <span className="eyebrow">New Learn</span>
-        <h1>نظام التصميم</h1>
-        <p>
-          كل الألوان والمقاسات والمكونات المشتركة. أي تغيير هنا بيتغير في كل الشاشات اللي مبنية
-          بيها.
-        </p>
+        <h1>{t('ui.head.title')}</h1>
+        <p>{t('ui.head.lead')}</p>
       </header>
       <UiTokens />
       <section className="ui-section" aria-labelledby="ui-buttons">
-        <h2 id="ui-buttons">الأزرار</h2>
+        <h2 id="ui-buttons">{t('ui.buttons.title')}</h2>
         <div className="ui-row">
-          <Button>ابدأ البناء</Button>
-          <Button variant="secondary">افتح الدرس</Button>
-          <Button variant="ghost">تخطّى</Button>
-          <Button variant="danger">امسح المسودة</Button>
-          <Button disabled>مش متاح</Button>
+          <Button>{t('ui.buttons.build')}</Button>
+          <Button variant="secondary">{t('ui.buttons.openLesson')}</Button>
+          <Button variant="ghost">{t('ui.buttons.skip')}</Button>
+          <Button variant="danger">{t('ui.buttons.deleteDraft')}</Button>
+          <Button disabled>{t('ui.buttons.unavailable')}</Button>
         </div>
         <div className="ui-row ui-dark">
           <Button variant="accent" size="lg">
-            جرّب مجانًا
+            {t('ui.buttons.tryFree')}
           </Button>
           <ButtonLink variant="secondary" href="?preview=demos">
-            شوف الديموز
+            {t('ui.buttons.seeDemos')}
           </ButtonLink>
         </div>
         <div className="ui-row">
-          <Button size="sm">صغير</Button>
-          <Button>عادي</Button>
-          <Button size="lg">كبير</Button>
-          <IconButton label="الإعدادات" variant="secondary">
+          <Button size="sm">{t('ui.buttons.small')}</Button>
+          <Button>{t('ui.buttons.normal')}</Button>
+          <Button size="lg">{t('ui.buttons.large')}</Button>
+          <IconButton label={t('ui.buttons.settings')} variant="secondary">
             ⚙
           </IconButton>
-          <IconButton label="اقفل">×</IconButton>
+          <IconButton label={t('common.close')}>×</IconButton>
         </div>
       </section>
       <section className="ui-section" aria-labelledby="ui-choices">
-        <h2 id="ui-choices">الاختيارات</h2>
+        <h2 id="ui-choices">{t('ui.choices.title')}</h2>
         <div className="ui-row">
-          {[
-            ['story', 'حكاية الأول'],
-            ['steps', 'خطوة بخطوة'],
-            ['examples', 'أمثلة محلولة'],
-          ].map(([id, label]) => (
+          {CHIPS.map(([id, label]) => (
             <Chip key={id} pressed={chips.includes(id)} onToggle={() => toggle(id)}>
-              {label}
+              {t(label)}
             </Chip>
           ))}
         </div>
         <Segmented
-          label="سرعة الشرح"
+          label={t('ui.choices.paceLabel')}
           value={pace}
           onChange={setPace}
           options={[
-            ['slow', 'هادي'],
-            ['normal', 'عادي'],
-            ['fast', 'سريع'],
+            ['slow', t('ui.choices.slow')],
+            ['normal', t('ui.choices.normal')],
+            ['fast', t('ui.choices.fast')],
           ]}
         />
-        <div className="ui-cards" role="radiogroup" aria-label="الكورس لمين">
+        <div className="ui-cards" role="radiogroup" aria-label={t('ui.choices.whoLabel')}>
           <ChoiceCard
             name="who"
             value="me"
             checked={who === 'me'}
             onChange={setWho}
-            title="ليّا أنا"
+            title={t('ui.choices.meTitle')}
           >
-            بذاكر أو عايز أتعلم حاجة جديدة
+            {t('ui.choices.meText')}
           </ChoiceCard>
           <ChoiceCard
             name="who"
             value="students"
             checked={who === 'students'}
             onChange={setWho}
-            title="لطلابي"
+            title={t('ui.choices.studentsTitle')}
           >
-            كورس أشرحه لفصل أو مجموعة
+            {t('ui.choices.studentsText')}
           </ChoiceCard>
         </div>
       </section>
       <section className="ui-section" aria-labelledby="ui-fields">
-        <h2 id="ui-fields">الحقول</h2>
+        <h2 id="ui-fields">{t('ui.fields.title')}</h2>
         <div className="ui-fields">
-          <Field id="ui-name" label="اسمك" hint="بيظهر لـNova وفي شهاداتك.">
+          <Field id="ui-name" label={t('ui.fields.name')} hint={t('ui.fields.nameHint')}>
             <TextInput id="ui-name" value={name} onChange={(e) => setName(e.target.value)} />
           </Field>
-          <Field id="ui-email" label="الإيميل" error="الإيميل ده مش مكتوب صح.">
+          <Field id="ui-email" label={t('ui.fields.email')} error={t('ui.fields.emailError')}>
             <TextInput id="ui-email" defaultValue="mona@" aria-invalid="true" />
           </Field>
-          <Field id="ui-note" label="ملاحظة للدرس">
-            <TextArea id="ui-note" placeholder="اكتب اللي عايزه…" />
+          <Field id="ui-note" label={t('ui.fields.note')}>
+            <TextArea id="ui-note" placeholder={t('ui.fields.notePlaceholder')} />
           </Field>
         </div>
         <div className="ui-row">
           <PillSelect
-            lead="للطلاب"
-            label="المستوى"
+            lead={t('ui.fields.levelLead')}
+            label={t('ui.fields.levelLabel')}
             defaultValue="beginner"
             options={[
-              ['beginner', 'مبتدئين'],
-              ['some', 'عندهم خلفية'],
+              ['beginner', t('ui.fields.beginner')],
+              ['some', t('ui.fields.some')],
             ]}
           />
-          <Switch checked={on} onChange={setOn} hint="Nova بتقرأ كل خطوة بصوت.">
-            الشرح بالصوت
+          <Switch checked={on} onChange={setOn} hint={t('ui.fields.narrationHint')}>
+            {t('ui.fields.narration')}
           </Switch>
         </div>
       </section>
       <section className="ui-section" aria-labelledby="ui-feedback">
-        <h2 id="ui-feedback">الحالات والرسائل</h2>
+        <h2 id="ui-feedback">{t('ui.feedback.title')}</h2>
         <div className="ui-row">
-          <Badge>مسودة</Badge>
-          <Badge tone="accent">مناسب لموضوعك</Badge>
-          <Badge tone="success">صح</Badge>
-          <Badge tone="danger">غلط</Badge>
-          <Badge tone="warning">محتاج مراجعة</Badge>
+          <Badge>{t('ui.feedback.draft')}</Badge>
+          <Badge tone="accent">{t('ui.feedback.fits')}</Badge>
+          <Badge tone="success">{t('ui.feedback.right')}</Badge>
+          <Badge tone="danger">{t('ui.feedback.wrong')}</Badge>
+          <Badge tone="warning">{t('ui.feedback.review')}</Badge>
           <Badge tone="tutor">Nova</Badge>
         </div>
-        <Alert tone="error">الإيميل أو كلمة السر مش صح.</Alert>
-        <Alert tone="success" title="اتحفظ">
-          إعداداتك اتحفظت على الجهاز ده.
+        <Alert tone="error">{t('ui.feedback.error')}</Alert>
+        <Alert tone="success" title={t('ui.feedback.savedTitle')}>
+          {t('ui.feedback.savedText')}
         </Alert>
-        <Alert tone="info">بيتبني دلوقتي، وتقدر تقفل الصفحة.</Alert>
-        <Spinner label="بنجهّز الدرس…" />
-        <EmptyState title="لسه مفيش كورسات" action={<Button size="sm">اعمل أول كورس</Button>}>
-          اكتب فكرة وهنبني لك أول درس تفاعلي في دقايق.
+        <Alert tone="info">{t('ui.feedback.info')}</Alert>
+        <Spinner label={t('ui.feedback.loading')} />
+        <EmptyState
+          title={t('ui.feedback.emptyTitle')}
+          action={<Button size="sm">{t('ui.feedback.emptyAction')}</Button>}
+        >
+          {t('ui.feedback.emptyText')}
         </EmptyState>
       </section>
       <section className="ui-section" aria-labelledby="ui-surfaces">
-        <h2 id="ui-surfaces">الأسطح</h2>
+        <h2 id="ui-surfaces">{t('ui.surfaces.title')}</h2>
         <div className="ui-cards">
           <Card>
-            <strong>كارت عادي</strong>
-            <p>للمحتوى الأساسي على الصفحة.</p>
+            <strong>{t('ui.surfaces.plain')}</strong>
+            <p>{t('ui.surfaces.plainText')}</p>
           </Card>
           <Card tone="soft">
-            <strong>كارت هادي</strong>
-            <p>لمجموعة إعدادات أو ملخص.</p>
+            <strong>{t('ui.surfaces.soft')}</strong>
+            <p>{t('ui.surfaces.softText')}</p>
           </Card>
           <Card tone="outline">
-            <strong>كارت بإطار</strong>
-            <p>لعنصر في قايمة.</p>
+            <strong>{t('ui.surfaces.outline')}</strong>
+            <p>{t('ui.surfaces.outlineText')}</p>
           </Card>
         </div>
         <Button variant="secondary" onClick={() => setDialog(true)}>
-          افتح نافذة
+          {t('ui.surfaces.openDialog')}
         </Button>
       </section>
       {dialog && (
         <Dialog
-          title="تمسح المسودة؟"
-          description="مش هتقدر ترجّعها بعد كده."
+          title={t('ui.surfaces.dialogTitle')}
+          description={t('ui.surfaces.dialogText')}
           onClose={() => setDialog(false)}
           footer={
             <>
               <Button variant="danger" onClick={() => setDialog(false)}>
-                امسح
+                {t('ui.surfaces.delete')}
               </Button>
               <Button variant="secondary" onClick={() => setDialog(false)}>
-                رجوع
+                {t('ui.surfaces.back')}
               </Button>
             </>
           }

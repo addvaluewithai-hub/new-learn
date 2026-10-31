@@ -3,6 +3,7 @@ import { AnswerGate } from './AnswerGate';
 import { SpeechDetector } from './speech';
 import { VoiceDetector } from './vad';
 import { WakeWord } from './wakeWord';
+import { t } from '../../../i18n';
 
 /** What hands-free mode drives: the lesson voice, the lesson itself and the flow. */
 export type HandsFreeHost = {
@@ -182,18 +183,18 @@ export class HandsFree {
     if (state === 'reading' || state === 'speaking') {
       this.host.voice().stop();
       this.resumeAfterReply = !this.host.answering();
-      this.host.note?.('الميكروفون مفتوح: اتكلم');
+      this.host.note?.(t('nova.handsFree.micOpenTalk'));
       this.armedUntil = performance.now() + ARMED_MS;
       this.timers.follow = window.setTimeout(() => this.carryOn(), ARMED_MS);
       return;
     }
     this.armedUntil = performance.now() + ARMED_MS;
-    this.host.note?.('الميكروفون مفتوح لردّك');
+    this.host.note?.(t('nova.handsFree.micOpenReply'));
   }
 
   private rejected(heard: string) {
     this.pending = null;
-    this.host.note?.(`تجاهلت صوت مش كلام: «${heard.trim() || '…'}»`);
+    this.host.note?.(t('nova.handsFree.ignoredNoise', { heard: heard.trim() || '…' }));
     if (this.gate.rejected >= 2 && !this.host.noisy()) this.host.tooNoisy();
   }
 

@@ -101,6 +101,6 @@ export async function lessonEdition(env: Env, id: string) {
     !supportedEdition(row) ||
     (row.stage === 'review' && env.ALLOW_CONTENT_REVIEW !== 'true')
   )
-    throw new HttpError(404, 'الدرس لسه مش متاح.');
+    throw new HttpError(404, 'content.lessonNotReady');
   return row;
 }

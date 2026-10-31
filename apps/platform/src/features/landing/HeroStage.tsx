@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { VisualProps } from '@learn/lesson-runtime';
 import { HtmlBoard } from '../boards/HtmlBoard';
+import { useI18n } from '../../i18n';
 import { DEMOS } from '../../../../../fixtures/demos';
 import {
   HERO_LOOKS,
@@ -26,6 +27,7 @@ export function HeroStage({
   pinned: boolean;
   onChange: (look: HeroLook, pinned: boolean) => void;
 }) {
+  const { t } = useI18n();
   const [steps, setSteps] = useState<HeroStep[]>([]);
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -81,12 +83,13 @@ export function HeroStage({
         <HtmlBoard key={look.id} {...props} />
       </div>
       <div className="hero-caption">
-        <p className="hero-line" key={`${look.id}-${index}`}>
+        {/* The demo lessons are written in Arabic: their lines keep their own language. */}
+        <p className="hero-line" key={`${look.id}-${index}`} lang="ar" dir="rtl">
           {step?.text ?? demo?.title ?? ''}
         </p>
         <div className="hero-meta">
           <a href={`/?preview=demo&id=${look.demo}`}>
-            {demo?.title} <span aria-hidden="true">←</span>
+            <bdi lang="ar">{demo?.title}</bdi> <span aria-hidden="true">{t('common.forward')}</span>
           </a>
           <span className="hero-dots" aria-hidden="true">
             {steps.map((_, i) => (
@@ -95,7 +98,7 @@ export function HeroStage({
           </span>
         </div>
       </div>
-      <div className="hero-chips" role="group" aria-label="الأشكال">
+      <div className="hero-chips" role="group" aria-label={t('landing.hero.looksLabel')}>
         {HERO_LOOKS.map((item) => (
           <button
             key={item.id}
@@ -110,7 +113,7 @@ export function HeroStage({
             onClick={() => onChange(item, true)}
           >
             <i style={{ background: item.colors[1], outlineColor: item.colors[0] }} />
-            {item.name}
+            {t(item.name)}
           </button>
         ))}
       </div>

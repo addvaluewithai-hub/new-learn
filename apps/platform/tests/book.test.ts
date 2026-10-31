@@ -94,17 +94,17 @@ test('Nova resolves this compiled book edition without a release or client-suppl
   assert.ok(!('answer' in context.lesson.scenes.find((s) => s.question)!.question!));
   await assert.rejects(
     assistantContext({} as Env, user, { ...position, contentRevision: 'forged' }),
-    /نسخة التجربة/,
+    { key: 'nova.trialChanged' },
   );
-  await assert.rejects(
-    assistantContext({} as Env, user, { ...position, sceneId: 'invented' }),
-    /موضع الدرس/,
-  );
-  await assert.rejects(assistantContext({} as Env, user, { ...position, step: 999 }), /موضع الدرس/);
-  await assert.rejects(
-    assistantContext({} as Env, user, { ...position, phase: 'feedback' }),
-    /مرحلة الدرس/,
-  );
+  await assert.rejects(assistantContext({} as Env, user, { ...position, sceneId: 'invented' }), {
+    key: 'nova.badPosition',
+  });
+  await assert.rejects(assistantContext({} as Env, user, { ...position, step: 999 }), {
+    key: 'nova.badPosition',
+  });
+  await assert.rejects(assistantContext({} as Env, user, { ...position, phase: 'feedback' }), {
+    key: 'nova.badPhase',
+  });
 });
 
 test('import separates reviewer notes and model answers from the prompt', () => {

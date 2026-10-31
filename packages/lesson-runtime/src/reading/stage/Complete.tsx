@@ -1,4 +1,5 @@
 import type { ReadingGoal } from '../types';
+import { fill, useRuntimeText } from '../../text';
 
 /** The end of a lesson: what was reached, and the one obvious next step. */
 export function Complete({
@@ -20,6 +21,8 @@ export function Complete({
   exit?: { label: string; href: string };
   onReview: () => void;
 }) {
+  const text = useRuntimeText();
+  const tally = { answered, questions };
   return (
     <section className="rl-complete" aria-labelledby="rl-complete-title">
       <div className="rl-complete-mark" aria-hidden>
@@ -28,11 +31,11 @@ export function Complete({
           <path d="M20 33l8 8 16-17" />
         </svg>
       </div>
-      <span className="rl-eyebrow">خلّصت الدرس</span>
+      <span className="rl-eyebrow">{text.lessonDone}</span>
       <h2 id="rl-complete-title">{title}</h2>
       <p className="rl-complete-sub">
-        جاوبت {answered} من {questions} {questions === 1 ? 'سؤال' : 'أسئلة'}
-        {goals.length ? ` · الأهداف ${met.size} من ${goals.length}` : ''}
+        {fill(questions === 1 ? text.answeredOne : text.answeredMany, tally)}
+        {goals.length ? ` · ${fill(text.goalsMet, { met: met.size, goals: goals.length })}` : ''}
       </p>
       {goals.length ? (
         <ul className="rl-complete-goals">
@@ -47,7 +50,7 @@ export function Complete({
       <div className="rl-complete-actions">
         {next ? (
           <a className="rl-next" href={next.href}>
-            <span>الدرس الجاي: {next.title}</span>
+            <span>{fill(text.nextLesson, { title: next.title })}</span>
           </a>
         ) : exit ? (
           <a className="rl-next" href={exit.href}>
@@ -55,7 +58,7 @@ export function Complete({
           </a>
         ) : null}
         <button type="button" className="rl-quiet" onClick={onReview}>
-          راجع الدرس من الأول
+          {text.reviewLesson}
         </button>
       </div>
     </section>

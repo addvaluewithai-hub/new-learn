@@ -3,6 +3,8 @@ import { useSession } from '../features/auth/session';
 import { useNavigation } from './navigation';
 import { sitePage } from '../features/site/routes';
 import { Loading } from '../shared/Loading';
+import { RuntimeTextProvider } from '@learn/lesson-runtime';
+import { useI18n, useRuntimeText } from '../i18n';
 
 const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
 const ChemistryLesson = lazy(() => import('./ChemistryLesson'));
@@ -26,9 +28,12 @@ const SitePages = lazy(() => import('../features/site/SitePages'));
 function StudentApp() {
   const session = useSession(),
     query = useNavigation();
-  if (session.loading) return <Loading text="بنجهّز مساحة تعلّمك…" />;
-  // A visitor at the bare address sees the front page; any other address still asks to sign in.
-  if (!session.user && !location.search) return <Landing />;
+  const { t } = useI18n();
+  if (session.loading) return <Loading text={t('common.loadingSpace')} />;
+  // A visitor at the bare address (a language choice aside) sees the front page; any other
+  // address still asks to sign in.
+  const bare = [...new URLSearchParams(location.search).keys()].every((key) => key === 'lang');
+  if (!session.user && bare) return <Landing />;
   if (
     !session.user ||
     query.has('token') ||
@@ -77,36 +82,41 @@ function StudentApp() {
 }
 
 export function App() {
+  const { t } = useI18n();
+  const runtimeText = useRuntimeText();
   const preview = new URLSearchParams(location.search).get('preview');
   // The website's own pages (/teachers, /privacy, …) are public; the app lives at `/`.
   const site = sitePage(location.pathname);
   return (
     <div className="app-shell">
-      <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
-        {site ? (
-          <SitePages page={site} />
-        ) : preview === 'book-ch08' ? (
-          <BookLesson />
-        ) : preview === 'book-ch09' ? (
-          <BookLesson chapter={9} />
-        ) : preview === 'probe' ? (
-          <DevelopmentLesson />
-        ) : preview === 'chemistry' ? (
-          <ChemistryLesson />
-        ) : preview === 'board' ? (
-          <BoardPreview />
-        ) : preview === 'demo' ? (
-          <BoardPreview demo={new URLSearchParams(location.search).get('id')} />
-        ) : preview === 'demos' || preview === 'visuals' ? (
-          <DemoGallery />
-        ) : preview === 'ui' ? (
-          <UiGallery />
-        ) : preview === 'landing' ? (
-          <Landing />
-        ) : (
-          <StudentApp />
-        )}
-      </Suspense>
+      {/* The lesson player's own texts follow the app's language. */}
+      <RuntimeTextProvider value={runtimeText}>
+        <Suspense fallback={<Loading text={t('common.loadingLesson')} />}>
+          {site ? (
+            <SitePages page={site} />
+          ) : preview === 'book-ch08' ? (
+            <BookLesson />
+          ) : preview === 'book-ch09' ? (
+            <BookLesson chapter={9} />
+          ) : preview === 'probe' ? (
+            <DevelopmentLesson />
+          ) : preview === 'chemistry' ? (
+            <ChemistryLesson />
+          ) : preview === 'board' ? (
+            <BoardPreview />
+          ) : preview === 'demo' ? (
+            <BoardPreview demo={new URLSearchParams(location.search).get('id')} />
+          ) : preview === 'demos' || preview === 'visuals' ? (
+            <DemoGallery />
+          ) : preview === 'ui' ? (
+            <UiGallery />
+          ) : preview === 'landing' ? (
+            <Landing />
+          ) : (
+            <StudentApp />
+          )}
+        </Suspense>
+      </RuntimeTextProvider>
     </div>
   );
 }

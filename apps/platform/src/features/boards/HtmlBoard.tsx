@@ -8,6 +8,7 @@ import {
 } from '@learn/lesson-runtime';
 import { checkRules, readReport, useBoardSources, type BoardReport } from './sources';
 import './html-board.css';
+import { useI18n } from '../../i18n';
 
 const READY_MS = 5000;
 
@@ -17,6 +18,7 @@ const READY_MS = 5000;
  * (clamped here) and one line about what it shows. It never grades or reads answers.
  */
 export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
+  const { t } = useI18n();
   const id = typeof spec.params.board === 'string' ? spec.params.board : '';
   const sources = useBoardSources();
   const edition = sources.get(id);
@@ -117,7 +119,7 @@ export function HtmlBoard({ spec, board, reducedMotion, layout }: VisualProps) {
         />
       ) : (
         <p className="html-board-fallback" role="status">
-          البورد ده مش شغال دلوقتي. كمّل بالشرح المكتوب.
+          {t('boards.html.unavailable')}
         </p>
       )}
       <p className="html-board-said" aria-live="polite">

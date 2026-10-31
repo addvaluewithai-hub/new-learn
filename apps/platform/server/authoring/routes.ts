@@ -55,7 +55,7 @@ export async function authoringRoute(request: Request, env: Env, user: AuthUser,
     const input = await body(request);
     // The teacher confirms a fix or opens the note again; the AI sets "review".
     if (input.status !== 'done' && input.status !== 'open')
-      throw new HttpError(400, 'الحالة غير صحيحة.');
+      throw new HttpError(400, 'http.badStatus');
     return json(await setFeedback(db(), user.id, m[1], { status: input.status }));
   }
   m = /^\/api\/authoring\/boards\/([a-f0-9]{64})\/report$/.exec(path);
@@ -67,5 +67,5 @@ export async function authoringRoute(request: Request, env: Env, user: AuthUser,
     return json(await approve(db(), user, await body(request), new URL(request.url).origin));
   if (path === '/api/oauth/deny' && method === 'POST')
     return json(await deny(db(), await body(request)));
-  throw new HttpError(404, 'الصفحة غير موجودة.');
+  throw new HttpError(404, 'http.notFound');
 }

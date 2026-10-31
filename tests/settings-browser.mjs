@@ -21,7 +21,7 @@ const server = spawn(
 let browser;
 
 async function run(width, height) {
-  const page = await browser.newPage({ viewport: { width, height } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width, height } });
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   const user = { id: 'u1', name: 'منى', email: 'mona@example.com' };

@@ -1,8 +1,9 @@
-import type { Faq as Item } from './faq';
 import './faq.css';
 
+export type FaqItem = { q: string; a: string };
+
 /** Questions and answers as native disclosure rows: no script, keyboard and reader friendly. */
-export function Faq({ items, open }: { items: Item[]; open?: number }) {
+export function Faq({ items, open }: { items: readonly FaqItem[]; open?: number }) {
   return (
     <div className="site-faq">
       {items.map((item, i) => (

@@ -66,7 +66,7 @@ try {
   }, 'preview server');
   browser = await chromium.launch({ headless: true });
   await mkdir('test-results', { recursive: true });
-  const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width: 1280, height: 1000 } });
   const unexpected = [];
   page.on('pageerror', (error) => unexpected.push(error.message));
   await page.goto(`${url}/?preview=probe`);
@@ -118,6 +118,7 @@ try {
 
   for (const width of [390, 320]) {
     const mobile = await browser.newPage({
+      locale: 'ar-EG',
       viewport: { width, height: 844 },
       reducedMotion: 'reduce',
     });
@@ -140,7 +141,7 @@ try {
   }
   console.log('Browser: 9:16, 320/390px, reduced-motion, question and diagram safe bounds passed.');
 
-  const broken = await browser.newPage();
+  const broken = await browser.newPage({ locale: 'ar-EG' });
   await broken.addInitScript(() => {
     window.audioContexts = [];
     const NativeAudioContext = window.AudioContext;

@@ -192,7 +192,7 @@ async function run(width, height) {
     enrolled: false,
     saved: [],
   };
-  const page = await browser.newPage({ viewport: { width, height } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width, height } });
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.route('**/api/**', api(store));

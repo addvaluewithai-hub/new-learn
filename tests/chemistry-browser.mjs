@@ -78,6 +78,7 @@ try {
   await mkdir('test-results', { recursive: true });
   for (const width of [1280, 390, 320]) {
     const page = await browser.newPage({
+      locale: 'ar-EG',
       viewport: { width, height: 1000 },
       reducedMotion: 'reduce',
     });
@@ -127,7 +128,7 @@ try {
     assert.deepEqual(errors, []);
     await page.close();
   }
-  const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width: 1280, height: 1000 } });
   await page.goto(`${url}/?preview=chemistry`);
   await page.getByRole('button', { name: 'المشاهد', exact: true }).click();
   await page.getByRole('navigation', { name: 'مشاهد الدرس' }).getByRole('button').nth(7).click();

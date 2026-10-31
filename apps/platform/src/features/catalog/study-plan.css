@@ -166,7 +166,8 @@
   margin: 1px 0 6px;
   color: var(--muted);
   font-size: 0.82rem;
-  text-align: right;
+  /* The page's direction, even when the subtitle itself is in another language. */
+  text-align: match-parent;
 }
 .plan-soon {
   font-size: 0.78rem;
@@ -196,9 +197,13 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+[dir='ltr'] .plan-go svg {
+  transform: scaleX(-1);
+}
 .plan-go.nl-button {
   min-height: 44px;
-  padding: 8px 18px 8px 22px;
+  padding-block: 8px;
+  padding-inline: 18px 22px;
 }
 .plan-go-quiet {
   color: var(--muted);

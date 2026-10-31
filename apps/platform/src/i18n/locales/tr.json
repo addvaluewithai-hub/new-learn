@@ -1,0 +1,1582 @@
+{
+  "common": {
+    "language": "Dil",
+    "brandHome": "Learn ana sayfa",
+    "brandTagline": "Öğrenme alanın",
+    "forward": "→",
+    "back": "←",
+    "backLink": "←",
+    "close": "Kapat",
+    "loadingSpace": "Öğrenme alanın hazırlanıyor…",
+    "loadingLesson": "Ders alanı hazırlanıyor…",
+    "network": {
+      "offline": "Bağlantı koptu. İnternetini kontrol edip tekrar dene.",
+      "unexpected": "Platformdan beklenmedik bir yanıt geldi. Tekrar dene.",
+      "failed": "İstek tamamlanamadı."
+    }
+  },
+  "looks": {
+    "auto": {
+      "name": "Bana bırak",
+      "line": "Konuna en uygun görünümü biz seçelim."
+    },
+    "chalk": {
+      "name": "Kara tahtada tebeşir",
+      "line": "Gözünün önünde çizilir: denklemler ve grafikler için."
+    },
+    "watercolour": {
+      "name": "Elle suluboya",
+      "line": "Sıcak ve sakin: doğa, ev ve günlük hayat için."
+    },
+    "crt": {
+      "name": "Eski bilgisayar ekranı",
+      "line": "Parlayan yeşil: teknoloji, yapay zekâ ve sayılar için."
+    },
+    "space3d": {
+      "name": "3D model",
+      "line": "Döndürüp her yönden bakabileceğin şeyler: uzay ve cisimler."
+    },
+    "seachart": {
+      "name": "Eski harita",
+      "line": "Eski kâğıt ve mürekkep: coğrafya, yolculuk ve ticaret için."
+    },
+    "shadow": {
+      "name": "Gölge oyunu",
+      "line": "Kâğıt ve gölgeyle sahneler: tarih ve hikâyeler için."
+    },
+    "blueprint": {
+      "name": "Teknik çizim",
+      "line": "Mavi üstüne beyaz çizgiler: fizik, devreler ve makineler için."
+    },
+    "crayon": {
+      "name": "Pastel boya",
+      "line": "Eğlenceli ve sade: çocuklar ve ilk kavramlar için."
+    },
+    "calligraphy": {
+      "name": "Arap hattı ve mürekkep",
+      "line": "Kâğıtta nesih ve mürekkep: Arapça, şiir ve dil bilgisi için."
+    },
+    "pixel": {
+      "name": "Piksel oyunu",
+      "line": "Adımlar ve bulmacalar: kodlama ve mantıksal düşünme için."
+    },
+    "examples": {
+      "chalk": "İşletme birinci sınıf öğrencileri için bileşik faiz",
+      "watercolour": "Bitkiler nasıl su içip besin üretir?",
+      "space3d": "4. sınıflar için gezegenler ve Güneş'e uzaklıkları",
+      "pixel": "Çocuklar için kodlamada ilk adımlar",
+      "calligraphy": "Hemze: ne zaman elifin üstüne, ne zaman satıra yazılır?",
+      "seachart": "İpek Yolu: Çin ile Avrupa arasındaki ticaret"
+    }
+  },
+  "site": {
+    "nav": {
+      "label": "Site bağlantıları",
+      "looks": "Görünümler",
+      "teachers": "Öğretmenler için",
+      "demos": "Örnekler",
+      "support": "Destek",
+      "login": "Giriş yap",
+      "start": "Ücretsiz başla"
+    },
+    "foot": {
+      "tagline": "Her fikir, gözünün önünde çizilen bir derse dönüşür.",
+      "product": "Ürün",
+      "account": "Hesap",
+      "help": "Yardım",
+      "looks": "Görünümler",
+      "demos": "Örnekler",
+      "teachers": "Öğretmenler için",
+      "connect": "Kendi yapay zekânı bağla",
+      "signup": "Hesap oluştur",
+      "login": "Giriş yap",
+      "support": "Destek ve SSS",
+      "privacy": "Gizlilik",
+      "terms": "Koşullar"
+    },
+    "teachers": {
+      "metaTitle": "Öğretmenler için · New Learn",
+      "metaDescription": "Öğrencilerin için dakikalar içinde etkileşimli bir ders hazırla: stüdyodan ya da kendi Claude veya ChatGPT hesabınla. Gözden geçir, bağlantıyla yayınla, takip et.",
+      "eyebrow": "Öğretmenler için",
+      "title": "Öğrencilerin için dakikalar içinde etkileşimli bir ders hazırla.",
+      "lead": "Ders notundan ya da aklındaki bir fikirden: öğrencinin önünde çizilen bir tahta, her fikirden sonra bir soru ve sesli anlatan Nova. Sen gözden geçirip yayınlarsın, öğrencilerin bir bağlantıyı açar.",
+      "start": "Ücretsiz başla",
+      "demos": "Hazır derslere bak",
+      "studioTitle": "Birinci yol: Stüdyodan",
+      "studioLead": "Tek satır kod yazmadan, dört adımda.",
+      "studio": [
+        {
+          "title": "Fikrini yaz ya da ders notunu yükle",
+          "text": "Bir konu, bir PDF ya da kitaptan fotoğraflar. Dersin kimin için olduğunu söyle ve hazır görünümlerden birini seç."
+        },
+        {
+          "title": "Hazırlanırken izle",
+          "text": "Ders birkaç dakikada adım adım oluşur; her tahtayı çizilir çizilmez görürsün."
+        },
+        {
+          "title": "Gözden geçir, not yaz",
+          "text": "Dersi öğrencinin göreceği gibi aç ve istediğin adıma not yaz. Düzeltme o nota göre yapılır."
+        },
+        {
+          "title": "Bağlantıyla yayınla, takip et",
+          "text": "Öğrencilerine tek bir bağlantı. Her derse kimin başladığını, kimin bitirdiğini görürsün; düzenleyince yeni sürümü yayınlarsın."
+        }
+      ],
+      "connectTitle": "İkinci yol: Kendi Claude veya ChatGPT hesabınla",
+      "connectLead": "Kendi yapay zekânla çalışmayı seviyorsan onu siteye bağla, dersi doğrudan burada yazsın. Biz biçimi kontrol eder, hesabına taslak olarak kaydederiz.",
+      "connect": [
+        {
+          "title": "Claude'da Ayarlar'ı aç, ardından Connectors ve Add custom connector.",
+          "text": "Ad New Learn, bağlantı da şu:"
+        },
+        {
+          "title": "New Learn hesabınla giriş yap ve uygulamaya izin ver.",
+          "text": "Yetkisi: yalnızca taslak oluşturur ve notlarını okur. Yayınlayamaz, öğrencileri göremez."
+        },
+        {
+          "title": "Dersi kendi cümlelerinle iste.",
+          "text": "Örneğin: “İşletme birinci sınıf öğrencileri için bileşik faiz hakkında 3 sahnelik bir ders yap, sade bir Türkçeyle.” Önce sana birkaç soru sorar ve planı seninle birlikte belirler."
+        },
+        {
+          "title": "Gönderdiği önizleme bağlantısını aç.",
+          "text": "Adımlara notlarını yaz ve ona “Notları düzelt” de. Beğendiğinde öğretmen panelinden yayınla."
+        }
+      ],
+      "chatgpt": "ChatGPT'de de aynısı: Ayarlar, ardından Connectors. Tabii planın özel connector'ları destekliyorsa.",
+      "faqTitle": "Öğretmenlerin soruları"
+    },
+    "support": {
+      "metaTitle": "Destek ve SSS · New Learn",
+      "metaDescription": "Bize nasıl ulaşacağın ve New Learn hakkında sık sorulan soruların cevapları.",
+      "title": "Yardım mı lazım?",
+      "lead": "Bize {email} adresinden yaz, bir iş günü içinde dönelim. Kayıt olduğun e-postayı, sayfanın bağlantısını ve bir sorun varsa ekran görüntüsünü ekle.",
+      "mailSubject": "New Learn için yardım",
+      "email": "E-posta gönder",
+      "teachers": "Öğretmenler sayfası",
+      "faqTitle": "Sık sorulan sorular",
+      "moreTitle": "Ayrıca",
+      "privacy": "{link}: neleri saklıyoruz ve kim görüyor.",
+      "terms": "{link}: hesabın, içeriğin ve yapay zekâyla üretilen içerik.",
+      "takedown": "Hakkını ihlal eden bir içerik mi gördün? Bağlantıyı ve hakkın açıklamasını bize yaz; inceleyene kadar içeriği kaldırırız."
+    },
+    "legal": {
+      "updatedLabel": "Son güncelleme: {date}",
+      "question": "Herhangi bir madde hakkında sorun mu var? Bize {email} adresinden ya da {support} üzerinden yaz.",
+      "supportLink": "destek sayfası",
+      "privacy": {
+        "title": "Gizlilik",
+        "metaTitle": "Gizlilik · New Learn",
+        "description": "New Learn'de neleri saklıyoruz, kim görüyor ve yapay zekâya neler ulaşıyor.",
+        "updated": "29 Ekim 2026",
+        "intro": "Bunu, kendimiz okumak isteyeceğimiz sadelikte yazıyoruz. Net olmayan bir şey varsa bize yaz.",
+        "sections": [
+          {
+            "title": "Neleri saklıyoruz",
+            "paragraphs": [],
+            "bullets": [
+              "Hesabın: adın, e-postan ve şifrelenmiş parolan, Neon Auth hizmeti aracılığıyla.",
+              "Öğrenmen: açtığın dersler, nerede kaldığın ve sorulara verdiğin cevaplar.",
+              "Öğretmensen: kursların, derslerin, notların ve tahtaların; yayınladığın kurslar ve onlara kimin katıldığı.",
+              "Ders oluşturmak için yüklediğin dosyalar (ders notu, fotoğraf, metin): ders oluşana kadar geçici olarak saklanır, sonra silinir.",
+              "Ayarların: ders hızı, soru biçimi ve site dili gibi."
+            ]
+          },
+          {
+            "title": "Kim görüyor",
+            "paragraphs": [],
+            "bullets": [
+              "Sen, kendi hesabından.",
+              "Kursu hazırlayan öğretmen, her derse kaç kişinin başladığını ve kaç kişinin bitirdiğini görür; cevaplarının ayrıntısını görmez.",
+              "Öğrenci, kursun üzerinde öğretmenin adını görür.",
+              "Ekibimiz, yalnızca gerektiğinde: bir sorunu çözmek ya da bir destek talebini yanıtlamak için.",
+              "Verilerini satmayız ve reklam için kimseyle paylaşmayız."
+            ]
+          },
+          {
+            "title": "Yapay zekâ",
+            "paragraphs": [],
+            "bullets": [
+              "Ders asistanı Nova, Google Gemini modelleriyle çalışır. Ona dersin o anki adımını ve sorunu, sesi açtıysan sesini de göndeririz. Konuşma, yanıt verebilmesi için modele gönderilir; model eğitiminde kullanmayız.",
+              "Ders oluşturma Anthropic modellerini (Claude) kullanır: dersi yazabilmesi için yazdığın fikri ve yüklediğin dosyaları göndeririz.",
+              "Kendi Claude veya ChatGPT hesabını siteye bağlarsan, onay verdiğin yetkiyle yalnızca taslaklarını ve notlarını görür; yayınlayamaz, öğrencileri göremez. Bu bağlantıyı bize yazarak iptal edebilirsin.",
+              "Yapay zekânın yazdığı dersleri platformda böyle işaretleriz; hata yapabilirler. Öğretmen yayından önce gözden geçirir."
+            ]
+          },
+          {
+            "title": "Çerezler ve takip",
+            "paragraphs": [
+              "Girişli kalman için tek bir oturum çerezi kullanıyoruz; seçtiğin site dili de cihazına kaydedilir. Reklam yok, takip aracı yok, seni tanımlayan analiz yok."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Verilerin nerede",
+            "paragraphs": [
+              "Site Cloudflare'de, veritabanı Neon'da. Dersin çizdiği tahtalar, hesabına hiçbir yetkisi olmayan yalıtılmış bir sayfada çalışır."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Çocuklar",
+            "paragraphs": [
+              "Hesap 13 yaş ve üzeri içindir. Daha küçükler platformu bir velinin ya da okulun hesabından kullanır; hesabın sorumluluğu veliye aittir."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Hesabını silmek",
+            "paragraphs": [
+              "Kayıt olduğun e-postadan bize yaz; hesabı ve tüm verilerini 30 gün içinde sileriz. Öğrencilere yayınladığın kurslar da hesapla birlikte kaldırılır."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Değişiklikler",
+            "paragraphs": [
+              "Burada önemli bir şeyi değiştirirsek, yürürlüğe girmeden önce platformda haber veririz. Yukarıdaki tarih son güncellemedir."
+            ],
+            "bullets": []
+          }
+        ]
+      },
+      "terms": {
+        "title": "Koşullar",
+        "metaTitle": "Koşullar · New Learn",
+        "description": "New Learn kullanım koşulları: hesabın, içeriğin ve yapay zekâyla üretilen içerik.",
+        "updated": "29 Ekim 2026",
+        "intro": "Platformu kullanarak bu koşulları kabul etmiş olursun. New Learn hâlâ deneme aşamasında.",
+        "sections": [
+          {
+            "title": "Hizmet",
+            "paragraphs": [
+              "New Learn bir fikri ya da ders notunu etkileşimli bir derse dönüştürür: kodla çizilen bir tahta, anlatım, sorular ve Nova adında sesli bir asistan. Öğretmen derslerini öğrencilerine bir bağlantıyla yayınlayabilir."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Hesabın",
+            "paragraphs": [],
+            "bullets": [
+              "Parolandan ve hesabında olan her şeyden sen sorumlusun.",
+              "Kayıt olurken verdiğin bilgiler doğru olmalı.",
+              "Hesap 13 yaş ve üzeri içindir; daha küçükler bir velinin ya da okulun hesabını kullanır."
+            ]
+          },
+          {
+            "title": "İçeriğin",
+            "paragraphs": [],
+            "bullets": [
+              "Yazdığın ya da yüklediğin şeyler senin olarak kalır.",
+              "Yalnızca kullanma hakkın olanı yüklersin ve bunun sorumluluğu sana aittir. Hakkın olmayan bir ders notu ya da kitap yüklersen onu kaldırırız.",
+              "Dersi sana ve yayınladığın öğrencilerine gösterip çalıştırmamız, hizmet çalışsın diye kopyalarını saklamamız için bize izin vermiş olursun.",
+              "Hakkını ihlal eden bir içerik görürsen bağlantıyı ve hakkın açıklamasını bize yaz; inceleyene kadar içeriği durdururuz."
+            ]
+          },
+          {
+            "title": "Yapay zekâyla üretilen içerik",
+            "paragraphs": [],
+            "bullets": [
+              "Yapay zekânın yazdığı derslerde hata ya da eksik olabilir. Kimseye yayınlamadan önce gözden geçir.",
+              "Bu içeriği platformda yapay zekâ ürünü olarak işaretleriz ve kaynak olarak görmeyiz.",
+              "Nova anlamana yardım eder; öğretmenin ya da kaynağın yerini tutmaz."
+            ]
+          },
+          {
+            "title": "Kabul edilebilir kullanım",
+            "paragraphs": [],
+            "bullets": [
+              "Zararlı, yanıltıcı ya da yasalara veya başkalarının haklarına aykırı içerik yasaktır.",
+              "Sana ait olmayan hesaplara ya da verilere erişmeye çalışmak veya hizmeti aksatmak yasaktır.",
+              "Kendi Claude veya ChatGPT hesabını bağlarsan, onun hesabından yaptıklarından sen sorumlusun."
+            ]
+          },
+          {
+            "title": "Erişilebilirlik",
+            "paragraphs": [
+              "Platform deneme aşamasında: bir özellik değişebilir ya da kalkabilir, arıza çıkabilir. Hizmeti olduğu gibi, garanti vermeden sunuyoruz ve büyük bir değişiklikten önce haber vermeye çalışıyoruz."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Hesabın kapatılması",
+            "paragraphs": [
+              "Bize yazarak hesabını istediğin zaman kapatabilirsin. Bir hesap bu koşulları ihlal ederse, sahibine haber verdikten sonra onu durdurabiliriz."
+            ],
+            "bullets": []
+          },
+          {
+            "title": "Değişiklikler ve iletişim",
+            "paragraphs": [
+              "Koşulları değiştirirsek, yürürlüğe girmeden önce platformda haber veririz. Her türlü sorun için destek sayfasında bize nasıl ulaşacağın yazıyor."
+            ],
+            "bullets": []
+          }
+        ]
+      }
+    },
+    "faq": {
+      "general": [
+        {
+          "q": "Ücretsiz mi?",
+          "a": "Daha yolun başındayız, şimdilik ücretsiz. Paketler gelirse bunu yeterince önceden haber veririz; oluşturduğun her şey senin olarak kalır."
+        },
+        {
+          "q": "Bir ders ne kadar sürede hazırlanır?",
+          "a": "Büyüklüğüne göre 5 ile 20 dakika arası. Adımları hazırlanırken izlersin; istersen sayfayı kapatıp döndüğünde dersi hazır bulursun."
+        },
+        {
+          "q": "Dersi kim yazıyor?",
+          "a": "Anlatımı ve soruları yapay zekâ yazar, tahtayı kodla çizer; biz de biçimin doğru olduğunu ve tahtanın çalıştığını kontrol ederiz. Gözden geçirip yayınlayan öğretmendir."
+        },
+        {
+          "q": "Yapay zekâ hata yapabilir mi?",
+          "a": "Evet. Bu yüzden ders önce taslak olarak oluşur; istediğin adıma not yazıp düzeltilmesini isteyebilirsin. Sen kendin yayınlamadan hiçbir şey öğrencilere ulaşmaz."
+        },
+        {
+          "q": "Nova neleri görüyor?",
+          "a": "Yalnızca dersi, bulunduğun adımı ve bu oturumdaki cevaplarını. Nova anlatır ve soruları yanıtlar; ama cevabın doğru olup olmadığına Nova değil, dersin kendisi karar verir."
+        },
+        {
+          "q": "Telefonda çalışıyor mu?",
+          "a": "Evet. Ders ve tahta küçük ekrana göre ayarlanır; tek bir düğmeyle Nova'yla sesli konuşabilirsin."
+        },
+        {
+          "q": "Site başka dillerde de var mı?",
+          "a": "Evet. Dili yukarıdan ya da ayarlardan seç, Nova da seninle o dilde konuşsun. Derslerin kendisi yazıldığı dilde kalır."
+        },
+        {
+          "q": "Hesabımı nasıl silerim?",
+          "a": "Kayıt olduğun e-postadan bize yaz; hesabı ve tüm verilerini 30 gün içinde sileriz."
+        }
+      ],
+      "teachers": [
+        {
+          "q": "Öğrencilerimin hesabı olması gerekiyor mu?",
+          "a": "Evet, e-postayla ücretsiz bir hesap. Kursun bağlantısını açıp “Kursa başla”ya dokunurlar; ilerlemeleri kaydedilir."
+        },
+        {
+          "q": "Ders notu ya da kitap yükleyebilir miyim?",
+          "a": "PDF, Word, fotoğraf ya da metin; en fazla 5 dosya. Kullanma hakkın olmalı; dosyalar ders oluştuktan sonra silinir."
+        },
+        {
+          "q": "Kendi Claude veya ChatGPT hesabımı bağlayabilir miyim?",
+          "a": "Evet. Siteyi connector olarak ekler ve dersi kendi hesabından istersin. Yalnızca taslaklarını görür; yayınlayamaz, öğrencileri göremez."
+        }
+      ]
+    }
+  },
+  "landing": {
+    "metaTitle": "New Learn: Her fikir, gözünün önünde çizilen bir ders olur",
+    "metaDescription": "Konuyu yaz, görünümünü seç. Kodla çizilen bir tahta, her fikirden sonra bir soru ve sesli anlatan Nova. Kendi çalışman, öğrencilerin ve çocukların için.",
+    "hero": {
+      "eyebrow": "Her fikirden bir ders, dakikalar içinde",
+      "title": "Her fikir, gözünün önünde çizilen bir ders olur.",
+      "lead": "Konuyu yaz, görünümünü seç. Tahta kodla çizilir; Nova sesli anlatır ve her fikirden sonra sana soru sorar.",
+      "start": "İlk dersini oluştur",
+      "openDemo": "Bu dersin tamamını aç",
+      "looksLabel": "Görünümler"
+    },
+    "looks": {
+      "title": "Her konuya bir görünüm",
+      "lead": "Her ders, konusuna uygun bir görünümle kodla çizilir. Birine dokun ve dene."
+    },
+    "how": {
+      "title": "Nasıl çalışıyor?",
+      "lead": "Fikirden derse üç adımda, her şeyi görerek.",
+      "steps": [
+        {
+          "title": "Fikrini yaz",
+          "text": "Bir konu, bir ders notu ya da kitaptan bir sayfa. Kimin için olduğunu söyle, görünümünü seç."
+        },
+        {
+          "title": "Hazırlanırken izle",
+          "text": "Ders adım adım oluşur; her tahta çizilir çizilmez ekrana gelir."
+        },
+        {
+          "title": "Nova'yla öğren",
+          "text": "Elinle oynattığın bir tahta, her fikirden sonra bir soru ve anlatan bir ses."
+        }
+      ]
+    },
+    "nova": {
+      "eyebrow": "Nova",
+      "title": "Yardım dersin içinde, dışında değil.",
+      "lead": "Her adımda soru sorabileceğin biri var. Her fikirde de anladığından emin olan bir soru.",
+      "points": [
+        {
+          "title": "Nerede olduğunu bilir",
+          "text": "Nova bulunduğun adımı görür; dersi baştan anlatmadan tam sorduğun kadarını cevaplar."
+        },
+        {
+          "title": "Sesle ya da yazarak",
+          "text": "Bas ve konuş ya da yaz. İstersen cevabı sesli dinle."
+        },
+        {
+          "title": "Doğruyu ders söyler, Nova değil",
+          "text": "Her fikirden sonra bir soru: seçmeli, yazılı ya da tahtanın üzerinde. Doğru cevap derste belirlidir."
+        }
+      ],
+      "shotAlt": "New Learn'de bir okuma dersi: tahta ve Nova çubuğu"
+    },
+    "teacher": {
+      "eyebrow": "Öğretmen için",
+      "title": "Ders notundan bağlantıya, aynı gün.",
+      "points": [
+        {
+          "title": "Ders notundan",
+          "text": "PDF ya da kitaptan fotoğraflar yükle veya fikrini yaz. Ders bunların üzerine kurulur."
+        },
+        {
+          "title": "Ulaşmadan önce gözden geçir",
+          "text": "İstediğin adıma not yaz, düzeltme o nota göre yapılır. Sen yayınlamadan hiçbir şey yayınlanmaz."
+        },
+        {
+          "title": "Öğrencilerine tek bağlantı",
+          "text": "Açarlar ve başlarlar. Her derse kimin başladığını, kimin bitirdiğini görürsün."
+        }
+      ],
+      "cta": "Öğretmenler sayfası",
+      "shotAlt": "Öğretmen paneli: yayınlama ve kurs bağlantısı"
+    },
+    "connect": {
+      "eyebrow": "Claude veya ChatGPT kullanıyor musun?",
+      "title": "Dersi burada o yazsın.",
+      "lead": "Onu siteye connector olarak bağla ve dersi kendi cümlelerinle iste. O yazar; biz biçimi kontrol eder, hesabına taslak olarak kaydederiz. Yalnızca taslaklarını görür, yayınlayamaz.",
+      "cta": "Nasıl bağlanır?"
+    },
+    "who": {
+      "title": "Kimin için?",
+      "items": [
+        {
+          "title": "Senin için",
+          "text": "Sınava mı çalışıyorsun? Ders notunu yükle, etkileşimli bir derse dönüştür.",
+          "cta": "İlk dersini oluştur"
+        },
+        {
+          "title": "Öğrencilerin için",
+          "text": "Dakikalar içinde bir ders hazırla, gözden geçir ve bağlantıyla gönder.",
+          "cta": "Öğretmenler için"
+        },
+        {
+          "title": "Çocukların için",
+          "text": "Eğlenceli görünümler, sade bir dil ve yaşlarına uygun sorular.",
+          "cta": "Kesirler dersini dene"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Sık sorulan sorular",
+      "more": "Gerisi burada: {link}.",
+      "moreLink": "Destek sayfası"
+    },
+    "final": {
+      "title": "Tek bir fikirle dene.",
+      "lead": "Ücretsiz, hiçbir şey kurmadan.",
+      "cta": "Hesabını oluştur"
+    }
+  },
+  "runtime": {
+    "lessonScenes": "Dersin sahneleri",
+    "audioFailed": "Ses çalınamadı. Tekrar dene.",
+    "sceneFailed": "Sahne oynatılamadı.",
+    "sceneRenderFailed": "Sahne gösterilemedi. Yeniden başlatmayı dene.",
+    "scenePlaybackStopped": "Sahne oynatılamadı; ses çalışana kadar burada bekliyoruz.",
+    "reloadPreview": "Önizlemeyi yeniden yükle",
+    "tryAgain": "Tekrar dene",
+    "startOver": "Baştan başla",
+    "pause": "Duraklat",
+    "resumeExplaining": "Anlatmaya devam et",
+    "startExplaining": "Anlatmaya başla",
+    "playbackPosition": "Oynatma konumu",
+    "replayScene": "Sahneyi tekrarla",
+    "loadingAudio": "Ses yükleniyor…",
+    "yourTurn": "Sıra sende",
+    "chooseAnswer": "Cevabını seç",
+    "hearFeedback": "Yorumu dinle, devam edelim",
+    "boardQuestion": "Hadi deneyelim",
+    "boardFeedback": "Fikri gözden geçirip devam edelim",
+    "sceneTrack": "Sahne {scene}/{scenes}. Sahneleri göster",
+    "goalsChip": "Ders hedefleri: {met}/{goals}",
+    "lessonGoals": "Ders hedefleri",
+    "goalsNote": "Bir hedef, onu ölçen soruyu cevapladığında işaretlenir.",
+    "conversation": "Sohbet",
+    "yourAnswer": "Cevabın: {answer}",
+    "dontKnow": "Bilemedim",
+    "correct": "✓ Doğru",
+    "notCorrect": "✗ Henüz doğru değil",
+    "question": "Soru",
+    "modelAnswer": "Örnek cevap",
+    "tryYourself": "Kendin dene",
+    "hint": "İpucu",
+    "hintRequest": "Bu soru için bir ipucu istiyorum",
+    "showSolution": "Bilemedim, çözümü göster",
+    "skip": "Geç",
+    "choices": "Seçenekler",
+    "choiceLetters": "ABCDEFGH",
+    "boardAsk": "Cevabına ulaşana kadar tahtayı değiştir, sonra “Gönder”e bas.",
+    "listSeparator": ", ",
+    "lessonNavigation": "Ders gezinmesi",
+    "previousStep": "Önceki adım",
+    "next": "İleri",
+    "finishLesson": "Dersi bitir",
+    "autoTurnResume": "Otomatik devam et",
+    "autoTurnPause": "Otomatik geçişi durdur",
+    "hideText": "Metni gizle",
+    "showText": "Metni göster",
+    "answerDock": "Cevapla",
+    "sendMyAnswer": "Cevabımı gönder",
+    "answerField": "Cevabın",
+    "answerPlaceholder": "Çözümünü buraya yaz…",
+    "send": "Gönder",
+    "pickAbove": "Yukarıdan bir cevap seç",
+    "lessonConversation": "Ders sohbeti",
+    "minimizeConversation": "Sohbeti küçült",
+    "close": "Kapat",
+    "quickQuestions": "Hızlı sorular",
+    "suggestSimpler": "Daha basit anlat",
+    "suggestExample": "Bir örnek daha ver",
+    "suggestWhy": "Neden böyle?",
+    "typing": "Yazıyor",
+    "sceneNumber": "Sahne {number}",
+    "byVoice": "Sesle",
+    "lessonDone": "Dersi bitirdin",
+    "answeredOne": "Cevapladığın soru: {answered}/{questions}",
+    "answeredMany": "Cevapladığın soru: {answered}/{questions}",
+    "goalsMet": "Hedefler: {met}/{goals}",
+    "nextLesson": "Sıradaki ders: {title}",
+    "reviewLesson": "Dersi baştan gözden geçir"
+  },
+  "server": {
+    "http": {
+      "notJson": "İstek JSON olmalı.",
+      "tooLarge": "İstek izin verilenden büyük.",
+      "badBody": "İstek verileri geçersiz.",
+      "badOrigin": "İsteğin kaynağına izin verilmiyor.",
+      "notAllowed": "Bu isteğe izin verilmiyor.",
+      "notFound": "Sayfa bulunamadı.",
+      "failed": "İstek tamamlanamadı. Tekrar dene.",
+      "badStatus": "Durum geçersiz."
+    },
+    "auth": {
+      "unavailable": "Hesap hizmeti şu an kullanılamıyor.",
+      "unavailableRetry": "Hesap hizmeti şu an kullanılamıyor. Tekrar dene.",
+      "unexpected": "Hesap hizmetinden beklenmedik bir yanıt geldi.",
+      "nameLength": "Ad 2 ile 80 karakter arasında olmalı.",
+      "passwordsNeeded": "Mevcut ve yeni parolanı yaz.",
+      "passwordLength": "Yeni parola 8 ile 128 karakter arasında olmalı.",
+      "signIn": "Devam etmek için giriş yap.",
+      "checkFailed": "Oturum doğrulanamadı.",
+      "expired": "Oturumun sona erdi. Yeniden giriş yap."
+    },
+    "oauth": {
+      "badRequest": "Bağlantı isteği geçersiz."
+    },
+    "content": {
+      "unavailable": "Programlar şu an yüklenemiyor. Biraz sonra tekrar dene.",
+      "lessonNotReady": "Ders henüz hazır değil.",
+      "lessonChanged": "Dersin sürümü değişti. Dersi programdan yeniden aç."
+    },
+    "progress": {
+      "invalid": "İlerleme verileri geçersiz.",
+      "unavailable": "Bu ders için ilerleme kaydedilemiyor.",
+      "savedElsewhere": "İlerleme başka bir yerden kaydedildi.",
+      "courseChanged": "Kursun sürümü değişti. Dersi kurs sayfasından yeniden aç."
+    },
+    "publish": {
+      "lessonsReady": {
+        "other": "{count} ders hazır",
+        "one": "{count} ders hazır"
+      },
+      "noLessons": "Kursta hiç ders yok",
+      "hasTitle": "Kursun bir adı var",
+      "boardsFound": "Tüm tahtalar yerinde",
+      "boardProblems": {
+        "other": "{count} tahtada önizlemeden kalan çizim notu var",
+        "one": "{count} tahtada önizlemeden kalan çizim notu var"
+      },
+      "boardsDrawn": "Tahtalar önizlemede doğru çizildi",
+      "openNotes": {
+        "other": "{count} not hâlâ açık",
+        "one": "{count} not hâlâ açık"
+      },
+      "noOpenNotes": "Açık not yok",
+      "courseGone": "Bu kurs yok ya da yayından kaldırıldı.",
+      "notPublished": "Bu kurs yayında değil.",
+      "lessonGone": "Bu ders yok ya da kurs yayından kaldırıldı.",
+      "lessonMissing": "Bu ders bulunamadı.",
+      "courseMissing": "Bu kurs bulunamadı.",
+      "partsEveryLesson": "Her ders bölümlerde tam bir kez yer almalı.",
+      "otherLessons": "Diğer dersler"
+    },
+    "builds": {
+      "busy": "Hâlâ oluşturulan bir kurs var. Bitmesini bekle.",
+      "dailyLimit": "Bugünkü sınıra ulaştın. Yarın tekrar dene.",
+      "jobMissing": "Bu görev bulunamadı.",
+      "fileType": "Bu dosya türü desteklenmiyor: yalnızca PDF, Word, fotoğraf ya da metin.",
+      "fileUnreadable": "Dosya okunamıyor.",
+      "fileSize": "Her dosya 4 MB'tan küçük olmalı.",
+      "topicShort": "Kursun ne hakkında olduğunu yaz.",
+      "topicLong": "Açıklama çok uzun; 4000 karakterin altında tut.",
+      "badChoice": "Bilinmeyen seçim.",
+      "fileCount": "En fazla 5 dosya.",
+      "filesTotal": "Dosyaların toplamı 10 MB'tan küçük olmalı."
+    },
+    "nova": {
+      "badPosition": "Dersteki konum geçersiz.",
+      "badPhase": "Ders aşaması geçersiz.",
+      "badTiming": "Ders zamanlaması geçersiz.",
+      "noLesson": "Ders belirtilmedi.",
+      "draftChanged": "Taslak değişti. Önizlemeyi yeniden aç.",
+      "courseChanged": "Kursun sürümü değişti. Dersi yeniden aç.",
+      "trialChanged": "Deneme sürümü değişti. Dersi yeniden aç.",
+      "lessonUnavailable": "Ders asistanı kullanılamıyor.",
+      "wait": "Yeni bir istekten önce biraz bekle.",
+      "unavailable": "Nova şu an kullanılamıyor.",
+      "timeout": "Cevap gecikti. Tekrar dene.",
+      "busy": "Şu an çok fazla istek var. Biraz bekleyip tekrar dene.",
+      "unreachable": "Nova'ya ulaşılamadı. Tekrar dene.",
+      "noAnswer": "Net bir cevap gelmedi. Soruyu farklı sormayı dene.",
+      "quizIncomplete": "Test tamamlanmadı. Tekrar dene.",
+      "quizInvalid": "Test soruları yeniden hazırlanmalı. Tekrar dene.",
+      "quizUnreadable": "Testin yeniden hazırlanması gerekiyor.",
+      "badChat": "Sohbet geçersiz.",
+      "badMessage": "Mesaj geçersiz.",
+      "unknownAction": "Böyle bir istek yok.",
+      "askFirst": "Önce bir soru yaz.",
+      "callFailed": "Görüşme hazırlanamadı.",
+      "badAudio": "Ses geçersiz.",
+      "shortAudio": "Ses çok kısa.",
+      "badWakeWord": "Çağrı sözcüğü geçersiz."
+    }
+  },
+  "build": {
+    "steps": {
+      "prepare": "Dosyalarını hazırlıyorum",
+      "readGuide": "Yazım rehberini okuyorum",
+      "readStyle": "Görünüm rehberini okuyorum",
+      "listCourses": "Kurslarına bakıyorum",
+      "createCourse": "Kursu oluşturuyorum",
+      "arrangeCourse": "Kursun bölümlerini düzenliyorum",
+      "writeLesson": "Ders yazıyorum",
+      "writeLessonNamed": "Ders yazıyorum: {title}",
+      "editLesson": "Dersi düzeltiyorum",
+      "readLesson": "Dersi gözden geçiriyorum",
+      "makeBoard": "Etkileşimli tahta hazırlıyorum",
+      "readBoard": "Tahtayı gözden geçiriyorum",
+      "readFeedback": "Notları okuyorum",
+      "resolveFeedback": "Bir notu kapatıyorum",
+      "webSearch": "İnternette arıyorum",
+      "readFiles": "Dosyalarını okuyorum",
+      "working": "Kurs üzerinde çalışıyorum",
+      "fixLesson": "Dersteki sorunları düzeltiyorum",
+      "retry": "Yeniden deniyorum",
+      "resume": "Kesintiden sonra devam ediyorum",
+      "failed": "Oluşturma bitmeden durdu.",
+      "usageLimit": "Oluşturma hesabı şu an kullanım sınırına ulaştı. Biraz sonra tekrar dene.",
+      "noLesson": "Hiç ders oluşturulmadı."
+    }
+  },
+  "auth": {
+    "form": {
+      "eyebrow": "LEARN'e hoş geldin",
+      "heading": {
+        "signup": "Yolculuğun burada başlıyor.",
+        "login": "Kaldığımız yerden devam mı?",
+        "forgot": "Hesabını geri alalım.",
+        "reset": "Yeni bir parola."
+      },
+      "submit": {
+        "signup": "Hesap oluştur",
+        "login": "Giriş yap",
+        "forgot": "Sıfırlama bağlantısı gönder",
+        "reset": "Parolayı kaydet"
+      },
+      "lead": {
+        "signup": "Bir hesap oluştur ve yolculuğuna başla.",
+        "login": "Derslerin seni bekliyor.",
+        "recover": "E-postanı yakından takip et."
+      },
+      "name": "Adın",
+      "namePlaceholder": "Sana nasıl seslenelim?",
+      "email": "E-posta",
+      "password": "Parola",
+      "passwordPlaceholder": "En az 8 karakter",
+      "forgotLink": "Parolanı mı unuttun?",
+      "busy": "Bir saniye…",
+      "haveAccount": "Zaten hesabın var mı?",
+      "toLogin": "Giriş yap",
+      "newHere": "Learn'de yeni misin?",
+      "toSignup": "Hesap oluştur",
+      "backToLogin": "Girişe dön",
+      "assurance": "Giriş bilgilerin hesabına bağlıdır."
+    },
+    "messages": {
+      "resetSent": "Bu e-posta kayıtlıysa parolanı sıfırlaman için bir bağlantı gelecek.",
+      "resetInvalid": "Sıfırlama bağlantısı geçersiz. Yeni bir bağlantı iste.",
+      "passwordChanged": "Parolan değişti. Giriş yap.",
+      "wrongCredentials": "E-posta ya da parola hatalı.",
+      "emailTaken": "Bu e-posta zaten kayıtlı. Giriş yapmayı dene."
+    },
+    "story": {
+      "eyebrow": "Kendi yolunla öğren",
+      "title": "Anlamak{br}bir soruyla başlar.",
+      "lead": "Sor, dene, acele etme.{br}Anladığın her adım sana yeni bir yol açar.",
+      "board": "Küçük bir fikir, pek çok kapı açar",
+      "note": "2 : 3 neden 3 : 2 ile aynı değil?",
+      "bottom": "Öğrenmek için bir alan. Tam sana göre."
+    }
+  },
+  "catalog": {
+    "retry": "Tekrar dene",
+    "backToCurriculum": "Programa dön",
+    "action": {
+      "start": "Başla",
+      "continue": "Devam et",
+      "review": "Tekrar et",
+      "soon": "Yakında"
+    },
+    "page": {
+      "allCurricula": "Tüm programlar",
+      "greeting": {
+        "morning": "Günaydın, {name}",
+        "evening": "İyi akşamlar, {name}"
+      },
+      "loading": "Programların hazırlanıyor…",
+      "notFound": "Program bulunamadı ya da şu an kullanılamıyor."
+    },
+    "continue": {
+      "goals": "Hedefler: {done}/{total}",
+      "resume": "Kaldığın yerden devam et",
+      "next": "Sıradaki ders",
+      "start": "Buradan başla",
+      "lessonsDone": {
+        "other": "{completed}/{count} ders",
+        "one": "{completed}/{count} ders"
+      }
+    },
+    "cards": {
+      "title": "Programlarım",
+      "count": {
+        "other": "{count} program",
+        "one": "{count} program"
+      },
+      "done": "{completed}/{total} tamamlandı",
+      "available": "{count} kullanılabilir",
+      "open": "Programı aç",
+      "emptyTitle": "Henüz kullanılabilir program yok",
+      "emptyText": "Yakında yine uğra ya da kendi kursunu oluştur."
+    },
+    "plan": {
+      "label": "Programdaki ilerlemen",
+      "summary": {
+        "other": "Öğrenilen hedefler · {completed}/{count} ders bitti",
+        "one": "Öğrenilen hedefler · {completed}/{count} ders bitti"
+      },
+      "goLabel": "{action}: {title}",
+      "restPart": "Dersler"
+    },
+    "lesson": {
+      "loading": "Ders hazırlanıyor…",
+      "unavailable": "Dersin bu sürümü yeni platformda henüz kullanılamıyor."
+    },
+    "shell": {
+      "navLabel": "Platform gezinmesi",
+      "closeMenu": "Menüyü kapat",
+      "openMenu": "Menüyü aç",
+      "navTitle": "Öğrenme alanın",
+      "nav": {
+        "library": "Programlarım",
+        "studio": "Kurs oluştur",
+        "teach": "Öğretmen paneli",
+        "settings": "Ayarlar"
+      },
+      "account": "Learn hesabın",
+      "signOut": "Çıkış yap",
+      "signOutFailed": "Çıkış yapılamadı."
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "account": {
+      "title": "Hesap",
+      "note": "Hesabına kaydedilir; hangi cihazdan girersen gir görünür.",
+      "name": "Adın",
+      "nameHint": "Nova sana bu adla seslenir.",
+      "email": "E-posta",
+      "saving": "Kaydediliyor…",
+      "saveName": "Adı kaydet",
+      "nameSaved": "Adın değişti.",
+      "passwordTitle": "Parolanı değiştir",
+      "currentPassword": "Mevcut parola",
+      "newPassword": "Yeni parola",
+      "newPasswordHint": "En az 8 karakter.",
+      "changing": "Değiştiriliyor…",
+      "changePassword": "Parolayı değiştir",
+      "passwordSaved": "Parolan değişti; diğer tüm cihazlarda hesabından çıkış yaptık.",
+      "saveFailed": "Kaydedemedik."
+    },
+    "language": {
+      "hint": "Site ve Nova bu dili kullanır; dersler yazıldıkları dilde kalır."
+    },
+    "lessons": {
+      "title": "Dersler",
+      "note": "Yalnızca bu cihaza kaydedilir ve bir sonraki dersten itibaren geçerli olur.",
+      "questions": "Sorular",
+      "ask": "Bana sor",
+      "show": "Cevabı göster",
+      "pace": "Dersin ilerleyişi",
+      "paceManual": "İleri'ye bastığımda",
+      "paceSlower": "Kendi kendine, yavaşça",
+      "paceNormal": "Kendi kendine",
+      "paceFaster": "Kendi kendine, hızlıca",
+      "narration": "Sesli anlatım",
+      "narrationHint": "Nova her adımı sesli okur.",
+      "handsFree": "Eller serbest",
+      "handsFreeHint": "Nova okur, sen de ekrana dokunmadan sesinle cevaplarsın."
+    },
+    "nova": {
+      "title": "Nova",
+      "note": "Yalnızca bu cihaza kaydedilir ve Nova'nın bir sonraki konuşmasından itibaren geçerli olur.",
+      "voice": "Ses",
+      "voiceLabel": "Nova'nın sesi",
+      "paceLabel": "Nova'nın konuşma hızı",
+      "persona": "Nova nasıl biri olsun?",
+      "personaPlaceholder": "Örneğin: sakin, sabırlı ve biraz esprili"
+    }
+  },
+  "app": {
+    "preview": {
+      "student": "Öğrenci",
+      "notReady": "Bu kurs henüz hazır değil. {link}",
+      "backToGallery": "Galeriye dön"
+    },
+    "demos": {
+      "eyebrow": "New Learn galerisi",
+      "title": "Aynı kurs, her seferinde farklı bir tarz",
+      "lead": "Hepsi aynı platformda hazırlanmış kısa kurslar: elinle oynattığın etkileşimli bir tahta, tahtanın üzerinde bir soru ve sana sesli anlatan Nova.",
+      "soon": "Yakında"
+    },
+    "classroom": {
+      "saving": "Kaydediliyor…",
+      "saved": "Kaydedildi",
+      "offline": "Çevrimdışı",
+      "readAloudFailed": "Dersi şu an sesli okuyamadım, sesli okumayı kapattım. Biraz sonra yeniden açmayı dene.",
+      "loadFailed": "Ders yüklenemedi. İnternetini kontrol edip tekrar dene.",
+      "backToCurriculum": "Programa dön",
+      "backToPlatform": "Platforma dön",
+      "loading": "Ders hazırlanıyor…",
+      "preview": "Önizleme",
+      "previewTitle": "İlerleme yalnızca bu oturumda",
+      "previewLabel": "Önizleme, ilerleme yalnızca bu oturumda"
+    }
+  },
+  "ui": {
+    "head": {
+      "title": "Tasarım sistemi",
+      "lead": "Tüm renkler, ölçüler ve ortak bileşenler. Burada yapılan her değişiklik, bunlarla kurulan tüm ekranlara yansır."
+    },
+    "buttons": {
+      "title": "Düğmeler",
+      "build": "Oluşturmaya başla",
+      "openLesson": "Dersi aç",
+      "skip": "Atla",
+      "deleteDraft": "Taslağı sil",
+      "unavailable": "Kullanılamıyor",
+      "tryFree": "Ücretsiz dene",
+      "seeDemos": "Örneklere bak",
+      "small": "Küçük",
+      "normal": "Normal",
+      "large": "Büyük",
+      "settings": "Ayarlar"
+    },
+    "choices": {
+      "title": "Seçimler",
+      "story": "Önce bir hikâye",
+      "steps": "Adım adım",
+      "examples": "Çözümlü örnekler",
+      "paceLabel": "Anlatım hızı",
+      "slow": "Sakin",
+      "normal": "Normal",
+      "fast": "Hızlı",
+      "whoLabel": "Kurs kimin için?",
+      "meTitle": "Kendim için",
+      "meText": "Ders çalışıyorum ya da yeni bir şey öğrenmek istiyorum",
+      "studentsTitle": "Öğrencilerim için",
+      "studentsText": "Bir sınıfa ya da gruba anlatacağım bir kurs"
+    },
+    "fields": {
+      "title": "Alanlar",
+      "name": "Adın",
+      "nameHint": "Nova'ya ve sertifikalarında görünür.",
+      "email": "E-posta",
+      "emailError": "Bu e-posta doğru yazılmamış.",
+      "note": "Ders için not",
+      "notePlaceholder": "Ne istediğini yaz…",
+      "levelLead": "Öğrenciler",
+      "levelLabel": "Seviye",
+      "beginner": "Yeni başlayan",
+      "some": "Temeli var",
+      "narration": "Sesli anlatım",
+      "narrationHint": "Nova her adımı sesli okur."
+    },
+    "feedback": {
+      "title": "Durumlar ve mesajlar",
+      "draft": "Taslak",
+      "fits": "Konuna uygun",
+      "right": "Doğru",
+      "wrong": "Yanlış",
+      "review": "Gözden geçirilmeli",
+      "error": "E-posta ya da parola hatalı.",
+      "savedTitle": "Kaydedildi",
+      "savedText": "Ayarların bu cihaza kaydedildi.",
+      "info": "Şu an oluşturuluyor; sayfayı kapatabilirsin.",
+      "loading": "Ders hazırlanıyor…",
+      "emptyTitle": "Henüz kurs yok",
+      "emptyAction": "İlk kursunu oluştur",
+      "emptyText": "Bir fikir yaz, ilk etkileşimli dersini dakikalar içinde hazırlayalım."
+    },
+    "surfaces": {
+      "title": "Yüzeyler",
+      "plain": "Düz kart",
+      "plainText": "Sayfadaki ana içerik için.",
+      "soft": "Yumuşak kart",
+      "softText": "Bir grup ayar ya da özet için.",
+      "outline": "Çerçeveli kart",
+      "outlineText": "Listedeki bir öge için.",
+      "openDialog": "Pencere aç",
+      "dialogTitle": "Taslak silinsin mi?",
+      "dialogText": "Sonra geri getiremezsin.",
+      "delete": "Sil",
+      "back": "Geri"
+    },
+    "tokens": {
+      "coloursTitle": "Renkler",
+      "colours": {
+        "primary": "Ana renk",
+        "accent": "Limon",
+        "tutor": "Nova",
+        "ink": "Yazı",
+        "muted": "Soluk yazı",
+        "line": "Çizgiler",
+        "bg": "Arka plan",
+        "paper": "Ders kâğıdı",
+        "surfaceSoft": "Yumuşak yüzey",
+        "success": "Doğru",
+        "danger": "Yanlış",
+        "warning": "Uyarı"
+      },
+      "typeTitle": "Yazı tipi ve boyutlar",
+      "type": {
+        "page": "Sayfa başlığı",
+        "section": "Bölüm başlığı",
+        "large": "Büyük yazı",
+        "body": "Tüm ekranlardaki normal yazı",
+        "small": "Küçük yazı ve ayrıntılar"
+      },
+      "shapeTitle": "Köşeler ve gölgeler"
+    }
+  },
+  "nova": {
+    "defaultName": "dostum",
+    "modal": {
+      "purposeQuiz": "Ders alıştırması",
+      "purposeHelp": "Derste sana yardım",
+      "statusLoading": "Cevap hazırlanıyor",
+      "statusReady": "Sorunu bekliyor",
+      "statusVoice": "Sesli sohbet",
+      "close": "Nova'yı kapat",
+      "paused": "Ders burada duraklatıldı",
+      "loadingContext": "Dersin bağlamı hazırlanıyor…",
+      "modes": "Sohbet biçimi",
+      "chat": "Yazılı",
+      "voice": "Sesli",
+      "previewOnly": "Önizleme hesapsız çalışır. Asistanı kullanmak için giriş yaptıktan sonra dersi programdan aç.",
+      "sessionOnly": "Sohbet ve alıştırma yalnızca bu oturumda kalır.",
+      "backToLesson": "Derse dön"
+    },
+    "assistant": {
+      "endEyebrow": "Öğrendiklerini pekiştir",
+      "endTitle": "Ders üzerine kısa bir teste hazır mısın?",
+      "endLead": "On soru; her cevapta nedenini birlikte anlıyoruz. Sana uyan yolu seç.",
+      "voiceQuiz": "Sesli test",
+      "voiceQuizHint": "Nova'yla konuş",
+      "chatQuiz": "Yazılı test",
+      "chatQuizHint": "Adım adım soru ve cevap",
+      "capsule": "Nova'nın yardımı",
+      "ask": "Nova'ya sor",
+      "talkVoice": "Nova'yla sesli konuş",
+      "openChat": "Nova sohbetini aç"
+    },
+    "chat": {
+      "log": "Sohbet",
+      "welcome": "Merhaba {name} 👋",
+      "welcomeTitle": "İstediğin fikirde duralım, birlikte anlayalım.",
+      "welcomeLead": "Anlatımı, terimleri ya da açıklanmasını istediğin bir örneği sor.",
+      "thinking": "Nova cevabı hazırlıyor…",
+      "latest": "↓ Son mesajlar",
+      "label": "Nova'ya mesajın",
+      "placeholder": "Bulunduğumuz kısmı sor…",
+      "stop": "Cevabı durdur",
+      "send": "Mesajı gönder",
+      "footnote": "Göndermek için Enter · Yeni satır için Shift + Enter · Nova hata yapabilir, anlatımı kontrol et.",
+      "sendFailed": "Mesaj gönderilemedi."
+    },
+    "quiz": {
+      "eyebrow": "Ders alıştırması",
+      "title": "On soru, adım adım.",
+      "lead": "Sorular İngilizce ve çevirileriyle geliyor; her cevaptan sonra nedenini birlikte anlıyoruz.",
+      "disclaimer": "Yapay zekâyla üretilmiş bir alıştırmadır, resmî bir sınav değildir. Sonuç yalnızca bu oturumda kalır.",
+      "preparing": "Sorular hazırlanıyor…",
+      "prepare": "Testi hazırla",
+      "cancel": "İptal",
+      "doneEyebrow": "Alıştırmayı bitirdin",
+      "score": "{score} / {total}",
+      "doneLead": "Pekiştirmen gereken fikirlere göz at, istediğin cevabı Nova'ya sor.",
+      "preparingNew": "Yeni bir alıştırma hazırlanıyor…",
+      "again": "Yeni alıştırma",
+      "progress": "Soru {number}/{total}",
+      "correct": "Doğru cevap",
+      "review": "Cevabı birlikte anlayalım",
+      "result": "Sonucu gör",
+      "next": "Sonraki soru",
+      "prepareFailed": "Test hazırlanamadı."
+    },
+    "voice": {
+      "status": {
+        "idle": "Başlamak istediğinde hazır",
+        "connecting": "Görüşme bağlanıyor…",
+        "listening": "Nova seni dinliyor",
+        "speaking": "Nova konuşuyor",
+        "paused": "Görüşme duraklatıldı"
+      },
+      "start": "Görüşmeyi başlat",
+      "unmute": "Mikrofonu aç",
+      "mute": "Mikrofonu kapat",
+      "resume": "Görüşmeye devam et",
+      "pause": "Duraklat",
+      "hangup": "Görüşmeyi bitir",
+      "footnote": "Mikrofon yalnızca senin izninle açılır. Nova konuşurken sözünü kesebilirsin.",
+      "micBlocked": "Tarayıcıdan mikrofona izin ver ya da yazılı sohbeti kullan.",
+      "startFailed": "Görüşme başlatılamadı.",
+      "resumeFailed": "Görüşmenin sesi sürdürülemedi. Yeniden ara.",
+      "noMic": "Tarayıcı burada mikrofonu desteklemiyor. Yazılı sohbeti kullan.",
+      "closed": "Görüşme kapandı.",
+      "slow": "Bağlantı gecikti. Tekrar dene.",
+      "sessionFailed": "Nova oturumu başlatılamadı.",
+      "ended": "Görüşme bitti. İstersen yeniden arayabilirsin.",
+      "readFailed": "Nova'nın cevabı okunamadı.",
+      "connectFailed": "Bağlanılamadı. İnternetini kontrol edip tekrar dene.",
+      "dropped": "Görüşme koptu. Yeniden aramayı dene.",
+      "paces": {
+        "slowest": "Çok yavaş",
+        "slow": "Sakin",
+        "normal": "Normal"
+      }
+    },
+    "voiceStyle": {
+      "title": "Nova'nın sesi",
+      "voice": "Ses",
+      "pace": "Konuşma hızı",
+      "persona": "Nova nasıl biri olsun?",
+      "personaPlaceholder": "Örneğin: sakin, sabırlı ve biraz esprili",
+      "applies": "Nova'nın bir sonraki konuşmasından itibaren geçerli olur."
+    },
+    "lessonSettings": {
+      "label": "Ders ayarları ve Nova'nın sesi",
+      "narration": "Dersi Nova okusun",
+      "narrationHint": "Her adımı okur, kendi kendine ilerler ve sorularda durur.",
+      "volume": "Ses düzeyi",
+      "autoTurn": "Otomatik geçiş",
+      "paces": {
+        "manual": "Elle",
+        "slower": "Daha yavaş",
+        "normal": "Normal",
+        "faster": "Daha hızlı"
+      },
+      "paceHint": "Sonraki adım gelmeden önceki süre. “Elle”, İleri düğmesiyle demek.",
+      "questions": "Sorular",
+      "questionModes": {
+        "ask": "Bana sor",
+        "show": "Çözümleri göster"
+      },
+      "questionsHint": "“Çözümleri göster” seçiliyken ders, cevap vermeni beklemeden devam eder. Cevaplanmadan gösterilen sorular hedeflere sayılmaz."
+    },
+    "handsFree": {
+      "title": "Dinleme modu (ekransız)",
+      "hint": "Nova dersi okur, sen de telefona dokunmadan sorulara sesinle cevap verirsin. Ekranı kapatabilirsin.",
+      "wakeWord": "Çağrı sözcüğü",
+      "wakeWordHint": "Nova okurken sözünü kesmek için bunu söyle, ardından sorunu sor; ya da kulaklık düğmesine bir kez bas.",
+      "noisy": "Gürültülü ortam",
+      "noisyHint": "Nova cevabını yalnızca çağrı sözcüğünden ya da kulaklık düğmesinden sonra bekler.",
+      "noisyNotice": "Bulunduğun yer gürültülü gibi. Kulaklık düğmesine bir kez basmanı ya da bana seslenmeni bekleyeceğim; sonra rahatça cevap ver.",
+      "micOpenTalk": "Mikrofon açık: konuş",
+      "micOpenReply": "Mikrofon cevabın için açık",
+      "ignoredNoise": "Konuşma olmayan bir sesi atladım: “{heard}”"
+    },
+    "talk": {
+      "hold": {
+        "idle": "Bas ve konuş",
+        "connecting": "Bağlanıyor…",
+        "listening": "Dinliyorum…",
+        "thinking": "Düşünüyor…",
+        "speaking": "Durdur",
+        "reading": "Bas ve konuş"
+      },
+      "placeholder": {
+        "idle": "Bu adımı Nova'ya sor…",
+        "connecting": "Nova'ya bağlanıyorsun…",
+        "listening": "Nova seni dinliyor… Bitirince düğmeyi bırak",
+        "thinking": "Nova düşünüyor…",
+        "speaking": "Nova cevap veriyor… Sözünü kesmek için bas ve konuş",
+        "reading": "Nova okuyor… Soru sormak için bas ve konuş"
+      },
+      "tip": "Konuşurken düğmeyi basılı tut",
+      "ask": "Nova'ya sor",
+      "send": "Nova'ya gönder",
+      "holdLabel": "Basılı tut ve Nova'yla konuş",
+      "holdTitle": "Basılı tut ve konuş — ya da Space'i basılı tut",
+      "orb": "Nova sohbeti: açmak için dokun ya da basılı tutup konuş",
+      "askFailed": "Soru gönderilemedi. Tekrar dene.",
+      "voiceQuestion": "Sesli soru",
+      "micBlocked": "Tarayıcıdan mikrofona izin ver ya da sorunu yaz.",
+      "failed": "Nova'yla konuşulamadı.",
+      "lessonLoading": "Ders hâlâ yükleniyor.",
+      "noReply": "Nova bu sefer cevap vermedi. Tekrar dene."
+    }
+  },
+  "classroom": {
+    "probe": {
+      "title": "Bir fikri anlatalım, deneyelim, devam edelim.",
+      "lead": "Deneme sesleriyle motor testi; resmî bir ders değildir."
+    },
+    "backToCurriculum": "{back} Programa dön",
+    "footer": "İnceleme sürümü · Orijinal ses · İlerleme ve notlar yalnızca bu oturumda",
+    "header": {
+      "brandBack": "Learn, programa dön",
+      "brandStart": "Learn, dersin başı",
+      "openGuide": "Ders rehberini aç",
+      "help": "Ders yardımı"
+    },
+    "tools": {
+      "label": "Öğrenme araçları",
+      "guide": "Fikri anlat",
+      "terms": "Terimler",
+      "notes": "Notlarım",
+      "source": "Kaynak",
+      "scenes": "Sahneler"
+    },
+    "guide": {
+      "titles": {
+        "guide": "Adım adım anlayalım",
+        "terms": "Terim ve anlamı",
+        "notes": "Düşüncelerin için bir alan",
+        "source": "Dersin kaynakları"
+      },
+      "label": "Ders yardımı",
+      "title": "Ders rehberi",
+      "subtitle": "Hazır açıklamalar ve kendi kendine tekrar",
+      "close": "Yardımı kapat",
+      "eyebrowGuide": "Birlikte düşünelim",
+      "eyebrowTools": "Öğrenme araçları",
+      "promptTitle": "Gözün fikirde olsun",
+      "promptText": "Fikri tahtada izle, soruyu kendin dene, sonra cevabını öğretmenin yorumuyla karşılaştır.",
+      "reviewTerms": "Terimleri gözden geçir",
+      "notesLabel": "Dönüp bakacağın bir özet ya da soru yaz.",
+      "notesPlaceholder": "Hangi fikri anladın?",
+      "notesHint": "Notlar yalnızca bu oturumda kalır; sayfayı kapatmadan önce kopyala.",
+      "openSource": "Kaynağı aç",
+      "sourceNote": "Orijinal kayıtlarla bir inceleme sürümü. Burada gösterilmesi, içeriğin ya da zamanlamaların yeniden onaylandığı anlamına gelmez.",
+      "footer": "Derse hazır bir rehber; yapay zekâ sohbeti değil"
+    }
+  },
+  "book": {
+    "loading": "Ders hazırlanıyor…",
+    "reference": {
+      "from": "Kitaptan · s. {pages}",
+      "sizes": "Kitap sayfasının boyutu",
+      "small": "Küçük",
+      "smallLabel": "Küçük kitap sayfası",
+      "half": "Yarım ekran",
+      "halfLabel": "Yarım ekran kitap sayfası",
+      "full": "Tam",
+      "fullLabel": "Tam ekran kitap sayfası",
+      "hide": "Gizle",
+      "hideLabel": "Kitap sayfasını gizle",
+      "zoomIn": "Kitabın anlatılan kısmını büyüt",
+      "zoomOut": "Kitabın anlatılan kısmını küçült",
+      "image": "Sayfanın anlatılan kısmı (s. {pages})",
+      "open": "Kitap sayfasını aç",
+      "toggle": "Kitap · s. {pages}",
+      "fullDialog": "Tam ekran kitap sayfası",
+      "panel": "Kitap sayfası"
+    }
+  },
+  "boards": {
+    "html": {
+      "unavailable": "Bu tahta şu an çalışmıyor. Yazılı anlatımla devam et."
+    }
+  },
+  "studio": {
+    "form": {
+      "eyebrow": "Kurs stüdyosu",
+      "title": "Bir fikirden etkileşimli bir ders oluştur",
+      "lead": "Ne öğrenmek ya da anlatmak istediğini yaz, kimin için olduğunu söyle, görünümünü seç. Sana içinde oynayabileceğin tahtalar ve sorular olan bir ders hazırlayalım; başkası görmeden önce gözden geçirebilirsin.",
+      "active": "Şu an bir kurs oluşturuluyor: {topic} {follow}",
+      "follow": "Takip et",
+      "ideaNumber": "1",
+      "ideaTitle": "Fikir",
+      "detailsNumber": "2",
+      "detailsTitle": "Kimin için?",
+      "lookNumber": "3",
+      "lookTitle": "Görünüm",
+      "examples": "Örnekler",
+      "examplesLead": "Ya da bir örnekle başla:",
+      "untitled": "Yeni ders",
+      "summary": "{audience} · {look} · 5–20 dakika sürer, sayfayı kapatabilirsin",
+      "sending": "İsteğin gönderiliyor…",
+      "start": "Oluşturmaya başla",
+      "dropHere": "Dosyaları buraya bırak",
+      "errors": {
+        "tooMany": "En fazla 5 dosya.",
+        "tooBig": "Her dosya 4 MB'tan küçük olmalı.",
+        "tooBigTogether": "Dosyaların toplamı 10 MB'tan küçük olmalı.",
+        "noTopic": "Kursun ne hakkında olduğunu yaz.",
+        "startFailed": "Oluşturma başlatılamadı."
+      }
+    },
+    "composer": {
+      "label": "Kurs ne hakkında?",
+      "placeholder": "Ne öğrenmek ya da anlatmak istiyorsun? Konuyu ve önemli gördüğün her şeyi yaz: “Bileşik faiz, Türkiye'deki bankalardan örneklerle”",
+      "files": "Dosyaların",
+      "size": "{size} MB",
+      "remove": "Kaldır: {name}",
+      "attach": "Dosya yükle",
+      "webSearch": "İnternette arasın",
+      "hint": "PDF, Word, fotoğraf ya da metin; en fazla 5 dosya"
+    },
+    "details": {
+      "more": "Daha fazla ayrıntı",
+      "upToThree": "(en fazla 3)"
+    },
+    "leads": {
+      "myLevel": "Seviyem",
+      "goal": "Hedefim",
+      "time": "Süre",
+      "language": "Dil",
+      "students": "Öğrenciler",
+      "questions": "Sorular",
+      "age": "Yaş",
+      "boards": "Tahtalar"
+    },
+    "choices": {
+      "audience": {
+        "title": "Kurs kimin için?",
+        "me": "Kendim için",
+        "students": "Öğrencilerim için",
+        "kids": "Bir çocuk için"
+      },
+      "goal": {
+        "title": "Hedef",
+        "understand": "Fikri anlamak",
+        "practice": "Soru çözerek pratik yapmak",
+        "review": "Hızlıca tekrar etmek"
+      },
+      "age": {
+        "title": "Yaş",
+        "from4to6": "4–6 yaş",
+        "from7to9": "7–9 yaş",
+        "from10to12": "10–12 yaş"
+      },
+      "level": {
+        "title": "Öğrencilerin seviyesi",
+        "beginner": "Yeni başlayan",
+        "some": "Temeli var",
+        "revision": "Tekrar"
+      },
+      "language": {
+        "title": "Anlatım dili",
+        "egyptian": "Mısır Arapçası",
+        "msa": "Fusha (standart Arapça)",
+        "english": "İngilizce",
+        "mixed": "Arapça, İngilizce terimlerle"
+      },
+      "style": {
+        "title": "Anlatım biçimi",
+        "story": "Önce bir hikâye",
+        "steps": "Adım adım",
+        "problem": "Önce bir problem",
+        "examples": "Çözümlü örnekler",
+        "analogies": "Hayattan benzetmeler"
+      },
+      "boards": {
+        "title": "Tahtalar",
+        "text": "Yalnızca metin",
+        "some": "Yararlı olduğunda etkileşimli",
+        "most": "Çoğunlukla etkileşimli"
+      },
+      "questions": {
+        "title": "Sorular",
+        "each": "Her sahneden sonra",
+        "key": "Önemli noktalarda",
+        "none": "Sorusuz"
+      },
+      "size": {
+        "title": "Boyut",
+        "oneLesson": "Tek ders",
+        "threeLessons": "3 ders",
+        "fiveLessons": "5 ders"
+      }
+    },
+    "audiences": {
+      "me": {
+        "name": "Kendim için",
+        "line": "Ders çalışıyorum ya da yeni bir şey öğrenmek istiyorum",
+        "level": {
+          "beginner": "İlk kez duyuyorum",
+          "some": "Biraz biliyorum",
+          "revision": "Sınava çalışıyorum"
+        },
+        "size": {
+          "oneLesson": "Çeyrek saat",
+          "threeLessons": "Yaklaşık bir saat",
+          "fiveLessons": "Bir saatten fazla"
+        }
+      },
+      "students": {
+        "name": "Öğrencilerim için",
+        "line": "Bir sınıfa ya da gruba anlatacağım bir kurs"
+      },
+      "kids": {
+        "name": "Bir çocuk için",
+        "line": "Oğlum, kızım ya da küçük öğrenciler için",
+        "size": {
+          "oneLesson": "Kısa bir ders",
+          "threeLessons": "3 kısa ders",
+          "fiveLessons": "5 kısa ders"
+        }
+      }
+    },
+    "gallery": {
+      "label": "Dersin görünümü",
+      "fits": "Konuna uygun",
+      "try": "Göz at",
+      "tryLook": "({name})",
+      "prevIcon": "‹",
+      "prev": "Önceki görünümler",
+      "nextIcon": "›",
+      "next": "Diğer görünümler"
+    },
+    "preview": {
+      "description": "{line} Tahtayı elinle dene.",
+      "choose": "Bu görünümü seç",
+      "openDemo": "Örnek dersi aç"
+    },
+    "progress": {
+      "loading": "Kursun durumu alınıyor…",
+      "newCourse": "Yeni kurs",
+      "status": {
+        "queued": "Sırasını bekliyor",
+        "running": "Oluşturuluyor",
+        "done": "Bitti",
+        "failed": "Durdu"
+      },
+      "duration": "Bu 5 ile 20 dakika sürer. Sayfayı kapatıp sonra dönebilirsin; iş devam ediyor.",
+      "waiting": "Oluşturucunun isteğini alması bekleniyor…",
+      "retrying": "{error} Yeniden deniyoruz…",
+      "openFirst": "İlk dersi aç",
+      "myDrafts": "Taslaklarım",
+      "failed": "Bu kursu tamamlayamadık. {error} {retry}",
+      "retry": "Tekrar dene"
+    },
+    "boards": {
+      "title": "Tahtalar",
+      "drawingNext": "Sıradaki tahta çiziliyor…",
+      "drawingFirst": "İlk tahta çiziliyor…"
+    }
+  },
+  "teach": {
+    "loadingCourse": "Kurs hazırlanıyor…",
+    "loadingCourses": "Kursların hazırlanıyor…",
+    "lessonCount": {
+      "other": "{count} ders",
+      "one": "{count} ders"
+    },
+    "studentCount": {
+      "other": "{count} öğrenci",
+      "one": "{count} öğrenci"
+    },
+    "openNoteCount": {
+      "other": "{count} açık not",
+      "one": "{count} açık not"
+    },
+    "status": {
+      "draft": "Taslak",
+      "withdrawn": "Geri çekildi",
+      "stale": "Yayında, sonradan değişiklik yapıldı",
+      "live": "Yayında · Sürüm {version}"
+    },
+    "dashboard": {
+      "eyebrow": "Öğretmen paneli",
+      "title": "Kursların",
+      "stats": {
+        "courses": "Kurs",
+        "published": "Yayında",
+        "students": "Öğrenci",
+        "openNotes": "Açık not"
+      },
+      "open": "Aç",
+      "preview": "Önizleme",
+      "emptyTitle": "Henüz hiç kursun yok",
+      "emptyAction": "İlk kursunu oluştur",
+      "emptyBody": "Bir fikir yaz ya da ders notunu yükle; gözden geçirip öğrencilerine yayınlayacağın bir taslak hazırlayalım."
+    },
+    "course": {
+      "back": "Kursların",
+      "subjectFallback": "Kurs",
+      "previewFirst": "İlk dersi önizle",
+      "tabsLabel": "Kursun bölümleri",
+      "tabs": {
+        "publish": "Yayınla",
+        "outline": "Düzen",
+        "notes": "Notlar",
+        "notesCount": "Notlar ({count})"
+      }
+    },
+    "outline": {
+      "saved": "Kaydedildi. Değişiklik bir sonraki yayında öğrencilerine ulaşır.",
+      "title": "Kursun adı",
+      "subject": "Ders alanı",
+      "description": "Kısa açıklama",
+      "descriptionHint": "Kurs sayfasında öğrencilerine görünür.",
+      "partName": "Bölüm {n} adı",
+      "removePart": "Bölümü kaldır",
+      "up": "Yukarı",
+      "down": "Aşağı",
+      "moveTo": "Başka bölüme taşı",
+      "movePlaceholder": "Taşı…",
+      "partFallback": "Bölüm {n}",
+      "addPart": "+ Yeni bölüm",
+      "saving": "Kaydediliyor…",
+      "save": "Düzeni kaydet",
+      "moreLessons": "Diğer dersler",
+      "lessons": "Dersler"
+    },
+    "publish": {
+      "before": "Yayından önce",
+      "published": "Kurs yayında. Bağlantıyı öğrencilerine gönder.",
+      "updated": "Yeni sürüm öğrencilerine ulaştı.",
+      "wait": "Bir saniye…",
+      "publishChanges": "Değişiklikleri yayınla",
+      "publishNew": "Yeni sürüm yayınla",
+      "republish": "Yeniden yayınla",
+      "publish": "Öğrencilerine yayınla",
+      "withdrawDone": "Kurs öğrencilerinden geri çekildi.",
+      "withdraw": "Kursu geri çek",
+      "withdrawnNote": "Kurs geri çekildi: öğrencilerin şu an göremiyor; yeniden yayınlayana kadar ilerlemeleri saklanıyor.",
+      "linkTitle": "Kurs bağlantısı",
+      "linkNote": "Bağlantıyı açıp kendi hesabıyla giren herkes kursa başlayabilir.",
+      "copied": "Kopyalandı",
+      "copy": "Kopyala",
+      "version": "Sürüm {version} · Yayın tarihi: {date}",
+      "students": "Öğrencilerin",
+      "lesson": "Ders",
+      "started": "Başlayan",
+      "finished": "Bitiren",
+      "noStudents": "Henüz kimse başlamadı. Bağlantıyı öğrencilerine gönder."
+    },
+    "notes": {
+      "status": {
+        "open": "Açık",
+        "review": "Düzeltildi, gözden geçir",
+        "done": "Tamam",
+        "dismissed": "Kaldırıldı"
+      },
+      "phase": {
+        "narration": "Anlatım",
+        "attempt": "Soru",
+        "feedback": "Cevap"
+      },
+      "lessonFallback": "Ders",
+      "filterLabel": "Notların durumu",
+      "filter": "{status} ({count})",
+      "where": "{phase} · Adım {step}",
+      "fix": "Düzeltme: {fix}",
+      "markDone": "Tamam",
+      "reopen": "Yeniden aç",
+      "dismiss": "Kaldır",
+      "emptyFiltered": "Bu durumda not yok",
+      "empty": "Not yok",
+      "emptyBody": "Önizlemeyi aç ve istediğin adıma not yaz; hesabına bağlı yapay zekâ onu düzeltsin."
+    }
+  },
+  "authoring": {
+    "consent": {
+      "checking": "İstek kontrol ediliyor…",
+      "title": "“{name}” kurslarına erişmek istiyor",
+      "body": "Merhaba {name}. İzin verirsen hesabında taslak olarak kurslar, dersler ve etkileşimli tahtalar oluşturabilecek; derslerine yazdığın notları okuyup düzeltebilecek. Öğrencilere hiçbir şey yayınlayamayacak, hesabını ya da öğrencilerinin verilerini göremeyecek.",
+      "host": "Seni şuraya geri gönderecek: {host}",
+      "allow": "İzin ver",
+      "deny": "Hayır"
+    },
+    "feedback": {
+      "kinds": {
+        "text": "Anlatım",
+        "board": "Tahta",
+        "question": "Soru",
+        "translation": "Çeviri"
+      },
+      "status": {
+        "open": "Açık",
+        "review": "Düzeltildi, gözden geçir",
+        "done": "Tamam",
+        "dismissed": "Kaldırıldı"
+      },
+      "toggle": "Taslak notları",
+      "toggleCount": "Taslak notları ({count})",
+      "panel": "Bu adıma notlar",
+      "where": "{scene} · Adım {step}",
+      "end": "Dersin sonu",
+      "revision": "Sürüm {revision}",
+      "fix": "Düzeltme: {fix}",
+      "done": "Tamam",
+      "notYet": "Henüz değil",
+      "kindLabel": "Not türü",
+      "placeholder": "Bu adımda neyin düzeltilmesi gerekiyor?",
+      "noteLabel": "Not",
+      "send": "Notu gönder",
+      "hint": "Claude'dan iste: “Dersteki notlarıma bak ve düzelt.” Her notu “Düzeltildi, gözden geçir” olarak işaretleyecek."
+    },
+    "drafts": {
+      "start": "Etkileşimli bir derse dönüştürmek istediğin bir anlatımın ya da dosyaların mı var? {link}",
+      "startLink": "Kurs oluştur",
+      "title": "Taslaklarım",
+      "dashboard": "Öğretmen paneli",
+      "newCourse": "+ Yeni kurs oluştur",
+      "revision": "Sürüm {revision}"
+    }
+  },
+  "courses": {
+    "loading": "Kurs hazırlanıyor…",
+    "back": "Kitaplığın",
+    "subjectFallback": "Kurs",
+    "by": "Hazırlayan: {teacher}",
+    "lessonCount": {
+      "other": "{count} ders",
+      "one": "{count} ders"
+    },
+    "progress": "{done}/{total} tamamlandı",
+    "wait": "Bir saniye…",
+    "continue": "Kursa devam et",
+    "start": "Kursa başla",
+    "next": "Sıradaki: {title}",
+    "lessonsFallback": "Dersler",
+    "completed": "Bitirdin",
+    "started": "Başladın",
+    "mine": {
+      "title": "Kayıtlı olduğun kurslar",
+      "fallback": "Kurs",
+      "continue": "Devam et: {title}",
+      "start": "Başla: {title}"
+    }
+  }
+}

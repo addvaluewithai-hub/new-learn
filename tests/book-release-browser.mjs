@@ -44,6 +44,7 @@ try {
     const store = new Map(),
       errors = [];
     const page = await browser.newPage({
+      locale: 'ar-EG',
       viewport: { width, height: 900 },
       reducedMotion: 'reduce',
     });

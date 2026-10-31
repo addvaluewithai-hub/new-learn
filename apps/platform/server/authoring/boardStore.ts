@@ -16,7 +16,7 @@ export async function putBoard(db: Db, owner: string, files: unknown) {
     .select({ n: sql<number>`count(distinct ${authorBoards.boardId})::int` })
     .from(authorBoards)
     .where(eq(authorBoards.ownerId, owner));
-  if (n >= LIMITS.boards) throw new HttpError(429, `at most ${LIMITS.boards} boards`);
+  if (n >= LIMITS.boards) throw HttpError.plain(429, `at most ${LIMITS.boards} boards`);
   await db
     .insert(authorBoards)
     .values({
@@ -54,7 +54,7 @@ export async function getBoard(db: Db, owner: string, boardId: string) {
     .where(and(eq(authorBoards.ownerId, owner), eq(authorBoards.boardId, boardId)))
     .orderBy(desc(authorBoards.createdAt))
     .limit(1);
-  if (!row) throw new HttpError(404, 'not found');
+  if (!row) throw HttpError.plain(404, 'not found');
   return row;
 }
 
@@ -69,7 +69,7 @@ export async function addBoardReport(db: Db, owner: string, hash: string, input:
     !Number.isFinite(r.width) ||
     !Array.isArray(r.problems)
   )
-    throw new HttpError(400, 'bad report');
+    throw HttpError.plain(400, 'bad report');
   const report: AuthorCheckReport = {
     checkedAt: new Date().toISOString(),
     layout: r.layout,
@@ -89,7 +89,7 @@ export async function addBoardReport(db: Db, owner: string, hash: string, input:
     .select({ reports: authorBoards.reports })
     .from(authorBoards)
     .where(and(eq(authorBoards.hash, hash), eq(authorBoards.ownerId, owner)));
-  if (!row) throw new HttpError(404, 'not found');
+  if (!row) throw HttpError.plain(404, 'not found');
   const reports = [report, ...row.reports.filter((x) => x.layout !== report.layout)];
   await db
     .update(authorBoards)

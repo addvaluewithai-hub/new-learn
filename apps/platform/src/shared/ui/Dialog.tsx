@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
+import { useI18n } from '../../i18n';
 
 /** A modal on the native <dialog>: focus stays inside, Escape and the backdrop close it, and
  *  the page behind is inert. Mount it to open it; `onClose` unmounts it. */
@@ -20,6 +21,7 @@ export function Dialog({
   children?: ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const { t } = useI18n();
   const id = useId();
   useEffect(() => {
     const dialog = ref.current;
@@ -53,7 +55,7 @@ export function Dialog({
         <button
           type="button"
           className="nl-icon-button nl-button--ghost nl-icon-button--md"
-          aria-label="اقفل"
+          aria-label={t('common.close')}
           onClick={() => ref.current?.close()}
         >
           <span aria-hidden="true">×</span>
