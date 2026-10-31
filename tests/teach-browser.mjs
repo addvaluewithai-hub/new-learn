@@ -1,6 +1,7 @@
 // The teacher's workspace and a student's course (docs/connector.md, publishing): the
 // dashboard, one course's self-check, publish, share link, outline and notes, then the course
-// page a student opens from the link, enrolment, and the lesson playing with saved progress.
+// page a student opens from the link, enrolment, and the lesson playing with saved progress;
+// listing the course in the marketplace and finding it on the Explore page.
 // At 1280px and 390px, against a mocked API.
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
@@ -60,6 +61,12 @@ function api(store) {
           withdrawn: false,
           students: 1,
           stale: false,
+          publicVersion: store.version,
+          priceCents: 0,
+          currency: 'USD',
+          listing: store.listing,
+          grade: store.grade,
+          review: null,
         }
       : null,
   });
@@ -96,6 +103,33 @@ function api(store) {
     if (path === `/api/teach/courses/${courseId}/publish`) {
       store.version = (store.version ?? 0) + 1;
       return send({ courseId, version: store.version, lessons: 2 }, 201);
+    }
+    if (path === `/api/teach/courses/${courseId}/listing`) {
+      const body = request.postDataJSON();
+      store.listing = body.list ? 'requested' : 'private';
+      store.grade = body.grade;
+      return send({ listing: store.listing });
+    }
+    // The marketplace: the course once staff approved it, filtered by grade.
+    if (path === '/api/courses/market') {
+      const q = new URL(request.url()).searchParams;
+      store.marketQueries.push(Object.fromEntries(q));
+      const card = {
+        id: courseId,
+        title: store.title,
+        subject: 'علوم',
+        description: 'حالات المية.',
+        language: 'ar',
+        grade: 'g4',
+        teacher: 'أستاذة منى',
+        priceCents: 0,
+        currency: 'USD',
+        lessons: 2,
+      };
+      return send({
+        courses: !q.get('grade') || q.get('grade') === 'g4' ? [card] : [],
+        facets: { subjects: ['علوم'], languages: ['ar'], grades: ['g4', 'g5'] },
+      });
     }
     const note = /^\/api\/teach\/notes\/(.+)$/.exec(path);
     if (note) {
@@ -188,6 +222,9 @@ async function run(width, height) {
       },
     ],
     version: null,
+    listing: 'private',
+    grade: '',
+    marketQueries: [],
     outline: [],
     enrolled: false,
     saved: [],
@@ -219,6 +256,11 @@ async function run(width, height) {
   assert.equal(store.version, 1);
   await page.getByLabel('لينك الكورس').waitFor();
   assert.equal(await page.getByLabel('لينك الكورس').inputValue(), `${app}/?course=${courseId}`);
+  // The marketplace: a free course asks to be listed, for a grade, and waits for review.
+  await page.locator('.teach-listing select').selectOption('g4');
+  await page.getByRole('button', { name: 'اعرضه في السوق' }).click();
+  await page.locator('.teach-listing').getByText('مستني المراجعة قبل ما يتعرض').waitFor();
+  assert.deepEqual([store.listing, store.grade], ['requested', 'g4']);
   await page.screenshot({ path: `test-results/teach-publish-${width}.png`, fullPage: true });
   // The outline: move a lesson up and rename, then the saved parts carry the new order.
   await page.getByRole('radio', { name: 'الترتيب' }).click();
@@ -253,6 +295,20 @@ async function run(width, height) {
   assert.ok(store.saved.length >= 1, 'progress is saved');
   assert.equal(store.saved[0].contentRevision, `pub-${courseId}-v1`);
   await page.screenshot({ path: `test-results/course-lesson-${width}.png` });
+  // Explore: the listed course, a grade filter that hides it, and its card opening the course.
+  await page.goto(`${app}/?explore`);
+  await page.getByRole('heading', { name: 'استكشف', level: 1 }).waitFor({ timeout: 20000 });
+  await page.locator('.market-card').getByText('الصف 4').waitFor();
+  await page.getByLabel('الصف').selectOption('g5');
+  await page.getByText('مفيش كورسات بالاختيارات دي.').waitFor();
+  assert.equal(store.marketQueries.at(-1).grade, 'g5');
+  await page.getByLabel('الصف').selectOption('');
+  await page.getByLabel('دوّر').fill('مية');
+  await page.locator('.market-card').waitFor();
+  assert.equal(store.marketQueries.at(-1).q, 'مية');
+  await page.screenshot({ path: `test-results/explore-${width}.png`, fullPage: true });
+  await page.locator('.market-card h2 a').click();
+  await page.waitForURL(`${app}/?course=${courseId}`);
   // Back home, the course is in the library.
   await page.goto(`${app}/`);
   await page.locator('.my-course').waitFor({ timeout: 20000 });
@@ -276,7 +332,9 @@ try {
   browser = await chromium.launch();
   await run(1280, 900);
   await run(390, 844);
-  console.log('Teacher workspace, publishing and a student course passed at 1280px and 390px.');
+  console.log(
+    'Teacher workspace, publishing, marketplace listing, Explore and a student course passed at 1280px and 390px.',
+  );
 } finally {
   await browser?.close();
   server.kill('SIGTERM');

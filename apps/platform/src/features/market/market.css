@@ -1,0 +1,93 @@
+/* The marketplace (features/market): the Explore page's filters and cards, and the teacher's
+   listing card in the publish tab. */
+.market-filters {
+  display: grid;
+  grid-template-columns: minmax(12rem, 2fr) repeat(3, minmax(8rem, 1fr));
+  gap: var(--nl-space-3);
+  margin-block-end: var(--nl-space-6);
+}
+.market-filters label {
+  display: grid;
+  gap: var(--nl-space-1);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.market-filters select {
+  min-height: 44px;
+  padding: 0 var(--nl-space-3);
+  border: 1px solid #d5dbd8;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--nl-ink);
+  font: inherit;
+  font-size: var(--nl-text-md);
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--nl-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.market-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--nl-space-2);
+  padding: var(--nl-space-5);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(16 32 28 / 8%);
+}
+.market-card h2 {
+  margin: 0;
+  font-size: var(--nl-text-lg);
+}
+.market-card h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.market-card h2 a:hover {
+  text-decoration: underline;
+}
+.market-card p {
+  margin: 0;
+  color: var(--nl-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.market-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nl-space-2);
+  color: var(--nl-muted);
+  font-size: var(--nl-text-sm);
+}
+.teach-listing {
+  display: grid;
+  gap: var(--nl-space-3);
+  justify-items: start;
+}
+.teach-listing-grade {
+  display: grid;
+  gap: var(--nl-space-1);
+}
+.teach-listing-grade select {
+  min-height: 40px;
+  padding: 0 var(--nl-space-3);
+  border: 1px solid #d5dbd8;
+  border-radius: 10px;
+  font: inherit;
+}
+@media (max-width: 720px) {
+  .market-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+  .market-search {
+    grid-column: 1 / -1;
+  }
+}

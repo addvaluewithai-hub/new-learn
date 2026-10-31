@@ -5,6 +5,7 @@ import { publishedCourses, publishedLessons } from '../db/publish';
 import { courseReviews, type AiReport } from '../db/money';
 import type { AuthUser } from '../env';
 import { HttpError } from '../http';
+import { afterDecision } from '../market/store';
 
 // The platform's review of paid courses (docs/credits.md): staff see the versions waiting,
 // read every lesson as students would, can ask the AI for a first pass, and approve or send
@@ -118,6 +119,7 @@ export async function decide(
         currency: review.currency,
       })
       .where(eq(publishedCourses.id, courseId));
+  await afterDecision(db, courseId, review, input.status);
   return { status: input.status };
 }
 

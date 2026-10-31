@@ -684,6 +684,10 @@
       "notFound": "Cette relecture n’existe pas.",
       "decided": "Une décision a déjà été prise pour cette relecture.",
       "needNotes": "Écrivez vos remarques pour l’enseignant avant de demander des modifications."
+    },
+    "market": {
+      "badGrade": "Niveau inconnu.",
+      "fixFirst": "Cette version doit d’abord être corrigée : corrigez-la et publiez une nouvelle version."
     }
   },
   "build": {
@@ -832,7 +836,8 @@
         "settings": "Paramètres",
         "credits": "Crédits",
         "review": "Relecture",
-        "ops": "Exploitation"
+        "ops": "Exploitation",
+        "explore": "Explorer"
       },
       "account": "Votre compte Learn",
       "signOut": "Se déconnecter",
@@ -1743,8 +1748,8 @@
     "topUp": "Recharger mes crédits"
   },
   "review": {
-    "title": "Relecture des cours payants",
-    "lead": "Lisez chaque leçon comme un élève, lancez la relecture par l’IA comme point de départ, puis approuvez ou envoyez vos remarques à l’enseignant.",
+    "title": "Relecture des cours",
+    "lead": "Les cours payants avant la vente et les gratuits avant le catalogue. Lisez chaque leçon comme un élève, lancez la relecture IA pour commencer, puis approuvez ou envoyez des remarques.",
     "loading": "Nous chargeons les cours…",
     "empty": "Aucun cours n’attend de relecture.",
     "item": "{teacher} · version {version} · {price}",
@@ -1783,7 +1788,8 @@
     "decided": {
       "approved": "Approuvé : cette version est maintenant en vente.",
       "changes": "Vos remarques ont été envoyées à l’enseignant."
-    }
+    },
+    "forListing": "Gratuit · pour le catalogue"
   },
   "ops": {
     "title": "Exploitation de la plateforme",
@@ -1821,6 +1827,59 @@
       },
       "auth": {
         "signup": "Nouveaux comptes"
+      }
+    }
+  },
+  "market": {
+    "free": "Gratuit",
+    "grades": {
+      "none": "Non précisé",
+      "kg": "Maternelle",
+      "g1": "Année 1",
+      "g2": "Année 2",
+      "g3": "Année 3",
+      "g4": "Année 4",
+      "g5": "Année 5",
+      "g6": "Année 6",
+      "g7": "Année 7",
+      "g8": "Année 8",
+      "g9": "Année 9",
+      "g10": "Année 10",
+      "g11": "Année 11",
+      "g12": "Année 12",
+      "university": "Université",
+      "adults": "Adultes"
+    },
+    "listing": {
+      "title": "Catalogue",
+      "lead": "Publiez le cours dans le catalogue Learn pour que chacun puisse le trouver.",
+      "grade": "Niveau",
+      "list": "Mettre au catalogue",
+      "unlist": "Retirer du catalogue",
+      "see": "Voir au catalogue",
+      "status": {
+        "private": "Hors catalogue",
+        "requested": "En attente de relecture avant le catalogue",
+        "listed": "Au catalogue"
+      },
+      "freeNote": "Un cours gratuit est relu par notre équipe (avec une vérification d’exactitude par IA) avant d’entrer au catalogue, et chaque nouvelle version est relue.",
+      "paidNote": "Un cours payant entre au catalogue avec sa version approuvée, puisque chaque version payante est relue avant la vente."
+    },
+    "explore": {
+      "title": "Explorer",
+      "lead": "Des cours créés par des enseignants et relus par l’équipe Learn.",
+      "search": "Rechercher",
+      "searchHint": "Cours, matière ou enseignant",
+      "subject": "Matière",
+      "grade": "Niveau",
+      "language": "Langue",
+      "any": "Tous",
+      "loading": "Chargement des cours…",
+      "empty": "Aucun cours au catalogue pour l’instant.",
+      "noMatch": "Aucun cours ne correspond.",
+      "lessons": {
+        "one": "{count} leçon",
+        "other": "{count} leçons"
       }
     }
   }

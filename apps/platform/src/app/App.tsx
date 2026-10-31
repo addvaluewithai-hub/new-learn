@@ -28,6 +28,7 @@ const SitePages = lazy(() => import('../features/site/SitePages'));
 const CreditsPage = lazy(() => import('../features/credits/CreditsPage'));
 const ReviewPage = lazy(() => import('../features/review/ReviewPage'));
 const OpsPage = lazy(() => import('../features/ops/OpsPage'));
+const ExplorePage = lazy(() => import('../features/market/ExplorePage'));
 
 function StudentApp() {
   const session = useSession(),
@@ -51,6 +52,7 @@ function StudentApp() {
       <SettingsPage user={session.user} onSignOut={session.signOut} onSaved={session.refresh} />
     );
   if (query.has('credits')) return <CreditsPage user={session.user} onSignOut={session.signOut} />;
+  if (query.has('explore')) return <ExplorePage user={session.user} onSignOut={session.signOut} />;
   if (query.has('ops')) return <OpsPage user={session.user} onSignOut={session.signOut} />;
   if (query.has('review'))
     return (

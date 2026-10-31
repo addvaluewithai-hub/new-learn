@@ -681,6 +681,10 @@
       "notFound": "Diese Prüfung gibt es nicht.",
       "decided": "Über diese Prüfung wurde schon entschieden.",
       "needNotes": "Schreib deine Notizen für die Lehrkraft, bevor du Änderungen anforderst."
+    },
+    "market": {
+      "badGrade": "Unbekannte Klasse.",
+      "fixFirst": "Diese Version braucht zuerst Änderungen: korrigiere sie und veröffentliche eine neue Version."
     }
   },
   "build": {
@@ -826,7 +830,8 @@
         "settings": "Einstellungen",
         "credits": "Credits",
         "review": "Prüfung",
-        "ops": "Betrieb"
+        "ops": "Betrieb",
+        "explore": "Entdecken"
       },
       "account": "Dein Learn-Konto",
       "signOut": "Abmelden",
@@ -1730,8 +1735,8 @@
     "topUp": "Guthaben aufladen"
   },
   "review": {
-    "title": "Prüfung bezahlter Kurse",
-    "lead": "Lies jede Lektion wie ein Schüler, starte die KI-Prüfung als Ausgangspunkt und gib den Kurs dann frei oder schick der Lehrkraft Notizen.",
+    "title": "Kursprüfung",
+    "lead": "Bezahlte Kurse vor dem Verkauf, kostenlose vor der Aufnahme in den Marktplatz. Lies jede Lektion wie Lernende, starte die KI-Prüfung als Ausgangspunkt und gib frei oder schicke Hinweise.",
     "loading": "Kurse werden geladen…",
     "empty": "Keine Kurse warten auf Prüfung.",
     "item": "{teacher} · Version {version} · {price}",
@@ -1770,7 +1775,8 @@
     "decided": {
       "approved": "Freigegeben. Diese Version kann jetzt gekauft werden.",
       "changes": "Die Notizen wurden an die Lehrkraft geschickt."
-    }
+    },
+    "forListing": "Kostenlos · für den Marktplatz"
   },
   "ops": {
     "title": "Betrieb der Plattform",
@@ -1808,6 +1814,59 @@
       },
       "auth": {
         "signup": "Neue Konten"
+      }
+    }
+  },
+  "market": {
+    "free": "Kostenlos",
+    "grades": {
+      "none": "Nicht angegeben",
+      "kg": "Kindergarten",
+      "g1": "Klasse 1",
+      "g2": "Klasse 2",
+      "g3": "Klasse 3",
+      "g4": "Klasse 4",
+      "g5": "Klasse 5",
+      "g6": "Klasse 6",
+      "g7": "Klasse 7",
+      "g8": "Klasse 8",
+      "g9": "Klasse 9",
+      "g10": "Klasse 10",
+      "g11": "Klasse 11",
+      "g12": "Klasse 12",
+      "university": "Universität",
+      "adults": "Erwachsene"
+    },
+    "listing": {
+      "title": "Marktplatz",
+      "lead": "Stell den Kurs in den Learn-Marktplatz, damit alle ihn finden.",
+      "grade": "Klasse",
+      "list": "Im Marktplatz anbieten",
+      "unlist": "Aus dem Marktplatz nehmen",
+      "see": "Im Marktplatz ansehen",
+      "status": {
+        "private": "Nicht im Marktplatz",
+        "requested": "Wartet vor der Aufnahme auf Prüfung",
+        "listed": "Im Marktplatz"
+      },
+      "freeNote": "Ein kostenloser Kurs wird vor der Aufnahme von unserem Team geprüft (mit einer KI-Prüfung auf Richtigkeit), und jede neue Version wird erneut geprüft.",
+      "paidNote": "Ein bezahlter Kurs erscheint mit seiner freigegebenen Version, denn jede bezahlte Version wird vor dem Verkauf geprüft."
+    },
+    "explore": {
+      "title": "Entdecken",
+      "lead": "Kurse von Lehrkräften, geprüft vom Learn-Team.",
+      "search": "Suchen",
+      "searchHint": "Kurs, Fach oder Lehrkraft",
+      "subject": "Fach",
+      "grade": "Klasse",
+      "language": "Sprache",
+      "any": "Alle",
+      "loading": "Kurse werden geladen…",
+      "empty": "Noch keine Kurse im Marktplatz.",
+      "noMatch": "Keine Kurse passen dazu.",
+      "lessons": {
+        "one": "{count} Lektion",
+        "other": "{count} Lektionen"
       }
     }
   }

@@ -681,6 +681,10 @@
       "notFound": "Esta revisión no existe.",
       "decided": "Esta revisión ya tiene una decisión.",
       "needNotes": "Escribe tus notas para el docente antes de pedir cambios."
+    },
+    "market": {
+      "badGrade": "Grado desconocido.",
+      "fixFirst": "Esta versión necesita cambios primero: corrígela y publica una versión nueva."
     }
   },
   "build": {
@@ -826,7 +830,8 @@
         "settings": "Configuración",
         "credits": "Créditos",
         "review": "Revisión",
-        "ops": "Operación"
+        "ops": "Operación",
+        "explore": "Explorar"
       },
       "account": "Tu cuenta de Learn",
       "signOut": "Cerrar sesión",
@@ -1730,8 +1735,8 @@
     "topUp": "Recargar créditos"
   },
   "review": {
-    "title": "Revisión de cursos de pago",
-    "lead": "Lee cada lección como lo haría un alumno, usa la revisión de IA como punto de partida y luego aprueba o envía notas al docente.",
+    "title": "Revisión de cursos",
+    "lead": "Los cursos de pago antes de la venta y los gratis antes del catálogo. Lee cada lección como un alumno, usa la revisión con IA como punto de partida y aprueba o envía notas.",
     "loading": "Cargando los cursos…",
     "empty": "No hay cursos esperando revisión.",
     "item": "{teacher} · versión {version} · {price}",
@@ -1770,7 +1775,8 @@
     "decided": {
       "approved": "Aprobado. Esta versión ya está a la venta.",
       "changes": "Las notas se enviaron al docente."
-    }
+    },
+    "forListing": "Gratis · para el catálogo"
   },
   "ops": {
     "title": "Operación de la plataforma",
@@ -1808,6 +1814,59 @@
       },
       "auth": {
         "signup": "Cuentas nuevas"
+      }
+    }
+  },
+  "market": {
+    "free": "Gratis",
+    "grades": {
+      "none": "Sin indicar",
+      "kg": "Infantil",
+      "g1": "Grado 1",
+      "g2": "Grado 2",
+      "g3": "Grado 3",
+      "g4": "Grado 4",
+      "g5": "Grado 5",
+      "g6": "Grado 6",
+      "g7": "Grado 7",
+      "g8": "Grado 8",
+      "g9": "Grado 9",
+      "g10": "Grado 10",
+      "g11": "Grado 11",
+      "g12": "Grado 12",
+      "university": "Universidad",
+      "adults": "Adultos"
+    },
+    "listing": {
+      "title": "Catálogo",
+      "lead": "Publica el curso en el catálogo de Learn para que cualquiera lo encuentre.",
+      "grade": "Grado",
+      "list": "Publicar en el catálogo",
+      "unlist": "Quitar del catálogo",
+      "see": "Verlo en el catálogo",
+      "status": {
+        "private": "Fuera del catálogo",
+        "requested": "Esperando revisión antes de aparecer",
+        "listed": "En el catálogo"
+      },
+      "freeNote": "Un curso gratis lo revisa nuestro equipo (con una comprobación de exactitud por IA) antes de aparecer, y cada versión nueva se revisa otra vez.",
+      "paidNote": "Un curso de pago aparece con su versión aprobada, ya que cada versión de pago se revisa antes de la venta."
+    },
+    "explore": {
+      "title": "Explorar",
+      "lead": "Cursos creados por docentes y revisados por el equipo de Learn.",
+      "search": "Buscar",
+      "searchHint": "Curso, materia o docente",
+      "subject": "Materia",
+      "grade": "Grado",
+      "language": "Idioma",
+      "any": "Todos",
+      "loading": "Cargando cursos…",
+      "empty": "Todavía no hay cursos en el catálogo.",
+      "noMatch": "Ningún curso coincide.",
+      "lessons": {
+        "one": "{count} lección",
+        "other": "{count} lecciones"
       }
     }
   }

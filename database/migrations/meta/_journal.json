@@ -71,6 +71,13 @@
       "when": 1793448626150,
       "tag": "0009_ops",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1793457347075,
+      "tag": "0010_marketplace",
+      "breakpoints": true
     }
   ]
 }

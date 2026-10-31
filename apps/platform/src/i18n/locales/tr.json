@@ -681,6 +681,10 @@
       "notFound": "Böyle bir inceleme yok.",
       "decided": "Bu inceleme için zaten karar verildi.",
       "needNotes": "Değişiklik istemeden önce öğretmene notlarını yaz."
+    },
+    "market": {
+      "badGrade": "Bilinmeyen sınıf.",
+      "fixFirst": "Bu sürümün önce düzeltilmesi gerekiyor: düzelt ve yeni bir sürüm yayınla."
     }
   },
   "build": {
@@ -826,7 +830,8 @@
         "settings": "Ayarlar",
         "credits": "Krediler",
         "review": "İnceleme",
-        "ops": "İşletim"
+        "ops": "İşletim",
+        "explore": "Keşfet"
       },
       "account": "Learn hesabın",
       "signOut": "Çıkış yap",
@@ -1730,8 +1735,8 @@
     "topUp": "Kredi yükle"
   },
   "review": {
-    "title": "Ücretli kurs incelemesi",
-    "lead": "Her dersi bir öğrenci gibi oku, başlangıç olarak YZ incelemesini çalıştır, sonra onayla ya da öğretmene not gönder.",
+    "title": "Kurs incelemesi",
+    "lead": "Ücretli kurslar satıştan, ücretsizler listelenmeden önce. Her dersi öğrenci gibi oku, başlangıç için yapay zekâ incelemesini çalıştır, sonra onayla ya da not gönder.",
     "loading": "Kurslar yükleniyor…",
     "empty": "İnceleme bekleyen kurs yok.",
     "item": "{teacher} · Sürüm {version} · {price}",
@@ -1770,7 +1775,8 @@
     "decided": {
       "approved": "Onaylandı. Bu sürüm artık satışta.",
       "changes": "Notlar öğretmene gönderildi."
-    }
+    },
+    "forListing": "Ücretsiz · listeleme için"
   },
   "ops": {
     "title": "Platformun işletimi",
@@ -1808,6 +1814,59 @@
       },
       "auth": {
         "signup": "Yeni hesaplar"
+      }
+    }
+  },
+  "market": {
+    "free": "Ücretsiz",
+    "grades": {
+      "none": "Belirtilmedi",
+      "kg": "Anaokulu",
+      "g1": "1. sınıf",
+      "g2": "2. sınıf",
+      "g3": "3. sınıf",
+      "g4": "4. sınıf",
+      "g5": "5. sınıf",
+      "g6": "6. sınıf",
+      "g7": "7. sınıf",
+      "g8": "8. sınıf",
+      "g9": "9. sınıf",
+      "g10": "10. sınıf",
+      "g11": "11. sınıf",
+      "g12": "12. sınıf",
+      "university": "Üniversite",
+      "adults": "Yetişkinler"
+    },
+    "listing": {
+      "title": "Pazar",
+      "lead": "Kursu herkes bulabilsin diye Learn pazarında listele.",
+      "grade": "Sınıf",
+      "list": "Pazarda listele",
+      "unlist": "Pazardan kaldır",
+      "see": "Pazarda gör",
+      "status": {
+        "private": "Pazarda değil",
+        "requested": "Listelenmeden önce inceleme bekliyor",
+        "listed": "Pazarda"
+      },
+      "freeNote": "Ücretsiz bir kurs listelenmeden önce ekibimizce incelenir (yapay zekâ ile doğruluk kontrolü dahil) ve her yeni sürüm yeniden incelenir.",
+      "paidNote": "Ücretli bir kurs onaylanmış sürümüyle listelenir; her ücretli sürüm satıştan önce incelenir."
+    },
+    "explore": {
+      "title": "Keşfet",
+      "lead": "Öğretmenlerin hazırladığı, Learn ekibinin incelediği kurslar.",
+      "search": "Ara",
+      "searchHint": "Kurs, ders ya da öğretmen",
+      "subject": "Ders",
+      "grade": "Sınıf",
+      "language": "Dil",
+      "any": "Tümü",
+      "loading": "Kurslar yükleniyor…",
+      "empty": "Pazarda henüz kurs yok.",
+      "noMatch": "Bu seçimlere uyan kurs yok.",
+      "lessons": {
+        "one": "{count} ders",
+        "other": "{count} ders"
       }
     }
   }

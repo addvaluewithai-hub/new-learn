@@ -82,7 +82,12 @@ export function ReviewStatus({ published }: { published: Published }) {
   const { t, locale } = useI18n();
   const review = published.review;
   if (!review) return null;
-  const notes = review.notes === 'superseded' ? t('teach.price.superseded') : review.notes;
+  const notes =
+    review.notes === 'superseded'
+      ? t('teach.price.superseded')
+      : review.notes === 'unlisted'
+        ? ''
+        : review.notes;
   return (
     <div className="teach-review" data-status={review.status}>
       <strong>{t(`teach.price.status.${review.status}`, { version: review.version })}</strong>

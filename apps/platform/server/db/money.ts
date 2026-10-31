@@ -46,7 +46,10 @@ export type AiFinding = {
 };
 export type AiReport = { summary: string; findings: AiFinding[]; at: string };
 
-/** One paid version of a course waiting for, or having had, the platform's review. */
+/**
+ * One version of a course waiting for, or having had, the platform's review: a paid version
+ * before sale, or a free one (price 0) before it is listed in the marketplace.
+ */
 export const courseReviews = appSchema.table(
   'course_reviews',
   {
@@ -69,7 +72,8 @@ export const courseReviews = appSchema.table(
     unique('course_review_version').on(t.courseId, t.version),
     index('course_reviews_status').on(t.status, t.submittedAt),
     check('course_review_status', sql`${t.status} in ('pending','approved','changes')`),
-    check('course_review_price', sql`${t.priceCents} > 0`),
+    // Price 0: a free version asking to be listed in the marketplace (docs/marketplace.md).
+    check('course_review_price', sql`${t.priceCents} >= 0`),
   ],
 );
 
