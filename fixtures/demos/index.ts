@@ -1,6 +1,6 @@
 import type { ReadingPackage } from '@learn/lesson-runtime';
 
-// The demo gallery (docs/visuals/demos.md): ten short courses, each in its own style.
+// The demo gallery (docs/visuals/demos.md): short courses, each in its own style.
 export type Demo = {
   id: string;
   title: string;
@@ -9,6 +9,8 @@ export type Demo = {
   /** The card's colours: background and ink, taken from the style. */
   colors: [string, string];
   load?: () => Promise<ReadingPackage>;
+  /** The course's own voice and character for Nova (docs/voice-agent.md). */
+  voice?: { voice: string; pace: string; persona: string };
 };
 
 export const DEMOS: Demo[] = [
@@ -43,6 +45,19 @@ export const DEMOS: Demo[] = [
     audience: 'المدارس',
     colors: ['#0a1030', '#ffd36e'],
     load: () => import('./courses/seasons').then((m) => m.seasonsCourse),
+  },
+  {
+    id: 'solar',
+    title: 'رحلة في المجموعة الشمسية',
+    style: '3D وصوت بشخصية',
+    audience: 'المدارس',
+    colors: ['#070b1f', '#ffb86b'],
+    load: () => import('./courses/solar').then((m) => m.solarCourse),
+    voice: {
+      voice: 'Algenib',
+      pace: 'slow',
+      persona: 'عالم فلك صوته عميق ودافي، بيحب الوقفة قبل المفاجأة، وبيهزر هزار خفيف',
+    },
   },
   {
     id: 'suez',

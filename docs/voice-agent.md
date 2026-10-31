@@ -137,6 +137,31 @@ What is built (Y6, Y7 first part):
 - **Every paid plan includes a number of builds and voice minutes:** usage is metered per user
   (tasks Y10, Y11).
 
+## The course's voice and character, and the tone of a line (2026-10-31)
+
+A course may carry its own **voice**: a Gemini voice name, a pace and a persona line
+(`author_courses.voice`, copied to `published_courses.voice` at each publish; migration
+`0011_course_voice.sql`). The teacher sets it in the outline tab («صوت الكورس وشخصيته»), or
+their AI does with `create_course` / `update_course`. The lesson view sends it to the page,
+which puts the voice and the persona on top of the learner's own Nova settings while that
+lesson is open (`voicePrefs.setCourseVoice`); the pace stays the learner's. So narration and the
+live conversation are one voice and one character per course, for every learner.
+
+A step may carry a **tone**: a few words on how to say that one line ("slowly, with wonder",
+"a quick aside, smiling"). It travels as `ReadingStep.tone` and reaches Nova as a direction in
+the READ message, `READ (slowly, with wonder):`, which the live instruction treats as silent.
+The guide tells the builder to use it where delivery matters, not everywhere. This is the test
+of how far the live voice can act before we record narration: if it follows directions well,
+recording can wait.
+
+**Interrupting in place.** Holding the Nova button (the orb on phones, the microphone in the
+dock on wide screens, or Space) fades the narration out over a quarter second instead of
+cutting it, and the learner speaks with the lesson's context. When Nova has answered and the
+learner does not hold again within 1.5 s, a lesson that was reading by itself goes on from
+one line before the one they interrupted, so it reads in context; if Nova itself moved the
+lesson (`lesson_control`), it goes on from there. Nova can also jump to a scene and back with
+`go_to_scene` (to show a part again, then return).
+
 ## Lessons with real audio (OR24)
 
 Today Nova reads a lesson through the Live session, which is paid per learner per minute.

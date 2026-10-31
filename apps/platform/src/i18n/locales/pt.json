@@ -1628,6 +1628,17 @@
       "lead": "Adicione este link como connector e peça uma aula com suas palavras. Ele escreve aqui como rascunho e não pode publicar.",
       "address": "Link do connector",
       "how": "Como conectar"
+    },
+    "voice": {
+      "title": "Voz e caráter do curso",
+      "own": "Voz própria",
+      "default": "A Nova fala com cada aluno na voz que ele escolheu nas configurações.",
+      "lead": "A Nova vai narrar e responder a todos os alunos deste curso com esta voz e este caráter.",
+      "voice": "Voz",
+      "pace": "Ritmo",
+      "persona": "Caráter",
+      "personaHint": "Uma linha sobre o jeito: tom, humor, estilo.",
+      "personaPlaceholder": "Por exemplo: um astrônomo de voz grave que adora uma pausa dramática antes da revelação"
     }
   },
   "authoring": {

@@ -5,7 +5,14 @@ import type { LessonLayout, VisualSpec } from '../types';
 // written version while the lesson's own board shows the state reached after that unit.
 // No audio, no timing evidence. Text may mark symbols as $…$ (rendered left-to-right).
 /** `board`: how a live (`html-board`) board looks once this step is reached (docs/boards.md). */
-export type ReadingStep = { unitIds: string[]; text: string; written?: boolean; board?: StepBoard };
+/** `tone`: a short silent direction for whoever reads the step aloud ("slowly, with wonder"). */
+export type ReadingStep = {
+  unitIds: string[];
+  text: string;
+  written?: boolean;
+  board?: StepBoard;
+  tone?: string;
+};
 export type ReadingQuestion = {
   id: string;
   english: string;

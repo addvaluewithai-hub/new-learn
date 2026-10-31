@@ -145,7 +145,8 @@ export function useNarrator({
       // A question is read once, whole, on its answer page: its lead-in pages are skipped.
       if (page.kind === 'ask') continue;
       const question = asking && page.kind === 'attempt';
-      lines.push({ n, text: readingContext(lesson, page, false).line ?? '', question });
+      const at = readingContext(lesson, page, false);
+      lines.push({ n, text: at.line ?? '', question, ...(at.tone ? { tone: at.tone } : {}) });
       if (question) break;
     }
     const at = (n: number) => readingPositionOf(lesson, pages[n], false);

@@ -265,6 +265,10 @@ async function run(width, height) {
   // The outline: move a lesson up and rename, then the saved parts carry the new order.
   await page.getByRole('radio', { name: 'الترتيب' }).click();
   await page.getByLabel('اسم الكورس').fill('المية وحالاتها');
+  // The course's own voice and character for Nova.
+  await page.getByLabel('صوت خاص بالكورس').check();
+  await page.getByLabel('الصوت', { exact: true }).selectOption('Algenib');
+  await page.getByLabel('الشخصية', { exact: true }).fill('عالم فلك صوته عميق');
   await page.getByRole('button', { name: 'تحت' }).first().click();
   await page.getByRole('button', { name: 'احفظ الترتيب' }).click();
   await page.getByRole('status').filter({ hasText: 'اتحفظ' }).waitFor();
@@ -272,6 +276,11 @@ async function run(width, height) {
     { title: 'الأساس', lessonIds: [lessonB, lessonA] },
   ]);
   assert.equal(store.outline.at(-1).title, 'المية وحالاتها');
+  assert.deepEqual(store.outline.at(-1).voice, {
+    voice: 'Algenib',
+    pace: 'normal',
+    persona: 'عالم فلك صوته عميق',
+  });
   // Notes: a fixed note is confirmed from the inbox.
   await page.getByRole('radio', { name: /الملاحظات/ }).click();
   await page.locator('.teach-note-item').waitFor();

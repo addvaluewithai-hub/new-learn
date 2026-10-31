@@ -134,6 +134,7 @@ export function readingContext(
       page.kind === 'attempt' && scene.question
         ? `${scene.question.english}\n${scene.question.arabic}`
         : steps[page.step].text,
+    ...(page.kind !== 'attempt' && steps[page.step].tone ? { tone: steps[page.step].tone } : {}),
   };
 }
 

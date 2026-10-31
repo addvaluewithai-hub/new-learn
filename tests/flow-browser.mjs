@@ -1,8 +1,10 @@
 // How a reading lesson moves on its own: a reading pace fills the Next button and turns the
 // page; pause holds it; Nova narration reads line after line in one session (each line asked
 // for ahead of time, its page turned when its audio starts), stops at the question, never
-// starts by itself when a lesson opens, and the lesson pauses when the learner talks. With
-// "show the answers", Nova reads the question as a plain line and goes on to its answer.
+// starts by itself when a lesson opens, and the lesson pauses when the learner talks: holding
+// to talk mid-narration fades it, and after Nova's answer the reading goes on by itself from
+// one line back. With "show the answers", Nova reads the question as a plain line and goes on
+// to its answer.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
@@ -20,7 +22,8 @@ const pkg = JSON.parse(
   await readFile(`content/imported/${course.id}/${lesson.id}/reading.json`, 'utf8'),
 );
 const quiz = pkg.scenes.find((s) => s.question).question;
-const pcm = Buffer.alloc(24000 * 2 * 0.2).toString('base64');
+// Each read line plays for 0.8 s, long enough to hold mid-line on a known step.
+const pcm = Buffer.alloc(24000 * 2 * 0.8).toString('base64');
 const say = (ws, content) => ws.send(JSON.stringify({ serverContent: content }));
 
 let browser;
@@ -154,13 +157,37 @@ try {
   assert.equal(reads.length, before, 'no reading before play');
   await page.getByRole('button', { name: 'كمّل لوحده' }).waitFor();
 
-  // Talking to Nova pauses the lesson.
+  // Holding to talk mid-narration pauses the reading; once Nova has answered and the learner
+  // is quiet, the lesson reads on by itself from the line before the interrupted one.
+  await page.getByRole('button', { name: 'كمّل لوحده' }).click();
+  // Hold on the first scene's second step: a step before it exists to go back to.
+  const secondStep = pkg.scenes[0].steps[1].text.trim();
+  await page.waitForFunction(
+    (text) => document.querySelector('.rl-caption-text')?.textContent?.trim() === text,
+    secondStep,
+    { timeout: 20000 },
+  );
   await page.locator('.rl-stage').click();
   await page.keyboard.down('Space');
+  const interrupted = (await line()).trim();
   await page.locator('.rl-t-note[data-role="learner"]').waitFor();
+  const atHold = reads.length;
+  await page.waitForTimeout(600);
+  assert.equal(reads.length, atHold, 'the reading stops while the learner holds');
   await page.keyboard.up('Space');
   await page.locator('.rl-t-note[data-role="tutor"]', { hasText: 'رد قصير' }).waitFor();
   assert.ok(log.includes('start'));
+  for (let i = 0; i < 60 && reads.length <= atHold; i++) await page.waitForTimeout(100);
+  const resumed = reads.slice(atHold).map((r) => r.slice(r.indexOf('\n') + 1).trim());
+  assert.ok(resumed.length >= 1, 'the reading goes on by itself after the answer');
+  assert.notEqual(resumed[0], interrupted, 'from one line back');
+  for (let i = 0; i < 60 && !reads.slice(atHold).some((r) => r.includes(interrupted)); i++)
+    await page.waitForTimeout(100);
+  assert.ok(
+    reads.slice(atHold).some((r) => r.includes(interrupted)),
+    'the interrupted line is read again',
+  );
+  await page.getByRole('button', { name: 'وقّف التقليب' }).click();
 
   // "Show the answers": the question is a plain line, then its model answer, no stop.
   const from = reads.length;
@@ -179,7 +206,7 @@ try {
   assert.ok(!after.some((r) => r.startsWith('READ QUESTION')), 'never waits for an answer');
   assert.deepEqual(errors, []);
   console.log(
-    'Flow: manual default, reading pace, pause, narration, question stop, talk pause, show-the-answers passed.',
+    'Flow: manual default, reading pace, pause, narration, question stop, talk pause and resume one line back, show-the-answers passed.',
   );
 } finally {
   await browser?.close();

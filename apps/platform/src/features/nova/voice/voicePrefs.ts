@@ -68,8 +68,25 @@ export function loadVoicePrefs(): VoicePrefs {
 }
 
 let current: VoicePrefs | null = null;
-/** What the next Nova request sends as `style` (the last choice, even if storage is blocked). */
-export const voiceStyle = () => (current ??= loadVoicePrefs());
+/** The open course's own voice and character (docs/voice-agent.md), set by its lesson page. */
+let course: Partial<VoicePrefs> | null = null;
+/**
+ * What the next Nova request sends as `style`: the learner's choice (even if storage is
+ * blocked), with the course's voice and persona on top while one of its lessons is open. The
+ * pace stays the learner's: how fast they can follow is theirs to say.
+ */
+export const voiceStyle = (): VoicePrefs => {
+  const mine = (current ??= loadVoicePrefs());
+  if (!course) return mine;
+  return {
+    ...mine,
+    ...(course.voice && VOICES.includes(course.voice) ? { voice: course.voice } : {}),
+    ...(course.persona ? { persona: course.persona.slice(0, PERSONA_MAX) } : {}),
+  };
+};
+export function setCourseVoice(value: { voice?: string; persona?: string } | null) {
+  course = value ? { voice: value.voice as VoicePrefs['voice'], persona: value.persona } : null;
+}
 
 /** Settings state for the settings card; `onSaved` hears every change once it is stored. */
 export function useVoicePrefs(onSaved?: (prefs: VoicePrefs) => void) {

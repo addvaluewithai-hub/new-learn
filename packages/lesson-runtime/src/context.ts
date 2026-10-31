@@ -23,6 +23,8 @@ export type LessonContext = {
   step?: number;
   /** Reading lessons: exactly what the learner is reading now (the step, or the question). */
   line?: string;
+  /** Reading lessons: the step's direction for reading it aloud, if the author gave one. */
+  tone?: string;
   /** A live board: its values now and the board's own one-line description (not proof). */
   board?: { id: string; variables: BoardValues; observation: string | null };
 };

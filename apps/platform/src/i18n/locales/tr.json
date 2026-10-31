@@ -1626,6 +1626,17 @@
       "lead": "Bu bağlantıyı connector olarak ekle ve kendi sözlerinle bir ders iste. Dersi burada taslak olarak yazar, yayınlayamaz.",
       "address": "Connector bağlantısı",
       "how": "Nasıl bağlanır"
+    },
+    "voice": {
+      "title": "Kursun sesi ve karakteri",
+      "own": "Kursa özel ses",
+      "default": "Nova her öğrenciyle ayarlarında seçtiği sesle konuşur.",
+      "lead": "Nova bu kursun tüm öğrencilerine bu ses ve karakterle anlatacak ve cevap verecek.",
+      "voice": "Ses",
+      "pace": "Hız",
+      "persona": "Karakter",
+      "personaHint": "Konuşma tarzı için bir satır: ton, ruh hali, üslup.",
+      "personaPlaceholder": "Örneğin: açıklamadan önce dramatik bir duraklamayı seven, kalın sesli bir gökbilimci"
     }
   },
   "authoring": {

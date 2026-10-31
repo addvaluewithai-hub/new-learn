@@ -116,5 +116,11 @@ export async function saveCourseProgress(
 /** The lesson as the student's page plays it. */
 export async function courseLessonView(db: Db, courseId: string, lessonId: string) {
   const row = await publishedLesson(db, courseId, lessonId);
-  return { lessonId, package: row.package, boards: row.boards as PublishedBoards };
+  // `voice`: the course's own voice and character for Nova, or null for the learner's settings.
+  return {
+    lessonId,
+    package: row.package,
+    boards: row.boards as PublishedBoards,
+    voice: row.voice,
+  };
 }

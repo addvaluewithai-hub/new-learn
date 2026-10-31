@@ -109,6 +109,7 @@ test('lesson talk: manual activity; READ turns; only the lesson_control tool', (
     'next',
     'pause',
     'resume',
+    'go_to_scene',
   ]);
   assert.match(talk.systemInstruction.parts[0].text, /Never call lesson_control unless/);
   assert.match(talk.systemInstruction.parts[0].text, /READ QUESTION/);

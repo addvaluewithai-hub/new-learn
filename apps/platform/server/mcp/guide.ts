@@ -41,11 +41,20 @@ after each scene") so later lessons and fixes follow them.
 
 ## Lesson format (add_lesson / update_lesson take the whole lesson)
 - title, optional englishTitle, glossary [{term, meaning}], goals [{text, sceneIds}].
+- The course (create_course / update_course) may carry a voice: {voice, pace, persona}. Nova
+  narrates and answers every learner of that course in it. voice is a Gemini voice name
+  (Kore, Puck, Charon, Fenrir, Aoede, Algenib, Gacrux, Sulafat…; the full list is in
+  get_style), pace is slowest | slow | normal, persona a line of up to 120 characters on
+  the character ("a warm, deep-voiced astronomer who loves a dramatic pause"). Set it when
+  the teacher asked for a character; otherwise leave it and learners keep their own settings.
 - scenes: 1-40, each {id, title, steps, board?, question?}.
   - id: lowercase a-z 0-9 -, unique in the lesson (notes point at it, keep ids stable).
   - steps: 1-20 short steps, one idea each, at most 800 characters. Write in the lesson's
     language (the teacher's). Math inline as $...$, e.g. $F = kx$. Nova reads steps aloud,
     so write them the way a teacher would say them.
+  - step.tone (optional, a few words, English): how to say that one step aloud, e.g.
+    "slowly, with wonder", "a quick aside, smiling", "serious: this is the key point". Use it
+    where delivery matters (a reveal, a warning, a joke), not on every step; Nova never says it.
   - board: id of a board uploaded with put_board. Without one, the scene shows its title and
     steps on a plain text board.
   - step.board: how that board looks once the step is reached (only with scene.board).

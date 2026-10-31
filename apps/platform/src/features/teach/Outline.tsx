@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { api } from '../../shared/api';
 import { Alert, Button, Field, IconButton, TextArea, TextInput } from '../../shared/ui';
 import { t as translate, useI18n } from '../../i18n';
-import type { Part, Workspace } from './types';
+import type { CourseVoice, Part, Workspace } from './types';
+import { VoiceFields } from './VoiceFields';
 
 /** The course's name and its lessons in parts: rename, move up and down, regroup, then save. */
 export function Outline({ work, onChanged }: { work: Workspace; onChanged: () => Promise<void> }) {
@@ -11,6 +12,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
   const [subject, setSubject] = useState(work.subject);
   const [description, setDescription] = useState(work.description);
   const [parts, setParts] = useState<Part[]>(() => initialParts(work));
+  const [voice, setVoice] = useState<CourseVoice | null>(work.voice ?? null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<{ tone: 'success' | 'error'; text: string } | null>(null);
   const titleOf = (id: string) => work.lessons.find((l) => l.id === id)?.title ?? id;
@@ -32,7 +34,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
     setBusy(true);
     setMessage(null);
     try {
-      await api(`/teach/courses/${work.id}`, { title, subject, description, parts });
+      await api(`/teach/courses/${work.id}`, { title, subject, description, parts, voice });
       await onChanged();
       setMessage({ tone: 'success', text: t('teach.outline.saved') });
     } catch (e) {
@@ -73,6 +75,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
           />
         </Field>
       </div>
+      <VoiceFields value={voice} onChange={setVoice} />
       <ol className="teach-parts">
         {parts.map((part, at) => (
           <li key={at} className="teach-part">

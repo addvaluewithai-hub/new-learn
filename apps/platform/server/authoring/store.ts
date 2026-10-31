@@ -4,6 +4,7 @@ import type { Db } from '../db/connection';
 import { authorBoards, authorCourses, authorLessons, authorRevisions } from '../db/authoring';
 import type { CoursePart } from '../db/authoring';
 import { HttpError } from '../http';
+import { courseVoiceInput } from './voice';
 import { buildPackage, type AuthorLesson, type BoardRef } from './format';
 
 // Teacher drafts. The owner is always the signed-in user or the OAuth token's user; every
@@ -59,6 +60,7 @@ export async function listCourses(db: Db, owner: string) {
     description: c.description,
     language: c.language,
     parts: c.parts,
+    voice: c.voice,
     lessons: lessons.filter((l) => l.courseId === c.id),
   }));
 }
@@ -83,9 +85,16 @@ async function count(db: Db, table: typeof authorCourses | typeof authorLessons,
 export async function createCourse(
   db: Db,
   owner: string,
-  input: { title: string; subject?: string; description?: string; language?: string },
+  input: {
+    title: string;
+    subject?: string;
+    description?: string;
+    language?: string;
+    voice?: unknown;
+  },
 ) {
   courseInput(input);
+  const voice = courseVoiceInput(input.voice);
   if ((await count(db, authorCourses, owner)) >= LIMITS.courses)
     throw HttpError.plain(429, `at most ${LIMITS.courses} courses`);
   const [row] = await db
@@ -96,6 +105,7 @@ export async function createCourse(
       subject: input.subject ?? '',
       description: input.description ?? '',
       language: input.language ?? 'ar',
+      ...(voice !== undefined ? { voice } : {}),
     })
     .returning();
   return row;
@@ -106,9 +116,17 @@ export async function updateCourse(
   db: Db,
   owner: string,
   id: string,
-  input: { title?: string; subject?: string; description?: string; parts?: CoursePart[] },
+  input: {
+    title?: string;
+    subject?: string;
+    description?: string;
+    parts?: CoursePart[];
+    /** The course's voice and character; null returns to the learner's own settings. */
+    voice?: unknown;
+  },
 ) {
   courseInput(input);
+  const voice = courseVoiceInput(input.voice);
   await course(db, owner, id);
   if (input.parts) {
     const ids = (await courseLessons(db, owner, id)).map((l) => l.id).sort();
@@ -117,7 +135,7 @@ export async function updateCourse(
       throw HttpError.plain(400, 'parts must list every lesson of the course exactly once');
   }
   const changes = Object.fromEntries(
-    Object.entries(input).filter(([, value]) => value !== undefined),
+    Object.entries({ ...input, voice }).filter(([, value]) => value !== undefined),
   );
   const [row] = await db
     .update(authorCourses)

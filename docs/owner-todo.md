@@ -31,6 +31,35 @@
 - [ ] **A2** دور قراءة فقط `learn_board_reader` لموقع البوردات في Neon (docs/connector.md).
 - [ ] **W9** إحصائيات زيارات الموقع من غير كوكيز (Cloudflare Web Analytics).
 
+## 2ب. الصوت المسجّل على Vertex AI (رصيد الـ300$) وتوكن Cloudflare
+
+- [ ] **Google Cloud (Cloud Shell، 5 دقايق):** نفس الـservice account والـWIF pool بتوع
+      `vertex_ai`، بس خلّي الـprovider يثق في ريبو `new-learn` كمان. من غير أي مفتاح؛ الأوامر
+      تحت القائمة دي. (لو الأسماء عندك مختلفة، استخدم اللي في `vertex_ai/docs/SETUP.md`.)
+- [ ] **GitHub → new-learn → Settings → Secrets and variables → Actions → Variables:**
+      `GCP_PROJECT_ID` و`GCP_SERVICE_ACCOUNT` و`GCP_WIF_PROVIDER` (نفس قيم `vertex_ai`).
+- [ ] **وفي نفس الصفحة ← Secrets:** `BUILDER_TOKEN` بنفس القيمة اللي على Cloudflare، عشان
+      الـworkflow يرجّع الصوت للمنصة.
+- [ ] **توكن Cloudflare عشان Claude يعمل الباقي بنفسه:** اعمل **Account API Token** بصلاحيات
+      Workers R2 Storage: Edit، وCloudflare Pages: Edit، وAccount Settings: Read. **متحطّوش في الشات.**
+      حطّه في إعدادات بيئة Claude Code دي (قائمة البيئة في عنوان الجلسة ← Edit ← Network secrets)
+      باسم `CLOUDFLARE_API_TOKEN`، ومعاه متغيّر `CLOUDFLARE_ACCOUNT_ID`. الجلسة الجديدة بتشوفهم.
+      بعدها Claude يعمل الـR2 bucket وربطه بالمشروع و`STAFF_EMAILS` وباقي المتغيّرات.
+      (البديل: تعمل bucket اسمه `new-learn-media` وتربطه بمشروع `new-learn` باسم `MEDIA` بإيدك.)
+
+أوامر Cloud Shell لخطوة Google Cloud:
+
+```bash
+PROJECT_ID="$(gcloud config get-value project)"
+PROJECT_NUMBER="$(gcloud projects describe "$PROJECT_ID" --format='value(projectNumber)')"
+gcloud iam workload-identity-pools providers update-oidc vertex-ai \
+  --project="$PROJECT_ID" --location=global --workload-identity-pool=github-media \
+  --attribute-condition="(assertion.repository == 'addvaluewithai-hub/vertex_ai' || assertion.repository == 'addvaluewithai-hub/new-learn') && assertion.ref == 'refs/heads/main'"
+gcloud iam service-accounts add-iam-policy-binding "vertex-media-factory@$PROJECT_ID.iam.gserviceaccount.com" \
+  --project="$PROJECT_ID" --role=roles/iam.workloadIdentityUser \
+  --member="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github-media/attribute.repository/addvaluewithai-hub/new-learn"
+```
+
 ## 3. قرارات مستنياك
 
 - [ ] **D1 / B1** اسم البراند (وبعده **B4** شراء الدومين، **B5** ربطه بـCloudflare، **B6** إيميل

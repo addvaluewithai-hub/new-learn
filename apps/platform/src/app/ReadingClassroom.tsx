@@ -38,6 +38,9 @@ const SAVE: Record<SaveState, TextKey | ''> = {
   offline: 'app.classroom.offline',
 };
 
+/** How long after Nova's last word the lesson waits before reading on (room for a follow-up). */
+const RESUME_GRACE_MS = 1500;
+
 /** Full-screen reading lesson: the runtime stage, saved progress, and Nova in the conversation. */
 export default function ReadingClassroom({
   load,
@@ -65,9 +68,24 @@ export default function ReadingClassroom({
   const moving = flow.settings.narration || flow.settings.pace !== null;
   // After a spoken skip, answer, step or "continue", a moving lesson goes on once Nova is quiet.
   const carry = useRef(false);
-  // Asking Nova pauses a lesson that moves alone, so the answer can be read in peace.
+  // Holding to talk pauses a lesson that moves alone, so the answer can be heard in peace;
+  // `held` remembers where, so the lesson can go on by itself afterwards (see below).
+  const held = useRef<{ sceneId: string; step: number } | null>(null);
+  // Set when the lesson stepped back for the resume: it reads on once that page is in place.
+  const resumeNext = useRef(false);
+  const now = useRef({ context, controller, paused: flow.paused, moving });
+  now.current = { context, controller, paused: flow.paused, moving };
   const hooks = useVoiceHooks();
-  const talk = useLessonTalk(context, () => moving && flow.setPaused(true), hooks);
+  const talk = useLessonTalk(
+    context,
+    () => {
+      const c = now.current;
+      if (!c.moving || c.paused) return;
+      held.current = c.context ? { sceneId: c.context.sceneId, step: c.context.step ?? 0 } : null;
+      flow.setPaused(true);
+    },
+    hooks,
+  );
   useSpaceToTalk(talk.voice, Boolean(module) && !assistantOpen);
   const { setVolume, teach, stopTeaching, restyle } = talk.voice;
   const voicePrefs = useVoicePrefs(restyle);
@@ -117,11 +135,37 @@ export default function ReadingClassroom({
     },
   });
   useEffect(() => {
-    if (talk.voice.state !== 'idle' || !carry.current) return;
-    carry.current = false;
-    if (moving) flow.setPaused(false);
+    if (talk.voice.state !== 'idle') return;
+    if (carry.current) {
+      carry.current = false;
+      held.current = null;
+      if (moving) flow.setPaused(false);
+      return;
+    }
+    // The conversation is over: unless the learner holds again within a moment, the lesson
+    // goes on by itself, from one line before the one they interrupted, so it reads in context.
+    const was = held.current;
+    if (!was) return;
+    const timer = window.setTimeout(() => {
+      held.current = null;
+      const c = now.current;
+      if (!c.moving || !c.paused) return;
+      const same = c.context?.sceneId === was.sceneId && (c.context?.step ?? 0) === was.step;
+      if (same && c.context?.phase === 'narration' && was.step > 0) {
+        // One line back first; the reading starts once that page has arrived (below).
+        resumeNext.current = true;
+        c.controller?.back?.();
+      } else flow.setPaused(false);
+    }, RESUME_GRACE_MS);
+    return () => window.clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [talk.voice.state]);
+  useEffect(() => {
+    if (!resumeNext.current) return;
+    resumeNext.current = false;
+    if (now.current.paused) flow.setPaused(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.sceneId, context?.step]);
   const onReady = useCallback((value: LessonController | null) => setController(value), []);
   const saved = useReadingProgress(module?.readingLesson ?? null, !preview);
   // Every reading lesson may use live teacher-made boards (docs/boards.md).

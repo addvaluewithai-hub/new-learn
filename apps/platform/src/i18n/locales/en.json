@@ -1628,6 +1628,17 @@
       "lead": "Add this link as a connector and ask it for a lesson in your own words. It writes it here as a draft, and it can't publish.",
       "address": "Connector link",
       "how": "How to connect it"
+    },
+    "voice": {
+      "title": "Course voice and character",
+      "own": "Its own voice",
+      "default": "Nova speaks to each learner in the voice they chose in their settings.",
+      "lead": "Nova will narrate and answer every learner of this course in this voice and character.",
+      "voice": "Voice",
+      "pace": "Pace",
+      "persona": "Character",
+      "personaHint": "One line about the manner: tone, mood, style.",
+      "personaPlaceholder": "For example: a deep-voiced astronomer who loves a dramatic pause before the reveal"
     }
   },
   "authoring": {

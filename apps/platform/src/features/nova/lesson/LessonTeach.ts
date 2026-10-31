@@ -104,14 +104,15 @@ export class LessonTeach {
     job.timers.push(window.setTimeout(() => this.job === job && this.readLine(s, job, next), wait));
   }
 
-  end(result: 'done' | 'cut' | 'failed') {
+  /** `quiet`: the audio is already fading out (the learner holds to talk): no hard cut. */
+  end(result: 'done' | 'cut' | 'failed', { quiet = false } = {}) {
     const job = this.job;
     if (!job) return;
     this.job = null;
     clearTimeout(this.timer);
     job.timers.forEach(clearTimeout);
     if (result !== 'done') {
-      this.host.current()?.audio.interrupt();
+      if (!quiet) this.host.current()?.audio.interrupt();
       if (this.host.flags.generating) this.host.flags.discard = true;
     }
     this.host.idle();

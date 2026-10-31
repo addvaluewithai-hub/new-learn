@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>رحلة في المجموعة الشمسية</title>
+    <script src="/lib/newlearn-board@1/board.js"></script>
+    <script src="solar.js"></script>
+    <style>
+      /* Landscape 1280×720: space on one side, the facts and controls on the other.
+         Portrait 720×1280: space on top. */
+      html {
+        --nl-backdrop: #070b1f;
+      }
+      body {
+        background: #070b1f;
+        color: #eef2ff;
+      }
+      #space {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 820px;
+        height: 720px;
+      }
+      #space canvas {
+        display: block;
+      }
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 460px;
+        height: 720px;
+        padding: 30px 36px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: linear-gradient(270deg, rgb(7 11 31 / 94%), rgb(7 11 31 / 0%));
+      }
+      h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 600;
+      }
+      #fact {
+        margin: 0;
+        font-size: 27px;
+        line-height: 1.3;
+        font-weight: 600;
+        color: #ffb86b;
+        min-height: 3.9em;
+        overflow-wrap: anywhere;
+      }
+      #info {
+        display: grid;
+        gap: 6px;
+        padding: 12px 18px;
+        border-radius: 16px;
+        background: rgb(255 255 255 / 7%);
+      }
+      #info p {
+        margin: 0;
+        font-size: 26px;
+        min-height: 1.3em;
+      }
+      #info b {
+        color: #ffb86b;
+      }
+      label {
+        display: grid;
+        gap: 2px;
+        font-size: 26px;
+      }
+      select,
+      input[type='range'] {
+        width: 100%;
+        font: inherit;
+        font-size: 27px;
+        color: #eef2ff;
+        background: rgb(255 255 255 / 10%);
+        border: 1px solid rgb(255 255 255 / 25%);
+        border-radius: 12px;
+        padding: 0 14px;
+        height: 92px;
+      }
+      input[type='range'] {
+        height: 96px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        direction: ltr;
+        accent-color: #ffb86b;
+      }
+      [data-layout='portrait'] #space {
+        width: 720px;
+        height: 580px;
+      }
+      [data-layout='portrait'] .panel {
+        top: 580px;
+        width: 720px;
+        height: 700px;
+        padding: 20px 44px 36px;
+        background: none;
+      }
+      [data-layout='portrait'] #fact,
+      [data-layout='portrait'] #info p,
+      [data-layout='portrait'] label,
+      [data-layout='portrait'] select {
+        font-size: 32px;
+      }
+      [data-layout='portrait'] #info {
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="space"></div>
+    <section class="panel">
+      <h1 id="title"></h1>
+      <p id="fact"></p>
+      <div id="info">
+        <p id="distance"></p>
+        <p id="year"></p>
+      </div>
+      <label id="focus-control"
+        ><span id="focus-label"></span
+        ><select id="focus"></select
+      ></label>
+      <label id="speed-control"
+        ><span id="speed-label"></span><input id="speed" type="range" min="0" max="10" step="1"
+      /></label>
+    </section>
+    <script type="module">
+      import * as THREE from '/lib/three@0.186.1/build/three.module.js';
+
+      const TEXT = {
+        ar: {
+          title: 'رحلة في المجموعة الشمسية',
+          names: {
+            all: 'المجموعة كلها',
+            sun: 'الشمس',
+            mercury: 'عطارد',
+            venus: 'الزهرة',
+            earth: 'الأرض',
+            mars: 'المريخ',
+            jupiter: 'المشتري',
+            saturn: 'زحل',
+            uranus: 'أورانوس',
+            neptune: 'نبتون',
+          },
+          fact: {
+            all: 'نجم واحد، وتمن كواكب بتلف حواليه.',
+            sun: 'الشمس نجم: نار من غاز، وكل الكواكب بتلف حواليها.',
+            mercury: 'عطارد أقرب كوكب للشمس وأسرعهم.',
+            venus: 'الزهرة أسخن كوكب، وبتلف على نفسها بالعكس.',
+            earth: 'الأرض: بيتنا، ومعاها قمر واحد.',
+            mars: 'المريخ الكوكب الأحمر.',
+            jupiter: 'المشتري أكبر كوكب في المجموعة.',
+            saturn: 'زحل صاحب الحلقات.',
+            uranus: 'أورانوس بيلف وهو نايم على جنبه.',
+            neptune: 'نبتون أبعد كوكب وأبطأهم.',
+          },
+          distance: (au) => (au ? `بُعده عن الشمس: <b>${au}</b> ضعف بُعد الأرض` : 'في نص المجموعة'),
+          year: (d) => (d ? `سنته: <b>${d}</b> يوم من أيامنا` : 'بيلف على نفسه مرة كل 25 يوم'),
+          focus: 'بص على',
+          speed: (s) => (s ? `السرعة: ${s} أيام في الثانية` : 'الزمن واقف'),
+        },
+        en: {
+          title: 'A trip through the solar system',
+          names: {
+            all: 'The whole system',
+            sun: 'The Sun',
+            mercury: 'Mercury',
+            venus: 'Venus',
+            earth: 'Earth',
+            mars: 'Mars',
+            jupiter: 'Jupiter',
+            saturn: 'Saturn',
+            uranus: 'Uranus',
+            neptune: 'Neptune',
+          },
+          fact: {
+            all: 'One star, and eight planets going round it.',
+            sun: 'The Sun is a star: burning gas, and every planet goes round it.',
+            mercury: 'Mercury is the closest planet to the Sun and the fastest.',
+            venus: 'Venus is the hottest planet, and it spins backwards.',
+            earth: 'Earth: our home, with one Moon.',
+            mars: 'Mars, the red planet.',
+            jupiter: 'Jupiter is the biggest planet.',
+            saturn: 'Saturn, the one with the rings.',
+            uranus: 'Uranus spins lying on its side.',
+            neptune: 'Neptune is the farthest planet and the slowest.',
+          },
+          distance: (au) =>
+            au ? `Distance from the Sun: <b>${au}</b> times Earth's` : 'At the centre',
+          year: (d) => (d ? `Its year: <b>${d}</b> of our days` : 'Spins once every 25 days'),
+          focus: 'Look at',
+          speed: (s) => (s ? `Speed: ${s} days per second` : 'Time is stopped'),
+        },
+      };
+      const IDS = [
+        'all',
+        'sun',
+        'mercury',
+        'venus',
+        'earth',
+        'mars',
+        'jupiter',
+        'saturn',
+        'uranus',
+        'neptune',
+      ];
+      const $ = (id) => document.getElementById(id);
+      const solar = buildSolar(THREE, $('space'));
+      $('focus').onchange = (e) => NewLearnBoard.setVariables({ focus: e.target.value });
+      $('speed').oninput = (e) => NewLearnBoard.setVariables({ speed: Number(e.target.value) });
+      let named = '';
+
+      NewLearnBoard.start({
+        onState(view, env) {
+          const lang = env?.lang === 'en' ? 'en' : 'ar';
+          const t = TEXT[lang];
+          const layout = env?.layout === 'portrait' ? 'portrait' : 'landscape';
+          const focus = IDS.includes(view.variables.focus) ? view.variables.focus : 'all';
+          const speed = Math.max(0, Math.min(10, Math.round(Number(view.variables.speed) || 0)));
+          const fmt = new Intl.NumberFormat(lang === 'en' ? 'en' : 'ar-EG', {
+            maximumFractionDigits: 1,
+          });
+          if (named !== lang) {
+            named = lang;
+            $('focus').replaceChildren(
+              ...IDS.map((id) =>
+                Object.assign(document.createElement('option'), {
+                  value: id,
+                  textContent: t.names[id],
+                }),
+              ),
+            );
+          }
+          const facts = solar.facts[focus === 'all' ? 'sun' : focus];
+          $('title').textContent = t.title;
+          $('fact').textContent = t.fact[focus];
+          $('distance').innerHTML =
+            focus === 'all' ? '' : t.distance(facts.au ? fmt.format(facts.au) : 0);
+          $('year').innerHTML =
+            focus === 'all' ? '' : t.year(facts.year ? fmt.format(facts.year) : 0);
+          $('focus-label').textContent = t.focus;
+          $('speed-label').textContent = t.speed(fmt.format(speed));
+          $('focus').value = focus;
+          $('speed').value = speed;
+          const animate = env?.reducedMotion !== true;
+          solar.show({ focus, speed, layout, animate });
+          NewLearnBoard.observe(
+            `${t.names[focus]}: ${t.fact[focus]} ${t.speed(fmt.format(speed))}.`,
+            {
+              focus,
+              speed,
+            },
+          );
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -12,7 +12,7 @@ import {
 import { sql } from 'drizzle-orm';
 import type { BoardManifest, ReadingPackage } from '@learn/lesson-runtime/core';
 import { appSchema } from './content';
-import { authorCourses, type CoursePart } from './authoring';
+import { authorCourses, type CoursePart, type CourseVoice } from './authoring';
 import type { ProgressSnapshot } from './learners';
 
 export type Listing = 'private' | 'requested' | 'listed';
@@ -35,6 +35,8 @@ export const publishedCourses = appSchema.table(
     description: text('description').notNull().default(''),
     language: text('language').notNull().default('ar'),
     parts: jsonb('parts').$type<CoursePart[]>().notNull().default([]),
+    /** The course's voice and character, copied from the draft at each publish. */
+    voice: jsonb('voice').$type<CourseVoice>(),
     version: integer('version').notNull().default(1),
     /**
      * The version students see. A free course shows each version as it is published; a paid
