@@ -87,6 +87,7 @@
       "account": "Account",
       "help": "Help",
       "looks": "Looks",
+      "courses": "All courses",
       "demos": "Demos",
       "teachers": "For teachers",
       "connect": "Connect your AI",
@@ -684,7 +685,58 @@
     },
     "market": {
       "badGrade": "Unknown grade.",
-      "fixFirst": "This version needs changes first: fix it and publish a new version."
+      "fixFirst": "This version needs changes first: fix it and publish a new version.",
+      "page": {
+        "allCourses": "All courses",
+        "home": "Home",
+        "teach": "For teachers",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "catalogueTitle": "Learn courses",
+        "catalogueLead": "Interactive courses made by teachers and reviewed by the Learn team, with an AI tutor that explains and answers.",
+        "search": "Search",
+        "searchHint": "Course, subject or teacher",
+        "subject": "Subject",
+        "grade": "Grade",
+        "anySubject": "All subjects",
+        "anyGrade": "All grades",
+        "show": "Show",
+        "noMatch": "No courses match these choices.",
+        "empty": "No courses here yet.",
+        "free": "Free",
+        "by": "with {teacher}",
+        "reviewed": "Reviewed by the Learn team",
+        "start": "Start the course",
+        "open": "Open the course",
+        "startNote": "You need a free account to start and save your progress.",
+        "notFound": "This course does not exist or is not listed.",
+        "fallbackDescription": "An interactive course on Learn: {title}.",
+        "lessons": {
+          "one": "{count} lesson",
+          "other": "{count} lessons"
+        },
+        "lessonsTitle": {
+          "one": "{count} lesson",
+          "other": "{count} lessons"
+        }
+      },
+      "grades": {
+        "kg": "Kindergarten",
+        "g1": "Grade 1",
+        "g2": "Grade 2",
+        "g3": "Grade 3",
+        "g4": "Grade 4",
+        "g5": "Grade 5",
+        "g6": "Grade 6",
+        "g7": "Grade 7",
+        "g8": "Grade 8",
+        "g9": "Grade 9",
+        "g10": "Grade 10",
+        "g11": "Grade 11",
+        "g12": "Grade 12",
+        "university": "University",
+        "adults": "Adults"
+      }
     }
   },
   "build": {

@@ -1,8 +1,8 @@
 # The marketplace
 
-Status (2026-10-31): listing, review and the Explore page are built and tested (M1, X7;
-migration `0010_marketplace.sql`). Pages that search engines find and browsing without an
-account come next (M2).
+Status (2026-10-31): listing, review and the Explore page (M1, X7; migration
+`0010_marketplace.sql`), and the public pages, sitemap and robots file (M2) are built and
+tested. A free preview lesson without an account comes next.
 
 ## Listing a course
 
@@ -35,9 +35,29 @@ payments connect (docs/credits.md).
 API: `GET /api/courses/market?q=&subject=&grade=&language=` → `{ courses, facets }` (signed
 in); `POST /api/teach/courses/<id>/listing` `{ list, grade }` (the course's teacher).
 
-## Next (M2 and after)
+## Public pages (M2)
 
-- Public pages per course that search engines index, a sitemap, and browsing without an
-  account; a free preview lesson.
+Served by Pages Functions (`functions/courses/[[path]].ts`, `functions/sitemap.xml.ts`,
+`functions/robots.txt.ts` → `server/market/public.ts`), without an account and without script:
+
+- `/courses`: the listed courses with a search and subject and grade filters (a plain form).
+  The unfiltered list has a canonical link; filtered lists are `noindex`.
+- `/courses/<id>`: one listed course: subject, grade, language, title, teacher, description,
+  price, the lessons with their goals, and «ابدأ الكورس», which opens the app at
+  `/?course=<id>` (signing in first). It carries `og:` tags and a schema.org `Course` (JSON-LD)
+  for search engines. A course that is not listed answers 404 with `noindex`, so private
+  courses stay link-only.
+- `/sitemap.xml`: the site's pages and every listed course; `/robots.txt` points at it and keeps
+  crawlers out of `/api/`, `/builder/`, `/mcp` and `/oauth/`.
+
+The pages are in the visitor's language (`?lang=`, then the browser's, then Arabic; texts under
+`server.market.page`). Everything a teacher wrote is escaped; the pages send a strict CSP (no
+script, styles inline, fonts and images from the site), are cached for five minutes, and are
+limited per IP (`pages.public`, 600 an hour). The site's footer links to `/courses`.
+
+## Next
+
+- A free preview lesson playable without an account (M7), and the public page in the app's own
+  look once the brand is chosen (B1).
 - Ratings and reviews (M3), teacher profile pages (T5), and showing a reviewer only what
   changed since the last approved version (X5).

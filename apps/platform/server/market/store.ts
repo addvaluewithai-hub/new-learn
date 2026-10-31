@@ -1,9 +1,11 @@
 import { and, desc, eq, ilike, isNotNull, isNull, or, sql } from 'drizzle-orm';
 import type { Db } from '../db/connection';
 import { publishedCourses, publishedLessons, type Listing } from '../db/publish';
+import { publicCourse } from '../publish/store';
 import { courseReviews } from '../db/money';
 import { HttpError } from '../http';
 import { isGrade } from '../../src/features/market/grades';
+import type { ReadingPackage } from '@learn/lesson-runtime/core';
 
 // The marketplace (docs/marketplace.md, M1): teachers ask to list a published course; staff
 // review a free one first (with the AI's accuracy pass, X7), while a paid one lists with its
@@ -176,4 +178,41 @@ export async function marketFacets(db: Db) {
   const values = (key: 'subject' | 'language' | 'grade') =>
     [...new Set(rows.map((r) => r[key]).filter(Boolean))].sort();
   return { subjects: values('subject'), languages: values('language'), grades: values('grade') };
+}
+
+/** One listed course for its public page, with its lessons and their goals; null otherwise. */
+export async function marketCourse(db: Db, courseId: string) {
+  const [row] = await db
+    .select({ listing: publishedCourses.listing, grade: publishedCourses.grade })
+    .from(publishedCourses)
+    .where(eq(publishedCourses.id, courseId));
+  if (row?.listing !== 'listed') return null;
+  const course = await publicCourse(db, courseId);
+  if (!course) return null;
+  const lessons = await db
+    .select({ title: publishedLessons.title, package: publishedLessons.package })
+    .from(publishedLessons)
+    .where(
+      and(eq(publishedLessons.courseId, courseId), eq(publishedLessons.version, course.version)),
+    )
+    .orderBy(publishedLessons.position);
+  return {
+    course: {
+      id: course.id,
+      title: course.title,
+      subject: course.subject,
+      description: course.description,
+      language: course.language,
+      grade: row.grade,
+      teacher: course.teacher,
+      priceCents: course.priceCents,
+      currency: course.currency,
+      publishedAt: course.publishedAt,
+      lessons: lessons.length,
+    },
+    lessons: lessons.map((l) => ({
+      title: l.title,
+      goals: (l.package as ReadingPackage).goals ?? [],
+    })),
+  };
 }

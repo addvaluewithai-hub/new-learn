@@ -87,6 +87,7 @@
       "account": "Hesap",
       "help": "Yardım",
       "looks": "Görünümler",
+      "courses": "Tüm kurslar",
       "demos": "Örnekler",
       "teachers": "Öğretmenler için",
       "connect": "Kendi yapay zekânı bağla",
@@ -684,7 +685,56 @@
     },
     "market": {
       "badGrade": "Bilinmeyen sınıf.",
-      "fixFirst": "Bu sürümün önce düzeltilmesi gerekiyor: düzelt ve yeni bir sürüm yayınla."
+      "fixFirst": "Bu sürümün önce düzeltilmesi gerekiyor: düzelt ve yeni bir sürüm yayınla.",
+      "page": {
+        "allCourses": "Tüm kurslar",
+        "home": "Ana sayfa",
+        "teach": "Öğretmenler için",
+        "privacy": "Gizlilik",
+        "terms": "Koşullar",
+        "catalogueTitle": "Learn kursları",
+        "catalogueLead": "Öğretmenlerin hazırladığı, Learn ekibinin incelediği, anlatan ve cevaplayan bir yapay zekâ öğretmenli etkileşimli kurslar.",
+        "search": "Ara",
+        "searchHint": "Kurs, ders ya da öğretmen",
+        "subject": "Ders",
+        "grade": "Sınıf",
+        "anySubject": "Tüm dersler",
+        "anyGrade": "Tüm sınıflar",
+        "show": "Göster",
+        "noMatch": "Bu seçimlere uyan kurs yok.",
+        "empty": "Burada henüz kurs yok.",
+        "free": "Ücretsiz",
+        "by": "{teacher} ile",
+        "reviewed": "Learn ekibi inceledi",
+        "start": "Kursa başla",
+        "open": "Kursu aç",
+        "startNote": "Başlamak ve ilerlemeni kaydetmek için ücretsiz bir hesap gerekir.",
+        "notFound": "Bu kurs yok ya da listelenmemiş.",
+        "fallbackDescription": "Learn’de etkileşimli bir kurs: {title}.",
+        "lessons": {
+          "other": "{count} ders"
+        },
+        "lessonsTitle": {
+          "other": "{count} ders"
+        }
+      },
+      "grades": {
+        "kg": "Anaokulu",
+        "g1": "1. sınıf",
+        "g2": "2. sınıf",
+        "g3": "3. sınıf",
+        "g4": "4. sınıf",
+        "g5": "5. sınıf",
+        "g6": "6. sınıf",
+        "g7": "7. sınıf",
+        "g8": "8. sınıf",
+        "g9": "9. sınıf",
+        "g10": "10. sınıf",
+        "g11": "11. sınıf",
+        "g12": "12. sınıf",
+        "university": "Üniversite",
+        "adults": "Yetişkinler"
+      }
     }
   },
   "build": {

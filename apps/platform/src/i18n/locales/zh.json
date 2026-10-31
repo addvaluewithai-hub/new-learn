@@ -87,6 +87,7 @@
       "account": "账户",
       "help": "帮助",
       "looks": "风格",
+      "courses": "全部课程",
       "demos": "示例",
       "teachers": "教师",
       "connect": "连接你的 AI",
@@ -681,7 +682,56 @@
     },
     "market": {
       "badGrade": "未知年级。",
-      "fixFirst": "这个版本需要先修改：改好后发布新版本。"
+      "fixFirst": "这个版本需要先修改：改好后发布新版本。",
+      "page": {
+        "allCourses": "全部课程",
+        "home": "首页",
+        "teach": "教师",
+        "privacy": "隐私",
+        "terms": "条款",
+        "catalogueTitle": "Learn 课程",
+        "catalogueLead": "由老师制作、经 Learn 团队审核的互动课程，配有会讲解和答疑的 AI 导师。",
+        "search": "搜索",
+        "searchHint": "课程、科目或老师",
+        "subject": "科目",
+        "grade": "年级",
+        "anySubject": "全部科目",
+        "anyGrade": "全部年级",
+        "show": "显示",
+        "noMatch": "没有符合条件的课程。",
+        "empty": "这里还没有课程。",
+        "free": "免费",
+        "by": "老师：{teacher}",
+        "reviewed": "经 Learn 团队审核",
+        "start": "开始学习",
+        "open": "打开课程",
+        "startNote": "需要一个免费账户才能开始学习并保存进度。",
+        "notFound": "这门课程不存在或未上架。",
+        "fallbackDescription": "Learn 上的互动课程：{title}。",
+        "lessons": {
+          "other": "{count} 节课"
+        },
+        "lessonsTitle": {
+          "other": "{count} 节课"
+        }
+      },
+      "grades": {
+        "kg": "幼儿园",
+        "g1": "1 年级",
+        "g2": "2 年级",
+        "g3": "3 年级",
+        "g4": "4 年级",
+        "g5": "5 年级",
+        "g6": "6 年级",
+        "g7": "7 年级",
+        "g8": "8 年级",
+        "g9": "9 年级",
+        "g10": "10 年级",
+        "g11": "11 年级",
+        "g12": "12 年级",
+        "university": "大学",
+        "adults": "成人"
+      }
     }
   },
   "build": {

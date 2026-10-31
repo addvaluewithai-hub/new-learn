@@ -123,7 +123,66 @@
   },
   "market": {
    "badGrade": "الصف ده مش معروف.",
-   "fixFirst": "النسخة دي محتاجة تعديلات الأول: صلّحها وانشر نسخة جديدة."
+   "fixFirst": "النسخة دي محتاجة تعديلات الأول: صلّحها وانشر نسخة جديدة.",
+   "page": {
+    "allCourses": "كل الكورسات",
+    "home": "الرئيسية",
+    "teach": "للمدرسين",
+    "privacy": "الخصوصية",
+    "terms": "الشروط",
+    "catalogueTitle": "كورسات Learn",
+    "catalogueLead": "كورسات تفاعلية عملها مدرسين وراجعها فريق Learn، بمدرّس ذكي بيشرح ويجاوب.",
+    "search": "دوّر",
+    "searchHint": "اسم الكورس أو المادة أو المدرس",
+    "subject": "المادة",
+    "grade": "الصف",
+    "anySubject": "كل المواد",
+    "anyGrade": "كل الصفوف",
+    "show": "اعرض",
+    "noMatch": "مفيش كورسات بالاختيارات دي.",
+    "empty": "لسه مفيش كورسات هنا.",
+    "free": "مجاني",
+    "by": "مع {teacher}",
+    "reviewed": "راجعه فريق Learn",
+    "start": "ابدأ الكورس",
+    "open": "افتح الكورس",
+    "startNote": "هتحتاج حساب مجاني عشان تبدأ وتحفظ تقدّمك.",
+    "notFound": "الكورس ده مش موجود أو مش معروض.",
+    "fallbackDescription": "كورس تفاعلي على Learn: {title}.",
+    "lessons": {
+     "zero": "الدروس",
+     "one": "درس واحد",
+     "two": "درسين",
+     "few": "{count} دروس",
+     "many": "{count} درس",
+     "other": "{count} درس"
+    },
+    "lessonsTitle": {
+     "zero": "الدروس",
+     "one": "الدرس",
+     "two": "الدرسين",
+     "few": "الـ{count} دروس",
+     "many": "الـ{count} درس",
+     "other": "الـ{count} درس"
+    }
+   },
+   "grades": {
+    "kg": "حضانة",
+    "g1": "الصف 1",
+    "g2": "الصف 2",
+    "g3": "الصف 3",
+    "g4": "الصف 4",
+    "g5": "الصف 5",
+    "g6": "الصف 6",
+    "g7": "الصف 7",
+    "g8": "الصف 8",
+    "g9": "الصف 9",
+    "g10": "الصف 10",
+    "g11": "الصف 11",
+    "g12": "الصف 12",
+    "university": "جامعة",
+    "adults": "كبار"
+   }
   }
  },
  "de": {
@@ -253,7 +312,58 @@
   },
   "market": {
    "badGrade": "Unbekannte Klasse.",
-   "fixFirst": "Diese Version braucht zuerst Änderungen: korrigiere sie und veröffentliche eine neue Version."
+   "fixFirst": "Diese Version braucht zuerst Änderungen: korrigiere sie und veröffentliche eine neue Version.",
+   "page": {
+    "allCourses": "Alle Kurse",
+    "home": "Start",
+    "teach": "Für Lehrkräfte",
+    "privacy": "Datenschutz",
+    "terms": "Bedingungen",
+    "catalogueTitle": "Learn-Kurse",
+    "catalogueLead": "Interaktive Kurse von Lehrkräften, geprüft vom Learn-Team, mit einem KI-Tutor, der erklärt und antwortet.",
+    "search": "Suchen",
+    "searchHint": "Kurs, Fach oder Lehrkraft",
+    "subject": "Fach",
+    "grade": "Klasse",
+    "anySubject": "Alle Fächer",
+    "anyGrade": "Alle Klassen",
+    "show": "Anzeigen",
+    "noMatch": "Keine Kurse passen dazu.",
+    "empty": "Hier gibt es noch keine Kurse.",
+    "free": "Kostenlos",
+    "by": "mit {teacher}",
+    "reviewed": "Vom Learn-Team geprüft",
+    "start": "Kurs starten",
+    "open": "Kurs öffnen",
+    "startNote": "Du brauchst ein kostenloses Konto, um zu starten und deinen Fortschritt zu speichern.",
+    "notFound": "Diesen Kurs gibt es nicht oder er ist nicht gelistet.",
+    "fallbackDescription": "Ein interaktiver Kurs auf Learn: {title}.",
+    "lessons": {
+     "one": "{count} Lektion",
+     "other": "{count} Lektionen"
+    },
+    "lessonsTitle": {
+     "one": "{count} Lektion",
+     "other": "{count} Lektionen"
+    }
+   },
+   "grades": {
+    "kg": "Kindergarten",
+    "g1": "Klasse 1",
+    "g2": "Klasse 2",
+    "g3": "Klasse 3",
+    "g4": "Klasse 4",
+    "g5": "Klasse 5",
+    "g6": "Klasse 6",
+    "g7": "Klasse 7",
+    "g8": "Klasse 8",
+    "g9": "Klasse 9",
+    "g10": "Klasse 10",
+    "g11": "Klasse 11",
+    "g12": "Klasse 12",
+    "university": "Universität",
+    "adults": "Erwachsene"
+   }
   }
  },
  "en": {
@@ -383,7 +493,58 @@
   },
   "market": {
    "badGrade": "Unknown grade.",
-   "fixFirst": "This version needs changes first: fix it and publish a new version."
+   "fixFirst": "This version needs changes first: fix it and publish a new version.",
+   "page": {
+    "allCourses": "All courses",
+    "home": "Home",
+    "teach": "For teachers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "catalogueTitle": "Learn courses",
+    "catalogueLead": "Interactive courses made by teachers and reviewed by the Learn team, with an AI tutor that explains and answers.",
+    "search": "Search",
+    "searchHint": "Course, subject or teacher",
+    "subject": "Subject",
+    "grade": "Grade",
+    "anySubject": "All subjects",
+    "anyGrade": "All grades",
+    "show": "Show",
+    "noMatch": "No courses match these choices.",
+    "empty": "No courses here yet.",
+    "free": "Free",
+    "by": "with {teacher}",
+    "reviewed": "Reviewed by the Learn team",
+    "start": "Start the course",
+    "open": "Open the course",
+    "startNote": "You need a free account to start and save your progress.",
+    "notFound": "This course does not exist or is not listed.",
+    "fallbackDescription": "An interactive course on Learn: {title}.",
+    "lessons": {
+     "one": "{count} lesson",
+     "other": "{count} lessons"
+    },
+    "lessonsTitle": {
+     "one": "{count} lesson",
+     "other": "{count} lessons"
+    }
+   },
+   "grades": {
+    "kg": "Kindergarten",
+    "g1": "Grade 1",
+    "g2": "Grade 2",
+    "g3": "Grade 3",
+    "g4": "Grade 4",
+    "g5": "Grade 5",
+    "g6": "Grade 6",
+    "g7": "Grade 7",
+    "g8": "Grade 8",
+    "g9": "Grade 9",
+    "g10": "Grade 10",
+    "g11": "Grade 11",
+    "g12": "Grade 12",
+    "university": "University",
+    "adults": "Adults"
+   }
   }
  },
  "es": {
@@ -513,7 +674,58 @@
   },
   "market": {
    "badGrade": "Grado desconocido.",
-   "fixFirst": "Esta versión necesita cambios primero: corrígela y publica una versión nueva."
+   "fixFirst": "Esta versión necesita cambios primero: corrígela y publica una versión nueva.",
+   "page": {
+    "allCourses": "Todos los cursos",
+    "home": "Inicio",
+    "teach": "Docentes",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "catalogueTitle": "Cursos de Learn",
+    "catalogueLead": "Cursos interactivos creados por docentes y revisados por el equipo de Learn, con un tutor de IA que explica y responde.",
+    "search": "Buscar",
+    "searchHint": "Curso, materia o docente",
+    "subject": "Materia",
+    "grade": "Grado",
+    "anySubject": "Todas las materias",
+    "anyGrade": "Todos los grados",
+    "show": "Mostrar",
+    "noMatch": "Ningún curso coincide.",
+    "empty": "Todavía no hay cursos aquí.",
+    "free": "Gratis",
+    "by": "con {teacher}",
+    "reviewed": "Revisado por el equipo de Learn",
+    "start": "Empezar el curso",
+    "open": "Abrir el curso",
+    "startNote": "Necesitas una cuenta gratis para empezar y guardar tu progreso.",
+    "notFound": "Este curso no existe o no está en el catálogo.",
+    "fallbackDescription": "Un curso interactivo en Learn: {title}.",
+    "lessons": {
+     "one": "{count} lección",
+     "other": "{count} lecciones"
+    },
+    "lessonsTitle": {
+     "one": "{count} lección",
+     "other": "{count} lecciones"
+    }
+   },
+   "grades": {
+    "kg": "Infantil",
+    "g1": "Grado 1",
+    "g2": "Grado 2",
+    "g3": "Grado 3",
+    "g4": "Grado 4",
+    "g5": "Grado 5",
+    "g6": "Grado 6",
+    "g7": "Grado 7",
+    "g8": "Grado 8",
+    "g9": "Grado 9",
+    "g10": "Grado 10",
+    "g11": "Grado 11",
+    "g12": "Grado 12",
+    "university": "Universidad",
+    "adults": "Adultos"
+   }
   }
  },
  "fr": {
@@ -646,7 +858,58 @@
   },
   "market": {
    "badGrade": "Niveau inconnu.",
-   "fixFirst": "Cette version doit d’abord être corrigée : corrigez-la et publiez une nouvelle version."
+   "fixFirst": "Cette version doit d’abord être corrigée : corrigez-la et publiez une nouvelle version.",
+   "page": {
+    "allCourses": "Tous les cours",
+    "home": "Accueil",
+    "teach": "Enseignants",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "catalogueTitle": "Cours Learn",
+    "catalogueLead": "Des cours interactifs créés par des enseignants et relus par l’équipe Learn, avec un tuteur IA qui explique et répond.",
+    "search": "Rechercher",
+    "searchHint": "Cours, matière ou enseignant",
+    "subject": "Matière",
+    "grade": "Niveau",
+    "anySubject": "Toutes les matières",
+    "anyGrade": "Tous les niveaux",
+    "show": "Afficher",
+    "noMatch": "Aucun cours ne correspond.",
+    "empty": "Pas encore de cours ici.",
+    "free": "Gratuit",
+    "by": "avec {teacher}",
+    "reviewed": "Relu par l’équipe Learn",
+    "start": "Commencer le cours",
+    "open": "Ouvrir le cours",
+    "startNote": "Un compte gratuit suffit pour commencer et garder votre progression.",
+    "notFound": "Ce cours n’existe pas ou n’est pas au catalogue.",
+    "fallbackDescription": "Un cours interactif sur Learn : {title}.",
+    "lessons": {
+     "one": "{count} leçon",
+     "other": "{count} leçons"
+    },
+    "lessonsTitle": {
+     "one": "{count} leçon",
+     "other": "{count} leçons"
+    }
+   },
+   "grades": {
+    "kg": "Maternelle",
+    "g1": "Année 1",
+    "g2": "Année 2",
+    "g3": "Année 3",
+    "g4": "Année 4",
+    "g5": "Année 5",
+    "g6": "Année 6",
+    "g7": "Année 7",
+    "g8": "Année 8",
+    "g9": "Année 9",
+    "g10": "Année 10",
+    "g11": "Année 11",
+    "g12": "Année 12",
+    "university": "Université",
+    "adults": "Adultes"
+   }
   }
  },
  "pt": {
@@ -776,7 +1039,58 @@
   },
   "market": {
    "badGrade": "Ano desconhecido.",
-   "fixFirst": "Esta versão precisa de ajustes primeiro: corrija e publique uma nova versão."
+   "fixFirst": "Esta versão precisa de ajustes primeiro: corrija e publique uma nova versão.",
+   "page": {
+    "allCourses": "Todos os cursos",
+    "home": "Início",
+    "teach": "Professores",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "catalogueTitle": "Cursos do Learn",
+    "catalogueLead": "Cursos interativos feitos por professores e revisados pela equipe do Learn, com um tutor de IA que explica e responde.",
+    "search": "Buscar",
+    "searchHint": "Curso, matéria ou professor",
+    "subject": "Matéria",
+    "grade": "Ano",
+    "anySubject": "Todas as matérias",
+    "anyGrade": "Todos os anos",
+    "show": "Mostrar",
+    "noMatch": "Nenhum curso corresponde.",
+    "empty": "Ainda não há cursos aqui.",
+    "free": "Grátis",
+    "by": "com {teacher}",
+    "reviewed": "Revisado pela equipe do Learn",
+    "start": "Começar o curso",
+    "open": "Abrir o curso",
+    "startNote": "Você precisa de uma conta grátis para começar e salvar seu progresso.",
+    "notFound": "Este curso não existe ou não está no catálogo.",
+    "fallbackDescription": "Um curso interativo no Learn: {title}.",
+    "lessons": {
+     "one": "{count} lição",
+     "other": "{count} lições"
+    },
+    "lessonsTitle": {
+     "one": "{count} lição",
+     "other": "{count} lições"
+    }
+   },
+   "grades": {
+    "kg": "Educação infantil",
+    "g1": "1º ano",
+    "g2": "2º ano",
+    "g3": "3º ano",
+    "g4": "4º ano",
+    "g5": "5º ano",
+    "g6": "6º ano",
+    "g7": "7º ano",
+    "g8": "8º ano",
+    "g9": "9º ano",
+    "g10": "10º ano",
+    "g11": "11º ano",
+    "g12": "12º ano",
+    "university": "Universidade",
+    "adults": "Adultos"
+   }
   }
  },
  "tr": {
@@ -906,7 +1220,56 @@
   },
   "market": {
    "badGrade": "Bilinmeyen sınıf.",
-   "fixFirst": "Bu sürümün önce düzeltilmesi gerekiyor: düzelt ve yeni bir sürüm yayınla."
+   "fixFirst": "Bu sürümün önce düzeltilmesi gerekiyor: düzelt ve yeni bir sürüm yayınla.",
+   "page": {
+    "allCourses": "Tüm kurslar",
+    "home": "Ana sayfa",
+    "teach": "Öğretmenler için",
+    "privacy": "Gizlilik",
+    "terms": "Koşullar",
+    "catalogueTitle": "Learn kursları",
+    "catalogueLead": "Öğretmenlerin hazırladığı, Learn ekibinin incelediği, anlatan ve cevaplayan bir yapay zekâ öğretmenli etkileşimli kurslar.",
+    "search": "Ara",
+    "searchHint": "Kurs, ders ya da öğretmen",
+    "subject": "Ders",
+    "grade": "Sınıf",
+    "anySubject": "Tüm dersler",
+    "anyGrade": "Tüm sınıflar",
+    "show": "Göster",
+    "noMatch": "Bu seçimlere uyan kurs yok.",
+    "empty": "Burada henüz kurs yok.",
+    "free": "Ücretsiz",
+    "by": "{teacher} ile",
+    "reviewed": "Learn ekibi inceledi",
+    "start": "Kursa başla",
+    "open": "Kursu aç",
+    "startNote": "Başlamak ve ilerlemeni kaydetmek için ücretsiz bir hesap gerekir.",
+    "notFound": "Bu kurs yok ya da listelenmemiş.",
+    "fallbackDescription": "Learn’de etkileşimli bir kurs: {title}.",
+    "lessons": {
+     "other": "{count} ders"
+    },
+    "lessonsTitle": {
+     "other": "{count} ders"
+    }
+   },
+   "grades": {
+    "kg": "Anaokulu",
+    "g1": "1. sınıf",
+    "g2": "2. sınıf",
+    "g3": "3. sınıf",
+    "g4": "4. sınıf",
+    "g5": "5. sınıf",
+    "g6": "6. sınıf",
+    "g7": "7. sınıf",
+    "g8": "8. sınıf",
+    "g9": "9. sınıf",
+    "g10": "10. sınıf",
+    "g11": "11. sınıf",
+    "g12": "12. sınıf",
+    "university": "Üniversite",
+    "adults": "Yetişkinler"
+   }
   }
  },
  "zh": {
@@ -1033,7 +1396,56 @@
   },
   "market": {
    "badGrade": "未知年级。",
-   "fixFirst": "这个版本需要先修改：改好后发布新版本。"
+   "fixFirst": "这个版本需要先修改：改好后发布新版本。",
+   "page": {
+    "allCourses": "全部课程",
+    "home": "首页",
+    "teach": "教师",
+    "privacy": "隐私",
+    "terms": "条款",
+    "catalogueTitle": "Learn 课程",
+    "catalogueLead": "由老师制作、经 Learn 团队审核的互动课程，配有会讲解和答疑的 AI 导师。",
+    "search": "搜索",
+    "searchHint": "课程、科目或老师",
+    "subject": "科目",
+    "grade": "年级",
+    "anySubject": "全部科目",
+    "anyGrade": "全部年级",
+    "show": "显示",
+    "noMatch": "没有符合条件的课程。",
+    "empty": "这里还没有课程。",
+    "free": "免费",
+    "by": "老师：{teacher}",
+    "reviewed": "经 Learn 团队审核",
+    "start": "开始学习",
+    "open": "打开课程",
+    "startNote": "需要一个免费账户才能开始学习并保存进度。",
+    "notFound": "这门课程不存在或未上架。",
+    "fallbackDescription": "Learn 上的互动课程：{title}。",
+    "lessons": {
+     "other": "{count} 节课"
+    },
+    "lessonsTitle": {
+     "other": "{count} 节课"
+    }
+   },
+   "grades": {
+    "kg": "幼儿园",
+    "g1": "1 年级",
+    "g2": "2 年级",
+    "g3": "3 年级",
+    "g4": "4 年级",
+    "g5": "5 年级",
+    "g6": "6 年级",
+    "g7": "7 年级",
+    "g8": "8 年级",
+    "g9": "9 年级",
+    "g10": "10 年级",
+    "g11": "11 年级",
+    "g12": "12 年级",
+    "university": "大学",
+    "adults": "成人"
+   }
   }
  }
 }

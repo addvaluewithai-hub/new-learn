@@ -87,6 +87,7 @@
       "account": "Conta",
       "help": "Ajuda",
       "looks": "Estilos",
+      "courses": "Todos os cursos",
       "demos": "Demos",
       "teachers": "Para professores",
       "connect": "Conecte sua IA",
@@ -684,7 +685,58 @@
     },
     "market": {
       "badGrade": "Ano desconhecido.",
-      "fixFirst": "Esta versão precisa de ajustes primeiro: corrija e publique uma nova versão."
+      "fixFirst": "Esta versão precisa de ajustes primeiro: corrija e publique uma nova versão.",
+      "page": {
+        "allCourses": "Todos os cursos",
+        "home": "Início",
+        "teach": "Professores",
+        "privacy": "Privacidade",
+        "terms": "Termos",
+        "catalogueTitle": "Cursos do Learn",
+        "catalogueLead": "Cursos interativos feitos por professores e revisados pela equipe do Learn, com um tutor de IA que explica e responde.",
+        "search": "Buscar",
+        "searchHint": "Curso, matéria ou professor",
+        "subject": "Matéria",
+        "grade": "Ano",
+        "anySubject": "Todas as matérias",
+        "anyGrade": "Todos os anos",
+        "show": "Mostrar",
+        "noMatch": "Nenhum curso corresponde.",
+        "empty": "Ainda não há cursos aqui.",
+        "free": "Grátis",
+        "by": "com {teacher}",
+        "reviewed": "Revisado pela equipe do Learn",
+        "start": "Começar o curso",
+        "open": "Abrir o curso",
+        "startNote": "Você precisa de uma conta grátis para começar e salvar seu progresso.",
+        "notFound": "Este curso não existe ou não está no catálogo.",
+        "fallbackDescription": "Um curso interativo no Learn: {title}.",
+        "lessons": {
+          "one": "{count} lição",
+          "other": "{count} lições"
+        },
+        "lessonsTitle": {
+          "one": "{count} lição",
+          "other": "{count} lições"
+        }
+      },
+      "grades": {
+        "kg": "Educação infantil",
+        "g1": "1º ano",
+        "g2": "2º ano",
+        "g3": "3º ano",
+        "g4": "4º ano",
+        "g5": "5º ano",
+        "g6": "6º ano",
+        "g7": "7º ano",
+        "g8": "8º ano",
+        "g9": "9º ano",
+        "g10": "10º ano",
+        "g11": "11º ano",
+        "g12": "12º ano",
+        "university": "Universidade",
+        "adults": "Adultos"
+      }
     }
   },
   "build": {
