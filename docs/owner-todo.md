@@ -21,10 +21,10 @@
       Redeploy. من غيره صفحات `?review` و `?ops` مش هتظهر. (docs/credits.md)
 - [ ] **O5** تنبيهات التكلفة: Google Cloud (Gemini)، Neon، Cloudflare. الخطوات في
       docs/operations.md.
-- [ ] **الـbuilder على Claude Code (الخطوة 3):** شغّل `claude setup-token` على جهازك، وادّي
-      التوكن اللي يطلع **بشكل خاص** للي بيشغّل السيرفر يحطه في `/etc/new-learn-builder.env`.
-      متبعتهوش في الشات ولا في GitHub. بعدها اعمل كورس تجريبي من `?studio`.
-      (docs/builder-server.md، الخطوة 3)
+- [ ] **الـworker على Cloud Run (بدل السيرفر):** من Cloud Shell في مشروع الرصيد: اعمل
+      secret اسمه `BUILDER_TOKEN` (نفس قيمة Cloudflare) وsecret اسمه `CLAUDE_CODE_OAUTH_TOKEN`
+      (من `claude setup-token` على جهازك)، وبعدين `bash workers/cloudrun/deploy.sh`. الخطوات
+      كلها في docs/worker-cloud-run.md. بعد أول كورس يتبني من Cloud Run، وقّف خدمة السيرفر.
 - [ ] **O2** مراقبة إن الموقع شغال (uptime) للتطبيق وموقع البوردات و`/mcp` (أي خدمة مجانية).
 - [ ] **O3** جرّب استرجاع نسخة احتياطية من Neon على branch جديد (متلمسش branch الإنتاج).
 - [ ] **O4** بيئة staging ثابتة: preview branch ليها Neon branch خاص بيها.
