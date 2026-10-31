@@ -56,7 +56,9 @@
    "lessonMissing": "الدرس ده مش موجود.",
    "courseMissing": "الكورس ده مش موجود.",
    "partsEveryLesson": "الأجزاء لازم تحتوي كل درس مرة واحدة.",
-   "otherLessons": "دروس تانية"
+   "otherLessons": "دروس تانية",
+   "badPrice": "السعر لازم يكون مجاني، أو بين أقل وأعلى سعر مسموح للعملة.",
+   "paidCourse": "الكورس ده بفلوس. اشتريه الأول عشان تبدأ."
   },
   "builds": {
    "busy": "فيه كورس لسه بيتبني. استنى لما يخلص.",
@@ -97,6 +99,23 @@
    "badAudio": "الصوت غير صحيح.",
    "shortAudio": "الصوت قصير جدًا.",
    "badWakeWord": "كلمة النداء غير صحيحة."
+  },
+  "credits": {
+   "notEnough": "رصيدك مش مكفي: ده بـ{cost} كريدت ومعاك {balance}.",
+   "badAmount": "عدد الكريدت لازم يكون رقم صحيح من 1 لـ100000.",
+   "unknownAccount": "مفيش حساب بالإيميل ده فتح المنصة لحد دلوقتي.",
+   "unknownPack": "الباقة دي مش موجودة."
+  },
+  "payments": {
+   "notConnected": "الدفع لسه بيتجهّز. هيفتح قريب."
+  },
+  "staff": {
+   "only": "الصفحة دي لفريق New Learn بس."
+  },
+  "review": {
+   "notFound": "المراجعة دي مش موجودة.",
+   "decided": "المراجعة دي اتقرر فيها خلاص.",
+   "needNotes": "اكتب ملاحظاتك للمدرس قبل ما تطلب تعديلات."
   }
  },
  "de": {
@@ -159,7 +178,9 @@
    "lessonMissing": "Diese Lektion gibt es nicht.",
    "courseMissing": "Diesen Kurs gibt es nicht.",
    "partsEveryLesson": "Die Teile müssen jede Lektion genau einmal enthalten.",
-   "otherLessons": "Weitere Lektionen"
+   "otherLessons": "Weitere Lektionen",
+   "badPrice": "Der Kurs muss kostenlos sein oder einen Preis zwischen dem erlaubten Minimum und Maximum der Währung haben.",
+   "paidCourse": "Dieser Kurs ist kostenpflichtig. Kauf ihn zuerst, um loszulegen."
   },
   "builds": {
    "busy": "Ein Kurs wird gerade noch gebaut. Warte, bis er fertig ist.",
@@ -200,6 +221,23 @@
    "badAudio": "Ungültiges Audio.",
    "shortAudio": "Audio zu kurz.",
    "badWakeWord": "Ungültiges Aktivierungswort."
+  },
+  "credits": {
+   "notEnough": "Nicht genug Guthaben: Das kostet {cost} Credits, du hast {balance}.",
+   "badAmount": "Die Anzahl Credits muss eine ganze Zahl von 1 bis 100.000 sein.",
+   "unknownAccount": "Kein Konto mit dieser E-Mail hat die Plattform bisher geöffnet.",
+   "unknownPack": "Dieses Paket gibt es nicht."
+  },
+  "payments": {
+   "notConnected": "Bezahlen ist noch in Vorbereitung. Es kommt bald."
+  },
+  "staff": {
+   "only": "Diese Seite ist nur für das Team von New Learn."
+  },
+  "review": {
+   "notFound": "Diese Prüfung gibt es nicht.",
+   "decided": "Über diese Prüfung wurde schon entschieden.",
+   "needNotes": "Schreib deine Notizen für die Lehrkraft, bevor du Änderungen anforderst."
   }
  },
  "en": {
@@ -262,7 +300,9 @@
    "lessonMissing": "This lesson doesn't exist.",
    "courseMissing": "This course doesn't exist.",
    "partsEveryLesson": "The parts must include every lesson exactly once.",
-   "otherLessons": "Other lessons"
+   "otherLessons": "Other lessons",
+   "badPrice": "The course must be free, or priced between the lowest and highest price allowed for its currency.",
+   "paidCourse": "This is a paid course. Buy it first to start."
   },
   "builds": {
    "busy": "A course is still being built. Wait until it's done.",
@@ -303,6 +343,23 @@
    "badAudio": "Invalid audio.",
    "shortAudio": "The audio is too short.",
    "badWakeWord": "Invalid wake word."
+  },
+  "credits": {
+   "notEnough": "Not enough credits: this costs {cost} credits and you have {balance}.",
+   "badAmount": "The number of credits must be a whole number from 1 to 100,000.",
+   "unknownAccount": "No account with this email has opened the platform yet.",
+   "unknownPack": "This pack doesn't exist."
+  },
+  "payments": {
+   "notConnected": "Payments aren't ready yet. They'll open soon."
+  },
+  "staff": {
+   "only": "This page is for the New Learn team only."
+  },
+  "review": {
+   "notFound": "This review doesn't exist.",
+   "decided": "This review has already been decided.",
+   "needNotes": "Write your notes for the teacher before requesting changes."
   }
  },
  "es": {
@@ -365,7 +422,9 @@
    "lessonMissing": "Esta lección no existe.",
    "courseMissing": "Este curso no existe.",
    "partsEveryLesson": "Las partes deben incluir cada lección una sola vez.",
-   "otherLessons": "Otras lecciones"
+   "otherLessons": "Otras lecciones",
+   "badPrice": "El curso debe ser gratis o tener un precio entre el mínimo y el máximo permitidos para la moneda.",
+   "paidCourse": "Este curso es de pago. Cómpralo primero para empezar."
   },
   "builds": {
    "busy": "Ya hay un curso creándose. Espera a que termine.",
@@ -406,6 +465,23 @@
    "badAudio": "Audio no válido.",
    "shortAudio": "El audio es demasiado corto.",
    "badWakeWord": "Palabra de activación no válida."
+  },
+  "credits": {
+   "notEnough": "No tienes créditos suficientes: esto cuesta {cost} créditos y tienes {balance}.",
+   "badAmount": "La cantidad de créditos debe ser un número entero del 1 al 100 000.",
+   "unknownAccount": "Todavía ninguna cuenta con este correo abrió la plataforma.",
+   "unknownPack": "Este paquete no existe."
+  },
+  "payments": {
+   "notConnected": "Los pagos todavía se están preparando. Abrirán pronto."
+  },
+  "staff": {
+   "only": "Esta página es solo para el equipo de New Learn."
+  },
+  "review": {
+   "notFound": "Esta revisión no existe.",
+   "decided": "Esta revisión ya tiene una decisión.",
+   "needNotes": "Escribe tus notas para el docente antes de pedir cambios."
   }
  },
  "fr": {
@@ -471,7 +547,9 @@
    "lessonMissing": "Cette leçon n’existe pas.",
    "courseMissing": "Ce cours n’existe pas.",
    "partsEveryLesson": "Chaque leçon doit figurer une seule fois dans les parties.",
-   "otherLessons": "Autres leçons"
+   "otherLessons": "Autres leçons",
+   "badPrice": "Le cours doit être gratuit, ou son prix compris entre le minimum et le maximum autorisés pour la devise.",
+   "paidCourse": "Ce cours est payant. Achetez-le d’abord pour commencer."
   },
   "builds": {
    "busy": "Un cours est déjà en création. Attendez qu’il soit terminé.",
@@ -512,6 +590,23 @@
    "badAudio": "Audio invalide.",
    "shortAudio": "Audio trop court.",
    "badWakeWord": "Mot d’appel invalide."
+  },
+  "credits": {
+   "notEnough": "Solde insuffisant : cela coûte {cost} crédits et vous en avez {balance}.",
+   "badAmount": "Le nombre de crédits doit être un nombre entier de 1 à 100 000.",
+   "unknownAccount": "Aucun compte avec cet e-mail n’a encore ouvert la plateforme.",
+   "unknownPack": "Ce pack n’existe pas."
+  },
+  "payments": {
+   "notConnected": "Le paiement est encore en préparation. Il ouvrira bientôt."
+  },
+  "staff": {
+   "only": "Cette page est réservée à l’équipe New Learn."
+  },
+  "review": {
+   "notFound": "Cette relecture n’existe pas.",
+   "decided": "Une décision a déjà été prise pour cette relecture.",
+   "needNotes": "Écrivez vos remarques pour l’enseignant avant de demander des modifications."
   }
  },
  "pt": {
@@ -574,7 +669,9 @@
    "lessonMissing": "Esta aula não existe.",
    "courseMissing": "Este curso não existe.",
    "partsEveryLesson": "As partes precisam conter cada aula uma única vez.",
-   "otherLessons": "Outras aulas"
+   "otherLessons": "Outras aulas",
+   "badPrice": "O curso precisa ser grátis ou ter um preço entre o mínimo e o máximo permitidos para a moeda.",
+   "paidCourse": "Este curso é pago. Compre primeiro para começar."
   },
   "builds": {
    "busy": "Já tem um curso sendo montado. Espere ele terminar.",
@@ -615,6 +712,23 @@
    "badAudio": "Áudio inválido.",
    "shortAudio": "O áudio é curto demais.",
    "badWakeWord": "Palavra de ativação inválida."
+  },
+  "credits": {
+   "notEnough": "Saldo insuficiente: isso custa {cost} créditos e você tem {balance}.",
+   "badAmount": "A quantidade de créditos precisa ser um número inteiro de 1 a 100.000.",
+   "unknownAccount": "Nenhuma conta com este e-mail abriu a plataforma até agora.",
+   "unknownPack": "Este pacote não existe."
+  },
+  "payments": {
+   "notConnected": "O pagamento ainda está sendo preparado. Abre em breve."
+  },
+  "staff": {
+   "only": "Esta página é só para a equipe New Learn."
+  },
+  "review": {
+   "notFound": "Esta revisão não existe.",
+   "decided": "Esta revisão já foi decidida.",
+   "needNotes": "Escreva seus comentários para o professor antes de pedir ajustes."
   }
  },
  "tr": {
@@ -677,7 +791,9 @@
    "lessonMissing": "Bu ders bulunamadı.",
    "courseMissing": "Bu kurs bulunamadı.",
    "partsEveryLesson": "Her ders bölümlerde tam bir kez yer almalı.",
-   "otherLessons": "Diğer dersler"
+   "otherLessons": "Diğer dersler",
+   "badPrice": "Kurs ücretsiz olmalı ya da fiyatı, para birimi için izin verilen en düşük ve en yüksek fiyat arasında olmalı.",
+   "paidCourse": "Bu kurs ücretli. Başlamak için önce satın al."
   },
   "builds": {
    "busy": "Hâlâ oluşturulan bir kurs var. Bitmesini bekle.",
@@ -718,6 +834,23 @@
    "badAudio": "Ses geçersiz.",
    "shortAudio": "Ses çok kısa.",
    "badWakeWord": "Çağrı sözcüğü geçersiz."
+  },
+  "credits": {
+   "notEnough": "Bakiyen yetmiyor: bunun için {cost} kredi gerekiyor, sende {balance} var.",
+   "badAmount": "Kredi miktarı 1 ile 100.000 arasında bir tam sayı olmalı.",
+   "unknownAccount": "Bu e-postayla platformu açmış bir hesap henüz yok.",
+   "unknownPack": "Böyle bir paket yok."
+  },
+  "payments": {
+   "notConnected": "Ödeme henüz hazırlanıyor. Yakında açılacak."
+  },
+  "staff": {
+   "only": "Bu sayfa yalnızca New Learn ekibi için."
+  },
+  "review": {
+   "notFound": "Böyle bir inceleme yok.",
+   "decided": "Bu inceleme için zaten karar verildi.",
+   "needNotes": "Değişiklik istemeden önce öğretmene notlarını yaz."
   }
  },
  "zh": {
@@ -777,7 +910,9 @@
    "lessonMissing": "这节课不存在。",
    "courseMissing": "这门课程不存在。",
    "partsEveryLesson": "每节课都必须在单元里出现且只出现一次。",
-   "otherLessons": "其他课"
+   "otherLessons": "其他课",
+   "badPrice": "课程必须免费，或者价格在该币种允许的最低价和最高价之间。",
+   "paidCourse": "这是付费课程。先购买才能开始学习。"
   },
   "builds": {
    "busy": "有一门课程还在生成中。请等它完成。",
@@ -818,6 +953,23 @@
    "badAudio": "音频不正确。",
    "shortAudio": "音频太短了。",
    "badWakeWord": "唤醒词不正确。"
+  },
+  "credits": {
+   "notEnough": "积分不够：这需要 {cost} 积分，你有 {balance}。",
+   "badAmount": "积分数量必须是 1 到 100000 之间的整数。",
+   "unknownAccount": "还没有用这个邮箱打开过平台的账户。",
+   "unknownPack": "这个套餐不存在。"
+  },
+  "payments": {
+   "notConnected": "支付功能还在准备中，很快开通。"
+  },
+  "staff": {
+   "only": "此页面仅限 New Learn 团队使用。"
+  },
+  "review": {
+   "notFound": "这条审核不存在。",
+   "decided": "这条审核已经有结果了。",
+   "needNotes": "要求修改前，请先写下给老师的意见。"
   }
  }
 }
