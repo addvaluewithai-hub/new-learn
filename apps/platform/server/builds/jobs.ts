@@ -6,6 +6,7 @@ import { HttpError } from '../http';
 import type { AuthUser } from '../env';
 import type { UploadedFile } from './request';
 import { refund, spend } from '../credits/ledger';
+import { countUsage } from '../ops/record';
 
 // The queue between the "make a course" page and the builder worker. Jobs belong to the
 // teacher who asked; the worker claims one at a time and reports steps and the result.
@@ -48,6 +49,7 @@ export async function createJob(
       .values({ id, ownerId: user.id, ownerName: user.name, request: input.request })
       .returning();
     for (const f of input.files) await db.insert(buildFiles).values({ jobId: job.id, ...f });
+    await countUsage(db, 'build.job');
     return view(job);
   } catch (error) {
     await refund(db, user.id, id);

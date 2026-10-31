@@ -4,6 +4,9 @@ import { assistantContext, teachingInstruction } from './context';
 import { generate, gemini } from './provider';
 import { quizSchema, validateQuiz } from './quiz';
 import { limitNova } from './limits';
+import { database } from '../db/connection';
+import { rateLimit } from '../ops/limits';
+import { countUsage } from '../ops/record';
 import { liveConfig, sessionEnd } from './live';
 import { personaInstruction, speechOf, tutorStyle } from './style';
 import { SOURCE } from '../../src/i18n/core';
@@ -28,6 +31,15 @@ const quizLanguages = (locale: string) =>
   locale === SOURCE
     ? 'English prompts/options/englishAnswer, Arabic translation/explanation.'
     : `English prompts/options/englishAnswer; the "arabic" field holds the ${speechOf(locale)} translation of the prompt and "explanation" is in ${speechOf(locale)} (the field names stay as they are).`;
+type Spend = 'chat' | 'live' | 'quiz' | 'wake';
+/** This instance's quick limit, then the limit shared by every instance and the daily count. */
+async function spendNova(env: Env, userId: string, action: Spend) {
+  limitNova(userId, action);
+  if (!env.DATABASE_URL) return;
+  const db = database(env);
+  await rateLimit(db, `nova.${action}`, userId);
+  await countUsage(db, `nova.${action}`);
+}
 export async function novaRoute(
   request: Request,
   env: Env,
@@ -41,7 +53,7 @@ export async function novaRoute(
   if (action === 'wake') {
     // Hands-free mode: did this short clip call the tutor by the learner's wake word?
     const word = wakeWordOf(input.word);
-    limitNova(user.id, action);
+    await spendNova(env, user.id, 'wake');
     const audio = { inlineData: { mimeType: 'audio/wav', data: wakeWav(input.audio) } };
     const text = await generate(
       env,
@@ -59,7 +71,7 @@ export async function novaRoute(
     return json({ ok: true });
   }
   const context = await assistantContext(env, user, input);
-  limitNova(user.id, action);
+  await spendNova(env, user.id, action as Spend);
   const style = tutorStyle(input.style);
   const instruction = teachingInstruction(context, locale) + personaInstruction(style);
   if (action === 'chat') {

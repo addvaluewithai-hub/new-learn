@@ -1,7 +1,8 @@
 // Credits and paid courses (docs/credits.md), against a mocked API at 1280 and 390: the
 // credits page (balance, prices, packs waiting for payments, history, a staff grant), the
 // studio's cost line and its block when short, pricing a course for review, a student facing
-// a paid course, and staff reviewing it with the AI's first pass.
+// a paid course, staff reviewing it with the AI's first pass, and the staff ops page
+// (usage, errors) with a page error reported once.
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
@@ -104,6 +105,32 @@ function api(store) {
       });
     if (path === `/api/courses/${courseId}/buy`)
       return send({ error: 'الدفع لسه بيتجهّز. هيفتح قريب.' }, 503);
+    if (path === '/api/ops/usage')
+      return send({
+        usage: [
+          { day: '2026-10-31', kind: 'nova.chat', count: 120, cents: 12 },
+          { day: '2026-10-31', kind: 'build.job', count: 2, cents: 500 },
+          { day: '2026-10-30', kind: 'mcp.call', count: 40, cents: 0 },
+        ],
+      });
+    if (path === '/api/ops/errors')
+      return send({
+        errors: [
+          {
+            id: 'e1',
+            at: '2026-10-31T11:00:00Z',
+            source: 'server',
+            place: 'POST /api/nova/chat',
+            status: 500,
+            message: 'Gemini timed out',
+            detail: { stack: 'Error: Gemini timed out\n    at generate' },
+          },
+        ],
+      });
+    if (path === '/api/errors' && method === 'POST') {
+      store.reported.push(request.postDataJSON());
+      return send({ ok: true }, 202);
+    }
     if (path === '/api/review/queue')
       return send({
         reviews: store.decided
@@ -162,7 +189,7 @@ function api(store) {
 }
 
 async function run(width, height) {
-  const store = { balance: 60, extra: [], granted: [], ai: null, decided: null };
+  const store = { balance: 60, extra: [], granted: [], ai: null, decided: null, reported: [] };
   const page = await browser.newPage({ locale: 'ar-EG', viewport: { width, height } });
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
@@ -215,6 +242,30 @@ async function run(width, height) {
   assert.deepEqual(store.decided, { status: 'approved', notes: 'تمام.' });
   await safe();
   await page.screenshot({ path: `test-results/review-${width}.png`, fullPage: true });
+  // Staff operations: usage per day with a rough cost, and the latest errors.
+  await page.goto(`${app}/?ops`);
+  await page.getByRole('heading', { name: 'تشغيل المنصة', level: 1 }).waitFor({ timeout: 20000 });
+  await page.getByText('محادثات Nova').waitFor();
+  await page.locator('.ops-day').first().getByText(/5\.12/).waitFor();
+  await page.getByText('Gemini timed out').waitFor();
+  await page.getByText('POST /api/nova/chat').waitFor();
+  await safe();
+  await page.screenshot({ path: `test-results/ops-${width}.png`, fullPage: true });
+  // An error nothing caught goes to the error log, once.
+  await page.evaluate(() => {
+    setTimeout(() => {
+      throw new Error('boom from the test');
+    });
+    setTimeout(() => {
+      throw new Error('boom from the test');
+    });
+  });
+  await page.waitForTimeout(500);
+  assert.equal(store.reported.length, 1);
+  assert.match(store.reported[0].message, /boom from the test/);
+  assert.equal(store.reported[0].url, '/?ops');
+  for (let i = errors.length - 1; i >= 0; i--)
+    if (errors[i] === 'boom from the test') errors.splice(i, 1);
   assert.deepEqual(errors, []);
   await page.close();
 }
@@ -235,7 +286,9 @@ try {
   browser = await chromium.launch();
   await run(1280, 900);
   await run(390, 844);
-  console.log('Credits, the studio cost, a paid course and its review passed at 1280 and 390.');
+  console.log(
+    'Credits, the studio cost, a paid course, its review and the ops page passed at 1280 and 390.',
+  );
 } finally {
   await browser?.close();
   server.kill('SIGTERM');

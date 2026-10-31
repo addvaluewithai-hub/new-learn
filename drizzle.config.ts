@@ -8,6 +8,7 @@ export default defineConfig({
     './apps/platform/server/db/builds.ts',
     './apps/platform/server/db/publish.ts',
     './apps/platform/server/db/money.ts',
+    './apps/platform/server/db/ops.ts',
   ],
   out: './database/migrations',
   dialect: 'postgresql',

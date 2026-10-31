@@ -9,6 +9,7 @@ import { GearSixIcon } from '@phosphor-icons/react/dist/csr/GearSix';
 import { ChalkboardTeacherIcon } from '@phosphor-icons/react/dist/csr/ChalkboardTeacher';
 import { CoinsIcon } from '@phosphor-icons/react/dist/csr/Coins';
 import { SealCheckIcon } from '@phosphor-icons/react/dist/csr/SealCheck';
+import { PulseIcon } from '@phosphor-icons/react/dist/csr/Pulse';
 import { useI18n } from '../i18n';
 const icons = {
   arrow: ArrowLeftIcon,
@@ -22,6 +23,7 @@ const icons = {
   teach: ChalkboardTeacherIcon,
   credits: CoinsIcon,
   review: SealCheckIcon,
+  ops: PulseIcon,
 };
 export function PlatformIcon({ name }: { name: keyof typeof icons }) {
   const Icon = icons[name];

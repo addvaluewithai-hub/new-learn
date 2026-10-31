@@ -37,7 +37,7 @@ At the end of a round, mark its tasks Done in their files.
 
 | Round | Name                             | Tasks                          | Needs             | Notes                                                                                                          |
 | ----- | -------------------------------- | ------------------------------ | ----------------- | -------------------------------------------------------------------------------------------------------------- |
-| OR2   | Hardening and numbers            | A6, A8, O1, O2, O3, O5, O6, V7 | OR1               | Limits, errors, uptime, backups, costs, usage numbers                                                          |
+| OR2   | Hardening and numbers            | A6, A8, O1, O2, O3, O5, O6, V7 | OR1               | A8, O1 done 2026-10-31 (docs/operations.md, staff page `?ops`); O5 steps written; O2, O3, O6, V7 remain        |
 | OR3   | Teacher workspace                | T1, S8, S3, S4, S5, S9, A9     | ER2               | T1, S8, S3 done 2026-10-29; S4, S5, S9, A9 remain                                                              |
 | OR4   | Publish to students              | F1, T2, F2, M7, F6, F11        | OR3               | F1, T2, F11 done 2026-10-29; M7 partly; F2 and F6 remain                                                       |
 | OR5   | Streaks and home                 | R1, R2, R5, E2, R3, R4         | ER7, D3           | R3 and R4 are Ideas: only if D3 says yes                                                                       |

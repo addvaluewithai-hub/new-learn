@@ -566,7 +566,8 @@
       "notAllowed": "Request not allowed.",
       "notFound": "Page not found.",
       "failed": "Couldn't complete the request. Try again.",
-      "badStatus": "Invalid status."
+      "badStatus": "Invalid status.",
+      "tooMany": "Too many requests in a short time. Wait a little and try again."
     },
     "auth": {
       "unavailable": "The account service isn't available right now.",
@@ -820,7 +821,8 @@
         "teach": "Teacher dashboard",
         "settings": "Settings",
         "credits": "Credits",
-        "review": "Review"
+        "review": "Review",
+        "ops": "Operations"
       },
       "account": "Your Learn account",
       "signOut": "Log out",
@@ -1751,6 +1753,44 @@
     "decided": {
       "approved": "Approved. This version is now on sale.",
       "changes": "Your notes were sent to the teacher."
+    }
+  },
+  "ops": {
+    "title": "Running the platform",
+    "lead": "What was used each day and what broke, so we catch problems and costs early.",
+    "loading": "Loading…",
+    "usage": {
+      "title": "Usage, last 14 days",
+      "note": "Costs are rough estimates for us to watch, not a bill.",
+      "empty": "No usage recorded yet.",
+      "cost": "About {cost}"
+    },
+    "errors": {
+      "title": "Latest errors",
+      "empty": "No errors recorded.",
+      "server": "Server",
+      "browser": "Browser",
+      "details": "Details"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Nova chats",
+        "live": "Nova voice sessions",
+        "quiz": "Practice quizzes",
+        "wake": "Wake word checks"
+      },
+      "mcp": {
+        "call": "Connector calls"
+      },
+      "build": {
+        "job": "Courses built"
+      },
+      "review": {
+        "ai": "AI reviews"
+      },
+      "auth": {
+        "signup": "New accounts"
+      }
     }
   }
 }

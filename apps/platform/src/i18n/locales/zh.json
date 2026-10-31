@@ -566,7 +566,8 @@
       "notAllowed": "不允许此请求。",
       "notFound": "页面不存在。",
       "failed": "请求没能完成。再试一次吧。",
-      "badStatus": "状态不正确。"
+      "badStatus": "状态不正确。",
+      "tooMany": "短时间内请求过多，请稍等片刻再试。"
     },
     "auth": {
       "unavailable": "账户服务暂时不可用。",
@@ -814,7 +815,8 @@
         "teach": "教师面板",
         "settings": "设置",
         "credits": "积分",
-        "review": "审核"
+        "review": "审核",
+        "ops": "运营"
       },
       "account": "你的 Learn 账户",
       "signOut": "退出登录",
@@ -1732,6 +1734,44 @@
     "decided": {
       "approved": "已批准，这个版本现在可以购买了。",
       "changes": "意见已发送给老师。"
+    }
+  },
+  "ops": {
+    "title": "平台运营",
+    "lead": "每天的用量和出错情况，便于及早发现问题和成本。",
+    "loading": "正在加载…",
+    "usage": {
+      "title": "用量（最近 14 天）",
+      "note": "成本只是供我们参考的粗略估计，不是账单。",
+      "empty": "暂无用量记录。",
+      "cost": "约 {cost}"
+    },
+    "errors": {
+      "title": "最近的错误",
+      "empty": "没有错误记录。",
+      "server": "服务器",
+      "browser": "浏览器",
+      "details": "详情"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Nova 对话",
+        "live": "Nova 语音课",
+        "quiz": "练习测验",
+        "wake": "唤醒词检测"
+      },
+      "mcp": {
+        "call": "连接器调用"
+      },
+      "build": {
+        "job": "生成的课程"
+      },
+      "review": {
+        "ai": "AI 审核"
+      },
+      "auth": {
+        "signup": "新账户"
+      }
     }
   }
 }

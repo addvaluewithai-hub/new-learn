@@ -566,7 +566,8 @@
       "notAllowed": "Anfrage nicht erlaubt.",
       "notFound": "Seite nicht gefunden.",
       "failed": "Das hat nicht geklappt. Versuch es noch mal.",
-      "badStatus": "Ungültiger Status."
+      "badStatus": "Ungültiger Status.",
+      "tooMany": "Zu viele Anfragen in kurzer Zeit. Warte kurz und versuche es erneut."
     },
     "auth": {
       "unavailable": "Der Kontodienst ist gerade nicht erreichbar.",
@@ -820,7 +821,8 @@
         "teach": "Unterrichten",
         "settings": "Einstellungen",
         "credits": "Credits",
-        "review": "Prüfung"
+        "review": "Prüfung",
+        "ops": "Betrieb"
       },
       "account": "Dein Learn-Konto",
       "signOut": "Abmelden",
@@ -1751,6 +1753,44 @@
     "decided": {
       "approved": "Freigegeben. Diese Version kann jetzt gekauft werden.",
       "changes": "Die Notizen wurden an die Lehrkraft geschickt."
+    }
+  },
+  "ops": {
+    "title": "Betrieb der Plattform",
+    "lead": "Was jeden Tag genutzt wurde und was fehlgeschlagen ist, damit wir Probleme und Kosten früh sehen.",
+    "loading": "Wird geladen…",
+    "usage": {
+      "title": "Nutzung, letzte 14 Tage",
+      "note": "Die Kosten sind grobe Schätzungen für uns, keine Rechnung.",
+      "empty": "Noch keine Nutzung erfasst.",
+      "cost": "Etwa {cost}"
+    },
+    "errors": {
+      "title": "Neueste Fehler",
+      "empty": "Keine Fehler erfasst.",
+      "server": "Server",
+      "browser": "Browser",
+      "details": "Details"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Chats mit Nova",
+        "live": "Sprachsitzungen mit Nova",
+        "quiz": "Übungsquiz",
+        "wake": "Weckwort-Prüfungen"
+      },
+      "mcp": {
+        "call": "Connector-Aufrufe"
+      },
+      "build": {
+        "job": "Erstellte Kurse"
+      },
+      "review": {
+        "ai": "KI-Prüfungen"
+      },
+      "auth": {
+        "signup": "Neue Konten"
+      }
     }
   }
 }

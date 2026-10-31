@@ -566,7 +566,8 @@
       "notAllowed": "Requête non autorisée.",
       "notFound": "Page introuvable.",
       "failed": "La requête n’a pas abouti. Réessayez.",
-      "badStatus": "Statut invalide."
+      "badStatus": "Statut invalide.",
+      "tooMany": "Trop de requêtes en peu de temps. Patientez un peu et réessayez."
     },
     "auth": {
       "unavailable": "Le service des comptes est indisponible pour le moment.",
@@ -826,7 +827,8 @@
         "teach": "Espace enseignant",
         "settings": "Paramètres",
         "credits": "Crédits",
-        "review": "Relecture"
+        "review": "Relecture",
+        "ops": "Exploitation"
       },
       "account": "Votre compte Learn",
       "signOut": "Se déconnecter",
@@ -1764,6 +1766,44 @@
     "decided": {
       "approved": "Approuvé : cette version est maintenant en vente.",
       "changes": "Vos remarques ont été envoyées à l’enseignant."
+    }
+  },
+  "ops": {
+    "title": "Exploitation de la plateforme",
+    "lead": "Ce qui a été utilisé chaque jour et ce qui a échoué, pour repérer tôt les problèmes et les coûts.",
+    "loading": "Chargement…",
+    "usage": {
+      "title": "Utilisation, 14 derniers jours",
+      "note": "Les coûts sont des estimations pour notre suivi, pas une facture.",
+      "empty": "Aucune utilisation enregistrée.",
+      "cost": "Environ {cost}"
+    },
+    "errors": {
+      "title": "Dernières erreurs",
+      "empty": "Aucune erreur enregistrée.",
+      "server": "Serveur",
+      "browser": "Navigateur",
+      "details": "Détails"
+    },
+    "kinds": {
+      "nova": {
+        "chat": "Discussions avec Nova",
+        "live": "Sessions vocales Nova",
+        "quiz": "Quiz d’entraînement",
+        "wake": "Détections du mot d’appel"
+      },
+      "mcp": {
+        "call": "Appels du connecteur"
+      },
+      "build": {
+        "job": "Cours créés"
+      },
+      "review": {
+        "ai": "Revues IA"
+      },
+      "auth": {
+        "signup": "Nouveaux comptes"
+      }
     }
   }
 }
