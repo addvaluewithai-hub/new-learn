@@ -68,6 +68,7 @@ try {
     args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'],
   });
   const page = await browser.newPage({
+    locale: 'ar-EG',
     viewport: { width: 1280, height: 1000 },
     permissions: ['microphone'],
   });

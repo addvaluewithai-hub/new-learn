@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { api } from '../../shared/api';
 import { Alert, Button, Field, IconButton, TextArea, TextInput } from '../../shared/ui';
+import { t as translate, useI18n } from '../../i18n';
 import type { Part, Workspace } from './types';
 
 /** The course's name and its lessons in parts: rename, move up and down, regroup, then save. */
 export function Outline({ work, onChanged }: { work: Workspace; onChanged: () => Promise<void> }) {
+  const { t } = useI18n();
   const [title, setTitle] = useState(work.title);
   const [subject, setSubject] = useState(work.subject);
   const [description, setDescription] = useState(work.description);
@@ -32,7 +34,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
     try {
       await api(`/teach/courses/${work.id}`, { title, subject, description, parts });
       await onChanged();
-      setMessage({ tone: 'success', text: 'اتحفظ. التعديل يوصل لطلابك مع النشر الجاي.' });
+      setMessage({ tone: 'success', text: t('teach.outline.saved') });
     } catch (e) {
       setMessage({ tone: 'error', text: (e as Error).message });
     } finally {
@@ -42,7 +44,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
   return (
     <div className="teach-outline">
       <div className="teach-fields">
-        <Field id="course-title" label="اسم الكورس">
+        <Field id="course-title" label={t('teach.outline.title')}>
           <TextInput
             id="course-title"
             value={title}
@@ -50,7 +52,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
             onChange={(e) => setTitle(e.target.value)}
           />
         </Field>
-        <Field id="course-subject" label="المادة">
+        <Field id="course-subject" label={t('teach.outline.subject')}>
           <TextInput
             id="course-subject"
             value={subject}
@@ -58,7 +60,11 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
             onChange={(e) => setSubject(e.target.value)}
           />
         </Field>
-        <Field id="course-description" label="وصف قصير" hint="بيظهر لطلابك على صفحة الكورس.">
+        <Field
+          id="course-description"
+          label={t('teach.outline.description')}
+          hint={t('teach.outline.descriptionHint')}
+        >
           <TextArea
             id="course-description"
             value={description}
@@ -74,7 +80,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
               <TextInput
                 value={part.title}
                 maxLength={120}
-                aria-label={`اسم الجزء ${at + 1}`}
+                aria-label={t('teach.outline.partName', { n: at + 1 })}
                 onChange={(e) => update(at, { title: e.target.value })}
               />
               {!part.lessonIds.length && parts.length > 1 && (
@@ -83,7 +89,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
                   size="sm"
                   onClick={() => setParts(parts.filter((_, i) => i !== at))}
                 >
-                  شيل الجزء
+                  {t('teach.outline.removePart')}
                 </Button>
               )}
             </div>
@@ -93,10 +99,12 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
                   <span className="teach-lesson-n" aria-hidden="true">
                     {i + 1}
                   </span>
-                  <a href={`/?draft=${id}`}>{titleOf(id)}</a>
+                  <a href={`/?draft=${id}`}>
+                    <bdi>{titleOf(id)}</bdi>
+                  </a>
                   <span className="teach-lesson-moves">
                     <IconButton
-                      label="فوق"
+                      label={t('teach.outline.up')}
                       size="sm"
                       disabled={i === 0}
                       onClick={() => move(at, i, i - 1)}
@@ -104,7 +112,7 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
                       ↑
                     </IconButton>
                     <IconButton
-                      label="تحت"
+                      label={t('teach.outline.down')}
                       size="sm"
                       disabled={i === part.lessonIds.length - 1}
                       onClick={() => move(at, i, i + 1)}
@@ -113,15 +121,15 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
                     </IconButton>
                     {parts.length > 1 && (
                       <select
-                        aria-label="انقل لجزء"
+                        aria-label={t('teach.outline.moveTo')}
                         value=""
                         onChange={(e) => e.target.value && send(at, i, Number(e.target.value))}
                       >
-                        <option value="">انقل لـ…</option>
+                        <option value="">{t('teach.outline.movePlaceholder')}</option>
                         {parts.map((p, j) =>
                           j === at ? null : (
                             <option key={j} value={j}>
-                              {p.title || `الجزء ${j + 1}`}
+                              {p.title || t('teach.outline.partFallback', { n: j + 1 })}
                             </option>
                           ),
                         )}
@@ -139,13 +147,16 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
           variant="secondary"
           size="sm"
           onClick={() =>
-            setParts([...parts, { title: `الجزء ${parts.length + 1}`, lessonIds: [] }])
+            setParts([
+              ...parts,
+              { title: t('teach.outline.partFallback', { n: parts.length + 1 }), lessonIds: [] },
+            ])
           }
         >
-          + جزء جديد
+          {t('teach.outline.addPart')}
         </Button>
         <Button disabled={busy || title.trim().length < 3} onClick={save}>
-          {busy ? 'بنحفظ…' : 'احفظ الترتيب'}
+          {busy ? t('teach.outline.saving') : t('teach.outline.save')}
         </Button>
       </div>
       {message && <Alert tone={message.tone}>{message.text}</Alert>}
@@ -153,7 +164,8 @@ export function Outline({ work, onChanged }: { work: Workspace; onChanged: () =>
   );
 }
 
-/** The saved parts, plus one for lessons in none of them, so every lesson has a place. */
+/** The saved parts, plus one for lessons in none of them, so every lesson has a place.
+ *  The new part's name is in the teacher's language; once saved it is the course's own. */
 function initialParts(work: Workspace): Part[] {
   const placed = new Set(work.parts.flatMap((p) => p.lessonIds));
   const rest = work.lessons.filter((l) => !placed.has(l.id)).map((l) => l.id);
@@ -161,8 +173,12 @@ function initialParts(work: Workspace): Part[] {
     ...p,
     lessonIds: p.lessonIds.filter((id) => work.lessons.some((l) => l.id === id)),
   }));
-  if (rest.length) parts.push({ title: parts.length ? 'دروس تانية' : 'الدروس', lessonIds: rest });
-  return parts.length ? parts : [{ title: 'الدروس', lessonIds: [] }];
+  if (rest.length)
+    parts.push({
+      title: translate(parts.length ? 'teach.outline.moreLessons' : 'teach.outline.lessons'),
+      lessonIds: rest,
+    });
+  return parts.length ? parts : [{ title: translate('teach.outline.lessons'), lessonIds: [] }];
 }
 function swap<T>(list: T[], a: number, b: number) {
   const next = [...list];

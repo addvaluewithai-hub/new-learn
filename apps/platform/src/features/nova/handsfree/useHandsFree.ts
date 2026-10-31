@@ -4,6 +4,7 @@ import type { VoiceEvents, VoiceState } from '../lesson/voiceTypes';
 import type { FlowSettings } from '../lesson/useLessonFlow';
 import { HandsFree } from './HandsFree';
 import { MediaKeys } from './mediaKeys';
+import { t, type TextKey } from '../../../i18n';
 
 type Hooks = Partial<Pick<VoiceEvents, 'capture' | 'reply' | 'tool' | 'setup'>>;
 type Voice = {
@@ -18,8 +19,7 @@ type Voice = {
 };
 
 /** Said once when noise keeps being taken for answers. It must not contain the wake word. */
-const NOISY_NOTICE =
-  'شكل المكان عندك فيه دوشة. فهستنى لحد ما تدوس زرار السماعة مرة، أو تنادي عليّا، وبعدين رد براحتك.';
+const NOISY_NOTICE: TextKey = 'nova.handsFree.noisyNotice';
 
 /** The hooks object the lesson voice reads (pass it to useLessonTalk before calling this). */
 export const useVoiceHooks = () => useRef<Hooks>({});
@@ -70,7 +70,7 @@ export function useHandsFree({
         noisy: () => now.current.settings.noisy,
         tooNoisy: () => {
           now.current.change({ noisy: true });
-          now.current.onNotice(NOISY_NOTICE);
+          now.current.onNotice(t(NOISY_NOTICE));
         },
       }),
   );

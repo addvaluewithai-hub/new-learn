@@ -50,7 +50,10 @@
   --nl-warning-soft: #fdf3dc;
 
   /* Type */
-  --nl-font: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
+  /* Plex Arabic covers Arabic and Latin (with Turkish letters); CJK falls back to the system. */
+  --nl-font:
+    'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', sans-serif;
   --nl-font-math: 'STIX Two Text', Georgia, serif;
   --nl-text-xs: 0.75rem;
   --nl-text-sm: 0.875rem;

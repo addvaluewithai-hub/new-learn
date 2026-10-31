@@ -47,7 +47,11 @@ type At<T, K extends string> = K extends `${infer H}.${infer R}`
 export type TextKey = TextKeys<Source>;
 export type ListKey = ListKeys<Source>;
 
-const loaders = import.meta.glob<{ default: Messages }>(['./locales/*.json', '!./locales/ar.json']);
+// Vite turns the glob into loaders at build time; under plain Node (unit tests) there is no
+// Vite, so only Arabic is there. `import.meta.env` exists exactly when Vite built the module.
+const loaders: Record<string, () => Promise<{ default: Messages }>> = import.meta.env
+  ? import.meta.glob<{ default: Messages }>(['./locales/*.json', '!./locales/ar.json'])
+  : {};
 const codeOf = (path: string) => /\/([\w-]+)\.json$/.exec(path)![1];
 
 /** Every language there is a file for, the source first. */
@@ -140,6 +144,12 @@ export function useI18n() {
     list,
     setLocale,
   };
+}
+
+/** The lesson player's texts in the current language (its own defaults fill any gap). */
+export function useRuntimeText(): Record<string, string> {
+  const { locale } = useI18n();
+  return (lookup(cache[locale], 'runtime') ?? {}) as Record<string, string>;
 }
 
 /** For checks: the raw source messages. */

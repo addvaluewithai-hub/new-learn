@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { Dispatch, RefObject } from 'react';
 import type { CallbackListener, PlayerRef } from '@remotion/player';
 import type { Session, SessionAction } from './session';
+import { useRuntimeText } from './text';
 
 export function usePlaybackBridge(
   player: RefObject<PlayerRef | null>,
@@ -10,6 +11,9 @@ export function usePlaybackBridge(
   dispatch: Dispatch<SessionAction>,
   suspended = false,
 ) {
+  // Read at failure time: a new text must not restart the player.
+  const failed = useRef('');
+  failed.current = useRuntimeText().sceneFailed;
   const held = useRef(suspended);
   held.current = suspended;
   const liveEpoch = useRef(state.epoch);
@@ -54,7 +58,7 @@ export function usePlaybackBridge(
         type: 'error',
         epoch,
         fatal: true,
-        message: event.detail.error.message || 'تعذّر تشغيل المشهد.',
+        message: event.detail.error.message || failed.current,
       });
     };
     const onWaiting = () => send({ type: 'waiting', epoch });

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { api } from '../../shared/api';
+import { t } from '../../i18n';
 import type { Message, Position } from './types';
 export function useChat() {
   const [messages, setMessages] = useState<Message[]>([]),
@@ -41,7 +42,7 @@ export function useChat() {
       return true;
     } catch (e) {
       if (!controller.signal.aborted)
-        setError(e instanceof Error ? e.message : 'تعذّر إرسال الرسالة.');
+        setError(e instanceof Error ? e.message : t('nova.chat.sendFailed'));
       return false;
     } finally {
       if (pending.current === controller) {

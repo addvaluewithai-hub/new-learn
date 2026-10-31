@@ -49,6 +49,7 @@ try {
       const saved = new Map();
       const errors = [];
       const page = await browser.newPage({
+        locale: 'ar-EG',
         viewport: { width, height: 900 },
         reducedMotion: 'no-preference',
       });

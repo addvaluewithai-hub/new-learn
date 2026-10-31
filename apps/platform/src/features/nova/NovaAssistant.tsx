@@ -5,6 +5,7 @@ import { NovaModal } from './NovaModal';
 import { useChat } from './useChat';
 import { useQuiz } from './useQuiz';
 import { positionOf, type NovaMode, type NovaPurpose } from './types';
+import { useI18n } from '../../i18n';
 import './nova.css';
 import './nova-chat.css';
 import './nova-practice.css';
@@ -27,6 +28,7 @@ export function NovaAssistant({
   /** The host shows its own entry point (e.g. the lesson bar). */
   hideCapsule?: boolean;
 }) {
+  const { t, dir } = useI18n();
   const [mode, setMode] = useState<NovaMode>('chat'),
     [purpose, setPurpose] = useState<NovaPurpose>('help'),
     [open, setOpen] = useState(false),
@@ -63,38 +65,40 @@ export function NovaAssistant({
     <>
       {context?.phase === 'complete' && (
         <section className="nova-end-practice">
-          <span className="nova-eyebrow">ثبّت اللي اتعلمته</span>
-          <h2>جاهز لاختبار سريع على الدرس؟</h2>
-          <p>عشر أسئلة، ومع كل إجابة نفهم السبب. اختار الطريقة اللي تريحك.</p>
+          <span className="nova-eyebrow">{t('nova.assistant.endEyebrow')}</span>
+          <h2>{t('nova.assistant.endTitle')}</h2>
+          <p>{t('nova.assistant.endLead')}</p>
           <div>
             <button onClick={() => show('voice', 'quiz')}>
               <NovaIcon name="voice" size={26} />
               <span>
-                اختبار بالصوت<small>اتكلم مع Nova</small>
+                {t('nova.assistant.voiceQuiz')}
+                <small>{t('nova.assistant.voiceQuizHint')}</small>
               </span>
             </button>
             <button onClick={() => show('chat', 'quiz')}>
               <NovaIcon name="chat" size={26} />
               <span>
-                اختبار بالشات<small>سؤال وإجابة خطوة بخطوة</small>
+                {t('nova.assistant.chatQuiz')}
+                <small>{t('nova.assistant.chatQuizHint')}</small>
               </span>
             </button>
           </div>
         </section>
       )}
       {!open && !hideCapsule && (
-        <aside className="nova-capsule" aria-label="مساعدة نوفا">
+        <aside className="nova-capsule" aria-label={t('nova.assistant.capsule')} dir={dir}>
           <img
             src={lesson.guide?.image ?? '/lesson-assets/nova.webp'}
             alt=""
             width={48}
             height={48}
           />
-          <span>اسأل Nova</span>
-          <button onClick={() => show('voice', 'help')} aria-label="كلم نوفا بالصوت">
+          <span>{t('nova.assistant.ask')}</span>
+          <button onClick={() => show('voice', 'help')} aria-label={t('nova.assistant.talkVoice')}>
             <NovaIcon name="voice" />
           </button>
-          <button onClick={() => show('chat', 'help')} aria-label="افتح شات نوفا">
+          <button onClick={() => show('chat', 'help')} aria-label={t('nova.assistant.openChat')}>
             <NovaIcon name="chat" />
           </button>
         </aside>
@@ -104,7 +108,7 @@ export function NovaAssistant({
         mode={mode}
         purpose={purpose}
         context={snapshot}
-        name={studentName ?? 'يا صديقي'}
+        name={studentName ?? t('nova.defaultName')}
         enabled={!!studentName}
         chat={chat}
         practice={practice}

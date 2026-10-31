@@ -10,6 +10,7 @@ import {
   type PublishedBoards,
 } from '../db/publish';
 import { HttpError } from '../http';
+import type { Vars } from '../../src/i18n/core';
 import { course, courseLessons } from '../authoring/store';
 
 // Publishing a teacher's draft course to students: the self-check, the copy that students
@@ -24,7 +25,8 @@ export const publicIds = (courseId: string, lessonId: string, version: number) =
 });
 export const PUB = /^pub:([0-9a-f-]{36})$/;
 
-export type Check = { ok: boolean; text: string };
+/** One line of the self-check, as a key under `server` the reader's language fills in. */
+export type Check = { ok: boolean; key: string; vars?: Vars };
 
 /** The teacher-board keys («u:<hash>») a package draws with. */
 export const boardKeys = (pkg: ReadingPackage) => [
@@ -41,9 +43,10 @@ export async function selfCheck(db: Db, owner: string, courseId: string) {
   const parent = await course(db, owner, courseId);
   const lessons = await courseLessons(db, owner, courseId);
   const checks: Check[] = [];
-  const hard = (ok: boolean, text: string) => checks.push({ ok, text });
-  hard(lessons.length > 0, lessons.length ? `${lessons.length} دروس جاهزة` : 'مفيش دروس في الكورس');
-  hard(parent.title.trim().length > 2, 'للكورس عنوان');
+  const hard = (ok: boolean, key: string, vars?: Vars) => checks.push({ ok, key, vars });
+  if (lessons.length) hard(true, 'publish.lessonsReady', { count: lessons.length });
+  else hard(false, 'publish.noLessons');
+  hard(parent.title.trim().length > 2, 'publish.hasTitle');
   const packages = lessons.length
     ? await db
         .select({ id: authorLessons.id, pkg: authorRevisions.package })
@@ -81,7 +84,7 @@ export async function selfCheck(db: Db, owner: string, courseId: string) {
   const found = new Set(boards.map((b) => b.hash));
   hard(
     [...hashes].every((h) => found.has(h)),
-    'كل البوردات موجودة',
+    'publish.boardsFound',
   );
   const drawing = boards.filter((b) => b.reports.some((r) => r.problems.length));
   const open = await db
@@ -102,13 +105,15 @@ export async function selfCheck(db: Db, owner: string, courseId: string) {
   const warnings: Check[] = [
     {
       ok: drawing.length === 0,
-      text: drawing.length
-        ? `${drawing.length} بورد عليه ملاحظات رسم من المعاينة`
-        : 'البوردات اترسمت صح في المعاينة',
+      ...(drawing.length
+        ? { key: 'publish.boardProblems', vars: { count: drawing.length } }
+        : { key: 'publish.boardsDrawn' }),
     },
     {
       ok: open[0].n === 0,
-      text: open[0].n ? `${open[0].n} ملاحظة لسه مفتوحة` : 'مفيش ملاحظات مفتوحة',
+      ...(open[0].n
+        ? { key: 'publish.openNotes', vars: { count: open[0].n } }
+        : { key: 'publish.noOpenNotes' }),
     },
   ];
   return {
@@ -126,7 +131,8 @@ export async function selfCheck(db: Db, owner: string, courseId: string) {
 /** Publish the draft as the next version: lessons in the order of the course's parts. */
 export async function publishCourse(db: Db, owner: { id: string; name: string }, courseId: string) {
   const check = await selfCheck(db, owner.id, courseId);
-  if (!check.ready) throw new HttpError(400, check.checks.find((c) => !c.ok)!.text);
+  const failed = check.checks.find((c) => !c.ok);
+  if (failed) throw new HttpError(400, failed.key, failed.vars);
   const parent = await course(db, owner.id, courseId);
   const [current] = await db
     .select({ version: publishedCourses.version })
@@ -184,7 +190,7 @@ export async function withdrawCourse(db: Db, owner: string, courseId: string) {
     .set({ withdrawnAt: new Date() })
     .where(and(eq(publishedCourses.id, courseId), eq(publishedCourses.ownerId, owner)))
     .returning({ id: publishedCourses.id });
-  if (!row) throw new HttpError(404, 'الكورس ده مش منشور.');
+  if (!row) throw new HttpError(404, 'publish.notPublished');
 }
 
 /** A published course as anyone with its link sees it; null when withdrawn or unknown. */
@@ -242,7 +248,7 @@ export async function publishedLesson(db: Db, courseId: string, lessonId: string
         isNull(publishedCourses.withdrawnAt),
       ),
     );
-  if (!row) throw new HttpError(404, 'الدرس ده مش موجود أو الكورس اتسحب.');
+  if (!row) throw new HttpError(404, 'publish.lessonGone');
   return row;
 }
 
@@ -260,12 +266,12 @@ export async function lessonCourse(db: Db, lessonId: string) {
       ),
     )
     .orderBy(desc(publishedLessons.version));
-  if (!row) throw new HttpError(404, 'الدرس ده مش موجود.');
+  if (!row) throw new HttpError(404, 'publish.lessonMissing');
   return row.courseId;
 }
 
 export async function enrol(db: Db, userId: string, courseId: string) {
-  if (!(await publicCourse(db, courseId))) throw new HttpError(404, 'الكورس ده مش موجود.');
+  if (!(await publicCourse(db, courseId))) throw new HttpError(404, 'publish.courseMissing');
   await db.insert(courseEnrollments).values({ userId, courseId }).onConflictDoNothing();
   const [row] = await db
     .select({ id: courseEnrollments.id })

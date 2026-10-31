@@ -71,13 +71,13 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
-  transition: transform 0.2s ease;
+  transition: margin 0.2s ease;
 }
 .flow-switch:checked {
   background: var(--nl-tutor);
 }
 .flow-switch:checked::before {
-  transform: translateX(-18px);
+  margin-inline-start: 21px;
 }
 .flow-volume {
   display: grid;

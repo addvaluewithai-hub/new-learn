@@ -158,7 +158,7 @@ test('the lesson thread interleaves lines, the answer and notes at the step they
     ],
   );
   const last = items.filter((i) => i.kind === 'line').at(-1);
-  assert.equal(last?.kind === 'line' && last.label, 'الإجابة النموذجية');
+  assert.equal(last?.kind === 'line' && last.label, 'modelAnswer');
   assert.equal(last?.kind === 'line' && last.current, true);
   // Back on the first step: nothing ahead is shown, but later notes are kept, not lost.
   const back = threadItems(lesson, pages, 0, {}, notes);

@@ -1,11 +1,12 @@
 import { GoalMarks } from './ContinueCard';
 import { goalsOf, lessonHref, nextLesson, open, partsOf, stats } from './plan';
 import type { CatalogLesson, Curriculum, Resume } from './types';
+import { useI18n, type TextKey } from '../../i18n';
 
-function action(lesson: CatalogLesson) {
-  if (!open(lesson)) return 'قريبًا';
-  if (lesson.progress?.status === 'completed') return 'راجع';
-  return lesson.progress ? 'كمّل' : 'ابدأ';
+function action(lesson: CatalogLesson): TextKey {
+  if (!open(lesson)) return 'catalog.action.soon';
+  if (lesson.progress?.status === 'completed') return 'catalog.action.review';
+  return lesson.progress ? 'catalog.action.continue' : 'catalog.action.start';
 }
 
 /** The curriculum as a path: parts, lessons, goals, and where the learner is now. */
@@ -16,18 +17,19 @@ export function StudyPlan({
   curriculum: Curriculum;
   resume?: Resume | null;
 }) {
+  const { t } = useI18n();
   const total = stats(curriculum);
   const current = nextLesson(curriculum, resume);
   const percent = total.goalsTotal ? Math.round((100 * total.goalsDone) / total.goalsTotal) : 0;
   return (
     <>
-      <section className="plan-summary" aria-label="تقدمك في المنهج">
+      <section className="plan-summary" aria-label={t('catalog.plan.label')}>
         <div>
           <strong>
             {total.goalsDone} <span>/ {total.goalsTotal}</span>
           </strong>
           <span>
-            أهداف اتعلّمت · خلّصت {total.completed} من {total.lessons} دروس
+            {t('catalog.plan.summary', { completed: total.completed, count: total.lessons })}
           </span>
         </div>
         <span className="plan-percent">{percent}%</span>
@@ -41,7 +43,7 @@ export function StudyPlan({
             <header className="plan-part-head">
               <span className="plan-part-node">{p + 1}</span>
               <div>
-                <h2>{part.title}</h2>
+                <h2>{part.title || t('catalog.plan.restPart')}</h2>
                 {part.summary ? <p>{part.summary}</p> : null}
               </div>
             </header>
@@ -69,7 +71,7 @@ export function StudyPlan({
                           total={lesson.progress?.goalsTotal || goals.length}
                         />
                       ) : (
-                        <span className="plan-soon">قريبًا</span>
+                        <span className="plan-soon">{t('catalog.action.soon')}</span>
                       )}
                     </div>
                     {open(lesson) ? (
@@ -80,9 +82,12 @@ export function StudyPlan({
                             : 'plan-go plan-go-quiet'
                         }
                         href={lessonHref(curriculum.id, lesson.id)}
-                        aria-label={`${action(lesson)}: ${lesson.title}`}
+                        aria-label={t('catalog.plan.goLabel', {
+                          action: t(action(lesson)),
+                          title: lesson.title,
+                        })}
                       >
-                        <span>{action(lesson)}</span>
+                        <span>{t(action(lesson))}</span>
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                           <path d="M15 5l-7 7 7 7" />
                         </svg>

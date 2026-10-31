@@ -15,6 +15,8 @@ import './catalog-cards.css';
 import './home-pick.css';
 import './study-plan.css';
 import { Alert, Button, ButtonLink, Spinner } from '../../shared/ui';
+import { useI18n } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 export default function CatalogPage({
   user,
   onSignOut,
@@ -29,6 +31,7 @@ export default function CatalogPage({
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
     [retry, setRetry] = useState(0);
+  const { t } = useI18n();
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
@@ -52,27 +55,37 @@ export default function CatalogPage({
       <div className="page-heading">
         {curriculumId && (
           <ButtonLink variant="link" href="/">
-            ← كل المناهج
+            {t('common.backLink')} {t('catalog.page.allCurricula')}
           </ButtonLink>
         )}
         {current ? <span className="eyebrow">{current.subject}</span> : null}
         <h1>
-          {current?.title ??
-            `${new Date().getHours() < 12 ? 'صباح الخير' : 'مساء الخير'}، ${user.name.split(' ')[0]}`}
+          {current ? (
+            <bdi>{current.title}</bdi>
+          ) : (
+            <Rich
+              k={
+                new Date().getHours() < 12
+                  ? 'catalog.page.greeting.morning'
+                  : 'catalog.page.greeting.evening'
+              }
+              parts={{ name: <bdi>{user.name.split(' ')[0]}</bdi> }}
+            />
+          )}
         </h1>
         {current ? <p>{current.description}</p> : null}
       </div>
       {loading ? (
-        <Spinner label="بنجهّز مناهجك…" />
+        <Spinner label={t('catalog.page.loading')} />
       ) : error ? (
         <Alert tone="error">
           {error}{' '}
           <Button variant="link" onClick={() => setRetry((value) => value + 1)}>
-            حاول تاني
+            {t('catalog.retry')}
           </Button>
         </Alert>
       ) : curriculumId && !current ? (
-        <Alert tone="error">المنهج غير موجود أو مش متاح حاليًا.</Alert>
+        <Alert tone="error">{t('catalog.page.notFound')}</Alert>
       ) : current ? (
         <StudyPlan curriculum={current} resume={resume} />
       ) : (

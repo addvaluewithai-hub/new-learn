@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ReadingPackage, ReadingProgress } from '@learn/lesson-runtime';
 import { api } from '../../shared/api';
+import { currentLocale } from '../../i18n';
 
 type Snapshot = {
   schemaVersion: 1;
@@ -81,7 +82,7 @@ export function useReadingProgress(lesson: ReadingPackage | null, enabled = true
             method: 'PUT',
             credentials: 'same-origin',
             keepalive,
-            headers: { 'content-type': 'application/json' },
+            headers: { 'content-type': 'application/json', 'x-nl-lang': currentLocale() },
             body: JSON.stringify({
               contentRevision: lesson.contentRevision,
               revision: revision.current,

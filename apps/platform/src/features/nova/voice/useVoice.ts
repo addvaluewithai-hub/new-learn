@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { api } from '../../../shared/api';
+import { t } from '../../../i18n';
 import { AudioSession } from './AudioSession';
 import { LiveConnection, type LiveToken } from './LiveConnection';
 import type { Message, Position } from '../types';
@@ -93,10 +94,10 @@ export function useVoice(position: Position, answer: (index: number, choice: num
         stop();
         setError(
           e instanceof Error && e.name === 'NotAllowedError'
-            ? 'اسمح بالميكروفون من المتصفح أو استخدم الشات.'
+            ? t('nova.voice.micBlocked')
             : e instanceof Error
               ? e.message
-              : 'تعذّر بدء المكالمة.',
+              : t('nova.voice.startFailed'),
         );
       }
     }
@@ -120,7 +121,7 @@ export function useVoice(position: Position, answer: (index: number, choice: num
     } catch {
       if (active.current === session) {
         stop();
-        setError('تعذّر استكمال صوت المكالمة. اتصل تاني.');
+        setError(t('nova.voice.resumeFailed'));
       }
     }
   }

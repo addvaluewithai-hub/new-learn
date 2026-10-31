@@ -16,7 +16,8 @@ export type ThreadNote = {
 };
 export type ThreadItem =
   | { kind: 'scene'; key: string; number: number; title: string }
-  | { kind: 'line'; key: string; text: string; label?: string; current: boolean }
+  /** `label` names a runtime text (`RUNTIME_TEXT`) that the conversation shows as the line's tag. */
+  | { kind: 'line'; key: string; text: string; label?: 'modelAnswer'; current: boolean }
   | { kind: 'question'; key: string; english: string; arabic: string; current: boolean }
   | { kind: 'answer'; key: string; text: string }
   | { kind: 'note'; key: string; note: ThreadNote };
@@ -63,7 +64,7 @@ export function threadItems(
         kind: 'line',
         key: `l${p}`,
         text: pageSteps(scene, page)[page.step].text,
-        label: page.kind === 'feedback' && page.step === 0 ? 'الإجابة النموذجية' : undefined,
+        label: page.kind === 'feedback' && page.step === 0 ? 'modelAnswer' : undefined,
         current: p === index,
       });
     }

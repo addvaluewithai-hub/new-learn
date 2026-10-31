@@ -1,4 +1,5 @@
 import { PERSONA_MAX, SPEECH_PACES, VOICES, type VoicePrefs } from '../voice/voicePrefs';
+import { useI18n } from '../../../i18n';
 
 /** Nova's voice, how slowly it speaks, and a short line about its manner. */
 export function VoiceStyleSettings({
@@ -8,13 +9,14 @@ export function VoiceStyleSettings({
   prefs: VoicePrefs;
   onChange: (next: Partial<VoicePrefs>) => void;
 }) {
+  const { t } = useI18n();
   return (
     <div className="flow-voice">
-      <strong>صوت Nova</strong>
+      <strong>{t('nova.voiceStyle.title')}</strong>
       <label className="flow-select">
-        <span aria-hidden="true">الصوت</span>
+        <span aria-hidden="true">{t('nova.voiceStyle.voice')}</span>
         <select
-          aria-label="الصوت"
+          aria-label={t('nova.voiceStyle.voice')}
           dir="ltr"
           value={prefs.voice}
           onChange={(event) => onChange({ voice: event.target.value as VoicePrefs['voice'] })}
@@ -26,7 +28,7 @@ export function VoiceStyleSettings({
           ))}
         </select>
       </label>
-      <div className="flow-chips" role="radiogroup" aria-label="سرعة الكلام">
+      <div className="flow-chips" role="radiogroup" aria-label={t('nova.voiceStyle.pace')}>
         {SPEECH_PACES.map((pace) => (
           <button
             key={pace.id}
@@ -35,22 +37,22 @@ export function VoiceStyleSettings({
             aria-checked={prefs.pace === pace.id}
             onClick={() => onChange({ pace: pace.id })}
           >
-            {pace.label}
+            {t(pace.label)}
           </button>
         ))}
       </div>
       <label className="flow-persona">
-        <span>تحب Nova تكون إزاي؟</span>
+        <span>{t('nova.voiceStyle.persona')}</span>
         <input
           type="text"
           dir="auto"
           maxLength={PERSONA_MAX}
-          placeholder="مثلًا: هادية وصبورة وبتهزر شوية"
+          placeholder={t('nova.voiceStyle.personaPlaceholder')}
           value={prefs.persona}
           onChange={(event) => onChange({ persona: event.target.value })}
         />
       </label>
-      <small>بيتطبّق من كلام Nova الجاي.</small>
+      <small>{t('nova.voiceStyle.applies')}</small>
     </div>
   );
 }

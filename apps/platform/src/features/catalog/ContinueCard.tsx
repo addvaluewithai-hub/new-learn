@@ -1,12 +1,14 @@
 import { PlatformIcon } from '../../shared/PlatformIcon';
 import { goalsOf, lessonHref, nextLesson, open, stats } from './plan';
 import type { Curriculum, Resume } from './types';
+import { useI18n } from '../../i18n';
 
 /** Goal marks: one diamond per goal, filled when its questions were answered. */
 export function GoalMarks({ done, total }: { done: number; total: number }) {
+  const { t } = useI18n();
   if (!total) return null;
   return (
-    <span className="goal-marks" aria-label={`الأهداف ${done} من ${total}`}>
+    <span className="goal-marks" aria-label={t('catalog.continue.goals', { done, total })}>
       {Array.from({ length: total }, (_, i) => (
         <i key={i} data-met={i < done || undefined} aria-hidden="true" />
       ))}
@@ -25,6 +27,7 @@ export function ContinueCard({
   curricula: Curriculum[];
   resume?: Resume | null;
 }) {
+  const { t } = useI18n();
   const course =
     curricula.find((c) => c.id === resume?.curriculumId) ??
     curricula.find((c) => c.lessons.some(open));
@@ -39,10 +42,18 @@ export function ContinueCard({
     <section className="pick" aria-labelledby="pick-title">
       <header className="pick-head">
         <span className="eyebrow">
-          {started ? 'كمّل من مكانك' : resume ? 'الدرس الجاي' : 'ابدأ من هنا'}
+          {started
+            ? t('catalog.continue.resume')
+            : resume
+              ? t('catalog.continue.next')
+              : t('catalog.continue.start')}
         </span>
         <a href={`/?curriculum=${encodeURIComponent(course.id)}`} className="pick-course">
-          {course.title} · {course_.completed} من {course_.lessons} دروس
+          <bdi>{course.title}</bdi> ·{' '}
+          {t('catalog.continue.lessonsDone', {
+            completed: course_.completed,
+            count: course_.lessons,
+          })}
         </a>
       </header>
       <div className="pick-card">
@@ -56,7 +67,8 @@ export function ContinueCard({
           </div>
         </div>
         <a className="pick-go" href={lessonHref(course.id, lesson.id)}>
-          {started ? 'كمّل' : 'ابدأ'} <PlatformIcon name="arrow" />
+          {started ? t('catalog.action.continue') : t('catalog.action.start')}{' '}
+          <PlatformIcon name="arrow" />
         </a>
         {goals.length ? (
           <ul className="pick-goals">

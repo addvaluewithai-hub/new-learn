@@ -4,6 +4,7 @@ import { HtmlBoard } from '../boards/HtmlBoard';
 import { builtSource } from '../boards/sources';
 import type { Look } from './looks';
 import { Button, ButtonLink, Dialog } from '../../shared/ui';
+import { useI18n } from '../../i18n';
 
 /** A look's demo board, live and open to play with, before the teacher picks it. */
 export function LookPreview({
@@ -15,6 +16,7 @@ export function LookPreview({
   onClose: () => void;
   onChoose: (id: string) => void;
 }) {
+  const { t } = useI18n();
   const manifest = builtSource(look.board ?? '')?.manifest;
   const defaults = Object.fromEntries(
     Object.entries(manifest?.variables ?? {}).map(([k, v]) => [k, v.default]),
@@ -44,8 +46,8 @@ export function LookPreview({
     <Dialog
       size="lg"
       className="look-preview"
-      title={look.name}
-      description={`${look.line} جرّب البورد بإيدك.`}
+      title={t(look.name)}
+      description={t('studio.preview.description', { line: t(look.line) })}
       onClose={onClose}
       footer={
         <>
@@ -55,7 +57,7 @@ export function LookPreview({
               onClose();
             }}
           >
-            اختار الشكل ده
+            {t('studio.preview.choose')}
           </Button>
           {look.demo && (
             <ButtonLink
@@ -64,7 +66,7 @@ export function LookPreview({
               target="_blank"
               rel="noreferrer"
             >
-              افتح درس الديمو
+              {t('studio.preview.openDemo')}
             </ButtonLink>
           )}
         </>

@@ -1,96 +1,100 @@
+import type { TextKey } from '../../i18n';
+
 // The "make a course" choices as the page shows them; the keys match the server's CHOICES
-// (server/builds/request.ts), which says what each one tells the builder.
+// (server/builds/request.ts), which says what each one tells the builder. Titles and labels
+// are keys in the language files: components call t() when rendering.
 export type Choice = {
   key: string;
-  title: string;
+  title: TextKey;
   multi?: boolean;
-  options: Array<[string, string]>;
+  options: Array<[string, TextKey]>;
 };
 
 export const CHOICES: Choice[] = [
   {
     key: 'audience',
-    title: 'الكورس لمين',
+    title: 'studio.choices.audience.title',
     options: [
-      ['me', 'ليّا أنا'],
-      ['students', 'لطلابي'],
-      ['kids', 'لطفل'],
+      ['me', 'studio.choices.audience.me'],
+      ['students', 'studio.choices.audience.students'],
+      ['kids', 'studio.choices.audience.kids'],
     ],
   },
   {
     key: 'goal',
-    title: 'الهدف',
+    title: 'studio.choices.goal.title',
     options: [
-      ['understand', 'أفهم الفكرة'],
-      ['practice', 'أتمرن على مسائل'],
-      ['review', 'أراجع بسرعة'],
+      ['understand', 'studio.choices.goal.understand'],
+      ['practice', 'studio.choices.goal.practice'],
+      ['review', 'studio.choices.goal.review'],
     ],
   },
   {
     key: 'age',
-    title: 'السن',
+    title: 'studio.choices.age.title',
     options: [
-      ['4-6', 'من ٤ لـ٦ سنين'],
-      ['7-9', 'من ٧ لـ٩ سنين'],
-      ['10-12', 'من ١٠ لـ١٢ سنة'],
+      ['4-6', 'studio.choices.age.from4to6'],
+      ['7-9', 'studio.choices.age.from7to9'],
+      ['10-12', 'studio.choices.age.from10to12'],
     ],
   },
   {
     key: 'level',
-    title: 'مستوى الطلاب',
+    title: 'studio.choices.level.title',
     options: [
-      ['beginner', 'مبتدئين'],
-      ['some', 'عندهم خلفية'],
-      ['revision', 'مراجعة'],
+      ['beginner', 'studio.choices.level.beginner'],
+      ['some', 'studio.choices.level.some'],
+      ['revision', 'studio.choices.level.revision'],
     ],
   },
   {
+    // The language the lesson is written in: its options are content, only the labels turn.
     key: 'language',
-    title: 'لغة الشرح',
+    title: 'studio.choices.language.title',
     options: [
-      ['egyptian', 'مصري'],
-      ['msa', 'فصحى'],
-      ['english', 'English'],
-      ['mixed', 'عربي ومصطلحات إنجليزي'],
+      ['egyptian', 'studio.choices.language.egyptian'],
+      ['msa', 'studio.choices.language.msa'],
+      ['english', 'studio.choices.language.english'],
+      ['mixed', 'studio.choices.language.mixed'],
     ],
   },
   {
     key: 'style',
-    title: 'طريقة الشرح',
+    title: 'studio.choices.style.title',
     multi: true,
     options: [
-      ['story', 'حكاية الأول'],
-      ['steps', 'خطوة بخطوة'],
-      ['problem', 'مشكلة الأول'],
-      ['examples', 'أمثلة محلولة'],
-      ['analogies', 'تشبيهات من الحياة'],
+      ['story', 'studio.choices.style.story'],
+      ['steps', 'studio.choices.style.steps'],
+      ['problem', 'studio.choices.style.problem'],
+      ['examples', 'studio.choices.style.examples'],
+      ['analogies', 'studio.choices.style.analogies'],
     ],
   },
   {
     key: 'boards',
-    title: 'البوردات',
+    title: 'studio.choices.boards.title',
     options: [
-      ['text', 'نص بس'],
-      ['some', 'تفاعلي لما يفيد'],
-      ['most', 'تفاعلي في أغلبه'],
+      ['text', 'studio.choices.boards.text'],
+      ['some', 'studio.choices.boards.some'],
+      ['most', 'studio.choices.boards.most'],
     ],
   },
   {
     key: 'questions',
-    title: 'الأسئلة',
+    title: 'studio.choices.questions.title',
     options: [
-      ['each', 'بعد كل مشهد'],
-      ['key', 'في نقط مهمة'],
-      ['none', 'من غير أسئلة'],
+      ['each', 'studio.choices.questions.each'],
+      ['key', 'studio.choices.questions.key'],
+      ['none', 'studio.choices.questions.none'],
     ],
   },
   {
     key: 'size',
-    title: 'الحجم',
+    title: 'studio.choices.size.title',
     options: [
-      ['1', 'درس واحد'],
-      ['3', '3 دروس'],
-      ['5', '5 دروس'],
+      ['1', 'studio.choices.size.oneLesson'],
+      ['3', 'studio.choices.size.threeLessons'],
+      ['5', 'studio.choices.size.fiveLessons'],
     ],
   },
 ];
@@ -99,54 +103,65 @@ export const CHOICES: Choice[] = [
  *  The rest wait under «تفاصيل أكتر». */
 export type Audience = {
   id: string;
-  name: string;
-  line: string;
-  asks: Array<{ key: string; lead: string; labels?: Record<string, string> }>;
+  name: TextKey;
+  line: TextKey;
+  asks: Array<{ key: string; lead?: TextKey; labels?: Record<string, TextKey> }>;
 };
 
 export const AUDIENCES: Audience[] = [
   {
     id: 'me',
-    name: 'ليّا أنا',
-    line: 'بذاكر أو عايز أتعلم حاجة جديدة',
+    name: 'studio.audiences.me.name',
+    line: 'studio.audiences.me.line',
     asks: [
       {
         key: 'level',
-        lead: 'أنا',
-        labels: { beginner: 'أول مرة أسمع عنه', some: 'عارف شوية', revision: 'بذاكر لامتحان' },
+        lead: 'studio.leads.myLevel',
+        labels: {
+          beginner: 'studio.audiences.me.level.beginner',
+          some: 'studio.audiences.me.level.some',
+          revision: 'studio.audiences.me.level.revision',
+        },
       },
-      { key: 'goal', lead: 'عايز' },
+      { key: 'goal', lead: 'studio.leads.goal' },
       {
         key: 'size',
-        lead: 'وقتي',
-        labels: { '1': 'ربع ساعة', '3': 'حوالي ساعة', '5': 'أكتر من ساعة' },
+        lead: 'studio.leads.time',
+        labels: {
+          '1': 'studio.audiences.me.size.oneLesson',
+          '3': 'studio.audiences.me.size.threeLessons',
+          '5': 'studio.audiences.me.size.fiveLessons',
+        },
       },
-      { key: 'language', lead: 'بالـ' },
+      { key: 'language', lead: 'studio.leads.language' },
     ],
   },
   {
     id: 'students',
-    name: 'لطلابي',
-    line: 'كورس أشرحه لفصل أو مجموعة',
+    name: 'studio.audiences.students.name',
+    line: 'studio.audiences.students.line',
     asks: [
-      { key: 'level', lead: 'الطلاب' },
-      { key: 'size', lead: '' },
-      { key: 'questions', lead: 'أسئلة' },
-      { key: 'language', lead: 'بالـ' },
+      { key: 'level', lead: 'studio.leads.students' },
+      { key: 'size' },
+      { key: 'questions', lead: 'studio.leads.questions' },
+      { key: 'language', lead: 'studio.leads.language' },
     ],
   },
   {
     id: 'kids',
-    name: 'لطفل',
-    line: 'لابني أو بنتي أو تلاميذ صغيرين',
+    name: 'studio.audiences.kids.name',
+    line: 'studio.audiences.kids.line',
     asks: [
-      { key: 'age', lead: 'السن' },
+      { key: 'age', lead: 'studio.leads.age' },
       {
         key: 'size',
-        lead: '',
-        labels: { '1': 'درس قصير', '3': '3 دروس قصيرة', '5': '5 دروس قصيرة' },
+        labels: {
+          '1': 'studio.audiences.kids.size.oneLesson',
+          '3': 'studio.audiences.kids.size.threeLessons',
+          '5': 'studio.audiences.kids.size.fiveLessons',
+        },
       },
-      { key: 'language', lead: 'بالـ' },
+      { key: 'language', lead: 'studio.leads.language' },
     ],
   },
 ];

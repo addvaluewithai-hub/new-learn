@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import type { LessonContext } from '@learn/lesson-runtime';
 import { referencePart } from '../../../../../content/book-guided/physics-ch08/reference';
 import './book-reference.css';
+import { useI18n } from '../../i18n';
 
 type Size = 'hidden' | 'small' | 'half' | 'full';
 /** An optional scan reference beside the normal board, always following its lesson position. */
@@ -15,6 +16,7 @@ export function BookReference({
   resolve?: typeof referencePart;
   assetBase?: string;
 }) {
+  const { t, dir } = useI18n();
   const [size, setSize] = useState<Size>(() =>
     matchMedia('(max-width: 650px)').matches ? 'hidden' : 'small',
   );
@@ -47,45 +49,43 @@ export function BookReference({
   const body = (
     <>
       <header className="book-reference-tools">
-        <span>من الكتاب · ص {pages}</span>
-        <div role="group" aria-label="حجم مرجع الكتاب">
+        <span>{t('book.reference.from', { pages })}</span>
+        <div role="group" aria-label={t('book.reference.sizes')}>
           <button
-            aria-label="مرجع صغير"
+            aria-label={t('book.reference.smallLabel')}
             aria-pressed={size === 'small'}
             onClick={() => setSize('small')}
           >
-            صغير
+            {t('book.reference.small')}
           </button>
           <button
-            aria-label="مرجع بنصف الشاشة"
+            aria-label={t('book.reference.halfLabel')}
             aria-pressed={size === 'half'}
             onClick={() => setSize('half')}
           >
-            نص الشاشة
+            {t('book.reference.half')}
           </button>
           <button
-            aria-label="مرجع بملء الشاشة"
+            aria-label={t('book.reference.fullLabel')}
             aria-pressed={size === 'full'}
             onClick={() => setSize('full')}
           >
-            كامل
+            {t('book.reference.full')}
           </button>
-          <button aria-label="إخفاء مرجع الكتاب" onClick={hide}>
-            إخفاء
+          <button aria-label={t('book.reference.hideLabel')} onClick={hide}>
+            {t('book.reference.hide')}
           </button>
         </div>
       </header>
       <button
         className="book-reference-paper"
-        aria-label={
-          size === 'small' ? 'تكبير الجزء المشروح من الكتاب' : 'تصغير الجزء المشروح من الكتاب'
-        }
+        aria-label={size === 'small' ? t('book.reference.zoomIn') : t('book.reference.zoomOut')}
         onClick={() => setSize(size === 'small' ? 'half' : 'small')}
       >
         <svg
           viewBox={`0 0 ${part.width} ${part.height}`}
           role="img"
-          aria-label={`الجزء المشروح من صفحة ${pages}`}
+          aria-label={t('book.reference.image', { pages })}
         >
           <image
             href={`${assetBase}/reference/${part.file}`}
@@ -109,10 +109,11 @@ export function BookReference({
         ref={toggle}
         className="book-reference-toggle"
         data-reference-section={id}
-        aria-label="افتح مرجع الكتاب"
+        aria-label={t('book.reference.open')}
+        dir={dir}
         onClick={() => setSize('small')}
       >
-        الكتاب · ص {pages}
+        {t('book.reference.toggle', { pages })}
       </button>
     ) : size === 'full' ? (
       <dialog
@@ -120,7 +121,8 @@ export function BookReference({
         className="book-reference"
         data-size="full"
         data-reference-section={id}
-        aria-label="مرجع الكتاب بملء الشاشة"
+        aria-label={t('book.reference.fullDialog')}
+        dir={dir}
         onCancel={(event) => {
           event.preventDefault();
           setSize('small');
@@ -134,7 +136,8 @@ export function BookReference({
         className="book-reference"
         data-size={size}
         data-reference-section={id}
-        aria-label="مرجع الكتاب"
+        aria-label={t('book.reference.panel')}
+        dir={dir}
       >
         {body}
       </aside>

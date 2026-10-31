@@ -3,6 +3,7 @@ import { ReadText, textDirection } from '../ReadText';
 import { pageSteps } from '../model';
 import { gradeChoice } from '../grade';
 import { useEffect } from 'react';
+import { fillParts, useRuntimeText } from '../../text';
 import type { ReadingPage, ReadingQuestion, ReadingScene } from '../types';
 
 /** The one sentence beside the board; its card fits the text (no empty space, no scroll). */
@@ -28,6 +29,7 @@ export function Caption({
   /** Opens the whole lesson conversation. */
   onThread?: () => void;
 }) {
+  const t = useRuntimeText();
   return (
     <div className="rl-caption" data-label={label ? 'yes' : undefined}>
       <div className="rl-caption-meta">
@@ -35,7 +37,7 @@ export function Caption({
         <span className="rl-caption-step">
           {onThread ? (
             <button type="button" className="rl-link" onClick={onThread}>
-              المحادثة
+              {t.conversation}
             </button>
           ) : null}
           <bdi dir="ltr">
@@ -54,11 +56,11 @@ export function Caption({
       {answer !== undefined ? (
         <p className="rl-yours">
           <span>
-            إجابتك: <bdi dir="auto">{answer || 'معرفتش'}</bdi>
+            {fillParts(t.yourAnswer, { answer: <bdi dir="auto">{answer || t.dontKnow}</bdi> })}
           </span>
           {verdict === undefined ? null : (
             <span className="rl-verdict" data-correct={verdict}>
-              {verdict ? '✓ مظبوطة' : '✗ لسه مش مظبوطة'}
+              {verdict ? t.correct : t.notCorrect}
             </span>
           )}
         </p>
@@ -66,8 +68,6 @@ export function Caption({
     </div>
   );
 }
-
-const KEYS = ['أ', 'ب', 'ج', 'د', 'ه', 'و', 'ز', 'ح'];
 
 /** The question while the learner answers: wording, choices, and ways out. */
 export function QuestionCaption({
@@ -86,6 +86,8 @@ export function QuestionCaption({
   /** Ask the tutor for a hint (never the answer). */
   onHint?: () => void;
 }) {
+  const t = useRuntimeText();
+  const keys = [...t.choiceLetters];
   const chooses = question.attempt === 'choice' || question.attempt === 'choice-and-written';
   const choices = chooses ? question.options : [];
   // Number keys pick a choice (1 is the first), unless the learner is typing.
@@ -102,18 +104,18 @@ export function QuestionCaption({
   return (
     <div className="rl-caption rl-question">
       <div className="rl-caption-meta">
-        <span className="rl-tag rl-tag-ask">جرّب بنفسك</span>
+        <span className="rl-tag rl-tag-ask">{t.tryYourself}</span>
         <span className="rl-caption-step">
           {onHint ? (
             <button type="button" className="rl-hint" onClick={onHint}>
-              تلميح
+              {t.hint}
             </button>
           ) : null}
           <button type="button" className="rl-link" onClick={onReveal}>
-            معرفتش، وريني الحل
+            {t.showSolution}
           </button>
           <button type="button" className="rl-link" onClick={onSkip}>
-            فوّت
+            {t.skip}
           </button>
         </span>
       </div>
@@ -126,7 +128,7 @@ export function QuestionCaption({
         </p>
       </div>
       {choices.length ? (
-        <div className="rl-choices" role="group" aria-label="الاختيارات">
+        <div className="rl-choices" role="group" aria-label={t.choices}>
           {choices.map((option, i) => (
             <button
               key={i}
@@ -135,16 +137,14 @@ export function QuestionCaption({
               onClick={() => onChoose(option)}
             >
               <span className="rl-choice-key" aria-hidden="true">
-                {KEYS[i] ?? i + 1}
+                {keys[i] ?? i + 1}
               </span>
               <ReadText text={option} />
             </button>
           ))}
         </div>
       ) : null}
-      {question.attempt === 'board' ? (
-        <p className="rl-board-ask">غيّر البورد لحد ما توصل لإجابتك، وبعدين اضغط «ابعت».</p>
-      ) : null}
+      {question.attempt === 'board' ? <p className="rl-board-ask">{t.boardAsk}</p> : null}
     </div>
   );
 }
@@ -171,6 +171,7 @@ export function PageCaption({
   onThread: () => void;
   onHint?: () => void;
 }) {
+  const t = useRuntimeText();
   const question = scene.question;
   if (answering && question)
     return (
@@ -189,7 +190,7 @@ export function PageCaption({
   const onBoard = question?.board ? decodeBoardAnswer(raw) : null;
   return (
     <Caption
-      label={page.kind === 'feedback' ? 'الإجابة النموذجية' : attempt ? 'سؤال' : undefined}
+      label={page.kind === 'feedback' ? t.modelAnswer : attempt ? t.question : undefined}
       text={attempt ? question!.english : steps[page.step].text}
       lead={attempt ? undefined : sentenceLead(steps, page.step)}
       answer={onBoard ? onBoard.text : raw}

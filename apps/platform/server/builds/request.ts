@@ -76,18 +76,18 @@ export const FILE_LIMITS = { count: 5, each: 4 * 1024 * 1024, total: 10 * 1024 *
 /** The JSON body a request with the largest allowed files may need (base64 grows by 4/3). */
 export const MAX_BODY = Math.ceil((FILE_LIMITS.total * 4) / 3) + 64 * 1024;
 
-const bad = (message: string): never => {
-  throw new HttpError(400, message);
+const bad = (key: string): never => {
+  throw new HttpError(400, key);
 };
 
 function file(value: unknown): UploadedFile {
   const f = (value ?? {}) as Record<string, unknown>;
   const mime = String(f.mime ?? '');
-  if (!TYPES.has(mime)) bad('نوع الملف ده مش مدعوم: PDF أو Word أو صور أو نص بس.');
+  if (!TYPES.has(mime)) bad('builds.fileType');
   const data = String(f.data ?? '');
-  if (!/^[A-Za-z0-9+/]*={0,2}$/.test(data)) bad('الملف مش مقروء.');
+  if (!/^[A-Za-z0-9+/]*={0,2}$/.test(data)) bad('builds.fileUnreadable');
   const size = Math.floor((data.length * 3) / 4) - (data.match(/=+$/)?.[0].length ?? 0);
-  if (!size || size > FILE_LIMITS.each) bad('كل ملف لازم يكون أقل من 4 ميجا.');
+  if (!size || size > FILE_LIMITS.each) bad('builds.fileSize');
   const name =
     String(f.name ?? 'file')
       .replace(/[^\p{L}\p{N}._ -]/gu, '')
@@ -99,8 +99,8 @@ function file(value: unknown): UploadedFile {
 /** A request, checked: a topic, known choices, and at most a few small files. */
 export function buildInput(input: Record<string, unknown>) {
   const topic = String(input.topic ?? '').trim();
-  if (topic.length < 3) bad('اكتب الكورس عن إيه.');
-  if (topic.length > 4000) bad('الوصف طويل أوي، خليه أقل من 4000 حرف.');
+  if (topic.length < 3) bad('builds.topicShort');
+  if (topic.length > 4000) bad('builds.topicLong');
   const raw = (input.choices ?? {}) as Record<string, unknown>;
   const choices: Record<string, string> = {};
   for (const [key, options] of Object.entries(CHOICES)) {
@@ -109,13 +109,12 @@ export function buildInput(input: Record<string, unknown>) {
       .filter(Boolean);
     const most = key === 'style' ? 3 : 1;
     if (!values.length || values.length > most || values.some((v) => !(v in options)))
-      bad('اختيار غير معروف.');
+      bad('builds.badChoice');
     choices[key] = values.join(',');
   }
   const files = Array.isArray(input.files) ? input.files.map(file) : [];
-  if (files.length > FILE_LIMITS.count) bad('5 ملفات بالكتير.');
-  if (files.reduce((n, f) => n + f.size, 0) > FILE_LIMITS.total)
-    bad('الملفات مع بعض لازم تكون أقل من 10 ميجا.');
+  if (files.length > FILE_LIMITS.count) bad('builds.fileCount');
+  if (files.reduce((n, f) => n + f.size, 0) > FILE_LIMITS.total) bad('builds.filesTotal');
   const request: BuildRequest = { topic, choices, webSearch: input.webSearch === true };
   return { request, files };
 }

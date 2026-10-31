@@ -1,6 +1,7 @@
 import { AbsoluteFill } from 'remotion';
 import { visibleQuestionParts } from './cues';
 import type { LessonLayout, LessonQuestion, LessonRecording } from './types';
+import { useRuntimeText } from './text';
 
 export function QuestionBoard({
   question,
@@ -17,6 +18,7 @@ export function QuestionBoard({
   layout: LessonLayout;
   feedback: boolean;
 }) {
+  const text = useRuntimeText();
   const portrait = layout === 'portrait';
   const answerAt =
     recording.cues.find((cue) => cue.id === 'answer')?.atMs ?? recording.words![0].start_ms;
@@ -42,7 +44,7 @@ export function QuestionBoard({
       }}
     >
       <p dir="rtl" style={{ fontSize: 24, color: '#146e57', margin: 0 }}>
-        {feedback ? 'نراجع الفكرة ونكمل' : 'خلّينا نجرب'}
+        {feedback ? text.boardFeedback : text.boardQuestion}
       </p>
       {parts.map((part, index) => (
         <p

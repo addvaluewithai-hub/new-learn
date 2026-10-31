@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useI18n } from '../../i18n';
 import { AUTO, LOOKS, type Look } from './looks';
 
 /** «٢ الشكل»: every look as a small card with a real picture, in a row that slides sideways.
@@ -14,6 +15,7 @@ export function LookGallery({
   onSelect: (id: string) => void;
   onPreview: (look: Look) => void;
 }) {
+  const { t } = useI18n();
   const track = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: false });
   // Which ends of the row are showing, so each arrow hides when there is nothing that way.
@@ -44,7 +46,7 @@ export function LookGallery({
         className="looks"
         ref={track}
         role="radiogroup"
-        aria-label="شكل الدرس"
+        aria-label={t('studio.gallery.label')}
         onScroll={measure}
       >
         {looks.map((look) => {
@@ -67,14 +69,17 @@ export function LookGallery({
                 ) : (
                   <img className="look-art" src={`/styles/${look.id}.webp`} alt="" loading="lazy" />
                 )}
-                <span className="look-name">{look.name}</span>
-                <span className="look-line">{look.line}</span>
-                {fits && <span className="look-fits">مناسب لموضوعك</span>}
+                <span className="look-name">{t(look.name)}</span>
+                <span className="look-line">{t(look.line)}</span>
+                {fits && <span className="look-fits">{t('studio.gallery.fits')}</span>}
               </label>
               {look.board && (
                 <button type="button" className="look-try" onClick={() => onPreview(look)}>
-                  اتفرّج
-                  <span className="nl-sr-only"> على {look.name}</span>
+                  {t('studio.gallery.try')}
+                  <span className="nl-sr-only">
+                    {' '}
+                    {t('studio.gallery.tryLook', { name: t(look.name) })}
+                  </span>
                 </button>
               )}
             </div>
@@ -87,8 +92,8 @@ export function LookGallery({
         hidden={edges.start}
         onClick={() => slide(false)}
       >
-        <span aria-hidden="true">›</span>
-        <span className="nl-sr-only">الأشكال اللي قبل</span>
+        <span aria-hidden="true">{t('studio.gallery.prevIcon')}</span>
+        <span className="nl-sr-only">{t('studio.gallery.prev')}</span>
       </button>
       <button
         type="button"
@@ -96,8 +101,8 @@ export function LookGallery({
         hidden={edges.end}
         onClick={() => slide(true)}
       >
-        <span aria-hidden="true">‹</span>
-        <span className="nl-sr-only">أشكال تانية</span>
+        <span aria-hidden="true">{t('studio.gallery.nextIcon')}</span>
+        <span className="nl-sr-only">{t('studio.gallery.next')}</span>
       </button>
     </div>
   );

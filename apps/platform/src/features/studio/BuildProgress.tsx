@@ -4,11 +4,15 @@ import type { BuildJob } from './types';
 import './progress.css';
 import { Alert, ButtonLink, Spinner } from '../../shared/ui';
 import { BuildBoards } from './BuildBoards';
+import { buildText } from './buildText';
+import { useI18n } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 
 const POLL_MS = 3000;
 
 /** The builder's steps as they arrive, then the draft it made or why it stopped. */
 export function BuildProgress({ jobId }: { jobId: string }) {
+  const { t } = useI18n();
   const [job, setJob] = useState<BuildJob | null>(null),
     [error, setError] = useState('');
   useEffect(() => {
@@ -36,54 +40,67 @@ export function BuildProgress({ jobId }: { jobId: string }) {
   }, [jobId]);
 
   if (!job)
-    return error ? <Alert tone="error">{error}</Alert> : <Spinner label="بنجيب حالة الكورس…" />;
+    return error ? (
+      <Alert tone="error">{error}</Alert>
+    ) : (
+      <Spinner label={t('studio.progress.loading')} />
+    );
   const working = job.status === 'queued' || job.status === 'running';
   return (
     <section className="studio build" aria-live="polite">
       <div className="page-heading">
         <ButtonLink variant="link" href="/?studio">
-          ← كورس جديد
+          {t('common.backLink')} {t('studio.progress.newCourse')}
         </ButtonLink>
         <span className="eyebrow">
           {job.status === 'queued'
-            ? 'مستني دوره'
+            ? t('studio.progress.status.queued')
             : job.status === 'running'
-              ? 'بيتبني دلوقتي'
+              ? t('studio.progress.status.running')
               : job.status === 'done'
-                ? 'خلص'
-                : 'وقف'}
+                ? t('studio.progress.status.done')
+                : t('studio.progress.status.failed')}
         </span>
         <h1>{job.topic}</h1>
-        {working && <p>ده بياخد من 5 لـ 20 دقيقة. ممكن تقفل الصفحة وترجع لها، الشغل مكمّل.</p>}
+        {working && <p>{t('studio.progress.duration')}</p>}
       </div>
       <ol className="build-steps">
-        {job.status === 'queued' && <li className="now">مستني الـbuilder يستلم طلبك…</li>}
+        {job.status === 'queued' && <li className="now">{t('studio.progress.waiting')}</li>}
         {job.steps.map((step, i) => (
           <li
             key={`${step.at}-${i}`}
             className={working && i === job.steps.length - 1 ? 'now' : ''}
           >
-            {step.title}
+            {buildText(step.title)}
           </li>
         ))}
       </ol>
       <BuildBoards boards={job.boards ?? []} working={working} />
-      {error && working && <p className="muted">{error} بنحاول تاني…</p>}
+      {error && working && <p className="muted">{t('studio.progress.retrying', { error })}</p>}
       {job.status === 'done' && (
         <div className="build-done">
-          {job.result.message && <p>{job.result.message}</p>}
-          <ButtonLink href={`/?draft=${job.result.lessonId}`}>افتح أول درس</ButtonLink>
+          {job.result.message && <p>{buildText(job.result.message)}</p>}
+          <ButtonLink href={`/?draft=${job.result.lessonId}`}>
+            {t('studio.progress.openFirst')}
+          </ButtonLink>
           <ButtonLink variant="secondary" href="/">
-            مسوداتي
+            {t('studio.progress.myDrafts')}
           </ButtonLink>
         </div>
       )}
       {job.status === 'failed' && (
         <Alert tone="error">
-          معرفناش نكمّل الكورس ده. {job.error}{' '}
-          <ButtonLink variant="link" href="/?studio">
-            جرّب تاني
-          </ButtonLink>
+          <Rich
+            k="studio.progress.failed"
+            parts={{
+              error: buildText(job.error),
+              retry: (
+                <ButtonLink variant="link" href="/?studio">
+                  {t('studio.progress.retry')}
+                </ButtonLink>
+              ),
+            }}
+          />
         </Alert>
       )}
     </section>

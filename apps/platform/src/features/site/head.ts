@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { LOCALES, currentLocale } from '../../i18n';
 import { SITE_ORIGIN } from './routes';
 
 type Head = { title: string; description: string; path: string };
@@ -32,6 +33,15 @@ export function useHead({ title, description, path }: Head) {
     property('og:type').setAttribute('content', 'website');
     property('og:image').setAttribute('content', `${SITE_ORIGIN}/site/og.png`);
     named('twitter:card').setAttribute('content', 'summary_large_image');
+    property('og:locale').setAttribute('content', currentLocale());
+    // The same page in every language, for search engines (hreflang).
+    document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((n) => n.remove());
+    for (const code of [...LOCALES, 'x-default']) {
+      const link = Object.assign(document.createElement('link'), { rel: 'alternate' });
+      link.hreflang = code;
+      link.href = code === 'x-default' ? url : `${url}?lang=${code}`;
+      document.head.appendChild(link);
+    }
     meta('link[rel="canonical"]', () =>
       Object.assign(document.createElement('link'), { rel: 'canonical' }),
     ).setAttribute('href', url);

@@ -99,6 +99,7 @@ try {
   for (const width of [1280, 390]) {
     const store = new Map();
     const page = await browser.newPage({
+      locale: 'ar-EG',
       viewport: { width, height: 900 },
       reducedMotion: 'no-preference',
     });
@@ -215,7 +216,7 @@ try {
     await page.close();
   }
   // "Show the answers": the question is shown, Next goes on to its model answer, nothing saved.
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width: 390, height: 844 } });
   const shown = new Map();
   await page.route(`${url}/api/**`, api(shown));
   await page.addInitScript(() =>

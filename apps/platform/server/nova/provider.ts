@@ -1,7 +1,7 @@
 import type { Env } from '../env';
 import { HttpError } from '../http';
 export async function gemini(env: Env, path: string, payload: unknown, signal?: AbortSignal) {
-  if (!env.GEMINI_API_KEY) throw new HttpError(503, 'مساعدة Nova مش متاحة حاليًا.');
+  if (!env.GEMINI_API_KEY) throw new HttpError(503, 'nova.unavailable');
   let response: Response;
   try {
     response = await fetch(`https://generativelanguage.googleapis.com/v1beta/${path}`, {
@@ -11,14 +11,12 @@ export async function gemini(env: Env, path: string, payload: unknown, signal?: 
       signal: AbortSignal.any([AbortSignal.timeout(45000), ...(signal ? [signal] : [])]),
     });
   } catch {
-    throw new HttpError(504, 'الرد اتأخر. جرّب تاني.');
+    throw new HttpError(504, 'nova.timeout');
   }
   if (!response.ok)
     throw new HttpError(
       response.status === 429 ? 429 : 502,
-      response.status === 429
-        ? 'طلبات كتير دلوقتي. استنى شوية وجرّب تاني.'
-        : 'تعذّر الاتصال بمساعدة Nova. جرّب تاني.',
+      response.status === 429 ? 'nova.busy' : 'nova.unreachable',
     );
   return response.json();
 }
@@ -47,6 +45,6 @@ export async function generate(
     .map((p: { text?: string }) => p.text ?? '')
     .join('')
     .trim();
-  if (!text) throw new HttpError(502, 'مفيش رد واضح. جرّب صياغة السؤال تاني.');
+  if (!text) throw new HttpError(502, 'nova.noAnswer');
   return text as string;
 }

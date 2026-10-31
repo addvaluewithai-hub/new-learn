@@ -17,6 +17,7 @@ import {
 import { readCourseProgress, saveCourseProgress } from '../server/publish/progress';
 import { saveOutline, teacherCourse, teacherCourses } from '../server/publish/teach';
 import { myCourses } from '../server/publish/library';
+import { serverText } from '../server/i18n';
 
 const teacher = { id: 'teacher-1', name: 'أستاذة منى' };
 const student = 'student-1';
@@ -53,7 +54,7 @@ test('a draft becomes a numbered version students read; edits wait for the next 
   const db = await testDb();
   const { id: courseId } = await createCourse(db, teacher.id, { title: 'المية', subject: 'علوم' });
   assert.equal((await selfCheck(db, teacher.id, courseId)).ready, false, 'no lessons yet');
-  await assert.rejects(publishCourse(db, teacher, courseId), /مفيش دروس/);
+  await assert.rejects(publishCourse(db, teacher, courseId), { key: 'publish.noLessons' });
   const wire = new URL('../../../fixtures/board-probe/boards/wire/', import.meta.url);
   await putBoard(db, teacher.id, {
     'board.json': await readFile(new URL('board.json', wire), 'utf8'),
@@ -132,7 +133,7 @@ test('a student enrols, saves progress by lesson, and sees the course in the lib
       revision: 1,
       state: snapshot('one', 'complete'),
     }),
-    /اتغيّرت/,
+    { key: 'progress.courseChanged' },
   );
   const library = await myCourses(db, student);
   assert.equal(library.courses[0].lessons[0].status, 'completed');
@@ -142,7 +143,7 @@ test('a student enrols, saves progress by lesson, and sees the course in the lib
   await withdrawCourse(db, teacher.id, courseId);
   assert.equal(await publicCourse(db, courseId), null);
   assert.deepEqual(await myCourses(db, student), { courses: [] });
-  await assert.rejects(enrol(db, 'another', courseId), /مش موجود/);
+  await assert.rejects(enrol(db, 'another', courseId), { key: 'publish.courseMissing' });
 });
 
 test('the outline editor regroups lessons and keeps the ones it left out; notes count as open', async () => {
@@ -158,7 +159,7 @@ test('the outline editor regroups lessons and keeps the ones it left out; notes 
   assert.equal(saved.title, 'المية وحالاتها');
   assert.deepEqual(saved.parts, [
     { title: 'البداية', lessonIds: [c.lessonId, a.lessonId] },
-    { title: 'دروس تانية', lessonIds: [b.lessonId] },
+    { title: serverText('ar', 'publish.otherLessons'), lessonIds: [b.lessonId] },
   ]);
   assert.deepEqual(orderLessons([a.lessonId, b.lessonId, c.lessonId], saved.parts), [
     c.lessonId,
@@ -167,7 +168,7 @@ test('the outline editor regroups lessons and keeps the ones it left out; notes 
   ]);
   await assert.rejects(
     saveOutline(db, teacher.id, courseId, { parts: [{ title: 'x', lessonIds: ['not-a-lesson'] }] }),
-    /كل درس/,
+    { key: 'publish.partsEveryLesson' },
   );
   await addFeedback(db, teacher.id, a.lessonId, {
     sceneId: 'one',
@@ -180,4 +181,7 @@ test('the outline editor regroups lessons and keeps the ones it left out; notes 
   assert.equal(work.notes.length, 1);
   assert.equal(work.check.warnings[1].ok, false, 'open notes are a warning, not a stop');
   assert.equal(work.check.ready, true);
+  // The self-check reads in the teacher's language, counts filled in.
+  assert.deepEqual(work.check.checks[0], { ok: true, text: '3 دروس جاهزة' });
+  assert.deepEqual(work.check.warnings[1], { ok: false, text: '1 ملاحظة لسه مفتوحة' });
 });

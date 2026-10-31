@@ -1,26 +1,31 @@
 import { DEMOS } from '../../../../fixtures/demos';
 import '../shared/platform.css';
 import './demo-gallery.css';
+import { useI18n } from '../i18n';
 
 /** `?preview=demos`: ten short courses, each in its own style, open without an account. */
 export default function DemoGallery() {
+  const { t, dir } = useI18n();
   return (
-    <main className="platform-ui demo-gallery" dir="rtl">
+    <main className="platform-ui demo-gallery" dir={dir}>
       <header>
-        <span className="eyebrow">معرض New Learn</span>
-        <h1>كورس واحد، استايل مختلف كل مرة</h1>
-        <p>
-          كورسات قصيرة اتعملت كلها على نفس المنصة: بورد تفاعلي تحرّكه بإيدك، وسؤال على البورد، وNova
-          يشرح لك بالصوت.
-        </p>
+        <span className="eyebrow">{t('app.demos.eyebrow')}</span>
+        <h1>{t('app.demos.title')}</h1>
+        <p>{t('app.demos.lead')}</p>
       </header>
       <ul>
         {DEMOS.map((demo) => {
           const card = (
             <>
-              <span className="demo-style">{demo.style}</span>
-              <strong>{demo.title}</strong>
-              <span className="demo-audience">{demo.load ? demo.audience : 'قريبًا'}</span>
+              <span className="demo-style">
+                <bdi>{demo.style}</bdi>
+              </span>
+              <strong>
+                <bdi>{demo.title}</bdi>
+              </strong>
+              <span className="demo-audience">
+                {demo.load ? <bdi>{demo.audience}</bdi> : t('app.demos.soon')}
+              </span>
             </>
           );
           const style = { background: demo.colors[0], color: demo.colors[1] };

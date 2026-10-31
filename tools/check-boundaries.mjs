@@ -25,6 +25,8 @@ const generated = new Set([
   'apps/platform/src/features/boards/editions.generated.json',
   // Style guides with their reference boards (tools/style-guides.mjs), for get_style.
   'apps/platform/server/styles/styles.generated.json',
+  // The server's messages from every language file (tools/i18n.mjs).
+  'apps/platform/server/i18n/messages.generated.json',
 ]);
 const sourceExtensions = /\.(?:tsx?|mjs|css|json|ya?ml|md|html|sql)$/;
 const errors = [];
@@ -48,6 +50,8 @@ async function scan(folder) {
       !sourceExtensions.test(name) ||
       generated.has(name) ||
       /^database\/migrations\/meta\/\d+_snapshot\.json$/.test(name) ||
+      // Language files are translation data, one per language (docs/i18n.md), not code.
+      /^apps\/platform\/src\/i18n\/locales\/[\w-]+\.json$/.test(name) ||
       /^content\/imported\/[a-z0-9-]+\/[a-z0-9-]+\/(reading|lesson)\.json$/.test(name) ||
       /^content\/imported\/[a-z0-9-]+\/curriculum\.json$/.test(name)
     )

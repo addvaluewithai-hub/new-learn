@@ -14,5 +14,5 @@ export async function studioRoute(request: Request, env: Env, user: AuthUser, pa
     return json({ jobs: await listJobs(db, user.id) });
   const m = /^\/api\/studio\/jobs\/([0-9a-f-]{36})$/.exec(path);
   if (m && request.method === 'GET') return json(await getJob(db, user.id, m[1]));
-  throw new HttpError(404, 'الصفحة غير موجودة.');
+  throw new HttpError(404, 'http.notFound');
 }

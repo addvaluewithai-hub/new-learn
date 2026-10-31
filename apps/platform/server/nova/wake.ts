@@ -6,14 +6,14 @@ export const WAKE_MAX_BYTES = 16000 * 2 * 2.5;
 /** Decodes the client's base64 PCM and wraps it as a WAV file the model can read. */
 export function wakeWav(value: unknown) {
   if (typeof value !== 'string' || !value || value.length > Math.ceil(WAKE_MAX_BYTES / 3) * 4)
-    throw new HttpError(400, 'الصوت غير صحيح.');
+    throw new HttpError(400, 'nova.badAudio');
   let binary: string;
   try {
     binary = atob(value);
   } catch {
-    throw new HttpError(400, 'الصوت غير صحيح.');
+    throw new HttpError(400, 'nova.badAudio');
   }
-  if (binary.length < 3200 || binary.length % 2) throw new HttpError(400, 'الصوت قصير جدًا.');
+  if (binary.length < 3200 || binary.length % 2) throw new HttpError(400, 'nova.shortAudio');
   const wav = new Uint8Array(44 + binary.length),
     view = new DataView(wav.buffer);
   const ascii = (at: number, word: string) =>
@@ -52,7 +52,7 @@ export function wakeWordOf(value: unknown) {
           .replace(/\s+/g, ' ')
           .trim()
       : '';
-  if (!word || word.length > 30) throw new HttpError(400, 'كلمة النداء غير صحيحة.');
+  if (!word || word.length > 30) throw new HttpError(400, 'nova.badWakeWord');
   return word;
 }
 

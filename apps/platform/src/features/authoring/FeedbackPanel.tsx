@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import type { LessonContext } from '@learn/lesson-runtime';
 import { api } from '../../shared/api';
+import { useI18n, type TextKey } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 import './feedback.css';
 
 export type Note = {
@@ -11,17 +13,17 @@ export type Note = {
   status: 'open' | 'review' | 'done' | 'dismissed';
   resolution: string;
 };
-const KINDS: Array<[string, string]> = [
-  ['text', 'الشرح'],
-  ['board', 'البورد'],
-  ['question', 'السؤال'],
-  ['translation', 'الترجمة'],
+const KINDS: Array<[string, TextKey]> = [
+  ['text', 'authoring.feedback.kinds.text'],
+  ['board', 'authoring.feedback.kinds.board'],
+  ['question', 'authoring.feedback.kinds.question'],
+  ['translation', 'authoring.feedback.kinds.translation'],
 ];
-const STATUS: Record<Note['status'], string> = {
-  open: 'مفتوحة',
-  review: 'اتصلحت، راجعها',
-  done: 'تمام',
-  dismissed: 'اتشالت',
+const STATUS: Record<Note['status'], TextKey> = {
+  open: 'authoring.feedback.status.open',
+  review: 'authoring.feedback.status.review',
+  done: 'authoring.feedback.status.done',
+  dismissed: 'authoring.feedback.status.dismissed',
 };
 
 /** The teacher's notes on the step on screen; the connected AI reads and fixes them. */
@@ -38,6 +40,7 @@ export function FeedbackPanel({
   context: LessonContext | null;
   onChanged: () => Promise<void>;
 }) {
+  const { t, dir } = useI18n();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
   const [kind, setKind] = useState('text');
@@ -72,23 +75,39 @@ export function FeedbackPanel({
       <button
         type="button"
         className="draft-notes-toggle"
+        dir={dir}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        ملاحظات المسودة{waiting ? ` (${waiting})` : ''}
+        {waiting
+          ? t('authoring.feedback.toggleCount', { count: waiting })
+          : t('authoring.feedback.toggle')}
       </button>
       {open ? (
-        <aside className="draft-notes" aria-label="ملاحظات على الخطوة دي">
+        <aside className="draft-notes" dir={dir} aria-label={t('authoring.feedback.panel')}>
           <header>
-            <strong>{here ? `${context?.sceneTitle} · خطوة ${here.step + 1}` : 'آخر الدرس'}</strong>
-            <span>نسخة {revision}</span>
+            <strong>
+              {here ? (
+                <Rich
+                  k="authoring.feedback.where"
+                  parts={{ scene: <bdi>{context?.sceneTitle}</bdi>, step: here.step + 1 }}
+                />
+              ) : (
+                t('authoring.feedback.end')
+              )}
+            </strong>
+            <span>{t('authoring.feedback.revision', { revision })}</span>
           </header>
           <ul>
             {atHere.map((n) => (
               <li key={n.id} data-status={n.status}>
                 <p>{n.note}</p>
-                {n.resolution ? <p className="draft-notes-fix">الإصلاح: {n.resolution}</p> : null}
-                <span className="draft-notes-status">{STATUS[n.status]}</span>
+                {n.resolution ? (
+                  <p className="draft-notes-fix">
+                    <Rich k="authoring.feedback.fix" parts={{ fix: <bdi>{n.resolution}</bdi> }} />
+                  </p>
+                ) : null}
+                <span className="draft-notes-status">{t(STATUS[n.status])}</span>
                 {n.status === 'review' ? (
                   <span className="draft-notes-actions">
                     <button
@@ -98,7 +117,7 @@ export function FeedbackPanel({
                         act(() => api(`/authoring/feedback/${n.id}`, { status: 'done' }))
                       }
                     >
-                      تمام
+                      {t('authoring.feedback.done')}
                     </button>
                     <button
                       type="button"
@@ -107,7 +126,7 @@ export function FeedbackPanel({
                         act(() => api(`/authoring/feedback/${n.id}`, { status: 'open' }))
                       }
                     >
-                      لسه
+                      {t('authoring.feedback.notYet')}
                     </button>
                   </span>
                 ) : null}
@@ -132,31 +151,29 @@ export function FeedbackPanel({
               <select
                 value={kind}
                 onChange={(e) => setKind(e.target.value)}
-                aria-label="نوع الملاحظة"
+                aria-label={t('authoring.feedback.kindLabel')}
               >
                 {KINDS.map(([value, label]) => (
                   <option key={value} value={value}>
-                    {label}
+                    {t(label)}
                   </option>
                 ))}
               </select>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="إيه اللي محتاج يتظبط في الخطوة دي؟"
-                aria-label="الملاحظة"
+                placeholder={t('authoring.feedback.placeholder')}
+                aria-label={t('authoring.feedback.noteLabel')}
                 rows={3}
                 maxLength={2000}
               />
               <button type="submit" disabled={busy || !text.trim()}>
-                ابعت الملاحظة
+                {t('authoring.feedback.send')}
               </button>
             </form>
           ) : null}
           {error ? <p role="alert">{error}</p> : null}
-          <p className="draft-notes-hint">
-            اطلب من Claude: «شوف ملاحظاتي على الدرس وصلّحها». هيعلّم كل ملاحظة «اتصلحت، راجعها».
-          </p>
+          <p className="draft-notes-hint">{t('authoring.feedback.hint')}</p>
         </aside>
       ) : null}
     </>

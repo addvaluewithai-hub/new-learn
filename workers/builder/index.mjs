@@ -5,6 +5,7 @@ import { loadConfig } from './config.mjs';
 import { prepareFiles } from './files.mjs';
 import { runCodex } from './runner.mjs';
 import { runClaude } from './claude.mjs';
+import { step } from './events.mjs';
 
 // New Learn's course builder (docs/builder-server.md): asks New Learn for a job, runs Claude
 // Code (or Codex) for it, reports each step and the result, and deletes the job's files. One
@@ -26,7 +27,7 @@ async function work(job) {
     steps = steps.then(() => api.step(job.id, title)).catch((e) => log('step failed', e.message));
   };
   try {
-    onStep('بجهّز ملفاتك');
+    onStep(step('prepare'));
     const images = await prepareFiles(api, job, dir);
     const run = config.engine === 'codex' ? runCodex : runClaude;
     const result = await run({ job, dir, images, config, prompt: job.prompt }, onStep);
@@ -37,9 +38,10 @@ async function work(job) {
     await steps;
     log('job', job.id, 'failed:', error.message);
     // The account's usage limit (Claude Code names the reset time) is not the teacher's doing.
+    // Both reasons are step keys the studio shows in the teacher's language.
     const why = /hit your (session|weekly|opus|sonnet) limit/i.test(error.message)
-      ? 'حساب البناء وصل لحدّ الاستخدام دلوقتي. جرّب تاني بعد شوية.'
-      : 'البناء وقف قبل ما يخلص.';
+      ? step('usageLimit')
+      : step('failed');
     await api.finish(job.id, false, why).catch(() => {});
   } finally {
     await rm(dir, { recursive: true, force: true });

@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from 'react';
 import type { ReadingPackage } from '../types';
+import { useRuntimeText } from '../../text';
 
 /** Side panel on wide screens, bottom sheet on phones. Esc or the backdrop closes it. */
 export function Sheet({
@@ -11,6 +12,7 @@ export function Sheet({
   onClose: () => void;
   children: ReactNode;
 }) {
+  const text = useRuntimeText();
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === 'Escape' && onClose();
     addEventListener('keydown', onKey);
@@ -18,7 +20,7 @@ export function Sheet({
   }, [onClose]);
   return (
     <div className="rl-sheet-layer">
-      <button type="button" className="rl-backdrop" aria-label="اقفل" onClick={onClose} />
+      <button type="button" className="rl-backdrop" aria-label={text.close} onClick={onClose} />
       <aside className="rl-sheet" role="dialog" aria-label={title}>
         <header>
           <strong>{title}</strong>
@@ -26,7 +28,7 @@ export function Sheet({
             type="button"
             className="rl-round rl-round-sm"
             onClick={onClose}
-            aria-label="اقفل"
+            aria-label={text.close}
           >
             ×
           </button>

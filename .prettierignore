@@ -11,3 +11,4 @@ content/imported/
 .wrangler/
 .browser-tmp/
 apps/platform/server/styles/styles.generated.json
+apps/platform/server/i18n/messages.generated.json

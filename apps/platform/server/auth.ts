@@ -14,14 +14,14 @@ const routes: Record<string, string> = {
 function only(route: string, payload: Record<string, unknown>) {
   if (route === 'update-user') {
     const name = typeof payload.name === 'string' ? payload.name.trim() : '';
-    if (name.length < 2 || name.length > 80) throw new HttpError(400, 'الاسم من ٢ لـ٨٠ حرف.');
+    if (name.length < 2 || name.length > 80) throw new HttpError(400, 'auth.nameLength');
     return { name };
   }
   const { currentPassword, newPassword } = payload;
   if (typeof currentPassword !== 'string' || typeof newPassword !== 'string')
-    throw new HttpError(400, 'اكتب كلمة السر الحالية والجديدة.');
+    throw new HttpError(400, 'auth.passwordsNeeded');
   if (newPassword.length < 8 || newPassword.length > 128)
-    throw new HttpError(400, 'كلمة السر الجديدة من ٨ لـ١٢٨ حرف.');
+    throw new HttpError(400, 'auth.passwordLength');
   return { currentPassword, newPassword, revokeOtherSessions: true };
 }
 type Transport = typeof fetch;
@@ -31,7 +31,7 @@ export async function authProxy(
   route: string,
   send: Transport = fetch,
 ) {
-  if (routes[route] !== request.method) throw new HttpError(404, 'الصفحة غير موجودة.');
+  if (routes[route] !== request.method) throw new HttpError(404, 'http.notFound');
   const headers = new Headers({ 'content-type': 'application/json', origin: env.APP_ORIGIN });
   const cookie = request.headers.get('cookie');
   if (cookie) headers.set('cookie', cookie);
@@ -55,10 +55,9 @@ export async function authProxy(
       },
     );
   } catch {
-    throw new HttpError(503, 'خدمة الحسابات مش متاحة حاليًا. جرّب تاني.');
+    throw new HttpError(503, 'auth.unavailableRetry');
   }
-  if (upstream.status >= 300 && upstream.status < 400)
-    throw new HttpError(502, 'استجابة خدمة الحسابات غير متوقعة.');
+  if (upstream.status >= 300 && upstream.status < 400) throw new HttpError(502, 'auth.unexpected');
   const output = new Headers({ 'content-type': 'application/json', 'cache-control': 'no-store' });
   for (const cookieValue of upstream.headers.getSetCookie()) {
     output.append(
@@ -74,7 +73,7 @@ export async function currentUser(
   send: Transport = fetch,
 ): Promise<AuthUser> {
   const cookie = request.headers.get('cookie');
-  if (!cookie) throw new HttpError(401, 'سجّل دخولك للمتابعة.');
+  if (!cookie) throw new HttpError(401, 'auth.signIn');
   let response: Response;
   try {
     response = await send(`${env.NEON_AUTH_BASE_URL}/get-session?disableCookieCache=true`, {
@@ -83,16 +82,15 @@ export async function currentUser(
       signal: AbortSignal.timeout(20000),
     });
   } catch {
-    throw new HttpError(503, 'تعذر التحقق من جلسة الدخول.');
+    throw new HttpError(503, 'auth.checkFailed');
   }
-  if (!response.ok)
-    throw new HttpError(response.status >= 500 ? 503 : 401, 'تعذر التحقق من جلسة الدخول.');
+  if (!response.ok) throw new HttpError(response.status >= 500 ? 503 : 401, 'auth.checkFailed');
   const data = (await response.json()) as {
     user?: AuthUser & { banned?: boolean };
     session?: { expiresAt?: string };
   } | null;
   const expiry = Date.parse(data?.session?.expiresAt ?? '');
   if (!data?.user?.id || data.user.banned || !Number.isFinite(expiry) || expiry <= Date.now())
-    throw new HttpError(401, 'انتهت جلسة الدخول. سجّل دخولك من جديد.');
+    throw new HttpError(401, 'auth.expired');
   return { id: data.user.id, name: data.user.name, email: data.user.email };
 }

@@ -11,6 +11,8 @@ export type {
   ReadingProgress,
   QuestionMode,
 } from './reading/props';
+export { RUNTIME_TEXT, RuntimeTextProvider, useRuntimeText } from './text';
+export type { RuntimeText } from './text';
 export * from './core';
 
 export type { LessonContext, LessonController } from './context';

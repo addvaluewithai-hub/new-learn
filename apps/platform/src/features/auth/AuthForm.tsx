@@ -1,36 +1,26 @@
 import { PlatformIcon } from '../../shared/PlatformIcon';
 import { useAuthForm } from './useAuthForm';
 import { Alert, Button } from '../../shared/ui';
-const headings = {
-  signup: 'رحلتك تبدأ من هنا.',
-  login: 'نكمّل من مكاننا؟',
-  forgot: 'نرجّع حسابك.',
-  reset: 'كلمة مرور جديدة.',
-};
-const buttons = {
-  signup: 'إنشاء حساب',
-  login: 'تسجيل الدخول',
-  forgot: 'إرسال رابط الاستعادة',
-  reset: 'حفظ كلمة المرور',
-};
+import { useI18n } from '../../i18n';
 export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
   const form = useAuthForm(onLogin),
     { mode, busy } = form;
+  const { t } = useI18n();
   return (
     <form className="auth-form" onSubmit={form.submit} aria-busy={busy}>
-      <span className="eyebrow">أهلًا بيك في LEARN</span>
-      <h2>{headings[mode]}</h2>
+      <span className="eyebrow">{t('auth.form.eyebrow')}</span>
+      <h2>{t(`auth.form.heading.${mode}`)}</h2>
       <p className="muted">
         {mode === 'signup'
-          ? 'اعمل حساب وابدأ رحلتك.'
+          ? t('auth.form.lead.signup')
           : mode === 'login'
-            ? 'دروسك مستنياك.'
-            : 'خليك قريب من بريدك الإلكتروني.'}
+            ? t('auth.form.lead.login')
+            : t('auth.form.lead.recover')}
       </p>
       <fieldset disabled={busy}>
         {mode === 'signup' && (
           <label>
-            اسمك
+            {t('auth.form.name')}
             <input
               className="nl-input"
               value={form.name}
@@ -39,13 +29,13 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
               required
               minLength={2}
               maxLength={80}
-              placeholder="تحب نناديك إيه؟"
+              placeholder={t('auth.form.namePlaceholder')}
             />
           </label>
         )}
         {mode !== 'reset' && (
           <label>
-            البريد الإلكتروني
+            {t('auth.form.email')}
             <input
               className="nl-input"
               type="email"
@@ -60,7 +50,7 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
         )}
         {mode !== 'forgot' && (
           <label>
-            كلمة المرور
+            {t('auth.form.password')}
             <input
               className="nl-input"
               type="password"
@@ -71,7 +61,7 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
               maxLength={128}
               value={form.password}
               onChange={(e) => form.setPassword(e.target.value)}
-              placeholder="٨ أحرف على الأقل"
+              placeholder={t('auth.form.passwordPlaceholder')}
             />
           </label>
         )}
@@ -83,11 +73,11 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
           disabled={busy}
           onClick={() => form.changeMode('forgot')}
         >
-          نسيت كلمة المرور؟
+          {t('auth.form.forgotLink')}
         </Button>
       )}
       {form.error && <Alert tone="error">{form.error}</Alert>}
-      {form.message && <Alert tone="success">{form.message}</Alert>}
+      {form.message && <Alert tone="success">{t(form.message)}</Alert>}
       <Button
         type="submit"
         size="lg"
@@ -95,18 +85,18 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
         className="auth-submit"
         disabled={busy || (mode === 'signup' && form.name.trim().length < 2)}
       >
-        {busy ? 'لحظة واحدة…' : buttons[mode]}
+        {busy ? t('auth.form.busy') : t(`auth.form.submit.${mode}`)}
         <PlatformIcon name="arrow" />
       </Button>
       {mode === 'signup' || mode === 'login' ? (
         <p className="auth-switch">
-          {mode === 'signup' ? 'عندك حساب بالفعل؟' : 'جديد في Learn؟'}{' '}
+          {mode === 'signup' ? t('auth.form.haveAccount') : t('auth.form.newHere')}{' '}
           <Button
             variant="link"
             disabled={busy}
             onClick={() => form.changeMode(mode === 'signup' ? 'login' : 'signup')}
           >
-            {mode === 'signup' ? 'سجّل دخولك' : 'اعمل حساب'}
+            {mode === 'signup' ? t('auth.form.toLogin') : t('auth.form.toSignup')}
           </Button>
         </p>
       ) : (
@@ -116,12 +106,12 @@ export function AuthForm({ onLogin }: { onLogin: () => Promise<void> }) {
           disabled={busy}
           onClick={() => form.changeMode('login')}
         >
-          العودة لتسجيل الدخول
+          {t('auth.form.backToLogin')}
         </Button>
       )}
       <div className="auth-assurance">
         <PlatformIcon name="lock" />
-        <span>بيانات الدخول مرتبطة بحسابك.</span>
+        <span>{t('auth.form.assurance')}</span>
       </div>
     </form>
   );

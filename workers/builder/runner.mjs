@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 import readline from 'node:readline';
-import { consume } from './events.mjs';
+import { consume, step } from './events.mjs';
 
 // Runs Codex CLI for one job (ported from wp-slack-agent's src/codex/runner.js): JSON events
 // on stdout, the job folder as its sandboxed workspace, and New Learn's /mcp as its only
@@ -73,7 +73,7 @@ export async function runCodex(input, onStep) {
     return await attempt(input, onStep);
   } catch (error) {
     if (error.timedOut || !error.threadId || !TRANSIENT.test(error.message)) throw error;
-    onStep('بكمّل بعد انقطاع');
+    onStep(step('resume'));
     return attempt(
       {
         ...input,

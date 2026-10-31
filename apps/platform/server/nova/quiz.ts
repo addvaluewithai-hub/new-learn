@@ -43,7 +43,7 @@ export const quizSchema = {
 export function validateQuiz(value: unknown, sceneIds: Set<string>): PracticeQuestion[] {
   const questions = (value as { questions?: unknown })?.questions;
   if (!Array.isArray(questions) || questions.length !== 10)
-    throw new HttpError(502, 'الاختبار لم يكتمل. جرّب تاني.');
+    throw new HttpError(502, 'nova.quizIncomplete');
   const seen = new Set<string>();
   for (const q of questions) {
     if (
@@ -61,7 +61,7 @@ export function validateQuiz(value: unknown, sceneIds: Set<string>): PracticeQue
       q.correct > 3 ||
       seen.has(q.english.trim().toLowerCase())
     )
-      throw new HttpError(502, 'أسئلة الاختبار محتاجة إعادة تجهيز. جرّب تاني.');
+      throw new HttpError(502, 'nova.quizInvalid');
     seen.add(q.english.trim().toLowerCase());
   }
   return questions as PracticeQuestion[];

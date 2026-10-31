@@ -7,6 +7,7 @@ import { bookReference } from '../book/references';
 const readingModules = { ...importedModules, ...bookReadingModules };
 import { Loading } from '../../shared/Loading';
 import { Alert, Button, ButtonLink } from '../../shared/ui';
+import { useI18n } from '../../i18n';
 const ChemistryLesson = lazy(() => import('../../app/ChemistryLesson'));
 const ReadingClassroom = lazy(() => import('../../app/ReadingClassroom'));
 type Pin = {
@@ -46,6 +47,7 @@ export default function LessonEntry({
   const [edition, setEdition] = useState<Edition | null>(null),
     [error, setError] = useState(''),
     [retry, setRetry] = useState(0);
+  const { t } = useI18n();
   useEffect(() => {
     const controller = new AbortController();
     setEdition(null);
@@ -69,14 +71,14 @@ export default function LessonEntry({
       <main className="platform-ui lesson-entry-message">
         <Alert tone="error">{error}</Alert>
         <Button variant="secondary" onClick={() => setRetry((value) => value + 1)}>
-          حاول تاني
+          {t('catalog.retry')}
         </Button>
         <ButtonLink variant="link" href={backHref}>
-          ارجع للمنهج
+          {t('catalog.backToCurriculum')}
         </ButtonLink>
       </main>
     );
-  if (!edition) return <Loading text="بنجهّز الدرس…" />;
+  if (!edition) return <Loading text={t('catalog.lesson.loading')} />;
   // The build allowlist must match the released edition exactly.
   const matches =
     !!pinned &&
@@ -86,7 +88,7 @@ export default function LessonEntry({
     pinned.runtimeVersion === edition.runtimeVersion;
   if (matches && reading)
     return (
-      <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
+      <Suspense fallback={<Loading text={t('common.loadingLesson')} />}>
         <ReadingClassroom
           load={reading}
           backHref={backHref}
@@ -98,13 +100,13 @@ export default function LessonEntry({
   if (!matches || !module || module.lessonId !== edition.lessonId)
     return (
       <main className="platform-ui lesson-entry-message">
-        <Alert tone="error">نسخة الدرس دي لسه مش متاحة على المنصة الجديدة.</Alert>
-        <a href={backHref}>ارجع للمنهج</a>
+        <Alert tone="error">{t('catalog.lesson.unavailable')}</Alert>
+        <a href={backHref}>{t('catalog.backToCurriculum')}</a>
       </main>
     );
   const Lesson = module.component;
   return (
-    <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
+    <Suspense fallback={<Loading text={t('common.loadingLesson')} />}>
       <Lesson backHref={backHref} studentName={studentName} />
     </Suspense>
   );

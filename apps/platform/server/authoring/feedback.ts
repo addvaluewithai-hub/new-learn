@@ -36,18 +36,18 @@ export function textAt(pkg: ReadingPackage, sceneId: string, phase: string, step
 export async function addFeedback(db: Db, owner: string, lessonId: string, input: FeedbackInput) {
   const { package: pkg, revision } = await getLesson(db, owner, lessonId);
   const note = typeof input?.note === 'string' ? input.note.trim() : '';
-  if (!note || note.length > 2000) throw new HttpError(400, 'note: 1-2000 characters');
+  if (!note || note.length > 2000) throw HttpError.plain(400, 'note: 1-2000 characters');
   if (!PHASES.includes(input.phase) || !Number.isInteger(input.step) || input.step < 0)
-    throw new HttpError(400, 'bad position');
+    throw HttpError.plain(400, 'bad position');
   if (textAt(pkg, input.sceneId, input.phase, input.step) === null)
-    throw new HttpError(400, 'that step is not in the lesson');
+    throw HttpError.plain(400, 'that step is not in the lesson');
   const kind = input.kind ?? 'text';
-  if (!KINDS.includes(kind)) throw new HttpError(400, 'bad kind');
+  if (!KINDS.includes(kind)) throw HttpError.plain(400, 'bad kind');
   const [{ n }] = await db
     .select({ n: sql<number>`count(*)::int` })
     .from(authorFeedback)
     .where(eq(authorFeedback.ownerId, owner));
-  if (n >= MAX_NOTES) throw new HttpError(429, `at most ${MAX_NOTES} notes`);
+  if (n >= MAX_NOTES) throw HttpError.plain(429, `at most ${MAX_NOTES} notes`);
   const [row] = await db
     .insert(authorFeedback)
     .values({
@@ -137,7 +137,7 @@ export async function setFeedback(
   id: string,
   input: { status: FeedbackStatus; resolution?: string },
 ) {
-  if (!STATUSES.includes(input?.status)) throw new HttpError(400, 'bad status');
+  if (!STATUSES.includes(input?.status)) throw HttpError.plain(400, 'bad status');
   const [row] = await db
     .update(authorFeedback)
     .set({
@@ -149,6 +149,6 @@ export async function setFeedback(
     })
     .where(and(eq(authorFeedback.id, id), eq(authorFeedback.ownerId, owner)))
     .returning();
-  if (!row) throw new HttpError(404, 'not found');
+  if (!row) throw HttpError.plain(404, 'not found');
   return row;
 }

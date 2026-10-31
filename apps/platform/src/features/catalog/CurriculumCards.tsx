@@ -2,14 +2,16 @@ import { CourseArt } from '../../shared/CourseArt';
 import { stats } from './plan';
 import type { Curriculum } from './types';
 import { ButtonLink, EmptyState } from '../../shared/ui';
+import { useI18n } from '../../i18n';
 
 /** Courses as calm rows: what it is, how far you are, one way in. */
 export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
+  const { t } = useI18n();
   return (
     <section className="courses" aria-labelledby="courses-title">
       <div className="section-heading">
-        <h2 id="courses-title">مناهجي</h2>
-        <span>{curricula.length} مناهج</span>
+        <h2 id="courses-title">{t('catalog.cards.title')}</h2>
+        <span>{t('catalog.cards.count', { count: curricula.length })}</span>
       </div>
       <ul className="course-list">
         {curricula.map((group) => {
@@ -32,20 +34,25 @@ export function CurriculumCards({ curricula }: { curricula: Curriculum[] }) {
                     <i style={{ inlineSize: `${percent}%` }} />
                   </span>
                   <span>
-                    خلّصت {s.completed} من {s.lessons}
-                    <span className="course-available"> · {s.available} متاحة</span>
+                    {t('catalog.cards.done', { completed: s.completed, total: s.lessons })}
+                    <span className="course-available">
+                      {' '}
+                      · {t('catalog.cards.available', { count: s.available })}
+                    </span>
                   </span>
                 </div>
               </div>
               <ButtonLink variant="secondary" className="course-open" href={href}>
-                افتح المنهج
+                {t('catalog.cards.open')}
               </ButtonLink>
             </li>
           );
         })}
       </ul>
       {!curricula.length && (
-        <EmptyState title="لسه مفيش مناهج متاحة">ارجع لنا قريب، أو اعمل كورسك بنفسك.</EmptyState>
+        <EmptyState title={t('catalog.cards.emptyTitle')}>
+          {t('catalog.cards.emptyText')}
+        </EmptyState>
       )}
     </section>
   );

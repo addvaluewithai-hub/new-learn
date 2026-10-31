@@ -53,6 +53,7 @@ try {
     ],
   });
   const page = await browser.newPage({
+    locale: 'ar-EG',
     viewport: { width: 390, height: 860 },
     permissions: ['microphone'],
   });

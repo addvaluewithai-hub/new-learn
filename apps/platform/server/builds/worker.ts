@@ -1,7 +1,7 @@
 import { database, type Db } from '../db/connection';
 import { oauthClients } from '../db/oauth';
 import type { Env } from '../env';
-import { HttpError } from '../http';
+import { errorText, HttpError, MACHINE_LOCALE } from '../http';
 import { issueAccess } from '../oauth/tokens';
 import { addStep, claimJob, finishJob, jobFile } from './jobs';
 import { buildPrompt } from './request';
@@ -26,9 +26,9 @@ async function same(a: string, b: string) {
 
 async function input(request: Request) {
   if (Number(request.headers.get('content-length') ?? 0) > 16384)
-    throw new HttpError(413, 'Too large.');
+    throw HttpError.plain(413, 'Too large.');
   const value = (await request.json().catch(() => null)) as Record<string, unknown> | null;
-  if (!value || typeof value !== 'object') throw new HttpError(400, 'Bad JSON.');
+  if (!value || typeof value !== 'object') throw HttpError.plain(400, 'Bad JSON.');
   return value;
 }
 
@@ -66,7 +66,7 @@ export async function handleBuilder(
     const secret = env.BUILDER_TOKEN ?? '';
     const given = /^Bearer\s+(\S+)$/.exec(request.headers.get('authorization') ?? '')?.[1] ?? '';
     if (secret.length < 32 || !(await same(given, secret)))
-      throw new HttpError(401, 'Unauthorized.');
+      throw HttpError.plain(401, 'Unauthorized.');
     const db = deps.db ?? database(env);
     const url = new URL(request.url);
     const path = url.pathname;
@@ -89,11 +89,13 @@ export async function handleBuilder(
         await finishJob(db, m[1], { ok: value.ok === true, message: String(value.message ?? '') }),
       );
     }
-    throw new HttpError(404, 'Not found.');
+    throw HttpError.plain(404, 'Not found.');
   } catch (error) {
     const status = error instanceof HttpError ? error.status : 500;
     return reply(
-      { error: error instanceof HttpError ? error.message : 'Builder API error.' },
+      {
+        error: error instanceof HttpError ? errorText(error, MACHINE_LOCALE) : 'Builder API error.',
+      },
       status,
     );
   }

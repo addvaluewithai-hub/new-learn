@@ -6,6 +6,7 @@ import { Alert, Spinner } from '../../shared/ui';
 import { TeachDashboard } from './TeachDashboard';
 import { TeachCourse } from './TeachCourse';
 import type { TeachCourse as Course, Workspace } from './types';
+import { useI18n } from '../../i18n';
 import '../../shared/platform.css';
 import '../catalog/library-shell.css';
 import '../catalog/library-account.css';
@@ -21,6 +22,7 @@ export default function TeachPage({
   onSignOut: () => Promise<void>;
   courseId: string | null;
 }) {
+  const { t } = useI18n();
   const [courses, setCourses] = useState<Course[] | null>(null);
   const [work, setWork] = useState<Workspace | null>(null);
   const [error, setError] = useState('');
@@ -45,12 +47,12 @@ export default function TeachPage({
         work ? (
           <TeachCourse work={work} onChanged={load} />
         ) : (
-          <Spinner label="بنجهّز الكورس…" />
+          <Spinner label={t('teach.loadingCourse')} />
         )
       ) : courses ? (
         <TeachDashboard courses={courses} />
       ) : (
-        <Spinner label="بنجهّز كورساتك…" />
+        <Spinner label={t('teach.loadingCourses')} />
       )}
     </LibraryShell>
   );

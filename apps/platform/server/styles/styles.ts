@@ -16,7 +16,7 @@ export function styleFor(look: string | undefined) {
     };
   const style = STYLES[look];
   if (!style)
-    throw new HttpError(400, `Unknown look "${look}". Looks: ${Object.keys(STYLES).join(', ')}.`);
+    throw HttpError.plain(400, `Unknown look "${look}". Looks: ${Object.keys(STYLES).join(', ')}.`);
   return {
     look,
     guide: style.guide,

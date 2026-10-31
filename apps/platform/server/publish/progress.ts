@@ -4,6 +4,8 @@ import type { Db } from '../db/connection';
 import { courseEnrollments, courseProgress, type PublishedBoards } from '../db/publish';
 import type { ProgressSnapshot } from '../db/learners';
 import { HttpError, json } from '../http';
+import { serverText } from '../i18n';
+import { SOURCE } from '../../src/i18n/core';
 import { mergeSnapshots, readingOutline, validateSnapshot } from '../progress/snapshot';
 import { enrol, lessonCourse, publishedLesson } from './store';
 
@@ -46,24 +48,25 @@ export async function saveCourseProgress(
   userId: string,
   lessonId: string,
   input: Record<string, unknown>,
+  locale = SOURCE,
 ) {
   const { courseId, lesson } = await place(db, userId, lessonId);
   const pkg = lesson.package as ReadingPackage;
   if (input.contentRevision !== pkg.contentRevision)
-    throw new HttpError(409, 'نسخة الكورس اتغيّرت. افتح الدرس من صفحة الكورس تاني.');
+    throw new HttpError(409, 'progress.courseChanged');
   const outline = readingOutline(pkg);
   const incoming = validateSnapshot(outline, input.state);
   const complete = incoming.phase === 'complete' || input.complete === true;
   const expected = input.revision;
   if (expected !== null && !(Number.isInteger(expected) && (expected as number) >= 0))
-    throw new HttpError(400, 'بيانات التقدم غير صحيحة.');
+    throw new HttpError(400, 'progress.invalid');
   // Opening a lesson from its link enrols the student; a saved step is proof they started.
   const enrollmentId = await enrol(db, userId, courseId);
   const now = new Date();
   const conflict = async () =>
     json(
       {
-        error: 'التقدم اتحفظ من مكان تاني.',
+        error: serverText(locale, 'progress.savedElsewhere'),
         current: await readCourseProgress(db, userId, lessonId),
       },
       409,

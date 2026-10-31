@@ -64,7 +64,11 @@ export function interpolate(text: string, vars?: Vars, locale = SOURCE): string 
   return text.replace(/\{(\w+)\}/g, (whole, name: string) => {
     const value = vars[name];
     if (value === undefined) return whole;
-    return typeof value === 'number' ? new Intl.NumberFormat(locale).format(value) : value;
+    // Western digits everywhere, as the app has always written numbers; grouping follows the
+    // language (1,000 / 1.000 / 1 000).
+    return typeof value === 'number'
+      ? new Intl.NumberFormat(locale, { numberingSystem: 'latn' }).format(value)
+      : value;
   });
 }
 

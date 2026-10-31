@@ -115,7 +115,7 @@ function api(store) {
 
 async function run(width, height, layout) {
   const store = { notes: [], posted: [], reports: [], approved: [] };
-  const page = await browser.newPage({ viewport: { width, height } });
+  const page = await browser.newPage({ locale: 'ar-EG', viewport: { width, height } });
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.route(`${app}/api/**`, api(store));

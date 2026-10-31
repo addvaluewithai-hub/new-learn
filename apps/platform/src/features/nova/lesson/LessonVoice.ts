@@ -5,6 +5,7 @@ import { reason } from './voiceError';
 import { LessonTeach } from './LessonTeach';
 import type { TeachEvents, TeachLine } from './teach';
 import { IDLE_CLOSE_MS, REPLY_WAIT_MS, talkToken } from './voiceTypes';
+import { t } from '../../../i18n';
 import type { Session, VoiceEvents, VoiceState } from './voiceTypes';
 
 export type { VoiceEvents, VoiceState } from './voiceTypes';
@@ -109,9 +110,9 @@ export class LessonVoice {
   }
   private async connect(s: Session) {
     const position = this.on().position();
-    if (!position) throw new Error('الدرس لسه بيحمّل.');
+    if (!position) throw new Error(t('nova.talk.lessonLoading'));
     const token = await talkToken(position, this.on().setup?.());
-    if (this.s !== s) throw new Error('المكالمة اتقفلت.');
+    if (this.s !== s) throw new Error(t('nova.voice.closed'));
     await s.live.connect(token);
     s.ready = true;
     s.since = performance.now();
@@ -207,7 +208,7 @@ export class LessonVoice {
     clearTimeout(this.timers.reply);
     this.timers.reply = window.setTimeout(() => {
       this.set('idle');
-      this.finish('Nova مردتش المرة دي. جرّب تاني.');
+      this.finish(t('nova.talk.noReply'));
     }, REPLY_WAIT_MS);
     this.armIdle();
   }

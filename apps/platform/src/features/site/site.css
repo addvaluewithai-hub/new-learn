@@ -258,3 +258,10 @@
     grid-column: 1 / -1;
   }
 }
+/* The narrowest phones: the bar keeps the brand, the language globe and «start»; logging in
+   stays in the foot and on the sign-up page. */
+@media (max-width: 380px) {
+  .site-nav .nl-button--ghost {
+    display: none;
+  }
+}

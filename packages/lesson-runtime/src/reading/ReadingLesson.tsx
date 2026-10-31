@@ -28,6 +28,7 @@ import { ExitLink, GoalsChip, SceneTrack, TopBar } from './stage/TopBar';
 import { threadItems } from './thread';
 import type { ReadingLessonProps, ReadingProgress } from './props';
 import { validateReadingPackage } from './validate';
+import { useRuntimeText } from '../text';
 import './stage/tokens.css';
 import './stage/stage.css';
 import './stage/stage-parts.css';
@@ -62,6 +63,7 @@ function ReadingSession(props: ReadingLessonProps) {
   const { index, page, reached, answers, complete, done, fromMs, answering } = nav;
   const [sheet, setSheet] = useState<'scenes' | null>(null);
   const talk = props.conversation;
+  const text = useRuntimeText();
   const [ownOpen, setOwnOpen] = useState(false);
   const threadOpen = talk ? talk.open : ownOpen;
   const setThread = talk ? talk.onOpenChange : setOwnOpen;
@@ -144,7 +146,7 @@ function ReadingSession(props: ReadingLessonProps) {
       <TopBar
         start={<ExitLink exit={props.exit} />}
         title={lesson.title}
-        sceneTitle={complete ? 'خلّصت الدرس' : scene.title}
+        sceneTitle={complete ? text.lessonDone : scene.title}
         track={
           <SceneTrack
             lesson={lesson}
@@ -200,7 +202,7 @@ function ReadingSession(props: ReadingLessonProps) {
               onSkip={nav.skip}
               onReveal={nav.reveal}
               onThread={() => setThread(true)}
-              onHint={talk ? () => talk.onAsk('محتاج تلميح للسؤال ده') : undefined}
+              onHint={talk ? () => talk.onAsk(text.hintRequest) : undefined}
             />
           </div>
           {threadOpen ? (
@@ -226,7 +228,7 @@ function ReadingSession(props: ReadingLessonProps) {
               canBack={index > 0}
               onBack={() => go(index - 1)}
               onNext={() => go(index + 1)}
-              nextLabel={index === pages.length - 1 ? 'خلّص الدرس' : 'التالي'}
+              nextLabel={index === pages.length - 1 ? text.finishLesson : text.next}
               center={talk ? (portrait ? talk.orb : talk.composer) : null}
               text={{ shown: caption.shown, onToggle: caption.toggle }}
               flow={
@@ -246,7 +248,7 @@ function ReadingSession(props: ReadingLessonProps) {
         </>
       )}
       {sheet === 'scenes' ? (
-        <Sheet title="مشاهد الدرس" onClose={() => setSheet(null)}>
+        <Sheet title={text.lessonScenes} onClose={() => setSheet(null)}>
           <ScenesList
             lesson={lesson}
             current={page.scene}

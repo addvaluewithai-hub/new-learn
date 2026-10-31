@@ -6,6 +6,7 @@ import type { LessonPackage, RendererRegistry } from '@learn/lesson-runtime';
 import { ClassroomHeader } from './ClassroomHeader';
 import { LessonGuide } from './LessonGuide';
 import { LessonTools, type GuideTool } from './LessonTools';
+import { useI18n } from '../../i18n';
 import './classroom.css';
 import './lesson-chrome.css';
 
@@ -22,6 +23,7 @@ export function Classroom({
   backHref?: string;
   studentName?: string;
 }) {
+  const { t, dir } = useI18n();
   const [context, setContext] = useState<LessonContext | null>(null);
   const [controller, setController] = useState<LessonController | null>(null);
   const [assistantOpen, setAssistantOpen] = useState(false);
@@ -35,15 +37,15 @@ export function Classroom({
   if (!realContent)
     return (
       <main className="probe-classroom">
-        <h1>نشرح فكرة، نجربها، ونكمل.</h1>
-        <p>اختبار المحرك بالنغمات التجريبية، وليس درسًا معتمدًا.</p>
+        <h1>{t('classroom.probe.title')}</h1>
+        <p>{t('classroom.probe.lead')}</p>
         <LessonPreview lesson={lesson} registry={registry} />
       </main>
     );
   return (
     <div className="classroom-shell">
       <ClassroomHeader lesson={lesson} backHref={backHref} onHelp={() => openTool('guide')} />
-      <main className="classroom" dir="rtl">
+      <main className="classroom" dir={dir}>
         <div className="classroom-breadcrumb" dir="ltr">
           <div>
             <span>{lesson.curriculumTitle}</span>
@@ -55,8 +57,8 @@ export function Classroom({
             </h1>
           </div>
           {backHref ? (
-            <a className="classroom-mode" href={backHref}>
-              → ارجع للمنهج
+            <a className="classroom-mode" href={backHref} dir={dir}>
+              {t('classroom.backToCurriculum', { back: t('common.back') })}
             </a>
           ) : null}
         </div>
@@ -97,9 +99,7 @@ export function Classroom({
           controller={controller}
           onOpen={setAssistantOpen}
         />
-        <p className="classroom-footer">
-          نسخة للمراجعة · الصوت الأصلي · تقدم وملاحظات الجلسة الحالية فقط
-        </p>
+        <p className="classroom-footer">{t('classroom.footer')}</p>
       </main>
     </div>
   );

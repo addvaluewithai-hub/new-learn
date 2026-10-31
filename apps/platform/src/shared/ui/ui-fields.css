@@ -38,7 +38,8 @@ textarea.nl-input {
   display: inline-flex;
   align-items: center;
   gap: var(--nl-space-1);
-  padding: 0 var(--nl-space-1) 0 14px;
+  padding-block: 0;
+  padding-inline: var(--nl-space-1) 14px;
   border-radius: var(--nl-radius-pill);
   background: var(--nl-surface-soft);
   color: var(--nl-muted);

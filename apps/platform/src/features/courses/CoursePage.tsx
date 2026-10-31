@@ -5,6 +5,8 @@ import { LibraryShell } from '../catalog/LibraryShell';
 import { Alert, Badge, Button, ButtonLink, Spinner } from '../../shared/ui';
 import { courseLessonHref, type MyCourse, type PublicCourse } from './types';
 import { go } from '../studio/types';
+import { useI18n } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 import '../../shared/platform.css';
 import '../catalog/library-shell.css';
 import '../catalog/library-account.css';
@@ -20,6 +22,7 @@ export default function CoursePage({
   onSignOut: () => Promise<void>;
   courseId: string;
 }) {
+  const { t } = useI18n();
   const [course, setCourse] = useState<PublicCourse | null>(null);
   const [mine, setMine] = useState<MyCourse | null | undefined>(undefined);
   const [error, setError] = useState('');
@@ -66,34 +69,50 @@ export default function CoursePage({
       {error ? (
         <Alert tone="error">{error}</Alert>
       ) : !course || mine === undefined ? (
-        <Spinner label="بنجهّز الكورس…" />
+        <Spinner label={t('courses.loading')} />
       ) : (
         <>
           <div className="page-heading">
             <ButtonLink variant="link" href="/">
-              ← مكتبتك
+              {t('common.backLink')} {t('courses.back')}
             </ButtonLink>
-            <span className="eyebrow">{course.subject || 'كورس'}</span>
+            <span className="eyebrow">
+              {course.subject ? <bdi>{course.subject}</bdi> : t('courses.subjectFallback')}
+            </span>
             <h1>{course.title}</h1>
             {course.description && <p>{course.description}</p>}
             <p className="course-meta">
-              {course.teacher && <span>بإعداد {course.teacher}</span>}
-              <span>{course.lessons.length} دروس</span>
-              {mine && (
+              {course.teacher && (
                 <span>
-                  خلّصت {done} من {course.lessons.length}
+                  <Rich k="courses.by" parts={{ teacher: <bdi>{course.teacher}</bdi> }} />
                 </span>
               )}
+              <span>{t('courses.lessonCount', { count: course.lessons.length })}</span>
+              {mine && <span>{t('courses.progress', { done, total: course.lessons.length })}</span>}
             </p>
           </div>
           <div className="course-start">
             <Button size="lg" variant="accent" disabled={busy || !next} onClick={start}>
-              {busy ? 'لحظة…' : mine ? (done ? 'كمّل الكورس' : 'ابدأ الكورس') : 'ابدأ الكورس'}
+              {busy
+                ? t('courses.wait')
+                : mine
+                  ? done
+                    ? t('courses.continue')
+                    : t('courses.start')
+                  : t('courses.start')}
             </Button>
-            {next && mine && <span className="course-next">الجاي: {next.title}</span>}
+            {next && mine && (
+              <span className="course-next">
+                <Rich k="courses.next" parts={{ title: <bdi>{next.title}</bdi> }} />
+              </span>
+            )}
           </div>
           {parts.map((part, i) => (
-            <section key={i} className="course-part" aria-label={part.title || 'الدروس'}>
+            <section
+              key={i}
+              className="course-part"
+              aria-label={part.title || t('courses.lessonsFallback')}
+            >
               {part.title && <h2>{part.title}</h2>}
               <ol className="course-lessons">
                 {part.lessons.map((l) => {
@@ -116,7 +135,7 @@ export default function CoursePage({
                       </a>
                       {status !== 'new' && (
                         <Badge tone={status === 'completed' ? 'success' : 'accent'}>
-                          {status === 'completed' ? 'خلّصته' : 'بدأته'}
+                          {status === 'completed' ? t('courses.completed') : t('courses.started')}
                         </Badge>
                       )}
                     </li>

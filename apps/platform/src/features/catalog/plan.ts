@@ -15,7 +15,8 @@ export function goalsOf(curriculumId: string, lessonId: string): Goal[] {
   return lesson && 'goals' in lesson ? (lesson.goals as Goal[]) : [];
 }
 
-/** Lessons grouped into the curriculum's parts; everything else in one part. */
+/** Lessons grouped into the curriculum's parts; everything else in one untitled part (the
+ *  page names it). No i18n import here: node tests load this file. */
 export function partsOf(curriculum: Curriculum): Part[] {
   const parts = imported.get(curriculum.id)?.parts ?? [];
   const placed = new Set(parts.flatMap((p) => p.lessons));
@@ -27,7 +28,7 @@ export function partsOf(curriculum: Curriculum): Part[] {
     }))
     .filter((p) => p.lessons.length);
   const rest = curriculum.lessons.filter((l) => !placed.has(l.id));
-  return rest.length ? [...grouped, { title: 'الدروس', summary: '', lessons: rest }] : grouped;
+  return rest.length ? [...grouped, { title: '', summary: '', lessons: rest }] : grouped;
 }
 
 /** The lesson the learner should open next inside one curriculum. */

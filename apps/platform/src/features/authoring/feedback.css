@@ -1,6 +1,8 @@
 .draft-notes-toggle {
   position: fixed;
-  inset: auto auto 112px 16px;
+  inset: auto;
+  inset-block-end: 112px;
+  inset-inline-end: 16px;
   z-index: 40;
   padding: 10px 16px;
   border: 0;
@@ -16,7 +18,9 @@
 }
 .draft-notes {
   position: fixed;
-  inset: auto auto 164px 16px;
+  inset: auto;
+  inset-block-end: 164px;
+  inset-inline-end: 16px;
   z-index: 40;
   width: min(380px, calc(100vw - 32px));
   max-height: min(70vh, 560px);
@@ -31,7 +35,6 @@
     system-ui,
     sans-serif;
   box-shadow: 0 16px 40px rgb(16 32 28 / 25%);
-  direction: rtl;
 }
 .draft-notes header {
   display: flex;
@@ -97,7 +100,9 @@
 }
 @media (max-width: 650px) {
   .draft-notes-toggle {
-    inset: 76px auto auto 12px;
+    inset: auto;
+    inset-block-start: 76px;
+    inset-inline-end: 12px;
   }
   .draft-notes {
     inset: 124px 12px auto;

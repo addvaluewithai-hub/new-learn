@@ -1,4 +1,5 @@
 import { decodePcm, downsample16k, pcm16 } from './pcm';
+import { t } from '../../../i18n';
 export class AudioSession {
   private context = new AudioContext({ latencyHint: 'interactive' });
   private gain = this.context.createGain();
@@ -20,8 +21,7 @@ export class AudioSession {
   }
   /** `send` gets each 16 kHz PCM chunk (base64), its loudness (RMS, 0..1) and its samples. */
   async capture(send: (chunk: string, level: number, samples: Float32Array) => void) {
-    if (!navigator.mediaDevices?.getUserMedia)
-      throw new Error('المتصفح مش بيدعم الميكروفون هنا. استخدم الشات.');
+    if (!navigator.mediaDevices?.getUserMedia) throw new Error(t('nova.voice.noMic'));
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: {
         echoCancellation: true,
@@ -32,7 +32,7 @@ export class AudioSession {
     });
     if (this.closed) {
       stream.getTracks().forEach((track) => track.stop());
-      throw new Error('المكالمة اتقفلت.');
+      throw new Error(t('nova.voice.closed'));
     }
     this.stream = stream;
     await this.context.audioWorklet.addModule('/nova-capture.worklet.js');

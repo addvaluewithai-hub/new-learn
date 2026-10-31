@@ -17,9 +17,9 @@ async function checked(db: Db, input: Request) {
   const found = await client(db, String(input.client_id ?? ''));
   const redirectUri = String(input.redirect_uri ?? '');
   if (!found || !found.redirectUris.includes(redirectUri))
-    throw new HttpError(400, 'طلب الربط غير صحيح.');
+    throw new HttpError(400, 'oauth.badRequest');
   const challenge = String(input.code_challenge ?? '');
-  if (!/^[A-Za-z0-9_-]{43}$/.test(challenge)) throw new HttpError(400, 'طلب الربط غير صحيح.');
+  if (!/^[A-Za-z0-9_-]{43}$/.test(challenge)) throw new HttpError(400, 'oauth.badRequest');
   const state = typeof input.state === 'string' ? input.state.slice(0, 500) : undefined;
   return { found, redirectUri, challenge, state };
 }

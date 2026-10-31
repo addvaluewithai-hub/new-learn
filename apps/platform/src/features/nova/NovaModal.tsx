@@ -7,6 +7,7 @@ import { QuizPanel } from './QuizPanel';
 import { positionOf, type NovaMode, type NovaPurpose } from './types';
 import type { useChat } from './useChat';
 import type { useQuiz } from './useQuiz';
+import { useI18n } from '../../i18n';
 export function NovaModal({
   open,
   mode,
@@ -30,6 +31,7 @@ export function NovaModal({
   onMode: (mode: NovaMode) => void;
   onClose: () => void;
 }) {
+  const { t, dir } = useI18n();
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     if (open && !dialog.current?.open) dialog.current?.showModal();
@@ -57,7 +59,7 @@ export function NovaModal({
             onClose();
         }
       }}
-      dir="rtl"
+      dir={dir}
     >
       {open && (
         <>
@@ -66,38 +68,55 @@ export function NovaModal({
               <span className="nova-avatar">N</span>
               <div>
                 <h2 id="nova-title">
-                  Nova <small>{purpose === 'quiz' ? 'تدريب على الدرس' : 'مساعدتك في الدرس'}</small>
+                  Nova{' '}
+                  <small>
+                    {purpose === 'quiz' ? t('nova.modal.purposeQuiz') : t('nova.modal.purposeHelp')}
+                  </small>
                 </h2>
                 <p>
                   <span className="nova-status-dot" />{' '}
                   {mode === 'chat'
                     ? chat.loading
-                      ? 'بتجهّز الرد'
-                      : 'جاهزة لسؤالك'
-                    : 'محادثة صوتية'}
+                      ? t('nova.modal.statusLoading')
+                      : t('nova.modal.statusReady')
+                    : t('nova.modal.statusVoice')}
                 </p>
               </div>
             </div>
-            <button className="nova-icon-button" aria-label="إغلاق نوفا" onClick={onClose}>
+            <button
+              className="nova-icon-button"
+              aria-label={t('nova.modal.close')}
+              onClick={onClose}
+            >
               <NovaIcon name="close" />
             </button>
           </header>
           <div className="nova-context">
             <span>
               <NovaIcon name="pause" size={15} />
-              الدرس متوقف هنا
+              {t('nova.modal.paused')}
             </span>
-            <strong>{context?.sceneTitle ?? 'بنجهّز سياق الدرس…'}</strong>
-            {context?.excerpt && <p>{context.excerpt}</p>}
+            <strong>
+              {context?.sceneTitle != null ? (
+                <bdi>{context.sceneTitle}</bdi>
+              ) : (
+                t('nova.modal.loadingContext')
+              )}
+            </strong>
+            {context?.excerpt && (
+              <p>
+                <bdi>{context.excerpt}</bdi>
+              </p>
+            )}
           </div>
-          <div className="nova-tabs" role="group" aria-label="طريقة المحادثة">
+          <div className="nova-tabs" role="group" aria-label={t('nova.modal.modes')}>
             <button aria-pressed={mode === 'chat'} onClick={() => onMode('chat')}>
               <NovaIcon name="chat" />
-              شات
+              {t('nova.modal.chat')}
             </button>
             <button aria-pressed={mode === 'voice'} onClick={() => onMode('voice')}>
               <NovaIcon name="voice" />
-              صوت
+              {t('nova.modal.voice')}
             </button>
           </div>
           <div className={`nova-modal-body ${purpose === 'quiz' ? 'is-quiz' : ''}`}>
@@ -123,14 +142,10 @@ export function NovaModal({
               <ChatPanel chat={chat} position={position} name={name} enabled={enabled} />
             )}
           </div>
-          {!enabled && (
-            <p className="nl-alert nl-alert--error">
-              المعاينة بدون حساب. افتح الدرس من المنهج بعد تسجيل الدخول لاستخدام المساعد.
-            </p>
-          )}
+          {!enabled && <p className="nl-alert nl-alert--error">{t('nova.modal.previewOnly')}</p>}
           <footer className="nova-modal-footer">
-            <span>المحادثة والتدريب في الجلسة الحالية فقط.</span>
-            <button onClick={onClose}>ارجع للدرس</button>
+            <span>{t('nova.modal.sessionOnly')}</span>
+            <button onClick={onClose}>{t('nova.modal.backToLesson')}</button>
           </footer>
         </>
       )}
