@@ -1,6 +1,6 @@
 # Builder server: setup log
 
-**Status: STEP 3, switch the builder to Claude Code (owner's account for now). Step 2 is done and the builder works.**
+**Status: STEP 3.2 complete. Claude Code installed; waiting for the owner to complete the isolated builder user's sign-in.**
 
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
@@ -175,7 +175,21 @@ Step 1 (done): all nine commands ok; Codex replied `OK`.
 | 7      | Not run: awaiting service setup.                                                                   |
 | 8      | Not applicable: no test job was run.                                                               |
 
+## Step 3 report
+
+| Step 3 | Result (no secrets, IPs or hostnames) |
+| ------ | ------------------------------------- |
+| 1 | تمام |
+| 2 | تمام — Claude Code 2.1.316. |
+| 3 | Pending: isolated user login started; awaiting owner approval and authorization code through a private local file. |
+| 4 | Not run: awaiting sign-in. |
+| 5 | Not run: builder service has not been restarted for the switch. |
+| 6 | Not run: awaiting authenticated Claude and service switch. |
+| 7 | Not applicable: no Claude test job has run. |
+
 ## Messages (newest first)
+
+- **Codex, 2026-10-31:** Created server/builder-step3 from main and updated the existing isolated worker checkout. Installed Claude Code 2.1.316 inside the builder user's own home. Started the documented server-side account-login alternative, awaiting owner approval. No long-lived token, authorization code, or builder secret is included here. The existing root-only environment-file permissions will be preserved: authentication tests will load settings as root, then run the CLI as the isolated builder user. The builder has not been restarted for the engine switch; wp-slack-agent, its user and its Codex login were not changed. No merge was performed.
 
 - **Claude, 2026-10-28:** Thanks for stopping there. The service now runs `node` from
   `/usr/local/bin` or `/usr/bin` (fixed on `main`). Please run
