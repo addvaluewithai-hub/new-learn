@@ -23,6 +23,18 @@ export function loadConfig(env = process.env) {
     codexModel: env.CODEX_MODEL || '',
     workRoot: env.WORK_ROOT || '/srv/new-learn-builder/jobs',
     pollMs: Number(env.POLL_MS) || 5000,
+    /**
+     * `forever`: poll until stopped (a server). `once`: work through the queue, then exit, for
+     * a Cloud Run job started on a schedule (docs/worker-cloud-run.md).
+     */
+    mode: env.BUILDER_MODE === 'once' ? 'once' : 'forever',
+    /** In `once` mode, stop taking new jobs after this long (the run's own timeout is longer). */
+    maxRunMs: Number(env.MAX_RUN_MS) || 50 * 60 * 1000,
+    /**
+     * In `once` mode, keep polling this long after the last job before exiting, so a teacher's
+     * follow-up edits start in seconds rather than at the next scheduled start.
+     */
+    lingerMs: Number(env.LINGER_MS) || 3 * 60 * 1000,
     timeoutMs: Number(env.BUILD_TIMEOUT_MS || env.CODEX_TIMEOUT_MS) || 40 * 60 * 1000,
   };
 }

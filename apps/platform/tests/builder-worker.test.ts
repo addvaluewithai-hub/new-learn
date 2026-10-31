@@ -96,3 +96,12 @@ test('the worker talks to /builder with its token and needs a long one', async (
     'https://x.dev',
   );
 });
+
+test('a scheduled run works through the queue once; a server polls forever', () => {
+  const base = { NEW_LEARN_ORIGIN: 'https://new-learn.pages.dev', BUILDER_TOKEN: 't'.repeat(40) };
+  assert.equal(loadConfig(base).mode, 'forever');
+  const once = loadConfig({ ...base, BUILDER_MODE: 'once', MAX_RUN_MS: '600000' });
+  assert.equal(once.mode, 'once');
+  assert.equal(once.maxRunMs, 600000);
+  assert.equal(loadConfig({ ...base, BUILDER_MODE: 'once' }).maxRunMs, 50 * 60 * 1000);
+});

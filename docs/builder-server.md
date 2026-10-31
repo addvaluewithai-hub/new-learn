@@ -2,6 +2,8 @@
 
 **Status: STEP 3, switch the builder to Claude Code (owner's account for now). Step 2 is done and the builder works.**
 
+**2026-10-31: the builder stays here. Voices and pictures run as a Cloud Run job instead (docs/worker-cloud-run.md); the builder's steps below still apply.**
+
 This file is how we work together. It is for the person (or Claude session) with access to
 the server. Do the steps in order, write what happened in the **Report** table, and leave a
 line in **Messages**. Then push to a branch and tell the owner. Do not merge it. Claude reads

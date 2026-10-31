@@ -6,10 +6,12 @@ import { prepareFiles } from './files.mjs';
 import { runCodex } from './runner.mjs';
 import { runClaude } from './claude.mjs';
 import { step } from './events.mjs';
+import { runQueue } from './loop.mjs';
 
-// New Learn's course builder (docs/builder-server.md): asks New Learn for a job, runs Claude
-// Code (or Codex) for it, reports each step and the result, and deletes the job's files. One
-// job at a time.
+// New Learn's course builder (docs/builder-server.md, docs/worker-cloud-run.md): asks New
+// Learn for a job, runs Claude Code (or Codex) for it, reports each step and the result, and
+// deletes the job's files. One job at a time. As a server it polls until stopped; as a Cloud
+// Run job (`BUILDER_MODE=once`) it works through the queue and exits.
 
 const config = loadConfig();
 const api = builderApi(config);
@@ -48,15 +50,12 @@ async function work(job) {
   }
 }
 
-log('builder waiting for jobs from', config.origin, 'engine', config.engine);
-while (!stopping) {
-  try {
-    const job = await api.claim();
-    if (job) await work(job);
-    else await wait(config.pollMs);
-  } catch (error) {
-    log('poll failed:', error.message);
-    await wait(config.pollMs * 3);
-  }
-}
-log('stopped');
+log('builder waiting for jobs from', config.origin, 'engine', config.engine, 'mode', config.mode);
+await runQueue({
+  claim: () => api.claim(),
+  work,
+  config,
+  log,
+  wait,
+  isStopping: () => stopping,
+});

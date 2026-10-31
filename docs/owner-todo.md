@@ -21,44 +21,26 @@
       Redeploy. من غيره صفحات `?review` و `?ops` مش هتظهر. (docs/credits.md)
 - [ ] **O5** تنبيهات التكلفة: Google Cloud (Gemini)، Neon، Cloudflare. الخطوات في
       docs/operations.md.
-- [ ] **الـbuilder على Claude Code (الخطوة 3):** شغّل `claude setup-token` على جهازك، وادّي
-      التوكن اللي يطلع **بشكل خاص** للي بيشغّل السيرفر يحطه في `/etc/new-learn-builder.env`.
-      متبعتهوش في الشات ولا في GitHub. بعدها اعمل كورس تجريبي من `?studio`.
-      (docs/builder-server.md، الخطوة 3)
+- [ ] **الـbuilder على Claude Code (الخطوة 3 في docs/builder-server.md):** شغّل
+      `claude setup-token` على جهازك، وادّي التوكن **بشكل خاص** للي بيشغّل السيرفر يحطه في
+      `/etc/new-learn-builder.env`. متبعتهوش في الشات ولا GitHub. بعدها اعمل كورس تجريبي من `?studio`.
+- [ ] **الصوت على Cloud Run (بعد ما وحدة الصوت تتدمج):** من Cloud Shell في مشروع الرصيد: اعمل
+      secret اسمه `BUILDER_TOKEN` (نفس قيمة Cloudflare)، وبعدين `bash workers/cloudrun/deploy.sh`.
+      الخطوات في docs/worker-cloud-run.md. بيتحاسب من الرصيد المجاني وبيفضل جوه الـfree tier بعده.
 - [ ] **O2** مراقبة إن الموقع شغال (uptime) للتطبيق وموقع البوردات و`/mcp` (أي خدمة مجانية).
 - [ ] **O3** جرّب استرجاع نسخة احتياطية من Neon على branch جديد (متلمسش branch الإنتاج).
 - [ ] **O4** بيئة staging ثابتة: preview branch ليها Neon branch خاص بيها.
 - [ ] **A2** دور قراءة فقط `learn_board_reader` لموقع البوردات في Neon (docs/connector.md).
 - [ ] **W9** إحصائيات زيارات الموقع من غير كوكيز (Cloudflare Web Analytics).
 
-## 2ب. الصوت المسجّل على Vertex AI (رصيد الـ300$) وتوكن Cloudflare
+## 2ب. Cloudflare وGoogle Cloud للصوت المسجّل
 
-- [ ] **Google Cloud (Cloud Shell، 5 دقايق):** نفس الـservice account والـWIF pool بتوع
-      `vertex_ai`، بس خلّي الـprovider يثق في ريبو `new-learn` كمان. من غير أي مفتاح؛ الأوامر
-      تحت القائمة دي. (لو الأسماء عندك مختلفة، استخدم اللي في `vertex_ai/docs/SETUP.md`.)
-- [ ] **GitHub → new-learn → Settings → Secrets and variables → Actions → Variables:**
-      `GCP_PROJECT_ID` و`GCP_SERVICE_ACCOUNT` و`GCP_WIF_PROVIDER` (نفس قيم `vertex_ai`).
-- [ ] **وفي نفس الصفحة ← Secrets:** `BUILDER_TOKEN` بنفس القيمة اللي على Cloudflare، عشان
-      الـworkflow يرجّع الصوت للمنصة.
-- [ ] **توكن Cloudflare عشان Claude يعمل الباقي بنفسه:** اعمل **Account API Token** بصلاحيات
-      Workers R2 Storage: Edit، وCloudflare Pages: Edit، وAccount Settings: Read. **متحطّوش في الشات.**
-      حطّه في إعدادات بيئة Claude Code دي (قائمة البيئة في عنوان الجلسة ← Edit ← Network secrets)
-      باسم `CLOUDFLARE_API_TOKEN`، ومعاه متغيّر `CLOUDFLARE_ACCOUNT_ID`. الجلسة الجديدة بتشوفهم.
-      بعدها Claude يعمل الـR2 bucket وربطه بالمشروع و`STAFF_EMAILS` وباقي المتغيّرات.
-      (البديل: تعمل bucket اسمه `new-learn-media` وتربطه بمشروع `new-learn` باسم `MEDIA` بإيدك.)
-
-أوامر Cloud Shell لخطوة Google Cloud:
-
-```bash
-PROJECT_ID="$(gcloud config get-value project)"
-PROJECT_NUMBER="$(gcloud projects describe "$PROJECT_ID" --format='value(projectNumber)')"
-gcloud iam workload-identity-pools providers update-oidc vertex-ai \
-  --project="$PROJECT_ID" --location=global --workload-identity-pool=github-media \
-  --attribute-condition="(assertion.repository == 'addvaluewithai-hub/vertex_ai' || assertion.repository == 'addvaluewithai-hub/new-learn') && assertion.ref == 'refs/heads/main'"
-gcloud iam service-accounts add-iam-policy-binding "vertex-media-factory@$PROJECT_ID.iam.gserviceaccount.com" \
-  --project="$PROJECT_ID" --role=roles/iam.workloadIdentityUser \
-  --member="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github-media/attribute.repository/addvaluewithai-hub/new-learn"
-```
+- [x] **توكن Cloudflare:** `CLOUDFLARE_ACCOUNT_ID` و`CLOUDFLARE_API_TOKEN` في GitHub Actions secrets.
+      Claude بيشغّل الـworkflow «Cloudflare setup» وهو بيعمل الـR2 bucket وبيربطه بالمشروع
+      (ويقدر يحط `STAFF_EMAILS` لو قولتله الإيميلات).
+- [ ] **Google Cloud:** مفيش مفاتيح ولا WIF محتاجين: الصوت بيتسجّل من Cloud Run job جوه مشروع
+      الرصيد بحساب خدمة (البند «الصوت على Cloud Run» فوق)، والأوامر كلها في
+      `workers/cloudrun/deploy.sh`.
 
 ## 3. قرارات مستنياك
 
