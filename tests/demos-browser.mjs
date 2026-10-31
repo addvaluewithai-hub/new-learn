@@ -1,4 +1,4 @@
-// The demo gallery (docs/visuals/demos.md) through the real app: ten cards, the ready ones
+// The demo gallery (docs/visuals/demos.md) through the real app: eleven cards, the ready ones
 // open their course, and each course's board follows its steps. At 1280px and 390px.
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
@@ -33,7 +33,7 @@ async function run(width, height) {
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(`${app}/?preview=demos`);
   await page.getByRole('heading', { name: /استايل مختلف/ }).waitFor({ timeout: 20000 });
-  assert.equal(await page.locator('.demo-card').count(), 10);
+  assert.equal(await page.locator('.demo-card').count(), 11);
   const ready = await page
     .locator('a.demo-card')
     .evaluateAll((a) => a.map((x) => x.getAttribute('href')));

@@ -3,7 +3,7 @@ import '../shared/platform.css';
 import './demo-gallery.css';
 import { useI18n } from '../i18n';
 
-/** `?preview=demos`: ten short courses, each in its own style, open without an account. */
+/** `?preview=demos`: short courses, each in its own style, open without an account. */
 export default function DemoGallery() {
   const { t, dir } = useI18n();
   return (

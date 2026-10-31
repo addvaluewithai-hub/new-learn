@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import ReadingClassroom, { type ReadingModule } from './ReadingClassroom';
+import { setCourseVoice } from '../features/nova/voice/voicePrefs';
 import { DEMOS } from '../../../../fixtures/demos';
 import { useI18n } from '../i18n';
 import { Rich } from '../i18n/Rich';
@@ -13,11 +15,16 @@ const probe = (): Promise<ReadingModule> =>
 
 export default function BoardPreview({ demo }: { demo?: string | null }) {
   const { t } = useI18n();
+  // A demo with its own voice and character: Nova speaks in it while the demo is open.
+  const found = DEMOS.find((d) => d.id === demo);
+  useEffect(() => {
+    setCourseVoice(found?.voice ?? null);
+    return () => setCourseVoice(null);
+  }, [found]);
   if (demo === undefined)
     return (
       <ReadingClassroom load={probe} backHref="/" studentName={t('app.preview.student')} preview />
     );
-  const found = DEMOS.find((d) => d.id === demo);
   if (!found?.load)
     return (
       <p className="lesson-entry-message" role="alert">

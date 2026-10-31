@@ -1,0 +1,35 @@
+{
+  "apiVersion": 1,
+  "id": "demo-solar-system",
+  "title": "رحلة في المجموعة الشمسية",
+  "description": "Demo course board (docs/visuals/demos.md): the Sun and the eight planets in 3D (three.js), each on its own orbit at its own pace, the Moon round the Earth. Focus flies the camera to one body; speed runs time faster or stops it. Sizes and distances are compressed, not to scale.",
+  "libraries": ["three@0.186.1"],
+  "variables": {
+    "focus": {
+      "type": "choice",
+      "options": [
+        "all",
+        "sun",
+        "mercury",
+        "venus",
+        "earth",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune"
+      ],
+      "label": "Focus",
+      "default": "all"
+    },
+    "speed": {
+      "type": "number",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "label": "Speed",
+      "default": 2
+    }
+  },
+  "targets": ["#space", "#fact", "#info", "#focus-control", "#speed-control"]
+}
