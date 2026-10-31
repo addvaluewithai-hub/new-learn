@@ -40,6 +40,13 @@ export function lessonControl(args: Record<string, unknown>, host: ControlHost) 
       return { ok: true };
     case 'resume':
       break;
+    case 'go_to_scene': {
+      // The start of a scene: to show a part again, or to go on to it (never past an open question).
+      const sceneId = typeof args.sceneId === 'string' ? args.sceneId.trim() : '';
+      if (!sceneId) return { error: 'go_to_scene needs the sceneId of a lesson scene.' };
+      lesson.goTo?.({ sceneId, phase: 'narration', step: 0 });
+      break;
+    }
     default:
       return { error: 'Unknown action.' };
   }

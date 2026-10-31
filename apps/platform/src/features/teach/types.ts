@@ -26,6 +26,8 @@ export type Published = {
     decidedAt: string | null;
   } | null;
 };
+/** The course's own voice and character for Nova; null: learners' own settings. */
+export type CourseVoice = { voice: string; pace: string; persona: string };
 export type TeachCourse = {
   id: string;
   title: string;
@@ -33,6 +35,7 @@ export type TeachCourse = {
   description: string;
   language: string;
   parts: Part[];
+  voice: CourseVoice | null;
   lessons: TeachLesson[];
   openNotes: number;
   published: Published | null;

@@ -278,3 +278,42 @@
     flex-direction: column;
   }
 }
+
+/* The course's voice and character (VoiceFields), in the outline tab. */
+.teach-voice {
+  display: grid;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-4) 0;
+  border-top: 1px solid var(--nl-line, #e2e0d8);
+}
+.teach-voice-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nl-space-3);
+}
+.teach-voice-head h2 {
+  margin: 0;
+  font-size: var(--nl-text-lg);
+}
+.teach-voice-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nl-space-2);
+  cursor: pointer;
+}
+.teach-voice-switch input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--nl-primary);
+}
+.teach-select {
+  min-height: 44px;
+  padding: 0 var(--nl-space-3);
+  border: 1px solid #d5dbd8;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--nl-ink);
+  font: inherit;
+}

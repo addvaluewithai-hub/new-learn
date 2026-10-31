@@ -12,12 +12,46 @@ export class AudioSession {
   private muted = false;
   private paused = false;
   private complete = false;
+  private volume = 1;
+  private fading = false;
   constructor(private onIdle: () => void) {
     this.gain.connect(this.context.destination);
     void this.context.resume().catch(() => {});
   }
   setVolume(value: number) {
-    this.gain.gain.value = Math.max(0, Math.min(1, value));
+    this.volume = Math.max(0, Math.min(1, value));
+    if (!this.fading) this.gain.gain.value = this.volume;
+  }
+  /**
+   * Stop what is playing with a short fade (the learner took the floor), instead of a cut.
+   * Only what is playing now goes; a reply that arrives after the fade plays at full volume.
+   */
+  fadeOut(seconds = 0.25) {
+    if (this.closed || !this.active.size) return;
+    const doomed = [...this.active];
+    const g = this.gain.gain;
+    const now = this.context.currentTime;
+    this.fading = true;
+    g.cancelScheduledValues(now);
+    g.setValueAtTime(g.value, now);
+    g.linearRampToValueAtTime(0, now + seconds);
+    this.next = 0;
+    this.complete = false;
+    window.setTimeout(() => {
+      for (const source of doomed) {
+        source.onended = null;
+        try {
+          source.stop();
+        } catch {
+          // already ended
+        }
+        source.disconnect();
+        this.active.delete(source);
+      }
+      this.fading = false;
+      g.cancelScheduledValues(this.context.currentTime);
+      g.setValueAtTime(this.volume, this.context.currentTime);
+    }, seconds * 1000);
   }
   /** `send` gets each 16 kHz PCM chunk (base64), its loudness (RMS, 0..1) and its samples. */
   async capture(send: (chunk: string, level: number, samples: Float32Array) => void) {
@@ -87,6 +121,7 @@ export class AudioSession {
     if (!this.active.size) this.onIdle();
   }
   interrupt() {
+    // A fade is already taking what plays now; the rest stops at once.
     for (const source of this.active) {
       source.onended = null;
       source.stop();

@@ -89,6 +89,7 @@ export const TOOLS: Tool[] = [
         subject: str(args, 'subject', false),
         description: str(args, 'description', false),
         language: str(args, 'language', false),
+        voice: args.voice,
       });
       return { courseId: row.id, title: row.title };
     },
@@ -120,8 +121,9 @@ export const TOOLS: Tool[] = [
         subject: str(args, 'subject', false),
         description: str(args, 'description', false),
         parts: Array.isArray(args.parts) ? (args.parts as never) : undefined,
+        voice: args.voice,
       });
-      return { courseId: row.id, title: row.title, parts: row.parts };
+      return { courseId: row.id, title: row.title, parts: row.parts, voice: row.voice };
     },
   },
   {

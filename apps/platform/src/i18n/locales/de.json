@@ -1628,6 +1628,17 @@
       "lead": "Füge diesen Link als Connector hinzu und bitte um eine Lektion in deinen Worten. Sie entsteht hier als Entwurf, veröffentlichen kann es nicht.",
       "address": "Connector-Link",
       "how": "So verbindest du es"
+    },
+    "voice": {
+      "title": "Stimme und Charakter des Kurses",
+      "own": "Eigene Stimme",
+      "default": "Nova spricht mit jedem Lernenden in der Stimme aus dessen Einstellungen.",
+      "lead": "Nova erzählt und antwortet allen Lernenden dieses Kurses mit dieser Stimme und diesem Charakter.",
+      "voice": "Stimme",
+      "pace": "Tempo",
+      "persona": "Charakter",
+      "personaHint": "Eine Zeile zur Art: Ton, Stimmung, Stil.",
+      "personaPlaceholder": "Zum Beispiel: ein Astronom mit tiefer Stimme, der die dramatische Pause vor der Auflösung liebt"
     }
   },
   "authoring": {

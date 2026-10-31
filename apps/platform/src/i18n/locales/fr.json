@@ -1637,6 +1637,17 @@
       "lead": "Ajoutez ce lien comme connecteur et demandez-lui une leçon avec vos mots. Il l’écrit ici en brouillon, sans pouvoir publier.",
       "address": "Lien du connecteur",
       "how": "Comment le connecter"
+    },
+    "voice": {
+      "title": "Voix et caractère du cours",
+      "own": "Sa propre voix",
+      "default": "Nova parle à chaque élève avec la voix choisie dans ses réglages.",
+      "lead": "Nova racontera et répondra à chaque élève de ce cours avec cette voix et ce caractère.",
+      "voice": "Voix",
+      "pace": "Rythme",
+      "persona": "Caractère",
+      "personaHint": "Une ligne sur la manière : ton, humeur, style.",
+      "personaPlaceholder": "Par exemple : un astronome à la voix grave qui aime une pause dramatique avant la révélation"
     }
   },
   "authoring": {

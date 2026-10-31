@@ -61,5 +61,5 @@ test('Nova speaks the learner’s interface language; Arabic keeps its Egyptian 
   assert.ok(text('ar').includes('«مش سامعك كويس، ممكن تعيد؟»') && text('ar').includes('«تمام»'));
   assert.ok(!text('fr').includes('مش سامعك') && text('fr').includes('in French, that you did not'));
   // READ lines are still read exactly as the lesson wrote them, whatever the learner speaks.
-  assert.match(text('fr'), /say the text after it exactly as written/);
+  assert.match(text('fr'), /say the text after the colon exactly as written/);
 });

@@ -163,9 +163,10 @@ export class LessonVoice {
     if (this.holding) return;
     this.holding = true;
     clearTimeout(this.timers.idle);
-    this.teacher.end('cut');
     const s = this.session();
-    s.audio.interrupt();
+    // The reading (or a reply) fades under the learner's voice rather than cutting off.
+    s.audio.fadeOut();
+    this.teacher.end('cut', { quiet: true });
     this.set(s.ready ? 'listening' : 'connecting');
     // An earlier hold is still starting: it carries on with this one.
     if (this.starting) return;

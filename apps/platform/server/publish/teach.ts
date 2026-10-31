@@ -151,5 +151,6 @@ export async function saveOutline(
     subject: str('subject'),
     description: str('description'),
     parts: parts?.filter((p) => p.lessonIds.length || p.title.trim()),
+    voice: input.voice,
   });
 }

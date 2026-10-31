@@ -104,6 +104,17 @@ export const courseFields = {
   subject: { type: 'string', maxLength: 80 },
   description: { type: 'string', maxLength: 600 },
   language: { type: 'string', description: 'Language code of the lessons, e.g. ar or en.' },
+  voice: {
+    type: ['object', 'null'],
+    description:
+      "The course's own voice and character for Nova (null: the learner's own settings). voice is a Gemini voice name (see get_style), pace slowest | slow | normal, persona a line of up to 120 characters about the character.",
+    properties: {
+      voice: { type: 'string' },
+      pace: { type: 'string', enum: ['slowest', 'slow', 'normal'] },
+      persona: { type: 'string', maxLength: 120 },
+    },
+    required: ['voice'],
+  },
 };
 export const filesSchema = {
   type: 'object',

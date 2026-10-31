@@ -16,6 +16,11 @@ import { appSchema } from './content';
 // here is a published edition, and owner_id always comes from the session or OAuth token.
 
 export type CoursePart = { title: string; lessonIds: string[] };
+/**
+ * The course's own voice and character (docs/voice-agent.md): a Gemini voice name, a pace and
+ * a persona line. Null means the learner's own Nova settings apply.
+ */
+export type CourseVoice = { voice: string; pace: string; persona: string };
 export type AuthorCheckProblem = { check: string; element?: string; detail: string };
 export type AuthorCheckReport = {
   checkedAt: string;
@@ -34,6 +39,7 @@ export const authorCourses = appSchema.table(
     description: text('description').notNull().default(''),
     language: text('language').notNull().default('ar'),
     parts: jsonb('parts').$type<CoursePart[]>().notNull().default([]),
+    voice: jsonb('voice').$type<CourseVoice>(),
     createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
     updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
   },

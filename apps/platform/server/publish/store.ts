@@ -160,6 +160,7 @@ export async function publishCourse(
     description: parent.description,
     language: parent.language,
     parts: parent.parts,
+    voice: parent.voice,
     version,
     publishedAt: new Date(),
     withdrawnAt: null,
@@ -252,6 +253,7 @@ export async function publishedLesson(db: Db, courseId: string, lessonId: string
       package: publishedLessons.package,
       boards: publishedLessons.boards,
       title: publishedLessons.title,
+      voice: publishedCourses.voice,
     })
     .from(publishedLessons)
     .innerJoin(publishedCourses, eq(publishedCourses.id, publishedLessons.courseId))

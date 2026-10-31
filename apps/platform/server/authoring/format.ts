@@ -14,7 +14,8 @@ import {
 // The lesson format a teacher's AI writes through the connector: plain scenes, steps and
 // questions. The server turns it into a reading package and validates it with the runtime.
 
-export type AuthorStep = { text: string; board?: StepBoard };
+/** `tone`: how to say the step aloud, in a few words ("slowly, with wonder"); never spoken. */
+export type AuthorStep = { text: string; board?: StepBoard; tone?: string };
 export type AuthorQuestion = {
   kind: 'choice' | 'written' | 'choice-and-written' | 'board';
   english?: string;
@@ -50,7 +51,7 @@ export type LessonContext = {
 
 export const TEXT_BOARD = 'text-board';
 export const HTML_BOARD = 'html-board';
-const LIMITS = { scenes: 40, steps: 20, text: 800, options: 6, bytes: 200_000 };
+const LIMITS = { scenes: 40, steps: 20, text: 800, tone: 120, options: 6, bytes: 200_000 };
 const ID = /^[a-z0-9][a-z0-9-]{0,39}$/;
 
 export class LessonProblems extends Error {
@@ -83,6 +84,8 @@ function shape(lesson: AuthorLesson): string[] {
     if (!steps.length || steps.length > LIMITS.steps) out.push(`${at}.steps: 1-${LIMITS.steps}`);
     steps.forEach((st, j) => {
       if (!str(st?.text)) out.push(`${at}.steps[${j}].text: 1-${LIMITS.text} characters`);
+      if (st?.tone !== undefined && !str(st.tone, LIMITS.tone))
+        out.push(`${at}.steps[${j}].tone: a few words, up to ${LIMITS.tone} characters`);
     });
     const q = s?.question;
     if (!q) return;
@@ -111,6 +114,7 @@ const step = (sceneId: string, prefix: string, s: AuthorStep, i: number) => ({
   text: s.text.trim(),
   written: true,
   ...(s.board ? { board: s.board } : {}),
+  ...(s.tone?.trim() ? { tone: s.tone.trim() } : {}),
 });
 
 /** The reading package for one saved revision, or every problem found. */

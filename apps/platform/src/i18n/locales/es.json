@@ -1628,6 +1628,17 @@
       "lead": "Agrega este enlace como conector y pídele una lección con tus palabras. La escribe aquí como borrador y no puede publicar.",
       "address": "Enlace del conector",
       "how": "Cómo conectarlo"
+    },
+    "voice": {
+      "title": "Voz y carácter del curso",
+      "own": "Voz propia",
+      "default": "Nova habla con cada alumno con la voz que eligió en sus ajustes.",
+      "lead": "Nova narrará y responderá a cada alumno de este curso con esta voz y este carácter.",
+      "voice": "Voz",
+      "pace": "Ritmo",
+      "persona": "Carácter",
+      "personaHint": "Una línea sobre la manera: tono, ánimo, estilo.",
+      "personaPlaceholder": "Por ejemplo: un astrónomo de voz grave al que le gusta una pausa dramática antes de la revelación"
     }
   },
   "authoring": {
