@@ -28,3 +28,6 @@ The other pages are real paths, public to everyone, and Cloudflare Pages (no `40
   tests' `test-results/*.png`. The share image is rendered by `node tools/site-og.mjs`.
 - `tests/platform-browser.mjs` opens every page, checks its heading, title, foot and that
   nothing overflows at 1280, 390 and 320.
+
+Every text on these pages comes from the language files (docs/i18n.md); `?lang=fr` opens a
+page in French, and each page lists its other languages for search engines (hreflang).
