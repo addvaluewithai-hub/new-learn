@@ -3,6 +3,7 @@ import { useSession } from '../features/auth/session';
 import { useNavigation } from './navigation';
 import { sitePage } from '../features/site/routes';
 import { Loading } from '../shared/Loading';
+import { useI18n } from '../i18n';
 
 const DevelopmentLesson = lazy(() => import('./DevelopmentLesson'));
 const ChemistryLesson = lazy(() => import('./ChemistryLesson'));
@@ -26,7 +27,8 @@ const SitePages = lazy(() => import('../features/site/SitePages'));
 function StudentApp() {
   const session = useSession(),
     query = useNavigation();
-  if (session.loading) return <Loading text="بنجهّز مساحة تعلّمك…" />;
+  const { t } = useI18n();
+  if (session.loading) return <Loading text={t('common.loadingSpace')} />;
   // A visitor at the bare address sees the front page; any other address still asks to sign in.
   if (!session.user && !location.search) return <Landing />;
   if (
@@ -77,12 +79,13 @@ function StudentApp() {
 }
 
 export function App() {
+  const { t } = useI18n();
   const preview = new URLSearchParams(location.search).get('preview');
   // The website's own pages (/teachers, /privacy, …) are public; the app lives at `/`.
   const site = sitePage(location.pathname);
   return (
     <div className="app-shell">
-      <Suspense fallback={<Loading text="بنجهّز مساحة الدرس…" />}>
+      <Suspense fallback={<Loading text={t('common.loadingLesson')} />}>
         {site ? (
           <SitePages page={site} />
         ) : preview === 'book-ch08' ? (

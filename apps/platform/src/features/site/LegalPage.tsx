@@ -1,25 +1,38 @@
+import { useI18n } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 import { useHead } from './head';
-import { PRIVACY, TERMS, type Legal } from './legal';
 import { SITE_LINKS, SUPPORT_EMAIL } from './routes';
 import { SiteFrame } from './SiteShell';
 
-function Page({ legal, path }: { legal: Legal; path: string }) {
-  useHead({ title: `${legal.title} · New Learn`, description: legal.description, path });
+// The privacy policy and the terms (owner tasks L1 and L2, docs/tasks/launch.md): drafts that
+// say what the product does today, in `site.legal` of every language file. Facts must match
+// docs/account-delivery.md, nova.md, connector.md and builder-server.md.
+
+function Page({ which }: { which: 'privacy' | 'terms' }) {
+  const { t, list } = useI18n();
+  const base = `site.legal.${which}` as const;
+  useHead({
+    title: t(`${base}.metaTitle`),
+    description: t(`${base}.description`),
+    path: `/${which}`,
+  });
   return (
     <SiteFrame>
       <div className="site-title">
-        <h1>{legal.title}</h1>
-        <p>{legal.intro}</p>
-        <span className="site-updated">آخر تعديل: {legal.updated}</span>
+        <h1>{t(`${base}.title`)}</h1>
+        <p>{t(`${base}.intro`)}</p>
+        <span className="site-updated">
+          {t('site.legal.updatedLabel', { date: t(`${base}.updated`) })}
+        </span>
       </div>
       <article className="site-prose">
-        {legal.sections.map((section) => (
+        {list(`${base}.sections`).map((section) => (
           <section key={section.title}>
             <h2>{section.title}</h2>
-            {section.paragraphs?.map((text) => (
+            {section.paragraphs.map((text) => (
               <p key={text}>{text}</p>
             ))}
-            {section.bullets && (
+            {section.bullets.length > 0 && (
               <ul>
                 {section.bullets.map((text) => (
                   <li key={text}>{text}</li>
@@ -29,8 +42,13 @@ function Page({ legal, path }: { legal: Legal; path: string }) {
           </section>
         ))}
         <p className="site-note">
-          عندك سؤال عن أي بند؟ راسلنا على <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> أو
-          من <a href={SITE_LINKS.support}>صفحة الدعم</a>.
+          <Rich
+            k="site.legal.question"
+            parts={{
+              email: <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>,
+              support: <a href={SITE_LINKS.support}>{t('site.legal.supportLink')}</a>,
+            }}
+          />
         </p>
       </article>
     </SiteFrame>
@@ -38,9 +56,9 @@ function Page({ legal, path }: { legal: Legal; path: string }) {
 }
 
 export function PrivacyPage() {
-  return <Page legal={PRIVACY} path="/privacy" />;
+  return <Page which="privacy" />;
 }
 
 export function TermsPage() {
-  return <Page legal={TERMS} path="/terms" />;
+  return <Page which="terms" />;
 }

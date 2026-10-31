@@ -1,6 +1,7 @@
 import { ButtonLink } from '../../shared/ui';
+import { useI18n } from '../../i18n';
+import { Rich } from '../../i18n/Rich';
 import { Faq } from '../site/Faq';
-import { FAQ } from '../site/faq';
 import { CONNECTOR_URL, SITE_LINKS } from '../site/routes';
 import { Shot } from '../site/SiteShell';
 import './sections.css';
@@ -8,29 +9,22 @@ import './sections.css';
 // The landing's sections below the hero: how it works, Nova, teachers, the connector, who
 // it is for, and the questions. Each is a few lines of copy next to the real product.
 
-const STEPS: Array<[string, string, string]> = [
-  ['اكتب الفكرة', 'موضوع، أو ملزمة، أو صفحة من كتاب. قول لمين، واختار شكله.', '/site/studio.webp'],
-  [
-    'شوفه وهو بيتعمل',
-    'الدرس بيتبني خطوة بخطوة، وكل بورد بيظهر أول ما يترسم.',
-    '/site/progress.webp',
-  ],
-  ['اتعلّم مع Nova', 'بورد بيتحرك بإيدك، وسؤال بعد كل فكرة، وصوت بيشرح.', '/site/reading.webp'],
-];
+const HOW_SHOTS = ['/site/studio.webp', '/site/progress.webp', '/site/reading.webp'];
 
 export function HowSection() {
+  const { t, list } = useI18n();
   return (
     <section className="landing-section" aria-labelledby="landing-how">
       <div className="site-head">
-        <h2 id="landing-how">إزاي بيشتغل</h2>
-        <p>من الفكرة للدرس في تلات خطوات، وانت بتشوف كل حاجة.</p>
+        <h2 id="landing-how">{t('landing.how.title')}</h2>
+        <p>{t('landing.how.lead')}</p>
       </div>
       <ol className="site-steps landing-how">
-        {STEPS.map(([title, text, src]) => (
-          <li key={title}>
-            <Shot src={src} alt="" />
-            <strong>{title}</strong>
-            <p>{text}</p>
+        {list('landing.how.steps').map((step, i) => (
+          <li key={step.title}>
+            <Shot src={HOW_SHOTS[i]} alt="" />
+            <strong>{step.title}</strong>
+            <p>{step.text}</p>
           </li>
         ))}
       </ol>
@@ -38,51 +32,38 @@ export function HowSection() {
   );
 }
 
-const NOVA: Array<[string, string]> = [
-  [
-    'بتعرف انت فين',
-    'Nova شايفة الخطوة اللي واقف عندها، فبتجاوب على قد السؤال من غير ما تعيد الدرس.',
-  ],
-  ['بالصوت أو بالكتابة', 'اضغط واتكلم، أو اكتب. وبتسمع الرد لو حابب.'],
-  [
-    'التصحيح من الدرس، مش منها',
-    'سؤال بعد كل فكرة: اختيار، أو كتابة، أو على البورد نفسه. الإجابة الصح محددة في الدرس.',
-  ],
-];
+function Points({ items }: { items: ReadonlyArray<{ title: string; text: string }> }) {
+  return (
+    <ul className="landing-points">
+      {items.map((item) => (
+        <li key={item.title}>
+          <strong>{item.title}</strong>
+          <p>{item.text}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function NovaSection() {
+  const { t, list } = useI18n();
   return (
     <section className="landing-section landing-split" aria-labelledby="landing-nova">
       <div className="landing-split-copy">
         <div className="site-head">
-          <span className="eyebrow">Nova</span>
-          <h2 id="landing-nova">مساعدة جوه الدرس، مش بره.</h2>
-          <p>في كل خطوة فيه حد تسأله. وفي كل فكرة فيه سؤال يتأكد إنك فهمت.</p>
+          <span className="eyebrow">{t('landing.nova.eyebrow')}</span>
+          <h2 id="landing-nova">{t('landing.nova.title')}</h2>
+          <p>{t('landing.nova.lead')}</p>
         </div>
-        <ul className="landing-points">
-          {NOVA.map(([title, text]) => (
-            <li key={title}>
-              <strong>{title}</strong>
-              <p>{text}</p>
-            </li>
-          ))}
-        </ul>
+        <Points items={list('landing.nova.points')} />
       </div>
-      <Shot src="/site/reading.webp" alt="درس قراءة في New Learn: البورد وشريط Nova" tall />
+      <Shot src="/site/reading.webp" alt={t('landing.nova.shotAlt')} tall />
     </section>
   );
 }
 
-const TEACHER: Array<[string, string]> = [
-  ['من الملزمة', 'ارفع PDF أو صور من الكتاب، أو اكتب الفكرة. الدرس بيتعمل عليها.'],
-  [
-    'راجع قبل ما يوصل',
-    'اكتب ملاحظة على أي خطوة، والتصليح بييجي عليها. مفيش حاجة بتتنشر غير بإيدك.',
-  ],
-  ['لينك واحد لطلابك', 'بيفتحوه ويبدأوا. بتشوف مين بدأ ومين خلص كل درس.'],
-];
-
 export function TeacherSection() {
+  const { t, list } = useI18n();
   return (
     <section
       className="landing-section landing-split landing-split--flip"
@@ -90,75 +71,55 @@ export function TeacherSection() {
     >
       <div className="landing-split-copy">
         <div className="site-head">
-          <span className="eyebrow">للمدرس</span>
-          <h2 id="landing-teacher">من الملزمة للينك، في نفس اليوم.</h2>
+          <span className="eyebrow">{t('landing.teacher.eyebrow')}</span>
+          <h2 id="landing-teacher">{t('landing.teacher.title')}</h2>
         </div>
-        <ul className="landing-points">
-          {TEACHER.map(([title, text]) => (
-            <li key={title}>
-              <strong>{title}</strong>
-              <p>{text}</p>
-            </li>
-          ))}
-        </ul>
+        <Points items={list('landing.teacher.points')} />
         <ButtonLink variant="secondary" href={SITE_LINKS.teachers}>
-          صفحة المدرسين
+          {t('landing.teacher.cta')}
         </ButtonLink>
       </div>
-      <Shot src="/site/publish.webp" alt="لوحة المدرس: النشر ولينك الكورس" tall />
+      <Shot src="/site/publish.webp" alt={t('landing.teacher.shotAlt')} tall />
     </section>
   );
 }
 
 export function ConnectSection() {
+  const { t } = useI18n();
   return (
     <section className="landing-connect" aria-labelledby="landing-connect">
       <div className="site-head">
-        <span className="eyebrow">عندك Claude أو ChatGPT؟</span>
-        <h2 id="landing-connect">خلّيه يكتب الدرس هنا.</h2>
-        <p>
-          وصّله بالموقع كـconnector واطلب منه درس بكلامك. هو بيكتب، وإحنا بنتأكد من الصيغة ونحفظه
-          مسودة في حسابك. بيشوف مسوداتك بس، ومش بيقدر ينشر.
-        </p>
+        <span className="eyebrow">{t('landing.connect.eyebrow')}</span>
+        <h2 id="landing-connect">{t('landing.connect.title')}</h2>
+        <p>{t('landing.connect.lead')}</p>
       </div>
       <div className="landing-connect-url">
         <code>{CONNECTOR_URL}</code>
         <ButtonLink variant="accent" href={SITE_LINKS.connect}>
-          إزاي توصّله
+          {t('landing.connect.cta')}
         </ButtonLink>
       </div>
     </section>
   );
 }
 
-const AUDIENCES: Array<[string, string, string, string]> = [
-  [
-    'ليك إنت',
-    'بتذاكر لامتحان؟ ارفع الملزمة وخلّيها درس تتفاعل معاه.',
-    'اعمل أول درس',
-    SITE_LINKS.signup,
-  ],
-  ['لطلابك', 'حضّر درس في دقايق، راجعه، وابعته بلينك.', 'للمدرسين', SITE_LINKS.teachers],
-  [
-    'لولادك',
-    'أشكال مرحة وكلام بسيط وأسئلة على قد سنّهم.',
-    'جرّب درس الكسور',
-    '/?preview=demo&id=fractions',
-  ],
-];
+const WHO_LINKS = [SITE_LINKS.signup, SITE_LINKS.teachers, '/?preview=demo&id=fractions'];
 
 export function WhoSection() {
+  const { t, list } = useI18n();
   return (
     <section className="landing-section" aria-labelledby="landing-who">
       <div className="site-head">
-        <h2 id="landing-who">لمين؟</h2>
+        <h2 id="landing-who">{t('landing.who.title')}</h2>
       </div>
       <ul className="landing-who">
-        {AUDIENCES.map(([title, text, cta, href]) => (
-          <li key={title}>
-            <strong>{title}</strong>
-            <p>{text}</p>
-            <a href={href}>{cta} ←</a>
+        {list('landing.who.items').map((item, i) => (
+          <li key={item.title}>
+            <strong>{item.title}</strong>
+            <p>{item.text}</p>
+            <a href={WHO_LINKS[i]}>
+              {item.cta} <span aria-hidden="true">{t('common.forward')}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -167,15 +128,19 @@ export function WhoSection() {
 }
 
 export function FaqSection() {
+  const { t, list } = useI18n();
   return (
     <section className="landing-section landing-faq" aria-labelledby="landing-faq">
       <div className="site-head">
-        <h2 id="landing-faq">أسئلة بتتسأل كتير</h2>
+        <h2 id="landing-faq">{t('landing.faq.title')}</h2>
         <p>
-          والباقي في <a href={SITE_LINKS.support}>صفحة الدعم</a>.
+          <Rich
+            k="landing.faq.more"
+            parts={{ link: <a href={SITE_LINKS.support}>{t('landing.faq.moreLink')}</a> }}
+          />
         </p>
       </div>
-      <Faq items={FAQ.filter((f) => !f.for).slice(0, 5)} />
+      <Faq items={list('site.faq.general').slice(0, 5)} />
     </section>
   );
 }
