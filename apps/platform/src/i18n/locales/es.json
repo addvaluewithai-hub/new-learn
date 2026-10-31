@@ -13,7 +13,9 @@
       "offline": "Se perdió la conexión. Revisa tu internet e inténtalo de nuevo.",
       "unexpected": "La plataforma respondió algo inesperado. Inténtalo de nuevo.",
       "failed": "No se pudo completar la solicitud."
-    }
+    },
+    "retry": "Intentar de nuevo",
+    "offline": "No tienes conexión. Seguimos en cuanto vuelva."
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "Sí. Agregas el sitio como conector y le pides la lección desde tu cuenta. Solo ve tus borradores, y no puede publicar ni ver a los alumnos."
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "Página no encontrada · New Learn",
+      "title": "Esta página no existe.",
+      "lead": "Puede que el enlace haya cambiado o esté mal escrito. Vuelve al inicio o escríbenos si necesitas algo.",
+      "home": "Inicio",
+      "support": "Ayuda"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "Respondiste {answered} de {questions} preguntas",
     "goalsMet": "Objetivos: {met} de {goals}",
     "nextLesson": "Siguiente lección: {title}",
-    "reviewLesson": "Repasar la lección desde el principio"
+    "reviewLesson": "Repasar la lección desde el principio",
+    "practiceWithNova": "Practica con Nova",
+    "practiceRequest": "Hazme dos preguntas cortas sobre esta lección para comprobar que la entendí."
   },
   "server": {
     "http": {
@@ -776,8 +787,8 @@
     "cards": {
       "title": "Mis programas",
       "count": {
-        "other": "{count} programas",
-        "one": "{count} programa"
+        "one": "{count} programa",
+        "other": "{count} programas"
       },
       "done": "Terminaste {completed} de {total}",
       "available": "Disponibles: {count}",
@@ -1171,7 +1182,7 @@
       "lead": "Prueba del motor con tonos de prueba, no es una lección oficial."
     },
     "backToCurriculum": "{back} Volver al programa",
-    "footer": "Versión de revisión · Audio original · Avance y notas solo de esta sesión",
+    "footer": "Grabación original · progreso y notas solo de esta sesión",
     "header": {
       "brandBack": "Learn, volver al programa",
       "brandStart": "Learn, inicio de la lección",
@@ -1206,7 +1217,7 @@
       "notesPlaceholder": "¿Qué idea entendiste?",
       "notesHint": "Notas de esta sesión; cópialas antes de cerrar la página.",
       "openSource": "Abrir la referencia",
-      "sourceNote": "Versión de revisión con las grabaciones originales. Mostrarla aquí no significa volver a aprobar el contenido ni los tiempos.",
+      "sourceNote": "La lección explicada con sus grabaciones originales.",
       "footer": "Una guía lista para la lección, no una conversación con IA"
     }
   },
@@ -1547,14 +1558,29 @@
       "notesTitle": "Notas de la revisión",
       "superseded": "Se envió una versión más reciente a revisión.",
       "publicPrice": "Los alumnos ven la versión {version} · {price}"
+    },
+    "connect": {
+      "title": "Conecta tu Claude o ChatGPT",
+      "lead": "Agrega este enlace como conector y pídele una lección con tus palabras. La escribe aquí como borrador y no puede publicar.",
+      "address": "Enlace del conector",
+      "how": "Cómo conectarlo"
     }
   },
   "authoring": {
     "consent": {
       "checking": "Verificando la solicitud…",
       "title": "«{name}» quiere acceder a tus cursos",
-      "body": "Hola, {name}. Si lo permites, podrá crear cursos, lecciones y pizarras interactivas como borradores en tu cuenta, y leer y corregir tus notas sobre las lecciones. No podrá publicar nada para los alumnos ni ver tu cuenta o los datos de tus alumnos.",
+      "greeting": "Hola, {name}. Si lo permites, podrá trabajar en tu cuenta así:",
+      "can": [
+        "Crear cursos, lecciones y pizarras interactivas como borradores.",
+        "Leer tus notas sobre las lecciones y corregirlas."
+      ],
+      "cannot": [
+        "No podrá publicar nada para los alumnos.",
+        "No verá tu cuenta ni los datos de tus alumnos."
+      ],
       "host": "Te llevará de vuelta a: {host}",
+      "revoke": "Puedes desactivar esta conexión cuando quieras desde la página de ayuda.",
       "allow": "Permitir",
       "deny": "No"
     },
@@ -1592,7 +1618,16 @@
       "title": "Mis borradores",
       "dashboard": "Panel docente",
       "newCourse": "+ Crear un curso nuevo",
-      "revision": "Versión {revision}"
+      "revision": "Versión {revision}",
+      "lessons": {
+        "one": "1 lección",
+        "other": "{count} lecciones"
+      },
+      "open": "Abrir en el panel docente",
+      "more": {
+        "one": "y 1 lección más",
+        "other": "y {count} lecciones más"
+      }
     }
   },
   "courses": {

@@ -11,6 +11,9 @@ type Course = {
   lessons: Array<{ id: string; title: string; revision: number }>;
 };
 
+/** Lessons shown per course; the rest are one click away in the workspace. */
+const SHOWN = 3;
+
 /** The teacher's draft courses, made here or through Claude or ChatGPT, and a way to start one. */
 export function MyDrafts() {
   const { t } = useI18n();
@@ -48,15 +51,30 @@ export function MyDrafts() {
       </div>
       {courses.map((course) => (
         <div key={course.id} className="my-drafts-course">
-          <h3>{course.title}</h3>
+          <div className="my-drafts-course-head">
+            <h3>
+              <bdi>{course.title}</bdi>
+            </h3>
+            <span>{t('authoring.drafts.lessons', { count: course.lessons.length })}</span>
+            <ButtonLink variant="link" href={`/?teach&course=${course.id}`}>
+              {t('authoring.drafts.open')}
+            </ButtonLink>
+          </div>
           <ul>
-            {course.lessons.map((lesson) => (
+            {course.lessons.slice(0, SHOWN).map((lesson) => (
               <li key={lesson.id}>
-                <a href={`/?draft=${lesson.id}`}>{lesson.title}</a>
+                <a href={`/?draft=${lesson.id}`}>
+                  <bdi>{lesson.title}</bdi>
+                </a>
                 <span>{t('authoring.drafts.revision', { revision: lesson.revision })}</span>
               </li>
             ))}
           </ul>
+          {course.lessons.length > SHOWN && (
+            <ButtonLink variant="link" href={`/?teach&course=${course.id}`}>
+              {t('authoring.drafts.more', { count: course.lessons.length - SHOWN })}
+            </ButtonLink>
+          )}
         </div>
       ))}
     </section>

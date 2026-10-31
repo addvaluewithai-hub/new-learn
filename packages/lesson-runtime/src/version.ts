@@ -1,1 +1,1 @@
-export const runtimeVersion = '0.5.0' as const;
+export const runtimeVersion = '0.5.1' as const;

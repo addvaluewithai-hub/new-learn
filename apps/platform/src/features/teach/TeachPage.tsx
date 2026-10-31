@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { User } from '../auth/session';
 import { LibraryShell } from '../catalog/LibraryShell';
-import { Alert, Spinner } from '../../shared/ui';
+import { ErrorState, PageSkeleton } from '../../shared/ui';
 import { TeachDashboard } from './TeachDashboard';
 import { TeachCourse } from './TeachCourse';
 import type { TeachCourse as Course, Workspace } from './types';
@@ -42,17 +42,17 @@ export default function TeachPage({
   return (
     <LibraryShell user={user} onSignOut={onSignOut} page="teach">
       {error ? (
-        <Alert tone="error">{error}</Alert>
+        <ErrorState message={error} retryLabel={t('common.retry')} onRetry={() => void load()} />
       ) : courseId ? (
         work ? (
           <TeachCourse work={work} onChanged={load} />
         ) : (
-          <Spinner label={t('teach.loadingCourse')} />
+          <PageSkeleton label={t('teach.loadingCourse')} rows={2} />
         )
       ) : courses ? (
         <TeachDashboard courses={courses} />
       ) : (
-        <Spinner label={t('teach.loadingCourses')} />
+        <PageSkeleton label={t('teach.loadingCourses')} />
       )}
     </LibraryShell>
   );

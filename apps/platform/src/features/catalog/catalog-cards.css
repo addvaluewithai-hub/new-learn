@@ -65,7 +65,8 @@
 .course-progress > span:last-child {
   white-space: nowrap;
 }
-.course-badge .course-art {
+/* `.platform-ui` is there to beat the large art's own height (shared/platform.css). */
+.platform-ui .course-badge .course-art {
   width: 64px;
   height: 64px;
   gap: 0;
@@ -116,7 +117,7 @@
     gap: 14px;
     padding: 14px 4px;
   }
-  .course-badge .course-art {
+  .platform-ui .course-badge .course-art {
     width: 52px;
     height: 52px;
     border-radius: 15px;

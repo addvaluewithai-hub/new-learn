@@ -83,6 +83,8 @@ export const RUNTIME_TEXT = {
   goalsMet: 'الأهداف {met} من {goals}',
   nextLesson: 'الدرس الجاي: {title}',
   reviewLesson: 'راجع الدرس من الأول',
+  practiceWithNova: 'اتدرّب مع Nova',
+  practiceRequest: 'اسألني سؤالين قصيرين عن الدرس ده عشان أتأكد إني فهمته.',
 };
 
 export type RuntimeText = { [K in keyof typeof RUNTIME_TEXT]: string };

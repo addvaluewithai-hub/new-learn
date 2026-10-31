@@ -5,11 +5,13 @@ const TeachersPage = lazy(() => import('./TeachersPage'));
 const SupportPage = lazy(() => import('./SupportPage'));
 const Legal = lazy(() => import('./LegalPage').then((m) => ({ default: m.PrivacyPage })));
 const Terms = lazy(() => import('./LegalPage').then((m) => ({ default: m.TermsPage })));
+const NotFound = lazy(() => import('./NotFoundPage'));
 
 /** One of the website's pages, by its path (routes.ts). */
 export default function SitePages({ page }: { page: SitePage }) {
   if (page === 'teachers') return <TeachersPage />;
   if (page === 'support') return <SupportPage />;
   if (page === 'privacy') return <Legal />;
+  if (page === 'notFound') return <NotFound />;
   return <Terms />;
 }

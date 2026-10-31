@@ -1,7 +1,7 @@
 // The website's pages live at real paths (shareable, indexable); the app itself stays on `/`
 // with its query routes. Cloudflare Pages and `vite preview` both serve index.html for these.
 
-export type SitePage = 'teachers' | 'privacy' | 'terms' | 'support';
+export type SitePage = 'teachers' | 'privacy' | 'terms' | 'support' | 'notFound';
 
 const PAGES: Record<string, SitePage> = {
   '/teachers': 'teachers',
@@ -10,9 +10,14 @@ const PAGES: Record<string, SitePage> = {
   '/support': 'support',
 };
 
-/** The site page at a path, or null for the app. A trailing slash is the same page. */
+/**
+ * The site page at a path, or null for the app (`/`). A trailing slash is the same page; any
+ * other path is not ours and shows «not found».
+ */
 export function sitePage(pathname: string): SitePage | null {
-  return PAGES[pathname.replace(/\/+$/, '') || '/'] ?? null;
+  const path = pathname.replace(/\/+$/, '') || '/';
+  if (path === '/' || path === '/index.html') return null;
+  return PAGES[path] ?? 'notFound';
 }
 
 /** The public origin, for canonical links and the share image. */

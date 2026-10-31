@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { User } from '../auth/session';
 import { LibraryShell } from '../catalog/LibraryShell';
-import { Alert, Badge, Button, ButtonLink, Spinner } from '../../shared/ui';
+import { Alert, Badge, Button, ButtonLink, ErrorState, PageSkeleton } from '../../shared/ui';
 import { courseLessonHref, type MyCourse, type PublicCourse } from './types';
 import { go } from '../studio/types';
 import { useI18n } from '../../i18n';
@@ -80,9 +80,13 @@ export default function CoursePage({
   return (
     <LibraryShell user={user} onSignOut={onSignOut}>
       {error ? (
-        <Alert tone="error">{error}</Alert>
+        <ErrorState
+          message={error}
+          retryLabel={t('common.retry')}
+          onRetry={() => location.reload()}
+        />
       ) : !course || mine === undefined ? (
-        <Spinner label={t('courses.loading')} />
+        <PageSkeleton label={t('courses.loading')} />
       ) : (
         <>
           <div className="page-heading">

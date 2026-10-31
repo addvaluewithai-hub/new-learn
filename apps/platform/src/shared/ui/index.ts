@@ -9,3 +9,4 @@ export { Field, PillSelect, Switch, TextArea, TextInput } from './Field';
 export { Alert, Badge, Card, EmptyState, Spinner } from './Surface';
 export type { Tone } from './Surface';
 export { Dialog } from './Dialog';
+export { ErrorState, PageSkeleton } from './Skeleton';

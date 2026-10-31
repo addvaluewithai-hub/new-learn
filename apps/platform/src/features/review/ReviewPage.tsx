@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { User } from '../auth/session';
 import { LibraryShell } from '../catalog/LibraryShell';
-import { Alert, Badge, ButtonLink, Card, EmptyState, Spinner } from '../../shared/ui';
+import { Alert, Badge, ButtonLink, Card, EmptyState, PageSkeleton } from '../../shared/ui';
 import { useI18n } from '../../i18n';
 import { formatPrice } from '../credits/format';
 import { ReviewDetail } from './ReviewDetail';
@@ -55,7 +55,7 @@ export default function ReviewPage({
           </div>
           {error && <Alert tone="error">{error}</Alert>}
           {!queue ? (
-            !error && <Spinner label={t('review.loading')} />
+            !error && <PageSkeleton label={t('review.loading')} />
           ) : queue.length === 0 ? (
             <EmptyState title={t('review.empty')} />
           ) : (

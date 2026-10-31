@@ -1,0 +1,48 @@
+/* Loading shapes and the error state (shared/ui/Skeleton.tsx). */
+.nl-skeleton {
+  display: grid;
+  gap: var(--nl-space-4);
+  max-width: 860px;
+}
+.nl-skeleton i {
+  display: block;
+  border-radius: var(--nl-radius-lg);
+  background: linear-gradient(90deg, transparent 0%, rgb(255 255 255 / 55%) 50%, transparent 100%)
+    var(--nl-surface-sunk);
+  background-size: 200% 100%;
+  animation: nl-shimmer 1.4s ease-in-out infinite;
+}
+.nl-skeleton-title {
+  width: min(320px, 70%);
+  height: 36px;
+}
+.nl-skeleton-line {
+  width: min(520px, 90%);
+  height: 16px;
+}
+.nl-skeleton-card {
+  height: 96px;
+}
+@keyframes nl-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nl-skeleton i {
+    animation: none;
+  }
+}
+.nl-error-state {
+  display: grid;
+  justify-items: start;
+  gap: var(--nl-space-3);
+  padding: var(--nl-space-5);
+  border-radius: var(--nl-radius-lg);
+  border-inline-start: 3px solid var(--nl-danger);
+  background: var(--nl-danger-soft);
+  color: var(--nl-danger-ink);
+}

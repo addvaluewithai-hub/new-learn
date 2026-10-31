@@ -26,30 +26,16 @@ a capture artefact, not a defect, and is not listed.
 
 ## Still open (ranked by impact on a real student)
 
-0. Recorded (audio) lessons do not save progress yet and still use the playback scrubber;
-   they get goals and resume when audio lessons are imported with objectives.
+Round ER1 (2026-10-31) closed the rest of the earlier list: page skeletons and a board
+shimmer while loading, retry on load errors, an offline line, a not-found page, square
+subject badges and correct counts on library cards, one «قريبًا» per coming-soon lesson,
+Western digits in every language, no review-stage wording shown to students, and a
+completion screen with practice with Nova and a small celebration.
 
-1. **Progress is not saved.** Leaving a lesson loses the place; the library cannot say
-   "continue lesson 3"; the curriculum hero always offers lesson 1. The DB already has
-   enrollment/progress tables (data-contract.md); the write API and resume are missing.
-2. **Recorded-lesson progress bar** is a per-scene playback scrubber. Owner is sending a
-   preferred design (numbers/steps); reading lessons already use numbers.
-3. **Classroom header labels mislead:** "الدروس" opens the scene map, "المكتبة" opens
-   sources; both duplicate the bottom tool bar; the "مساحة الدرس" pill does nothing; the
-   "Learn" logo is the only way back to the curriculum.
-4. **Review wording for review-stage lessons** ("شوف نسخة المراجعة", footer "نسخة
-   للمراجعة · …") is shown to students when review content is enabled. Published
-   reading lessons already say "متاح للتعلّم".
-5. **Library cards** use the same globe artwork for every subject, a filler "خطوة بخطوة"
-   label, and "٠ متاحة" counts; no "continue" entry.
-6. **Mixed digit systems:** Arabic-Indic digits in counts/positions (٢ مناهج، ١ ٢ ٣) next
-   to Western digits in titles and maths ("رياضة 1", boards). Pick one (Western suits maths).
-7. **Curriculum page:** the hero repeats the first list item; large cards make 8+ lessons a
-   long scroll; coming-soon rows show both a label and a disabled "قريبًا" button.
-8. **Recorded lesson start:** the board is mostly blank white before Play and the Play
-   button is small at the bottom; a clear start state would help.
-9. **Nova for reading lessons** works from the step context, but the end-of-lesson practice
-   card appears only after completion; consider offering it from the completion screen.
+0. Recorded (audio) lessons do not save progress yet and still use the playback scrubber;
+   they get goals and resume when audio lessons are imported with objectives (K3, E12).
+1. **Recorded lesson start:** the board is mostly blank before Play and the Play button is
+   small at the bottom (E11).
 
 ## How to re-run
 

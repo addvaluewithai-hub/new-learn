@@ -13,7 +13,9 @@
       "offline": "Bağlantı koptu. İnternetini kontrol edip tekrar dene.",
       "unexpected": "Platformdan beklenmedik bir yanıt geldi. Tekrar dene.",
       "failed": "İstek tamamlanamadı."
-    }
+    },
+    "retry": "Tekrar dene",
+    "offline": "Şu an çevrimdışısın. Bağlantı gelir gelmez devam ederiz."
   },
   "looks": {
     "auto": {
@@ -363,6 +365,13 @@
           "a": "Evet. Siteyi connector olarak ekler ve dersi kendi hesabından istersin. Yalnızca taslaklarını görür; yayınlayamaz, öğrencileri göremez."
         }
       ]
+    },
+    "notFound": {
+      "metaTitle": "Sayfa bulunamadı · New Learn",
+      "title": "Bu sayfa yok.",
+      "lead": "Bağlantı değişmiş ya da yanlış yazılmış olabilir. Ana sayfaya dön ya da bir şeye ihtiyacın olursa bize yaz.",
+      "home": "Ana sayfa",
+      "support": "Destek"
     }
   },
   "landing": {
@@ -544,7 +553,9 @@
     "answeredMany": "Cevapladığın soru: {answered}/{questions}",
     "goalsMet": "Hedefler: {met}/{goals}",
     "nextLesson": "Sıradaki ders: {title}",
-    "reviewLesson": "Dersi baştan gözden geçir"
+    "reviewLesson": "Dersi baştan gözden geçir",
+    "practiceWithNova": "Nova ile alıştırma yap",
+    "practiceRequest": "Bu dersi anladığımdan emin olmak için bana iki kısa soru sor."
   },
   "server": {
     "http": {
@@ -776,8 +787,8 @@
     "cards": {
       "title": "Programlarım",
       "count": {
-        "other": "{count} program",
-        "one": "{count} program"
+        "one": "{count} program",
+        "other": "{count} program"
       },
       "done": "{completed}/{total} tamamlandı",
       "available": "{count} kullanılabilir",
@@ -1171,7 +1182,7 @@
       "lead": "Deneme sesleriyle motor testi; resmî bir ders değildir."
     },
     "backToCurriculum": "{back} Programa dön",
-    "footer": "İnceleme sürümü · Orijinal ses · İlerleme ve notlar yalnızca bu oturumda",
+    "footer": "Orijinal kayıt · ilerleme ve notlar yalnızca bu oturum için",
     "header": {
       "brandBack": "Learn, programa dön",
       "brandStart": "Learn, dersin başı",
@@ -1206,7 +1217,7 @@
       "notesPlaceholder": "Hangi fikri anladın?",
       "notesHint": "Notlar yalnızca bu oturumda kalır; sayfayı kapatmadan önce kopyala.",
       "openSource": "Kaynağı aç",
-      "sourceNote": "Orijinal kayıtlarla bir inceleme sürümü. Burada gösterilmesi, içeriğin ya da zamanlamaların yeniden onaylandığı anlamına gelmez.",
+      "sourceNote": "Ders, orijinal kayıtlarıyla anlatılıyor.",
       "footer": "Derse hazır bir rehber; yapay zekâ sohbeti değil"
     }
   },
@@ -1547,14 +1558,29 @@
       "notesTitle": "İnceleme notları",
       "superseded": "İncelemeye daha yeni bir sürüm gönderildi.",
       "publicPrice": "Öğrencilerin gördüğü: Sürüm {version} · {price}"
+    },
+    "connect": {
+      "title": "Claude ya da ChatGPT'ni bağla",
+      "lead": "Bu bağlantıyı connector olarak ekle ve kendi sözlerinle bir ders iste. Dersi burada taslak olarak yazar, yayınlayamaz.",
+      "address": "Connector bağlantısı",
+      "how": "Nasıl bağlanır"
     }
   },
   "authoring": {
     "consent": {
       "checking": "İstek kontrol ediliyor…",
       "title": "“{name}” kurslarına erişmek istiyor",
-      "body": "Merhaba {name}. İzin verirsen hesabında taslak olarak kurslar, dersler ve etkileşimli tahtalar oluşturabilecek; derslerine yazdığın notları okuyup düzeltebilecek. Öğrencilere hiçbir şey yayınlayamayacak, hesabını ya da öğrencilerinin verilerini göremeyecek.",
+      "greeting": "Merhaba {name}. İzin verirsen hesabında şunları yapabilir:",
+      "can": [
+        "Taslak olarak kurs, ders ve etkileşimli tahta oluşturmak.",
+        "Derslerdeki notlarını okuyup düzeltmek."
+      ],
+      "cannot": [
+        "Öğrencilere hiçbir şey yayınlayamaz.",
+        "Hesabını ve öğrencilerinin bilgilerini göremez."
+      ],
       "host": "Seni şuraya geri gönderecek: {host}",
+      "revoke": "Bu bağlantıyı istediğin zaman destek sayfasından kapatabilirsin.",
       "allow": "İzin ver",
       "deny": "Hayır"
     },
@@ -1592,7 +1618,16 @@
       "title": "Taslaklarım",
       "dashboard": "Öğretmen paneli",
       "newCourse": "+ Yeni kurs oluştur",
-      "revision": "Sürüm {revision}"
+      "revision": "Sürüm {revision}",
+      "lessons": {
+        "one": "{count} ders",
+        "other": "{count} ders"
+      },
+      "open": "Öğretmen panelinde aç",
+      "more": {
+        "one": "ve {count} ders daha",
+        "other": "ve {count} ders daha"
+      }
     }
   },
   "courses": {

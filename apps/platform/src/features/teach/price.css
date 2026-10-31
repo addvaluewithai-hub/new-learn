@@ -55,3 +55,16 @@
   white-space: pre-line;
   line-height: var(--nl-leading);
 }
+/* «Connect your AI» on the dashboard (ConnectCard). */
+.teach-connect {
+  display: grid;
+  gap: var(--nl-space-3);
+  margin-top: var(--nl-space-6);
+  padding: var(--nl-space-5);
+}
+.teach-connect h2 {
+  font-size: var(--nl-text-xl);
+}
+.teach-connect .nl-button--link {
+  justify-self: start;
+}

@@ -28,3 +28,26 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+/* Until the board says it is ready: a calm shimmer instead of an empty dark box. */
+.html-board:not([data-ready]):not([data-failed])::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 6%), transparent) 0 0 / 200%
+    100%;
+  animation: board-wait 1.6s ease-in-out infinite;
+}
+@keyframes board-wait {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .html-board::after {
+    animation: none;
+  }
+}

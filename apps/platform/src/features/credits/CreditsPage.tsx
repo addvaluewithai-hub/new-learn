@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { api } from '../../shared/api';
 import type { User } from '../auth/session';
 import { LibraryShell } from '../catalog/LibraryShell';
-import { Alert, Badge, Button, Card, Spinner } from '../../shared/ui';
+import { Alert, Badge, Button, Card, PageSkeleton } from '../../shared/ui';
 import { useI18n, type TextKey } from '../../i18n';
 import { ACTION_KEYS, formatPrice, type CreditsView } from './format';
 import { GrantForm } from './GrantForm';
@@ -48,7 +48,7 @@ export default function CreditsPage({
       </div>
       {error && <Alert tone="error">{error}</Alert>}
       {!view ? (
-        !error && <Spinner label={t('credits.loading')} />
+        !error && <PageSkeleton label={t('credits.loading')} />
       ) : (
         <div className="credits">
           <Card className="credits-balance">
