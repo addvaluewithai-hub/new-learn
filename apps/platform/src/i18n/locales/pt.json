@@ -633,7 +633,10 @@
       "topicLong": "A descrição está longa demais; use menos de 4000 caracteres.",
       "badChoice": "Opção desconhecida.",
       "fileCount": "No máximo 5 arquivos.",
-      "filesTotal": "Os arquivos juntos precisam ter menos de 10 MB."
+      "filesTotal": "Os arquivos juntos precisam ter menos de 10 MB.",
+      "askShort": "Diga o que quer mudar.",
+      "askLong": "O pedido é longo demais; menos de 2000 caracteres.",
+      "lessonMissing": "Esta lição não existe ou não é sua."
     },
     "nova": {
       "badPosition": "Posição da aula inválida.",
@@ -704,7 +707,8 @@
       "resume": "Retomando após uma interrupção",
       "failed": "A montagem parou antes de terminar.",
       "usageLimit": "A conta de montagem atingiu o limite de uso por agora. Tente de novo daqui a pouco.",
-      "noLesson": "Nenhuma aula foi criada."
+      "noLesson": "Nenhuma aula foi criada.",
+      "noChange": "Nada mudou na lição, então seus créditos foram devolvidos."
     }
   },
   "auth": {
@@ -1630,6 +1634,19 @@
         "one": "e mais 1 aula",
         "other": "e mais {count} aulas"
       }
+    },
+    "edits": {
+      "toggle": "Editar conversando",
+      "toggleWorking": "Editando…",
+      "panel": "Editar esta lição conversando",
+      "title": "Diga o que mudar nesta lição",
+      "placeholder": "Por exemplo: acrescente um exemplo resolvido na segunda cena, ou simplifique o texto",
+      "label": "A mudança que você quer",
+      "send": "Enviar",
+      "queued": "Aguardando a vez…",
+      "done": "Feito.",
+      "oneAtATime": "Espere a edição em andamento terminar.",
+      "cost": "Cada edição custa {credits} créditos, devolvidos se nada mudar. Só esta lição é editada, e você vê a mudança aqui assim que for salva."
     }
   },
   "courses": {
@@ -1783,7 +1800,8 @@
         "call": "Chamadas do conector"
       },
       "build": {
-        "job": "Cursos criados"
+        "job": "Cursos criados",
+        "refine": "Edições de lições"
       },
       "review": {
         "ai": "Revisões por IA"

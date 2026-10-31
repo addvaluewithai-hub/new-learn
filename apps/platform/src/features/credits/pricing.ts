@@ -34,7 +34,7 @@ export const ACTIONS: Record<ActionId, Action> = {
   // One builder run: the agent writes the course, its lessons and boards (Claude, ~$1-3).
   'course.build': { id: 'course.build', credits: 30, unit: 'each', status: 'live', costCents: 250 },
   // One change asked in the side chat while editing a course.
-  'lesson.refine': { id: 'lesson.refine', credits: 3, unit: 'each', status: 'soon', costCents: 20 },
+  'lesson.refine': { id: 'lesson.refine', credits: 3, unit: 'each', status: 'live', costCents: 20 },
   // Recorded narration in a chosen voice, per minute of audio.
   'voice.minute': { id: 'voice.minute', credits: 2, unit: 'minute', status: 'soon', costCents: 12 },
   // The teacher's own voice, cloned once with their written consent.

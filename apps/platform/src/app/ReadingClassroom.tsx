@@ -5,6 +5,7 @@ import type {
   LessonContext,
   LessonController,
   ReadingPackage,
+  ReadingProgress,
   RendererRegistry,
 } from '@learn/lesson-runtime';
 import '@learn/lesson-runtime/style.css';
@@ -44,12 +45,15 @@ export default function ReadingClassroom({
   studentName,
   preview = false,
   reference,
+  start,
 }: {
   load: () => Promise<ReadingModule>;
   backHref: string;
   studentName: string;
   preview?: boolean;
   reference?: (context: LessonContext | null) => ReactNode;
+  /** Preview only: where to open (the teacher's place, kept across an edit). */
+  start?: Partial<ReadingProgress>;
 }) {
   const [module, setModule] = useState<ReadingModule | null>(null);
   const [error, setError] = useState(false);
@@ -162,7 +166,7 @@ export default function ReadingClassroom({
         lesson={lesson}
         registry={registry}
         boards={module.readingBoards ?? boardManifests}
-        initial={saved.initial}
+        initial={preview && start ? start : saved.initial}
         questions={flow.settings.questions}
         suspended={assistantOpen}
         onContext={setContext}

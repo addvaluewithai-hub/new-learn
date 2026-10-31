@@ -44,7 +44,7 @@ needs no account.
 ## Usage
 
 `usage_daily` counts, per day, the things that cost money: Nova chats, voice sessions, quizzes
-and wake checks, connector calls, course builds, AI reviews and new accounts. The `?ops` page
+and wake checks, connector calls, course builds, lesson edits from the side chat, AI reviews and new accounts. The `?ops` page
 shows the last 14 days with a rough cost (`USAGE_CENTS` in `server/ops/record.ts`), for us to
 watch, not a bill. Update those numbers when the providers' prices change.
 

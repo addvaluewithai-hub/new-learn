@@ -633,7 +633,10 @@
       "topicLong": "La descripción es muy larga; déjala en menos de 4000 caracteres.",
       "badChoice": "Opción desconocida.",
       "fileCount": "Máximo 5 archivos.",
-      "filesTotal": "En total, los archivos deben pesar menos de 10 MB."
+      "filesTotal": "En total, los archivos deben pesar menos de 10 MB.",
+      "askShort": "Di qué quieres cambiar.",
+      "askLong": "La petición es demasiado larga; menos de 2000 caracteres.",
+      "lessonMissing": "Esta lección no existe o no es tuya."
     },
     "nova": {
       "badPosition": "Posición de la lección no válida.",
@@ -704,7 +707,8 @@
       "resume": "Retomando tras una interrupción",
       "failed": "La creación se detuvo antes de terminar.",
       "usageLimit": "La cuenta de creación llegó a su límite de uso por ahora. Inténtalo de nuevo en un rato.",
-      "noLesson": "No se creó ninguna lección."
+      "noLesson": "No se creó ninguna lección.",
+      "noChange": "No cambió nada en la lección, así que te devolvimos los créditos."
     }
   },
   "auth": {
@@ -1630,6 +1634,19 @@
         "one": "y 1 lección más",
         "other": "y {count} lecciones más"
       }
+    },
+    "edits": {
+      "toggle": "Editar conversando",
+      "toggleWorking": "Editando…",
+      "panel": "Editar esta lección conversando",
+      "title": "Di qué cambiar en esta lección",
+      "placeholder": "Por ejemplo: añade un ejemplo resuelto en la segunda escena, o simplifica el texto",
+      "label": "El cambio que quieres",
+      "send": "Enviar",
+      "queued": "Esperando turno…",
+      "done": "Hecho.",
+      "oneAtATime": "Espera a que termine la edición en curso.",
+      "cost": "Cada edición cuesta {credits} créditos, que se devuelven si nada cambia. Solo edita esta lección, y ves el cambio aquí en cuanto se guarda."
     }
   },
   "courses": {
@@ -1783,7 +1800,8 @@
         "call": "Llamadas del conector"
       },
       "build": {
-        "job": "Cursos creados"
+        "job": "Cursos creados",
+        "refine": "Ediciones de lecciones"
       },
       "review": {
         "ai": "Revisiones con IA"

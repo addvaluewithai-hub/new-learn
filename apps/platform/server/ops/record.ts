@@ -13,6 +13,7 @@ export type UsageKind =
   | 'nova.wake'
   | 'mcp.call'
   | 'build.job'
+  | 'build.refine'
   | 'review.ai'
   | 'auth.signup';
 
@@ -24,6 +25,7 @@ export const USAGE_CENTS: Record<UsageKind, number> = {
   'nova.wake': 0.02,
   'mcp.call': 0,
   'build.job': 250,
+  'build.refine': 20,
   'review.ai': 2,
   'auth.signup': 0,
 };

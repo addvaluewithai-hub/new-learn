@@ -33,15 +33,18 @@ export function FeedbackPanel({
   notes,
   context,
   onChanged,
+  open,
+  onOpen,
 }: {
   lessonId: string;
   revision: number;
   notes: Note[];
   context: LessonContext | null;
   onChanged: () => Promise<void>;
+  open: boolean;
+  onOpen: (open: boolean) => void;
 }) {
   const { t, dir } = useI18n();
-  const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
   const [kind, setKind] = useState('text');
   const [busy, setBusy] = useState(false);
@@ -76,7 +79,7 @@ export function FeedbackPanel({
         type="button"
         className="draft-notes-toggle"
         dir={dir}
-        onClick={() => setOpen(!open)}
+        onClick={() => onOpen(!open)}
         aria-expanded={open}
       >
         {waiting
