@@ -247,7 +247,7 @@ async function run(width, height) {
   await page.getByRole('heading', { name: 'تشغيل المنصة', level: 1 }).waitFor({ timeout: 20000 });
   await page.getByText('محادثات Nova').waitFor();
   await page.locator('.ops-day').first().getByText(/5\.12/).waitFor();
-  await page.getByText('Gemini timed out').waitFor();
+  await page.getByText('Gemini timed out', { exact: true }).waitFor();
   await page.getByText('POST /api/nova/chat').waitFor();
   await safe();
   await page.screenshot({ path: `test-results/ops-${width}.png`, fullPage: true });
