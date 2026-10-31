@@ -4,7 +4,7 @@
 
 Independent configuration/dependencies, workspace runtime, ephemeral preview host,
 custom test renderer, synthetic assets, pure session tests, browser acceptance runner,
-and CI enforcement of code boundaries (files aim for 300 lines; the check fails above 800).
+and CI enforcement of code boundaries (files aim for 300 lines; the check fails above 500).
 
 This is not completion of the new platform or a released authoring SDK.
 The current fixture is original test content, not an imported approved lesson.

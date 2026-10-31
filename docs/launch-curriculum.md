@@ -38,7 +38,7 @@ npm run format:check && npm run check && npm test && npm run build
 npm run functions:check && npm run test:browser:reading
 ```
 
-`check` notes imported board files over 300 lines and fails above 800; `build` compiles them with strict
+`check` notes imported board files over 300 lines and fails above 500; `build` compiles them with strict
 TypeScript. Then look at the lessons yourself: with `npm run preview` and a mocked `/api`
 (copy the route handler in `tests/reading-browser.mjs`), open
 `/?lesson=<lessonId>&curriculum=<c>` at 390 and 1280 px, step through a teaching scene, a
